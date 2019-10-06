@@ -1,4 +1,4 @@
-# uxkm.github.io
+# uxkm.github.io[사용되는 모든 예제는 UXKM 자산입니다.]
 **UXKM Assets Template HTML5 & CSS3 OR Javascript**
 ======================
 
