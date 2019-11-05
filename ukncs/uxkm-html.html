@@ -1586,226 +1586,887 @@ a friend lost to the
 				<h4 id="a-element"><mark>a</mark> element</h4>
 				<article>
 					<p>
-
+						해당 요소는 하나의 페이지에서 다른 페이지를 연결할 때 사용하는 하이퍼링크(hyperlink)를 정의할 때 사용합니다.
+						<br>
+						이러한 &lta&gt; 요소에서 가장 중요한 속성은 바로 링크(link)의 목적지를 가리키는 href(Hyper text REFerence) 속성입니다.
+						<br>
+						따라서 href 속성이 없다면, target, download, rel, rev, hreflang, type, referrerpolicy 속성들도 사용할 수 없습니다.
+						<br>
+						링크된 페이지는 보통 브라우저의 현재 윈도우에 표시되며, 이것은 target 속성으로 변경할 수 있습니다.
+						<br><br>
+						HTML5에서는 해당 요소의 charset, coords, name, rev, shape 속성을 더 이상 지원하지 않습니다.
+						<br>
+						CSS기본값 :<br> 
+						a:link, a:visited {color: (internal value); text-decoration: underline; cursor: auto;}<br>
+						a:link:active, a:visited:active {color: (internal value);}
 					</p>
+					<ul>
+						<li>링크는 모든 브라우저에서 다음과 같은 기본 스타일을 가지게 됩니다.
+							<p>아직 방문하지 않은 링크(unvisited link) : 밑줄, 파란색(blue)</p>
+							<p>방문했던 링크(visited link) : 밑줄, 보라색(purple)</p>
+							<p>활성화된(현재 마우스가 클릭하고 있는) 링크(active link) : 밑줄, 빨간색(red)</p>
+						</li>
+						<li>HTML5에서 변경된 사항
+							<p>HTML 4.01에서 &lt;a&gt; 요소는 하이퍼링크(hyperlink)로도 앵커(anchor)로도 모두 사용할 수 있었습니다.</p>
+							<p>하지만 HTML5에서는 언제나 하이퍼링크로만 사용되며, href 속성이 없는 경우에는 나중에 추가될지도 모르는 하이퍼링크를 위한 표시(placeholder) 역할만을 할 뿐입니다.</p>
+						</li>
+						<li>href(Hyper text REFerence) 속성 - &lt;a href="URL 주소"&gt;
+							<p>&lt;a&gt; 요소의 href 속성은 링크된 페이지의 URL을 명시합니다. 
+								URL은 HTTP 기반 문서 외에서도 쓰입니다. URL은 브라우저가 지원하는 어떠한 프로토콜에도 사용할 수도 있습니다. 
+								예로, 사용자 환경에서는 file, ftp, 그리고 mailto 링크가 많이 사용됩니다.</p>
+						</li>
+						<li>rel(relationship) 속성 - &lt;a href="URL 주소" rel="속성값"&gt;
+							<p>&lt;a&gt; 요소의 rel 속성은 현재 문서와 링크된 문서 사이의 연관 관계(relationship)를 명시합니다.</p>
+							<p>여러 검색 엔진들은 링크에 대한 더 많은 정보를 수집하기 위해 이 속성을 사용할 수 있습니다.</p>
+							<p>이 속성은 반드시 href 속성이 설정되어 있어야만 사용할 수 있습니다.</p>
+							<ul>
+								<li>alternate 속성 값 : 프린트 페이지나 번역된 페이지와 같이 해당 문서의 대체 버전에 대한 링크를 나타냄.</li>
+								<li>author 속성 값 : 해당 문서의 저자에 대한 링크를 나타냄.</li>
+								<li>bookmark 속성 값 : 즐겨찾기(bookmarking)에 사용하는 고유 주소(Permanent URL)를 나타냄.</li>
+								<li>external 속성 값 : 링크된 문서가 현재 문서와 같은 사이트 내에 있지 않음을 나타냄.</li>
+								<li>help 속성 값 : 도움말 문서에 대한 링크를 나타냄.</li>
+								<li>license 속성 값 : 해당 문서의 저작권 정보에 대한 링크를 나타냄.</li>
+								<li>next 속성 값 : 연관된 문서들의 모음 중 다음 문서에 대한 링크를 나타냄.</li>
+								<li>nofollow 속성 값 : 유료 링크와 같이 검색 엔진이나 봇(bot) 등이 추적해서는 안 됨을 나타냄.</li>
+								<li>noreferrer 속성 값 : 사용자가 하이퍼링크를 클릭할 때 브라우저가 HTTP 리퍼러 헤더(referer header)를 전송해서는 안 됨을 나타냄.</li>
+								<li>noopener 속성 값 : 하이퍼링크를 따라 연결되는 어떠한 브라우징 컨텍스트(browsing context)도 오프너(opener)여서는 안 됨을 나타냄.</li>
+								<li>prev 속성 값 : 문서들 중에서 이전 문서를 나타냄.</li>
+								<li>search 속성 값 : 해당 문서를 위한 검색 도구를 나타냄.</li>
+								<li>tag 속성 값 : 현재 문서를 위한 키워드(tag)를 나타냄.</li>
+							</ul>
+						</li>
+						<li>hreflang 속성 - &lt;a href="URL 주소" hreflang="언어 코드[ko(한국어), en(영어), zh(중국어), ja(일본어), fr(프랑스어) 등]"&gt;
+							<p>&lt;a&gt; 요소의 hreflang 속성은 링크된 문서의 언어를 명시하지만, 단순히 참고 용도로만 사용됩니다.</p>
+							<p>이 속성은 반드시 href 속성이 설정되어 있어야만 사용할 수 있습니다.</p>
+						</li>
+						<li>target 속성 - &lt;a href="URL 주소" target="_blank|_self|_parent|_top"&gt;
+							<p>&lt;a&gt; 요소의 target 속성은 링크한 URL을 어디에 표시할건지 지정합니다.
+								가능한 값은 브라우징 문맥, 즉 탭, 창, 또는 &lt;iframe&gt;의 이름 또는 키워드입니다. 다음 키워드는 특별한 뜻을 가지고 있습니다.</p>
+							<ul>
+								<li>_blank 속성 값 : URL을 새로운 브라우징 문맥에 표시합니다. 보통 새 탭이지만, 사용자가 브라우저 설정을 통해 새 창으로 바꿀 수 있습니다.</li>
+								<li>_self 속성 값 : URL을 현재 브라우징 문맥에 표시합니다. 기본값으로 생략 가능.</li>
+								<li>_parent 속성 값 : URL을 현재 브라우징 문맥의 부모에 표시합니다. 부모가 존재하지 않으면 _self와 동일하게 행동합니다.</li>
+								<li>_top 속성 값 : URL을 최상단 브라우징 문맥(현재 문맥의 부모면서 자신의 부모가 존재하지 않는, 제일 높은 문맥)에 표시합니다. 부모가 존재하지 않으면 _self와 동일하게 행동합니다.</li>
+							</ul>
+						</li>
+						<li>type 속성 - &lt;a href="https://uxkm.github.io" type="text/html"&gt;UXKM 사이트로 이동!&lt;/a&gt;
+							<p>&lt;a&gt; 요소의 이 속성은 미디어 유형을 링크 대상에 대한 MIME 유형의 형태로 지정합니다. 일반적으로, 이것은 엄격히 자문 정보를 제공합니다.</p>
+							<p>브라우저는 멀티미디어 유형에 작은 아이콘을 추가 할 수 있습니다. 예를 들어, 유형이 audio/wav로 설정된 경우 브라우저가 작은 스피커 아이콘을 추가 할 수 있습니다.</p>
+							<p>MIME 형식의 전체 목록을 보려면 <a href="http://www.w3.org/TR/html4/references.html#ref-MIMETYPES" target="_blank" rel="noopener" title="Linkification: http://www.w3.org/TR/html4/references.html#ref-MIMETYPES">http://www.w3.org/TR/html4/references.html#ref-MIMETYPES</a> 문서를 참조하면 됩니다.</p>
+							<p>이 속성은 반드시 href 속성이 설정되어 있어야만 사용할 수 있습니다.</p>
+						</li>
+						<li>rev(Reverse links) 속성 - &lt;a href="chapter1.html" rev="toc" rel="next"&gt;chapter 1&lt;/a&gt;
+							<p>이 속성은 반드시 href 속성이 설정되어 있어야만 사용할 수 있습니다.</p>
+						</li>
+						<li>download 속성 - &lt;a download="다운로드되는 파일의 새로운 이름을 명시하며, 생략할 수 있음"&gt; IE에서는 지원 안됨
+							<p>&lt;a&gt; 요소의 download 속성은 사용자가 하이퍼링크를 클릭할 때 해당 대상(target)으로 연결되지 않고 대신 해당 콘텐츠가 다운로드됨을 명시합니다.</p>
+							<p>이 속성의 속성값은 다운로드되는 파일의 이름이 되며, 그 값에 특별한 제약은 없습니다.</p>
+							<p>브라우저는 다운로드되는 파일의 정확한 확장자명을 확인하여, 자동으로 파일 이름 끝에 추가합니다. (.html, .pdf, .jpg 등)</p>
+							<p>만약 download 속성의 속성값을 생략하면, 다운로드되는 파일의 원래 이름이 사용됩니다.</p>
+							<p>이 속성은 반드시 href 속성이 설정되어 있어야만 사용할 수 있습니다.</p>
+						</li>
+					</ul>
 <pre><code>
+&lt;a href="https://uxkm.github.io/"&gt;UXKM 사이트로 이동&lt;/a&gt;
 
+&lt;p id="top"&gt;해당 요소는 하나의 페이지에서 다른 페이지를 연결할 때
+...
+사용합니다.&lt;/p&gt;
+&lt;a href="#top"&gt;최상단으로 이동&lt;/a&gt;
+
+&lt;a href="javascript:alert('페이지 준비중입니다.');"&gt;자바스크립트 실행!&lt;/a&gt;
+
+&lt;p&gt;You can reach Michael at:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;a href="https://example.com"&gt;Website&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="mailto:m.bluth@example.com"&gt;Email&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="tel:+123456789"&gt;Phone&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </code></pre>
 				</article>
-				<h4 id="em-element"><mark>em</mark> element</h4>
+
+				<h4 id="em-element"><mark>em</mark>(Emphasis) element</h4>
 				<article>
 					<p>
-
+						Emphasis 요소 (&lt;em&gt;) 는 강조된 텍스트(emphasized text)를 표시할때 사용합니다. &lt;em&gt; 요소는 중첩될수 있으며, 중첩의 단계는 강조의 단계를 나타냅니다.<br>
+						일반적으로 이 요소는 이탤릭체로 표시됩니다. <br>
+						하지만, 이 요소는 단순히 이탤릭 타입을 표시하기 위해 사용되어서는 안됩니다.(단순히 이탤릭 타입을 표시하고 싶다면, CSS 스타일링을 사용하세요).
+						<br>
+						CSS기본값 : em {font-style: italic;}
 					</p>
 <pre><code>
+&lt;p&gt;Get out of bed &lt;em&gt;now&lt;/em&gt;!&lt;/p&gt;
 
+&lt;p&gt;We &lt;em&gt;had&lt;/em&gt; to do something about it.&lt;/p&gt;
+
+&lt;p&gt;This is &lt;em&gt;not&lt;/em&gt; a drill!&lt;/p&gt;
+
+&lt;p&gt;
+	예전에 &lt;em&gt;block-level&lt;/em&gt; 컨텐츠라 불리던것은 이제 HTML5에서 &lt;em&gt;flow&lt;/em&gt; 컨텐츠라고 불립니다.
+&lt;/p&gt;
 </code></pre>
 				</article>
+
 				<h4 id="i-element"><mark>i</mark> element</h4>
 				<article>
 					<p>
-
+						일반적으로 이 요소는 이탤릭체로 표시됩니다. <br>
+						HTML 4.01에서 &lt;i&gt; 요소는 이탤릭체의 텍스트로만 표현되었지만, HTML5에서는 반드시 이탤릭체로만 표현되지는 않습니다.
+						스타일시트를 사용하여 &lt;i&gt; 요소에 포함된 텍스트의 서식을 자유롭게 변경할 수 있습니다.<br>
+						&lt;i&gt; 요소는 평범한 글자와 구분하기 위해 사용됩니다. <br>
+						예를 들면, 기술적인 용어(전문용어), 외국어 문구, 소설속 인물의 생각, 다른 언어의 관용구, 문어체, 서양 문헌에 나오는 배 이름 등이 있습니다.
+						<br>
+						<br>
+						CSS기본값 : i {font-style: italic;}
 					</p>
+					<dl>
+						<dt>다음과 같은 의미 요소(semantic element) 중에서 사용하기에 적당한 요소를 찾지 못했을 때만 &lt;i&gt; 요소를 사용할 수 있습니다.</dt>
+						<dd>
+							<p>강조된 텍스트로 나타낼떄 <mark>&lt;em&gt;</mark> 요소 사용</p>
+							<p>중요한(중요성) 텍스트로 나타낼때 <mark>&lt;strong&gt;</mark> 요소 사용</p>
+							<p>창작물의 제목, 작품(책,플레이,음악)의 이름을 표시할때는 <mark>&lt;cite&gt;</mark> 요소 사용</p>
+							<p>용어(term)의 정의 인스턴스를 표시할때는 <mark>&lt;dfn&gt;</mark> 요소 사용</p>
+							<p>하이라이트된(highlighted) 텍스트로 나타낼때 <mark>&lt;mark&gt;</mark> 요소 사용</p>
+						</dd>
+					</dl>
 <pre><code>
+&lt;p&gt;
+	예전에 &lt;i&gt;block-level&lt;/i&gt; 컨텐츠라 불리던것은 이제 HTML5에서 &lt;i&gt;flow&lt;/i&gt; 컨텐츠라고 불립니다.
+&lt;/p&gt;
 
+&lt;p&gt;
+	&lt;i&gt;타이타닉호&lt;/i&gt;는 영국의 화이트 스타 라인이 운영한 북대서양 횡단 여객선이다.
+	1912년 4월 10일 영국의 사우샘프턴을 떠나 미국의 뉴욕으로 향하던 첫 항해 중에 4월 15일 빙산과 충돌하여 침몰하였다.
+&lt;/p&gt;
 </code></pre>
+
+					<dl>
+						<dt><mark>&lt;i&gt;</mark> vs. <mark>&lt;em&gt;</mark></dt>
+						<dd>
+							신입 개발자들은 글자를 강조하는데에 왜 이렇게 많은 요소들이 있는지에 대해 혼란스러워합니다.<br>
+							아마도 <mark>&lt;i&gt;</mark>와 <mark>&lt;em&gt;</mark>가 그중 흔한 경우일것입니다.. 왜 <mark>&lt;em&gt;&lt;/em&gt;</mark>와 <mark>&lt;i&gt;&lt;/i&gt;</mark>를 사용하는걸까요? 분명 그들은 같은 결과를 나타내는데 말입니다.
+							<br><br>
+							하지만 전혀 그렇지 않습니다. 두 태그 모두 기본적으로 이탤릭체로 렌더링되지만 의미론적 뜻이 다릅니다. <br>
+							<mark>&lt;em&gt;</mark> 은 내용의 강조를 나타내는데에 비해 <mark>&lt;i&gt;</mark> 태그는 일반적인 글자와 분리된 글자를 나타낼 때 사용합니다. <br>
+							(책이나 영화의 이름, 외국 단어, 혹은 단어가 의미론적 뜻 대신에 단어의 정의를 나타낼 때는 <mark>&lt;cite&gt;</mark> 를 사용해야 합니다.
+							<br><br>
+							<mark>&lt;em&gt;</mark> 은 이런식으로 쓰일수 있습니다: "Just do it already!", 또는: "We had to do something about it". <br>
+							여기서 이탤릭체로 표현된 단어를 읽는 사용자나 소프트웨어는 이 단어는 강조된 단어라고 판단할 겁니다.
+							<br><br>
+							<mark>&lt;i&gt;</mark> 는 이런식으로 쓰일수 있습니다: "The Queen Mary sailed last night". <br>
+							여기서 "Queen Mary" 단어에 추가된 강조나 중요성은 없습니다. 이건 Mary라는 이름을 가진 여왕이 아니라, Queen Mary 라는 이름을 나타내는것 뿐입니다. <br>
+							<mark>&lt;i&gt;</mark> 에 대한 또 다른 예시로 다음과 같은 문장이 있습니다: "The word the is an article".
+						</dd>
+					</dl>
 				</article>
+
 				<h4 id="strong-element"><mark>strong</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;strong&gt; 요소는 해당 콘텐츠의 중요성이나 심각함, 긴급함 등을 강조할 때 사용합니다.<br>
+						브라우저는 일반적으로 &lt;strong&gt; 요소의 컨텐츠를 굵은 텍스트로 표현합니다.
+						<br>
+						<br>
+						CSS기본값 : strong {font-weight: bold;}
 					</p>
 <pre><code>
+&lt;p&gt;&lt;strong&gt;주의!&lt;/strong&gt; 이번 역은 승강장 사이와의 간격이 넓으니 주의하시기 바랍니다!</p>
 
+&lt;h1&gt;Chapter 1: &lt;strong&gt;The Praxis&lt;/strong&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;strong&gt;Flowers, Bees, and Honey&lt;/strong&gt; and other things I don’t understand&lt;/h1&gt;
+
+&lt;figcaption&gt;
+	Figure 1. &lt;strong&gt;Ant colony dynamics&lt;/strong&gt;. 
+	The ants in this colony areaffected by the heat source (upper left) and the food source (lower right).
+&lt;/figcaption&gt;
+
+&lt;p&gt;&lt;strong&gt;Warning.&lt;/strong&gt; This dungeon is dangerous.
+&lt;strong&gt;Avoid the ducks.&lt;/strong&gt; Take any gold you find.
+&lt;strong&gt;&lt;strong&gt;Do not take any of the diamonds&lt;/strong&gt;,
+they are explosive and &lt;strong&gt;will destroy anything within
+ten meters.&lt;/strong&gt;&lt;/strong&gt; You have been warned.&lt;/p&gt;
+
+&lt;p&gt;Welcome to Remy, the reminder system.&lt;/p&gt;
+&lt;p&gt;Your tasks for today:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;p&gt;&lt;strong&gt;Turn off the oven.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;p&gt;Put out the trash.&lt;/p&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;p&gt;Do the laundry.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </code></pre>
+
+					<dl>
+						<dt><mark>&lt;strong&gt;</mark> vs. <mark>&lt;em&gt;</mark></dt>
+						<dd>
+							HTML4에서 Strong 은 좀 더 강한 emphasis로 인식되었습니다.<br>
+							하지만 HTML5에서 Strong 태그는 "content에서 가장 중요한 부분"을 나타냅니다. 이것이 가장 큰 차이점입니다. <br>
+							Emphasis는 ("I love carrots" vs. "I love carrots") 와 같은 구어체 강조와 같이 문장의 의미를 변경하는데 사용되지만, <br>
+							Strong은 (e.g., "Warning! This is very dangerous.") 와 같이 문장의 일부분에 중요도를 추가하고 싶을 때 사용됩니다. <br>
+							Strong과 Emphasis 는 각각 중첩해서 사용함으로써 중요성이나 강조의 상대적인 정도를 증가시킬 수 있습니다.
+						</dd>
+						<dt><mark>&lt;strong&gt;</mark> vs. <mark>&lt;b&gt;</mark></dt>
+						<dd>
+							<mark>&lt;b&gt;</mark> 요소는 컨텐츠의 중요성보다는 텍스트 자체에 주의를 끌기 위해 사용되지만,<br>
+							<mark>&lt;strong&gt;</mark> 요소는 컨텐츠 자체의 중요성을 강조할 때 사용됩니다.
+						</dd>
+					</dl>
 				</article>
+
 				<h4 id="b-element"><mark>b</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;b&gt; 요소는 다른 부가적인 목적 없이 단순히 굵게 표현되는 텍스트를 정의할 때 사용합니다.<br>
+						HTML5에서 제목(heading)은 &lt;h1&gt;부터 &lt;h6&gt; 요소로, 강조된 텍스트는 &lt;em&gt; 요소로, 중요한 의미를 가지는 텍스트는 &lt;strong&gt; 요소로, 
+						마지막으로 하이라이트된(highlighted) 텍스트는 &lt;mark&gt; 요소로 표현되어야 합니다.
+						<br><br>
+						따라서 위의 태그들에서 적절한 태그를 찾을 수 없을 때만 마지막 선택지로 &lt;b&gt; 태그를 사용해야 합니다.<br>
+						&lt;b&gt; 요소를 사용한 굵은 텍스트는 CSS의 font-weight 속성을 사용해도 같은 결과를 얻을 수 있습니다.
+						<br>
+						<br>
+						CSS기본값 : b {font-weight: bold;}
 					</p>
+					<ul>
+						<li>&lt;b&gt; 요소와 &lt;strong&gt;, &lt;em&gt;,&lt;mark&gt; 요소들을 혼동하지 마세요.<br>
+							&lt;strong&gt; 요소는 중요한 글자를 나타내며, &lt;em&gt; 요소는 글자에 약간의 강조를 주며, &lt;mark&gt; 요소는 글자의 관련성을 나타냅니다. <br>
+							&lt;b&gt; 요소는 어떠한 특별한 시멘틱 정보를 전달하지 않습니다. 다른 맞는 요소가 없을떄 사용합니다.</li>
+						<li>유사하게, &lt;b&gt; 요소를 타이틀과 제목을 표시하는데 쓰지 마세요. <br>
+							For this purpose, use the &lt;h1&gt; to &lt;h6&gt; tags. Further, stylesheets can change the default style of these elements, with the result that they are not necessarily displayed in bold.</li>
+						<li>추가 의미 정보를 전달하기 위해 클래스 속성 을 사용하는 것이 좋습니다 <br>
+							(예 &lt;b class="lede"&gt;: 단락의 첫 문장). 이를 통해 HTML 코드를 변경하지 않고도 웹 문서의 여러 스타일을 쉽게 개발할 수 있습니다.</li>
+						<li>&lt;b&gt; 요소를 사용하는데에 있어 아무런 시멘틱 목적이 없다면, CSS 속성 font-weight:bold 값을 사용하는것이 글자를 굵게 만드는데에 더 좋습니다.</li>
+					</ul>
 <pre><code>
-
+&lt;p&gt;이 문장은 일반 텍스트입니다.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;이 문장은 단순히 굵게 표현된 텍스트입니다.&lt;/b&gt;&lt;/p&gt;
 </code></pre>
 				</article>
+
 				<h4 id="br-element"><mark>br</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;br&gt; 요소는 텍스트 내의 줄바꿈(line-break)을 정의할 때 사용합니다.<br>
+						HTML 소스 코드 내에서는 엔터(Enter)를 사용하여 줄바꿈을 실시하여도 브라우저 화면에 실제로 적용되지는 않습니다.<br>
+						따라서 &lt;br&gt; 요소는 주소(address)나 시(poem) 등 줄바꿈이 중요한 텍스트에 유용하게 사용됩니다.<br>
+						&lt;br&gt; 요소는 빈 태그(empty)로, 종료 태그가 존재하지 않습니다.<br>
+						HTML4에서는 &lt;br&gt; 요소를 닫지 않지만, XHTML에서는 다음과 같이 반드시 태그를 닫아야만 합니다. (ex. &lt;br&gt; vs. &lt;br /&gt;)<br>
+						HTML5에서는 &lt;br&gt; 요소의 종료 태그 닫아도 되고 닫지 않는것 모두 허용합니다.<br>
 					</p>
 <pre><code>
+&lt;p&gt;
+	HTML은 HyperText Markup Language의 약자입니다.
+	웹 페이지는 HTML 문서라고도 불리며,
+	HTML 태그들로 구성됩니다.
+&lt;/p&gt;
 
+&lt;p&gt;
+	HTML은 HyperText Markup Language의 약자입니다.&lt;br&gt;
+	웹 페이지는 HTML 문서라고도 불리며,&lt;br&gt;
+	HTML 태그들로 구성됩니다.
+&lt;/p&gt;
 </code></pre>
 				</article>
+
 				<h4 id="small-element"><mark>small</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;small&gt; 요소는 글자 크기가 작은 텍스트를 정의할 때 사용합니다.<br>
+						HTML5에서 &lt;small&gt; 요소는 해당 텍스트의 스타일 표현과는 별도로 저작권(copyright)이나 법률적인 내용의 부연 설명이나 작은 페이지를 나타낼 때 사용되도록 변경되었습니다.
+						<br><br>
+						CSS기본값 : small {font-size: smaller;}
 					</p>
 <pre><code>
+&lt;p&gt;This is the first sentence. 
+	&lt;small&gt;This whole sentence is in small letters.&lt;/small&gt;
+&lt;/p&gt;
 
+&lt;p&gt;This is the first sentence.
+	&lt;span style="font-size:0.8em"&gt;This whole sentence is in small
+	letters.&lt;/span&gt;
+&lt;/p&gt;
 </code></pre>
 				</article>
+
 				<h4 id="s-element"><mark>s</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;s&gt; 요소는 텍스트 한가운데 라인(line)을 추가하여 더 이상 정확하지 않거나 관련이 없는 텍스트를 표현할 때 사용합니다.<br>
+						&lt;s&gt; 요소를 사용하여 문서에서 대체되거나 삭제된 텍스트를 표현해서는 안 되며, 해당 텍스트는 &lt;del&gt; 요소를 사용해서 표현해야만 합니다.<br>
+						텍스트 한가운데 라인을 추가하는 용도로 사용되던 &lt;s&gt; 요소는 HTML 4.01에서 더 이상 지원되지 않도록 변경되었습니다.<br>
+						하지만 HTML5에서 &lt;s&gt; 요소는 더 이상 정확하지 않거나 관련이 없는 텍스트를 표현하도록 의미를 재정의하여 다시 추가되었습니다.
+						<br><br>
+						CSS기본값 : s {text-decoration: line-through;}
 					</p>
 <pre><code>
-
+&lt;p&gt;&lt;s&gt;기간한정판매 : 1일부터 3일까지 무려 50% 세일에 들어갑니다!!&lt;/s&gt;&lt;/p&gt;
+&lt;p&gt;판매완료!&lt;/p&gt;
 </code></pre>
 				</article>
-				<h4 id="cite-element"><mark>cite</mark> element</h4>
+
+				<h4 id="cite-element"><mark>cite</mark>(Citation) element</h4>
 				<article>
 					<p>
-
+						&lt;cite&gt; 요소는 책이나 음악, 영화, 예술 작품 등과 같은 창작물의 제목을 정의할 때 사용합니다.<br>
+						HTML 4.01에서 &lt;cite&gt; 요소는 인용구(citation)를 명시했었지만, HTML5에서는 창작물이나 저작물 등의 제목을 명시할 때 사용됩니다.
+						<br><br>
+						CSS기본값 : cite { font-style: italic;}
 					</p>
+					<ul>
+						<li>창작물은 책, 논문, 에세이,시, 악보, 노래, 스크립트, 영화, TV 쇼, 게임, 조각품, 그림, 연극 제작, 연극, 오페라, 뮤지컬, 전시, 법적 사례 보고서, 컴퓨터 프로그램, 웹 사이트, 웹 페이지, 블로그 게시물 또는 의견, 포럼 게시물이나 댓글, 트윗, 서면 또는 구두 진술, 등을 포함합니다.</li>
+						<li>온라인 리소스에 대한 참조를 위해 cite 속성을&lt;blockquote&gt; 또는 &lt;q&gt; 요소에 사용하세요.</li>
+					</ul>
 <pre><code>
+&lt;blockquote&gt;
+	&lt;p&gt;It was a bright cold day in April, and the clocks were striking thirteen.&lt;/p&gt;
+	&lt;footer&gt;
+		First sentence in &lt;cite&gt;&lt;a href="http://www.george-orwell.org/1984/0.html"&gt;&lt;i&gt;Nineteen Eighty-Four&lt;/i&gt;&lt;/a&gt;&lt;/cite&gt; by George Orwell (Part 1, Chapter 1).
+	&lt;/footer&gt;
+&lt;/blockquote&gt;
 
+&lt;p&gt;More information can be found in &lt;cite&gt;[ISO-0000]&lt;/cite&gt;.&lt;/p&gt;
 </code></pre>
 				</article>
-				<h4 id="sub-element"><mark>sub</mark> element</h4>
+
+				<h4 id="sub-element"><mark>sub</mark>(subscript) element</h4>
 				<article>
 					<p>
-
+						&lt;sub&gt; 요소는 아랫첨자(subscript) 텍스트를 표현할 때 사용합니다.<br>
+						&lt;sub&gt; 요소 내부의 텍스트는 일반 텍스트 라인보다 아래쪽에 절반 크기의 작은 문자로 표현되며,<br>
+						이러한 아랫첨자는 수학 공식(ex) nPr = n!/(n-r)!)이나 분자식, 화학 반응식(ex) 2H2 + O2 → 2H2O) 등을 표현할 수 있습니다.<br>
+						윗첨자(superscript) 텍스트를 표현할 때는 &lt;sup&gt; 요소를 사용합니다.
+						<br><br>
+						CSS기본값 : sub { vertical-align: sub; font-size: smaller;}
 					</p>
 <pre><code>
+&lt;p&gt;물 분자가 만들어지는 화학 반응식은 다음과 같습니다.&lt;/p&gt;
+&lt;p&gt;2H&lt;sub&gt;2&lt;/sub&gt; + O&lt;sub&gt;2&lt;/sub&gt; → 2H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
 
+&lt;p&gt;The coordinate of the &lt;var&gt;i&lt;/var&gt;th point is
+(&lt;var&gt;x&lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;/var&gt;, &lt;var&gt;y&lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;/var&gt;).
+For example, the 10th point has coordinate
+(&lt;var&gt;x&lt;sub&gt;10&lt;/sub&gt;&lt;/var&gt;, &lt;var&gt;y&lt;sub&gt;10&lt;/sub&gt;&lt;/var&gt;).&lt;/p&gt;
 </code></pre>
 				</article>
-				<h4 id="sup-element"><mark>sup</mark> element</h4>
+
+				<h4 id="sup-element"><mark>sup</mark>(superscript) element</h4>
 				<article>
 					<p>
-
+						&lt;sup&gt; 요소는 윗첨자(superscript) 텍스트를 표현할 때 사용합니다.<br>
+						&lt;sup&gt; 요소 내부의 텍스트는 일반 텍스트 라인보다 윗쪽에 절반 크기의 작은 문자로 표현되며,<br>
+						이러한 윗첨자는 수학 공식(ex) (a+b)2 = a2 + 2ab + b2)이나 각주(ex) WWW[1]) 등을 표현할 수 있습니다.<br>
+						아랫첨자(subscript) 텍스트를 표현할 때는 &lt;sub&gt; 요소를 사용합니다.
+						<br><br>
+						CSS기본값 : sup { vertical-align: super; font-size: smaller;}
 					</p>
 <pre><code>
+&lt;p&gt;제곱 공식은 다음과 같습니다.&lt;/p&gt;
+&lt;p&gt;(a+b)&lt;sup&gt;2&lt;/sup&gt; = a&lt;sup&gt;2&lt;/sup&gt; + 2ab + b&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
 
+&lt;p&gt;The most beautiful women are
+&lt;span lang="fr"&gt;&lt;abbr&gt;M&lt;sup&gt;lle&lt;/sup&gt;&lt;/abbr&gt; Gwendoline&lt;/span&gt; and
+&lt;span lang="fr"&gt;&lt;abbr&gt;M&lt;sup&gt;me&lt;/sup&gt;&lt;/abbr&gt; Denise&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;var&gt;E&lt;/var&gt;=&lt;var&gt;m&lt;/var&gt;&lt;var&gt;c&lt;/var&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;f(&lt;var&gt;x&lt;/var&gt;, &lt;var&gt;n&lt;/var&gt;) = log&lt;sub&gt;4&lt;/sub&gt;&lt;var&gt;x&lt;/var&gt;&lt;sup&gt;&lt;var&gt;n&lt;/var&gt;&lt;/sup&gt;&lt;/p&gt;
 </code></pre>
 				</article>
+
 				<h4 id="mark-element"><mark>mark</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;mark&gt; 요소는 형광펜으로 칠한 것처럼 하이라이트된(highlighted) 텍스트를 정의할 때 사용합니다.<br>
+						예를 들면, 검색 결과에서 검색에 대한 단어의 모든 인스턴스를 표시하기 위해 사용될수 있습니다.<br>
+						&lt;mark&gt; 요소는 HTML5에서 새롭게 추가된 요소입니다.
+						<br><br>
+						CSS기본값 : mark {background-color: yellow; color: black;}
 					</p>
+					<ul>
+						<li>인용 ( &lt;q&gt;) 또는 블록 인용 ( &lt;blockquote&gt;)에 사용되는 경우 일반적으로 특별한 관심이 있지만 
+							원본 소스 자료에 표시되지 않은 텍스트 또는 원저자가 생각하지 않았더라도 특별한 조사가 필요한 자료를 나타냅니다.<br>
+							특히 중요합니다. 책에서 형광펜을 사용하여 관심있는 구절을 표시하는 것과 같이 생각하십시오.</li>
+						<li>그렇지 않으면,  &lt;mark&gt; 사용자의 현재 활동과 관련이있을 수있는 문서 내용의 일부를 나타냅니다. 
+							예를 들어 검색 작업과 일치하는 단어를 나타내는 데 사용할 수 있습니다.</li>
+					</ul>
 <pre><code>
+&lt;p&gt;우리는 두 마리의 &lt;mark&gt;고양이&lt;/mark&gt;를 키우고 있습니다.
+	그 아이들이 너무 귀여워서 &lt;mark&gt;고양이&lt;/mark&gt;를 한 마리 더 입양할 생각입니다.&lt;/p&gt;
 
+&lt;p lang="en-US"&gt;Consider the following quote:&lt;/p&gt;
+&lt;blockquote lang="en-GB"&gt;
+	&lt;p&gt;Look around and you will find, no-one’s really
+	&lt;mark&gt;colour&lt;/mark&gt; blind.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p lang="en-US"&gt;As we can tell from the &lt;em&gt;spelling&lt;/em&gt; of the word,
+the person writing this quote is clearly not American.&lt;/p&gt;
+
+&lt;p&gt;The highlighted part below is where the error lies:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var i: Integer;
+begin
+    i := &lt;mark&gt;1.1&lt;/mark&gt;;
+end.&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;The highlighted part below is where the error lies:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=keyword&gt;var&lt;/span&gt; &lt;span class=ident&gt;i&lt;/span&gt;: &lt;span class=type&gt;Integer&lt;/span&gt;;
+&lt;span class=keyword&gt;begin&lt;/span&gt;
+	&lt;span class=ident&gt;i&lt;/span&gt; := &lt;span class=literal&gt;&lt;mark&gt;1.1&lt;/mark&gt;&lt;/span&gt;;
+&lt;span class=keyword&gt;end&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h3&gt;Wormhole Physics Introduction&lt;/h3&gt;
+
+&lt;p&gt;&lt;mark&gt;A wormhole in normal conditions can be held open for a
+maximum of just under 39 minutes.&lt;/mark&gt; Conditions that can increase
+the time include a powerful energy source coupled to one or both of
+the gates connecting the wormhole, and a large gravity well (such as a
+black hole).&lt;/p&gt;
+
+&lt;p&gt;&lt;mark&gt;Momentum is preserved across the wormhole. Electromagnetic
+radiation can travel in both directions through a wormhole,
+but matter cannot.&lt;/mark&gt;&lt;/p&gt;
+
+&lt;p&gt;When a wormhole is created, a vortex normally forms.
+&lt;strong&gt;Warning: The vortex caused by the wormhole opening will
+annihilate anything in its path.&lt;/strong&gt; Vortexes can be avoided when
+using sufficiently advanced dialing technology.&lt;/p&gt;
+
+&lt;p&gt;&lt;mark&gt;An obstruction in a gate will prevent it from accepting a
+wormhole connection.&lt;/mark&gt;&lt;/p&gt;
 </code></pre>
 				</article>
-				<h4 id="q-element"><mark>q</mark> element</h4>
+
+				<h4 id="q-element"><mark>q</mark>(short quotation) element</h4>
 				<article>
 					<p>
-
+						&lt;q&gt; 요소는 짧은 인용구(short quotation)를 정의할 때 사용합니다.<br>
+						이러한 인용구를 브라우저는 보통 앞뒤에 따옴표를 추가하여 표현합니다.<br>
+						다른 출처로부터 인용된 인용 블록을 정의할 때는 &lt;q&gt; 요소보다는 &lt;blockquote&gt; 요소를 사용하는 것이 바람직합니다.
+						<br><br>
+						CSS기본값 : <br>
+						q {display: inline;}<br>
+						q:before {content: open-quote;}<br>
+						q:after {content: close-quote;}
 					</p>
+					<ul>
+						<li>cite 속성 - &lt;q cite="https://www.w3.org/TR/html52/textlevel-semantics.html#the-q-element"&gt;
+							<p>이 속성의 값은 인용된 정보의 원본 문서나 메세지를 가리키는 URL를 나타냅니다.</p>
+						</li>
+					</ul>
 <pre><code>
+&lt;p&gt;통계 사이트인 StarCounter에 따르면,
+	&lt;q&gt;Oct 2018 - Oct 2019 가장 높은 점유율(64.92%)을 보이는 웹 브라우저는 크롬 브라우저&lt;/q&gt;라고 합니다.&lt;/p&gt;
 
+&lt;p&gt;The W3C page &lt;cite&gt;About W3C&lt;/cite&gt; says the W3C’s
+mission is &lt;q cite="https://www.w3.org/Consortium/"&gt;To lead the
+World Wide Web to its full potential by developing protocols and
+guidelines that ensure long-term growth for the Web&lt;/q&gt;. I
+disagree with this mission.&lt;/p&gt;
 </code></pre>
 				</article>
+
 				<h4 id="code-element"><mark>code</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;code&gt; 태그는 컴퓨터 코드(code)의 일부분을 나타낼 때 사용합니다.<br>
+						이때 컴퓨터 코드의 일부분이란 XML 요소의 이름이나 파일 이름, 컴퓨터 프로그램의 코드, 또는 컴퓨터가 인식할 수 있는 어떤 문자열이라도 될 수 있습니다.<br>
+						&lt;code&gt; 요소는 HTML5에서도 여전히 지원되지만, 대신 CSS를 사용하면 더욱 다양한 효과를 얻을 수 있습니다.
+						<br><br>
+						CSS기본값 : code {font-family: monospace;}
 					</p>
 <pre><code>
-
+&lt;p&gt;다음은 자바 코드의 일부분입니다.&lt;/p&gt;
+&lt;code&gt;System.out.println(var);&lt;/code&gt;
 </code></pre>
 				</article>
-				<h4 id="var-element"><mark>var</mark> element</h4>
+
+				<h4 id="var-element"><mark>var</mark>(variable) element</h4>
 				<article>
 					<p>
-
+						&lt;var&gt; 요소는 변수(variable)를 정의할 때 사용합니다.
+						변수요소 (&lt;var&gt;) 는 수학적 표현이나 프로그래밍 변수를 나타냅니다.
+						<br><br>
+						CSS기본값 : var {font-style: italic;}
 					</p>
 <pre><code>
+&lt;p&gt; A simple equation: &lt;var&gt;x&lt;/var&gt; = &lt;var&gt;y&lt;/var&gt; + 2 &lt;/p&gt;
 
+&lt;p&gt;직사각형의 넓이는 &lt;var&gt;S&lt;/var&gt; = &lt;var&gt;W&lt;/var&gt;×&lt;var&gt;H&lt;/var&gt;로 나타낼 수 있습니다.
+	(&lt;var&gt;W&lt;/var&gt;는 밑변, &lt;var&gt;H&lt;/var&gt;는 높이)&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;math&gt;
+	&lt;mi&gt;a&lt;/mi&gt;
+	&lt;mo&gt;=&lt;/mo&gt;
+	&lt;msqrt&gt;
+		&lt;msup&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
+		&lt;mi&gt;+&lt;/mi&gt;
+		&lt;msup&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
+	&lt;/msqrt&gt;
+	&lt;/math&gt;
+	&lt;figcaption&gt;
+	Using Pythagoras' theorem to solve for the hypotenuse &lt;var&gt;a&lt;/var&gt; of
+	a triangle with sides &lt;var&gt;b&lt;/var&gt; and &lt;var&gt;c&lt;/var&gt;
+	&lt;/figcaption&gt;
+&lt;/figure&gt;
 </code></pre>
 				</article>
+
 				<h4 id="dfn-element"><mark>dfn</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;dfn&gt; 요소는 HTML에서 용어(term)의 정의를 나타낼 때 사용합니다.<br>
+						HTML 문서에서 해당 용어가 가장 처음 사용될 때 흔히 &lt;dfn&gt; 요소를 사용하여 용어를 정의하게 됩니다.<br>
+						이때 &lt;dfn&gt; 요소의 부모 요소에는 해당 용어에 대한 정의나 설명이 반드시 포함되어 있어야만 합니다.
+						<br><br>
+						CSS기본값 : dfn {font-style: italic;}
 					</p>
 <pre><code>
+&lt;p&gt;&lt;dfn&gt;W3C&lt;/dfn&gt;는 월드 와이드 웹(WWW)을 위한 표준을 제정하고 관리하는 중립적인 기관입니다.&lt;/p&gt;
 
+&lt;p&gt;&lt;dfn title="World Wide Web Consortium"&gt;W3C&lt;/dfn&gt;는 
+	월드 와이드 웹(WWW)을 위한 표준을 제정하고 관리하는 중립적인 기관입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;dfn&gt;&lt;abbr title="World Wide Web Consortium"&gt;W3C&lt;/abbr&gt;&lt;/dfn&gt;는
+	월드 와이드 웹(WWW)을 위한 표준을 제정하고 관리하는 중립적인 기관입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;dfn id="lorem"&gt;Lorem ipsum&lt;/dfn&gt; dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+&lt;p&gt;Cras tempus elit vitae pretium commodo ... eget blandit turpis sem et nisl.&lt;/p&gt;
+&lt;p&gt;Morbi sit amet posuere mauris ... Nullam non aliquam arcu.&lt;/p&gt;
+&lt;p&gt;Aliquam sed velit scelerisque, iaculis massa a, fermentum dolor... Ut non hendrerit mauris.&lt;/p&gt;
+&lt;p&gt;Donec ut mattis nibh ... Fusce mattis maximus ante ac lacinia.&lt;/p&gt;
+&lt;p&gt;Fusce condimentum sapien eu nibh auctor fermentum eu ut magna ... laoreet id odio.&lt;/p&gt;
+...
+&lt;p&gt;&lt;a href="#lorem"&gt;Lorem ipsum&lt;/a&gt;이란 무엇인지 알아보죠!&lt;/p&gt;
+
+&lt;dl&gt;
+	&lt;!-- Define "World-Wide Web" and reference definition for "the Internet" --&gt;
+	&lt;dt&gt;
+		&lt;dfn&gt;
+			&lt;abbr title="World-Wide Web"&gt;WWW&lt;/abbr&gt;
+		&lt;/dfn&gt;
+	&lt;/dt&gt;
+	&lt;dd&gt;The World-Wide Web (WWW) is a system of interlinked hypertext documents accessed on &lt;a href="#def-internet"&gt;the Internet&lt;/a&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
 </code></pre>
 				</article>
-				<h4 id="abbr-element"><mark>abbr</mark> element</h4>
+
+				<h4 id="abbr-element"><mark>abbr</mark>(abbreviation) element</h4>
 				<article>
 					<p>
-
+						&lt;abbr&gt; 요소는 약어 또는 두문자어를 나타냅니다. 선택 속성인 title을 사용하면 약어의 전체 글자나 설명을 제공할 수 있습니다.<br>
+						title 속성은 전체 설명만을 가져야 하며 다른건 포함할 수 없습니다.<br>
+						&lt;abbr&gt; 요소는 “W3C”, “HTML”, “ASAP” 등과 같이 단어의 축약형(abbreviation)이나 머리글자로만 된 단어(acronym)를 정의할 때 사용합니다.<br>
+						이러한 &lt;abbr&gt; 요소는 브라우저나 번역 시스템, 검색 엔진에게 유용한 정보를 줄 수 있습니다.<br>
+						&lt;abbr&gt; 요소 위에 마우스를 올려놓으면 title 속성으로 명시한 단어의 원형이 나타납니다.
+						<br><br>
+						CSS기본값 : abbr[title] {text-decoration: underline dotted;}
 					</p>
 <pre><code>
+&lt;!-- 약어를 의미 적으로 마크 업 - 확장 또는 설명을 제공하지 않고 약어를 표시 --&gt;
+&lt;p&gt;Using &lt;abbr&gt;HTML&lt;/abbr&gt; is fun and easy!&lt;/p&gt;
 
+&lt;!-- 스타일링 약어 - CSS를 사용하여 약어에 사용할 사용자 정의 스타일을 설정할 수 있습니다. --&gt;
+&lt;p&gt;Using &lt;abbr&gt;CSS&lt;/abbr&gt;, you can style your abbreviations!&lt;/p&gt;
+&lt;style&gt;
+	abbr {
+		font-variant: all-small-caps;
+	}
+&lt;/style&gt;
+
+&lt;!-- 확장 제공 - title속성을 추가 하면 약어 또는 머리 글자에 대한 확장 또는 정의를 제공 할 수 있습니다. --&gt;
+&lt;p&gt;Ashok's joke made me &lt;abbr title="Laugh Out Loud"&gt;LOL&lt;/abbr&gt; big time.&lt;/p&gt;
+
+&lt;!-- 약어 정의 - &lt;abbr&gt;요소와 &lt;dfn&gt; 요소를 사용하여 다음과 같이 형식적으로, 약어를 정의 할 수 있습니다. --&gt;
+&lt;p&gt;
+	&lt;dfn id="html"&gt;&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;&lt;/dfn&gt; 
+	is a markup language used to create the semantics and structure of a web page.
+&lt;/p&gt;
+&lt;p&gt;
+	A &lt;dfn id="spec"&gt;Specification&lt;/dfn&gt; (&lt;abbr title="Specification"&gt;spec&lt;/abbr&gt;) is a document that outlines
+	in detail how a technology or API is intended to function and how it is accessed.
+&lt;/p&gt;
+
+&lt;!-- 접근성 - 페이지에서 처음으로 사용될 때 머리 글자 또는 약어를 모두 철자하면 사람들이 내용을 이해하는 데 도움이됩니다 (특히 컨텐츠가 전문적이거나 산업 전문 용어 인 경우). --&gt;
+&lt;p&gt;JavaScript Object Notation (&lt;abbr&gt;JSON&lt;/abbr&gt;) is a lightweight data-interchange format.&lt;/p&gt;
 </code></pre>
 				</article>
+
 				<h4 id="data-element"><mark>data</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;data&gt; 요소는 특정 컨텐츠에 기계가 읽을 수 있는(machine-readable) 형태의 값(value)을 덧붙여 나타낼 때 사용합니다.<br>
+						&lt;data&gt; 요소는 데이터 처리를 위해 기계가 읽을 수 있는 형태의 값과 브라우저에 표시되어 사람이 읽을 수 있는 형태의 값을 모두 제공합니다.<br>
+						단, 해당 콘텐츠가 시간이나 날짜와 관련된 데이터라면 &lt;data&gt; 요소 대신 &lt;time&gt; 요소를 사용해야 합니다.<br>
+						&lt;data&gt; 요소는 HTML5에서 새롭게 추가된 요소입니다.
 					</p>
+					<ul>
+						<li>value 속성 - &lt;data value="기계가 읽을 수 있는 형태의 값"&gt;
+							<p>&lt;data&gt; 요소의 컨텐츠를 기계가 읽을 수 있는 형태의 값으로 명시함.</p>
+						</li>
+					</ul>
 <pre><code>
+&lt;ol&gt;
+	&lt;li&gt;&lt;data value="448"&gt;작은 마요네즈&lt;/data&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;data value="449"&gt;큰 마요네즈&lt;/data&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;data value="450"&gt;업소용 마요네즈&lt;/data&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
+&lt;!-- 상품의 이름을 표시하지만 각 이름과 관련된 UPC 코드로 표시 --&gt;
+&lt;p&gt;새로운 상품들&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;data value="3967381398"&gt;미니 케찹&lt;/data&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;data value="3967381399"&gt;점보 케찹&lt;/data&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;data value="3967381400"&gt;메가 점보 케찹&lt;/data&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </code></pre>
+
+					<blockquote class="note" role="note">
+						<p>
+							[참고] : 국제 상품 번호는 국제 상품 번호(<abbr>International Article Number</abbr>,<br>
+							이전 이름: 유럽 상품 번호(<abbr>European Article Number</abbr>)) 또는<br>
+							EAN-13 바코드는 미국에서 개발된 원래 12자리의 세계 상품 코드(<abbr>Universal Product Code, UPC</abbr>) 시스템의 일부인 13자리 (12개 번호 + 검사 번호)의 바코드 표준이다.<br>
+							[1] EAN-13 바코드는 표준 단체 GS1이 정의한다.<br>
+							[자료참조] : <a href="https://ko.wikipedia.org/wiki/%EA%B5%AD%EC%A0%9C_%EC%83%81%ED%92%88_%EB%B2%88%ED%98%B8" target="_blank" title="새 창">위키백과</a>
+						</p>
+					</blockquote>
 				</article>
+
 				<h4 id="time-element"><mark>time</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;time&gt; 요소는 사람이 읽을 수 있는(human-readable) 형태의 날짜와 시간 데이터를 정의할 때 사용합니다.<br>
+						&lt;time&gt; 요소는 대부분의 웹 브라우저에서 특별한 형태로 랜더링되지는 않지만, 
+						검색 엔진의 검색 결과 향상이나 알림 및 스케줄과 같은 사용자 기능을 위해 날짜와 시간 데이터를 기계가 읽을 수 있는(machine-readable) 형태로 변환해주는 datetime 속성을 포함할 수 있습니다
+						<br><br>
+						&lt;time&gt; 요소는 HTML5에서 새롭게 추가된 요소입니다.<br>
+						Internet Explorer : No support(지원하지 않음)
 					</p>
+					<ul>
+						<li>datetime 속성 - &lt;time datetime="날짜와시간"&gt;
+							<p>&lt;time&gt; 요소의 날짜와 시간 데이터를 기계가 읽을 수 있는 형태로 명시함.</p>
+						</li>
+					</ul>
+					<dl>
+						<dt>&lt;time&gt; 요소의 datetime 속성값으로 유효한 데이터는 다음과 같습니다.</dt>
+						<dd>
+							<ul>
+								<li>24시간 형태로 표현된 시간 데이터</li>
+								<li>그레고리력(Gregorian calendar)으로 표현되는 날짜 데이터 (선택사항으로 시간 및 시간대 데이터를 포함할 수 있음)</li>
+								<li>유효한 기간 데이터</li>
+							</ul>
+						</dd>
+					</dl>
 <pre><code>
+&lt;p&gt;The concert starts at &lt;time&gt;20:00&lt;/time&gt;.&lt;/p&gt;
 
+&lt;p&gt;이번 콘서트는 &lt;time datetime="2019-12-25T20:00:00"&gt;12월 25일 저녁 8시&lt;/time&gt;부터 시작합니다.&lt;/p&gt;
 </code></pre>
 				</article>
+
 				<h4 id="samp-element"><mark>samp</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;samp&gt; 요소는 컴퓨터 프로그램의 샘플 또는 인용 출력(output)을 나타낼 때 사용합니다.<br>
+						&lt;samp&gt; 요소 내의 텍스트는 브라우저의 기본 고정폭 글꼴을 사용하여 표현됩니다.<br>
+						&lt;samp&gt; 요소는 HTML5에서도 여전히 지원되지만, CSS를 대신 사용하면 더욱 다양한 효과를 얻을 수 있습니다.<br>
+						웹 사이트 또는 앱의 JavaScript 코드에서 생성 된 출력을위한 컨테이너 역할을하는 요소가 필요한 경우 &lt;output&gt;요소 를 사용해야합니다 .
+						<br><br>
+						CSS기본값 : samp {font-family: monospace;}
 					</p>
 <pre><code>
+&lt;p&gt;컴퓨터를 부팅하려고 했더니 다음과 같은 메시지가 뜹니다.&lt;/p&gt;
+&lt;p&gt;&lt;samp&gt;Keyboard not found!&lt;br&gt;Press F1 to continue...&lt;/samp&gt;&lt;/p&gt;
 
+&lt;!-- 사용자 입력을 포함한 샘플 출력 예 --&gt;
+&lt;pre&gt;
+&lt;samp&gt;&lt;span class="prompt"&gt;mike@interwebz:~$&lt;/span&gt; &lt;kbd&gt;md5 -s "Hello world"&lt;/kbd&gt;
+MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
+
+&lt;span class="prompt"&gt;mike@interwebz:~$&lt;/span&gt; &lt;span class="cursor"&gt;█&lt;/span&gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;!-- 원하는 모양을 만드는 CSS는 다음과 같습니다. --&gt;
+&lt;style&gt;
+.prompt {
+	color: #b00;
+}
+samp &gt; kbd {
+	font-weight: bold;
+}
+.cursor {
+	color: #00b;
+}
+&lt;/style&gt;
 </code></pre>
 				</article>
+
 				<h4 id="kbd-element"><mark>kbd</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;kbd&gt; 요소는 키보드(keyboard) 입력을 나타낼 때 사용합니다.<br>
+						&lt;kbd&gt; 요소 내의 텍스트는 브라우저의 기본 고정폭 글꼴을 사용하여 표현됩니다.<br>
+						&lt;kbd&gt; 요소는 HTML5에서도 여전히 지원되지만, CSS를 대신 사용하면 더욱 다양한 효과를 얻을 수 있습니다.
+						<br><br>
+						CSS기본값 : kbd {font-family: monospace;}
 					</p>
 <pre><code>
-
+&lt;p&gt;&lt;kbd&gt;ALT&lt;/kbd&gt;키와 &lt;kbd&gt;F4&lt;/kbd&gt;키를 동시에 누르면 포커스를 가지고 있는 윈도우를 곧바로 닫을 수 있습니다.&lt;/p&gt;
 </code></pre>
 				</article>
+
 				<h4 id="bdi-element"><mark>bdi</mark> element</h4>
 				<article>
 					<p>
-
+						이 요소는 포함된 텍스트의 방향을 알수 없을떄 내부의 텍스트의 방향이 고정되도록 하는데에 유용합니다.
+					</p>
+					<p>
+						&lt;bdi&gt; 요소의 BDI는 Bi-Directional Isolation을 의미하며, 주위의 텍스트들과는 다른 방향으로 써지는 텍스트 영역을 정의할 때 사용합니다.<br>
+						한글이나 영어와 같이 대부분의 언어는 왼쪽부터 시작해서 오른쪽 방향으로(left-to-right, LTR) 텍스트를 나열합니다. <br>
+						하지만 아랍어(Arabic)와 같은 일부 언어에서는 오른쪽부터 시작하여 왼쪽 방향으로(right-to-left, RTL) 텍스트를 나열합니다.<br>
+						브라우저는 이러한 텍스트의 방향성을 유니코드 양방향 알고리즘(Unicode Bidirectional Algorithm)이라는 알고리즘을 사용하여 처리하게 되는데, <br>
+						바로 이때 특정 텍스트 영역에 &lt;bdi&gt; 요소를 사용하게 되면 양방향 알고리즘은 해당 텍스트의 방향성을 그 주위에 위치한 다른 텍스트들과는 별도로 처리하게 됩니다.<br>
+						따라서 &lt;bdi&gt; 요소는 텍스트의 방향성을 미리 알 수 없는 사용자에 의해 생성되는 콘텐츠 등을 문서에 포함시킬 때 유용하게 사용됩니다.
+						<br><br>
+						&lt;bdi&gt; 요소는 HTML5에서 새롭게 추가된 요소입니다.<br>
+						Internet Explorer, Edge, Safari, Opera : No support(지원하지 않음)
+						<br><br>
+						CSS기본값 : bdi {unicode-bidi: -webkit-isolate;}
 					</p>
 <pre><code>
+&lt;h1&gt;World wrestling championships&lt;/h1&gt;
 
+&lt;ul&gt;
+	&lt;li&gt;&lt;bdi class="name"&gt;Evil Steven&lt;/bdi&gt;: 1st place&lt;/li&gt;
+	&lt;li&gt;&lt;bdi class="name"&gt;François fatale&lt;/bdi&gt;: 2nd place&lt;/li&gt;
+	&lt;li&gt;&lt;span class="name"&gt;تیز سمی&lt;/span&gt;: 3rd place&lt;/li&gt;
+	&lt;li&gt;&lt;bdi class="name"&gt;الرجل القوي إيان&lt;/bdi&gt;: 4th place&lt;/li&gt;
+	&lt;li&gt;&lt;span class="name" dir="auto"&gt;تیز سمی&lt;/span&gt;: 5th place&lt;/li&gt;
+&lt;/ul&gt;
 </code></pre>
 				</article>
+
 				<h4 id="bdo-element"><mark>bdo</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;bdo&gt; 요소 (bidirectional override element) 는 현재 텍스트의 방향을 오버라이드 하기 위해 사용됩니다.<br>
+						&lt;bdo&gt; 요소의 BDO는 Bi-Directional Override를 의미하며, 자식 요소의 텍스트 방향성(text directionality)을 정의할 때 사용합니다.<br>
+						다른 요소들과는 달리 &lt;bdo&gt; 요소의 dir 속성의 기본값은 부모 요소로부터 상속받지 않는다는 의미를 가지는 auto 값으로 자동 설정됩니다.
+						<br><br>
+						CSS기본값 : bdo {unicode-bidi: bidi-override;}
 					</p>
+					<ul>
+						<li>dir 속성 - &lt;bdo dir="(이 요소의 텍스트 방향)ltr | rtl | auto"&gt;
+							<p>ltr: 텍스트가 왼쪽에서 오른쪽 방향으로 이동해야 함을 나타냅니다. 필수 속성으로 반드시 명시해야 함.</p>
+							<p>rtl: 텍스트가 오른쪽에서 왼쪽 방향으로 이동해야 함을 나타냅니다. 요소내에 위치한 텍스트의 방향성을 명시함.</p>
+							<p>auto: 요소의 내용에 기초하여 브라우저가 방향을 결정합니다.</p>
+						</li>
+					</ul>
 <pre><code>
+&lt;p&gt;이 단락은 왼쪽부터 오른쪽 방향으로 써질 것입니다.&lt;/p&gt;
+&lt;p&gt;&lt;bdo dir="rtl"&gt;이 단락은 오른쪽부터 왼쪽 방향으로 써질 것입니다.&lt;/bdo&gt;&lt;/p&gt;
 
+&lt;h1&gt;Famous seaside songs&lt;/h1&gt;
+&lt;p&gt;The English song "Oh I do like to be beside the seaside"&lt;/p&gt;
+&lt;p&gt;Looks like this in Hebrew: &lt;span dir="rtl"&gt;אה, אני אוהב להיות ליד חוף הים&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;In the computer's memory, this is stored as &lt;bdo dir="ltr"&gt;אה, אני אוהב להיות ליד חוף הים&lt;/bdo&gt;&lt;/p&gt;
 </code></pre>
 				</article>
-				<h4 id="wbr-element"><mark>wbr</mark> element</h4>
+
+				<h4 id="wbr-element"><mark>wbr</mark>(Word Break Opportunity) element</h4>
 				<article>
 					<p>
-
+						&lt;wbr&gt; 요소(Word Break Opportunity)는 단어 중간에서 행바꿈될 수 있는(line-break) 위치를 정의할 때 사용합니다.<br>
+						길이가 굉장히 긴 단어의 경우 브라우저가 해당 단어를 잘못된 위치에서 행바꿈하지 않도록 &lt;wbr&gt; 요소를 사용하여 행바꿈될 수 있는 위치를 직접 명시할 수 있습니다.
+						<br><br>
+						&lt;wbr&gt; 요소는 HTML5에서 새롭게 추가된 요소입니다.<br>
+						Internet Explorer : No support(지원하지 않음)
 					</p>
 <pre><code>
+&lt;p&gt;http://this.is.a.really.long.example.com&lt;wbr&gt;/With/deeper/level/pages&lt;wbr&gt;/deeper/level/pages&lt;wbr&gt;
+	/deeper/level/pages&lt;wbr&gt;/deeper/level/pages&lt;wbr&gt;/deeper/level/pages&lt;/p&gt;
 
+&lt;p&gt;http://this&lt;wbr&gt;.is&lt;wbr&gt;.a&lt;wbr&gt;.really&lt;wbr&gt;.long&lt;wbr&gt;.example&lt;wbr&gt;.com/With&lt;wbr&gt;/deeper&lt;wbr&gt;/level&lt;wbr&gt;/pages&lt;wbr&gt;/deeper&lt;wbr&gt;/level&lt;wbr&gt;/pages&lt;wbr&gt;/deeper&lt;wbr&gt;/level&lt;wbr&gt;/pages&lt;wbr&gt;/deeper&lt;wbr&gt;/level&lt;wbr&gt;/pages&lt;wbr&gt;/deeper&lt;wbr&gt;/level&lt;wbr&gt;/pages&lt;/p&gt;
 </code></pre>
 				</article>
+
 				<h4 id="ruby-element"><mark>ruby, rb, rp, rt, rtc</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;ruby&gt; 요소는 동아시아 일부 지역의 언어에서 일본어의 후리가나와 같이 해당 문자의 발음이나 설명을 작은 크기의 윗첨자로 알려주는 루비 주석(ruby annotation)을 정의할 때 사용합니다.<br>
+						&lt;ruby&gt; 요소는 &lt;rt&gt; 요소만 포함하거나, &lt;rt&gt; 요소와 함께 &lt;rp&gt; 요소도 포함할 수 있습니다.<br>
+						&lt;ruby&gt; 요소는 발음이나 설명이 필요한 한 개 이상의 문자로 구성되며, &lt;rt&gt; 요소는 그에 대한 발음이나 설명을 정의합니다.<br>
+						추가적으로 사용할 수 있는 &lt;rp&gt; 요소는 &lt;ruby&gt; 요소를 지원하지 않는 브라우저에서만 표시될 문자를 정의합니다.
+						<br><br>
+						&lt;ruby&gt;, &lt;rp&gt;, &lt;rt&gt; 요소는 HTML5에서 새롭게 추가된 요소입니다.
 					</p>
+					<dl>
+						<dt>&lt;rp&gt; 요소</dt>
+						<dd>
+							<p>&lt;rp&gt; 요소는 루비 주석(ruby annotation)을 지원하지 않는 브라우저에서만 표시될 문자를 정의할 때 사용합니다.</p>
+							<p>&lt;rp&gt; 요소는 &lt;ruby&gt; 요소 내부에 위치하며, &lt;rt&gt; 요소와 함께 사용합니다.</p>
+							<p>&lt;rp&gt; 요소는 보통 &lt;rt&gt; 요소를 감싸는 형태로 한 쪽에는 여는 괄호를 포함하며 다른 한 쪽에는 닫는 괄호를 포함하여, 루비 주석을 지원하지 않는 브라우저에서는 &lt;rt&gt; 요소의 내용이 괄호 안에 나타나도록 할 수 있습니다.</p>
+						</dd>
+						<dt>&lt;rt&gt; 요소</dt>
+						<dd>
+							<p>&lt;rt&gt; 요소는 루비 주석(ruby annotation)에서 발음이나 설명을 나타내는 윗첨자를 정의할 때 사용합니다.</p>
+						</dd>
+						<dt>&lt;rb&gt; 요소</dt>
+						<dd>
+							<p>&lt;rb&gt; 요소는 각 개별 텍스트를 구성 요소로 구분하는 데 사용합니다.</p>
+							<p>Edge : No support(지원하지 않음)</p>
+						</dd>
+						<dt>&lt;rp&gt; 요소</dt>
+						<dd>
+							<p>&lt;rp&gt; 요소는 루비 주석의 표시를 지원하지 않는 브라우저를 위한 백 괄호를 제공하는 데 사용됩니다.</p>
+							<p>Edge : No support(지원하지 않음)</p>
+						</dd>
+						<dt>&lt;rtc&gt; 요소</dt>
+						<dd>
+							<p>&lt;rtc&gt; 요소는 루비 주석에 대한 표시문자를 정의합니다.</p>
+							<p>Firefox 만 지원</p>
+						</dd>
+					</dl>
+					<ul>
+						<li>루비 문자 태그</li>
+						<li>ruby의 내용 중 rt 태그 내의 내용이 상단에 작게 표시됨</li>
+						<li>rp 내의 내용은 무시됨</li>
+						<li>일본어 후리가나, 중국어 병음 및 주음, 한국어 한자 독음 등에 주로 사용.</li>
+					</ul>
 <pre><code>
+&lt;p&gt;"공부"를 의미하는 일본어는 &lt;ruby&gt;勉強&lt;rt&gt;べんきょう&lt;/rt&gt;&lt;/ruby&gt;입니다.&lt;/p&gt;
 
+&lt;p&gt;"공부"를 의미하는 일본어는 &lt;ruby&gt;勉強&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;べんきょう&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt;입니다.&lt;/p&gt;
+
+&lt;ruby&gt;
+	&lt;rb&gt;漢&lt;rb&gt;字
+	&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;kan&lt;rt&gt;ji&lt;rp&gt;)&lt;/rp&gt;
+&lt;/ruby&gt;
+
+&lt;ruby&gt;
+	漢 &lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;Kan&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;
+	字 &lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;ji&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;
+&lt;/ruby&gt;
+
+&lt;!-- 예시1 : ruby, rt --&gt;
+&lt;ruby&gt;
+	韓國&lt;rt&gt;한국&lt;/rt&gt;
+&lt;/ruby&gt;
+
+&lt;!-- 예시2 : ruby, rt, rp --&gt;
+&lt;ruby&gt;
+	韓國&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;한국&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;
+&lt;/ruby&gt;
+&lt;p&gt;대부분의 웹브라우저에서는 예시1과 결과가 같지만. ruby를 지원하지 않는 옛날 웹브라우저에서는 "韓國(한국)"이라고 나온다.&lt;/p&gt;
+
+
+&lt;ruby xml:lang="zh-Hant" style="ruby-position: under;"&gt;
+	&lt;rtc xml:lang="en" style="ruby-position: over;"&gt;
+		&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;Malaysia&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;
+	&lt;/rtc&gt;
+&lt;/ruby&gt;
+
+&lt;div class="info"&gt;
+	&lt;ruby&gt;
+		&lt;rtc&gt;San Francisco&lt;/rtc&gt;
+	&lt;/ruby&gt;
+&lt;/div&gt;
 </code></pre>
 				</article>
 				
@@ -2057,110 +2718,699 @@ a friend lost to the
 			<section class="uksection">
 				<blockquote class="note" role="note">
 					<p>
-						
+						이 요소들의 집합은 특별히 표(테이블 형식)의 데이터를 처리하기 위해 만들어졌습니다.<br>
+						레이아웃 보조 도구로 테이블을 사용해서는 안됩니다.<br>
+						colgroup,thead,tbody,tfoot,tr,th,td 요소는 종료 태그를 생략 할 수 있으나 요소가 비어 있으면 생략 할 수 없습니다.<br>
+						하지만 습관적으로 종료 태그를 사용하는 것을 권장합니다.
 					</p>
 				</blockquote>
 				
 				<h4 id="table-element"><mark>table</mark> element</h4>
 				<article>
 					<p>
-
+						HTML Table 요소는 (&lt;table&gt;) 2차원 이상의 데이터를 나타냅니다.<br>
+						테이블에는 자손에는 행, 열 및 셀이 있습니다. 행과 열은 그리드를 형성합니다.
 					</p>
+					<ul>
+						<li>표는 table 태그로 만듭니다.</li>
+						<li>행(가로 한 줄)은 tr 태그로 만듭니다.</li>
+						<li>열의 제목이 들어가는 셀은 th 태그로 만듭니다.</li>
+						<li>내용이 들어가는 셀은 td 태그로 만듭니다.</li>
+						<li>각 열의 의미에 따라 thead, tbody, tfoot 태그로 구분지을 수도 있습니다.</li>
+						<li>가로로 이웃한 셀을 합칠 때에는 colspan 속성을 사용합니다.</li>
+						<li>세로로 이웃한 셀을 합칠 때에는 rowspan 속성을 사용합니다.</li>
+						<li>표 제목은 caption 태그로 만듭니다.</li>
+						<li>deprecated(더 이상 사용되지 않음)속성은 CSS 속성을 사용
+							<p>align - CSS 속성값으로 사용</p>
+							<p>bgcolor - CSS 속성값으로 사용</p>
+							<p>border - CSS 속성값으로 사용</p>
+							<p>cellpadding - CSS 속성값으로 사용</p>
+							<p>cellspacing - CSS 속성값으로 사용</p>
+							<p>frame - CSS 속성값으로 사용</p>
+							<p>rules - CSS 속성값으로 사용</p>
+							<p>width - CSS 속성값으로 사용</p>
+						</li>
+						<li>summary - 더 이상 사용되지 않지만 다음과 같이 대체 가능<br>
+							테이블을 표시 할 수없는 테이블을 설명하기위한 대체 텍스트 사용을 정의합니다.<br>
+							일반적으로 점자 화면을 사용하여 웹을 탐색하는 사람들이 정보를 얻을 수 있도록 설명합니다.
+							<p>테이블의 &lt;caption&gt;요소를 사용.</p>
+							<p>&lt;details&gt;내부 요소 &lt;caption&gt;요소를 사용.</p>
+							<p>&lt;figure&gt;요소에 &lt;table&gt;요소를 포함시키고 설명을 추가.</p>
+							<p>&lt;figure&gt;안에&lt; &lt;figcaption&gt;요소를 사용하여 설명을 추가.</p>
+						</li>
+					</ul>
 <pre><code>
+&lt;!-- 기본 구조 --&gt;
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;John&lt;/td&gt;
+		&lt;td&gt;Doe&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Jane&lt;/td&gt;
+		&lt;td&gt;Doe&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
 
+&lt;p&gt;Simple table with header&lt;/p&gt;
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;th&gt;First name&lt;/th&gt;
+		&lt;th&gt;Last name&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;John&lt;/td&gt;
+		&lt;td&gt;Doe&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Jane&lt;/td&gt;
+		&lt;td&gt;Doe&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Table with thead, tfoot, and tbody&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Header content 1&lt;/th&gt;
+			&lt;th&gt;Header content 2&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tfoot&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Footer content 1&lt;/td&gt;
+			&lt;td&gt;Footer content 2&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Body content 1&lt;/td&gt;
+			&lt;td&gt;Body content 2&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Table with colgroup&lt;/p&gt;
+&lt;table&gt;
+	&lt;colgroup span="4" class="columns"&gt;&lt;/colgroup&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Countries&lt;/th&gt;
+		&lt;th&gt;Capitals&lt;/th&gt;
+		&lt;th&gt;Population&lt;/th&gt;
+		&lt;th&gt;Language&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;USA&lt;/td&gt;
+		&lt;td&gt;Washington D.C.&lt;/td&gt;
+		&lt;td&gt;309 million&lt;/td&gt;
+		&lt;td&gt;English&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Sweden&lt;/td&gt;
+		&lt;td&gt;Stockholm&lt;/td&gt;
+		&lt;td&gt;9 million&lt;/td&gt;
+		&lt;td&gt;Swedish&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Table with colgroup and col&lt;/p&gt;
+&lt;table&gt;
+	&lt;colgroup&gt;
+		&lt;col class="column1"&gt;
+		&lt;col class="columns2plus3" span="2"&gt;
+	&lt;/colgroup&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Lime&lt;/th&gt;
+		&lt;th&gt;Lemon&lt;/th&gt;
+		&lt;th&gt;Orange&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Green&lt;/td&gt;
+		&lt;td&gt;Yellow&lt;/td&gt;
+		&lt;td&gt;Orange&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Simple table with caption&lt;/p&gt;
+&lt;table&gt;
+	&lt;caption&gt;Awesome caption&lt;/caption&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Awesome data&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
 </code></pre>
 				</article>
 
 				<h4 id="caption-element"><mark>caption</mark> element</h4>
 				<article>
 					<p>
-
+						HTML &lt;caption&gt; 요소 (or HTML Table Caption Element)는 표의 제목을 나타낸다.<br>
+						이것은 항상 &lt;table&gt;의 첫 번쨰 자손이지만, CSS를 사용한 styling은 표와 관련된 다른 곳에서 배치할 수 있다.<br>
+						summary속성 대신 대체 텍스트 사용을 정의하며, 일반적으로 점자 화면을 사용하여 웹을 탐색하는 사람들이 정보를 얻을 수 있도록 설명합니다.
 					</p>
 <pre><code>
+&lt;table&gt;
+	&lt;caption&gt;Characteristics with positive and negative sides&lt;/caption&gt;
+	&lt;thead&gt;
+	&lt;tr&gt;
+		&lt;th&gt; Characteristic
+		&lt;th&gt; Negative
+		&lt;th&gt; Positive
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;th&gt; Mood
+		&lt;td&gt; Sad
+		&lt;td&gt; Happy
+	&lt;tr&gt;
+		&lt;th&gt; Grade
+		&lt;td&gt; Failing
+		&lt;td&gt; Passing
+&lt;/table&gt;
 
+
+&lt;p <mark>id="summary"</mark>&gt;In the following table, characteristics are
+given in the second column, with the negative side in the left column and the positive
+side in the right column.&lt;/p&gt;
+&lt;table <mark>aria-describedby="summary"</mark>&gt;
+	&lt;caption&gt;Characteristics with positive and negative sides&lt;/caption&gt;
+	&lt;thead&gt;
+	&lt;tr&gt;
+		&lt;th id="n"&gt; Negative
+		&lt;th&gt; Characteristic
+		&lt;th&gt; Positive
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td headers="n r1"&gt; Sad
+		&lt;th id="r1"&gt; Mood
+		&lt;td&gt; Happy
+	&lt;tr&gt;
+		&lt;td headers="n r2"&gt; Failing
+		&lt;th id="r2"&gt; Grade
+		&lt;td&gt; Passing
+&lt;/table&gt;
+
+
+&lt;figure <mark>aria-labelledby="caption"</mark>&gt;
+	&lt;p&gt;
+		Characteristics are given in the second column, with the
+		negative side in the left column and the positive side in the right column.
+	&lt;/p&gt;
+	&lt;table&gt;
+	&lt;caption <mark>id="caption"</mark>&gt;Characteristics with positive and negative sides&lt;/caption&gt;
+	&lt;thead&gt;
+	&lt;tr&gt;
+		&lt;th id="n"&gt; Negative
+		&lt;th&gt; Characteristic
+		&lt;th&gt; Positive
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td headers="n r1"&gt; Sad
+		&lt;th id="r1"&gt; Mood
+		&lt;td&gt; Happy
+		&lt;tr&gt;
+		&lt;td headers="n r2"&gt; Failing
+		&lt;th id="r2"&gt; Grade
+		&lt;td&gt; Passing
+	&lt;/table&gt;
+&lt;/figure&gt;
 </code></pre>
 				</article>
 
 				<h4 id="colgroup-element"><mark>colgroup</mark> element</h4>
 				<article>
 					<p>
-
+						HTML Table Column Group 요소 (&lt;colgroup&gt;) 는 표 내부의 칸의 그룹을 정의합니다.<br>
+						table의 자식요소로 caption요소보다 먼저 선언되야 하지만 생략가능.
 					</p>
 <pre><code>
-
+&lt;table&gt;
+	&lt;colgroup&gt;
+		&lt;col&gt;
+		&lt;col&gt;
+		&lt;col&gt;
+	&lt;/colgroup&gt;
+	.
+	.
+	...
+&lt;/table&gt;
 </code></pre>
 				</article>
 
 				<h4 id="col-element"><mark>col</mark> element</h4>
 				<article>
 					<p>
-
+						HTML Table Column 요소 (&lt;col&gt;) 는 표 내부의 열을 정의하며 모든 공통 셀들의 공통 시멘틱을 정의하기 위해 사용됩니다.<br>
+						일반적으로 &lt;colgroup&gt; 요소 내부에 있습니다.<br>
+						단일요소로 종료 태그 없이 사용됩니다.
 					</p>
 <pre><code>
-
+&lt;table&gt;
+	&lt;colgroup&gt;
+		&lt;col&gt;
+		&lt;col&gt;
+		&lt;col&gt;
+	&lt;/colgroup&gt;
+	.
+	.
+	...
+&lt;/table&gt;
 </code></pre>
 				</article>
 
 				<h4 id="thead-element"><mark>thead</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;thead&gt; 요소는 테이블의 각 영역(header, body, footer)을 명시하기 위해 &lt;tbody&gt;, &lt;tfoot&gt; 요소와 함께 사용됩니다.<br>
+						<br>
+						브라우저는 이러한 요소들을 사용하여 테이블의 헤더나 푸터와는 독립적으로 테이블의 내용만 스크롤되게 할 수 있으며, 
+						여러 페이지에 걸쳐 있는 큰 테이블을 인쇄할 때 각 페이지의 상단과 하단에 테이블의 헤더와 푸터가 모두 인쇄되도록 할 수도 있습니다.
+						<br>
+						&lt;thead&gt; 요소는 &lt;table&gt; 요소의 자식 요소로써, 반드시 모든 &lt;caption&gt;, &lt;colgroup&gt; 요소 다음에 위치해야 합니다. 
+						또한, &lt;thead&gt; 요소는 반드시 하나 이상의 &lt;tr&gt; 요소를 포함하고 있어야 합니다.
+						&lt;thead&gt;와 &lt;tbody&gt;, &lt;tfoot&gt; 요소는 기본적으로 웹 페이지의 레이아웃에 전혀 영향을 주지 않지만, 이 요소들의 스타일을 CSS를 사용하여 변경할 수는 있습니다.
+						<br><br>
+						HTML5에서는 &lt;thead&gt; 요소의 align, char, charoff, valign 속성을 더 이상 지원하지 않습니다.
+						<br>
+						CSS기본값 : display:table-header-group; border-color:inherit; vertical-align:middle; 
 					</p>
 <pre><code>
-
+&lt;table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;출장비 내역&lt;/th&gt;
+			&lt;th&gt;금액&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;교통비&lt;/td&gt;
+			&lt;td&gt;45000&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tfoot&gt;
+		&lt;tr&gt;
+			&lt;td&gt;총 합계&lt;/td&gt;
+			&lt;td&gt;103000&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+&lt;/table&gt;
 </code></pre>
 				</article>
 
 				<h4 id="tbody-element"><mark>tbody</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;tbody&gt; 요소는 HTML 테이블에서 내용 콘텐츠(body content)들을 하나의 그룹으로 묶을 때 사용합니다.
+						<br><br>
+						&lt;tbody&gt; 요소는 테이블의 각 영역(header, body, footer)을 명시하기 위해 &lt;thead&gt;, &lt;tfoot&gt; 요소와 함께 사용됩니다.
+						<br><br>
+						브라우저는 이러한 요소들을 사용하여 테이블의 헤더나 푸터와는 독립적으로 테이블의 내용만 스크롤되게 할 수 있으며, 
+						여러 페이지에 걸쳐 있는 큰 테이블을 인쇄할 때 각 페이지의 상단과 하단에 테이블의 헤더와 푸터가 모두 인쇄되도록 할 수도 있습니다.
+						<br><br>
+						&lt;tbody&gt; 요소는 &lt;table&gt; 요소의 자식 요소로써, 반드시 모든 &lt;caption&gt;, &lt;colgroup&gt;, &lt;thead&gt; 요소 다음에 위치해야 합니다. 
+						또한, &lt;tbody&gt; 요소는 반드시 하나 이상의 &lt;tr&gt; 요소를 포함하고 있어야 합니다.
+						<br><br>
+						&lt;thead&gt;와 &lt;tbody&gt;, &lt;tfoot&gt; 요소는 기본적으로 웹 페이지의 레이아웃에 전혀 영향을 주지 않지만, 이 요소들의 스타일을 CSS를 사용하여 변경할 수는 있습니다.
+						<br><br>
+						HTML5에서는 &lt;tbody&gt; 요소의 align, char, charoff, valign 속성을 더 이상 지원하지 않습니다.
+						<br>
+						CSS기본값 : display:table-row-group; border-color:inherit; vertical-align:middle; 
 					</p>
 <pre><code>
-
+&lt;table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;출장비 내역&lt;/th&gt;
+			&lt;th&gt;금액&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;교통비&lt;/td&gt;
+			&lt;td&gt;45000&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tfoot&gt;
+		&lt;tr&gt;
+			&lt;td&gt;총 합계&lt;/td&gt;
+			&lt;td&gt;103000&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+&lt;/table&gt;
 </code></pre>
 				</article>
 
 				<h4 id="tfoot-element"><mark>tfoot</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;tfoot&gt; 요소는 HTML 테이블에서 푸터 콘텐츠(footer content)들을 하나의 그룹으로 묶을 때 사용합니다.
+						<br><br>
+						&lt;tfoot&gt; 요소는 테이블의 각 영역(header, body, footer)을 명시하기 위해 &lt;thead&gt;, &lt;tbody&gt; 요소와 함께 사용됩니다.
+						<br><br>
+						브라우저는 이러한 요소들을 사용하여 테이블의 헤더나 푸터와는 독립적으로 테이블의 내용만 스크롤되게 할 수 있으며, 
+						여러 페이지에 걸쳐 있는 큰 테이블을 인쇄할 때 각 페이지의 상단과 하단에 테이블의 헤더와 푸터가 모두 인쇄되도록 할 수도 있습니다.
+						<br><br>
+						&lt;tfoot&gt; 요소는 &lt;table&gt; 요소의 자식 요소로써, 반드시 모든 &lt;caption&gt;, &lt;colgroup&gt;, &lt;thead&gt;, &lt;tbody&gt; 요소 다음에 위치해야 합니다. 
+						또한, &lt;tfoot&gt; 요소는 반드시 하나 이상의 &lt;tr&gt; 요소를 포함하고 있어야 합니다.
+						<br><br>
+						&lt;thead&gt;와 &lt;tbody&gt;, &lt;tfoot&gt; 요소는 기본적으로 웹 페이지의 레이아웃에 전혀 영향을 주지 않지만, 이 요소들의 스타일을 CSS를 사용하여 변경할 수는 있습니다.
+						<br><br>
+						HTML5에서는 &lt;tfoot&gt; 요소의 align, char, charoff, valign 속성을 더 이상 지원하지 않습니다.
+						<br>
+						CSS기본값 : display:table-footer-group; border-color:inherit; vertical-align:middle; 
 					</p>
 <pre><code>
+&lt;!– before: HTML4 –&gt;
+&lt;table&gt;
+	&lt;tfoot&gt;&lt;tr&gt;&lt;td&gt;tfoot&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;
+	&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;tbody&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;
 
+&lt;!– after: HTML 5.1 –&gt;
+&lt;table&gt;
+	&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;tbody&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+	&lt;tfoot&gt;&lt;tr&gt;&lt;td&gt;tfoot&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;
+&lt;/table&gt;
 </code></pre>
 				</article>
 
 				<h4 id="tr-element"><mark>tr</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;tr&gt; 요소는 테이블에서 셀들로 이루어진 하나의 행(row)을 정의할 때 사용합니다.<br>
+						&lt;tr&gt; 요소는 하나 이상의 &lt;th&gt; 요소(data cell)나 &lt;td&gt; 요소(header cell)를 포함할 수 있습니다.
+						<br><br>
+						HTML5에서는 &lt;tr&gt; 요소의 align, bgcolor, char, charoff, valign 속성을 더 이상 지원하지 않습니다.
+						<br>
+						CSS기본값 : display:table-row; border-color:inherit; vertical-align:middle; 
 					</p>
 <pre><code>
-
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;th&gt;밥류&lt;/th&gt;
+		&lt;th&gt;면류&lt;/th&gt;
+		&lt;th&gt;분식류&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;김밥&lt;/td&gt;
+		&lt;td&gt;라면&lt;/td&gt;
+		&lt;td&gt;떡볶이&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
 </code></pre>
 				</article>
 
 				<h4 id="th-element"><mark>th</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;th&gt; 요소는 HTML 테이블에서 제목이 되는 헤더 셀(header cell)을 정의할 때 사용합니다.
+						<br><br>
+						HTML 테이블를 구성하는 셀(cell)은 두 종류로 구분할 수 있으며, 하나는 &lt;th&gt; 요소를 사용한 헤더 정보를 저장하는 헤더 셀과 
+						또 다른 하나는 &lt;td&gt; 요소를 사용한 일반적인 데이터를 저장하는 데이터 셀입니다.
+						<br><br>
+						&lt;th&gt; 요소 내의 텍스트는 기본적으로 굵은 폰트로 중앙 정렬되며, &lt;td&gt; 요소 내의 텍스트는 일반적인 두께의 폰트로 좌측 정렬됩니다.
+						<br>
+						colspan 속성과 rowspan 속성을 사용하면 콘텐츠를 여러 셀에 걸쳐 나타낼 수 있습니다.
+						<br><br>
+						HTML5에서는 &lt;th&gt; 요소의 align, axis, bgcolor, char, charoff, height, nowrap, valign, width 속성을 더 이상 지원하지 않습니다.
+						<br>
+						CSS기본값 :  display: table-cell; vertical-align: inherit; font-weight: bold; text-align: center;
 					</p>
+					<ul>
+						<li>abbr 속성 - &lt;th abbr="텍스트"&gt;<br>
+							<p>해당 요소의 abbr 속성은 헤더 셀 내부의 콘텐츠에 대한 짧은 설명을 명시합니다.</p>
+							<p>일반 웹 브라우저에서는 해당 요소에 scope 속성을 명시해도 아무런 시각적 효과도 나타나지 않지만, 스크린 리더기와 같은 장치에서는 유용하게 사용될 수 있습니다.</p>
+						</li>
+						<li>colspan 속성 - &lt;th colspan="숫자"&gt;<br>
+							<p>해당 요소의 colspan 속성은 해당 헤더 셀이 확장될 열(column)의 개수를 명시함. 기본값은 1임.</p>
+							<p>이때 colspan 속성값을 0으로 명시하면, 해당 셀은 자신이 포함된 열 그룹(colgroup)의 마지막 열까지 확장됨.</p>
+						</li>
+						<li>rowspan 속성 - &lt;th rowspan="숫자"&gt;<br>
+							<p>해당 요소의 rowspan 속성은 해당 헤더 셀(cell)이 확장될 행(row)의 개수를 명시함. 기본값은 1임.</p>
+							<p>rowspan 속성값을 0으로 명시하면, 해당 셀은 자신이 포함된 테이블 영역(thead, tbody, tfoot)의 마지막 행까지 확장됨.</p>
+						</li>
+						<li>headers 속성 - &lt;th headers="header id"&gt;<br>
+							<p>해당 요소의 headers 속성은 해당 헤더 셀과 연관된 하나 이상의 헤더 셀(header cell)을 명시함.</p>
+							<p>header id 값은 해당 헤더 셀과 연관된 헤더 셀(header cell)들의 id 속성값을 공백으로 구분한 리스트</p>
+							<p>일반 웹 브라우저에서는 해당 요소에 headers 속성을 명시해도 시각적으로 어떠한 효과도 보여주지 않지만, 스크린 리더기와 같은 장치에서는 유용하게 사용됩니다.</p>
+						</li>
+						<li>scope 속성 - &lt;th scope="col|row|colgroup|rowgroup"&gt;<br>
+							<p>해당 요소의 scope 속성은 테이블에서 헤더 셀과 데이터 셀을 연결하는 방법을 명시함.</p>
+							<p>일반 웹 브라우저에서는 해당 요소에 headers 속성을 명시해도 시각적으로 어떠한 효과도 보여주지 않지만, 스크린 리더기와 같은 장치에서는 유용하게 사용됩니다.</p>
+							<ul>
+								<li>col : 해당 셀이 열(column)을 위한 헤더 셀임을 명시함.</li>
+								<li>row : 해당 셀이 행(row)을 위한 헤더 셀임을 명시함.</li>
+								<li>colgroup : 해당 셀이 열의 그룹을 위한 헤더 셀임을 명시함.</li>
+								<li>rowgroup : 해당 셀이 행의 그룹을 위한 헤더 셀임을 명시함.</li>
+							</ul>
+						</li>
+					</ul>
+					
+					<figure>
+						<img src="images/html/img_table_rowcol.png" alt="table col row">
+						<figcaption>[table Column &amp; Row]</figcaption>
+					</figure>
 <pre><code>
+&lt;table&gt;
+&lt;thead&gt;
+	&lt;tr&gt;
+		&lt;th abbr="rice"&gt;밥류&lt;/th&gt;
+		&lt;th abbr="noodle"&gt;면류&lt;/th&gt;
+		&lt;th abbr="snack"&gt;분식류&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;김밥&lt;/td&gt;
+		&lt;td&gt;라면&lt;/td&gt;
+		&lt;td&gt;떡볶이&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
+
+&lt;table&gt;
+&lt;thead&gt;
+	&lt;tr&gt;
+		&lt;th id="name" colspan="2"&gt;성명&lt;/th&gt;
+		&lt;th id="phone" rowspan="2"&gt;전화번호&lt;/th&gt;
+		&lt;th id="email" rowspan="2"&gt;이메일&lt;/th&gt;
+		&lt;th id="address" rowspan="2"&gt;주소&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th headers="firstName"&gt;성&lt;/th&gt;
+		&lt;th headers="secondName"&gt;이름&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;홍&lt;/td&gt;
+		&lt;td&gt;길동&lt;/td&gt;
+		&lt;td&gt;010-1234-5678&lt;/td&gt;
+		&lt;td&gt;gildong@example.com&lt;/td&gt;
+		&lt;td&gt;서울시 강남구 역삼동&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;table&gt;
+&lt;thead&gt;
+	&lt;tr&gt;
+		&lt;th&gt;&lt;/th&gt;
+		&lt;th scope="col"&gt;면류&lt;/th&gt;
+		&lt;th scope="col"&gt;분식류&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;라면&lt;/td&gt;
+		&lt;td&gt;떡볶이&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;우동&lt;/td&gt;
+		&lt;td&gt;순대&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+	&lt;colgroup&gt; &lt;col&gt;
+	&lt;colgroup&gt; &lt;col&gt; &lt;col&gt; &lt;col&gt;
+	&lt;thead&gt;
+	&lt;tr&gt; 
+		&lt;th&gt; &lt;th&gt;2008 &lt;th&gt;2007 &lt;th&gt;2006
+	&lt;tbody&gt;
+	&lt;tr&gt; 
+		&lt;th scope=rowgroup&gt; Research and development
+		&lt;td&gt; $ 1,109 &lt;td&gt; $ 782 &lt;td&gt; $ 712
+	&lt;tr&gt; 
+		&lt;th scope=row&gt; Percentage of net sales
+		&lt;td&gt; 3.4% &lt;td&gt; 3.3% &lt;td&gt; 3.7%
+	&lt;tbody&gt;
+	&lt;tr&gt; 
+		&lt;th scope=rowgroup&gt; Selling, general, and administrative
+		&lt;td&gt; $ 3,761 &lt;td&gt; $ 2,963 &lt;td&gt; $ 2,433
+	&lt;tr&gt; 
+		&lt;th scope=row&gt; Percentage of net sales
+		&lt;td&gt; 11.6% &lt;td&gt; 12.3% &lt;td&gt; 12.6%
+&lt;/table&gt;
 </code></pre>
 				</article>
 
 				<h4 id="td-element"><mark>td</mark> element</h4>
 				<article>
 					<p>
-
+						&lt;td&gt; 태그는 HTML 테이블에서 하나의 데이터 셀(data cell)을 정의할 때 사용합니다.
+						<br><br>
+						HTML 테이블를 구성하는 셀(cell)은 두 종류로 구분할 수 있으며, 
+						하나는 &lt;th&gt; 요소를 사용한 헤더 정보를 저장하는 헤더 셀과 또 다른 하나는 &lt;td&gt; 요소를 사용한 일반적인 데이터를 저장하는 데이터 셀입니다.
+						<br><br>
+						&lt;th&gt; 요소 내의 텍스트는 기본적으로 굵은 폰트로 중앙 정렬되며, &lt;td&gt; 요소 내의 텍스트는 일반적인 두께의 폰트로 좌측 정렬됩니다.
+						<br><br>
+						colspan 속성과 rowspan 속성을 사용하면 콘텐츠를 여러 셀에 걸쳐 나타낼 수 있습니다.
+						<br><br>
+						HTML5에서는 &lt;td&gt; 요소의 abbr, align, axis, bgcolor, char, charoff, height, nowrap, scope, valign, width 속성을 더 이상 지원하지 않습니다.
+						<br>
+						CSS기본값 : display: table-cell; vertical-align: inherit;
 					</p>
+					<ul>
+						<li>colspan 속성 - &lt;td colspan="숫자"&gt;<br>
+							<p>해당 요소의 colspan 속성은 해당 헤더 셀이 확장될 열(column)의 개수를 명시함. 기본값은 1임.</p>
+							<p>이때 colspan 속성값을 0으로 명시하면, 해당 셀은 자신이 포함된 열 그룹(colgroup)의 마지막 열까지 확장됨.</p>
+						</li>
+						<li>rowspan 속성 - &lt;td rowspan="숫자"&gt;<br>
+							<p>해당 요소의 rowspan 속성은 해당 헤더 셀(cell)이 확장될 행(row)의 개수를 명시함. 기본값은 1임.</p>
+							<p>rowspan 속성값을 0으로 명시하면, 해당 셀은 자신이 포함된 테이블 영역(thead, tbody, tfoot)의 마지막 행까지 확장됨.</p>
+						</li>
+						<li>headers 속성 - &lt;td headers="header id"&gt;<br>
+							<p>해당 요소의 headers 속성은 해당 헤더 셀과 연관된 하나 이상의 헤더 셀(header cell)을 명시함.</p>
+							<p>header id 값은 해당 헤더 셀과 연관된 헤더 셀(header cell)들의 id 속성값을 공백으로 구분한 리스트</p>
+							<p>일반 웹 브라우저에서는 해당 요소에 headers 속성을 명시해도 시각적으로 어떠한 효과도 보여주지 않지만, 스크린 리더기와 같은 장치에서는 유용하게 사용됩니다.</p>
+						</li>
+					</ul>
 <pre><code>
-
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;th id="name"&gt;이름&lt;/th&gt;
+		&lt;th id="phone"&gt;전화번호&lt;/th&gt;
+		&lt;th id="email"&gt;이메일&lt;/th&gt;
+		&lt;th id="address"&gt;주소&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td headers="name"&gt;홍길동&lt;/td&gt;
+		&lt;td headers="phone"&gt;010-1234-5678&lt;/td&gt;
+		&lt;td headers="email"&gt;gildong@example.com&lt;/td&gt;
+		&lt;td headers="address"&gt;서울시 강남구 역삼동&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
 </code></pre>
 				</article>
 				
+				<figure>
+					<figcaption>ARIA(Accessible Rich Internet Applications)를 활용한 table 예시</figcaption>
+<pre><code>
+&lt;table aria-describedby="real-deal-summary"&gt;
+	&lt;colgroup&gt;
+		&lt;col width="150"&gt;
+		&lt;col width="130" span="9"&gt;
+	&lt;/colgroup&gt;
+	&lt;caption&gt;
+		&lt;div id="real-deal-summary"&gt;
+			&lt;h3&gt;국토교통부 실거래가 : 2018.03 자료: 국토교통부&lt;/h3&gt;
+			&lt;p&gt;최근 3개월간(2018.01월~03월) 신고된 국토교통부 실거래 가격자료를 기반으로 최저가격과 최고가격 및 거래건수를 노출합니다.&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/caption&gt;
+	
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th id="rd-1" scope="col" rowspan="2"&gt;공급/전용(m&lt;sup&gt;2&lt;/sup&gt;)&lt;/th&gt;
+			&lt;th id="rd-2" scope="colgroup" colspan="3"&gt;매매 실거래가(만원)&lt;/th&gt;&lt;!-- 2번항목, colgroup 에 대한 제목 --&gt;
+			&lt;th id="rd-3" scope="colgroup" colspan="3"&gt;전세 실거래가(만원)&lt;/th&gt;&lt;!-- 3번항목, colgroup 에 대한 제목 --&gt;
+			&lt;th id="rd-4" scope="colgroup" colspan="3"&gt;월세 실거래가(만원)&lt;/th&gt;&lt;!-- 4번항목, colgroup 에 대한 제목 --&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th id="rd-2-1" scope="col"&gt;최저가&lt;/th&gt;
+			&lt;th id="rd-2-2" scope="col"&gt;최고가&lt;/th&gt;
+			&lt;th id="rd-2-3" scope="col"&gt;거래건수&lt;/th&gt;
+			&lt;th id="rd-3-1" scope="col"&gt;최저가&lt;/th&gt;
+			&lt;th id="rd-3-2" scope="col"&gt;최고가&lt;/th&gt;
+			&lt;th id="rd-3-3" scope="col"&gt;거래건수&lt;/th&gt;
+			&lt;th id="rd-4-1" scope="col"&gt;최저가&lt;/th&gt;
+			&lt;th id="rd-4-2" scope="col"&gt;최고가&lt;/th&gt;
+			&lt;th id="rd-4-3" scope="col"&gt;거래건수&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;th id="rd-1-1" scope="row"&gt;80/59.91&lt;/th&gt;
+			&lt;td headers="rd-1 rd-1-1 rd-2" colspan="3"&gt;-&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-1 rd-3 rd-3-1"&gt;43,000(2층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-1 rd-3 rd-3-2"&gt;43,000(2층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-1 rd-3 rd-3-3"&gt;1&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-1 rd-4" colspan="3"&gt;-&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th id="rd-1-2" scope="row"&gt;84/59.99&lt;/th&gt;
+			&lt;td headers="rd-1 rd-1-2 rd-2 rd-2-1"&gt;47,800(4층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-2 rd-2 rd-2-2"&gt;55,000(22층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-2 rd-2 rd-2-3"&gt;10&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-2 rd-3 rd-3-1"&gt;43,000(2층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-2 rd-3 rd-3-2"&gt;43,000(2층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-2 rd-3 rd-3-3"&gt;1&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-2 rd-4 rd-4-1"&gt;5,000/120(6층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-2 rd-4 rd-4-2"&gt;40,000/10(4층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-2 rd-4 rd-4-3"&gt;5&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th id="rd-1-3" scope="row"&gt;111/84.82&lt;/th&gt;
+			&lt;td headers="rd-1 rd-1-3 rd-2 rd-2-1"&gt;63,200(12층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-3 rd-2 rd-2-2"&gt;63,500(19층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-3 rd-2 rd-2-3"&gt;2&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-3 rd-3 rd-3-1"&gt;53,000(13층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-3 rd-3 rd-3-2"&gt;53,000(13층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-3 rd-3 rd-3-3"&gt;1&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-3 rd-4" colspan="3"&gt;-&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th id="rd-1-4" scope="row"&gt;112/84.92&lt;/th&gt;
+			&lt;td headers="rd-1 rd-1-4 rd-2 rd-2-1"&gt;65,000(6층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-4 rd-2 rd-2-2"&gt;65,000(6층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-4 rd-2 rd-2-3"&gt;1&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-4 rd-3 rd-3-1"&gt;52,000(10층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-4 rd-3 rd-3-2"&gt;52,000(10층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-4 rd-3 rd-3-3"&gt;1&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-4 rd-4" colspan="3"&gt;-&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th id="rd-1-5" scope="row"&gt;112/84.94&lt;/th&gt;
+			&lt;td headers="rd-1 rd-1-5 rd-2 rd-2-1"&gt;60,000(25층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-5 rd-2 rd-2-2"&gt;60,000(25층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-5 rd-2 rd-2-3"&gt;1&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-5 rd-3 rd-3-1"&gt;45,000(10층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-5 rd-3 rd-3-2"&gt;45,000(10층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-5 rd-3 rd-3-3"&gt;1&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-5 rd-4 rd-4-1"&gt;35,000/60(5층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-5 rd-4 rd-4-2"&gt;35,000/60(5층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-5 rd-4 rd-4-3"&gt;1&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th id="rd-1-6" scope="row"&gt;145/114.98&lt;/th&gt;
+			&lt;td headers="rd-1 rd-1-6 rd-2 rd-2-1"&gt;76,800(15층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-6 rd-2 rd-2-2"&gt;80,000(14층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-6 rd-2 rd-2-3"&gt;2&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-6 rd-3 rd-3" colspan="3"&gt;-&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-6 rd-4 rd-4-1"&gt;5,000/200(5층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-6 rd-4 rd-4-2"&gt;5,000/200(5층)&lt;/td&gt;
+			&lt;td headers="rd-1 rd-1-6 rd-4 rd-4-3"&gt;1&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+				</figure>
+
 				<dl class="linkdoc">
 					<dt>참조</dt>
 					<dd><a href="https://www.w3.org/TR/html52/tabular-data.html#the-table-element" target="_blank" title="새 창 열림">W3C 문서</a></dd>
@@ -2641,6 +3891,54 @@ a friend lost to the
 					<figcaption>자료 출처 : https://www.w3.org/TR/html52/dom.html#content-models</figcaption>
 				</figure>
 				
+				<dl>
+					<dt>Metadata content</dt>
+					<dd>
+						<p>메타 데이터 컨텐츠 는 나머지 컨텐츠의 프리젠 테이션 또는 동작을 설정, 다른 문서와 문서의 관계를 설정하거나 다른 "대역 외"정보를 전달하는 컨텐츠입니다.</p>
+						<p>base | link | meta | noscript | script | style | template | title</p>
+					</dd>
+					<dt>Flow content</dt>
+					<dd>
+						<p>메타 데이터 컨텐츠 는 나머지 컨텐츠의 프리젠 테이션 또는 동작을 설정, 다른 문서와 문서의 관계를 설정하거나 다른 "대역 외"정보를 전달하는 컨텐츠입니다.</p>
+						<p>base | link | meta | noscript | script | style | template | title</p>
+					</dd>
+					<dt>Sectioning content</dt>
+					<dd>
+						<p>메타 데이터 컨텐츠 는 나머지 컨텐츠의 프리젠 테이션 또는 동작을 설정, 다른 문서와 문서의 관계를 설정하거나 다른 "대역 외"정보를 전달하는 컨텐츠입니다.</p>
+						<p>base | link | meta | noscript | script | style | template | title</p>
+					</dd>
+					<dt>Heading content</dt>
+					<dd>
+						<p>메타 데이터 컨텐츠 는 나머지 컨텐츠의 프리젠 테이션 또는 동작을 설정, 다른 문서와 문서의 관계를 설정하거나 다른 "대역 외"정보를 전달하는 컨텐츠입니다.</p>
+						<p>base | link | meta | noscript | script | style | template | title</p>
+					</dd>
+					<dt>Phrasing content</dt>
+					<dd>
+						<p>메타 데이터 컨텐츠 는 나머지 컨텐츠의 프리젠 테이션 또는 동작을 설정, 다른 문서와 문서의 관계를 설정하거나 다른 "대역 외"정보를 전달하는 컨텐츠입니다.</p>
+						<p>base | link | meta | noscript | script | style | template | title</p>
+					</dd>
+					<dt>Embedded content</dt>
+					<dd>
+						<p>메타 데이터 컨텐츠 는 나머지 컨텐츠의 프리젠 테이션 또는 동작을 설정, 다른 문서와 문서의 관계를 설정하거나 다른 "대역 외"정보를 전달하는 컨텐츠입니다.</p>
+						<p>base | link | meta | noscript | script | style | template | title</p>
+					</dd>
+					<dt>Interactive content</dt>
+					<dd>
+						<p>메타 데이터 컨텐츠 는 나머지 컨텐츠의 프리젠 테이션 또는 동작을 설정, 다른 문서와 문서의 관계를 설정하거나 다른 "대역 외"정보를 전달하는 컨텐츠입니다.</p>
+						<p>base | link | meta | noscript | script | style | template | title</p>
+					</dd>
+					<dt>Palpable content</dt>
+					<dd>
+						<p>메타 데이터 컨텐츠 는 나머지 컨텐츠의 프리젠 테이션 또는 동작을 설정, 다른 문서와 문서의 관계를 설정하거나 다른 "대역 외"정보를 전달하는 컨텐츠입니다.</p>
+						<p>base | link | meta | noscript | script | style | template | title</p>
+					</dd>
+					<dt>Script-supporting elements</dt>
+					<dd>
+						<p>메타 데이터 컨텐츠 는 나머지 컨텐츠의 프리젠 테이션 또는 동작을 설정, 다른 문서와 문서의 관계를 설정하거나 다른 "대역 외"정보를 전달하는 컨텐츠입니다.</p>
+						<p>base | link | meta | noscript | script | style | template | title</p>
+					</dd>
+				</dl>
+
 				<dl class="linkdoc">
 					<dt>참조</dt>
 					<dd><a href="https://www.w3.org/TR/html52/dom.html#content-models" target="_blank" title="새 창 열림">W3C 문서</a></dd>

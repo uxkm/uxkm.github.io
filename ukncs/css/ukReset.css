@@ -136,6 +136,27 @@ q:before,q:after{
 	content:"";
 	content:none;
 }
+data:hover::after {
+	content: ' (ID ' attr(value) ')';
+	font-size: .7em;
+}
+kbd {
+	display:inline-block;
+	padding:2px 4px;
+	border:1px solid #b4b4b4;
+	background-color:#eee;
+	box-shadow:0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+	color:#333;
+	font-size:.85em;
+	font-weight:700;
+	line-height:1;
+	white-space: nowrap;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-o-border-radius:3px;
+}
 iframe{
 	width:100%;
 	min-height:300px;
