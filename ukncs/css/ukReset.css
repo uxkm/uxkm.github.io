@@ -16,6 +16,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	/* -webkit-overflow-scrolling:touch; */
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
+	-webkit-text-size-adjust: none;
 }
 html,body{
 	height:100%;
@@ -25,10 +26,12 @@ html,body{
 	padding:0;
 	box-sizing:border-box;
 }
+main,header,section,article,footer,aside,figure,figcaption{display:block;}
 :link,:active,:hover,:focus{
 	color:#222;
 	text-decoration:none;
 }
+a[title]{cursor:help;}
 input{
 	padding:5px;
 	border-width:1px;
@@ -163,11 +166,39 @@ iframe{
 	border:0;
 }
 
-/* Text Hidden */
+/* Block formatting context Text Hidden */
 [hidden],
 .hide,
 .hidden,
-.tts{overflow:hidden;position:absolute;z-index:-1;width:1px;height:1px;line-height:1px;}
+.blind,
+.tts{
+	overflow:hidden!important;
+	position:absolute!important;
+	width:1px!important;
+	height:1px!important;
+	margin:0!important;
+	padding:0!important;
+	border:0!important;
+	line-height:1!important;
+	clip:rect(1px, 1px, 1px, 1px)!important;
+	clip-path:inset(50%)!important;
+}
+/* Inline formatting context Text Hidden */
+.in-hide,
+.in-hidden,
+.in-blind,
+.in-tts {
+	overflow:hidden;
+	display:inline-block;
+	margin:-1px;
+	width:1px;
+	height:1px;
+	border:0;
+	line-height:1;
+	clip:rect(1px, 1px, 1px, 1px);
+	clip-path:inset(50%);
+}
+/* .tts{overflow:hidden;position:absolute;z-index:-1;width:1px;height:1px;line-height:1px;} */
 /* Skip Navigation */
 .uk-skip{position:absolute;width:100%;margin:-1px 0 0 0;z-index:1000;}
 .uk-skip a{overflow:hidden;display:block;width:1px;height:1px;padding:0;text-align:center;white-space:nowrap;}
