@@ -82,6 +82,7 @@ etc
 .ukmain blockquote p{position:relative;padding:0 25px;}
 .ukmain blockquote p::before{content:"\201C";position:absolute;margin:-10px 0 0 -25px;font-size:3em;font-family:Georgia;color:#bcbcbc;}
 .ukmain blockquote p::after{content:"\201D";position:absolute;margin: 0 0 0 5px;font-size:3em;font-family:Georgia;color:#bcbcbc;}
+.ukmain time{display:inline-block;margin:0;padding:0;background-color:aquamarine;border:0;line-height:inherit;font-weight:400;}
 .ukbody strong,
 .ukbody b{font-weight:700;}
 .ukbody p{line-height: 22px;}
