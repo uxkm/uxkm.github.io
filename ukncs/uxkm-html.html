@@ -7606,17 +7606,15 @@ function populateWeeks() {
 						</dd>
 						<dt>[name] <code>&lt;input name="요소의 이름"&gt;</code></dt>
 						<dd>
-							<p>
-								&lt;input&gt; 요소의 이름을 명시합니다.<br>
-								name 속성은 폼(form)이 제출된 후 서버에서 폼 데이터(form data)를 참조하기 위해 사용되거나, 자바스크립트에서 요소를 참조하기 위해 사용됩니다.<br>
-								name속성은 &lt;input&gt;요소에서 가장 중요한 속성일 것입니다.<br>
-								유효성 검사에 반드시 필요한 것은 아니지만 절대로 생략해서는 안됩니다.<br>
-								양식이 서버에 제출되면 양식의 데이터가 HTTP 요청에 포함됩니다.<br>
-								데이터는 일련의 이름-값 쌍으로 패키지됩니다.<br>
-								각 이름-값 쌍의 이름 name은 각 입력 의 속성이며 값은 사용자가 입력 한 (또는 미리 지정된) 값입니다. <br>
-								name속성이 없으면 &lt;input&gt;요소는 양식 제출시 서버에 값을 제공 할 수 없습니다.<br>
-								현재는 data-* 전역속성을 많이 사용하고 있음.
-							</p>
+							&lt;input&gt; 요소의 이름을 명시합니다.<br>
+							name 속성은 폼(form)이 제출된 후 서버에서 폼 데이터(form data)를 참조하기 위해 사용되거나, 자바스크립트에서 요소를 참조하기 위해 사용됩니다.<br>
+							name속성은 &lt;input&gt;요소에서 가장 중요한 속성일 것입니다.<br>
+							유효성 검사에 반드시 필요한 것은 아니지만 절대로 생략해서는 안됩니다.<br>
+							양식이 서버에 제출되면 양식의 데이터가 HTTP 요청에 포함됩니다.<br>
+							데이터는 일련의 이름-값 쌍으로 패키지됩니다.<br>
+							각 이름-값 쌍의 이름 name은 각 입력 의 속성이며 값은 사용자가 입력 한 (또는 미리 지정된) 값입니다. <br>
+							name속성이 없으면 &lt;input&gt;요소는 양식 제출시 서버에 값을 제공 할 수 없습니다.<br>
+							현재는 data-* 전역속성을 많이 사용하고 있음.
 <pre><code>
 &lt;label for="name"&gt;Name&lt;/label&gt;&lt;br/&gt; 
 &lt;input name="name" id="name"&gt;
@@ -7635,14 +7633,12 @@ function populateWeeks() {
 						</dd>
 						<dt>[value] <code>&lt;input value="텍스트"&gt;</code></dt>
 						<dd>
-							<p>
-								입력 필드의 초기 값 또는 기본 선택을 명시합니다.<br>
-								value 속성은 &lt;input&gt; 요소의 type 속성값에 따라 다른 용도로 사용됩니다.<br>
-								"button", "reset", "submit" : 버튼 내의 텍스트를 정의함.<br>
-								"hidden", "password", "text" : 입력 필드의 초깃값을 정의함.<br>
-								"checkbox", "image", "radio" : 해당 입력 필드를 선택 시 서버로 제출되는 값을 정의함.<br>
-								또한, &lt;input&gt; 요소의 type 속성값이 "file"인 경우에는 value 속성을 사용할 수 없습니다.
-							</p>
+							입력 필드의 초기 값 또는 기본 선택을 명시합니다.<br>
+							value 속성은 &lt;input&gt; 요소의 type 속성값에 따라 다른 용도로 사용됩니다.<br>
+							"button", "reset", "submit" : 버튼 내의 텍스트를 정의함.<br>
+							"hidden", "password", "text" : 입력 필드의 초깃값을 정의함.<br>
+							"checkbox", "image", "radio" : 해당 입력 필드를 선택 시 서버로 제출되는 값을 정의함.<br>
+							또한, &lt;input&gt; 요소의 type 속성값이 "file"인 경우에는 value 속성을 사용할 수 없습니다.
 <pre><code>
 &lt;label&gt;Name : &lt;input type="text" name="yourname" value="Your Name"&gt;&lt;/label&gt;&lt;br&gt; 
 &lt;label&gt;Email : &lt;input type="text" name="youremail" value="Your Email address"&gt;&lt;/label&gt;
@@ -7661,15 +7657,13 @@ function populateWeeks() {
 						</dd>
 						<dt>[checked] <code>&lt;input type="checkbox|radio" checked&gt;</code></dt>
 						<dd>
-							<p>
-								기본적으로 checked 속성은 boolean attribute(블리언 속성) 입니다.<br>
-								&lt;input&gt; 요소의 checked 속성은 페이지가 로드될 때 미리 선택될 &lt;input&gt; 요소를 명시합니다.<br>
-								checked 속성은 페이지가 로드된 후에도 자바스크립트를 사용하여 설정할 수 있습니다.<br>
-								불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.<br>
-								이 속성은 &lt;input&gt; 요소의 type 속성값이 "checkbox" 또는 "radio"인 경우에만 사용할 수 있습니다.<br>
-								XHTML에서는 속성값을 생략할 수 없으므로, 다음과 같이 속성명과 속성값을 모두 명시해야만 합니다.<br>
-								XHTML에서는 &lt;input checked="checked" /&gt;, HTML5에서는 &lt;input checked&gt;속성으로 정의되어야 합니다.
-							</p>
+							기본적으로 checked 속성은 boolean attribute(블리언 속성) 입니다.<br>
+							&lt;input&gt; 요소의 checked 속성은 페이지가 로드될 때 미리 선택될 &lt;input&gt; 요소를 명시합니다.<br>
+							checked 속성은 페이지가 로드된 후에도 자바스크립트를 사용하여 설정할 수 있습니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.<br>
+							이 속성은 &lt;input&gt; 요소의 type 속성값이 "checkbox" 또는 "radio"인 경우에만 사용할 수 있습니다.<br>
+							XHTML에서는 속성값을 생략할 수 없으므로, 다음과 같이 속성명과 속성값을 모두 명시해야만 합니다.<br>
+							XHTML에서는 &lt;input checked="checked" /&gt;, HTML5에서는 &lt;input checked&gt;속성으로 정의되어야 합니다.
 <pre><code>
 &lt;label&gt;&lt;input type="checkbox" name="chcbox1"&gt; Bike &lt;/label&gt;
 &lt;label&gt;&lt;input type="checkbox" name="chcbox1" checked&gt; Car&lt;/label&gt;
@@ -7687,45 +7681,71 @@ function populateWeeks() {
 								</ul>
 							</aside>
 						</dd>
-						<dt>[disabled] <code>&lt;element disabled&gt;</code></dt>
+						<dt>[disabled] <code>&lt;input disabled&gt;</code></dt>
 						<dd>
-							<p>해당 &lt;input&gt; 요소가 비활성화됨을 명시함.</p>
+							&lt;input&gt; 요소의 disabled 속성은 해당 &lt;input&gt; 요소가 비활성화됨을 명시합니다.<br>
+							disabled 속성이 명시된 &lt;input&gt; 요소는 사용할 수 없으며, 사용자가 클릭할 수도 없습니다.<br>
+							또한, 폼 데이터가 제출될 때도 disabled 속성이 명시된 &lt;input&gt; 요소의 데이터는 제출되지 않습니다.<br>
+							따라서 이 속성을 사용하면 특정 조건이 충족될 때까지 사용자가 입력 필드를 클릭할 수 없도록 설정하고, 
+							특정 조건이 충족되면 자바스크립트 등으로 disabled 속성값을 삭제하여 사용자가 입력 필드를 다시 사용할 수 있도록 조절할 수 있습니다.
+							<br><br>
+							disabled 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다
 <pre><code>
-
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;이름 : &lt;input type="text" name="st_name"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;학번 : &lt;input type="text" name="st_id"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;학과 : &lt;input type="text" name="department" disabled&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
-								<strong>Web Browser Support for disabled</strong>
+								<strong>Web Browser Support for readonly</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>6+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1.0</em></li>
 								</ul>
 							</aside>
 						</dd>
 						<dt>[readonly] <code>&lt;input readonly&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소의 입력 필드가 읽기 전용임을 명시함.</p>
+							&lt;input&gt; 요소의 readonly 속성은 &lt;input&gt; 요소의 입력 필드가 읽기 전용임을 명시합니다.<br>
+							읽기 전용으로 설정된 입력 필드는 사용자가 수정할 수는 없지만, 해당 내용을 하이라이트하거나 복사할 수는 있습니다.<br>
+							따라서 이 속성을 사용하면 특정 조건이 충족될 때까지 사용자가 입력 필드의 내용을 수정할 수 없도록 설정하고, 
+							특정 조건이 충족되면 자바스크립트 등으로 readonly 속성값을 삭제하여 사용자가 입력 필드를 수정할 수 있도록 조절할 수 있습니다.<br>
+							disabled 속성이 명시된 입력 필드의 값은 서버로 제출되지 않지만, readonly 속성이 명시된 입력 필드의 값은 서버로 제출됩니다.
+							<br><br>
+							readonly 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
 <pre><code>
-
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;이름 : &lt;input type="text" name="st_name"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;학과 : &lt;input type="text" name="department" value="컴퓨터공학과" readonly&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for readonly</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>6+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1.0</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[size] <code>&lt;input size="숫자"&gt;</code></dt>
+						<dt>[size] <code>&lt;input type="email|password|search|tel|text|url" size="숫자"&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소의 너비를 문자수(in characters) 단위로 명시함.</p>
+							&lt;input&gt; 요소의 size 속성은 &lt;input&gt; 요소의 너비를 문자수(in characters) 단위로 명시합니다.<br>
+							maxlength 속성을 사용하면, &lt;input&gt; 요소에서 허용되는 최대 문자수를 명시할 수도 있습니다.<br>
+							size 속성이 제대로 동작하는 &lt;input&gt; 요소의 type 속성값은 다음과 같습니다.<br>
+							email, password, search, tel, text, url
 <pre><code>
 &lt;!-- 
 입력 상자의 실제 크기는 size 속성을 사용하여 제어 할 수 있습니다. 
@@ -7746,32 +7766,37 @@ function populateWeeks() {
 							<aside class="bosupport">
 								<strong>Web Browser Support for size</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1.0</em></li>
 								</ul>
 							</aside>
 						</dd>
 						<dt>[src] <code>&lt;input type="image" src="이미지 URL" alt="대체 텍스트"&gt;</code></dt>
 						<dd>
-							<p>제출 버튼(submit button)으로 사용될 이미지의 URL을 명시함.<br>
-								(단, &lt;input&gt; 요소의 type 속성값이 "image"인 경우에만 사용할 수 있음)
-							</p>
+							제출 버튼(submit button)으로 사용될 이미지의 URL을 명시함. (단, &lt;input&gt; 요소의 type 속성값이 "image"인 경우에만 사용할 수 있음)
+							<br><br>
+							&lt;input&gt; 요소의 alt 속성은 이미지를 위한 대체 텍스트를 명시합니다.<br>
+							이러한 alt 속성은 사용자가 느린 네트워크 환경이나 src 속성값의 오류, 시각 장애인용 스크린 리더의 사용 등 어떤 이유로든 사용자가 이미지를 볼 수 없을 때 이미지 대신 제공할 대체 정보를 제공합니다.<br>
+							이 속성은 &lt;input&gt; 요소의 type 속성값이 "image"인 경우에만 사용할 수 있습니다.
 <pre><code>
-
+&lt;form&gt; 
+	&lt;label for="flamingo"&gt;Click on the Flamingo&lt;/label&gt;&lt;br&gt; 
+	&lt;input type="image" src="/wp-content/uploads/flamingo.jpg" alt="플라밍고 이미지"&gt; 
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for src</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
 								</ul>
 							</aside>
 						</dd>
@@ -7799,9 +7824,12 @@ function populateWeeks() {
 								</ul>
 							</aside>
 						</dd>
-						<dt>[placeholder] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input placeholder="텍스트"&gt;</code></dt>
+						<dt>[placeholder] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="email|password|search|tel|text|url" placeholder="텍스트"&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소에 입력될 값에 대한 짧은 힌트를 명시함.</p>
+							&lt;input&gt; 요소의 placeholder 속성은 입력 필드에 사용자가 적절한 값을 입력할 수 있도록 도와주는 짧은 도움말을 명시합니다.<br>
+							이러한 도움말은 사용자가 입력할 수 있는 값에 대한 견본 값이나 입력 형식에 대한 간단한 설명 등이 사용되며, 사용자가 입력하기 전까지 입력 필드에 표시되다가 사용자가 입력을 시작하면 사라집니다.<br>
+							placeholder 속성이 제대로 동작하는 &lt;input&gt; 요소의 type 속성값은 다음과 같습니다.<br>
+							email, password, search, tel, text, url
 <pre><code>
 &lt;!-- 
 placeholder 특성 사용을 포함하여 입력 할 내용에 대한 힌트를 제공 할 수있는 텍스트 입력 안에 유용한 자리 표시자를 제공 할 수 있습니다. 
@@ -7821,18 +7849,23 @@ placeholder 특성 사용을 포함하여 입력 할 내용에 대한 힌트를 
 							<aside class="bosupport">
 								<strong>Web Browser Support for placeholder</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>10.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>11.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>5.0</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[required] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input required&gt;</code></dt>
+						<dt>[required] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="checkbox|date|email|file|number|password|pickers|radio|search|tel|text|url" required&gt;</code></dt>
 						<dd>
-							<p>폼 데이터(form data)가 서버로 제출되기 전 반드시 채워져 있어야 하는 입력 필드를 명시함.</p>
+							&lt;input&gt; 태그의 required 속성은 폼 데이터(form data)가 서버로 제출되기 전 반드시 채워져 있어야 하는 입력 필드를 명시합니다.<br>
+							required 속성이 제대로 동작하는 &lt;input&gt; 요소의 type 속성값은 다음과 같습니다.<br>
+							checkbox, date, email, file, number, password, pickers, radio, search, tel, text, url
+							<br><br>
+							required 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
 <pre><code>
 &lt;!-- 
 검색어를 입력하지 않고 양식을 제출하려고하면 브라우저에 오류 메시지가 표시됩니다.
@@ -7851,52 +7884,67 @@ placeholder 특성 사용을 포함하여 입력 할 내용에 대한 힌트를 
 							<aside class="bosupport">
 								<strong>Web Browser Support for required</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>5.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.6</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
 								</ul>
 							</aside>
 						</dd>
 						<dt>[height] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="image" src="이미지 URL" height="픽셀" alt="대체 텍스트"&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소의 높이를 픽셀 단위(in pixels)로 명시함.<br>
-								(단, &lt;input&gt; 요소의 type 속성값이 "image"인 경우에만 사용할 수 있음)
-							</p>
+							&lt;input&gt; 태그의 height 속성은 &lt;input&gt; 요소의 높이를 픽셀 단위(in pixels)로 명시합니다.<br>
+							이 속성은 &lt;input&gt; 요소의 type 속성값이 “image”인 경우에만 사용할 수 있습니다.<br>
+							<br><br>
+							이미지의 height 속성과 width 속성은 언제나 명시하는 것이 좋습니다.
+							이 속성들이 명시되어 있으면 웹 페이지가 로드될 때 브라우저가 해당 이미지를 위한 적절한 공간을 남겨둘 수 있지만, 
+							이 속성들이 명시되어 있지 않으면 브라우저는 이미지의 크기를 알 수 없어 필요한 공간을 남겨둘 수 없게 됩니다. 
+							따라서 이미지가 로딩되는 순간 페이지의 레이아웃이 변경되는 결과를 초래할 수 있습니다.</pre>
 <pre><code>
-
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;캐릭터명 : &lt;input type="text" name="char_name"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;비밀번호 : &lt;input type="password" name="password"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="image" src="/examples/images/submit_icon.png" alt="제출버튼" height="30" width="30"&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for height</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>16.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
 								</ul>
 							</aside>
 						</dd>
 						<dt>[width] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="image" src="이미지 URL" width="픽셀" alt="대체 텍스트"&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소의 너비를 픽셀 단위(in pixels)로 명시함.<br>
-								(단, &lt;input&gt; 요소의 type 속성값이 "image"인 경우에만 사용할 수 있음)
-							</p>
+							요소의 너비를 픽셀 단위(in pixels)로 명시합니다.<br>
+							이 속성은 &lt;input&gt; 요소의 type 속성값이 "image"인 경우에만 사용할 수 있습니다.<br>
+							이미지의 height 속성과 width 속성은 언제나 명시하는 것이 좋습니다.<br>
+							이 속성들이 명시되어 있으면 웹 페이지가 로드될 때 브라우저가 해당 이미지를 위한 적절한 공간을 남겨둘 수 있지만, 
+							이 속성들이 명시되어 있지 않으면 브라우저는 이미지의 크기를 알 수 없어 필요한 공간을 남겨둘 수 없게 됩니다.
+							따라서 이미지가 로딩되는 순간 페이지의 레이아웃이 변경되는 결과를 초래할 수 있습니다.
 <pre><code>
-
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;캐릭터명 : &lt;input type="text" name="char_name"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;비밀번호 : &lt;input type="password" name="password"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="image" src="/examples/images/submit_icon.png" alt="제출버튼" height="30" width="30"&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for width</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>16.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
 								</ul>
 							</aside>
 						</dd>
@@ -7917,10 +7965,18 @@ placeholder 특성 사용을 포함하여 입력 할 내용에 대한 힌트를 
 								<li>image/* - 모든 타입의 이미지 파일이 허용됨. &lt;input accept="image/*"&gt;</li>
 								<li>미디어 타입 - 매개변수(parameter)를 가지지 않는 유효한 미디어 타입</li>
 							</ul>
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;이름 : &lt;input type="text" name="st_name"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;학번 : &lt;input type="text" name="st_id"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;사진 : &lt;input type="file" name="st_picture" accept="image/*"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for accept</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10.0+</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+</em></li>
 									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>76.0</em></li>
 									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>8.0</em></li>
 									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
@@ -7975,144 +8031,199 @@ Try:&lt;br&gt;
 							<aside class="bosupport">
 								<strong>Web Browser Support for accesskey</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[autocomplete] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input autocomplete="on | off"&gt;</code></dt>
+						<dt>[autocomplete] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="color|datepickers|email|password|range|search|tel|text" autocomplete="on | off"&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소에서 자동 완성 기능을 사용할지 여부를 명시함.</p>
+							&lt;input&gt; 요소의 autocomplete 속성은 &lt;input&gt; 요소에서 자동 완성 기능을 사용할지 여부를 명시합니다.&lt;br&gt;
+							autocomplete 속성값을 on으로 명시하면, 브라우저는 사용자가 이전에 입력했던 값들을 기반으로 사용자가 입력한 값과 비슷한 값들을 드롭다운 옵션으로 보여줍니다.
+							&lt;br&gt;&lt;br&gt;
+							autocomplete 속성이 제대로 동작하는 &lt;input&gt; 요소의 type 속성값은 다음과 같습니다.
+							color, datepickers, email, password, range, search, tel, text
+							<ul>
+								<li><strong>on</strong>
+									<p>기본값으로, &lt;input&gt; 요소의 자동 완성 기능을 사용함.</p>
+								</li>
+								<li><strong>off</strong>
+									<p>&lt;input&gt; 요소의 자동 완성 기능을 사용하지 않음.</p>
+								</li>
+							</ul>
 <pre><code>
-
+&lt;form&gt; 
+	&lt;label for="email"&gt;Email Address&lt;/label&gt;&lt;br&gt; 
+	&lt;input type="email" name="email" id="email" autocomplete="on"&gt; 
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for autocomplete</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>5+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>17.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.6</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>5.2</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[autofocus] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input autofocus="checked"&gt;</code></dt>
+						<dt>[autofocus] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input autofocus&gt;</code></dt>
 						<dd>
-							<p>페이지가 로드될 때 자동으로 포커스(focus)가 &lt;input&gt; 요소로 이동됨을 명시함.</p>
+							&lt;input&gt; 태그의 autofocus 속성은 페이지가 로드될 때 자동으로 포커스(focus)가 &lt;input&gt; 요소로 이동됨을 명시합니다.
+							<br><br>
+							autofocus 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
 <pre><code>
-
+&lt;form&gt;
+	&lt;label for="name"&gt;Name&lt;/label&gt;&lt;br&gt;
+	&lt;input name="name" id="name" autofocus&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for autofocus</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>45.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>43.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>34.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
 								</ul>
 							</aside>
 						</dd>
 						<dt>[list] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input list="datalist id"&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소에서 사용하기 위해 미리 정의해 놓은 옵션들을 포함하고 있는 &lt;datalist&gt; 요소를 명시함.</p>
+							&lt;input&gt; 요소에서 사용하기 위해 미리 정의해 놓은 옵션들을 포함하고 있는 &lt;datalist&gt; 요소를 명시함.
 <pre><code>
-
+&lt;form&gt; 
+	&lt;label for="color"&gt;Favorite color?&lt;/label&gt;&lt;br&gt; 
+	&lt;input name="color" id="color" list="colors"&gt; 
+&lt;/form&gt; 
+&lt;datalist id="colors"&gt; 
+	&lt;option&gt;Red&lt;/option&gt; 
+	&lt;option&gt;Yellow&lt;/option&gt; 
+	&lt;option&gt;Blue&lt;/option&gt; 
+	&lt;option&gt;Green&lt;/option&gt; 
+	&lt;option&gt;Orange&lt;/option&gt; 
+	&lt;option&gt;Purple&lt;/option&gt; 
+	&lt;option&gt;Black&lt;/option&gt; 
+	&lt;option&gt;White&lt;/option&gt; 
+	&lt;option&gt;Gray&lt;/option&gt; 
+&lt;/datalist&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for list</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>45.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>43.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>35.0</em></li>
+									<li><img src="images/icon/ico_safari-false.png" alt="Safari Browser"><em>지원 안 함</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[max] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input max="최댓값"&gt;</code></dt>
+						<dt>[max] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="date|datetime|datetime-local|month|number|range|time|week" max="숫자|날짜"&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소의 최댓값을 명시함.</p>
+							&lt;input&gt; 요소의 max 속성은 &lt;input&gt; 요소의 최댓값을 명시합니다.<br>
+							max 속성은 min 속성과 함께 &lt;input&gt; 요소에서 입력값의 허용 범위를 설정하는데 사용됩니다.
+							min 속성과 max 속성이 제대로 동작하는 &lt;input&gt; 요소의 type 속성값은 다음과 같습니다.
+							date, datetime, datetime-local, month, number, range, time, week
+							<ul>
+								<li><strong>숫자</strong>
+									<p>허용되는 최댓값을 명시함.</p>
+								</li>
+								<li><strong>날짜</strong>
+									<p>허용되는 최대 날짜를 명시함.</p>
+								</li>
+							</ul>
 <pre><code>
+&lt;form&gt; 
+	&lt;label for="hours"&gt;How many hours are you available to work each week?&lt;/label&gt;&lt;br&gt; 
+	&lt;input type="number" id="hours" name="hours" max="168"&gt; 
+&lt;/form&gt;
 
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;이름 : &lt;input type="text" name="st_name"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;생년월일 : &lt;input type="date" name="bday" min="1900-01-01" max="2019-01-01"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;학년 : &lt;input type="number" name="grader" min="1" max="4" &gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for max</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>45.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>43.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>34.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[min] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input min="최솟값"&gt;</code></dt>
+						<dt>[min] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="date|datetime|datetime-local|month|number|range|time|week" min="숫자|날짜"&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소의 최솟값을 명시함.</p>
+							min 속성은 &lt;input&gt; 요소의 최솟값을 명시합니다.<br>
+							max 속성은 min 속성과 함께 &lt;input&gt; 요소에서 입력값의 허용 범위를 설정하는데 사용됩니다.<br>
+							min 속성과 max 속성이 제대로 동작하는 &lt;input&gt; 요소의 type 속성값은 다음과 같습니다.<br>
+							date, datetime, datetime-local, month, number, range, time, week
+							<ul>
+								<li><strong>숫자</strong>
+									<p>허용되는 최솟값을 명시함.</p>
+								</li>
+								<li><strong>날짜</strong>
+									<p>허용되는 최소 날짜를 명시함.</p>
+								</li>
+							</ul>
 <pre><code>
-
+&lt;form&gt; 
+	&lt;label for="hours"&gt;How many hours are you available to work each week?&lt;/label&gt;&lt;br&gt; 
+	&lt;input type="number" id="hours" name="hours" min="15"&gt; 
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for min</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>45.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>43.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>34.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
 								</ul>
 							</aside>
 						</dd>
 						<dt>[maxlength] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input maxlength="숫자"&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소에서 허용되는 최대 문자수를 명시함.</p>
+							&lt;input&gt; 요소에서 허용되는 최대 문자수를 명시함. 기본값은 524,288
 <pre><code>
-&lt;!-- 
-minlength 속성을 사용하여 입력 된 값의 최소 길이 (문자)를 지정할 수 있습니다. 
-마찬가지로 maxlength 를 사용하여 입력 된 값의 최대 길이를 문자로 설정할 수 있습니다.
-아래 예에서는 입력 된 값이 4-8 자 여야합니다.
-4 자 미만의 양식을 제출하려고하면 적절한 오류 메시지 (브라우저마다 다름)가 표시됩니다. 
-8 자 이상을 입력하려고하면 브라우저에서 알려주지 않습니다.
-minlength 를 지정하고 required를 지정하지 않으면 사용자가 값을 지정할 필요가 없으므로 입력이 유효한 것으로 간주됩니다.
---&gt;
-&lt;form&gt;
-	&lt;div&gt;
-		&lt;label for="uname"&gt;Choose a username: &lt;/label&gt;
-		&lt;input type="text" id="uname" name="name" 
-		required size="10" placeholder="Username" minlength="4" maxlength="8"&gt;
-		&lt;span class="validity"&gt;&lt;/span&gt;
-	&lt;/div&gt;
-	&lt;div&gt;
-		&lt;button&gt;Submit&lt;/button&gt;
-	&lt;/div&gt;
+&lt;form action="demo_form.asp"&gt;
+	&lt;label&gt;Username: &lt;input type="text" name="usrname" maxlength="10"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit" value="Submit"&gt;
 &lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
-								<strong>Web Browser Support for maxlength</strong>
+								<strong>Web Browser Support for minlength</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[minlength] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input minlength="숫자"&gt;</code></dt>
+						<dt>[minlength] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input minlength="숫자" required&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소에서 허용되는 최소 문자수를 명시함.</p>
+							&lt;input&gt; 요소에서 허용되는 최소 문자수를 명시함.
 <pre><code>
 &lt;!-- 
 minlength 속성을 사용하여 입력 된 값의 최소 길이 (문자)를 지정할 수 있습니다. 
@@ -8137,54 +8248,96 @@ minlength 를 지정하고 required를 지정하지 않으면 사용자가 값�
 							<aside class="bosupport">
 								<strong>Web Browser Support for minlength</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[step] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input step="숫자"&gt;</code></dt>
+						<dt>[step] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="date|datetime|datetime-local|month|number|range|time|week" step="숫자"&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소에 입력할 수 있는 숫자들 사이의 간격을 명시함.</p>
+							&lt;input&gt; 태그의 step 속성은 &lt;input&gt; 요소에 입력할 수 있는 숫자들 사이의 간격을 명시합니다.<br>
+							만약 step 속성값이 2라면, &lt;input&gt; 요소에 입력할 수 있는 숫자는 ..., -4, -2, 0, 2, 4, ... 등이 됩니다.<br>
+							step 속성은 min, max 속성과 함께 &lt;input&gt; 요소에 입력할 수 있는 유효한 값의 범위를 설정하는데 사용할 수 있습니다.<br>
+							step 속성이 제대로 동작하는 &lt;input&gt; 요소의 type 속성값은 다음과 같습니다.<br>
+							date, datetime, datetime-local, month, number, range, time, week
 <pre><code>
-
+&lt;form&gt; 
+	&lt;label for="bigstep"&gt;Big steps between values&lt;/label&gt;&lt;br&gt; 
+	&lt;input type="range" style="width: 100%;" step="10" min="1" max="100" name="bigstep"&gt; 
+	&lt;label for="littlestep"&gt;Little steps between values&lt;/label&gt;&lt;br&gt; 
+	&lt;input type="range" style="width: 100%;" step="1" min="1" max="100" name="littlestep"&gt; 
+	&lt;label for="number"&gt;And here is steps on a number field (try "4")&lt;/label&gt;&lt;br&gt; 
+	&lt;input type="number" name="numberfield" step="10"&gt; &lt;input type="submit"&gt; 
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for step</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>6.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>16.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>10.6</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>5.0</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[multiple] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input multiple&gt;</code></dt>
+						<dt>[multiple] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="email|file" multiple&gt;</code></dt>
 						<dd>
-							<p>&lt;input&gt; 요소에 사용자가 둘 이상의 값을 입력할 수 있음을 명시함.</p>
+							&lt;input&gt; 요소의 multiple 속성은 &lt;input&gt; 요소에 사용자가 둘 이상의 값을 입력할 수 있음을 명시합니다.<br>
+							multiple 속성이 제대로 동작하는 type 속성에는 email, file 이 있습니다.<br>
+							&lt;input&gt; 요소의 type 속성값이 "email"인 경우에는 이메일 사이에 콤마(,)를 추가하여 여러 이메일 주소를 동시에 입력할 수 있으며,<br>
+							type 속성값이 "file"인 경우에는 CTRL이나 SHIFT키를 사용하여 여러 파일을 동시에 선택할 수 있습니다.
+							<br><br>
+							multiple 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
 <pre><code>
-
+&lt;form&gt; 
+	&lt;label for="email"&gt;Email Address&lt;/label&gt;&lt;br&gt; 
+	&lt;input type="email" id="email" name="email" multiple&gt;&lt;br&gt; 
+	&lt;label for="file" &gt;Attachments&lt;/label&gt;&lt;br&gt; 
+	&lt;input type="file" name="file" id="file" multiple&gt;&lt;br&gt; 
+	&lt;input type="submit" value="Send"&gt; 
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for multiple</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>6.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>3.6</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>11.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>5.0</em></li>
 								</ul>
 							</aside>
 						</dd>
 						<dt>[pattern] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input pattern="정규 표현식"&gt;</code></dt>
 						<dd>
-							<p>폼 제출 시 &lt;input&gt; 요소의 값을 검사할 때 사용되는 정규 표현식(regular expression)을 명시함.</p>
+							pattern 속성은 폼 제출 시 &lt;input&gt; 요소의 값을 검사할 때 사용될 정규 표현식(regular expression)을 명시합니다.<br>
+							이때 전역 속성인 title 속성을 사용하여 정규 표현식에 간단한 설명을 추가함으로써 사용자가 정확한 값을 입력할 수 있도록 도움을 줄 수 있습니다.<br>
+							&lt;input&gt; 요소의 pattern속성을 사용하면 JavaScript를 사용하지 않고도 기본 데이터 유효성 검사를 추가 할 수 있습니다.(단, 정규 표현식(regular expression)을 명시해야 합니다.)<br>
+							정규 표현식 패턴을 정의하는 문자의 정형화 된 문자열입니다. 예를 들어 [a-zA-Z0-9]+ 문자열에 소문자 (a-z), 대문자 (A-Z) 또는 숫자 (0-9) 만 포함되어 있으면 길이에 관계없이 문자열과 일치하는 패턴이 있습니다.
+							<ul>
+								<li>Match [a-zA-Z0-9]+
+									<p>htmlcodetutorial</p>
+									<p>Mississippi</p>
+									<p>12BuckleMyShoe34</p>
+									<p>8675309</p>
+								</li>
+								<li>Do not match [a-zA-Z0-9]+
+									<p>https://html.com</p>
+									<p>Mrs. Ippi</p>
+									<p>1, 2, Buckle My Shoe!</p>
+									<p>(321) 867-4309</p>
+								</li>
+							</ul>
+							pattern 속성이 제대로 동작하는 &lt;input&gt; 요소의 type 속성값은 다음과 같습니다.<br>
+							date, email, password, search, tel, text, url
 <pre><code>
 &lt;!-- 
 pattern 속성을 사용하여 입력 값이 유효해야한다는 정규 표현식을 지정할 수 있습니다.
@@ -8206,141 +8359,196 @@ pattern 속성을 사용하여 입력 값이 유효해야한다는 정규 표현
 							<aside class="bosupport">
 								<strong>Web Browser Support for pattern</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>45.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>43.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>34.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[dirname] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input dirname=""&gt;</code></dt>
+						<dt>[dirname] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input name="이름" dirname="이름.dir"&gt;</code></dt>
 						<dd>
-							<p>폼 데이터(form data)가 서버로 제출될 때 서버로 보낼 입력 필드의 텍스트 방향성(text directionality)을 저장할 이름을 명시함. (언제나 이름 뒤에 ".dir"를 추가함)</p>
+							&lt;input&gt; 요소의 dirname 속성은 폼 데이터(form data)가 서버로 제출될 때 서버로 보낼 입력 필드의 텍스트 방향성(text directionality)을 저장할 이름을 명시합니다.<br>
+							dirname 속성값은 언제나 <input> 요소의 name 속성값 뒤에 “.dir”를 추가한 값이 됩니다.
 <pre><code>
-
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;이름 : &lt;input type="text" name="st_name" dirname="st_name.dir"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for dirname</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-false.png" alt="IE Browser"><em>지원 안 함</em></li>
+									<li><img src="images/icon/ico_edge-false.png" alt="Edge Browser"><em>지원 안 함</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_firefox-false.png" alt="Firefox Browser"><em>지원 안 함</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
 								</ul>
 							</aside>
 						</dd>
 						<dt>[form] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input form="form id"&gt;</code></dt>
 						<dd>
-							<p>해당 &lt;input&gt; 요소가 포함될 하나 이상의 &lt;form&gt; 요소를 명시함.</p>
+							해당 &lt;input&gt; 요소가 포함될 하나 이상의 &lt;form&gt; 요소를 명시함.<br>
+							이 속성값은 같은 문서 내에 위치하는 &lt;form&gt; 요소의 id 값이어야만 합니다.
 <pre><code>
-
+&lt;form action="/examples/media/action_target.php" method="get" id="myForm"&gt;
+	&lt;label&gt;이름 : &lt;input type="text" name="st_name"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;학번 : &lt;input type="text" name="st_id"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit"&gt;&lt;br&gt;&lt;br&gt;
+&lt;/form&gt;
+&lt;label&gt;학과 : &lt;input type="text" name="department" form="myForm"&gt;&lt;/label&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for form</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-false.png" alt="IE Browser"><em>지원 안 함</em></li>
+									<li><img src="images/icon/ico_edge-false.png" alt="Edge Browser"><em>지원 안 함</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>10.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>10.6</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>5.1</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[formaction] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input formaction="URL"&gt;</code></dt>
+						<dt>[formaction] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="submit|image" formaction="URL"&gt;</code></dt>
 						<dd>
-							<p>폼 데이터(form data)가 서버로 제출될 때 입력 데이터를 처리할 파일의 URL을 명시함.<br>
-								(단, &lt;input&gt; 요소의 type 속성값이 "submit" 또는 "image"인 경우에만 사용할 수 있음)
-						</p>
+							폼 데이터(form data)가 서버로 제출될 때 입력 데이터를 처리할 파일의 URL을 명시함.<br>
+							(단, &lt;input&gt; 요소의 type 속성값이 "submit" 또는 "image"인 경우에만 사용할 수 있음)<br>
+							formaction 속성은 &lt;form&gt; 요소의 action 속성값을 재정의(overriding)합니다.
 <pre><code>
-
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;이름 : &lt;input type="text" name="st_name"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;학번 : &lt;input type="text" name="st_id"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;학과 : &lt;input type="text" name="department"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit"&gt;
+	&lt;input type="submit" formaction="/examples/media/action_target2.php" value="다른 페이지로 제출"&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for formaction</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>9.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>10.6</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>5.1</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[formenctype] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input formaction="인코딩(encoding)되는 방식"&gt;</code></dt>
+						<dt>[formenctype] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="submit|image" formenctype="속성값"&gt;</code></dt>
 						<dd>
-							<p>폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩(encoding)되는 방식을 명시함.<br>
-								(단, &lt;input&gt; 요소의 type 속성값이 "submit" 또는 "image"인 경우에만 사용할 수 있음)
-						</p>
-						<br>
-						<p><strong>사용되는 값에는 다음과 같다.</strong></p>
-						<ul>
-							<li>application/x-www-form-urlencoded</li>
-							<li>multipart/form-data</li>
-							<li>text/plain</li>
-						</ul>
+							폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩(encoding)되는 방식을 명시함.<br>
+							이 속성은 &lt;input&gt; 요소의 type 속성값이 "submit" 또는 "image"이면서, &lt;form&gt; 요소의 method 속성값이 "post"인 경우에만 사용할 수 있습니다.<br>
+							formenctype 속성은 &lt;form&gt; 요소의 enctype 속성값을 재정의(overriding)합니다.
+							<p><strong>사용되는 값에는 다음과 같다.</strong></p>
+							<ul>
+								<li><strong>application/x-www-form-urlencoded</strong>
+									<p>기본값으로, 모든 문자들은 서버로 보내기 전에 인코딩됨을 명시함.</p>
+								</li>
+								<li><strong>multipart/form-data</strong>
+									<p>모든 문자를 인코딩하지 않음을 명시함. 이 방식은 &lt;form&gt; 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용함.</p>
+								</li>
+								<li><strong>text/plain</strong>
+									<p>공백 문자(space)는 "+" 기호로 변환하지만, 나머지 문자는 모두 인코딩되지 않음을 명시함.</p>
+								</li>
+							</ul>
 <pre><code>
-
+&lt;form action="/home/uploadfiles" method="post"&gt;
+	&lt;label&gt;파일명 : &lt;input type="file" name="myfile"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit" formenctype="multipart/form-data" value="제출하기"&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for formenctype</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>9.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>10.6</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>5.1</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[formmethod] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input formmethod="get | post"&gt;</code></dt>
+						<dt>[formmethod] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="submit|image" formmethod="get|post"&gt;</code></dt>
 						<dd>
-							<p>폼 데이터(form data)가 서버로 제출될 때 사용할 HTTP 메소드를 명시함.<br>
-								(단, &lt;input&gt; 요소의 type 속성값이 "submit" 또는 "image"인 경우에만 사용할 수 있음)
-						</p>
-						<br>
-						<p><strong>사용되는 값에는 다음과 같다.</strong></p>
-						<ul>
-							<li>get</li>
-							<li>post</li>
-						</ul>
+							폼 데이터(form data)가 서버로 제출될 때 사용할 HTTP 메소드를 명시함.<br>
+							이 속성은 &lt;input&gt; 요소의 type 속성값이 "submit" 또는 "image"인 경우에만 사용할 수 있으며, &lt;form&gt; 요소의 method 속성값을 재정의(overriding)합니다.
+							<br><br>
+							formmethod 속성은 속성값으로 GET과 POST 두 가지 중 하나를 선택할 수 있습니다.
+							<br>
+							GET 방식은 URL에 폼 데이터를 추가하여 서버로 전달하는 방식입니다.
+							<br>
+							GET 방식의 HTTP 요청은 브라우저에 의해 캐시되어(cached) 저장됩니다.
+							<br>
+							또한, GET 방식은 보통 쿼리 문자열(query string)에 포함되어 전송되므로, 길이의 제한이 있습니다.
+							<br>
+							따라서 보안상 취약점이 존재하므로, 중요한 데이터는 POST 방식을 사용하여 요청하는 것이 좋습니다.
+							<br><br>
+							POST 방식은 폼 데이터를 별도로 첨부하여 서버로 전달하는 방식입니다.
+							<br>
+							POST 방식의 HTTP 요청은 브라우저에 의해 캐시되지 않으므로, 브라우저 히스토리에도 남지 않습니다.
+							<br>
+							또한, POST 방식의 HTTP 요청에 의한 데이터는 쿼리 문자열과는 별도로 전송됩니다.
+							<br>
+							따라서 데이터의 길이에 대한 제한도 없으며, GET 방식보다 보안성이 높습니다.
+							<p><strong>사용되는 값에는 다음과 같다.</strong></p>
+							<ul>
+								<li><strong>get</strong>
+									<p>기본값으로, 폼 데이터를 HTTP GET 메소드로 전송함. ex) URL?name=value&name=value&...</p>
+								</li>
+								<li><strong>post</strong>
+									<p>폼 데이터를 HTTP POST 메소드로 전송함.</p>
+								</li>
+							</ul>
 <pre><code>
-
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;이름 : &lt;input type="text" name="st_name"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;학번 : &lt;input type="text" name="st_id"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit" formmethod="GET"&gt;
+	&lt;input type="submit" formmethod="POST" value="POST 방식으로 제출"&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for formmethod</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>9.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>10.6</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>5.1</em></li>
 								</ul>
 							</aside>
 						</dd>
-						<dt>[formnovalidate] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input formnovalidate&gt;</code></dt>
+						<dt>[formnovalidate] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;input type="submit" formnovalidate&gt;</code></dt>
 						<dd>
-							<p>폼 데이터(form data)가 서버로 제출될 때 해당 데이터의 유효성 검사를 하지 않음을 명시함.<br>
-								(단, &lt;input&gt; 요소의 type 속성값이 "submit"인 경우에만 사용할 수 있음)
-						</p>
+							폼 데이터(form data)가 서버로 제출될 때 해당 데이터의 유효성 검사를 하지 않음을 명시함.<br>
+							(단, &lt;input&gt; 요소의 type 속성값이 "submit"인 경우에만 사용할 수 있으며, &lt;form&gt; 요소의 novalidate 속성값을 재정의(overriding)합니다.)
+							<br><br>
+							formnovalidate 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
 <pre><code>
-
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;이메일 주소 : &lt;input type="email" name="user-email"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit"&gt;
+	&lt;input type="submit" value="유효성 검사없이 제출" formnovalidate&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for formnovalidate</strong>
 								<ul>
-									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>6.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>10.6</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
 								</ul>
 							</aside>
 						</dd>
@@ -8350,21 +8558,37 @@ pattern 속성을 사용하여 입력 값이 유효해야한다는 정규 표현
 								(단, &lt;input&gt; 요소의 type 속성값이 "submit" 또는 "image"인 경우에만 사용할 수 있음)
 						</p>
 <pre><code>
-
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;이름 : &lt;input type="text" name="st_name"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;label&gt;학번 : &lt;input type="text" name="st_id"&gt;&lt;/label&gt;&lt;br&gt;
+	&lt;input type="submit"&gt;
+	&lt;input type="submit" value="새창으로 제출" formtarget="_blank"&gt;
+&lt;/form&gt;
 </code></pre>
 							<aside class="bosupport">
 								<strong>Web Browser Support for formtarget</strong>
 								<ul>
 									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>11+</em></li>
-									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>18.0</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>78.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>70.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>13.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>45.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>43.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>34.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
 								</ul>
 							</aside>
 						</dd>
 					</dl>
+					<aside class="bosupport">
+						<strong>Web Browser Support for input</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1.0</em></li>
+						</ul>
+					</aside>
 				</article>
 
 				<h3 id="button-element"><mark>button</mark> element</h3>
@@ -8414,7 +8638,7 @@ pattern 속성을 사용하여 입력 값이 유효해야한다는 정규 표현
 &lt;/form&gt;
 </code></pre>
 					<aside class="bosupport">
-						<strong>Web Browser Support for name</strong>
+						<strong>Web Browser Support for button</strong>
 						<ul>
 							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
 							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
@@ -8673,7 +8897,7 @@ pattern 속성을 사용하여 입력 값이 유효해야한다는 정규 표현
 						</dd>
 						<dt>[label] <code>&lt;optgroup label="텍스트"&gt;</code></dt>
 						<dd>
-							&lt;optgroup&gt; 요소의 label 속성은 해당 옵션 그룹의 라벨(label)을 명시합니다.</p>
+							&lt;optgroup&gt; 요소의 label 속성은 해당 옵션 그룹의 라벨(label)을 명시합니다.</해당>
 <pre><code>
 &lt;select&gt;
 	&lt;optgroup label="커피(Coffee)"&gt;
@@ -8871,69 +9095,264 @@ pattern 속성을 사용하여 입력 값이 유효해야한다는 정규 표현
 
 					<h4>textarea 속성</h4>
 					<dl>
-						<dt>[cols] 속성</dt>
+						<dt>[cols] <code>&lt;textarea cols="숫자"&gt;</code></dt>
 						<dd>
-							텍스트 입력 영역 중 보이는 영역의 너비를 명시함.
-						</dd>
-						<dt>[rows] 속성</dt>
-						<dd>
-							텍스트 입력 영역 중 보이는 영역의 라인수를 명시함.
-						</dd>
-						<dt>[name] 속성</dt>
-						<dd>
-							&lt;textarea&gt; 요소의 이름을 명시함.
-						</dd>
-						<dt>[disabled] 속성</dt>
-						<dd>
-							해당 &lt;textarea&gt; 요소가 비활성화됨을 명시함.
-						</dd>
-						<dt>[readonly] 속성</dt>
-						<dd>
-							&lt;textarea&gt; 요소의 텍스트 입력 영역이 읽기 전용임을 명시함.
-						</dd>
-						<dt>[placeholder] 속성(HTML5에서 새롭게 추가)</dt>
-						<dd>
-							&lt;textarea&gt; 요소에 입력될 값에 대한 짧은 힌트를 명시함.
-						</dd>
-						<dt>[autofocus] 속성(HTML5에서 새롭게 추가)</dt>
-						<dd>
-							페이지가 로드될 때 자동으로 포커스가 &lt;textarea&gt; 요소로 이동됨을 명시함.
-						</dd>
-						<dt>[dirname] 속성(HTML5에서 새롭게 추가)</dt>
-						<dd>
-							폼 데이터(form data)가 서버로 제출될 때 서버로 보낼 텍스트 입력 영역의 텍스트 방향성(text directionality)을 저장할 이름을 명시함. (언제나 이름 뒤에 ".dir"를 추가함)
-						</dd>
-						<dt>[form] 속성(HTML5에서 새롭게 추가)</dt>
-						<dd>
-							해당 &lt;textarea&gt; 요소가 포함될 하나 이상의 &lt;form&gt; 요소를 명시함.
-						</dd>
-						<dt>[maxlength] 속성(HTML5에서 새롭게 추가)</dt>
-						<dd>
-							&lt;textarea&gt; 요소에서 허용되는 최대 문자수를 명시함.
-						</dd>
-						<dt>[required] 속성(HTML5에서 새롭게 추가)</dt>
-						<dd>
-							폼 데이터(form data)가 서버로 제출되기 전 텍스트 입력 영역이 반드시 채워져 있어야 함을 명시함.
-						</dd>
-						<dt>[wrap] 속성(HTML5에서 새롭게 추가)</dt>
-						<dd>
-							폼 데이터(form data)가 서버로 제출될 때 입력된 텍스트의 줄바꿈(wrap) 방식을 명시함.
-							<ul>
-								<li>hard 속성 값
-									<p></p>
-								</li>
-								<li>soft 속성 값
-									<p></p>
-								</li>
-							</ul>
-						</dd>
-					</dl>
+							텍스트 입력 영역 중 보이는 영역의 너비(width)를 명시함. 기본값은 20<br>
+							텍스트 입력 영역의 크기는 CSS의 height 속성과 width 속성을 사용해도 설정할 수 있습니다.
 <pre><code>
 &lt;form action="/examples/media/action_target.php" method="get"&gt;
-	&lt;textarea name="opinion" cols="30" rows="5"&gt;&lt;/textarea&gt;&lt;br&gt;
+	&lt;label&gt;
+		내용 : <br>
+		&lt;textarea name="opinion" cols="30" rows="5"&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
 	&lt;input type="submit"&gt;
 &lt;/form&gt;
 </code></pre>
+						</dd>
+						<dt>[rows] <code>&lt;textarea rows="숫자"&gt;</code></dt>
+						<dd>
+							텍스트 입력 영역 중 보이는 영역의 라인수를 명시함. 기본값은 2<br>
+							텍스트 입력 영역의 크기는 CSS의 height 속성과 width 속성을 사용해도 설정할 수 있습니다.
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;
+		내용 : <br>
+		&lt;textarea name="opinion" cols="30" rows="5"&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+						</dd>
+						<dt>[name] <code>&lt;textarea name="텍스트"&gt;</code></dt>
+						<dd>
+							&lt;textarea&gt; 요소의 이름을 명시함.<br>
+							name 속성은 폼(form)이 제출된 후 서버에서 폼 데이터(form data)를 참조하기 위해 사용되거나, 자바스크립트에서 요소를 참조하기 위해 사용됩니다.
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;
+		내용 : <br>
+		&lt;textarea name="opinion" cols="30" rows="5"&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+						</dd>
+						<dt>[disabled] <code>&lt;textarea disabled&gt;</code></dt>
+						<dd>
+							해당 &lt;textarea&gt; 요소가 비활성화됨을 명시함.<br>
+							disabled 속성이 명시된 텍스트 입력 영역은 사용할 수 없으며, 사용자가 클릭할 수도 없습니다.<br>
+							또한, 폼 데이터가 제출될 때도 disabled 속성이 명시된 텍스트 입력 영역의 데이터는 제출되지 않습니다.
+							<br><br>
+							따라서 이 속성을 사용하면 특정 조건이 충족될 때까지 사용자가 텍스트 입력 영역을 클릭할 수 없도록 설정하고, 
+							특정 조건이 충족되면 자바스크립트 등으로 disabled 속성값을 삭제하여 사용자가 텍스트 입력 영역을 다시 사용할 수 있도록 조절할 수 있습니다.
+							<br><br>
+							disabled 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;
+		내용 : <br>
+		&lt;textarea name="opinion" cols="30" rows="5" disabled&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+						</dd>
+						<dt>[readonly] <code>&lt;textarea readonly&gt;</code></dt>
+						<dd>
+							&lt;textarea&gt; 요소의 텍스트 입력 영역이 읽기 전용임을 명시함.<br>
+							읽기 전용으로 설정된 텍스트 입력 영역은 사용자가 수정할 수는 없지만, 해당 내용을 하이라이트하거나 복사할 수는 있습니다.<br>
+							따라서 이 속성을 사용하면 특정 조건이 충족될 때까지 사용자가 텍스트 입력 영역을 클릭할 수 없도록 설정하고, 
+							특정 조건이 충족되면 자바스크립트 등으로 readonly 속성값을 삭제하여 사용자가 텍스트 입력 영역을 수정할 수 있도록 조절할 수 있습니다.
+							<br><br>
+							disabled 속성이 명시된 텍스트 입력 영역의 값은 서버로 제출되지 않지만, readonly 속성이 명시된 텍스트 입력 영역의 값은 서버로 제출됩니다.
+							<br><br>
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;
+		내용 : <br>
+		&lt;textarea name="opinion" cols="30" rows="5" readonly&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+						</dd>
+						<dt>[placeholder] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;textarea placeholder=""&gt;</code></dt>
+						<dd>
+							placeholder 속성은 입력 필드에 사용자가 적절한 값을 입력할 수 있도록 도와주는 짧은 도움말을 명시합니다.<br>
+							이러한 도움말은 사용자가 입력할 수 있는 값에 대한 견본 값이나 입력 형식에 대한 간단한 설명 등이 사용되며, 
+							사용자가 입력하기 전까지 입력 필드에 표시되다가 사용자가 입력을 시작하면 사라집니다.
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;
+		내용 : <br>
+		&lt;textarea name="opinion" cols="30" rows="5" placeholder="내용을 입력해주세요."&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support for placeholder</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>10.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>11.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>5.0</em></li>
+								</ul>
+							</aside>
+						</dd>
+						<dt>[autofocus] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;textarea autofocus&gt;</code></dt>
+						<dd>
+							페이지가 로드될 때 자동으로 포커스가 &lt;textarea&gt; 요소로 이동됨을 명시함.
+							<br><br>
+							autofocus 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;
+		내용 : <br>
+		&lt;textarea name="opinion" cols="30" rows="5" autofocus"&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support for autofocus</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+								</ul>
+							</aside>
+						</dd>
+						<dt>[dirname] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;textarea name="이름" dirname="이름.dir"&gt;</code></dt>
+						<dd>
+							dirname 속성은 폼 데이터(form data)가 서버로 제출될 때 서버로 보낼 텍스트 입력 영역의 텍스트 방향성(text directionality)을 저장할 이름을 명시합니다.<br>
+							dirname 속성값은 언제나 &lt;textarea&gt; 요소의 name 속성값 뒤에 ".dir"를 추가한 값이 됩니다.
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;
+		내용 : <br>
+		&lt;textarea name="opinion" dirname="intro.dir" cols="30" rows="5" placeholder="내용을 입력해주세요."&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support for dirname</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-false.png" alt="IE Browser"><em>지원 안 함</em></li>
+									<li><img src="images/icon/ico_edge-false.png" alt="Edge Browser"><em>지원 안 함</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_firefox-false.png" alt="Firefox Browser"><em>지원 안 함</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+								</ul>
+							</aside>
+						</dd>
+						<dt>[form] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;textarea form="form id"&gt;</code></dt>
+						<dd>
+							해당 &lt;textarea&gt; 요소가 포함될 하나 이상의 &lt;form&gt; 요소를 명시함.<br>
+							이 속성값은 같은 문서 내에 위치하는 &lt;form&gt; 요소의 id 값이어야만 합니다.
+<pre><code>
+&lt;form id="myForm" action="/examples/media/action_target.php" method="get"&gt;
+	&lt;input type="submit"&gt;&lt;br&gt;&lt;br&gt;
+&lt;/form&gt;
+&lt;label&gt;
+	내용 : 
+	&lt;textarea name="opinion" form="myForm" cols="30" rows="5"&gt;&lt;/textarea&gt;
+&lt;/label&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support for form</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-false.png" alt="IE Browser"><em>지원 안 함</em></li>
+									<li><img src="images/icon/ico_edge-false.png" alt="Edge Browser"><em>지원 안 함</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>10.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>10.6</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>5.1</em></li>
+								</ul>
+							</aside>
+						</dd>
+						<dt>[maxlength] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;textarea maxlength="숫자"&gt;</code></dt>
+						<dd>
+							&lt;textarea&gt; 요소에서 허용되는 최대 문자수를 명시함.
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;
+		내용 : <br>
+		&lt;textarea name="opinion" cols="30" rows="5" maxlength="50" placeholder="내용을 입력해주세요."&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support for maxlength</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+								</ul>
+							</aside>
+						</dd>
+						<dt>[required] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;textarea required&gt;</code></dt>
+						<dd>
+								required 속성은 폼 데이터(form data)가 서버로 제출되기 전 텍스트 입력 영역이 반드시 채워져 있어야 함을 명시합니다.
+								<br><br>
+								required 속성은 불리언(boolean) 속성입니다.<br>
+								불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;
+		내용 : <br>
+		&lt;textarea name="opinion" cols="30" rows="5" required placeholder="내용을 입력해주세요."&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+						</dd>
+						<dt>[wrap] <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins> <code>&lt;textarea wrap="soft | hard"&gt;</code></dt>
+						<dd>
+							폼 데이터(form data)가 서버로 제출될 때 입력된 텍스트의 줄바꿈(wrap) 방식을 명시함.
+							<ul>
+								<li><strong>soft</strong>
+									<p>기본값으로, 폼 데이터가 서버로 제출될 때 입력된 텍스트를 줄바꿈하지 않음.</p>
+								</li>
+								<li><strong>hard</strong>
+									<p>폼 데이터가 서버로 제출될 때 입력된 텍스트를 줄바꿈함. 단, hard 속성값을 사용할 경우에는 반드시 cols 속성이 명시되어 있어야 함.</p>
+								</li>
+							</ul>
+<pre><code>
+&lt;form action="/examples/media/action_target.php" method="get"&gt;
+	&lt;label&gt;
+		내용 : &lt;br&gt;
+		&lt;textarea name="opinion" cols="20" rows="3" wrap="hard"&gt;&lt;/textarea&gt;
+	&lt;/label&gt;
+	&lt;br&gt;
+	&lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+						</dd>
+					</dl>
 					<aside class="bosupport">
 						<strong>Web Browser Support for textarea</strong>
 						<ul>
