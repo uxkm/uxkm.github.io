@@ -5,7 +5,7 @@
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
 	<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>CSS | UXKM UI/UX Assets</title>
+	<title>HTML | UXKM UI/UX Assets</title>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" href="fonts/uxFont.css">
 	<link rel="stylesheet" type="text/css" href="css/ukReset.css">
@@ -34,112 +34,690 @@
 		</nav>
 	</header>
 	<!-- //.ukheader -->
+
 	<nav data-fill-with="table-of-contents" id="toc" class="uk-toc">
 		<h2>CSS Table of Contents</h2>
 		<ol class="toc" role="directory">
+			<li><a href="#css-start">CSS 시작하기</a>
+				<ol>
+					<li><a href="#css-intro">CSS란?</a></li>
+					<li><a href="#css-reason">CSS를 사용하는 이유?</a></li>
+					<li><a href="#css-history">CSS의 발전</a></li>
+					<li><a href="#css-modules">CSS 모듈과 표준화 과정</a></li>
+					<li><a href="#css-syntax">CSS의 문법</a></li>
+					<li><a href="#css-apply">CSS 선언방식</a></li>
+				</ol>
+			</li>
+			<li><a href="#css-beginner">CSS 초급</a>
+				<ol>
+					<li><a href="#css-units">CSS 단위</a></li>
+					<li><a href="#css-selectors-level-1">CSS 선택자 level 1,2</a></li>
+					<li><a href="#css-visual-formatting">시각적인 속성</a></li>
+					<li><a href="#css-position">위치 속성</a></li>
+					<li><a href="#css-boxmodel">박스 모델 속성</a></li>
+					<li><a href="#css-background">Background 속성</a></li>
+					<li><a href="#css-font">Font 속성</a></li>
+					<li><a href="#css-text">Text 속성</a></li>
+					<li><a href="#css-list">List 속성</a></li>
+					<li><a href="#css-etc">기타 속성</a></li>
+				</ol>
+			</li>
+			<li><a href="#css-middleclass">CSS 중급</a>
+				<ol>
+					<li><a href="#css-selectors-level-3">CSS 선택자 level 3</a></li>
+					<li><a href="#css-content">가상 선택자</a></li>
+					<li><a href="#css-vendor">접두어</a></li>
+					<li><a href="#css-ir">IR 기법</a></li>
+					<li><a href="#css-module">CSS3 모듈</a></li>
+					<li><a href="#css-atrule">@규칙(At-Rule)</a></li>
+					<li><a href="#css-attr-rule">CSS 속성 선언순서</a></li>
+				</ol>
+			</li>
+			<li><a href="#css-advanced">CSS 고급</a>
+				<ol>
+					<li><a href="#css-interface">사용자 인터페이스</a></li>
+					<li><a href="#css-mediaquery">미디어 쿼리</a></li>
+					<li><a href="#css-print">Print</a></li>
+					<li><a href="#css-transform">Transform</a></li>
+					<li><a href="#css-transition">Transition</a></li>
+					<li><a href="#css-animation">Animation</a></li>
+					<li><a href="#css-grid">그리드 레이아웃</a></li>
+					<li><a href="#css-flexible">플렉서블 박스 레이아웃</a></li>
+					<li><a href="#css-selectors-level-4">CSS 선택자 level 4</a></li>
+				</ol>
+			</li>
+			<li><a href="#css-uiux">UI/UX 구현</a></li>
 			<li><a href="#bookmark-link">참조 사이트</a></li>
 		</ol>
 	</nav>
-	<main class="ukmain">
-		<h2 id="cTtitle">CSS</h2>
+	<main class="ukmain" role="main">
+		<h1 id="cTtitle">CSS</h1>
+		<time datetime="2019-11-15 13:58:37">Last Updated on 2019-11-15 13:58:42</time>
+		<blockquote cite="https://uxkm.github.io">
+			<p>
+				UXKM UI/UX 문서 기준은 W3C &amp; MDN 이며, 모든 예제는 UXKM 경험으로 최대한 이해하기 쉽게 예시를 두려고 작업 되었습니다.<br>
+				부족한 부분은 계속 보완 및 업데이트할 예정이며, 꼭 필요하거나 자주 사용되는 요소들 위주로 설명되어있어 일부 누락된 부분도 있을 수 있습니다.<br>
+				모든 문서는 강의 목적으로 제작되었고 일부 부족한 설명은 강의하면서 진행될 예정입니다.<br>
+				CSS3 기준으로 작성합니다.<br>
+				Deprecated(더 이상 사용되지 않는) 요소나 속성은 제외합니다.<br>
+				의미론적(Semantic)인 내용 위주로 작성합니다.<br>
+				표시적 의미(화면에 표시되는 방식)로 사용되지 않음을 전제하므로 그에 대한 내용은 생략합니다.
+			</p>
+		</blockquote>
+
 		<section class="ukbody">
 
 
-			<h3>CSS 시작</h3>
+			<h2 id="css-start">CSS 시작하기</h2>
 			<section class="uksection">
-				<h4>CSS 기본구조</h4>
-				<article class="ukarticle">
-					
+				<time datetime="">Last Updated on </time>
+				<blockquote class="note" role="note" cite="https://uxkm.github.io">
+					<p>
+						CSS를 활용하여 디자인을 하는 것은 창작이 우수한 사람이 잘 할 수 있습니다.<br>
+						단지 기술을 많이 안다고 해서 잘하는 것은 아닙니다.<br>
+						창작과 경험을 바탕으로 하여 해결능력을 가지는 것이 중요합니다.<br>
+						여기에서 가이드 해주는 것은 창작을 하려는 기본 기술을 알려주는 것입니다.<br>
+						포토샵으로 보면 포토샵의 툴 사용법을 알려주는 것과 같습니다.
+					</p>
+				</blockquote>
+				<h3 id="css-intro">CSS란?</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note" cite="https://www.w3.org/standards/webdesign/htmlcss">
+						<p>
+							CSS는 색상, 레이아웃 및 글꼴을 포함한 웹 페이지의 표현을 설명하기위한 언어입니다.<br>
+							큰 화면, 작은 화면 또는 프린터와 같은 다양한 유형의 장치에 프레젠테이션을 적용 할 수 있습니다.<br> 
+							CSS는 HTML과 무관하며 모든 XML 기반 마크 업 언어와 함께 사용할 수 있습니다.<br>
+							HTML을 CSS와 분리하면 사이트를보다 쉽게 ​​유지 관리하고, 여러 페이지에서 스타일 시트를 공유하고, 다양한 환경에 맞게 페이지를 조정할 수 있습니다.<br>
+							이를 프리젠 테이션에서 구조 (또는 컨텐츠)를 분리 하는 것으로합니다.
+						</p>
+					</blockquote>
+					<p><strong>건축물에 비유하면</strong><br>
+						HTML은 기초공사와 뼈대를 만들고 건물을 올리는 일<br>
+						CSS는 건물에 색상을 입히고, 인테리어를 하는 일<br>
+						Javascript는 건물에 활력을 불어넣어 물이나오고, 전기가 들어와서 사람이 살 수 있게 하는 일
+					</p>
+					<p><strong>사람에 비유하면</strong><br>
+						HTML은 몸<br>
+						CSS는 옷이나 외형<br>
+						Javascript는 행동
+					</p>
+					<p>그래서 HTML 코드로 웹사이트의 뼈대를 만들고, CSS로 웹사이트를 자신이 원하는 디자인으로 꾸며주고, 웹사이트의 외형이 만들어졌으면 Jvascript로 웹사이트에 움직임을 줍니다.</p>
+					<ul>
+						<li>CSS는 Cascading Style Sheets의 약자입니다.</li>
+						<li>CSS (Cascading Style Sheets)는 콘텐츠의 글꼴, 색상, 크기 및 간격을 포함한 웹 페이지의 표현을 설명하기위한 언어입니다.</li>
+						<li>CSS는 여러 열로 분할하거나 애니메이션 및 기타 장식 기능을 추가하는 등의 웹 페이지 스타일 및 레이아웃에 사용됩니다.</li>
+						<li>CSS는 디자인(design)과 기술(Technology)의 결합체입니다.</li>
+						<li>CSS는 색상, 레이아웃 및 글꼴을 포함한 웹 페이지의 표현을 설명하기위한 언어입니다.</li>
+						<li>즉, 웹페이지의 디자인을 결정하는 중요한 기술입니다. 이는 포토샵의 이미지들을 잘라 붙이는 것과는 다른의미를 말합니다.</li>
+						<li>큰 화면, 작은 화면 또는 프린터와 같은 다양한 유형의 장치에 적용 할 수 있습니다.</li>
+						<li>CSS는 HTML과 무관하며 모든 HTML(XHML) 기반 마크 업 언어와 함께 사용할 수 있습니다.</li>
+						<li>HTML을 CSS와 분리하면 사이트를보다 쉽게 ​​유지 관리하고, 여러 페이지에서 스타일 시트를 공유하고, 다양한 환경에 맞게 페이지를 조정할 수 있습니다.</li>
+						<li>오늘날 대부분의 웹 브라우저들은 모두 CSS를 지원하고 있습니다.</li>
+					</ul>
 				</article>
+
+				<h3 id="css-reason">CSS 사용 이유?</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<ul>
+						<li>HTML만으로 웹 페이지를 제작할 경우 HTML 요소의 세부 스타일을 일일이 따로 지정해 주어야만 합니다.</li>
+						<li>이 작업은 매우 많은 시간이 걸리며, 완성한 후에도 스타일의 변경 및 유지 보수가 매우 힘들어집니다.</li>
+						<li>이러한 문제점을 해소하기 위해 W3C(World Wide Web Consortium)에서 만든 스타일 시트 언어가 바로 CSS입니다.</li>
+						<li>CSS는 웹 페이지의 스타일을 별도의 파일로 저장할 수 있게 해주므로 사이트의 전체 스타일을 손쉽게 제어할 수 있습니다.</li>
+						<li>또한, 웹 사이트의 스타일을 일관성 있게 유지할 수 있게 해주며, 그에 따른 유지 보수 또한 쉬워집니다.</li>
+						<li>이러한 외부 스타일 시트는 보통 확장자를 .css 파일로 저장합니다.</li>
+					</ul>
+				</article>
+
+				<h3 id="css-history">CSS 발전</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note" cite="https://ko.wikipedia.org/wiki/%EC%A2%85%EC%86%8D%ED%98%95_%EC%8B%9C%ED%8A%B8">
+						<p>
+							CSS는 지속적으로 새로운 버전이 나오고 있다. 1996년에 도입된 CSS 1은 CSS의 바탕이 되었다.<br>
+							CSS의 표준으로는 CSS 2.1이 있으며 이전 버전에 비하여 새로운 기능과 도구가 추가되었다. <br>
+							대다수의 웹 브라우저는 CSS 2.1를 잘 지원한다.(인터넷 익스플로러의 경우, 버전 7이 되면서 CSS2.1을 지원한다.)<br>
+							현재 W3C에서는 CSS3을 표준으로 만들고 있다.
+							<br><br>
+							CSS는 여러 수준과 프로파일을 가지고 있다. 각 수준의 CSS는 일반적으로 새로운 기능을 담고 있으며 CSS1, CSS2, CSS3, CSS4로 나뉜다.<br>
+							프로파일들은 일반적으로 특정한 장치나 사용자 인터페이스를 위해 만들어진 하나 이상 수준의 CSS의 하부 집합이다.<br>
+							현재 휴대용 장치, 프린터, 텔레비전 수상기를 위한 프로파일들이 있다.
+						</p>
+					</blockquote>
+					<ul>
+						<li>CSS는 1994년 10월 10일, 하콤 비움 리(Håkon Wium Lie)가 처음 제안하였다.</li>
+						<li>인터넷의 발전에 따라 CSS는 현재까지 새로운 버전이 계속해서 발표되고 있습니다.</li>
+						<li>1996년에 최초의 CSS1이 W3C 표준 권고안으로 제정됩니다.</li>
+						<li>그 이후 1998년에 CSS2가 발표되었으며, 2005년부터는 현재 사용 중인 CSS3가 개발되고 있습니다.</li>
+						<li>따라서 현재 최신 버전의 CSS 표준 권고안은 CSS Level 2 Revision 1 (CSS 2.1)입니다.</li>
+					</ul>
+					<dl>
+						<dt>CSS1</dt>
+						<dd>첫 CSS 규격은 공식 W3C 권고안이 되었으며 그 이름은 CSS1이다. 1996년 12월에 발표되었다.</dd>
+						<dt>CSS2</dt>
+						<dd>CSS2는 W3C가 개발하였으며 1998년 5월에 권고안으로 발표되었다.</dd>
+						<dt>CSS3</dt>
+						<dd>
+							CSS3는 2005년 12월 5일 이후 개발 중에 있다. W3C CSS3 로드맵은 요약과 도입부를 제공하고 있다.<br>
+							전체가 모듈화되어 사용자 에이전트가 모듈에 대한 모든 모듈을 지원하지 않거나 자유롭게 선택할 수 있도록 하고 있으며,<br> 
+							현재 많은 방식으로 사용하고 있습니다.
+						</dd>
+						<dd>
+							CSS3는 Cascading Style Sheets(CSS) 언어의 가장 최신 버전이고 CSS2.1을 상속하는 것을 목표로 합니다.<br> 
+							CSS3는 새로운 기능들을 지원하게 되었습니다.<br> 
+							다중열(multi-columns), 유동적인 상자(flexible box), 격자 배치(grid layouts) 뿐만 아니라 둥그런 모서리(rounded corners),<br> 
+							그림자( shadows) , 부드러운 색의 변이(gradients) , 변이(transitions), 움직임(animations) 등도 지원합니다.<br> 
+							실험적인 부분(experimental parts)은 브라우저 공급자(vender)의 구현에 따라 다를 수 있고 미래에 문법이나 의미가 변할 수 있습니다.<br> 
+							따라서 환경에 따라 해당 스펙을 사용하는 것을 피하거나, 사용하더라도 매우 신중히 사용해야합니다.
+						</dd>
+						<dt>CSS4</dt>
+						<dd>
+							하나의 통합된 CSS4 사양은 없는데, 이는 여러 개의 모듈로 나뉘어 있는데 기인하다.<br>
+							현재는 지원되지 안되는 브라우저가 더 많이 있어 아직 실제 사용하기에는 어려움이 있습니다.
+						</dd>
+					</dl>
+				</article>
+
+				<h3 id="css-modules">CSS 모듈과 표준화 과정</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note" cite="https://developer.mozilla.org/ko/docs/Archive/CSS3#CSS_%EB%AA%A8%EB%93%88%EC%9D%98_%EC%83%81%ED%83%9C(CSS_modules_status)">
+						<p>
+							모듈과 표준화 과정(Modules and the standardization process)은<br>
+							2002년 8월부터 2011년 6월까지 CSS Level2가 권장(Recommendation)단계에 이르기 까지 총 9년이 걸렸습니다.<br>
+							이는 몇몇 부차적인 기능들이 전체 명세(specification)의 진행을 더디게 만들었기 때문입니다. <br>
+							W3C의 CSS Working Group은 문제를 일으키는 몇몇 기능을 제외한 나머지 기능들의 표준화 작업을 보다 빠르게 진행하기 위하여 <br>
+							Beijing doctrine에 따라 CSS를 보다 작은 컴포넌트 단위로 나눴고, 이를 모듈(module)이라 부릅니다. <br>
+							현재 각각의 모듈은 서로 독립적으로 표준화 과정을 거치고 있습니다. <br>
+							이미 몇몇 모듈은 W3C Rocommendations 에 이르렀으나, 나머지는 여진히 Working Drafts 단계에 머물러 있습니다. <br>
+							또한 새로운 요구사항(needs)이 발생할 때 마다 계속해서 새로운 모듈이 추가되고 있습니다.
+							<br><br>
+							공식적으로 CSS3 자체 표준은 존재하지 않습니다. <br>
+							각각의 모듈이 독립적으로 표준화 되고 있고, 표준 CSS는 모듈을 통해 CSS2.1을 수정하여 상속(extends)하는 것으로 구성되어있서 항상 같은 level number를 갖는 것은 아닙니다. <br>
+							특정 시점의 CSS2.1과 완성된 모듈들로 구성된 CSS표준 스냅샷을 정의할 수 있습니다. W3C는 주기적으로 이런 스냅샷을 발표하고 있습니다. (2007 / 2010)
+							<br><br>
+							아직까지 lever 3보다 높은 level을 가진 모듈은 없지만 곧 생길 것입니다. <br>
+							Selector 4나 CSSborder 4, Background 4와 같은 몇몇 모듈은 Working Draft가 공개된적은 없지만 이미 Editor's Draft는 작성되어 있습니다.
+							<br><br>
+							몇개의 모듈은 이미 상당히 안정적이고, CSSWG의 recommendation 3단계(Candidate Recommendation, Propesed Recommendation, Recommendation) 중 하나에 도달했습니다.<br>
+							이 모듈들은 별도의 과정없이도 꽤 안정적으로 사용할 수 있습다. 하지만 몇몇 기능은 여전히 Candidate Recommendation 단계에 머물러 있습니다.
+							<br><br>
+							모듈들은 명세(spec)의 핵심이 되는 CSS2.1을 수정, 상속하고 있습니다.
+						</p>
+					</blockquote>
+					<figure>
+						<img src="images/css/CSS_Modules_and_Snapshots.png" alt="모듈과 표준화 과정(Modules and the standardization process)">
+						<figcaption>[이미지출처] https://developer.mozilla.org/ko/docs/Archive/CSS3</figcaption>
+					</figure>
+				</article>
+
+				<h3 id="css-syntax">CSS 문법</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							CSS의 문법은 선택자(selector)와 선언부(declaration)로 구성된다.<br>
+							선택자는 CSS를 적용하고자 하는 HTML 요소(element)를 가리킨다.<br>
+							선언부는 하나 이상의 선언들을 세미콜론(;)으로 구분하여 포함할 수 있으며, 중괄호({ })를 사용하여 전체를 둘러싼다.<br>
+							각 선언은 CSS 속성명(property)과 속성값(value)을 가지며, 그 둘은 콜론(:)으로 연결된다.<br>
+							이러한 CSS 선언(declaration)은 언제나 마지막에 세미콜론(;)으로 끝마친다.
+						</p>
+					</blockquote>
+					<figure>
+						<figcaption>CSS 문법 예시</figcaption>
+						<img src="images/css/css_syntax.png" alt="CSS 문법">
+					</figure>
+					<ul>
+						<li>CSS의 가장 큰 특징은 상속과 겹침입니다.</li>
+						<li>즉 각각의 디자인 요소들의 속성들이 부드럽게 연결되며, 각각 우선순위를 갖는 것입니다.</li>
+						<li>이는 웹페이지를 구성하는 요소들(콘텐츠 또는 이미지)의 관계를 구체화시킬 수 있는 효율적인 방법을 제공합니다.</li>
+						<li>유기적인 결합으로 더욱 통일감있는 웹사이트를 디자인할 수 있으며, 우선순위를 정하여 디자인 요소의 아이덴터티를 살릴 수 있습니다.</li>
+					</ul>
+				</article>
+
+				<h3 id="css-apply">CSS 선언방식</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<dl>
+						<dt>HTML 문서에 CSS 스타일을 선언할 때 사용하는 네 가지 방법</dt>
+						<dd>인라인 스타일(Inline style)</dd>
+						<dd>내부 스타일(Internal style)</dd>
+						<dd>외부 스타일(External style)</dd>
+						<dd>at-rule 임포트 스타일 시트(Import style)</dd>
+					</dl>
+				</article>
+
+				<dl class="linkdoc">
+					<dt>참조</dt>
+					<dd><a href="https://www.w3.org/Style/CSS/learning" target="_blank" title="새 창 열림">W3C CSS 자습서</a></dd>
+					<dd><a href="https://ko.wikipedia.org/wiki/%EC%A2%85%EC%86%8D%ED%98%95_%EC%8B%9C%ED%8A%B8" target="_blank" title="새 창 열림">CSS 위키백과</a></dd>
+					<dd><a href="https://ko.wikipedia.org/wiki/Acid3" target="_blank" title="새 창 열림">웹 표준 프로젝트의 테스트 페이지</a></dd>
+				</dl>
 			</section>
 			<!-- //.uksection -->
 
-			<hr>
+			<hr title="Separator for Contents">
 
-			<h3>CSS 속성 선언 순서</h3>
+			<h2 id="css-beginner">CSS 초급(Beginner)</h2>
 			<section class="uksection">
-				<h4>Block 타입의 요소</h4>
-				<article class="ukarticle">
-					
+				<time datetime="">Last Updated on </time>
+
+				<h3 id="css-units">CSS 단위</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="https://www.w3.org/TR/css3-values/#relative-lengths" target="_blank" title="새 창 열림">W3C Unit</a>
+						</dd>
+					</dl>
 				</article>
-				<h4>Inline 타입의 요소</h4>
-				<article class="ukarticle">
-					
+				
+				<h3 id="css-selectors-level-1">CSS 선택자 level 1,2</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="https://www.w3.org/TR/css3-values/#relative-lengths" target="_blank" title="새 창 열림">W3C Unit</a>
+						</dd>
+					</dl>
 				</article>
+
+				<h3 id="css-visual-formatting">시각적인 속성</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-position">위치 속성</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-boxmodel">박스 모델 속성</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-background">Background 속성</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-font">Font 속성</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-text">Text 속성</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-list">List 속성</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-table">Table 속성</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-etc">기타 속성</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
 			</section>
 			<!-- //.uksection -->
 
-			<hr>
-			
-			<h3>숨김 속성</h3>
+			<hr title="Separator for Contents">
+
+			<h2 id="css-middleclass">CSS 중급(Middle class)</h2>
 			<section class="uksection">
-				<h4>div</h4>
-				<article class="ukarticle">
+				<time datetime="">Last Updated on </time>
+				
+				<h3 id="css-selectors-level-3">CSS 선택자 level 3</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
 				</article>
+
+				<h3 id="css-content">가상 선택자</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-vendor">접두어(Vendor Prefix)</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-ir">IR 기법 (Image Sprite)</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-module">CSS3 모듈</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-atrule">@규칙(At-Rule)</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-attr-rule">CSS 속성 선언순서</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
 			</section>
 			<!-- //.uksection -->
 
-			<hr>
+			<hr title="Separator for Contents">
 
-			<h3>위치 제어</h3>
+			<h2 id="css-advanced">CSS 고급(Advanced)</h2>
 			<section class="uksection">
-				<h4>div</h4>
-				<article class="ukarticle">
+				<time datetime="">Last Updated on </time>
+
+				<h3 id="css-interface">사용자 인터페이스</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
 				</article>
+
+				<h3 id="css-print">Print</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-mediaquery">미디어 쿼리(media query)</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-transform">Transform</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-transition">Transition</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-animation">Animation</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-grid">그리드(Grid) 레이아웃</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-flexible">플렉서블 박스(flexible box) 레이아웃</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-selectors-level-4">CSS 선택자 level 4</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
 			</section>
 			<!-- //.uksection -->
 
-			<hr>
+			<hr title="Separator for Contents">
 
-			<h3>좌우 정렬</h3>
+			<h2 id="css-uiux">UI/UX 구현</h2>
 			<section class="uksection">
-				<h4>div</h4>
-				<article class="ukarticle">
+				<time datetime="">Last Updated on </time>
+
+				<h3 id="css-layout">UI Layout</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
 				</article>
+
+				<h3 id="css-response">UI 반응형 Layout</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-navigation">UI Navigation</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-tabmenu">UI Tabmenu</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-list">UI List</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
+				<h3 id="css-faq">UI Faq</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<blockquote class="note" role="note">
+						<p>
+							
+						</p>
+					</blockquote>
+				</article>
+
 			</section>
 			<!-- //.uksection -->
 
-			<hr>
+			<hr title="Separator for Contents">
 
-			<h3>Box Model</h3>
+			<hr title="Separator for Contents">
+
+			<h2 id="bookmark-link">참조 사이트</h2>
 			<section class="uksection">
-				<h4>div</h4>
-				<article class="ukarticle">
-				</article>
+				<time datetime="2019-11-11 17:15:41">Last Updated on 2019-11-11 17:15:41</time>
+				<dl>
+					<dt>W3C HTML 및 CSS</dt>
+					<dd><a href="https://www.w3.org/standards/webdesign/htmlcss" target="_blank" title="새 창 열림">HTML 및 CSS</a></dd>
+					<dt>W3C CSS Specs</dt>
+					<dd><a href="https://www.w3.org/Style/CSS/current-work" target="_blank" title="새 창 열림">W3C CSS current work &amp; how to participate</a></dd>
+					<dt>W3C Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</dt>
+					<dd><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/" target="_blank" title="새 창 열림">W3C Recommendation 07 June 2011, edited in place 12 April 2016 to point to new work</a></dd>
+					<dt>W3C CSS Snapshot 2018</dt>
+					<dd><a href="https://www.w3.org/TR/CSS22/" target="_blank" title="새 창 열림">W3C Working Group Note, 22 January 2019</a></dd>
+					<dt>W3C Selectors Level 3</dt>
+					<dd><a href="https://www.w3.org/TR/selectors-3/" target="_blank" title="새 창 열림">W3C Recommendation 06 November 2018</a></dd>
+					<dt>W3C Selectors Level 4</dt>
+					<dd><a href="https://www.w3.org/TR/selectors-4/" target="_blank" title="새 창 열림">W3C Working Draft, 21 November 2018</a></dd>
+					<dd><a href="https://www.w3.org/TR/selectors-3/" target="_blank" title="새 창 열림">W3C Recommendation 06 November 2018</a></dd>
+					<dt>CSS Values and Units Module Level 3</dt>
+					<dd><a href="https://www.w3.org/TR/css3-values/" target="_blank" title="새 창 열림">W3C Candidate Recommendation, 6 June 2019</a></dd>
+					<dt>HTML5기술지원센터</dt>
+					<dd><a href="https://www.koreahtml5.kr/front/devSupport/usingExList.do" target="_blank" title="새 창 열림">koreahtml5</a></dd>
+				</dl>
 			</section>
 			<!-- //.uksection -->
+	<!-- 
+		초급
+CSS 선택자
+CSS 타이포그래피
+CSS 레이아웃
 
-			<hr>
+중급
+CSS3 선택자
+CSS3 타이포그래피
+CSS3 transition
+CSS3 animation/transform
+반응형 레이아웃 (media query)
 
-			<h3>Design 속성</h3>
-			<section class="uksection">
-				<h4>div</h4>
-				<article class="ukarticle">
-				</article>
-			</section>
-			<!-- //.uksection -->
-
-			<hr>
-
-			<h3>Etc</h3>
-			<section class="uksection">
-				<h4>div</h4>
-				<article class="ukarticle">
-				</article>
-			</section>
-			<!-- //.uksection -->
-
-			<hr>
-
-			<h3>CSS Browser Support</h3>
-			<section class="uksection">
-				<h4>div</h4>
-				<article class="ukarticle">
-				</article>
-			</section>
-			<!-- //.uksection -->
-
-
+고급
+	 -->
 		</section>
 		<!-- //.ukbody -->
 	</main>
