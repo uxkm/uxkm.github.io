@@ -1,0 +1,300 @@
+@charset "utf-8";
+
+
+//bg_url
+	@bg-url:'../img';
+
+
+// size
+	@hdHeight:130px;
+	@hdHeightMb:220px;
+	@pc_padding:50px;
+	@conWidth:1580px + (@pc_padding * 2);
+	@mb_footer_height:171px;	//모바일버전의 푸터 height가 늘어날 경우 반드시 수정
+
+
+
+//common
+	html, body, .wrap {height:100%;}
+	html {overflow-y:scroll;}
+	body {.font-kr; word-break:keep-all;}
+	.main_content {background:#000;}
+	.sub_content {background:#fff;}
+
+	.inner {
+		.clear;
+		position:relative; font-size:14px;
+		max-width:@conWidth;
+		margin:0 auto; padding:0 @pc_padding;
+	}
+	@media (max-width: @screen-sm-max){
+		.inner {padding:0 10px;}
+	}
+
+	.wrap {
+		.clear; .display-flex-height;
+		height:100%; min-height:100%;
+		.uk-header {.flex(none);}
+		.uk-container {.flex(auto);}
+		.uk-footer {.flex(none);}
+	}
+	@media (max-width: @screen-sm-max){
+		.wrap {
+			display:block; height:100%; min-height:100%;
+			.uk-header {display:block;}
+			.uk-container {
+				display:block;
+				min-height:calc(100vh - @mb_footer_height - @hdHeightMb);
+			}
+			.uk-footer {display:block;}
+		}
+	}
+
+
+//uk_logo
+	.uk_logo a {
+		display:inline-block; vertical-align:top;
+		width:184px; height:78px;
+		font-size:0;
+		background-image:url('@{bg-url}/logo.gif');
+		background-size:184px auto;
+		background-position:center center;
+		background-repeat:no-repeat;
+	}
+	/*
+	.uk_logo { margin:0 auto;
+		@import url('https://fonts.googleapis.com/css?family=Jura:300,400,500,600,700&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+		.font {font-family:'Jura', sans-serif;}
+
+		overflow:hidden; position:relative;
+		display:inline-block; vertical-align:top;
+		width:180px; font-size:100%;
+		opacity:0; transition:opacity .15s;
+		&:before, &:after {left:0; position:absolute; .font;}
+		&:before {
+			top:0;
+			line-height:1.15em; text-indent:0.06em;
+			font-size:3em; font-weight:600; color:inherit;
+			//letter-spacing:-0.027em;
+			letter-spacing:-0.002em;
+			content:attr(data-logo);
+		}
+		&:after {
+			bottom:0;
+			line-height:2.1em; text-indent:0.65em; text-transform:uppercase;
+			font-size:0.66em; font-weight:300; letter-spacing:0.433em; color:inherit;
+			content:attr(data-url);
+		}
+		p {padding-top:43.612%; font-size:0;}
+		span {
+			position:absolute; right:0.5em; top:0.43em;
+			width:0.18em; height:2.67em;
+			animation:uxkm_logo 1.2s linear infinite;
+			&:before, &:after {
+				position:absolute; left:-0.06em; top:0;
+				width:0.29em; height:0.08em; background:inherit;
+				content:"";
+			}
+			&:after {top:auto; bottom:0;}
+		}
+	}
+	@keyframes uxkm_logo{
+		0% {opacity:0;}
+		50% {opacity:0;}
+		51% {opacity:1;}
+		100% {opacity:1;}
+	}
+	*/
+
+
+//uk-header
+	.uk-header {
+		height:@hdHeight;
+		.uk_logo {.lft; margin-top:26px;}
+		.nav_area {
+			@size:60px;
+			.rgt; .clear; margin-top:(@hdHeight - @size)/2;
+			.nav, .aside {.lft;}
+			.nav {
+				.clear; font-size:0;
+				a {
+					@pd:20px;
+					.lft; position:relative;
+					height:@size; line-height:@size; padding:0 @pd;
+					.font-en; font-size:20px; color:#fff;
+					transition:all .15s;
+					&:before {
+						position:absolute; left:@pd - 3px; right:@pd - 3px; bottom:13px; opacity:.7;
+						height:0; background:@blue; border-radius:2px;
+						transition:all .15s;
+						content:"";
+					}
+					&:hover:before {height:13px;}
+					i {position:relative; z-index:1;}
+				}
+			}
+			.aside {
+				.clear;
+				button {
+					.lft; position:relative; cursor:pointer;
+					width:@size; height:@size; margin-left:20px;
+					i {font-size:0;}
+				}
+				.layer_box {display:none;}
+
+				.search_btn {
+					i {
+						@size:28px;
+						position:absolute; left:50%; top:50%;
+						width:@size; height:@size; margin:-@size/2 0 0 -@size/2;
+						border:4px solid #fff; border-radius:100%;
+						&:after {
+							position:absolute; right:-5px; bottom:-5px; transform:rotate(45deg);
+							width:10px; height:5px;
+							background:#fff;
+							content:"";
+						}
+					}
+				}
+				.sitemap_btn {
+					@tb:-12px;
+					@speed:.4s;  //애니메이션 스피드
+					@delay:.0s;  //애니메이션 시간차
+
+					i {
+						position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+						width:30px; height:4px;
+						font-size:0; background:#fff;
+						transition:background-color .15s @delay;
+						&:before, &:after {
+							position:absolute; left:0;
+							width:100%; height:100%; background:#fff;
+							content:"";
+						}
+						&:before {top:@tb;}
+						&:after {bottom:@tb;}
+					}
+
+					//after 활성화 후 제자리
+					&.after {
+						i {
+							transition:background-color .6s @delay;
+							&:before {
+								//(animation name, 시작위치, 마무리위치, 움직임1~4[deg])
+								.menuBtnBefore(closeTop, 0, @tb, 135deg, -10deg, 5deg, 0deg);
+							}
+							&:after {
+								//(animation name, 시작위치, 마무리위치, 움직임1~4[deg])
+								.menuBtnAfter(closeBottom, 0, @tb, -135deg, 10deg, -5deg, 0deg);
+							}
+						}
+					}
+
+					//active 활성화
+					&.active {
+						i {
+							transition:background-color .15s @delay;
+							background-color:rgba(0,0,0,0);
+							&:before {
+								//(animation name, 시작위치, 마무리위치, 움직임1~4[deg])
+								.menuBtnBefore(openTop, @tb, 0, 0deg, 145deg, 130deg, 135deg);
+							}
+							&:after {
+								//(animation name, 시작위치, 마무리위치, 움직임1~4[deg])
+								.menuBtnAfter(openBottom, @tb, 0, 0deg, -145deg, -130deg, -135deg);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	@media (max-width: @screen-sm-max){}
+
+
+//uk-footer
+	.uk-footer {
+		position:relative; text-align:center;
+		.nav {
+			position:relative; padding:56px 0;
+			div {position:relative; display:inline-block; font-size:0;}
+			a {
+				position:relative; display:inline-block; vertical-align:top;
+				line-height:40px; .font-en; font-size:15px; font-weight:600;  color:#bbb;
+				transition:all .15s;
+				&:after {
+					position:absolute; left:-3px; right:-3px; bottom:7px; opacity:.7;
+					height:0;
+					background:@blue; border-radius:2px;
+					transition:all .15s;
+					content:"";
+				}
+				&:hover {color:#fff;}
+				&:hover:after {height:10px;}
+				i {position:relative; z-index:1;}
+			}
+
+			.depth1 {
+				&:after {
+					position:absolute; left:0; bottom:-11px;
+					width:100%; height:2px; background:@blue;
+					content:"";
+				}
+				a {
+					margin-left:34px;
+					&:first-child {margin:0;}
+				}
+			}
+			.depth2 {
+				display:block; margin-top:20px;
+				@b_w:30px;
+				a {
+					margin-left:@b_w;
+					&:before {
+						position:absolute; left:-@b_w;
+						width:@b_w; font-weight:800;
+						content:"·";
+					}
+					&:first-child {margin:0;}
+					&:first-child:before {display:none;}
+				}
+			}
+		}
+		.btm {
+			padding:70px 0;
+			background:#1a1a1a;
+			.uk_logo a {
+				width:300px; height:100px; margin:0 auto; padding:15px 0;
+				background-color:#000;
+			}
+			.copy {
+				line-height:20px; margin-top:25px;
+				.font-en; font-size:14px; color:#aaa;
+			}
+		}
+	}
+	.main_content .uk-footer .nav {
+		max-width:@conWidth -  (@pc_padding/2); margin:0 auto;
+		&:before {
+			position:absolute; left:@pc_padding; right:@pc_padding; top:0;
+			height:1px; background:rgba(255,255,255,.2);
+			content:"";
+		}
+	}
+	@media (max-width: @screen-sm-max){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
