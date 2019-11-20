@@ -180,6 +180,7 @@ a:focus {
 .hidden {
   overflow: hidden;
   display: inline-block;
+  position: absolute;
   margin: -1px;
   width: 1px;
   height: 1px;
@@ -407,6 +408,8 @@ body,
 }
 html {
   overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
   background: #000;
   scroll-behavior: smooth;
 }
@@ -1425,6 +1428,7 @@ body {
 }
 .main_intro {
   min-height: 700px;
+  z-index: 2;
 }
 .main_intro .txt_box {
   position: absolute;
@@ -1634,17 +1638,20 @@ body {
   }
 }
 .main_info {
+  z-index: 1;
   min-height: 900px;
   padding: 100px 0;
-  background: #ffffff;
   transition: background-color 0.8s;
-}
-.main_info.info_scroll {
-  background-color: #fff;
+  background: #ffffff;
+  background: -moz-radial-gradient(center, ellipse cover, #ffffff 70%, #d5d5d5 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #ffffff 70%, #d5d5d5 100%);
+  background: radial-gradient(ellipse at center, #ffffff 70%, #d5d5d5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#d5d5d5', GradientType=1);
 }
 .main_info .txt_area {
   position: relative;
   top: 50%;
+  z-index: 2;
   transform: translate(0, -50%);
   max-width: 980px;
   margin: 0 auto;
@@ -1683,7 +1690,7 @@ body {
   display: inline-block;
   position: relative;
   line-height: 170%;
-  margin: 14.5% 0 3.8%;
+  margin: 14.6% 0 3.8%;
   font-size: 50px;
   color: #222;
   font-weight: 800;
@@ -1698,11 +1705,11 @@ body {
 .main_info .txt_area strong:before {
   left: 0;
   right: 0;
-  top: -98%;
+  top: -102%;
   line-height: 100%;
   font-family: 'Anton', 'Malgun Gothic', 'Dotum', sans-serif;
   font-size: 140px;
-  color: #f3f3f3;
+  color: rgba(0, 0, 0, 0.05);
   font-weight: normal;
   letter-spacing: 0.01em;
   content: "WELCOME";
@@ -1710,9 +1717,9 @@ body {
 .main_info .txt_area strong:after {
   left: 10px;
   right: 10px;
-  bottom: 0;
+  bottom: -5%;
   height: 55%;
-  background: #f3f3f3;
+  background: rgba(0, 0, 0, 0.05);
 }
 .main_info .txt_area strong b {
   color: #1e73ff;
@@ -1721,42 +1728,287 @@ body {
 .main_info .txt_area strong br {
   display: none;
 }
-@media (max-width: 980px) {
-  .main_info .txt_area p {
-    line-height: 160%;
-    font-size: 2.95vw;
-    letter-spacing: -0.05em;
+.main_info .keyboard {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.main_info .keyboard span,
+.main_info .keyboard span i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.main_info .keyboard span i:before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 110%;
+  height: calc(100% + 600px);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 1920px auto;
+  content: "";
+}
+.main_info .keyboard .step1 {
+  z-index: 5;
+}
+.main_info .keyboard .step2 {
+  z-index: 4;
+}
+.main_info .keyboard .step3 {
+  z-index: 3;
+}
+.main_info .keyboard .step4 {
+  z-index: 2;
+}
+.main_info .keyboard .step5 {
+  z-index: 1;
+}
+.main_info .keyboard .step1 i:before {
+  background-image: url('../img/keyboard/step1.png');
+}
+.main_info .keyboard .step2 i:before {
+  background-image: url('../img/keyboard/step2.png');
+}
+.main_info .keyboard .step3 i:before {
+  background-image: url('../img/keyboard/step3.png');
+}
+.main_info .keyboard .step4 i:before {
+  background-image: url('../img/keyboard/step4.png');
+}
+.main_info .keyboard .step5 i:before {
+  background-image: url('../img/keyboard/step5.png');
+}
+.ie .main_info.info_scroll .keyboard span i:before {
+  animation: ie_keyboard 1s both;
+}
+@keyframes ie_keyboard {
+  0% {
+    opacity: 0;
   }
-  .main_info .txt_area p i:before {
-    left: -2px;
-    right: -2px;
-    bottom: 12%;
-    height: 22%;
-  }
-  .main_info .txt_area strong {
-    line-height: 170%;
-    margin: 14.5% 0 3.8%;
-    font-size: 4.8vw;
-    letter-spacing: -0.08em;
-  }
-  .main_info .txt_area strong:before {
-    top: -98%;
-    line-height: 100%;
-    font-size: 13.4vw;
-    letter-spacing: 0.01em;
-  }
-  .main_info .txt_area strong:after {
-    height: 55%;
+  100% {
+    opacity: 1;
   }
 }
-@media (max-width: 767px) {
+.ie_no .main_info .keyboard .step1 i {
+  -webkit-animation: keyStep1 4.2s ease-in-out infinite;
+  -moz-animation: keyStep1 4.2s ease-in-out infinite;
+  animation: keyStep1 4.2s ease-in-out infinite;
+}
+@keyframes keyStep1 {
+  0% {
+    transform: translate(0, 2%);
+  }
+  50% {
+    transform: translate(0, -2%);
+  }
+  100% {
+    transform: translate(0, 2%);
+  }
+}
+.ie_no .main_info .keyboard .step2 i {
+  -webkit-animation: keyStep2 4.6s ease-in-out infinite;
+  -moz-animation: keyStep2 4.6s ease-in-out infinite;
+  animation: keyStep2 4.6s ease-in-out infinite;
+}
+@keyframes keyStep2 {
+  0% {
+    transform: translate(0, -1.6%);
+  }
+  50% {
+    transform: translate(0, 1.6%);
+  }
+  100% {
+    transform: translate(0, -1.6%);
+  }
+}
+.ie_no .main_info .keyboard .step3 i {
+  -webkit-animation: keyStep3 5s ease-in-out infinite;
+  -moz-animation: keyStep3 5s ease-in-out infinite;
+  animation: keyStep3 5s ease-in-out infinite;
+}
+@keyframes keyStep3 {
+  0% {
+    transform: translate(0, 1.2%);
+  }
+  50% {
+    transform: translate(0, -1.2%);
+  }
+  100% {
+    transform: translate(0, 1.2%);
+  }
+}
+.ie_no .main_info .keyboard .step4 i {
+  -webkit-animation: keyStep4 5.4s ease-in-out infinite;
+  -moz-animation: keyStep4 5.4s ease-in-out infinite;
+  animation: keyStep4 5.4s ease-in-out infinite;
+}
+@keyframes keyStep4 {
+  0% {
+    transform: translate(0, 0.8%);
+  }
+  50% {
+    transform: translate(0, -0.8%);
+  }
+  100% {
+    transform: translate(0, 0.8%);
+  }
+}
+.ie_no .main_info .keyboard .step5 i {
+  -webkit-animation: keyStep5 5.8s ease-in-out infinite;
+  -moz-animation: keyStep5 5.8s ease-in-out infinite;
+  animation: keyStep5 5.8s ease-in-out infinite;
+}
+@keyframes keyStep5 {
+  0% {
+    transform: translate(0, 0.4%);
+  }
+  50% {
+    transform: translate(0, -0.4%);
+  }
+  100% {
+    transform: translate(0, 0.4%);
+  }
+}
+.ie_no .main_info.info_scroll .keyboard .step1 i:before {
+  -webkit-animation: keyBg1 1s 0.48s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  -moz-animation: keyBg1 1s 0.48s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  animation: keyBg1 1s 0.48s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+}
+@keyframes keyBg1 {
+  0% {
+    background-size: 0 auto;
+    opacity: 0;
+  }
+  100% {
+    background-size: 1920px auto;
+    opacity: 1;
+  }
+}
+.ie_no .main_info.info_scroll .keyboard .step2 i:before {
+  -webkit-animation: keyBg2 1s 0.36s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  -moz-animation: keyBg2 1s 0.36s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  animation: keyBg2 1s 0.36s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+}
+@keyframes keyBg2 {
+  0% {
+    background-size: 0 auto;
+    opacity: 0;
+  }
+  100% {
+    background-size: 1920px auto;
+    opacity: 1;
+  }
+}
+.ie_no .main_info.info_scroll .keyboard .step3 i:before {
+  -webkit-animation: keyBg3 1s 0.24s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  -moz-animation: keyBg3 1s 0.24s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  animation: keyBg3 1s 0.24s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+}
+@keyframes keyBg3 {
+  0% {
+    background-size: 0 auto;
+    opacity: 0;
+  }
+  100% {
+    background-size: 1920px auto;
+    opacity: 1;
+  }
+}
+.ie_no .main_info.info_scroll .keyboard .step4 i:before {
+  -webkit-animation: keyBg4 1s 0.12s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  -moz-animation: keyBg4 1s 0.12s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  animation: keyBg4 1s 0.12s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+}
+@keyframes keyBg4 {
+  0% {
+    background-size: 0 auto;
+    opacity: 0;
+  }
+  100% {
+    background-size: 1920px auto;
+    opacity: 1;
+  }
+}
+.ie_no .main_info.info_scroll .keyboard .step5 i:before {
+  -webkit-animation: keyBg5 1s 0s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  -moz-animation: keyBg5 1s 0s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  animation: keyBg5 1s 0s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+}
+@keyframes keyBg5 {
+  0% {
+    background-size: 0 auto;
+    opacity: 0;
+  }
+  100% {
+    background-size: 1920px auto;
+    opacity: 1;
+  }
+}
+@media (max-width: 1020px) {
   .main_info {
     min-height: auto;
     height: auto !important;
+    padding: 13% 0;
   }
   .main_info .txt_area {
     position: static;
     transform: translate(0, 0);
   }
+  .main_info .txt_area p {
+    font-size: 2.95vw;
+  }
+  .main_info .txt_area strong {
+    font-size: 4.8vw;
+  }
+  .main_info .txt_area strong:before {
+    font-size: 13.4vw;
+  }
+}
+@media (max-width: 550px) {
+  .main_info .keyboard {
+    display: none;
+  }
+}
+@media (max-width: 550px) {
+  .main_info .txt_area strong {
+    line-height: 115%;
+    margin: 77px 0 20px;
+    font-size: 26px;
+  }
+  .main_info .txt_area strong:before {
+    top: -78%;
+    font-size: 60px;
+  }
+  .main_info .txt_area strong:after {
+    left: -10px;
+    right: -10px;
+    height: 55%;
+    bottom: 17px;
+  }
+  .main_info .txt_area strong br {
+    display: block;
+  }
+}
+@media (max-width: 515px) {
+  .main_info .txt_area p {
+    font-size: 15px;
+  }
+}
+@media (max-width: 360px) {
+  .main_info .txt_area p {
+    font-size: 14px;
+  }
+}
+.main_editor {
+  z-index: 2;
 }
 /*# sourceMappingURL=uk.css.map */

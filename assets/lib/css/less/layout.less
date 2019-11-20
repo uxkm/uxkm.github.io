@@ -15,12 +15,11 @@
 
 //common
 	html, body, .wrap {height:100%;}
-	html {overflow-y:scroll; background:#000; scroll-behavior:smooth;}
-	body {
-		.font-kr; word-break:keep-all; //opacity:0;
-		//animation:bodyOn .2s both;
-
+	html {
+		overflow-y:scroll; overflow-x:hidden;
+		width:100%; background:#000; scroll-behavior:smooth;
 	}
+	body {.font-kr; word-break:keep-all;}
 	@keyframes bodyOn{
 		0% {opacity:0;}
 		100% {opacity:1;}
@@ -506,7 +505,7 @@
 	//intro
 	.main_intro {
 		@pb:120px;
-		min-height:700px;
+		min-height:700px; z-index:2;
 		.txt_box {
 			position:absolute; left:0; right:0; bottom:@pb;
 			.tit {overflow:hidden;}
@@ -623,19 +622,25 @@
 	}
 
 
+
 	//info
 	@main_info_p:20px;
 	@main_info_w:940px + (@main_info_p*2);
 	.main_info {
+		z-index:1;
 		min-height:900px; padding:100px 0;
-		background:rgba(255,255,255,1.3);
 		transition:background-color .8s;
-		&.info_scroll {background-color:#fff;}
+		//background:rgba(255,255,255,1.3);
+		background: #ffffff;
+		background: -moz-radial-gradient(center, ellipse cover,  #ffffff 70%, #d5d5d5 100%);
+		background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 70%,#d5d5d5 100%);
+		background: radial-gradient(ellipse at center,  #ffffff 70%,#d5d5d5 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d5d5d5',GradientType=1 );
+		//&.info_scroll {background-color:#fff;}
 
 		.txt_area {
-			position:relative; top:50%; transform:translate(0, -50%);
+			position:relative; top:50%; z-index:2; transform:translate(0, -50%);
 			max-width:@main_info_w; margin:0 auto; padding:0 @main_info_p;
-
 			p {
 				line-height:160%;
 				font-size:30px; color:#222; font-weight:300; //letter-spacing:-1.5px;
@@ -652,62 +657,167 @@
 			}
 			.txt_box1 i:before {background:fade(@blue, 40%);}
 			.txt_box2 i:before {background:#fff000;}
-
 			strong {
 				display:inline-block; position:relative;
-				line-height:170%; margin:14.5% 0 3.8%;
+				line-height:170%; margin:14.6% 0 3.8%;
 				font-size:50px; color:#222; font-weight:800; letter-spacing:-0.08em;
 				&:before, &:after {position:absolute; z-index:-1; content:"";}
 				&:before {
-					left:0; right:0; top:-98%; line-height:100%;
-					.font-tit; font-size:140px; color:#f3f3f3; font-weight:normal; letter-spacing:0.01em;
+					left:0; right:0; top:-102%; line-height:100%;
+					.font-tit; font-size:140px; color:rgba(0,0,0,.05); font-weight:normal; letter-spacing:0.01em;
 					content:"WELCOME";
 				}
 				&:after {
-					left:10px; right:10px; bottom:0;
-					height:55%; background:#f3f3f3;
+					left:10px; right:10px; bottom:-5%;
+					height:55%; background:rgba(0,0,0,.05);
 				}
 				b {color:@blue; font-weight:800;}
 				br {display:none;}
 			}
 		}
+
+		.keyboard {
+			position:absolute; left:0; top:0; right:0; bottom:0; z-index:1;
+			span,
+			span i {position:absolute; left:0; top:0; right:0; bottom:0;}
+			span i:before {
+				position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); opacity:0;
+				width:110%; height:calc(100% + 600px);
+				background-repeat:no-repeat;
+				background-position:center center;
+				background-size:1920px auto;
+				content:"";
+			}
+			//z-index
+			.step1 {z-index:5;}
+			.step2 {z-index:4;}
+			.step3 {z-index:3;}
+			.step4 {z-index:2;}
+			.step5 {z-index:1;}
+			//bg
+			.step1 i:before {background-image:url('@{bg-url}/keyboard/step1.png');}
+			.step2 i:before {background-image:url('@{bg-url}/keyboard/step2.png');}
+			.step3 i:before {background-image:url('@{bg-url}/keyboard/step3.png');}
+			.step4 i:before {background-image:url('@{bg-url}/keyboard/step4.png');}
+			.step5 i:before {background-image:url('@{bg-url}/keyboard/step5.png');}
+		}
 	}
-	@media(max-width:@main_info_w){
+	//ie 에니메이션 적용
+	.ie .main_info.info_scroll .keyboard {
+		span i:before {animation:ie_keyboard 1s both;}
+		@keyframes ie_keyboard{
+			0% {opacity:0;}
+			100% {opacity:1;}
+		}
+	}
+	//ie 제외 에니메이션 적용
+	.ie_no .main_info {
+		.keyboard {
+			//span i:before {opacity:0;}
+			//animation
+			.step1 i {.keyboardStep(keyStep1, 2%, 4.2s);}
+			.step2 i {.keyboardStep(keyStep2, -1.6%, 4.6s);}
+			.step3 i {.keyboardStep(keyStep3, 1.2%, 5s);}
+			.step4 i {.keyboardStep(keyStep4, .8%, 5.4s);}
+			.step5 i {.keyboardStep(keyStep5, .4%, 5.8s);}
+		}
+		&.info_scroll .keyboard {
+			.step1 i:before {.keyboardBg(keyBg1, 1s, .48s);}
+			.step2 i:before {.keyboardBg(keyBg2, 1s, .36s);}
+			.step3 i:before {.keyboardBg(keyBg3, 1s, .24s);}
+			.step4 i:before {.keyboardBg(keyBg4, 1s, .12s);}
+			.step5 i:before {.keyboardBg(keyBg5, 1s, 0s);}
+		}
+	}
+
+	@media(max-width:@main_info_w + 40px){
 		.main_info {
+			min-height:auto; height:auto !important;  padding:13% 0;
 			.txt_area {
-				p {
-					line-height:160%;
-					font-size:2.95vw;
-					letter-spacing:-0.05em;
-					i {
-						&:before {
-							left:-2px; right:-2px; bottom:12%;
-							height:22%;
-						}
-					}
-				}
+				position:static; transform:translate(0, 0);
+				p {font-size:2.95vw;}
 				strong {
-					line-height:170%; margin:14.5% 0 3.8%;
-					font-size:4.8vw; letter-spacing:-0.08em;
-					&:before {
-						top:-98%; line-height:100%;
-						font-size:13.4vw; letter-spacing:0.01em;
-					}
-					&:after {
-						height:55%;
-					}
+					font-size:4.8vw;
+					&:before {font-size:13.4vw;}
 				}
 			}
 		}
 	}
-	@media (max-width: @screen-sm-max){
+	@media(max-width:550px){
+		.main_info .keyboard {display:none;}
+	}
+	@media(max-width:550px){
 		.main_info {
-			min-height:auto; height:auto !important;
-			.txt_area {position:static; transform:translate(0, 0);}
+			.txt_area {
+				strong {
+					line-height:115%; margin:77px 0 20px;
+					font-size:26px;
+					&:before {top:-78%; font-size:60px;} //font-size:73px;
+					&:after {left:-10px; right:-10px; height:55%; bottom:17px;}
+					br {display:block;}
+				}
+			}
+		}
+	}
+	@media(max-width:515px){
+		.main_info {
+			.txt_area {
+				p {font-size:15px;}
+			}
+		}
+	}
+	@media(max-width:@screen-xxs){
+		.main_info {
+			.txt_area {
+				p {font-size:14px;}
+			}
 		}
 	}
 
 
+	//keyboard moving
+	.keyboardApp(@name, @speed){
+		-webkit-animation:@name @speed ease-in-out infinite;
+		-moz-animation:@name @speed ease-in-out infinite;
+		animation:@name @speed ease-in-out infinite;
+		//-webkit-animation-fill-mode:both;
+		//animation-fill-mode:both;
+		//animation-delay:@delay;
+	}
+	.keyboardStep(@name, @move, @speed){
+		@keyframes @name{
+			0% {transform:translate(0, @move)}
+			50% {transform:translate(0, -@move)}
+			100% {transform:translate(0, @move)}
+		}
+		.keyboardApp(@name, @speed);
+	}
+	//keyboard background
+	.keyboardBgApp(@name, @speed, @delay){
+		-webkit-animation:@name @speed @delay cubic-bezier(.45,.1,.35,.98) both;
+		-moz-animation:@name @speed @delay cubic-bezier(.45,.1,.35,.98) both;
+		animation:@name @speed @delay cubic-bezier(.45,.1,.35,.98) both;
+	}
+	.keyboardBg(@name, @speed, @delay){
+		@keyframes @name{
+			0% {background-size:0 auto; opacity:0;}
+			100% {background-size:1920px auto; opacity:1;}
+		}
+		.keyboardBgApp(@name, @speed, @delay);
+	}
+
+
+
+
+
+
+
+
+
+	//editor
+	.main_editor {
+		z-index:2;
+	}
 
 
 
