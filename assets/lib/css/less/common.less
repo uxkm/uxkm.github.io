@@ -44,7 +44,7 @@ a, a:hover, a:active, a:focus {text-decoration:none; vertical-align:top;}
 	border:0; line-height:1; clip:rect(1px, 1px, 1px, 1px); clip-path:inset(50%);
 }
 img {height:auto; border:0; vertical-align:top;}
-button {margin:0; padding:0; border:0; background:none; vertical-align:top;}
+button {margin:0; padding:0; border:0; background:none; vertical-align:top; cursor:pointer;}
 textarea, input, select {vertical-align:top;}
 * {-webkit-text-size-adjust:none} /* 아이폰 가로모드 텍스트 크기 조정 */
 /* 아이폰 라운드, 안쪽 그림자 제거 */
@@ -136,7 +136,7 @@ input[type="range"] {
 @edt_tit_shadow:0 0 0 1px #d5d5d5;
 @edt_btn_hover:#d9d9d9;
 @edt_bt_width:36px;
-@edt_bt_margin:10px;
+@edt_bt_margin:14px;
 @edt_btn_left:6px;
 .uk_editor {
 	position:relative; width:100%;
@@ -147,7 +147,7 @@ input[type="range"] {
 	}
 	.CodeMirror {height:auto;}
 	.CodeMirror-line * {display:inline-block; vertical-align:top;}
-	.CodeMirror-scroll {min-height:320px; max-height:700px;}
+	.CodeMirror-scroll {min-height:320px; max-height:628px;}
 
 	.code_wrap, .result_wrap {position:relative; width:50%;}
 	.result_wrap {
@@ -160,7 +160,8 @@ input[type="range"] {
 			width:70%; height:25px; line-height:25px; padding:0 10px;
 			.ell; .font-en; font-size:13px; font-weight:400; color:@edt_tit_color;
 			background:#f1f3f4; border-radius:100px;
-			content:"uxkm.github.io/";
+			content:attr(data-url);
+			//content:"uxkm.github.io/";
 		}
 		&:after {
 			@dotSize:6px;
@@ -300,7 +301,7 @@ input[type="range"] {
 		position:absolute; right:50%; top:@edt_bt_margin; z-index:2;
 		margin-right:@edt_bt_margin;
 		button {
-			position:relative; z-index:1;
+			position:relative; z-index:1; cursor:pointer;
 			width:@edt_bt_width; height:@edt_bt_width; margin-left:@edt_btn_left;
 			color:#fff; outline:none;
 			background:#bbb; border-radius:100%;
@@ -468,7 +469,7 @@ input[type="range"] {
 		}
 	}
 	&.browser_fixed {
-		z-index:10;
+		z-index:9999;
 		.result_wrap {
 			@p_size:15px;
 			position:fixed; right:@p_size; top:@p_size; z-index:9999;
@@ -548,7 +549,7 @@ input[type="range"] {
 			i {display:block; margin-top:2px;}
 		}
 		.edite_info {
-			right:calc((50% + 10px) - @p_w); top:calc(10px - @p_w);
+			right:calc((50% + @edt_bt_margin) - @p_w); top:calc(@edt_bt_margin - @p_w);
 			li {
 				width:@edt_bt_width + @p_w*2; height:@edt_bt_width + @p_w*2;
 				margin-left:@edt_btn_left - @p_w*2;
@@ -624,8 +625,38 @@ input[type="range"] {
 		&.browser_mini {
 			.info_wrap:before {width:100%;}
 			.info_wrap:after {display:none;}
-			.edite_info {right:10px - @p_w;}
+			.edite_info {right:@edt_bt_margin - @p_w;}
 			.browser_info {display:none;}
+		}
+	}
+
+	//스크롤바 커스텀
+	.CodeMirror-sizer {padding-bottom:8px !important;}
+	.CodeMirror-simplescroll-horizontal,
+	.CodeMirror-simplescroll-vertical {
+		bottom:3px; right:3px; border-radius:100px;
+	}
+	.CodeMirror-simplescroll-horizontal {transform:scale(.99, 1);}
+	.CodeMirror-simplescroll-vertical {transform:scale(1, .99);}
+	.CodeMirror-simplescroll-horizontal div,
+	.CodeMirror-simplescroll-vertical div {
+		border-radius:100px; border:0; cursor:pointer;
+		transition:background-color .15s;
+	}
+	.CodeMirror-scrollbar-filler {display:none !important;}
+	&[data-theme="moxer"]{
+		.CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
+			background:fade(#fff, 15%);
+		}
+		.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+			//background:fade(@blue, 40%);
+			background:fade(#fff, 30%);
+		}
+		.cm-s-moxer .cm-error {background-color:fade(#FF5370, 30%) !important;}
+	}
+	&[data-theme="default"]{
+		.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+			background:#bbb;
 		}
 	}
 }
@@ -757,5 +788,9 @@ input[type="range"] {
 				.browser_info {display:block;}
 			}
 		}
+
+		//스크롤바 커스텀
+		.CodeMirror-simplescroll-horizontal {height:5px !important;}
+		.CodeMirror-simplescroll-vertical {width:5px !important;}
 	}
 }

@@ -19,6 +19,7 @@ var mainInfoStep4 = $main_info.find('.step4');
 var mainInfoStep5 = $main_info.find('.step5');
 
 
+//$(document).ready(function(){
 $(function(){
 
 	nav_area();
@@ -39,8 +40,8 @@ $(function(){
 		}
 
 		//main intro height
-		$main_intro.css('height',win_h);
-		$main_info.css('height',win_h - $ukHeader.height());
+		if( device_check === 'device' ) $main_intro.css('height',win_h);
+		//$main_info.css('height',win_h - $ukHeader.height());
 
 
 		//scroll

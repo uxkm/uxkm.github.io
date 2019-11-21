@@ -1,3 +1,4 @@
+
 function qsa(sel){
 	return Array.apply(null, document.querySelectorAll(sel));
 }
@@ -265,6 +266,10 @@ qsa(".uk_editor").forEach(function(e){
 				el_bTitle.appendChild(favicon_add);
 			}
 		}
+
+		//주소창
+		var l_url = location.href.slice(7);
+		el_resultWrap.setAttribute('data-url',l_url);
 	}
 
 	//browser button
@@ -294,11 +299,15 @@ qsa(".uk_editor").forEach(function(e){
 					e.classList.add(browser_mini);
 					e.classList.remove(browser_full);
 					e.classList.remove(browser_fixed);
+					windowRsize();
 				});
 			}
 			//exitMinimize
 			else if( i === 1 ){
-				el_bwBtn.addEventListener('click', exitMinimize);
+				el_bwBtn.addEventListener('click', function(){
+					exitMinimize();
+					windowRsize();
+				});
 			}
 
 			//fixed
@@ -348,6 +357,11 @@ qsa(".uk_editor").forEach(function(e){
 			e.classList.remove(browser_full);
 			document.exitFullscreen();
 		}
+	}
+	function windowRsize(){
+		var windowRsize = window.document.createEvent('UIEvents');
+		windowRsize.initUIEvent('resize', true, false, window, 0);
+		window.dispatchEvent(windowRsize);
 	}
 
 	//browser mode
