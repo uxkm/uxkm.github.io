@@ -2985,9 +2985,9 @@ body {
   }
 }
 .ie_no .main_info.info_scroll .keyboard .step1 i:before {
-  -webkit-animation: keyBg1 1.5s 0.48s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
-  -moz-animation: keyBg1 1.5s 0.48s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
-  animation: keyBg1 1.5s 0.48s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -webkit-animation: keyBg1 1.7s 0.48s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -moz-animation: keyBg1 1.7s 0.48s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  animation: keyBg1 1.7s 0.48s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
 }
 @keyframes keyBg1 {
   0% {
@@ -3004,9 +3004,9 @@ body {
   }
 }
 .ie_no .main_info.info_scroll .keyboard .step2 i:before {
-  -webkit-animation: keyBg2 1.5s 0.36s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
-  -moz-animation: keyBg2 1.5s 0.36s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
-  animation: keyBg2 1.5s 0.36s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -webkit-animation: keyBg2 1.7s 0.36s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -moz-animation: keyBg2 1.7s 0.36s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  animation: keyBg2 1.7s 0.36s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
 }
 @keyframes keyBg2 {
   0% {
@@ -3023,9 +3023,9 @@ body {
   }
 }
 .ie_no .main_info.info_scroll .keyboard .step3 i:before {
-  -webkit-animation: keyBg3 1.5s 0.24s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
-  -moz-animation: keyBg3 1.5s 0.24s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
-  animation: keyBg3 1.5s 0.24s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -webkit-animation: keyBg3 1.7s 0.24s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -moz-animation: keyBg3 1.7s 0.24s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  animation: keyBg3 1.7s 0.24s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
 }
 @keyframes keyBg3 {
   0% {
@@ -3042,9 +3042,9 @@ body {
   }
 }
 .ie_no .main_info.info_scroll .keyboard .step4 i:before {
-  -webkit-animation: keyBg4 1.5s 0.12s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
-  -moz-animation: keyBg4 1.5s 0.12s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
-  animation: keyBg4 1.5s 0.12s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -webkit-animation: keyBg4 1.7s 0.12s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -moz-animation: keyBg4 1.7s 0.12s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  animation: keyBg4 1.7s 0.12s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
 }
 @keyframes keyBg4 {
   0% {
@@ -3061,9 +3061,9 @@ body {
   }
 }
 .ie_no .main_info.info_scroll .keyboard .step5 i:before {
-  -webkit-animation: keyBg5 1.5s 0s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
-  -moz-animation: keyBg5 1.5s 0s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
-  animation: keyBg5 1.5s 0s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -webkit-animation: keyBg5 1.7s 0s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -moz-animation: keyBg5 1.7s 0s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  animation: keyBg5 1.7s 0s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
 }
 @keyframes keyBg5 {
   0% {
