@@ -2527,7 +2527,7 @@ body {
   position: relative;
   min-height: 700px;
   height: 100vh;
-  z-index: 2;
+  z-index: 8;
 }
 .main_intro .txt_box {
   position: absolute;
@@ -3123,6 +3123,21 @@ body {
   .main_info .keyboard .step5 i {
     opacity: .05;
   }
+  .main_info .keyboard .step1 i:before {
+    background-image: url('../img/keyboard/step1_mb.png');
+  }
+  .main_info .keyboard .step2 i:before {
+    background-image: url('../img/keyboard/step2_mb.png');
+  }
+  .main_info .keyboard .step3 i:before {
+    background-image: url('../img/keyboard/step3_mb.png');
+  }
+  .main_info .keyboard .step4 i:before {
+    background-image: url('../img/keyboard/step4_mb.png');
+  }
+  .main_info .keyboard .step5 i:before {
+    background-image: url('../img/keyboard/step5_mb.png');
+  }
 }
 @media (max-width: 550px) {
   .main_info .txt_area strong {
@@ -3512,6 +3527,9 @@ body {
   .main_created:before {
     left: 15px;
     right: 15px;
+  }
+  .main_created h2:before {
+    top: -60%;
   }
   .main_created .created li {
     width: calc(33.333% - 7px);

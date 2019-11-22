@@ -468,7 +468,7 @@
 	.main_intro {
 		@pb:120px;
 		position:relative;
-		min-height:700px; height:100vh; z-index:2;
+		min-height:700px; height:100vh; z-index:8;
 		.txt_box {
 			position:absolute; left:0; right:0; bottom:@pb;
 			.tit {overflow:hidden;}
@@ -722,6 +722,11 @@
 			.step3 i {opacity:.2;}
 			.step4 i {opacity:.1;}
 			.step5 i {opacity:.05;}
+			.step1 i:before {background-image:url('@{bg-url}/keyboard/step1_mb.png');}
+			.step2 i:before {background-image:url('@{bg-url}/keyboard/step2_mb.png');}
+			.step3 i:before {background-image:url('@{bg-url}/keyboard/step3_mb.png');}
+			.step4 i:before {background-image:url('@{bg-url}/keyboard/step4_mb.png');}
+			.step5 i:before {background-image:url('@{bg-url}/keyboard/step5_mb.png');}
 		}
 	}
 	@media(max-width:550px){
@@ -992,6 +997,7 @@
 	@media(max-width:@screen-sm-max){
 		.main_created {
 			&:before {left:15px; right:15px;}
+			h2:before {top:-60%;}
 			.created {
 				li {
 					width:calc(33.333% - 7px);

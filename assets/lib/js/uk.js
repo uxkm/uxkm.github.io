@@ -49,6 +49,8 @@ $(function(){
 		else if( win_w <= respon_size ){
 			$html.addClass('mb').removeClass('pc');
 		}
+		var state_pc = $html.is('.pc');
+		var state_mb = $html.is('.mb');
 
 
 		//main intro height
@@ -74,11 +76,20 @@ $(function(){
 			if( sct >= info_top ) $main_info.addClass('info_scroll');
 			//keyboard 페럴렉스
 			var f_sct = sct - info_top;
-			mainInfoStep1.css('transform','translateY('+ (f_sct*-0.8) +'px)');
-			mainInfoStep2.css('transform','translateY('+ (f_sct*-0.6) +'px)');
-			mainInfoStep3.css('transform','translateY('+ (f_sct*-0.4) +'px)');
-			mainInfoStep4.css('transform','translateY('+ (f_sct*-0.2) +'px)');
-			mainInfoStep5.css('transform','translateY('+ (f_sct*-0.1) +'px)');
+			if( state_pc ){
+				mainInfoStep1.css('transform','translateY('+ (f_sct*-0.8) +'px)');
+				mainInfoStep2.css('transform','translateY('+ (f_sct*-0.6) +'px)');
+				mainInfoStep3.css('transform','translateY('+ (f_sct*-0.4) +'px)');
+				mainInfoStep4.css('transform','translateY('+ (f_sct*-0.2) +'px)');
+				mainInfoStep5.css('transform','translateY('+ (f_sct*-0.1) +'px)');
+			}
+			else if( state_mb ){
+				mainInfoStep1.css('transform','translateY('+ (f_sct*-0.4) +'px)');
+				mainInfoStep2.css('transform','translateY('+ (f_sct*-0.3) +'px)');
+				mainInfoStep3.css('transform','translateY('+ (f_sct*-0.2) +'px)');
+				mainInfoStep4.css('transform','translateY('+ (f_sct*-0.1) +'px)');
+				mainInfoStep5.css('transform','translateY('+ (f_sct*-0.05) +'px)');
+			}
 
 		}).trigger('scroll');
 	}).trigger('resize');
@@ -107,7 +118,7 @@ function nav_area(){
 function main_action(){
 	$('.next_content').on('click', function(){
 		var topSize = $main_intro.height() - $ukHeader.height();
-		$html.stop().animate({'scrollTop':topSize}, 800, 'easeInOutExpo');
+		$htmlbody.stop().animate({'scrollTop':topSize}, 900, 'easeInOutExpo');
 		return false;
 	});
 }
