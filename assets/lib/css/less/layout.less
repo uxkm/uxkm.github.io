@@ -19,6 +19,7 @@
 		overflow-y:scroll; overflow-x:hidden;
 		width:100%; background:#000; scroll-behavior:smooth;
 		background:url('@{bg-url}/main_top_bg.jpg') no-repeat center top;
+		background-color:#000;
 		background-size:cover;
 		background-attachment:fixed;
 	}
@@ -483,10 +484,10 @@
 						position:absolute; left:50%; top:24px;
 						width:6px; height:6px; transform:translate(-50%, -50%);
 						border-radius:100%;
-						transition:all .1s ease;
+						transition:all .2s ease;
 						content:"";
 					}
-					&:hover:before {width:10px; height:10px;}
+					&:hover:before {transform:translate(-50%, -50%) scale(2, 2);}
 				}
 
 				.bn1:hover {color:@red;}
@@ -988,6 +989,9 @@
 							background-position:center center;
 							background-size:100% auto;
 						}
+					}
+					&.dae_min .box {
+						&:before, &:after {background-position:center bottom;}
 					}
 				}
 			}

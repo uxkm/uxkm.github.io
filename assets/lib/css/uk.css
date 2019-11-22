@@ -1539,6 +1539,7 @@ html {
   background: #000;
   scroll-behavior: smooth;
   background: url('../img/main_top_bg.jpg') no-repeat center top;
+  background-color: #000;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -2567,12 +2568,11 @@ body {
   height: 6px;
   transform: translate(-50%, -50%);
   border-radius: 100%;
-  transition: all .1s ease;
+  transition: all .2s ease;
   content: "";
 }
 .main_intro .txt_box .banner a:hover:before {
-  width: 10px;
-  height: 10px;
+  transform: translate(-50%, -50%) scale(2, 2);
 }
 .main_intro .txt_box .banner .bn1:hover {
   color: #e44d26;
@@ -3473,6 +3473,10 @@ body {
   .main_created .created li .box:after {
     background-position: center center;
     background-size: 100% auto;
+  }
+  .main_created .created li.dae_min .box:before,
+  .main_created .created li.dae_min .box:after {
+    background-position: center bottom;
   }
   .device .main_created .created li:before,
   .device .main_created .created li:after {
