@@ -17,7 +17,7 @@
 	html, body {height:100%;}
 	html {
 		overflow-y:scroll; overflow-x:hidden;
-		width:100%; background:#000; scroll-behavior:smooth;
+		width:100%; background:#000;
 		background:url('@{bg-url}/main_top_bg.jpg') no-repeat center top;
 		background-color:#000;
 		background-size:cover;
@@ -91,7 +91,20 @@
 		position:fixed; left:0; top:0; right:0; z-index:9;
 		height:@hdHeight;
 		transition:background-color .4s;
-		&.fixed {background-color:rgba(0,0,0,.85);}
+		&:before, .hd_progress {
+			overflow:hidden;
+			position:absolute; left:0; top:@hdHeight; opacity:0;
+			height:2px; font-size:0;
+			transition:opacity .4s;
+			content:"";
+		}
+		&:before {width:100%; background-color:rgba(255,255,255,.1);}
+		.hd_progress {background-color:fade(@blue, 90%);}
+		&.desktop .hd_progress {transition:opacity .4s, width .2s ease-in-out;}
+		&.fixed {
+			background-color:rgba(0,0,0,.85);
+			&:before, .hd_progress {opacity:1;}
+		}
 		.uk_logo {.lft; margin-top:16px;} //26
 		.nav_area {
 			@size:60px;
@@ -261,6 +274,7 @@
 	@media (max-width: @screen-sm-max){
 		.uk_header {
 			height:@hdHeightMb;
+			&:before, .hd_progress {top:@hdHeightMb;}
 			.uk_logo {margin-top:0;}
 			.nav_area {
 				@size:@hdHeightMb;
@@ -577,10 +591,9 @@
 	@main_info_p:20px;
 	@main_info_w:940px + (@main_info_p*2);
 	.main_info {
-		position:relative; z-index:1;
+		position:relative; z-index:-1;
 		padding:140px 0;
 		transition:background-color .8s;
-		//background:rgba(255,255,255,1.3);
 		background: #ffffff;
 		background: -moz-radial-gradient(center, ellipse cover,  #ffffff 70%, #d5d5d5 100%);
 		background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 70%,#d5d5d5 100%);
@@ -588,7 +601,7 @@
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d5d5d5',GradientType=1 );
 
 		.txt_area {
-			position:relative; z-index:2; //transform:translate(0, -50%);
+			position:relative; z-index:6; //transform:translate(0, -50%);
 			max-width:@main_info_w; margin:0 auto; padding:0 @main_info_p;
 			p {
 				line-height:160%;
@@ -626,15 +639,19 @@
 		}
 
 		.keyboard {
-			position:absolute; left:0; top:0; right:0; bottom:0; z-index:1;
-			span,
-			span i {position:absolute; left:0; top:0; right:0; bottom:0;}
+			position:absolute; left:0; top:0; right:0; bottom:0;
+			span {position:absolute; left:0; top:0; right:0; bottom:0;}
+			span i {
+				position:absolute; left:50%; top:0; transform:translate(-50%, 0);
+				width:1900px; height:100%;
+				transition:width .4s ease-in-out;
+			}
 			span i:before {
 				position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); opacity:0;
-				width:110%; height:calc(100% + 600px);
+				width:100%; height:calc(100% + 600px);
 				background-repeat:no-repeat;
 				background-position:center center;
-				background-size:1920px auto;
+				background-size:100% auto;
 				content:"";
 			}
 			//z-index
@@ -670,19 +687,22 @@
 			.step5 i {.keyboardStep(keyStep5, .4%, 5.8s);}
 		}
 		&.info_scroll .keyboard {
-			.step1 i:before {.keyboardBg(keyBg1, 1s, .48s);}
-			.step2 i:before {.keyboardBg(keyBg2, 1s, .36s);}
-			.step3 i:before {.keyboardBg(keyBg3, 1s, .24s);}
-			.step4 i:before {.keyboardBg(keyBg4, 1s, .12s);}
-			.step5 i:before {.keyboardBg(keyBg5, 1s, 0s);}
+			.step1 i:before {.keyboardBg(keyBg1, 1.5s, .48s);}
+			.step2 i:before {.keyboardBg(keyBg2, 1.5s, .36s);}
+			.step3 i:before {.keyboardBg(keyBg3, 1.5s, .24s);}
+			.step4 i:before {.keyboardBg(keyBg4, 1.5s, .12s);}
+			.step5 i:before {.keyboardBg(keyBg5, 1.5s, 0s);}
 		}
 	}
 
+	@media(max-width:1200px){
+		.main_info .keyboard span i {width:160%;}
+	}
 	@media(max-width:@main_info_w + 40px){
 		.main_info {
 			padding:14% 0;
 			.txt_area {
-				position:static; transform:translate(0, 0);
+				//position:static; transform:translate(0, 0);
 				p {font-size:2.95vw;}
 				strong {
 					font-size:4.8vw;
@@ -692,7 +712,17 @@
 		}
 	}
 	@media(max-width:@screen-sm-max){
-		.main_info .keyboard {display:none;}
+		//.main_info .keyboard {display:none;}
+		.main_info .keyboard {
+			overflow:hidden;
+			span i {width:140%;}
+			span i:before {height:200%;}
+			.step1 i {opacity:.4;}
+			.step2 i {opacity:.3;}
+			.step3 i {opacity:.2;}
+			.step4 i {opacity:.1;}
+			.step5 i {opacity:.05;}
+		}
 	}
 	@media(max-width:550px){
 		.main_info {
@@ -733,22 +763,24 @@
 	}
 	.keyboardStep(@name, @move, @speed){
 		@keyframes @name{
-			0% {transform:translate(0, @move)}
-			50% {transform:translate(0, -@move)}
-			100% {transform:translate(0, @move)}
+			0% {transform:translate(-50%, @move)}
+			50% {transform:translate(-50%, -@move)}
+			100% {transform:translate(-50%, @move)}
 		}
 		.keyboardApp(@name, @speed);
 	}
+
 	//keyboard background animation
 	.keyboardBgApp(@name, @speed, @delay){
-		-webkit-animation:@name @speed @delay cubic-bezier(.45,.1,.35,.98) both;
-		-moz-animation:@name @speed @delay cubic-bezier(.45,.1,.35,.98) both;
-		animation:@name @speed @delay cubic-bezier(.45,.1,.35,.98) both;
+		-webkit-animation:@name @speed @delay cubic-bezier(.4,.1,.09,.94) both;
+		-moz-animation:@name @speed @delay cubic-bezier(.4,.1,.09,.94) both;
+		animation:@name @speed @delay cubic-bezier(.4,.1,.09,.94) both;
 	}
 	.keyboardBg(@name, @speed, @delay){
 		@keyframes @name{
-			0% {background-size:0 auto; opacity:0;}
-			100% {background-size:1920px auto; opacity:1;}
+			0% {transform:translate(-50%, -50%) scale(0, 0); opacity:0;}
+			40% {transform:translate(-50%, -50%) scale(1.05, 1.05); opacity:1;}
+			100% {transform:translate(-50%, -50%) scale(1, 1); opacity:1;}
 		}
 		.keyboardBgApp(@name, @speed, @delay);
 	}

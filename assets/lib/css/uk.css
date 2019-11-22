@@ -1537,7 +1537,6 @@ html {
   overflow-x: hidden;
   width: 100%;
   background: #000;
-  scroll-behavior: smooth;
   background: url('../img/main_top_bg.jpg') no-repeat center top;
   background-color: #000;
   background-size: cover;
@@ -1670,8 +1669,34 @@ body {
   height: 110px;
   transition: background-color 0.4s;
 }
+.uk_header:before,
+.uk_header .hd_progress {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 110px;
+  opacity: 0;
+  height: 2px;
+  font-size: 0;
+  transition: opacity .4s;
+  content: "";
+}
+.uk_header:before {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.uk_header .hd_progress {
+  background-color: rgba(30, 115, 255, 0.9);
+}
+.uk_header.desktop .hd_progress {
+  transition: opacity 0.4s, width 0.2s ease-in-out;
+}
 .uk_header.fixed {
   background-color: rgba(0, 0, 0, 0.85);
+}
+.uk_header.fixed:before,
+.uk_header.fixed .hd_progress {
+  opacity: 1;
 }
 .uk_header .uk_logo {
   float: left;
@@ -2127,6 +2152,10 @@ body {
 @media (max-width: 767px) {
   .uk_header {
     height: 60px;
+  }
+  .uk_header:before,
+  .uk_header .hd_progress {
+    top: 60px;
   }
   .uk_header .uk_logo {
     margin-top: 0;
@@ -2711,7 +2740,7 @@ body {
 }
 .main_info {
   position: relative;
-  z-index: 1;
+  z-index: -1;
   padding: 140px 0;
   transition: background-color 0.8s;
   background: #ffffff;
@@ -2722,7 +2751,7 @@ body {
 }
 .main_info .txt_area {
   position: relative;
-  z-index: 2;
+  z-index: 6;
   max-width: 980px;
   margin: 0 auto;
   padding: 0 20px;
@@ -2804,15 +2833,22 @@ body {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
 }
-.main_info .keyboard span,
-.main_info .keyboard span i {
+.main_info .keyboard span {
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
+}
+.main_info .keyboard span i {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 1900px;
+  height: 100%;
+  transition: width 0.4s ease-in-out;
 }
 .main_info .keyboard span i:before {
   position: absolute;
@@ -2820,11 +2856,11 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  width: 110%;
+  width: 100%;
   height: calc(100% + 600px);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 1920px auto;
+  background-size: 100% auto;
   content: "";
 }
 .main_info .keyboard .step1 {
@@ -2875,13 +2911,13 @@ body {
 }
 @keyframes keyStep1 {
   0% {
-    transform: translate(0, 2%);
+    transform: translate(-50%, 2%);
   }
   50% {
-    transform: translate(0, -2%);
+    transform: translate(-50%, -2%);
   }
   100% {
-    transform: translate(0, 2%);
+    transform: translate(-50%, 2%);
   }
 }
 .ie_no .main_info .keyboard .step2 i {
@@ -2891,13 +2927,13 @@ body {
 }
 @keyframes keyStep2 {
   0% {
-    transform: translate(0, -1.6%);
+    transform: translate(-50%, -1.6%);
   }
   50% {
-    transform: translate(0, 1.6%);
+    transform: translate(-50%, 1.6%);
   }
   100% {
-    transform: translate(0, -1.6%);
+    transform: translate(-50%, -1.6%);
   }
 }
 .ie_no .main_info .keyboard .step3 i {
@@ -2907,13 +2943,13 @@ body {
 }
 @keyframes keyStep3 {
   0% {
-    transform: translate(0, 1.2%);
+    transform: translate(-50%, 1.2%);
   }
   50% {
-    transform: translate(0, -1.2%);
+    transform: translate(-50%, -1.2%);
   }
   100% {
-    transform: translate(0, 1.2%);
+    transform: translate(-50%, 1.2%);
   }
 }
 .ie_no .main_info .keyboard .step4 i {
@@ -2923,13 +2959,13 @@ body {
 }
 @keyframes keyStep4 {
   0% {
-    transform: translate(0, 0.8%);
+    transform: translate(-50%, 0.8%);
   }
   50% {
-    transform: translate(0, -0.8%);
+    transform: translate(-50%, -0.8%);
   }
   100% {
-    transform: translate(0, 0.8%);
+    transform: translate(-50%, 0.8%);
   }
 }
 .ie_no .main_info .keyboard .step5 i {
@@ -2939,97 +2975,118 @@ body {
 }
 @keyframes keyStep5 {
   0% {
-    transform: translate(0, 0.4%);
+    transform: translate(-50%, 0.4%);
   }
   50% {
-    transform: translate(0, -0.4%);
+    transform: translate(-50%, -0.4%);
   }
   100% {
-    transform: translate(0, 0.4%);
+    transform: translate(-50%, 0.4%);
   }
 }
 .ie_no .main_info.info_scroll .keyboard .step1 i:before {
-  -webkit-animation: keyBg1 1s 0.48s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
-  -moz-animation: keyBg1 1s 0.48s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
-  animation: keyBg1 1s 0.48s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  -webkit-animation: keyBg1 1.5s 0.48s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -moz-animation: keyBg1 1.5s 0.48s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  animation: keyBg1 1.5s 0.48s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
 }
 @keyframes keyBg1 {
   0% {
-    background-size: 0 auto;
+    transform: translate(-50%, -50%) scale(0, 0);
     opacity: 0;
   }
+  40% {
+    transform: translate(-50%, -50%) scale(1.05, 1.05);
+    opacity: 1;
+  }
   100% {
-    background-size: 1920px auto;
+    transform: translate(-50%, -50%) scale(1, 1);
     opacity: 1;
   }
 }
 .ie_no .main_info.info_scroll .keyboard .step2 i:before {
-  -webkit-animation: keyBg2 1s 0.36s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
-  -moz-animation: keyBg2 1s 0.36s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
-  animation: keyBg2 1s 0.36s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  -webkit-animation: keyBg2 1.5s 0.36s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -moz-animation: keyBg2 1.5s 0.36s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  animation: keyBg2 1.5s 0.36s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
 }
 @keyframes keyBg2 {
   0% {
-    background-size: 0 auto;
+    transform: translate(-50%, -50%) scale(0, 0);
     opacity: 0;
   }
+  40% {
+    transform: translate(-50%, -50%) scale(1.05, 1.05);
+    opacity: 1;
+  }
   100% {
-    background-size: 1920px auto;
+    transform: translate(-50%, -50%) scale(1, 1);
     opacity: 1;
   }
 }
 .ie_no .main_info.info_scroll .keyboard .step3 i:before {
-  -webkit-animation: keyBg3 1s 0.24s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
-  -moz-animation: keyBg3 1s 0.24s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
-  animation: keyBg3 1s 0.24s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  -webkit-animation: keyBg3 1.5s 0.24s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -moz-animation: keyBg3 1.5s 0.24s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  animation: keyBg3 1.5s 0.24s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
 }
 @keyframes keyBg3 {
   0% {
-    background-size: 0 auto;
+    transform: translate(-50%, -50%) scale(0, 0);
     opacity: 0;
   }
+  40% {
+    transform: translate(-50%, -50%) scale(1.05, 1.05);
+    opacity: 1;
+  }
   100% {
-    background-size: 1920px auto;
+    transform: translate(-50%, -50%) scale(1, 1);
     opacity: 1;
   }
 }
 .ie_no .main_info.info_scroll .keyboard .step4 i:before {
-  -webkit-animation: keyBg4 1s 0.12s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
-  -moz-animation: keyBg4 1s 0.12s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
-  animation: keyBg4 1s 0.12s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  -webkit-animation: keyBg4 1.5s 0.12s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -moz-animation: keyBg4 1.5s 0.12s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  animation: keyBg4 1.5s 0.12s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
 }
 @keyframes keyBg4 {
   0% {
-    background-size: 0 auto;
+    transform: translate(-50%, -50%) scale(0, 0);
     opacity: 0;
   }
+  40% {
+    transform: translate(-50%, -50%) scale(1.05, 1.05);
+    opacity: 1;
+  }
   100% {
-    background-size: 1920px auto;
+    transform: translate(-50%, -50%) scale(1, 1);
     opacity: 1;
   }
 }
 .ie_no .main_info.info_scroll .keyboard .step5 i:before {
-  -webkit-animation: keyBg5 1s 0s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
-  -moz-animation: keyBg5 1s 0s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
-  animation: keyBg5 1s 0s cubic-bezier(0.45, 0.1, 0.35, 0.98) both;
+  -webkit-animation: keyBg5 1.5s 0s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  -moz-animation: keyBg5 1.5s 0s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
+  animation: keyBg5 1.5s 0s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;
 }
 @keyframes keyBg5 {
   0% {
-    background-size: 0 auto;
+    transform: translate(-50%, -50%) scale(0, 0);
     opacity: 0;
   }
-  100% {
-    background-size: 1920px auto;
+  40% {
+    transform: translate(-50%, -50%) scale(1.05, 1.05);
     opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1, 1);
+    opacity: 1;
+  }
+}
+@media (max-width: 1200px) {
+  .main_info .keyboard span i {
+    width: 160%;
   }
 }
 @media (max-width: 1020px) {
   .main_info {
     padding: 14% 0;
-  }
-  .main_info .txt_area {
-    position: static;
-    transform: translate(0, 0);
   }
   .main_info .txt_area p {
     font-size: 2.95vw;
@@ -3043,7 +3100,28 @@ body {
 }
 @media (max-width: 767px) {
   .main_info .keyboard {
-    display: none;
+    overflow: hidden;
+  }
+  .main_info .keyboard span i {
+    width: 140%;
+  }
+  .main_info .keyboard span i:before {
+    height: 200%;
+  }
+  .main_info .keyboard .step1 i {
+    opacity: .4;
+  }
+  .main_info .keyboard .step2 i {
+    opacity: .3;
+  }
+  .main_info .keyboard .step3 i {
+    opacity: .2;
+  }
+  .main_info .keyboard .step4 i {
+    opacity: .1;
+  }
+  .main_info .keyboard .step5 i {
+    opacity: .05;
   }
 }
 @media (max-width: 550px) {
