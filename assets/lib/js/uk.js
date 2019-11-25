@@ -9,6 +9,7 @@ var $ukHeader = $('.uk_header');
 var $ukFooter = $('.uk_footer');
 var $ukContainer = $('.uk_container');
 
+var before_documentH = 0;
 var hd_progress = 'hd_progress';
 
 var mainHeightArr = [];
@@ -66,10 +67,18 @@ $(function(){
 			//uk_header fixed css
 			if( sct > 10 ) $ukHeader.addClass('fixed');
 			else $ukHeader.removeClass('fixed');
+
 			//uk_header progress
+			before_documentH = document_h;
 			var docHeight = document_h - win_h;
 			var hd_proW = (sct/docHeight)*100;  //Math.ceil();
 			$('.'+hd_progress).css('width',hd_proW+'%');
+
+			if( before_documentH !== document_h ){
+				$('.h_test').css('background','blue');
+			}
+			console.log(before_documentH);
+			$('.h_test').text(before_documentH);
 
 			//main info scroll
 			var info_top = $main_intro.height() - $ukHeader.height();

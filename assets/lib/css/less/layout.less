@@ -24,10 +24,13 @@
 		background-attachment:fixed;
 	}
 	body {.font-kr; word-break:keep-all;}
-	@keyframes bodyOn{
-		0% {opacity:0;}
-		100% {opacity:1;}
+	@media (max-width: @screen-sm-max){
+		html {
+			background-image:url('@{bg-url}/main_top_bg_mb.jpg');
+			background-size:300% auto;
+		}
 	}
+
 
 	.inner {
 		.clear;

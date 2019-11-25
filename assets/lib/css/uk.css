@@ -1546,12 +1546,10 @@ body {
   font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
   word-break: keep-all;
 }
-@keyframes bodyOn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+@media (max-width: 767px) {
+  html {
+    background-image: url('../img/main_top_bg_mb.jpg');
+    background-size: 300% auto;
   }
 }
 .inner {
