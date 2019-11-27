@@ -9,7 +9,6 @@ var $ukHeader = $('.uk_header');
 var $ukFooter = $('.uk_footer');
 var $ukContainer = $('.uk_container');
 
-var before_documentH = 0;
 var hd_progress = 'hd_progress';
 
 var mainHeightArr = [];
@@ -35,6 +34,7 @@ $(function(){
 	nav_area();
 
 
+	var b_height = $(window).height();
 	//resize
 	$(window).resize(function(){
 		var win_w = $(window).width();
@@ -56,10 +56,9 @@ $(function(){
 
 		//main intro height
 		if( device_check === 'device' ) $main_intro.css('height',win_h);
-		//if( device_check === 'device' ) $html.css('width',win_w);
 
 
-		//scroll
+		//scroll -------------------------------------------------------------------------------//
 		$(window).scroll(function(){
 			var sct = $(window).scrollTop();
 
@@ -69,18 +68,11 @@ $(function(){
 			else $ukHeader.removeClass('fixed');
 
 			//uk_header progress
-			before_documentH = document_h;
-			var docHeight = document_h - win_h;
+			var docHeight = document_h - window.innerHeight;
 			var hd_proW = (sct/docHeight)*100;  //Math.ceil();
 			$('.'+hd_progress).css('width',hd_proW+'%');
 
-			if( before_documentH !== document_h ){
-				$('.h_test').css('background','blue');
-			}
-			console.log(before_documentH);
-			$('.h_test').text(before_documentH);
-
-			//main info scroll
+			//main info scroll ---------------------------//
 			var info_top = $main_intro.height() - $ukHeader.height();
 			if( sct >= info_top ) $main_info.addClass('info_scroll');
 			//keyboard 페럴렉스
@@ -101,6 +93,7 @@ $(function(){
 			}
 
 		}).trigger('scroll');
+		//end scroll --------------------------------------------------------------------------//
 	}).trigger('resize');
 
 
