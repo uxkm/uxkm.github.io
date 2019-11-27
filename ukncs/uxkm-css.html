@@ -46,6 +46,7 @@
 					<li><a href="#css-modules">CSS 모듈과 표준화 과정</a></li>
 					<li><a href="#css-syntax">CSS의 문법</a></li>
 					<li><a href="#css-apply">CSS 선언방식</a></li>
+					<li><a href="#css-cascading">CSS 상속과 캐스케이딩</a></li>
 				</ol>
 			</li>
 			<li><a href="#css-beginner">CSS 초급</a>
@@ -66,7 +67,7 @@
 			<li><a href="#css-middleclass">CSS 중급</a>
 				<ol>
 					<li><a href="#css-selectors-level-3">CSS 선택자 level 3</a></li>
-					<li><a href="#css-content">가상 선택자</a></li>
+					<li><a href="#css-content">가상 요소</a></li>
 					<li><a href="#css-vendor">접두어</a></li>
 					<li><a href="#css-ir">IR 기법</a></li>
 					<li><a href="#css-module">CSS3 모듈</a></li>
@@ -353,12 +354,70 @@
 					</dl>
 				</article>
 
+				<h3 id="css-cascading">CSS 상속과 캐스케이딩</h3>
+				<article>
+					<time datetime="">Last Updated on </time>
+					<dl>
+						<dt>상속(Inheritance)</dt>
+						<dd> 
+							'상속'이란 하위 요소(자식, 자손)가 상위 요소(부모, 조상)로부터 특정 CSS 속성을 물려받는 것을 의미한다.<br>
+							상속의 개념이 없다면 글꼴, 글씨크기, 글색상 같은 스타일 속성들을 모든 요소마다 각각 지정해줘야 할 것입니다. 그러므로 상속은 CSS에서 생산성을 높이기 위한 중요한 기능입니다.<br>
+							하지만 모든 CSS 속성이 상속되는 것은 아닙니다. margin 같은 경우는 하위 요소가 상위 요소의 속성 값들을 물려받는 경우가 거의 없으므로 상속되지 않습니다.<br>
+							대부분의 경우, 상식적으로 생각하면 어떤 속성들이 상속되고 어떤 것들이 그렇지 않을지 쉽게 짐작할 수 있습니다.<br>
+							구체적인 상속 여부를 확인하려면 CSS 2.1 명세의 속성 요약 테이블을 참고하세요.<br>
+							상속되지 않는 속성들은, inherit 속성 값을 사용하여 명시적으로 상속받게 할 수 있습니다.
+						</dd>
+						<dt>캐스케이딩(Cascading)</dt>
+						<dd>
+							'캐스케이딩'은 하나의 요소에 여러 속성들을 선언할 때 생기는 충돌을 충돌을 피하는 규칙을 말한다.
+							<br><br>
+							캐스캐이딩에는 다음과 같이 세가지 규칙이 있습니다.<br>
+							<ul>
+								<li>중요도 : CSS가 어디에 선언 되었는지에 따라서 우선순위가 달라진다.</li>
+								<li>명시도 : 대상을 명확하게 특정할수록 명시도가 높아지고 우선순위가 높아진다.</li>
+								<li>코드의 순서 : 선언된 순서에 따라 우선 순위가 적용된다. 즉, 나중에 선언된 스타일이 우선 적용된다.</li>
+							</ul>
+						</dd>
+					</dl>
+					<dl>
+						<dt>중요도</dt>
+						<dd>
+							CSS 선언의 중요도는, 그것이 '어디' 에서 사용되었는가에 따라 다릅니다. 다음의 순서 대로, 나중 선언이 앞선 선언을 덮어쓰고 요소에 적용됩니다.<br>
+							CSS 속성을 줄 때 !important를 뒤에 붙이면 우선순위가 가장 높아집니다.
+							<ul>
+								<li>브라우저 스타일시트</li>
+								<li>사용자 스타일시트의 일반 선언</li>
+								<li>저작자 스타일시트의 일반 선언</li>
+								<li>저작자 스타일시트의 !important</li>
+								<li>사용자 스타일시트의 !important</li>
+							</ul>
+						</dd>
+						<dt>명시도</dt>
+						<dd>
+							명시도란 규칙의 선택자가 얼마나 명확하게 요소를 지정하고 있는지 측정한 것입니다.<br>
+							명시도가 낮은 선택자는 넓은 범위의 요소들에 적용될 것이며, 명시도가 높은 선택자는 페이지의 단 하나의 요소만 선택하고 있을 수도 있습니다.
+							<ul>
+								<li>element 선택자</li>
+								<li>class 선택자</li>
+								<li>id 선택자</li>
+								<li>inline으로 엘리먼트에 직접 css를 기술</li>
+							</ul>
+						</dd>
+						<dt>코드의 순서</dt>
+						<dd>
+							하나의 요소를 가리키는 선언이 두개 있고, 두 선언의 중요도와 명시도가 모두 같다면, 나중에 나온 선언을 선택하게 됩니다.
+						</dd>
+					</dl>
+				</article>
+
 				<dl class="linkdoc">
 					<dt>참조</dt>
 					<dd><a href="https://www.w3.org/Style/CSS/learning" target="_blank" title="새 창 열림">W3C CSS 자습서</a></dd>
 					<dd><a href="https://ko.wikipedia.org/wiki/%EC%A2%85%EC%86%8D%ED%98%95_%EC%8B%9C%ED%8A%B8" target="_blank" title="새 창 열림">CSS 위키백과</a></dd>
 					<dd><a href="https://www.w3.org/TR/html401/present/styles.html#h-14.2.2" target="_blank" title="새 창 열림">W3C Style 선언</a></dd>
 					<dd><a href="https://www.w3.org/TR/2018/CR-css-cascade-4-20180828/" target="_blank" title="새 창 열림">CSS Cascading and Inheritance Level 4</a></dd>
+					<dd><a href="https://www.w3.org/TR/CSS21/propidx.html" target="_blank" title="새 창 열림">CSS 2.1 명세의 속성 요약 테이블</a></dd>
+					<dd><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance" target="_blank" title="새 창 열림">MDN 캐스케이드와 상속</a></dd>
 				</dl>
 			</section>
 			<!-- //.uksection -->
@@ -368,6 +427,11 @@
 			<h2 id="css-beginner">CSS 초급(Beginner)</h2>
 			<section class="uksection">
 				<time datetime="">Last Updated on </time>
+				<blockquote class="note" role="note">
+					<p>
+						HTML 학습과정이 마무리되었으면 디자인하기 위해 꼭 필요한 기본적인 CSS를 배우는 단계입니다.
+					</p>
+				</blockquote>
 
 				<h3 id="css-units">CSS 단위</h3>
 				<article>
@@ -384,6 +448,7 @@
 							프로퍼티 값이 0인 경우, 단위를 생략할 수 있다.<br>
 							단위를 사용할 때, 앞에 숫자와 단위간 공백을 두지 않습니다. 예: 2em, 3px, 5in<br>
 							좀더 상세한 내용은 각 속성들을 설명할 때 다루겠습니다.<br>
+							font-size 의 단위를 설정하는 방법은 크게 절대단위(px)와 상대단위(%,em)등이 있는데 모바일이나 반응형을 고려할 시 상대단위를 사용하는 것이 좋다.<br>
 							예시로 px, pt, cm 등의 단위로 지정하거나 xx-small, x-small, small, medium, large, x-large, xx-large 중에서 선택 가능하며,<br>
 							medium은 기본값으로 12pt = 19px = 13m = 100%, *구 IE 버전의 경우, small이 기본값이라 doctype을 선언해주어야 medium이 기본값으로 나옵니다.
 						</p>
@@ -414,6 +479,14 @@
 									<p>주로 웹 문서에서 사용되며, 다양한 장치에서 크기 조절이 가능함.</p>
 									<p>em 단위는 상위 요소 크기의 몇 배인지로 크기를 정합니다. 예를 들어 font-size: 1.5em; 은 글자 크기를 상위 요소 크기의 1.5배로 하겠다는 뜻입니다.</p>
 									<p>percent(%)는 CSS에서는 상대적인 길이값으로 사용되고 있지만, 그 자체는 길이 단위가 아니므로 여기에서 제외함. em을 %바꾼것과 동일.</p>
+									<p>
+										브라우저의 기본 값은 1em = 16px 이므로 12px 을 사용하고자 할 때,<br>
+										em 계산법은 12( 사용하고 싶은 px) / 16(기준크기 px) = 0.75 em 이 된다.<br>
+										참고로 em은 소수점 3자리까지 가능하다.
+										<br><br>
+										% 로 변환할 시,<br>
+										12(사용하고자 하는 px) / 16 (기준크기 px) * 100 = 75% 가 된다.
+									</p>
 <pre><code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="ko"&gt;
@@ -577,6 +650,7 @@
 					<dl>
 						<dt>px(pixels) 단위</dt>
 						<dd>
+							<p>px 은 화소를 의미한다. px단위는 요소를 이미지에 맞춰 정확히 배치해야 할 때 사용하면 좋다. 이미지의 크기 단위가 px이기 때문이다.</p>
 							<p>1 픽셀. 화면에서는 전통적으로 하나의 장치 픽셀(점)을 의미했지만, 프린터나 고해상도 화면에서는 1/96 in을 맞출 수 있도록 여러 개의 장치 픽셀을 의미합니다.</p>
 							<p>화면 해상도에 따라 달라진다. 크기를 px로 지정해 둔다면 1028X768에서는 작게 보이는 글자가 800X600 해상도에서는 크게 보일 것이다.</p>
 						</dd>
@@ -586,6 +660,7 @@
 						</dd>
 						<dt>cm(centimeters) 단위</dt>
 						<dd>
+							<p>cm는 화면의 논리적 센티미터를 의미한다. 1in 는 2.54cm 이다.</p>
 							<p>1 센티미터, 1cm = 96px/2.54</p>
 						</dd>
 						<dt>in(inches) 단위</dt>
@@ -594,11 +669,13 @@
 						</dd>
 						<dt>pt(points) 단위</dt>
 						<dd>
+							<p>pt는 포인트를 의미한다. 1pt는 1/72in 이다.</p>
 							<p>One point. 1pt = 1/72nd of 1in. 주로 인쇄매체에 사용.</p>
 						</dd>
 						<dt>pc(picas) 단위</dt>
 						<dd>
-							<p>1 피카, 1pc = 12pt = 1/61in.</p>
+							<p>pc는 파이카를 의미한다. 1pc 는 12pt이며 1/6in 이다.</p>
+							<p>1 파이카, 1pc = 12pt = 1/61in.</p>
 						</dd>
 					</dl>
 <pre><code>
@@ -973,8 +1050,28 @@
 						</p>
 					</blockquote>
 
-					<h4 id="css-type-first">CSS 선택자 우선순위</h4>
+					<h4 id="css-type-first">CSS 선택자 우선순위 (specificity 계산)</h4>
 					<section>
+						<p>더 특정적인 선택자가 더 일반적인 선택자보다 우선합니다. 가상 엘리먼트와 가장클래스들은 각각 일반적인 엘리먼트와 클래스와 같이 간주됩니다.</p>
+						<p>3개의 숫자를 결합한 게 셀렉터의 상세도입니다. (large base의 숫자 시스템을 기반으로 합니다)</p>
+						<p>CSS Selector의 조합에 따라서 셀렉터의 우선순위가 바뀔 수 있으며, 셀렉터의 우선순위를 잘 지정한다면 한 셀렉터를 다방면으로 효율적이게 활용할 수 있게 된다.</p>
+						<p>부정 의사 클래스 안의 셀렉터도 다른 셀렉터와 동일하게 셉니다. 그러나, 부정 의사 클래스 자신은 의사 클래스로 세지 않습니다.</p>
+						<p><strong>셀렉터의 우선순위를 계산하는 방법은 아래와 같다.</strong></p>
+						<ul>
+							<li>셀렉터 중 ID 셀렉터의 갯수를 셉니다 (= a)</li>
+							<li>셀렉터 중 클래스 셀렉터, 속성 셀렉터, 의사(가상) 클래스의 갯수를 셉니다 (= b)</li>
+							<li>셀렉터 중 타입 셀렉터와 의사 요소의 갯수를 셉니다 (= c)</li>
+							<li>전역 셀렉터(가상 요소)는 무시합니다.</li>
+						</ul>
+						<ul>
+							<li>속성 값 뒤에 !important 를 붙인 속성</li>
+							<li>HTML에서 style을 직접 지정한 속성</li>
+							<li>#id 로 지정한 속성</li>
+							<li>.클래스, :추상클래스 로 지정한 속성</li>
+							<li>태그이름 으로 지정한 속성</li>
+							<li>상위 객체에 의해 상속된 속성</li>
+						</ul>
+						<p>같은 우선 순위에 있는 경우, 부모-자식 관계가 많은 경우가 우선되며, 모든 설정이 같은 경우 나중에 선언한 것이 우선되어 적용됩니다.</p>
 <pre><code>
 *                      {} /* a=0 b=0 c=0 d=0 -&gt; specificity = 0,0,0,0 */
 li                      {} /* a=0 b=0 c=0 d=1 -&gt; specificity = 0,0,0,1 */
@@ -986,6 +1083,18 @@ ul ol li.red      {} /* a=0 b=0 c=1 d=3 -&gt; specificity = 0,0,1,3 */
 li.red.level      {} /* a=0 b=0 c=2 d=1 -&gt; specificity = 0,0,2,1 */
 #x34y             {} /* a=0 b=1 c=0 d=0 -&gt; specificity = 0,1,0,0 */
 style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
+
+
+				a	b	c	    선택자 우선순위 계산
+*{}				0	0	0	=	0
+li{}				0	0	1	=	1
+ul li{}			0	0	2	=	2
+ul ol+li{}			0	0	3	=	3
+li.num{}			0	1	1	=	11
+ul+ol li.num{}	0	1	3	=	13
+li.num.last{}		0	2	1	=	21
+#wrap{}			1	0	0	=	100
+p#wrap{}		1	0	1	=	101
 </code></pre>
 					</section>
 
@@ -998,232 +1107,256 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 								아이디 선택자(ID Selectors), 클래스 선택자(Class Selectors)로 구분지을 수 있습니다.<br>
 							</p>
 						</blockquote>
-						<dl>
-							<dt>전체 선택자(Universal Selectors)</dt>
-							<dd>
-								<p>CSS Level 2 선택자</p>
-								<p>CSS를 적용할 대상으로 HTML 문서 내부의 모든 요소를 선택합니다. 별표(*)로 나타냅니다.</p>
-								<p>별표는 간단한 선택기로 선택 사항입니다. 예를 들어, *.warning와 .warning 은 동일합니다.</p>
-								<ul>
-									<li><strong>기본 예시</strong>
-										<p>*{/* style 작성 */}</p>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS Universal Selector&lt;/title&gt;
-		&lt;style&gt;
-			*{color:blue;}
-			/* 
-				*(전체 선택자)를 선택하고 스타일을 적용하면 html의 모든 요소에 blue색상이 적용됩니다.
-				*/
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h1&gt;CSS Table of Contents&lt;/h1&gt;
-		&lt;h2&gt;CSS 시작하기&lt;/h2&gt;
-		&lt;ul&gt;
-			&lt;li&gt;CSS란?&lt;/li&gt;
-			&lt;li&gt;CSS를 사용하는 이유?&lt;/li&gt;
-			&lt;li&gt;CSS의 발전&lt;/li&gt;
-			&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
-			&lt;li&gt;CSS의 문법&lt;/li&gt;
-			&lt;li&gt;CSS 선언방식&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-									</li>
-									<li><strong>응용 예시</strong>
-										<p>*.warning{/* style 작성 */}</p>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS Universal Selector&lt;/title&gt;
-		&lt;style&gt;
-			* [lang^=en]{color:green;}
-			*.warning{color:red;}
-			*#maincontent{border:1px solid blue;}
-			.floating{float:left;}
-			/* automatically clear the next sibling after a floating element */
-			.floating + *{clear:left;}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;p class="warning"&gt;
-			&lt;span lang="en-us"&gt;A green span&lt;/span&gt; in a red paragraph.
-		&lt;/p&gt;
-		&lt;p id="maincontent" lang="en-gb"&gt;
-			&lt;span class="warning"&gt;A red span&lt;/span&gt; in a green paragraph.
-		&lt;/p&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-									</li>
-								</ul>
 
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
+						<h5 id="css-universal-selectors">전체 선택자(Universal Selectors)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 2 선택자</p>
+							<p>CSS를 적용할 대상으로 HTML 문서 내부의 모든 요소를 선택합니다. 별표(*)로 나타냅니다.</p>
+							<p>별표는 간단한 선택기로 선택 사항입니다. 예를 들어, *.warning와 .warning 은 동일합니다.</p>
+							<p>*{/* style 작성 */}</p>
+							<dl>
+								<dt>*</dt>
+								<dd>
 									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>7+</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-							<dt>타입 선택자(Type Selectors)</dt>
-							<dd>
-								<p>CSS Level 1 선택자</p>
-								<p>타입 선택자(Type Selector)는 h1, p, div, span 등 HTML 요소(Element)를 선택하는 선택자입니다.</p>
-								<p>Element{/* style 작성 */}</p>
+										<li><strong>기본 예시</strong>
+											<p>*{/* style 작성 */}</p>
 <pre><code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS Type Selector&lt;/title&gt;
-		&lt;style&gt;
-			h1{color:blue;}
-			h2{color:red;}
-			li{color:green;}
-			/* 
-			 타입 선택자는 각 요소 또는 태그라고 하며 각각 요소에 스타일을 지정할 수 있음.
-			 */
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h1&gt;CSS Table of Contents&lt;/h1&gt;
-		&lt;h2&gt;CSS 시작하기&lt;/h2&gt;
-		&lt;ul&gt;
-			&lt;li&gt;CSS란?&lt;/li&gt;
-			&lt;li&gt;CSS를 사용하는 이유?&lt;/li&gt;
-			&lt;li&gt;CSS의 발전&lt;/li&gt;
-			&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
-			&lt;li&gt;CSS의 문법&lt;/li&gt;
-			&lt;li&gt;CSS 선언방식&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/body&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+	&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+	&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+	&lt;title&gt;UXKM CSS Universal Selector&lt;/title&gt;
+	&lt;style&gt;
+		*{color:blue;}
+		/* 
+			*(전체 선택자)를 선택하고 스타일을 적용하면 html의 모든 요소에 blue색상이 적용됩니다.
+			*/
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1&gt;CSS Table of Contents&lt;/h1&gt;
+	&lt;h2&gt;CSS 시작하기&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;li&gt;CSS란?&lt;/li&gt;
+		&lt;li&gt;CSS를 사용하는 이유?&lt;/li&gt;
+		&lt;li&gt;CSS의 발전&lt;/li&gt;
+		&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
+		&lt;li&gt;CSS의 문법&lt;/li&gt;
+		&lt;li&gt;CSS 선언방식&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-							<dt>아이디 선택자(ID Selectors)</dt>
-							<dd>
-								<p>CSS Level 1 선택자</p>
-								<p>아이디 선택자(ID Selector)는 특정 값을 id 속성(attribute)의 값으로 갖는 요소(element)를 선택합니다. 속성값 앞에 #을 붙여 아이디임을 나타냅니다.</p>
-								<p>#idname{/* style 작성 */}</p>
+										</li>
+										<li><strong>응용 예시</strong>
+									<p>*.warning{/* style 작성 */}</p>
 <pre><code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS ID Selector&lt;/title&gt;
-		&lt;style&gt;
-			#toc{color:blue;}
-			#css-start{color:red;}
-			#css-beginner{color:green;}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h1 id="toc"&gt;CSS Table of Contents&lt;/h1&gt;
-		&lt;h2 id="css-start"&gt;CSS 시작하기&lt;/h2&gt;
-		&lt;ul&gt;
-			&lt;li&gt;CSS란?&lt;/li&gt;
-			&lt;li&gt;CSS를 사용하는 이유?&lt;/li&gt;
-			&lt;li&gt;CSS의 발전&lt;/li&gt;
-			&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
-			&lt;li&gt;CSS의 문법&lt;/li&gt;
-			&lt;li&gt;CSS 선언방식&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/body&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+	&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+	&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+	&lt;title&gt;UXKM CSS Universal Selector&lt;/title&gt;
+	&lt;style&gt;
+		* [lang^=en]{color:green;}
+		*.warning{color:red;}
+		*#maincontent{border:1px solid blue;}
+		.floating{float:left;}
+		/* automatically clear the next sibling after a floating element */
+		.floating + *{clear:left;}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;p class="warning"&gt;
+		&lt;span lang="en-us"&gt;A green span&lt;/span&gt; in a red paragraph.
+	&lt;/p&gt;
+	&lt;p id="maincontent" lang="en-gb"&gt;
+		&lt;span class="warning"&gt;A red span&lt;/span&gt; in a green paragraph.
+	&lt;/p&gt;
+&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+										</li>
 									</ul>
-								</aside>
-							</dd>
-							<dt>클래스 선택자(Class Selectors)</dt>
-							<dd>
-								<p>CSS Level 1 선택자</p>
-								<p>클래스 선택자(Class Selector)는 특정 값을 class 속성(attribute)의 값으로 갖는 요소(element)를 선택합니다. 속성값 앞에 .을 붙여 클래스임을 나타냅니다.</p>
-								<p>.classname{/* style 작성 */}</p>
+								</dd>
+							</dl>
+
+							<aside class="bosupport">
+								<strong>Web Browser Support</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>7+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+								</ul>
+							</aside>
+						</section>
+
+						<h5 id="css-type-selectors">타입 선택자(Type Selectors)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 1 선택자</p>
+							<p>타입 선택자(Type Selector)는 h1, p, div, span 등 HTML 요소(Element)를 선택하는 선택자입니다.</p>
+							<p>Element{/* style 작성 */}</p>
+							<dl>
+								<dt>Element</dt>
+								<dd>
 <pre><code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS Type Selector&lt;/title&gt;
-		&lt;style&gt;
-			.css-intro{color:blue;}
-			.css-unit{color:red;}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h1&gt;CSS Table of Contents&lt;/h1&gt;
-		&lt;h2&gt;CSS 시작하기&lt;/h2&gt;
-		&lt;ul&gt;
-			&lt;li class="css-intro"&gt;CSS란?&lt;/li&gt;
-			&lt;li&gt;CSS를 사용하는 이유?&lt;/li&gt;
-			&lt;li&gt;CSS의 발전&lt;/li&gt;
-			&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
-			&lt;li&gt;CSS의 문법&lt;/li&gt;
-			&lt;li&gt;CSS 선언방식&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/body&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+	&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+	&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+	&lt;title&gt;UXKM CSS Type Selector&lt;/title&gt;
+	&lt;style&gt;
+		h1{color:blue;}
+		h2{color:red;}
+		li{color:green;}
+		/* 
+			타입 선택자는 각 요소 또는 태그라고 하며 각각 요소에 스타일을 지정할 수 있음.
+			*/
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1&gt;CSS Table of Contents&lt;/h1&gt;
+	&lt;h2&gt;CSS 시작하기&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;li&gt;CSS란?&lt;/li&gt;
+		&lt;li&gt;CSS를 사용하는 이유?&lt;/li&gt;
+		&lt;li&gt;CSS의 발전&lt;/li&gt;
+		&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
+		&lt;li&gt;CSS의 문법&lt;/li&gt;
+		&lt;li&gt;CSS 선언방식&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-						</dl>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
+						<h5 id="css-id-selectors">아이디 선택자(ID Selectors)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 1 선택자</p>
+							<p>아이디 선택자(ID Selector)는 특정 값을 id 속성(attribute)의 값으로 갖는 요소(element)를 선택합니다. 속성값 앞에 #을 붙여 아이디임을 나타냅니다.</p>
+							<p>#idname{/* style 작성 */}</p>
+							<dl>
+								<dt>#idname</dt>
+								<dd>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+	&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+	&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+	&lt;title&gt;UXKM CSS ID Selector&lt;/title&gt;
+	&lt;style&gt;
+		#toc{color:blue;}
+		#css-start{color:red;}
+		#css-beginner{color:green;}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1 id="toc"&gt;CSS Table of Contents&lt;/h1&gt;
+	&lt;h2 id="css-start"&gt;CSS 시작하기&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;li&gt;CSS란?&lt;/li&gt;
+		&lt;li&gt;CSS를 사용하는 이유?&lt;/li&gt;
+		&lt;li&gt;CSS의 발전&lt;/li&gt;
+		&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
+		&lt;li&gt;CSS의 문법&lt;/li&gt;
+		&lt;li&gt;CSS 선언방식&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
+						<h5 id="css-class-selectors">클래스 선택자(Class Selectors)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 1 선택자</p>
+							<p>클래스 선택자(Class Selector)는 특정 값을 class 속성(attribute)의 값으로 갖는 요소(element)를 선택합니다. 속성값 앞에 .을 붙여 클래스임을 나타냅니다.</p>
+							<p>ex) /* class 속성값으로 abc를 갖는 요소를 선택 */ .abc</p>
+							<dl>
+								<dt>.classname</dt>
+								<dd>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+	&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+	&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+	&lt;title&gt;UXKM CSS Type Selector&lt;/title&gt;
+	&lt;style&gt;
+		.css-intro{color:blue;}
+		.css-unit{color:red;}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1&gt;CSS Table of Contents&lt;/h1&gt;
+	&lt;h2&gt;CSS 시작하기&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;li class="css-intro"&gt;CSS란?&lt;/li&gt;
+		&lt;li&gt;CSS를 사용하는 이유?&lt;/li&gt;
+		&lt;li&gt;CSS의 발전&lt;/li&gt;
+		&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
+		&lt;li&gt;CSS의 문법&lt;/li&gt;
+		&lt;li&gt;CSS 선언방식&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
 					</section>
 
 					<h4 id="css-group-selectors">그룹 선택자(Grouping selectors)</h4>
@@ -1233,6 +1366,9 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 								그룹 선택자(Grouping selectors)는 모든 선택자를 콤마(,)로 조합하여 그룹으로 지어 작성할 수 있습니다.
 							</p>
 						</blockquote>
+						<dl>
+							<dt>Element, Element, Element</dt>
+							<dd>
 <pre><code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="ko"&gt;
@@ -1260,28 +1396,88 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 	&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-						<aside class="bosupport">
-							<strong>Web Browser Support</strong>
-							<ul>
-								<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-								<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-								<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-								<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-								<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-								<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-							</ul>
-						</aside>
+								<aside class="bosupport">
+									<strong>Web Browser Support</strong>
+									<ul>
+										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+									</ul>
+								</aside>
+
+							</dd>
+						</dl>
 					</section>
 
 					<h4 id="css-combinators">조합 선택자(Combinators)</h4>
 					<section>
-						<dl>
-							<dt>하위 조합(Descendant combinator) or 하위 선택자</dt>
-							<dd>
-								<p>CSS Level 1 선택자</p>
-								<p>하위 조합 선택자는 특정 요소의 하위에 있는 요소를 선택합니다.</p>
-								<p>하위 조합 콤비 네이터를 사용하는 선택기를 하위 선택자 라고 합니다.</p>
-								<p>E F{/* declarations */}</p>
+						<h5 id="css-descendant-combinator">하위 조합(Descendant combinator) or 하위 선택자</h5>
+						<section class="ukgroup">
+							<p>CSS Level 1 선택자</p>
+							<p>하위 조합 선택자는 특정 요소의 하위에 있는 요소를 선택합니다.</p>
+							<p>하위 조합 콤비 네이터를 사용하는 선택기를 하위 선택자 라고 합니다.</p>
+							<p>E F{/* declarations */}</p>
+							<dl>
+								<dt>E F</dt>
+								<dd>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+	&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+	&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+	&lt;title&gt;UXKM CSS Descendant Selector&lt;/title&gt;
+	&lt;style&gt;
+		body h2{color:red;}
+		ul li{color:blue;}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1&gt;CSS Table of Contents&lt;/h1&gt;
+	&lt;h2&gt;CSS 시작하기&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;li&gt;CSS란?&lt;/li&gt;
+		&lt;li&gt;CSS를 사용하는 이유?&lt;/li&gt;
+		&lt;li&gt;CSS의 발전&lt;/li&gt;
+		&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
+		&lt;li&gt;CSS의 문법&lt;/li&gt;
+		&lt;li&gt;CSS 선언방식&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+										</ul>
+									</aside>
+
+								</dd>
+							</dl>
+						</section>
+
+						<h5 id="css-child-combinator">자식 연결자(Child combinator)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 2 선택자</p>
+							<p>자식 연결자(Child Selector)는 특정 요소의 자식 요소를 선택합니다.</p>
+							<p>첫 번째 요소와 일치하는 요소의 직접적인 하위 요소인 두 번째 선택자와 일치하는 요소만 일치합니다.</p>
+							<p>두 번째 선택자와 일치하는 요소는 첫 번째 선택자와 일치하는 요소의 직계 자식이어야 합니다.</p>
+							<p>특정 요소의 자식 요소를 선택. 한단계 아래에 있는 요소만 선택한다.</p>
+							<p>E &gt; F{/* declarations */}</p>
+							<dl>
+								<dt>E &gt; F</dt>
+								<dd>
 <pre><code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="ko"&gt;
@@ -1290,10 +1486,73 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
 		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
 		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS Descendant Selector&lt;/title&gt;
+		&lt;title&gt;UXKM CSS Child combinator&lt;/title&gt;
 		&lt;style&gt;
-			body h2{color:red;}
-			ul li{color:blue;}
+			ul &gt; li{color:blue;}
+			ul &gt; li &gt; ul &gt; li{color:red;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;CSS Table of Contents&lt;/h1&gt;
+		&lt;h2&gt;CSS 선택자 level 1,2&lt;/h2&gt;
+		&lt;ul&gt;
+			&lt;li&gt;CSS 선택자 우선순위&lt;/li&gt;
+			&lt;li&gt;기본 선택자(Basic Selectors)
+				&lt;ul&gt;
+					&lt;li&gt;전체 선택자(Universal Selectors)&lt;/li&gt;
+					&lt;li&gt;타입 선택자(Type Selectors)&lt;/li&gt;
+					&lt;li&gt;아이디 선택자(ID Selectors)&lt;/li&gt;
+					&lt;li&gt;클래스 선택자(Class Selectors)&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li&gt;CSS의 발전&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>7+</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.2</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1/3</em></li>
+										</ul>
+									</aside>
+
+								</dd>
+							</dl>
+						</section>
+
+						<h5 id="css-adjacent-sibling-combinator">인접한 형제 선택자(Adjacent sibling combinator)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 2 선택자</p>
+							<p>형제(동위) 셀렉터는 형제 관계(동위 관계)에서 뒤에 위치하는 요소를 선택할 때 사용한다.</p>
+							<p>어떤 요소의 형제 요소 중 첫번째 요소를 선택.</p>
+							<p>E + F{/* declarations */}</p>
+							<dl>
+								<dt>E + F(셀렉터A + 셀렉터B)</dt>
+								<dd>
+									<p>인접한 형제 선택자(Adjacent Sibling Selector)는 어떤 요소의 형제 요소 중 첫번째 요소를 선택합니다.</p>
+									<p>지정된 요소의 인접한 형제와 만 일치합니다. 즉, 요소는 동일한 상위 요소를 가져야하며 지정된 요소 바로 다음에 와야합니다.</p>
+									<p>셀렉터A의 형제 요소 중 셀렉터A 바로 뒤에 위치하는 셀렉터B 요소를 선택한다. A와 B 사이에 다른 요소가 존재하면 선택되지 않는다.</p>
+									<figure>
+										<figcaption>인접한 형제 선택자</figcaption>
+										<img src="images/css/img_Adjacent_sibling_combinator.png" alt="인접한 형제 선택자(Adjacent sibling combinator)">
+									</figure>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS Adjacent sibling combinator&lt;/title&gt;
+		&lt;style&gt;
+			h1 + h2{color:blue;}
 		&lt;/style&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
@@ -1307,285 +1566,56 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 			&lt;li&gt;CSS의 문법&lt;/li&gt;
 			&lt;li&gt;CSS 선언방식&lt;/li&gt;
 		&lt;/ul&gt;
+		&lt;h2&gt;CSS 초급&lt;/h2&gt;
 	&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-							<dt>자식 연결자(Child combinator)</dt>
-							<dd>
-								<p>CSS Level 2 선택자</p>
-								<p>자식 연결자(Child Selector)는 특정 요소의 자식 요소를 선택합니다.</p>
-								<p>첫 번째 요소와 일치하는 요소의 직접적인 하위 요소인 두 번째 선택자와 일치하는 요소만 일치합니다.</p>
-								<p>두 번째 선택자와 일치하는 요소는 첫 번째 선택자와 일치하는 요소의 직계 자식이어야 합니다.</p>
-								<p>E &gt; F{/* declarations */}</p>
-<pre><code>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>7+</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.5</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1.3</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
 
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>IE7+</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-							<dt>인접한 형제 선택자(Adjacent sibling combinator)</dt>
-							<dd>
-								<p>CSS Level 2 선택자</p>
-								<p>인접한 형제 선택자(Adjacent Sibling Selector)는 어떤 요소의 형제 요소 중 첫번째 요소를 선택합니다.</p>
-								<p>지정된 요소의 인접한 형제와 만 일치합니다. 즉, 요소는 동일한 상위 요소를 가져야하며 지정된 요소 바로 다음에 와야합니다.</p>
-								<p>E + F{/* declarations */}</p>
-<pre><code>
-
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>7+</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-						</dl>
 					</section>
 
 					<h4 id="css-attr-selectors">속성 선택자(Attribute Selector)</h4>
 					<section>
 						<p>CSS Level 2 선택자</p>
-						<p>[foobar] / [attribute='value'] / [foo~='bar'] / [foo|='en']</p>
-
+						<p>CSS 속성 선택기는 주어진 속성의 존재 또는 값에 따라 요소를 일치시킵니다.</p>
+						<p>[attribute] / [attribute='value'] / [attribute~='bar'] / [attribute|='en']</p>
 						<dl>
-							<dt>[foobar]</dt>
+							<dt>[attribute]</dt>
 							<dd>
-
-<pre><code>
-
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
+								<p>지정된 속성을 가진 요소를 선택.</p>
+								<p>ex) h1[title] /*title 속성을 가진 h1 요소를 선택*/</p>
 							</dd>
-							<dt>[attribute='value']</dt>
+							<dt>[attribute="value"]</dt>
 							<dd>
-
-<pre><code>
-
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
+								<p>속성의 값이 value인 요소를 선택. 속성값이 정확히 일치해야 한다.</p>
+								<p>ex) h1[title="abc"] /*title 속성의 값이 abc인 h1 요소를 선택*/</p>
 							</dd>
-							<dt>[foo~='bar']</dt>
+							<dt>[attribute~="value"]</dt>
 							<dd>
-
-<pre><code>
-
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
+								<p>지정된 속성 값이 지정된 값을 (공백으로 분리된) 단어로 포함하는 요소를 선택한다.</p>
+								<p>속성의 값이 value를 포함한 요소를 선택. 포함 여부는 단어 기준으로 판단한다.</p>
+								<p>ex) h1[title~="abc"] /*title 속성의 값이 abc를 포함한 h1 요소를 선택. "abc xyz"는 선택되지만 "abcxyz"는 선택되지 않는다.*/</p>
 							</dd>
-							<dt>[foo|='en']</dt>
+							<dt>[attribute|="value"]</dt>
 							<dd>
-
-<pre><code>
-
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
+								<p>지정된 속성 값과 일치하거나 지정 속성 값 뒤 연이은 하이픈("값-")으로 시작하는 요소를 선택한다.</p>
+								<p>속성의 값이 value이거나 value-로 시작하는 요소를 선택.</p>
+								<p>ex) h1[title|="abc"] /*title 속성의 값이 abc이거나 abc로 시작하는 h1 요소를 선택. "abc-xyz"는 선택되지만 "abc xyz"는 선택되지 않는다*/</p>
 							</dd>
 						</dl>
-					</section>
-
-					<!-- 동적 의사(가상) 클래스(Dynamic pseudo-classes)) -->
-					<section>
-						<h4 id="css-dynamic-selectors">동적 의사(가상) 클래스(Dynamic pseudo-classes)</h4>
-						<p>선택자 뒤에 :가상이벤트를 붙이면 특정 이벤트마다 적용 할 스타일을 설정 할 수 있으며, 이를 가상 (추상)클래스라 합니다.</p>
-						<p>CSS Level 1 선택자 - E:link / E:visited</p>
-						<p>CSS Level 1, 2 선택자 - E:active / E:hover / E:focus</p>
-						<p>링크의 기본 스타일 효과를 주는 속성과 링크에 활성화를 더해주는 속성으로 구분합니다.(The link pseudo-classes or The user action pseudo-classes)</p>
-						<p>링크에 사용되는 동적 의사 클래스</p>
-
-						<dl>
-							<dt>:link</dt>
-							<dd>
-
-<pre><code>
-
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-							<dt>:visited</dt>
-							<dd>
-
-<pre><code>
-
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-							<dt>:active</dt>
-							<dd>
-
-<pre><code>
-
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-							<dt>:hover</dt>
-							<dd>
-
-<pre><code>
-
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-							<dt>:focus</dt>
-							<dd>
-
-<pre><code>
-
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-									</ul>
-								</aside>
-							</dd>
-						</dl>
-					</section>
-
-					<h4 id="css-pseudo-classes">의사(가상) 클래스(Pseudo-classes)</h4>
-					<section>
-						<dl>
-							<dt>구조적 의사(가상)클래스(Structural pseudo-class)</dt>
-							<dd>
-								<p>CSS Level 2 선택자</p>
-								<ul>
-									<li><strong>:first-child</strong>
-<pre><code>
-
-</code></pre>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
-											</ul>
-										</aside>
-									</li>
-								</ul>
-							</dd>
-							<dt>언어 의사(가상) 클래스(The language pseudo-class)</dt>
-							<dd>
-								<p>CSS Level 2 선택자</p>
-								<p>language 의사 클래스는 문서의 언어를 기반으로 요소를 선택합니다.</p>
-								<p>특정 요소를 언어 설정에 따라 다르게 표현할 때에 사용함.</p>
-								<p>:lang(언어코드)</p>
-								<p>최상위 html에 lang="언어코드"가 있으면 최상위에 있는것이 먼저 적용됨.</p>
-								<ul>
-									<li><strong>:lang(언어코드)</strong>
 <pre><code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="ko"&gt;
@@ -1594,44 +1624,276 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
 		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
 		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS Type Selector&lt;/title&gt;
+		&lt;title&gt;UXKM CSS Attribute Selector&lt;/title&gt;
 		&lt;style&gt;
-			:lang(en){background-color:blue;}
-			:lang(fr){background-color:green;}
-			:lang(de){background-color:yellow;}
-			:lang(ko){background-color:gray;}
-			div:lang(ko){background-color:seagreen;}
-			p:lang(ko){background-color:yellowgreen;}
-
-			:lang(en) &gt; q{quotes:'\201C' '\201D' '\2018' '\2019';}
-			:lang(fr) &gt; q{quotes:'« ' ' »';}
-			:lang(de) &gt; q{quotes:'»' '«' '\2039' '\203A';}
+			[class]{color:blue;}
+			[title]{color:red;}
+			[lang]{color:green;}
+			h1[lang="en"]{color:goldenrod;}
+			[class~="css"]{color:hotpink;}
+			p[lang|="en"] {color:red;}
 		&lt;/style&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
-		&lt;div lang="en"&gt;&lt;q&gt;This English quote has a &lt;q&gt;nested&lt;/q&gt; quote inside.&lt;/q&gt;&lt;/div&gt;
-		&lt;div lang="fr"&gt;&lt;q&gt;This French quote has a &lt;q&gt;nested&lt;/q&gt; quote inside.&lt;/q&gt;&lt;/div&gt;
-		&lt;div lang="de"&gt;&lt;q&gt;This German quote has a &lt;q&gt;nested&lt;/q&gt; quote inside.&lt;/q&gt;&lt;/div&gt;
-		&lt;div lang="ko"&gt;&lt;q&gt;This korea quote has a &lt;q&gt;nested&lt;/q&gt; quote inside.&lt;/q&gt;&lt;/div&gt;
-		&lt;p lang="ko"&gt;&lt;q&gt;This korea quote has a &lt;q&gt;nested&lt;/q&gt; quote inside.&lt;/q&gt;&lt;/p&gt;
+		&lt;h1 lang="en"&gt;CSS Table of Contents&lt;/h1&gt;
+		&lt;h2&gt;CSS 시작하기&lt;/h2&gt;
+		&lt;ul&gt;
+			&lt;li class="css-intro css"&gt;CSS란?&lt;/li&gt;
+			&lt;li class="css"&gt;CSS를 사용하는 이유?&lt;/li&gt;
+			&lt;li title="type 선택자는 문서 내에서 주어진 유형의 모든 요소를 선택합니다."&gt;CSS의 발전&lt;/li&gt;
+			&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
+			&lt;li class="css-attr"&gt;CSS의 문법&lt;/li&gt;
+			&lt;li lang="ko"&gt;CSS 선언방식&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;p lang="en"&gt;Hello!&lt;/p&gt;
+		&lt;p lang="en-us"&gt;Hi!&lt;/p&gt;
+		&lt;p lang="en-gb"&gt;Ello!&lt;/p&gt;
+		&lt;p lang="us"&gt;Hi!&lt;/p&gt;
+		&lt;p lang="no"&gt;Hei!&lt;/p&gt;
 	&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>8+</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>8.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>3.1</em></li>
-											</ul>
-										</aside>
-									</li>
+						<aside class="bosupport">
+							<strong>Web Browser Support</strong>
+							<ul>
+								<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>7+</em></li>
+								<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+								<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+								<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+								<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>6.0</em></li>
+								<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1.0</em></li>
+							</ul>
+						</aside>
+					</section>
+
+					<h4 id="css-pseudo-classes">의사(가상) 클래스(Pseudo-classes)</h4>
+					<blockquote class="note" role="note">
+						<p>
+							가상 클래스는 요소의 특정 상태에 따라 스타일을 정의할 때 사용된다.<br>
+							특정 상태란 예를 들어 마우스가 올라와 있을때, 링크를 방문했을 때와 아직 방문하지 않았을 때, 포커스가 들어와 있을 때<br>
+							이러한 특정 상태에는 원래 클래스가 존재하지 않지만 가상 클래스를 임의로 지정하여 선택하는 방법이다.<br>
+							가상 클래스는 마침표(.) 대신 콜론(:)을 사용한다. CSS 표준에 의해 미리 정의된 이름이 있기 때문에 임의의 이름을 사용할 수 없다.
+						</p>
+					</blockquote>
+					<section>
+						<h5 id="css-dynamic-pseudo">링크 셀렉터(Link pseudo-classes), 동적 셀렉터(User action pseudo-classes)</h5>
+						<section class="ukgroup">
+							<p>선택자 뒤에 :가상이벤트를 붙이면 특정 이벤트마다 적용 할 스타일을 설정 할 수 있으며, 이를 가상 (추상)클래스라 합니다.</p>
+							<p>CSS Level 1 선택자 - E:link / E:visited</p>
+							<p>CSS Level 1, 2 선택자 - E:active / E:hover / E:focus</p>
+							<p>링크의 기본 스타일 효과를 주는 속성과 링크에 활성화를 더해주는 속성으로 구분합니다.(The link pseudo-classes or The user action pseudo-classes)</p>
+							<p>링크에 사용되는 동적 의사 클래스</p>
+							<p>:hover는 반드시 :link와 :visited가 먼저 정의된 후에 정의되어야 정상적으로 동작한다.</p>
+							<p>:active는 반드시 :hover가 먼저 정의된 후에 정의되어야 정상적으로 동작한다.</p>
+							<dl>
+								<dt>:link</dt>
+								<dd>
+									<p>아직 방문하지 않은 요소를 나타냅니다.</p>
+									<p>링크의 기본 상태이며, 사용자가 아직 한 번도 이 링크를 통해 연결된 페이지를 방문하지 않은 상태이다.</p>
+								</dd>
+								<dt>:visited</dt>
+								<dd>
+									<p>방문한 링크일 때</p>
+									<p>사용자가 한 번이라도 이 링크를 통해 연결된 페이지를 방문한 상태이다.</p>
+								</dd>
+								<dt>:active</dt>
+								<dd>
+									<p>클릭된 상태일 때</p>
+									<p>사용자가 마우스로 링크를 클릭하고 있는 상태이다.</p>
+								</dd>
+								<dt>:hover</dt>
+								<dd>
+									<p>마우스가 올라와 있을 때</p>
+									<p>사용자의 마우스 커서가 링크 위에 올라가 있는 상태이다.</p>
+								</dd>
+								<dt>:focus</dt>
+								<dd>
+									<p>포커스가 들어와 있을 때</p>
+									<p>키보드나 마우스의 이벤트(event) 또는 다른 형태로 해당 요소가 포커스(focus)를 가지고 있는 상태이다.</p>
+								</dd>
+							</dl>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS Dynamic pseudo-classes&lt;/title&gt;
+		&lt;style&gt;
+			a:link{color:black;}
+			a:visited{color:yellow;}
+			a:active{color:red;}
+			a:hover{color:blue;}
+			a:focus{border:2px solid green;}
+			input:focus{background-color:greenyellow;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;
+			a:link{color:black;}&lt;br&gt;
+			a:visited{color:yellow;}&lt;br&gt;
+			a:active{color:red;}&lt;br&gt;
+			a:hover{color:blue;}&lt;br&gt;
+			a:focus{border-color:blue;color:green;}&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;a href="#"&gt;CSS란?&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;CSS를 사용하는 이유?&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;CSS의 발전&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;CSS 모듈과 표준화 과정&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;CSS의 문법&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;CSS 선언방식&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;label&gt;
+			&lt;span&gt;아이디&lt;/span&gt; : &lt;input type="text" name="uid"&gt;
+		&lt;/label&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
 								</ul>
-							</dd>
-						</dl>
+							</aside>
+						</section>
+
+						<h5 id="css-structural-pseudo">구조적 의사(가상)클래스(Structural pseudo-class)</h5>
+						<section class="ukgroup">
+							<blockquote class="note" role="note">
+								<p>
+									구조 의사 클래스를 사용하면 HTML 요소의 계층 구조에서 특정 위치에 있는 요소를 선택할 수 있습니다.
+								</p>
+							</blockquote>
+							<p>CSS Level 2 선택자</p>
+							<dl>
+								<dt>:first-child</dt>
+								<dd>
+									<p>셀렉터에 해당하는 요소 유형(타입)에 상관없이 모든 요소 중 첫번째 자식인 요소를 선택한다.</p>
+									<p>부모의 첫 번째 자식 인 요소를 나타냅니다.</p>
+									<p>이 가상 클래스는 CSS2.1에서 먼저 정의되었고 IE7+ 모든 브라우저들이 지원하고 있습니다.</p>
+									<p>:first-child{/* style 작성 */}</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			p:first-child {
+				color: lime;
+				background-color: black;
+				padding: 5px;
+			}
+			ul li{color:blue;}
+			ul li:first-child{color:red;font-weight:bold;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div&gt;
+			&lt;p&gt;This text is selected!&lt;/p&gt;
+			&lt;p&gt;This text isn't selected.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;h2&gt;This text isn't selected: it's not a `p`.&lt;/h2&gt;
+			&lt;p&gt;This text isn't selected.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Item 1&lt;/li&gt;
+			&lt;li&gt;Item 2&lt;/li&gt;
+			&lt;li&gt;Item 3
+				&lt;ul&gt;
+					&lt;li&gt;Item 3.1&lt;/li&gt;
+					&lt;li&gt;Item 3.2&lt;/li&gt;
+					&lt;li&gt;Item 3.3&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>7+</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>3.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.5</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>4.0</em></li>
+										</ul>
+									</aside>
+
+								</dd>
+							</dl>
+						</section>
+
+						<h5 id="css-lang-pseudo">언어 의사(가상) 클래스(The language pseudo-class)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 2 선택자</p>
+							<p>language 의사 클래스는 문서의 언어를 기반으로 요소를 선택합니다.</p>
+							<dl>
+								<dt>:lang(언어코드)</dt>
+								<dd>
+									<p>특정 요소를 언어 설정에 따라 다르게 표현할 때에 사용함.</p>
+									<p>:lang(언어코드)</p>
+									<p>최상위 html에 lang="언어코드"가 있으면 최상위에 있는것이 먼저 적용됨.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+	&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+	&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+	&lt;title&gt;UXKM CSS Type Selector&lt;/title&gt;
+	&lt;style&gt;
+		:lang(en){background-color:blue;}
+		:lang(fr){background-color:green;}
+		:lang(de){background-color:yellow;}
+		:lang(ko){background-color:gray;}
+		div:lang(ko){background-color:seagreen;}
+		p:lang(ko){background-color:yellowgreen;}
+
+		:lang(en) &gt; q{quotes:'\201C' '\201D' '\2018' '\2019';}
+		:lang(fr) &gt; q{quotes:'« ' ' »';}
+		:lang(de) &gt; q{quotes:'»' '«' '\2039' '\203A';}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div lang="en"&gt;&lt;q&gt;This English quote has a &lt;q&gt;nested&lt;/q&gt; quote inside.&lt;/q&gt;&lt;/div&gt;
+	&lt;div lang="fr"&gt;&lt;q&gt;This French quote has a &lt;q&gt;nested&lt;/q&gt; quote inside.&lt;/q&gt;&lt;/div&gt;
+	&lt;div lang="de"&gt;&lt;q&gt;This German quote has a &lt;q&gt;nested&lt;/q&gt; quote inside.&lt;/q&gt;&lt;/div&gt;
+	&lt;div lang="ko"&gt;&lt;q&gt;This korea quote has a &lt;q&gt;nested&lt;/q&gt; quote inside.&lt;/q&gt;&lt;/div&gt;
+	&lt;p lang="ko"&gt;&lt;q&gt;This korea quote has a &lt;q&gt;nested&lt;/q&gt; quote inside.&lt;/q&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>8+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>8.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>3.1</em></li>
+								</ul>
+							</aside>
+
+								</dd>
+							</dl>
+						</section>
+
 					</section>
 
 					<dl class="linkdoc">
@@ -1639,7 +1901,7 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 						<dd>
 							<a href="https://www.w3.org/TR/selectors/#selectors" target="_blank" title="새 창 열림">W3C Selectors Level 4</a>
 							<a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_%EC%84%A0%ED%83%9D%EC%9E%90" target="_blank" title="새 창 열림">MDN CSS 선택자</a>
-							<a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/cascade.html#preshint" target="_blank" title="새 창 열림">CSS 우선순위</a>
+							<a href="https://www.w3.org/TR/selectors-3/#specificity" target="_blank" title="새 창 열림">CSS 우선순위</a>
 						</dd>
 					</dl>
 				</article>
@@ -1652,6 +1914,27 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 							
 						</p>
 					</blockquote>
+<pre><code>
+
+</code></pre>
+					<aside class="bosupport">
+						<strong>Web Browser Support</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+						</ul>
+					</aside>
+					
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="http://www.w3.org/TR/CSS2/fonts.html" target="_blank" title="새 창 열림">W3C Font</a>
+						</dd>
+					</dl>
 				</article>
 
 				<h3 id="css-text">Text 속성</h3>
@@ -1662,6 +1945,27 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 							
 						</p>
 					</blockquote>
+<pre><code>
+
+</code></pre>
+					<aside class="bosupport">
+						<strong>Web Browser Support</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+						</ul>
+					</aside>
+					
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="http://www.w3.org/TR/CSS2/fonts.html" target="_blank" title="새 창 열림">W3C Font</a>
+						</dd>
+					</dl>
 				</article>
 
 				<h3 id="css-background">Background 속성</h3>
@@ -1672,6 +1976,27 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 							
 						</p>
 					</blockquote>
+<pre><code>
+
+</code></pre>
+					<aside class="bosupport">
+						<strong>Web Browser Support</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+						</ul>
+					</aside>
+					
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="http://www.w3.org/TR/CSS2/fonts.html" target="_blank" title="새 창 열림">W3C Font</a>
+						</dd>
+					</dl>
 				</article>
 
 				<h3 id="css-list">List 속성</h3>
@@ -1682,6 +2007,27 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 							
 						</p>
 					</blockquote>
+<pre><code>
+
+</code></pre>
+					<aside class="bosupport">
+						<strong>Web Browser Support</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+						</ul>
+					</aside>
+					
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="http://www.w3.org/TR/CSS2/fonts.html" target="_blank" title="새 창 열림">W3C Font</a>
+						</dd>
+					</dl>
 				</article>
 
 				<h3 id="css-table">Table 속성</h3>
@@ -1692,6 +2038,27 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 							
 						</p>
 					</blockquote>
+<pre><code>
+
+</code></pre>
+					<aside class="bosupport">
+						<strong>Web Browser Support</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+						</ul>
+					</aside>
+					
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="http://www.w3.org/TR/CSS2/fonts.html" target="_blank" title="새 창 열림">W3C Font</a>
+						</dd>
+					</dl>
 				</article>
 
 				<h3 id="css-boxmodel">박스 모델 속성</h3>
@@ -1702,6 +2069,27 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 							
 						</p>
 					</blockquote>
+<pre><code>
+
+</code></pre>
+					<aside class="bosupport">
+						<strong>Web Browser Support</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+						</ul>
+					</aside>
+					
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="http://www.w3.org/TR/CSS2/fonts.html" target="_blank" title="새 창 열림">W3C Font</a>
+						</dd>
+					</dl>
 				</article>
 
 				<h3 id="css-visual-formatting">시각적인 속성</h3>
@@ -1712,6 +2100,27 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 							
 						</p>
 					</blockquote>
+<pre><code>
+
+</code></pre>
+					<aside class="bosupport">
+						<strong>Web Browser Support</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+						</ul>
+					</aside>
+					
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="http://www.w3.org/TR/CSS2/fonts.html" target="_blank" title="새 창 열림">W3C Font</a>
+						</dd>
+					</dl>
 				</article>
 
 				<h3 id="css-position">위치 속성</h3>
@@ -1722,6 +2131,27 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 							
 						</p>
 					</blockquote>
+<pre><code>
+
+</code></pre>
+					<aside class="bosupport">
+						<strong>Web Browser Support</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+						</ul>
+					</aside>
+					
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="http://www.w3.org/TR/CSS2/fonts.html" target="_blank" title="새 창 열림">W3C Font</a>
+						</dd>
+					</dl>
 				</article>
 
 				<h3 id="css-etc">기타 속성</h3>
@@ -1732,6 +2162,27 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 							
 						</p>
 					</blockquote>
+<pre><code>
+
+</code></pre>
+					<aside class="bosupport">
+						<strong>Web Browser Support</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>지원</em></li>
+						</ul>
+					</aside>
+					
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="http://www.w3.org/TR/CSS2/fonts.html" target="_blank" title="새 창 열림">W3C Font</a>
+						</dd>
+					</dl>
 				</article>
 
 			</section>
@@ -1742,25 +2193,1392 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 			<h2 id="css-middleclass">CSS 중급(Middle class)</h2>
 			<section class="uksection">
 				<time datetime="">Last Updated on </time>
-				
+				<blockquote class="note" role="note">
+					<p>CSS의 기본적인 내용을 배우고 나서 CSS level 3 선택자들을 배우고 나서 좀 더 CSS에 대해 알아가는 과정입니다.</p>
+				</blockquote>
 				<h3 id="css-selectors-level-3">CSS 선택자 level 3</h3>
 				<article>
 					<time datetime="">Last Updated on </time>
-					<blockquote class="note" role="note">
-						<p>
-							
-						</p>
-					</blockquote>
+
+					<h4 id="css3-combinators">조합 선택자(Combinators)</h4>
+					<section>
+						<h5 id="css3-general-sibling-combinator">일반 형제 셀렉터(General Sibling Combinator)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 3 선택자</p>
+							<p>형제(동위) 셀렉터는 형제 관계(동위 관계)에서 뒤에 위치하는 요소를 선택할 때 사용한다.</p>
+							<dl>
+								<dt>Element ~ Element(셀렉터A ~ 셀렉터B)</dt>
+								<dd>
+									<p>셀렉터A의 형제 요소 중 셀렉터A 뒤에 위치하는 셀렉터B 요소를 모두 선택한다.</p>
+									<figure>
+										<figcaption>일반 형제 셀렉터</figcaption>
+										<img src="images/css/img_General_sibling_combinator.png" alt="일반 형제 셀렉터(General Sibling Combinator)">
+									</figure>
+								</dd>
+							</dl>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 General Sibling Combinator&lt;/title&gt;
+		&lt;style&gt;
+			h1 ~ h2{color:blue;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;CSS Table of Contents&lt;/h1&gt;
+		&lt;h2&gt;CSS 시작하기&lt;/h2&gt;
+		&lt;ul&gt;
+			&lt;li&gt;CSS란?&lt;/li&gt;
+			&lt;li&gt;CSS를 사용하는 이유?&lt;/li&gt;
+			&lt;li&gt;CSS의 발전&lt;/li&gt;
+			&lt;li&gt;CSS 모듈과 표준화 과정&lt;/li&gt;
+			&lt;li&gt;CSS의 문법&lt;/li&gt;
+			&lt;li&gt;CSS 선언방식&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;h2&gt;CSS 초급&lt;/h2&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>7+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.2</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>3.1</em></li>
+								</ul>
+							</aside>
+						</section>
+					</section>
+
+					<h4 id="css3-attr-selectors">속성 선택자(Attribute Selector)</h4>
+					<section>
+						<p>CSS Level 3 선택자</p>
+						<p>CSS 속성 선택기는 주어진 속성의 존재 또는 값에 따라 요소를 일치시킵니다.</p>
+						<p>대,소문자 정확하게 구분하여 사용합니다.</p>
+						<p>[attribute^='value'] / [attribute$='value'] / [attribute*='value']</p>
+						<dl>
+							<dt>[attribute^="value"]</dt>
+							<dd>
+								<p>지정된 속성 값으로 시작하는 요소를 선택한다.</p>
+								<p>속성의 값이 value로 시작하는 요소를 선택. 단어 기준이 아니라 문자열 기준.</p>
+								<p>ex) h1[title^="abc"] /*title 속성의 값이 abc로 시작하는 h1 요소를 선택. "abc xyz", "abc-xyz" 모두 선택된다.*/</p>
+							</dd>
+							<dt>[attribute$='value']</dt>
+							<dd>
+								<p>지정된 속성 값으로 끝나는 요소를 선택한다.</p>
+								<p>속성의 값이 value로 끝나는 요소를 선택. 단어 기준이 아니라 문자열 기준.</p>
+								<p>ex) h1[title$="abc"] /*title 속성의 값이 abc로 끝나는 h1 요소를 선택. "xyz abc", "xyz-abc" 모두 선택된다.*/</p>
+							</dd>
+							<dt>[attribute*='value']</dt>
+							<dd>
+								<p>지정된 속성 값을 포함하는 요소를 선택한다.</p>
+								<p>속성의 값이 value를 포함한 요소를 선택. 포함 여부는 문자열 기준으로 판단.</p>
+								<p>ex) h1[title*="abc"] /*title 속성의 값이 abc를 포함한 h1 요소를 선택. "abc xyz","abcxyz","abc-xyz" 모두 선택된다.*/</p>
+							</dd>
+						</dl>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 Attribute Selector&lt;/title&gt;
+		&lt;style&gt;
+			[title^=CSS]{color:blue;}
+			[title$=CSS]{color:red;}
+			[title*=Attr]{color:green;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;ul&gt;
+			&lt;li title="CSS Intro" intro"&gt;CSS란?&lt;/li&gt;
+			&lt;li title="Intro CSS"&gt;CSS를 사용하는 이유?&lt;/li&gt;
+			&lt;li title="Intro CSS Attribute"&gt;CSS 문법&lt;/li&gt;
+			&lt;li title="Attribute Selector"&gt;CSS 속성 선택자&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+						<aside class="bosupport">
+							<strong>Web Browser Support</strong>
+							<ul>
+								<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>8+</em></li>
+								<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+								<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+								<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>3.0</em></li>
+								<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.5</em></li>
+								<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1.0</em></li>
+							</ul>
+						</aside>
+					</section>
+
+					<h4 id="css3-pseudo-classes">의사(가상) 클래스(Pseudo-classes)</h4>
+					<section>
+						<h5 id="css3-structural-pseudo">구조적 의사(가상)클래스(Structural pseudo-class)</h5>
+						<section class="ukgroup">
+							<blockquote class="note" role="note">
+								<p>
+									구조 의사 클래스를 사용하면 HTML 요소의 계층 구조에서 특정 위치에 있는 요소를 선택할 수 있습니다.
+								</p>
+							</blockquote>
+							<p>CSS Level 3 선택자</p>
+							<p>
+								:root / :empty / :last-child / :only-child / :first-of-type / :last-of-type / :only-of-type / 
+								:nth-child(n) / :nth-last-child(n) / :nth-of-type(n) / :nth-last-of-type(n)
+							</p>
+							<dl>
+								<dt>:root</dt>
+								<dd>
+									<p>문서의 root 요소(최상위 요소 html)를 선택함.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 root Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			:root{background-color:gray;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;ul&gt;
+			&lt;li title="CSS Intro" intro"&gt;CSS란?&lt;/li&gt;
+			&lt;li title="Intro CSS"&gt;CSS를 사용하는 이유?&lt;/li&gt;
+			&lt;li title="Intro CSS Attribute"&gt;CSS 문법&lt;/li&gt;
+			&lt;li title="Attribute Selector"&gt;CSS 속성 선택자&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+								<dt>:empty</dt>
+								<dd>
+									<p>아무런 자식(child) 요소도 가지지 않는 요소를 모두 선택함.</p>
+									<p>엘리먼트 내에 스페이스 빈 공간이라도 있다면 그 요소는 비어있는 요소가 아니기 때문에 선택할 수 없습니다.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 empty Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			.box{width:80px;height:80px;background:pink;}
+			.box:empty{background:lime;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div class="box"&gt;&lt;!-- I will be lime. --&gt;&lt;/div&gt;
+		&lt;div class="box"&gt;I will be pink.&lt;/div&gt;
+		&lt;div class="box"&gt;
+			&lt;!-- I will be pink in older browsers because of the whitespace around this comment. --&gt;
+		&lt;/div&gt;
+		&lt;div class="box"&gt;
+			&lt;p&gt;&lt;!-- I will be pink in all browsers because of the non-collapsible whitespace and elements around this comment. --&gt;&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+								<dt>:last-child</dt>
+								<dd>
+									<p>모든 자식(child) 요소 중에서 요소 유형(타입)에 상관없이 마지막에 위치하는 자식(child) 요소를 모두 선택함.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 :last-child Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			p:last-child{color:lime;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div&gt;
+			&lt;p&gt;This text isn't selected.&lt;/p&gt;
+			&lt;p&gt;This text is selected!&lt;/p&gt;
+		&lt;/div&gt;
+
+		&lt;div&gt;
+			&lt;p&gt;This text isn't selected.&lt;/p&gt;
+			&lt;h2&gt;This text isn't selected: it's not a `p`.&lt;/h2&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+								<dt>:first-of-type</dt>
+								<dd>
+									<p>모든 자식(child) 요소 중에서 첫 번째로 등장하는 특정 요소를 모두 선택함.</p>
+									<p>컨테이너 안에서 특정 유형(타입)의 요소에서 첫 번째를 찾습니다.</p>
+									<p>예를 들어서 p:first-of-type은 부모의 첫 번째 자식이든 아니든 상관하지 않고 첫 번째 p 요소를 선택하게 될 것입니다.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 :first-of-type Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			article :first-of-type{background-color:pink;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;article&gt;
+			&lt;div&gt;This `div` is first!&lt;/div&gt;
+			&lt;div&gt;This &lt;span&gt;nested `span` is first&lt;/span&gt;!&lt;/div&gt;
+			&lt;div&gt;This &lt;em&gt;nested `em` is first&lt;/em&gt;, but this &lt;em&gt;nested `em` is last&lt;/em&gt;!&lt;/div&gt;
+			&lt;div&gt;This &lt;span&gt;nested `span` gets styled&lt;/span&gt;!&lt;/div&gt;
+			&lt;b&gt;This `b` qualifies!&lt;/b&gt;
+			&lt;div&gt;This is the final `div`.&lt;/div&gt;
+		&lt;/article&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+								<dt>:last-of-type</dt>
+								<dd>
+									<p>모든 자식(child) 요소 중에서 마지막으로 등장하는 특정 요소를 모두 선택함.</p>
+									<p>:first-of-type과 정확하게 동일하지만 컨테이너의 특정 유형(타입)의 요소에서 마지막을 찾습니다.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 :last-of-type Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			article :last-of-type{background-color:pink;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;article&gt;
+			&lt;div&gt;This `div` is first.&lt;/div&gt;
+			&lt;div&gt;This &lt;span&gt;nested `span` is last&lt;/span&gt;!&lt;/div&gt;
+			&lt;div&gt;This &lt;em&gt;nested `em` is first&lt;/em&gt;, but this &lt;em&gt;nested `em` is last&lt;/em&gt;!&lt;/div&gt;
+			&lt;b&gt;This `b` qualifies!&lt;/b&gt;
+			&lt;div&gt;This is the final `div`!&lt;/div&gt;
+		&lt;/article&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+								<dt>:only-child</dt>
+								<dd>
+									<p>자식(child) 요소를 단 하나만 가지는 모든 요소의 자식(child) 요소를 선택함.</p>
+									<p>만약 컨테이너에서 자식이 하나라면 그 요소를 선택하게 됩니다.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 :only-child Structural pseudo-classr&lt;/title&gt;
+		&lt;style&gt;
+			div:only-child{color:red;}
+			div{display:inline-block;margin:6px;outline:1px solid;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div&gt;
+			&lt;div&gt;I am an only child.&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div&gt;
+			&lt;div&gt;I am the 1st sibling.&lt;/div&gt;
+			&lt;div&gt;I am the 2nd sibling.&lt;/div&gt;
+			&lt;div&gt;I am the 3rd sibling, &lt;div&gt;but this is an only child.&lt;/div&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+								<dt>:only-of-type</dt>
+								<dd>
+									<p>자식(child) 요소를 특정 요소 단 하나만 가지는 모든 요소의 자식(child) 요소를 선택함.</p>
+									<p>동일한 유형의 어떤 형제가 없는 요소</p>
+									<p>:ony-child와 마찬가지입니다. 단지 해당 요소가 컨테이너에서 그 유형(타입)으로 유일한 하나라면 그 요소를 선택합니다.</p>
+									<p>예를 들어서 div 가 하나의 h1과 하나의 p를 포함하고 있다면 이들 각각은 해당 유형(타입)이 유일한 요소일 것입니다.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 :only-of-type Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			main :only-of-type{color:red;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;main&gt;
+			&lt;div&gt;I am `div` #1.&lt;/div&gt;
+			&lt;p&gt;I am the only `p` among my siblings.&lt;/p&gt;
+			&lt;div&gt;I am `div` #2.&lt;/div&gt;
+			&lt;div&gt;I am `div` #3.
+				&lt;i&gt;I am the only `i` child.&lt;/i&gt;
+				&lt;em&gt;I am `em` #1.&lt;/em&gt;
+				&lt;em&gt;I am `em` #2.&lt;/em&gt;
+			&lt;/div&gt;
+		&lt;/main&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+								<dt>:nth-child(n)</dt>
+								<dd>
+									<p>모든 자식(child) 요소 중에서 앞에서부터 n번째에 위치하는 자식(child) 요소를 모두 선택함.</p>
+									<p>n번째 자식 의사(가상) 클래스는 정수와 표현식뿐만 아니라 두 개의 짧은 키워드(odd, even) 중 하나를 선택할 수도 있습니다.</p>
+									<p>n번째 자식 의사(가상) 클래스는 지금까지 사용했던 양수뿐만 아니라 음수도 사용할 수도 있습니다.</p>
+									<p>n은 0부터 시작하는 정수이다.</p>
+									<p>0과 음수는 생략되기 때문에 2n+1과 2n-1, 3n-2와 3n+1은 결과적으로 같은 수열을 생성한다.</p>
+									<p>:nth-child 사용은 해당 요소를 필요에 따라 적절하게 사용하여 활용도가 높은 의사(가상) 클래스입니다.</p>
+									<p>다만 복잡한 페이지 선택의 경우 HTML에서 혼란스러운 :nth-child 표현식 보다 클래스를 직접 사용 하는 것이 좋습니다.</p>
+									<p><strong>n번째 유형별 설명</strong></p>
+									<ul>
+										<li><strong>:nth-child(odd) odd 키워드</strong>
+											<p>홀수(odd number) 인 요소 선택 (1, 3, 5 ...)</p>
+											<p>:nth-child(2n+1) 과 동일</p>
+										</li>
+										<li><strong>:nth-child(even) even 키워드</strong>
+											<p>짝수(even number) 인 요소 선택 (2, 4, 6 ...)</p>
+											<p>:nth-child(2n) 과 동일</p>
+										</li>
+										<li>
+											<strong>:nth-child(An+B) 기능표기법(A x n) + B</strong>
+											<p>일련의 형제의 숫자 위치가 An+B모든 양의 정수 또는 0의 값에 대해 패턴과 일치하는 요소(n)를 나타냅니다.</p>
+											<p>
+												(-1 x n) + 2 (-n+2 로도 표현할 수 있다)<br>
+												(-1 x 0) + 2 = 2 (두 번째 자식이 선택된다)<br>
+												(-1 x 1) + 2 = 1 (첫 번째 자식이 선택된다)<br>
+												(-1 x 2) + 2 = 0 (선택없음)
+											</p>
+											<strong>:nth-child(3n + 3)</strong>
+											<p>3n은 "3xn"이고 전체 표현은 "(3xn) + 3"입니다. 0과 양의 정수로 대체하면 다음과 같습니다.</p>
+											<p>
+												(3 x 0) + 3 = 3 = 3 번째 Element<br>
+												(3 x 1) + 3 = 6 = 6 번째 Element<br>
+												(3 x 2) + 3 = 9 = 9 번째 Element
+											</p>
+											<strong>:nth-child(3n + 3)</strong>
+											<p>"3n + 3" 대신 "3n + 0" 또는 더 간단한 "3n"을 사용하여 대체하면 다음과 같습니다.</p>
+											<p>
+												(3 x 0) = 0 = 일치하지 않음<br>
+												(3 x 1) = 3 = 3 번째 요소<br>
+												(3 x 2) = 6 = 6 번째 요소<br>
+												(3 x 3) = 9 = 9 번째 요소
+											</p>
+											<strong>:nth-child(2n+1)</strong>
+											<p>
+												(2 x 0) + 1 = 1 = 1 번째 Element<br>
+												(2 x 1) + 1 = 3 = 3 번째 Element<br>
+												(2 x 2) + 1 = 5 = 5 번째 Element
+											</p>
+											<strong>:nth-child(4n-1)</strong>
+											<p>음수 n 값을 사용하고 표현식에서 빼기를 사용할 수 있습니다. 예를 들어, 4n-1</p>
+											<p>
+												(4 x 0)-1 = -1 = 일치하지 않음<br>
+												(4 x 1)-1 = 3 = 3 번째 요소<br>
+												(4 x 2)-1 = 7 = 7 번째 요소
+											</p>
+											<p>"-n"값을 사용하면 약간 이상하게 보일 수 있습니다. 최종 결과가 음수이면 일치하는 것이 없으므로 식을 다시 추가하여 다시 양수로 만들어야합니다.</p>
+											<strong>:nth-child(-n + 3)</strong>
+											<p>"-n + 3"으로 "first n elements"를 선택할 때 사용할 수 있습니다.</p>
+											<p>
+												-0 + 3 = 3 = 3 번째 요소<br>
+												-1 + 3 = 2 = 2 번째 요소<br>
+												-2 + 3 = 1 = 1 번째 요소<br>
+												-3 + 3 = 0 = 일치하지 않음
+											</p>
+										</li>
+									</ul>
+									<figure>
+										<figcaption>nth-child() 계산법 한눈에 보기</figcaption>
+										<img src="images/css/img_nth-child.png" alt="nth-child 계산식">
+										<img src="images/css/img_nth-child2.png" alt="nth-child 계산식">
+									</figure>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 :nth-child Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			dl{text-align:center;}
+			span,p{display:inline-block;width:50px;height:50px;border:1px solid #000;line-height:50px;text-align:center;}
+
+			/* :nth-child(1) = 첫번째 선택 */
+			.type1 dd :nth-child(1){background-color:yellowgreen;}
+			/* :nth-child(2n) = 두번째 마다 선택 */
+			.type2 dd :nth-child(2n){background-color:yellowgreen;}
+			/* :nth-child(2n+1) = 첫번째 요소부터 2번째 마다 선택 */
+			.type3 dd :nth-child(2n+1){background-color:yellowgreen;}
+			/* :nth-child(2n+5) = 다섯번째 부터 2개 마다 선택 */
+			.type4 dd :nth-child(2n+5){background-color:yellowgreen;}
+			/* :nth-child(-2n+5) = 첫번째 요소부터 5번째 요소까지 2개 마다 선택 */
+			.type5 dd :nth-child(-2n+5){background-color:yellowgreen;}
+			/* :nth-child(n+5) = 5번째 부터 모두 선택 */
+			.type6 dd :nth-child(n+5){background-color:yellowgreen;}
+			/* :nth-child(-n+5) = 앞에서부터 5개만 선택 */
+			.type7 dd :nth-child(-n+5){background-color:yellowgreen;}
+			/* :nth-child(n+3):nth-child(-n+8) = 선택자를 두번 사용하여 교집합인 요소만 선택할 수 있다. */
+			.type8 dd :nth-child(n+3):nth-child(-n+8){background-color:yellowgreen;}
+			/* :nth-child(odd) = 홀수 선택 */
+			.type9 dd :nth-child(odd){background-color:yellowgreen;}
+			/* :nth-child(even) = 짝수 선택 */
+			.type10 dd :nth-child(even){background-color:yellowgreen;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;dl class="type1"&gt;
+			&lt;dt&gt;:nth-child(1) = 첫번째 선택&lt;/dt&gt;
+			&lt;dd&gt;
+				&lt;span class="box"&gt;span 1&lt;/span&gt;
+				&lt;p class="box"&gt;p 2&lt;/p&gt;
+				&lt;span class="box"&gt;span 3&lt;/span&gt;
+				&lt;p class="box"&gt;p 4&lt;/p&gt;
+				&lt;span class="box"&gt;span 5&lt;/span&gt;
+				&lt;p class="box"&gt;p 6&lt;/p&gt;
+				&lt;p class="box"&gt;p 7&lt;/p&gt;
+				&lt;p class="box"&gt;p 8&lt;/p&gt;
+				&lt;p class="box"&gt;p 9&lt;/p&gt;
+				&lt;p class="box"&gt;p 10&lt;/p&gt;
+			&lt;/dd&gt;
+		&lt;/dl&gt;
+		&lt;dl class="type2"&gt;
+			&lt;dt&gt;:nth-child(2n) = 두번째 마다 선택&lt;/dt&gt;
+			&lt;dd&gt;
+				&lt;span class="box"&gt;span 1&lt;/span&gt;
+				&lt;p class="box"&gt;p 2&lt;/p&gt;
+				&lt;span class="box"&gt;span 3&lt;/span&gt;
+				&lt;p class="box"&gt;p 4&lt;/p&gt;
+				&lt;span class="box"&gt;span 5&lt;/span&gt;
+				&lt;p class="box"&gt;p 6&lt;/p&gt;
+				&lt;p class="box"&gt;p 7&lt;/p&gt;
+				&lt;p class="box"&gt;p 8&lt;/p&gt;
+				&lt;p class="box"&gt;p 9&lt;/p&gt;
+				&lt;p class="box"&gt;p 10&lt;/p&gt;
+			&lt;/dd&gt;
+		&lt;/dl&gt;
+		&lt;dl class="type3"&gt;
+			&lt;dt&gt;:nth-child(2n+1) = 첫번째 요소부터 2번째 마다 선택&lt;/dt&gt;
+			&lt;dd&gt;
+				&lt;span class="box"&gt;span 1&lt;/span&gt;
+				&lt;p class="box"&gt;p 2&lt;/p&gt;
+				&lt;span class="box"&gt;span 3&lt;/span&gt;
+				&lt;p class="box"&gt;p 4&lt;/p&gt;
+				&lt;span class="box"&gt;span 5&lt;/span&gt;
+				&lt;p class="box"&gt;p 6&lt;/p&gt;
+				&lt;p class="box"&gt;p 7&lt;/p&gt;
+				&lt;p class="box"&gt;p 8&lt;/p&gt;
+				&lt;p class="box"&gt;p 9&lt;/p&gt;
+				&lt;p class="box"&gt;p 10&lt;/p&gt;
+			&lt;/dd&gt;
+		&lt;/dl&gt;
+		&lt;dl class="type4"&gt;
+			&lt;dt&gt;:nth-child(2n+5) = 다섯번째 부터 2개 마다 선택&lt;/dt&gt;
+			&lt;dd&gt;
+				&lt;span class="box"&gt;span 1&lt;/span&gt;
+				&lt;p class="box"&gt;p 2&lt;/p&gt;
+				&lt;span class="box"&gt;span 3&lt;/span&gt;
+				&lt;p class="box"&gt;p 4&lt;/p&gt;
+				&lt;span class="box"&gt;span 5&lt;/span&gt;
+				&lt;p class="box"&gt;p 6&lt;/p&gt;
+				&lt;p class="box"&gt;p 7&lt;/p&gt;
+				&lt;p class="box"&gt;p 8&lt;/p&gt;
+				&lt;p class="box"&gt;p 9&lt;/p&gt;
+				&lt;p class="box"&gt;p 10&lt;/p&gt;
+			&lt;/dd&gt;
+		&lt;/dl&gt;
+		&lt;dl class="type5"&gt;
+			&lt;dt&gt;:nth-child(-2n+5) = 첫번째 요소부터 5번째 요소까지 2개 마다 선택&lt;/dt&gt;
+			&lt;dd&gt;
+				&lt;span class="box"&gt;span 1&lt;/span&gt;
+				&lt;p class="box"&gt;p 2&lt;/p&gt;
+				&lt;span class="box"&gt;span 3&lt;/span&gt;
+				&lt;p class="box"&gt;p 4&lt;/p&gt;
+				&lt;span class="box"&gt;span 5&lt;/span&gt;
+				&lt;p class="box"&gt;p 6&lt;/p&gt;
+				&lt;p class="box"&gt;p 7&lt;/p&gt;
+				&lt;p class="box"&gt;p 8&lt;/p&gt;
+				&lt;p class="box"&gt;p 9&lt;/p&gt;
+				&lt;p class="box"&gt;p 10&lt;/p&gt;
+			&lt;/dd&gt;
+		&lt;/dl&gt;
+		&lt;dl class="type6"&gt;
+			&lt;dt&gt;:nth-child(n+5) = 5번째 부터 모두 선택&lt;/dt&gt;
+			&lt;dd&gt;
+				&lt;span class="box"&gt;span 1&lt;/span&gt;
+				&lt;p class="box"&gt;p 2&lt;/p&gt;
+				&lt;span class="box"&gt;span 3&lt;/span&gt;
+				&lt;p class="box"&gt;p 4&lt;/p&gt;
+				&lt;span class="box"&gt;span 5&lt;/span&gt;
+				&lt;p class="box"&gt;p 6&lt;/p&gt;
+				&lt;p class="box"&gt;p 7&lt;/p&gt;
+				&lt;p class="box"&gt;p 8&lt;/p&gt;
+				&lt;p class="box"&gt;p 9&lt;/p&gt;
+				&lt;p class="box"&gt;p 10&lt;/p&gt;
+			&lt;/dd&gt;
+		&lt;/dl&gt;
+		&lt;dl class="type7"&gt;
+			&lt;dt&gt;:nth-child(-n+5) = 앞에서부터 5개만 선택&lt;/dt&gt;
+			&lt;dd&gt;
+				&lt;span class="box"&gt;span 1&lt;/span&gt;
+				&lt;p class="box"&gt;p 2&lt;/p&gt;
+				&lt;span class="box"&gt;span 3&lt;/span&gt;
+				&lt;p class="box"&gt;p 4&lt;/p&gt;
+				&lt;span class="box"&gt;span 5&lt;/span&gt;
+				&lt;p class="box"&gt;p 6&lt;/p&gt;
+				&lt;p class="box"&gt;p 7&lt;/p&gt;
+				&lt;p class="box"&gt;p 8&lt;/p&gt;
+				&lt;p class="box"&gt;p 9&lt;/p&gt;
+				&lt;p class="box"&gt;p 10&lt;/p&gt;
+			&lt;/dd&gt;
+		&lt;/dl&gt;
+		&lt;dl class="type8"&gt;
+			&lt;dt&gt;:nth-child(n+3):nth-child(-n+8) = 선택자를 두번 사용하여 교집합인 요소만 선택할 수 있다.&lt;/dt&gt;
+			&lt;dd&gt;
+				&lt;span class="box"&gt;span 1&lt;/span&gt;
+				&lt;p class="box"&gt;p 2&lt;/p&gt;
+				&lt;span class="box"&gt;span 3&lt;/span&gt;
+				&lt;p class="box"&gt;p 4&lt;/p&gt;
+				&lt;span class="box"&gt;span 5&lt;/span&gt;
+				&lt;p class="box"&gt;p 6&lt;/p&gt;
+				&lt;p class="box"&gt;p 7&lt;/p&gt;
+				&lt;p class="box"&gt;p 8&lt;/p&gt;
+				&lt;p class="box"&gt;p 9&lt;/p&gt;
+				&lt;p class="box"&gt;p 10&lt;/p&gt;
+			&lt;/dd&gt;
+		&lt;/dl&gt;
+		&lt;dl class="type9"&gt;
+			&lt;dt&gt;:nth-child(odd) = 홀수 선택&lt;/dt&gt;
+			&lt;dd&gt;
+				&lt;span class="box"&gt;span 1&lt;/span&gt;
+				&lt;p class="box"&gt;p 2&lt;/p&gt;
+				&lt;span class="box"&gt;span 3&lt;/span&gt;
+				&lt;p class="box"&gt;p 4&lt;/p&gt;
+				&lt;span class="box"&gt;span 5&lt;/span&gt;
+				&lt;p class="box"&gt;p 6&lt;/p&gt;
+				&lt;p class="box"&gt;p 7&lt;/p&gt;
+				&lt;p class="box"&gt;p 8&lt;/p&gt;
+				&lt;p class="box"&gt;p 9&lt;/p&gt;
+				&lt;p class="box"&gt;p 10&lt;/p&gt;
+			&lt;/dd&gt;
+		&lt;/dl&gt;
+		&lt;dl class="type10"&gt;
+			&lt;dt&gt;:nth-child(even) = 짝수 선택&lt;/dt&gt;
+			&lt;dd&gt;
+				&lt;span class="box"&gt;span 1&lt;/span&gt;
+				&lt;p class="box"&gt;p 2&lt;/p&gt;
+				&lt;span class="box"&gt;span 3&lt;/span&gt;
+				&lt;p class="box"&gt;p 4&lt;/p&gt;
+				&lt;span class="box"&gt;span 5&lt;/span&gt;
+				&lt;p class="box"&gt;p 6&lt;/p&gt;
+				&lt;p class="box"&gt;p 7&lt;/p&gt;
+				&lt;p class="box"&gt;p 8&lt;/p&gt;
+				&lt;p class="box"&gt;p 9&lt;/p&gt;
+				&lt;p class="box"&gt;p 10&lt;/p&gt;
+			&lt;/dd&gt;
+		&lt;/dl&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 :nth-child Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			*{margin:0;padding:0;box-sizing:border-box;}
+			h1{margin-bottom:15px;padding:15px 0;border-bottom:1px solid #000;font-size:18px;text-align:center;}
+			h2{font-size:18px;text-align:center;}
+			ul{text-align:center;list-style:none;}
+			li{margin:10px 0;border:1px solid #000;}
+			strong{display:block;background-color:#f5f5f5;}
+			.note{display:block;width:100%;height:auto;border:0;line-height:1.5;text-align:left;}
+			.box{display:table;width:100%;}
+			span,p{display:table-cell;width:10%;height:50px;border:1px solid #000;line-height:50px;text-align:center;}
+
+			/* :nth-child(even) = :nth-child(2n) 짝수 요소를 선택 */
+			.type1 .box :nth-child(even){background-color:yellowgreen;}
+
+			/* :nth-child(odd) = :nth-child(2n+1) 홀수 요소를 선택 */
+			.type2 .box :nth-child(odd){background-color:yellowgreen;}
+
+			/* :nth-child(5) = n번째 요소(0n + 5) 목록에서 5 번째 항목을 선택 */
+			.type3 .box :nth-child(5){background-color:yellowgreen;}
+
+			/* :nth-child(3n) - n번째 요소(3n) 목록에서 모든 세 번째 항목을 선택 */
+			.type4 .box :nth-child(3n){background-color:yellowgreen;}
+
+			/* :nth-child(3n+1) = n번째 요소(3n + 1) 리스트의 3 번째 요소를 모두 선택하고 한 단계 앞으로 이동 */
+			.type5 .box :nth-child(3n+1){background-color:yellowgreen;}
+
+			/* :nth-child(3n-1) = n번째 요소(3n - 1) 리스트의 3 번째 요소를 모두 선택하고 한 단계 뒤로 이동 */
+			.type6 .box :nth-child(3n-1){background-color:yellowgreen;}
+
+			/* :nth-child(n+6) = n번째 요소(n + 6) 목록에서 6 번째 항목부터 모든 항목을 선택 */
+			.type7 .box :nth-child(n+6){background-color:yellowgreen;}
+
+			/* :nth-child(-n+6) = n번째 요소(-n + 6) 목록 시작 부분에서 6 개의 항목을 선택 */
+			.type8 .box :nth-child(-n+6){background-color:yellowgreen;}
+
+			/* :nth-child(n+3):nth-child(-n+8) 3에서 8 사이의 항목을 선택. */
+			.type9 .box :nth-child(n+3):nth-child(-n+8){background-color:blueviolet;}
+
+			/* :nth-child(n+4):nth-child(even) 4 번째 요소를 선택한 다음 짝수 만 선택. */
+			.type10 .box :nth-child(n+4):nth-child(even){background-color:blueviolet;}
+
+			/* :nth-child(3n+1):nth-child(even) 1 번째, 4 번째, 7 번째 및 10 번째 요소를 선택한 다음 이들 중 짝수만 선택. */
+			.type11 .box :nth-child(3n+1):nth-child(even){background-color:blueviolet;}
+
+			/* :nth-child(n+3):nth-child(-n+8):nth-child(even) 3 ~ 8 번째 항목을 선택한 다음 짝수 만 선택 */
+			.type12 .box :nth-child(n+3):nth-child(-n+8):nth-child(even){background-color:blueviolet;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;nth-child 예제&lt;/h1&gt;
+		&lt;h2&gt;일반 예제&lt;/h2&gt;
+		&lt;ul&gt;
+			&lt;li class="type1"&gt;&lt;strong&gt;:nth-child(even) = :nth-child(2n)&lt;/strong&gt;
+				&lt;p class="note"&gt;(even)-keyword, 짝수 요소를 선택합니다. (2n)과 동일합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+			&lt;li class="type2"&gt;&lt;strong&gt;:nth-child(odd) = :nth-child(2n+1)&lt;/strong&gt;
+				&lt;p class="note"&gt;(odd)-키워드, 홀수 요소를 선택합니다. (2n+1)과 동일합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+			&lt;li class="type3"&gt;&lt;strong&gt;:nth-child(5) = n번째 요소(0n + 5)&lt;/strong&gt;
+				&lt;p class="note"&gt;목록에서 5 번째 항목을 선택합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+			&lt;li class="type4"&gt;&lt;strong&gt;:nth-child(3n) = n번째 요소(3n)&lt;/strong&gt;
+				&lt;p class="note"&gt;목록에서 모든 세 번째 항목을 선택합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+			&lt;li class="type5"&gt;&lt;strong&gt;:nth-child(3n+1) = n번째 요소(3n + 1)&lt;/strong&gt;
+				&lt;p class="note"&gt;리스트의 3 번째 요소를 모두 선택하고 한 단계 앞으로 이동합니다. 따라서 각 그룹에서 첫 번째 요소를 선택할 수 있습니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+			&lt;li class="type6"&gt;&lt;strong&gt;:nth-child(3n-1) = n번째 요소(3n - 1)&lt;/strong&gt;
+				&lt;p class="note"&gt;리스트의 3 번째 요소를 모두 선택하고 한 단계 뒤로 이동합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+			&lt;li class="type7"&gt;&lt;strong&gt;:nth-child(n+6) = n번째 요소(n + 6)&lt;/strong&gt;
+				&lt;p class="note"&gt;목록에서 6 번째 항목부터 모든 항목을 선택합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+			&lt;li class="type8"&gt;&lt;strong&gt;:nth-child(-n+6) = n 번째 요소(-n + 6)&lt;/strong&gt;
+				&lt;p class="note"&gt;목록 시작 부분에서 6 개의 항목을 선택합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;h2&gt;선택기 조합 예제&lt;/h2&gt;
+		&lt;p&gt;선택기 조합으로 사용하려면 그냥 class로 사용하여 선택하는 것을 권장합니다.&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li class="type9"&gt;&lt;strong&gt;:nth-child(n+3):nth-child(-n+8)&lt;/strong&gt;
+				&lt;p class="note"&gt;3에서 8 사이의 항목을 선택합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+			&lt;li class="type10"&gt;&lt;strong&gt;:nth-child(n+4):nth-child(even)&lt;/strong&gt;
+				&lt;p class="note"&gt;4 번째 요소를 선택한 다음 짝수 만 선택합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+			&lt;li class="type11"&gt;&lt;strong&gt;:nth-child(3n+1):nth-child(even)&lt;/strong&gt;
+				&lt;p class="note"&gt;1 번째, 4 번째, 7 번째 및 10 번째 요소를 선택한 다음 이들 중 짝수만 선택합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+			&lt;li class="type12"&gt;&lt;strong&gt;:nth-child(n+3):nth-child(-n+8):nth-child(even)&lt;/strong&gt;
+				&lt;p class="note"&gt;3 ~ 8 번째 항목을 선택한 다음 짝수 만 선택합니다.&lt;/p&gt;
+				&lt;div class="box"&gt;
+					&lt;span&gt;span 1&lt;/span&gt;
+					&lt;p&gt;p 2&lt;/p&gt;
+					&lt;span&gt;span 3&lt;/span&gt;
+					&lt;p&gt;p 4&lt;/p&gt;
+					&lt;span&gt;span 5&lt;/span&gt;
+					&lt;p&gt;p 6&lt;/p&gt;
+					&lt;p&gt;p 7&lt;/p&gt;
+					&lt;p&gt;p 8&lt;/p&gt;
+					&lt;p&gt;p 9&lt;/p&gt;
+					&lt;p&gt;p 10&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+								<dt>:nth-last-child(n)</dt>
+								<dd>
+									<p>	모든 자식(child) 요소 중에서 뒤에서부터 n번째에 위치하는 자식(child) 요소를 모두 선택함.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 :nth-last-child Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			p{
+				display:inline-block;
+				width:40%;
+				margin:2%;
+				padding:7px;
+				box-sizing:border-box;
+				border:2px solid #CCC;
+				border-radius:10px;
+			}
+			p:nth-last-child(1) {
+				border-color:crimson;
+			}
+			p:nth-last-child(4) {
+				border-color:orange;
+			}
+			p:nth-last-child(5) {
+				border-color:green;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;section&gt;
+			&lt;p&gt;1&lt;/p&gt;
+			&lt;p&gt;2&lt;/p&gt;
+			&lt;p&gt;3&lt;/p&gt;
+			&lt;p&gt;4&lt;/p&gt;
+			&lt;p&gt;5&lt;/p&gt;
+			&lt;p&gt;6&lt;/p&gt;
+		&lt;/section&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+								<dt>:nth-of-type(n)</dt>
+								<dd>
+									<p>모든 자식(child) 요소 중에서 n번째로 등장하는 특정 요소를 모두 선택함.</p>
+									<p>:nth-child와 마찬가지로 모든 선택자 속성을 사용할 수 있다.</p>
+									<p>:nth-child와 차이점은 모든 속성이 아닌 선택한 요소 중에서 선택을 한다.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 :nth-of-type Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			p, div{
+				display:inline-block;
+				width:40%;
+				margin:1.5% 2%;
+				padding:7px;
+				box-sizing:border-box;
+				border:2px solid #CCC;
+				border-radius:10px;
+			}
+			div{
+				color:#CCC;
+			}
+			p:nth-of-type(1) {
+				border-color:crimson;
+			}
+			p:nth-of-type(3) {
+				border-color:orange;
+			}
+			p:nth-of-type(6) {
+				border-color:green;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div&gt;div&lt;/div&gt;
+		&lt;p&gt;1&lt;/p&gt;
+		&lt;p&gt;2&lt;/p&gt;
+		&lt;div&gt;div&lt;/div&gt;
+		&lt;p&gt;3&lt;/p&gt;
+		&lt;p&gt;4&lt;/p&gt;
+		&lt;div&gt;div&lt;/div&gt;
+		&lt;p&gt;5&lt;/p&gt;
+		&lt;div&gt;div&lt;/div&gt;
+		&lt;p&gt;6&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+								<dt>:nth-last-of-type(n)</dt>
+								<dd>
+									<p>모든 자식(child) 요소 중에서 뒤에서부터 n번째로 등장하는 특정 요소를 모두 선택함.</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 :nth-last-of-type Structural pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			p, div{
+				display:inline-block;
+				width:40%;
+				margin:1.5% 2%;
+				padding:7px;
+				box-sizing:border-box;
+				border:2px solid #CCC;
+				border-radius:10px;
+			}
+			div{
+				color:#CCC;
+			}
+			p:nth-last-of-type(1) {
+				border-color:crimson;
+			}
+			p:nth-last-of-type(3) {
+				border-color:orange;
+			}
+			p:nth-last-of-type(6) {
+				border-color:green;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div&gt;div&lt;/div&gt;
+		&lt;p&gt;1&lt;/p&gt;
+		&lt;p&gt;2&lt;/p&gt;
+		&lt;div&gt;div&lt;/div&gt;
+		&lt;p&gt;3&lt;/p&gt;
+		&lt;p&gt;4&lt;/p&gt;
+		&lt;div&gt;div&lt;/div&gt;
+		&lt;p&gt;5&lt;/p&gt;
+		&lt;div&gt;div&lt;/div&gt;
+		&lt;p&gt;6&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+								</dd>
+							</dl>
+							<aside class="bosupport">
+								<strong>Web Browser Support</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>9+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>3.5</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.5</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>3.1</em></li>
+								</ul>
+							</aside>
+						</section>
+
+						<h5 id="css3-states-pseudo">UI 요소 상태 의사(가상) 클래스(UI element states pseudo-classes)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 3 선택자</p>
+							<p>폼요소에 사용이 되며, 체크 상태이거나, 활성화 및 비활성 상태를 표현합니다.</p>
+							<dl>
+								<dt>:checked</dt>
+								<dd>
+									<p>선택 옵션 의사 클래스(Selected-option pseudo-class)</p>
+									<p>:checked는 input 요소 중에서 체크된(checked) 상태의 input 요소를 선택합니다.</p>
+									<p>:checked{/* style 작성 */}</p>
+								</dd>
+								<dt>:enabled</dt>
+								<dd>
+									<p>활성화 된 의사 클래스(Enabled pseudo-class)</p>
+									<p>:enabled는 input 요소 중에서 사용할 수 있는 input 요소를 선택합니다.</p>
+									<p>기본 :enabled 상태로 표현됩니다.</p>
+									<p>:enabled{/* style 작성 */}</p>
+								</dd>
+								<dt>:disabled</dt>
+								<dd>
+									<p>비활성화 된 의사 클래스(Disabled pseudo-class)</p>
+									<p>:disabled는 input 요소 중에서 사용할 수 없는 input 요소를 선택합니다.</p>
+									<p>:disabled{/* style 작성 */}</p>
+								</dd>
+							</dl>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 UI element states pseudo-classes&lt;/title&gt;
+		&lt;style&gt;
+			span{margin-left:5px;}
+			input{color:#FFEFD5;}
+			input:checked + span{font-weight:bold;}
+			input:disabled + span {color:red;}
+			input:enabled + span {color:black;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;input 요소의 스타일 설정&lt;/h1&gt;
+		&lt;form&gt;
+			&lt;label&gt;&lt;input type="checkbox" name="lecture" value="html" enabled&gt;&lt;span&gt;HTML&lt;/span&gt;&lt;/label&gt;&lt;br&gt;
+			&lt;label&gt;&lt;input type="checkbox" name="lecture" value="css" checked&gt;&lt;span&gt;CSS&lt;/span&gt;&lt;/label&gt;&lt;br&gt;
+			&lt;label&gt;&lt;input type="checkbox" name="lecture" value="java"&gt;&lt;span&gt;Javascript&lt;/span&gt;&lt;/label&gt;&lt;br&gt;
+			&lt;label&gt;&lt;input type="checkbox" name="lecture" value="cpp" disabled&gt;&lt;span&gt;jQuery&lt;/span&gt;&lt;/label&gt;
+		&lt;/form&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>9+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>3.0</em></li>
+								</ul>
+							</aside>
+						</section>
+
+						<h5 id="css3-structural-pseudo">대상 의사 클래스(Target pseudo-class)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 3 선택자</p>
+							<p>:target{/* style 작성 */}</p>
+							<dl>
+								<dt>:target</dt>
+								<dd>
+									<p>참조 URL의 대상인 E 요소를 선택합니다.</p>
+									<p>현재 활성화된 target 요소를 모두 선택함.</p>
+									<p>문서의 URI에서 부위 식별자(fragment identifier)의 목표가 되는 요소를 선택합니다.</p>
+									<p>예를 들어서 주소창에서 #demo가 URI의 끝부분에 나오게 된다면 :target을 사용하여 #demo라는 id를 가진 HTML상의 요소를 선택할 수 있습니다.</p>
+								</dd>
+							</dl>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 Target pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			h3:target{color:blue;}
+			p:target{background-color:gold;}
+			p:target i{color:red;}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		
+		&lt;h3&gt;Table of Contents&lt;/h3&gt;
+		&lt;ol&gt;
+			&lt;li&gt;&lt;a href="#css-units"&gt;CSS 단위&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#p1"&gt;Jump to the first paragraph!&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#p2"&gt;Jump to the second paragraph!&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#nowhere"&gt;This link goes nowhere, because the target doesn't exist.&lt;/a&gt;&lt;/li&gt;
+		&lt;/ol&gt;
+
+		&lt;section class="uksection"&gt;
+			&lt;h3 id="css-units"&gt;CSS 단위&lt;/h3&gt;
+			&lt;p&gt;상대 길이 단위와 절대 길이 단위가 있습니다.&lt;/p&gt;
+			&lt;p&gt;상대적인 길이 : em, ex, ch, rem, vw, vh, vmin, vmax&lt;/p&gt;
+			&lt;p&gt;절대 길이 단위 : px, mm, cm, in, pt, pc&lt;/p&gt;
+
+			&lt;h3&gt;My Fun Article&lt;/h3&gt;
+			&lt;p id="p1"&gt;You can target &lt;i&gt;this paragraph&lt;/i&gt; using a
+			URL fragment. Click on the link above to try out!&lt;/p&gt;
+			&lt;p id="p2"&gt;This is &lt;i&gt;another paragraph&lt;/i&gt;, also accessible
+			from the links above. Isn't that delightful?&lt;/p&gt;
+		&lt;/section&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>9+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>2.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.5</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1.3</em></li>
+								</ul>
+							</aside>
+						</section>
+
+						<h5 id="css3-structural-pseudo">부정 의사 클래스(Negation pseudo-class)</h5>
+						<section class="ukgroup">
+							<p>CSS Level 3 선택자</p>
+							<p>셀렉터에 해당하지 않는 모든 요소를 선택한다.</p>
+							<p>특정 항목을 선택하지 못 하기 때문에 부정 의사 클래스라고 합니다.</p>
+							<dl>
+								<dt>:not(selector)</dt>
+								<dd>
+									<p>:not 선택자는 모든 선택자와 함께 사용할 수 있으며, 해당 선택자를 반대로 적용하여 선택한다.</p>
+									<p>부정 의사 클래스라고 하며, selector를 제외한 모든 제외한 모든 요소들을 선택할 때 사용할 수 있습니다.</p>
+									<p>:not(제외할 셀렉터 또는 속성){/* style 작성 */}</p>
+								</dd>
+							</dl>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 Negation pseudo-class&lt;/title&gt;
+		&lt;style&gt;
+			li{color:blue;}
+			ol &gt; li:not([title="CSS"]){color:red;}
+
+			.fancy{background-color:gold;}
+			p:not(.fancy){color:green;}
+			:not(p){text-decoration:underline;}
+			/*
+			:not()의사 클래스는 인수로 하나 이상의 선택기의 쉼표로 구분 된 목록이 필요합니다. 
+			목록에는 다른 부정 선택기 또는 의사 요소가 포함되어서는 안됩니다.
+			*/
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;UXKM 학습 요약&lt;/h1&gt;
+		&lt;ol&gt;
+			&lt;li title="HTML"&gt;&lt;strong&gt;HTML&lt;/strong&gt;
+				&lt;ul&gt;
+					&lt;li&gt;블록 레벨 요소 vs 인라인 요소&lt;/li&gt;
+					&lt;li&gt;섹션 콘텐츠 (Section Conetnt)&lt;/li&gt;
+					&lt;li&gt;콘텐츠 그룹화(Grouping content)&lt;/li&gt;
+					&lt;li&gt;문자 콘텐츠(Text-level semantics)&lt;/li&gt;
+					&lt;li&gt;내장 콘텐츠(Embedded content)&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li title="CSS"&gt;&lt;strong&gt;CSS&lt;/strong&gt;
+				&lt;ul&gt;
+					&lt;li&gt;블록 레벨 요소 vs 인라인 요소&lt;/li&gt;
+					&lt;li&gt;섹션 콘텐츠 (Section Conetnt)&lt;/li&gt;
+					&lt;li&gt;콘텐츠 그룹화(Grouping content)&lt;/li&gt;
+					&lt;li&gt;문자 콘텐츠(Text-level semantics)&lt;/li&gt;
+					&lt;li&gt;내장 콘텐츠(Embedded content)&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li title="Javascript"&gt;&lt;strong&gt;Javascript&lt;/strong&gt;&lt;/li&gt;
+			&lt;li title="NCS"&gt;&lt;strong&gt;NCS&lt;/strong&gt;&lt;/li&gt;
+			&lt;li title="Accessibility"&gt;&lt;strong&gt;Accessibility&lt;/strong&gt;&lt;/li&gt;
+		&lt;/ol&gt;
+
+		&lt;p class="crazy"&gt;I am a paragraph.&lt;/p&gt;
+		&lt;p class="fancy"&gt;I am so very fancy!&lt;/p&gt;
+		&lt;div&gt;I am NOT a paragraph.&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>9+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.5</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1.0</em></li>
+								</ul>
+							</aside>
+						</section>
+
+					</section>
+
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="https://www.w3.org/TR/selectors-3/" target="_blank" title="새 창 열림">W3C Selectors Level 3</a>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors" target="_blank" title="새 창 열림">MDN CSS Selectors</a>
+							<a href="http://www.topdesignagencies.com/nth-test/" target="_blank" title="새 창 열림">NTH TEST</a>
+						</dd>
+					</dl>
 				</article>
 
-				<h3 id="css-content">가상 선택자</h3>
+				<h3 id="css-content">가상 요소(Pseudo-elements)</h3>
 				<article>
 					<time datetime="">Last Updated on </time>
 					<blockquote class="note" role="note">
 						<p>
-							
+							의사(가상) 요소(pseudo-elements)는 HTML 요소에는 없는 가상의 요소를 CSS로 제어합니다.<br>
+							CSS1과 CSS2에서는 의사 클래스와 의사 요소를 나타낼 때 하나의 콜론(:)으로 함께 표기하였습니다.<br>
+							하지만 CSS3에서는 의사 클래스의 표현과 의사 요소의 표현을 구분하기로 합니다.<br>
+							따라서 CSS3에서는 의사 클래스는 하나의 콜론(:)을, 의사 요소에는 두 개의 콜론(::)을 사용하고 있습니다.
+							<br><br>
+							CSS3는 의사 클래스 와 의사 요소를 구별하기 위해 두 개의 콜론(::)이 있는 표기법을 도입했습니다.<br>
+							콜론(::) 두 개의 인식 못하는 하위브라우저를 위해 콜론(:)하나를 사용해도 현재는 가능합니다.<br>
+							의사(가상) 클래스(pseudo-class)는 콜론(:) 하나 사용<br>
+							의사(가상) 요소(pseudo-elements)는 콜론(::) 두 개 사용<br>
+							대표적인 의사요소로는 다음과 같은 요소들이 있습니다.<br>
+							::first-letter (:first-letter)<br>
+							::first-line (:first-line)<br>
+							::before (:before)<br>
+							::after (:after)<br>
+							::placeholder<br>
+							::selection
 						</p>
 					</blockquote>
+					<p><strong>브라우저별 콜론(:) 하나, 콜론(::) 두 개 사용여부</strong></p>
+					<ul>
+						<li>Internet Explorer	8.0 = :pseudo-element</li>
+						<li>Internet Explorer	9.0 = :pseudo-element, ::pseudo-element</li>
+						<li>Firefox (Gecko)	1.0 (1.0) = :pseudo-element</li>
+						<li>Firefox (Gecko)	1.0 (1.5) = :pseudo-element, ::pseudo-element</li>
+						<li>Opera	4.0 = :pseudo-element</li>
+						<li>Opera	7.0 = :pseudo-element, ::pseudo-element</li>
+						<li>Safari (WebKit)	1.0 (85) = :pseudo-element, ::pseudo-element</li>
+					</ul>
+					<dl>
+						<dt>::first-line (:first-line)</dt>
+						<dd>
+							<p>CSS level 1</p>
+							<p>이 의사 요소는 텍스트의 첫 라인만을 선택합니다.</p>
+							<p>단, 블록(block) 타입의 요소에만 사용할 수 있습니다.</p>
+							</p>이 의사 요소를 통해 사용할 수 있는 속성은 다음과 같습니다.</p>
+							<p>clear, color, font, font-family, font-size, font-style, font-variant, font-weight, line-height, 
+								background, vertical-align, word-spacing, text-decoration, text-transform</p>
+							<ul>
+								<li>clear 속성</li>
+								<li>color 속성 </li>
+								<li>font 속성</li>
+								<li>line-height 속성</li>
+								<li>background 속성</li>
+								<li>vertical-align 속성</li>
+								<li>word-spacing 속성</li>
+								<li>letter-spacing 속성</li>
+								<li>text-decoration 속성</li>
+								<li>text-transform 속성</li>
+							</ul>
+<pre><code>
+
+</code></pre>
+							<aside class="bosupport">
+								<strong>Web Browser Support</strong>
+								<ul>
+									<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>9+</em></li>
+									<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>1.0</em></li>
+									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>7.0</em></li>
+									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>1.0</em></li>
+								</ul>
+							</aside>
+						</dd>
+						<dt>::first-letter (:first-letter)</dt>
+						<dd>
+							<p>CSS level 1</p>
+							<p>이 의사 요소(pseudo-element)는 텍스트의 첫 글자만을 선택합니다.</p>
+							<p>단, 블록(block) 타입의 요소에만 사용할 수 있습니다.</p>
+							<p>이 의사 요소를 통해 사용할 수 있는 속성은 다음과 같습니다.</p>
+							<p>float, margin, padding, background, border, color, 
+								font, font-family, font-size, font-style, font-variant, font-weight, line-height, 
+								text-decoration, text-shadow, text-transform, vertical-align (if ‘float’ is set to ‘none’), and word-spacing</p>
+							<ul>
+								<li>float 속성</li>
+								<li>clear 속성</li>
+								<li>margin 속성</li>
+								<li>padding 속성</li>
+								<li>border 속성</li>
+								<li>color 속성</li>
+								<li>font 속성</li>
+								<li>line-height 속성</li>
+								<li>background 속성</li>
+								<li>vertical-align 속성 (단, float 속성값이 none일 경우에만)</li>
+								<li>text-decoration 속성</li>
+								<li>text-transform 속성</li>
+							</ul>
+<pre><code>
+
+</code></pre>
+						</dd>
+						<dt>::before (:before)</dt>
+						<dd>
+							<p>CSS level 1</p>
+							<p>이 의사 요소는 특정 요소의 내용(content) 부분 바로 앞에 다른 요소를 삽입할 때 사용합니다.</p>
+						</dd>
+						<dt>::after (:after)</dt>
+						<dd>
+							<p>CSS level 1</p>
+							<p>이 의사 요소는 특정 요소의 내용(content) 부분 바로 뒤에 다른 요소를 삽입할 때 사용합니다.</p>
+						</dd>
+						<dt>::selection</dt>
+						<dd>
+							<p>CSS level 3</p>
+							<p>이 의사 요소는 해당 요소에서 사용자가 선택한 부분만을 선택할 때 사용합니다.</p>
+							<p>마우스 드래그 등으로 선택한 텍스트 선택.</p>
+						</dd>
+						<dt>::placeholder</dt>
+						<dd>
+							<p>CSS level 3</p>
+							<p>HTML5의 CSS3 placeholder 속성은 input 요소와 textarea 요소에 알맞은 힌트를 제공하는 목적으로 사용됩니다.</p>
+							<p>다만, 브라우저별로 해당 요소에 포커스가 될때 작동하는 방식에서 차이점이 발생합니다. 이를 하나로 통일하는 방법에 대해서 설명합니다.</p>
+						</dd>
+					</dl>
+
+					<dl class="linkdoc">
+						<dt>참조</dt>
+						<dd>
+							<a href="https://www.w3.org/TR/CSS2/selector.html#first-line-pseudo" target="_blank" title="새 창 열림">W3C CSS 2.1 선택기</a>
+							<a href="https://www.w3.org/TR/selectors-3/#first-line" target="_blank" title="새 창 열림">W3C CSS 선택기 레벨 3</a>
+							<a href="https://www.w3.org/TR/css-content-3/" target="_blank" title="새 창 열림">CSS Generated Content Module Level 3</a>
+						</dd>
+					</dl>
 				</article>
 
 				<h3 id="css-vendor">접두어(Vendor Prefix)</h3>
@@ -1821,6 +3639,10 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 			<h2 id="css-advanced">CSS 고급(Advanced)</h2>
 			<section class="uksection">
 				<time datetime="">Last Updated on </time>
+				<blockquote class="note" role="note">
+					<p>CSS기술을 마무리하는 과정이며 대표적인 미디어 쿼리를 알아가며 반응형 구조를 제작하는 방법을 배우는 단계입니다.</p>
+					<p>transform, transition, animation을 배움으로서 디자인에 역동적인 효과 표현이 가능해집니다.</p>
+				</blockquote>
 
 				<h3 id="css-interface">사용자 인터페이스</h3>
 				<article>
@@ -1920,6 +3742,11 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 			<h2 id="css-uiux">UI/UX 구현</h2>
 			<section class="uksection">
 				<time datetime="">Last Updated on </time>
+				<blockquote class="note" role="note">
+					<p>
+						지금까지 CSS학습을 통해서 UI/UX 실습을 응용하는 단계입니다.
+					</p>
+				</blockquote>
 
 				<h3 id="css-layout">UI Layout</h3>
 				<article>
@@ -2005,12 +3832,21 @@ style=""             /* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */
 					<dt>W3C Selectors Level 4</dt>
 					<dd><a href="https://www.w3.org/TR/selectors-4/" target="_blank" title="새 창 열림">W3C Working Draft, 21 November 2018</a></dd>
 					<dd><a href="https://www.w3.org/TR/selectors-3/" target="_blank" title="새 창 열림">W3C Recommendation 06 November 2018</a></dd>
+					<dt>Cascading Style Sheets (CSS)</dt>
+					<dd><a href="https://www.w3.org/TR/CSS21/propidx.html" target="_blank" title="새 창 열림">CSS 2.1의 속성 요약 명세 테이블</a></dd>
+					<dd><a href="https://www.w3.org/TR/CSS2/" target="_blank" title="새 창 열림">W3C Cascading Style Sheets (CSS)</a></dd>
 					<dt>CSS Values and Units Module Level 3</dt>
 					<dd><a href="https://www.w3.org/TR/css3-values/" target="_blank" title="새 창 열림">W3C Candidate Recommendation, 6 June 2019</a></dd>
+					<dt>CSS tips &amp; tricks</dt>
+					<dd><a href="https://www.w3.org/Style/Examples/007/" target="_blank" title="새 창 열림">CSS tips &amp; tricks Examples</a></dd>
+					<dt>CSS Template Layout Module</dt>
+					<dd><a href="https://drafts.csswg.org/css-template/" target="_blank" title="새 창 열림">Editor's Draft 1 March 2016</a></dd>
 					<dt>csszengarden</dt>
 					<dd><a href="http://www.csszengarden.com/" target="_blank" title="새 창 열림">www.csszengarden.com</a></dd>
 					<dt>css-tricks</dt>
 					<dd><a href="https://css-tricks.com/" target="_blank" title="새 창 열림">css-tricks.com</a></dd>
+					<dt>CSS open Api</dt>
+					<dd><a href="http://overapi.com/css" target="_blank" title="새 창 열림">OverAPI.com</a></dd>
 					<dt>HTML5기술지원센터</dt>
 					<dd><a href="https://www.koreahtml5.kr/front/devSupport/usingExList.do" target="_blank" title="새 창 열림">koreahtml5</a></dd>
 				</dl>
