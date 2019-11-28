@@ -1638,6 +1638,7 @@ body {
   background-size: 184px auto;
   background-position: center center;
   background-repeat: no-repeat;
+  transition: all 0.3s;
 }
 @media (max-width: 993px) {
   .uk_logo a {
@@ -1689,9 +1690,6 @@ body {
 .uk_header.desktop .hd_progress {
   transition: opacity 0.4s, width 0.2s ease-in-out;
 }
-.uk_header.fixed {
-  background-color: rgba(0, 0, 0, 0.85);
-}
 .uk_header.fixed:before,
 .uk_header.fixed .hd_progress {
   opacity: 1;
@@ -1732,7 +1730,7 @@ body {
   font-family: 'Open Sans', 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
   font-size: 20px;
   color: #fff;
-  transition: all .15s;
+  transition: all 0.3s;
 }
 .uk_header .nav_area .nav a:before {
   position: absolute;
@@ -1771,6 +1769,11 @@ body {
 }
 .uk_header .nav_area .aside button i {
   font-size: 0;
+  transition: all 0.3s;
+}
+.uk_header .nav_area .aside button i:before,
+.uk_header .nav_area .aside button i:after {
+  transition: all 0.3s;
 }
 .uk_header .nav_area .aside .layer_box {
   display: none;
@@ -1962,6 +1965,52 @@ body {
     -webkit-transform: rotate(-135deg);
     -moz-transform: rotate(-135deg);
     transform: rotate(-135deg);
+  }
+}
+.main_page .uk_header.fixed {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+.sub_page .uk_header {
+  background-color: #eee;
+}
+.sub_page .uk_header .uk_logo {
+  position: relative;
+}
+.sub_page .uk_header .uk_logo:before {
+  position: absolute;
+  right: -66px;
+  top: -16px;
+  z-index: -1;
+  width: 1920px;
+  height: 110px;
+  background: #081121;
+  transition: right .3s;
+  content: "";
+}
+.sub_page .uk_header .nav_area .nav a {
+  color: #081121;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+.sub_page .uk_header .nav_area .aside .search_btn i {
+  border-color: #081121;
+}
+.sub_page .uk_header .nav_area .aside .search_btn i:after {
+  background: #081121;
+}
+.sub_page .uk_header .nav_area .aside .sitemap_btn i {
+  background-color: #081121;
+}
+.sub_page .uk_header .nav_area .aside .sitemap_btn i:before,
+.sub_page .uk_header .nav_area .aside .sitemap_btn i:after {
+  background-color: #081121;
+}
+.sub_page .uk_header .nav_area .aside .sitemap_btn.active i {
+  background-color: transparent;
+}
+@media (max-width: 1080px) {
+  .sub_page .uk_header .uk_logo:before {
+    right: -30px;
   }
 }
 @media (max-width: 993px) {
@@ -2333,6 +2382,11 @@ body {
       -moz-transform: rotate(-135deg);
       transform: rotate(-135deg);
     }
+  }
+  .sub_page .uk_header .uk_logo:before {
+    right: -30px;
+    top: 0px;
+    height: 60px;
   }
 }
 .uk_footer {
@@ -3608,7 +3662,15 @@ body {
     opacity: .6;
   }
 }
+.sub_page {
+  padding-top: 110px;
+}
 .sub_content {
-  background: #eee;
+  background: #fff;
+}
+@media (max-width: 767px) {
+  .sub_page {
+    padding-top: 60px;
+  }
 }
 /*# sourceMappingURL=uk.css.map */

@@ -24,7 +24,7 @@
 		background-attachment:fixed;
 	}
 	body {.font-kr; word-break:keep-all;}
-	@media (max-width: @screen-sm-max){
+	@media (max-width:@screen-sm-max){
 		html {
 			background-image:url('@{bg-url}/main_top_bg_mb.jpg');
 			background-size:300% auto;
@@ -38,7 +38,7 @@
 		max-width:@conWidth;
 		margin:0 auto; padding:0 @pc_padding;
 	}
-	@media (max-width: @screen-sm-max){
+	@media (max-width:@screen-sm-max){
 		.inner {padding:0 10px;}
 	}
 
@@ -49,7 +49,7 @@
 		.uk_container {.flex(auto);}
 		.uk_footer {.flex(none);}
 	}
-	@media (max-width: @screen-sm-max){
+	@media (max-width:@screen-sm-max){
 		.wrap {
 			display:block;
 			.uk_header {display:block;}
@@ -62,6 +62,7 @@
 	}
 
 
+@hd_transition:all .3s;
 //uk_logo
 	.uk_logo a {
 		display:inline-block; vertical-align:top;
@@ -71,8 +72,9 @@
 		background-size:184px auto;
 		background-position:center center;
 		background-repeat:no-repeat;
+		transition:@hd_transition;
 	}
-	@media (max-width: @screen-md-max){
+	@media (max-width:@screen-md-max){
 		.uk_logo a {
 			width:140px; height:78px;
 			background-image:url('@{bg-url}/logo_140_desktop.gif');
@@ -80,7 +82,7 @@
 		}
 		.device .uk_logo a {background-image:url('@{bg-url}/logo_140_device.gif');}
 	}
-	@media (max-width: @screen-sm-max){
+	@media (max-width:@screen-sm-max){
 		.uk_logo a {
 			width:110px; height:@hdHeightMb;
 			background-image:url('@{bg-url}/logo_140_desktop.gif');
@@ -105,7 +107,6 @@
 		.hd_progress {background-color:fade(@blue, 90%);}
 		&.desktop .hd_progress {transition:opacity .4s, width .2s ease-in-out;}
 		&.fixed {
-			background-color:rgba(0,0,0,.85);
 			&:before, .hd_progress {opacity:1;}
 		}
 		.uk_logo {.lft; margin-top:16px;} //26
@@ -120,7 +121,7 @@
 					.lft; position:relative;
 					height:@size; line-height:@size; padding:0 @pd;
 					.font-en; font-size:20px; color:#fff;
-					transition:all .15s;
+					transition:@hd_transition;
 					&:before {
 						position:absolute; left:@pd - 3px; right:@pd - 3px; bottom:13px; opacity:.7;
 						height:0; background:@blue; border-radius:2px;
@@ -136,7 +137,10 @@
 				button {
 					.lft; position:relative; cursor:pointer;
 					width:@size; height:@size; margin-left:20px;
-					i {font-size:0;}
+					i {
+						font-size:0; transition:@hd_transition;
+						&:before, &:after {transition:@hd_transition;}
+					}
 				}
 				.layer_box {display:none;}
 
@@ -207,7 +211,41 @@
 			}
 		}
 	}
-	@media (max-width: @screen-md-max){
+	.main_page .uk_header {
+		&.fixed {background-color:rgba(0,0,0,.85);}
+	}
+	.sub_page .uk_header {
+		background-color:#eee;
+		.uk_logo {position:relative;}
+		.uk_logo:before {
+			position:absolute; right:-66px; top:-16px; z-index:-1;
+			width:1920px; height:@hdHeight; background:@navy;
+			transition:right .3s;
+			content:"";
+		}
+		.nav_area {
+			.nav a {color:@navy; font-weight:600; letter-spacing:-0.3px;}
+			.aside {
+				.search_btn i {
+					border-color:@navy;
+					&:after {background:@navy;}
+				}
+				.sitemap_btn {
+					i {
+						background-color:@navy;
+						&:before, &:after {background-color:@navy;}
+					}
+					&.active i {background-color:transparent;}
+				}
+			}
+		}
+	}
+	@media (max-width:1080px){
+		.sub_page .uk_header .uk_logo:before {
+			right:-30px;
+		}
+	}
+	@media (max-width:@screen-md-max){
 		.uk_header {
 			.uk_logo {margin-left:-5px;}
 			.nav_area {
@@ -274,7 +312,7 @@
 			}
 		}
 	}
-	@media (max-width: @screen-sm-max){
+	@media (max-width:@screen-sm-max){
 		.uk_header {
 			height:@hdHeightMb;
 			&:before, .hd_progress {top:@hdHeightMb;}
@@ -335,6 +373,12 @@
 						}
 					}
 				}
+			}
+		}
+		.sub_page .uk_header {
+			.uk_logo:before {
+				right:-30px; top:0px;
+				height:@hdHeightMb;
 			}
 		}
 	}
@@ -410,7 +454,7 @@
 			content:"";
 		}
 	}
-	@media (max-width: @screen-sm-max){
+	@media (max-width:@screen-sm-max){
 		.uk_footer {
 			.nav {
 				padding:20px 0;
@@ -455,7 +499,7 @@
 		text-align:center;
 		> article {}
 	}
-	@media (max-width: @screen-sm-max){
+	@media (max-width:@screen-sm-max){
 		.main_page:before {
 			display:none;
 			position:fixed; left:0; top:0; right:0; height:100vh;
@@ -559,7 +603,7 @@
 		.main_intro .txt_box p {font-size:3.3vw;}
 	}
 	//mobile
-	@media (max-width: @screen-sm-max){
+	@media (max-width:@screen-sm-max){
 		.main_intro {
 			min-height:450px;
 			.txt_box {
@@ -1063,5 +1107,9 @@
 
 
 
-//main ----------------------------------------------------------------------------------------//
-	.sub_content {background:#eee;}
+//sub ----------------------------------------------------------------------------------------//
+	.sub_page {padding-top:@hdHeight;}
+	.sub_content {background:#fff;}
+	@media(max-width:@screen-sm-max){
+		.sub_page {padding-top:@hdHeightMb;}
+	}

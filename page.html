@@ -51,6 +51,7 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/assets/lib/js/plugin/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/js/menu.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/ukncs/js/plugin/html5.js"></script>
 	<script type="text/javascript" src="/ukncs/js/plugin/respond.min.js"></script>
@@ -70,9 +71,13 @@
 
 			<div class="nav_area">
 				<nav class="nav">
-					<a href="/sub.html"><i>UI/UX Assets</i></a>
+					<a href="/page.html?html=htmlStart"><i>UI/UX Assets</i></a>
+					<a href="/page.html?html=blockInline"><i>Project GUIDE</i></a>
+					<a href="/page.html?html=sections"><i>Web Trends</i></a>
+					<!--
 					<a href="#" onclick="alert('페이지 준비중'); return false;"><i>Project GUIDE</i></a>
 					<a href="#" onclick="alert('페이지 준비중'); return false;"><i>Web Trends</i></a>
+					-->
 				</nav>
 
 				<aside class="aside">
@@ -86,8 +91,17 @@
 	</header>
 	<!-- //uk-header -->
 
-	<section id="content" class="uk_container uk_main sub_content" role="main">
-		<p style="color:#fff;">서브</p>
+	<section style="" id="content" class="uk_container uk_main sub_content" role="main">
+		<style>
+			.test_nav li {line-height:100%; margin-top:5px; font-size:13px;}
+			.test_nav > ul > li {margin-top:10px;}
+			.test_nav > ul > li li {padding-left:20px;}
+		</style>
+		<div class="test_nav" style="padding:50px;"></div>
+
+		<div class="content_wrap" style="padding:50px;">
+			content_wrap
+		</div>
 	</section>
 	<!-- //uk-main -->
 
