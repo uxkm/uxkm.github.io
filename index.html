@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko"><!-- main_page -->
 <head>
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=korean,latin-ext,vietnamese" rel="stylesheet">
@@ -53,14 +53,13 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/assets/lib/js/plugin/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="/assets/lib/js/menu.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/ukncs/js/plugin/html5.js"></script>
 	<script type="text/javascript" src="/ukncs/js/plugin/respond.min.js"></script>
 	<![endif]-->
 </head>
 <body>
-<div class="wrap main_page">
+<div class="wrap">
 
 	<nav class="uk-skip">
 		<a href="#content">본문내용으로 건너띄기</a>
@@ -69,13 +68,13 @@
 
 	<header class="uk_header">
 		<div class="inner">
-			<h1 class="uk_logo"><a href="/">uxkm</a></h1>
+			<h1 class="uk_logo"><a href="/" class="uk_link">uxkm</a></h1>
 
 			<div class="nav_area">
 				<nav class="nav">
-					<a href="/page.html?html=htmlStart"><i>UI/UX Assets</i></a>
-					<a href="/page.html?html=blockInline"><i>Project GUIDE</i></a>
-					<a href="/page.html?html=sections"><i>Web Trends</i></a>
+					<a class="uk_link" href="?data=Assets&HTML&htmlStart"><i>UI/UX Assets</i></a>
+					<a class="uk_link" href="?data=Assets&HTML&blockInline"><i>Project GUIDE</i></a>
+					<a class="uk_link" href="?data=Assets&HTML&sections"><i>Web Trends</i></a>
 					<!--
 					<a href="#" onclick="alert('페이지 준비중'); return false;"><i>Project GUIDE</i></a>
 					<a href="#" onclick="alert('페이지 준비중'); return false;"><i>Web Trends</i></a>
@@ -93,16 +92,16 @@
 	</header>
 	<!-- //uk-header -->
 
-	<main id="content" class="uk_container uk_main main_content" role="main">
+	<section id="content" class="uk_container">
 
-		<article class="main_intro">
+		<!--<article class="main_intro">
 			<h2 class="sound_only">Intro</h2>
 			<div class="txt_box">
 				<div class="tit">
 					<strong class="t1">UXCSS <span>&</span> 921430KM</strong>
 					<strong class="t2">COLLABORATION</strong>
 				</div>
-				<!--<p>Created by. Dae-min, Kim & Kwang-nam, Yang & Kyo-sung, Chu </p>-->
+				&lt;!&ndash;<p>Created by. Dae-min, Kim & Kwang-nam, Yang & Kyo-sung, Chu </p>&ndash;&gt;
 				<p>Created by. Dae-min, Kwang-nam, Kyo-sung </p>
 				<div class="banner">
 					<a href="#" class="bn1">HTML</a>
@@ -114,7 +113,7 @@
 			</div>
 			<a href="#" class="next_content"><i>다음 화면</i></a>
 		</article>
-		<!-- //intro -->
+		&lt;!&ndash; //intro &ndash;&gt;
 
 		<article class="main_info">
 			<h2 class="sound_only">Information</h2>
@@ -150,7 +149,7 @@
 				<span class="step5"><i></i></span>
 			</div>
 		</article>
-		<!-- //information -->
+		&lt;!&ndash; //information &ndash;&gt;
 
 		<article class="main_editor">
 			<h2 class="fas"><span>UXKM <i>E</i>ditor</span></h2>
@@ -193,7 +192,7 @@
 				</div>
 			</div>
 		</article>
-		<!-- //UXKM Editor -->
+		&lt;!&ndash; //UXKM Editor &ndash;&gt;
 
 		<article class="main_created inner">
 			<h2><span>C</span>reated by</h2>
@@ -227,9 +226,9 @@
 				</li>
 			</ul>
 		</article>
-		<!-- //Created by -->
+		&lt;!&ndash; //Created by &ndash;&gt;-->
 
-	</main>
+	</section>
 	<!-- //uk-main -->
 
 	<footer class="uk_footer">
@@ -248,14 +247,14 @@
 			</div>
 		</nav>
 		<div class="btm">
-			<h1 class="uk_logo"><a href="#">uxkm</a></h1>
+			<h1 class="uk_logo"><a href="/" class="uk_link">uxkm</a></h1>
 			<p class="copy">&copy; 2019 All Right Reserved. By UXKM.</p>
 		</div>
 	</footer>
 	<!-- //uk-footer -->
 
 </div><!-- //wrap -->
-
+<div class="loading"><i>페이지 로딩 중</i></div>
 
 <!-- js ------------------------------------ -->
 <!-- plugin -->
@@ -279,5 +278,6 @@
 
 <!-- uk.js -->
 <script type="text/javascript" src="/assets/lib/js/uk.js"></script>
+<script type="text/javascript" src="/assets/lib/js/menu.js"></script>
 </body>
 </html>

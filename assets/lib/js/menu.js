@@ -1,17 +1,17 @@
 
-var page = 					'/page.html';
-var url_html =				page+'?html=';
-var url_css =					page+'?css=';
-var url_javascript =		page+'?javascript=';
-var url_accessibility =	page+'?accessibility=';
-var url_ncs =				page+'?ncs=';
+var basic_url = location.href;
+var uk_link = 'uk_link';
+
+var data = 'data'
+var url_html =				'?'+data+'=Assets&HTML&';
+var url_css =					'?'+data+'=Assets&CSS&';
+var url_javascript =		'?'+data+'=Assets&JAVASCRIPT&';
+var url_accessibility =	'?'+data+'=Assets&ACCESSIBILITY&';
+var url_ncs =				'?'+data+'=Assets&NCS&';
 
 var file = '/assets/';
 var file_html = file+'html';
 var file_css = file+'css';
-
-//console.log(url_html)
-
 
 var menu = [
 	{
@@ -31,18 +31,18 @@ var menu = [
 						d4:[
 							{
 								d4_nm:		'HTML이란?',
-								d4_url:		url_html+'htmlStart#html_start',
-								html5:	false,
+								d4_url:			url_html+'&htmlStart#html_start',
+								html5:			false,
 							},
 							{
 								d4_nm:		'HTML 기본구조',
-								d4_url:		url_html+'htmlStart#html_basic',
-								html5:	false,
+								d4_url:			url_html+'&htmlStart#html_basic',
+								html5:			false,
 							},
 							{
 								d4_nm:		'HTML 요소',
-								d4_url:		url_html+'htmlStart#html_element',
-								html5:	false,
+								d4_url:			url_html+'&htmlStart#html_element',
+								html5:			false,
 							},
 						]
 					},
@@ -235,102 +235,14 @@ var menu = [
 	},
 	{
 		d1_nm:	'Project GUIDE',
-		d1_url:		'#',
-		d2:[
-			//ACCESSIBILITY --------------------------------------//
-			{
-				d2_nm:	'Project1',
-				d2_url:		url_accessibility+'accessibility',
-			},
-
-			//NCS ---------------------------------------------------//
-			{
-				d2_nm:	'Project2',
-				d2_url:		url_ncs+'ncs',
-			},
-		]
+		d1_url:		'?'+data+'GUIDE',
 	},
 	{
 		d1_nm:	'Web Trends',
-		d1_url:		'#',
+		d1_url:		'?'+data+'Trends',
 	}
 ];
 //console.log( menu[0].d2[0].d3[0].d3_file );
-
-
-$(document).ready(function(){
-	var test_nav = $('.test_nav');
-	var depth1, depth2, depth3, depth4;
-
-	test_nav.append('<ul class="depth1"></ul>');
-	depth1 = test_nav.find('.depth1');
-
-	//1depth 생성
-	for( a=0; a<menu.length; a++ ){
-		depth1.append('<li><a href="'+ menu[a].d1_url +'">'+ menu[a].d1_nm +'</a></li>');
-	}
-	depth1.find('li').each(function(a, b){
-		var d2 = menu[a].d2;
-		if( typeof d2 !== 'undefined' ){
-			$(b).append('<ul class="depth2"></ul>');
-			depth2 = $(b).find('.depth2');
-
-			//depth2 생성
-			for( c=0; c<d2.length; c++ ){
-				depth2.append('<li><a href="'+ d2[c].d2_url +'">'+ d2[c].d2_nm +'</a></li>');
-			}
-			depth2.find('li').each(function(c, d){
-				var d3 = menu[a].d2[c].d3;
-				if( typeof d3 !== 'undefined' ){
-					$(d).append('<ul class="depth3"></ul>');
-					depth3 = $(d).find('.depth3');
-
-					//depth3 생성
-					for( e=0; e<d3.length; e++ ){
-						depth3.append('<li><a href="'+ d3[e].d3_url +'">'+ d3[e].d3_nm +'</a></li>');
-					}
-				}
-			});
-		}
-	});
-
-	function menuAppend(){}
-
-
-
-
-/*
-	for( a=0; a<menu.length; a++ ){
-		depth1.append('<li><a href="'+ menu[a].d1_url +'">'+ menu[a].d1_nm +'</a></li>');
-	}
-	depth1.find('li').each(function(a, b){
-		var d2 = menu[a].d2;
-		if( typeof d2 !== 'undefined' ){
-			$(b).append('<ul class="depth2"></ul>');
-			depth2 = $(b).find('.depth2');
-
-			//depth2 생성
-			for( c=0; c<d2.length; c++ ){
-				depth2.append('<li><a href="'+ d2[c].d2_url +'">'+ d2[c].d2_nm +'</a></li>');
-			}
-			depth2.find('li').each(function(c, d){
-				var d3 = menu[a].d2[c].d3;
-				if( typeof d3 !== 'undefined' ){
-					$(d).append('<ul class="depth3"></ul>');
-					depth3 = $(d).find('.depth3');
-
-					//depth3 생성
-					for( e=0; e<d3.length; e++ ){
-						depth3.append('<li><a href="'+ d3[e].d3_url +'">'+ d3[e].d3_nm +'</a></li>');
-					}
-				}
-			});
-		}
-	});
-*/
-});
-
-
 
 
 

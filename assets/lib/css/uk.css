@@ -1583,14 +1583,19 @@ body {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  opacity: 0;
   width: 100%;
   height: 100%;
   min-height: 100%;
+  transition: opacity .2s;
 }
 .wrap:after {
   display: block;
   clear: both;
   content: "";
+}
+.wrap.hide_loading {
+  opacity: 1;
 }
 .wrap .uk_header {
   -webkit-box-flex: none;
@@ -1628,6 +1633,50 @@ body {
     display: block;
   }
 }
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  transition: opacity .2s, left 0s 0s;
+}
+.loading i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8vw;
+  height: 8vw;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 50px;
+  min-height: 50px;
+  font-size: 0;
+  border: 0.8vw solid #1e73ff;
+  border-right-color: transparent;
+  border-radius: 100%;
+  animation: loading .6s linear infinite;
+}
+.loading.hide_loading {
+  left: -200vw;
+  opacity: 0;
+  transition: opacity .3s, left 0s .3s;
+}
+.hide_fix_loading .loading {
+  transition: opacity 0s;
+}
+@keyframes loading {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 .uk_logo a {
   display: inline-block;
   vertical-align: top;
@@ -1638,7 +1687,7 @@ body {
   background-size: 184px auto;
   background-position: center center;
   background-repeat: no-repeat;
-  transition: all 0.3s;
+  transition: width .6s, height .3s;
 }
 @media (max-width: 993px) {
   .uk_logo a {
@@ -2558,7 +2607,7 @@ body {
     right: 15px;
   }
 }
-.main_content {
+.main_page .uk_container {
   text-align: center;
 }
 @media (max-width: 767px) {
@@ -2592,6 +2641,7 @@ body {
 }
 .main_intro .txt_box strong {
   display: block;
+  opacity: 0;
   line-height: 110%;
   margin: 0 -500px;
   letter-spacing: 2px;
@@ -2602,12 +2652,6 @@ body {
 }
 .main_intro .txt_box strong span {
   color: #1e73ff;
-}
-.main_intro .txt_box .t1 {
-  animation: main_introTxt 2.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
-}
-.main_intro .txt_box .t2 {
-  animation: main_introTxt 2.5s 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) both;
 }
 .main_intro .txt_box p {
   line-height: 110%;
@@ -2684,6 +2728,12 @@ body {
 }
 .main_intro .txt_box .banner .bn5:before {
   background-color: #4961dd;
+}
+.main_intro.start .t1 {
+  animation: main_introTxt 2.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+.main_intro.start .t2 {
+  animation: main_introTxt 2.5s 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) both;
 }
 .main_intro .next_content {
   position: absolute;
@@ -3662,11 +3712,12 @@ body {
     opacity: .6;
   }
 }
-.sub_page {
+.sub_page .uk_container {
   padding-top: 110px;
-}
-.sub_content {
   background: #fff;
+}
+.sub_page .uk_footer {
+  background: #000;
 }
 @media (max-width: 767px) {
   .sub_page {

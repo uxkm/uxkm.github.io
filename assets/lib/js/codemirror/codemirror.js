@@ -1,9 +1,11 @@
 
-function qsa(sel){
-	return Array.apply(null, document.querySelectorAll(sel));
-}
-window.onload = function(){};
-qsa(".uk_editor").forEach(function(e){
+uk_editor();
+function uk_editor(){
+	function qsa(sel){
+		return Array.apply(null, document.querySelectorAll(sel));
+	}
+	window.onload = function(){};
+	qsa(".uk_editor").forEach(function(e){
 	//타켓 class
 	var wrapArr = ['code_wrap', 'result_wrap', 'btn_wrap', 'info_wrap'];
 	var btnArr = ['Reset', 'Download', 'Result', 'Info'/*, 'InfoExit'*/];
@@ -387,3 +389,4 @@ qsa(".uk_editor").forEach(function(e){
 		return false;
 	}
 });
+}

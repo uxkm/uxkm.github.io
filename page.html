@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko"><!-- sub_page -->
 <head>
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=korean,latin-ext,vietnamese" rel="stylesheet">
@@ -58,7 +58,7 @@
 	<![endif]-->
 </head>
 <body>
-<div class="wrap sub_page">
+<div class="wrap">
 
 	<nav class="uk-skip">
 		<a href="#content">본문내용으로 건너띄기</a>
@@ -71,9 +71,9 @@
 
 			<div class="nav_area">
 				<nav class="nav">
-					<a href="/page.html?html=htmlStart"><i>UI/UX Assets</i></a>
-					<a href="/page.html?html=blockInline"><i>Project GUIDE</i></a>
-					<a href="/page.html?html=sections"><i>Web Trends</i></a>
+					<a href="/page.html?data=htmlStart"><i>UI/UX Assets</i></a>
+					<a href="/page.html?data=blockInline"><i>Project GUIDE</i></a>
+					<a href="/page.html?data=sections"><i>Web Trends</i></a>
 					<!--
 					<a href="#" onclick="alert('페이지 준비중'); return false;"><i>Project GUIDE</i></a>
 					<a href="#" onclick="alert('페이지 준비중'); return false;"><i>Web Trends</i></a>
@@ -93,7 +93,8 @@
 
 	<section style="" id="content" class="uk_container uk_main sub_content" role="main">
 		<style>
-			.test_nav li {line-height:100%; margin-top:5px; font-size:13px;}
+			.test_nav li {position:relative; line-height:100%; margin-top:5px; font-size:13px;}
+			.test_nav li span {position:absolute; left:300px; top:0; color:red;}
 			.test_nav > ul > li {margin-top:10px;}
 			.test_nav > ul > li li {padding-left:20px;}
 		</style>
@@ -129,6 +130,7 @@
 
 
 </div><!-- //wrap -->
+<div class="loading"><i>페이지 로딩 중</i></div>
 
 
 <!-- js ------------------------------------ -->
