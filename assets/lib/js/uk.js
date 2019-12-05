@@ -6,27 +6,32 @@ var $htmlbody = $('html, body');
 var $wrap= $('.wrap');
 
 var $ukHeader = $('.uk_header');
-var $ukContainer = $('.uk_container');
 var hd_progress = 'hd_progress';
+var $hdNavArea = $ukHeader.find('.nav_area');
+var $hdNav= $hdNavArea.find('.nav');
+
+var $search_btn = $hdNavArea.find('.search_btn');
+var $sitemap_btn = $hdNavArea.find('.sitemap_btn');
+var $sitemapArea= $hdNavArea.find('.sitemap_area');
+var hd_sitemap_on = 'hd_sitemap_on';
+
+var $ukContainer = $('.uk_container');
 
 var main_page = 'main_page';
 var sub_page = 'sub_page';
 var main_true = $html.is('.'+main_page);
 var sub_true = $html.is('.'+sub_page);
 
+var uk_link = 'uk_link';
+var hash_link = 'hash_link';
 
 $(document).ready(function(){
-//$(window).load(function(){
-//$(function(){
-
-
 	//ajax start --------------------------------------------------------------------------------------------------------------//
 	var loadStage = true;
 	var loadingStartTime = 200;
-	var loadingEndTime = 300;
+	var loadingEndTime = 400;
 
 	//loading
-	//$body.append('<div class="loading"><i>페이지 로딩 중</i></div>');
 	var loading = $('.loading');
 	var hide_loading = 'hide_loading';
 	var hide_fix_loading = 'hide_fix_loading';
@@ -49,12 +54,10 @@ $(document).ready(function(){
 
 
 	//sitemap 생성
-	/*
-	var test_nav = $('.test_nav');
 	var depth1, depth2, depth3, depth4;
 
-	test_nav.append('<ul class="depth1"></ul>');
-	depth1 = test_nav.find('.depth1');
+	$sitemapArea.children().append('<ul class="depth1"></ul>');
+	depth1 = $sitemapArea.find('.depth1');
 
 	//1depth 생성
 	for( a=0; a<menu.length; a++ ){
@@ -68,7 +71,7 @@ $(document).ready(function(){
 
 			//depth2 생성
 			for( c=0; c<d2.length; c++ ){
-				depth2.append('<li><a href="'+ d2[c].d2_url +'" class="'+uk_link+'">'+ d2[c].d2_nm +'<span> ' +d2[c].d2_url+'</span></a></li>');
+				depth2.append('<li><a href="'+ d2[c].d2_url +'" class="'+uk_link+'">'+ d2[c].d2_nm +'</a></li>'); //<span> ' +d2[c].d2_url+'</span>
 			}
 			depth2.find('li').each(function(c, d){
 				var d3 = menu[a].d2[c].d3;
@@ -78,14 +81,24 @@ $(document).ready(function(){
 
 					//depth3 생성
 					for( e=0; e<d3.length; e++ ){
-						depth3.append('<li><a href="'+ d3[e].d3_url +'" class="'+uk_link+'">'+ d3[e].d3_nm + ' <span> ' +d3[e].d3_url+'</span></a></li>');
+						depth3.append('<li><a href="'+ d3[e].d3_url +'" class="'+uk_link+'">'+ d3[e].d3_nm + '</a></li>'); //<span> ' +d3[e].d3_url+'</span>
 					}
+					depth3.find('li').each(function(e, f){
+						var d4 = menu[a].d2[c].d3[e].d4;
+						if( typeof d4 !== 'undefined' ){
+							$(f).append('<ul class="depth4"></ul>');
+							depth4 = $(f).find('.depth4');
+
+							//depth4 생성
+							for( g=0; g<d4.length; g++ ){
+								depth4.append('<li><a href="'+ d4[g].d4_url +'" class="'+hash_link+'">'+ d4[g].d4_nm + '</a></li>'); //<span> ' +d3[e].d3_url+'</span>
+							}
+						}
+					});
 				}
 			});
 		}
 	});
-	*/
-
 
 
 	//로딩 시mina sub class 부여
@@ -102,7 +115,7 @@ $(document).ready(function(){
 
 	//main / sub ajax
 	//mainSet
-	function mainSet(time){
+	function mainSet( time ){
 		loadingStart();
 		setTimeout(function(){
 			$html.removeClass(sub_page).addClass(main_page);
@@ -114,6 +127,9 @@ $(document).ready(function(){
 				async:true,
 				error:function(){
 					console.log("데이터 불러오기 실패");
+					setTimeout(function(){
+						loadingEnd();
+					}, loadingEndTime);
 				},
 				success:function(data){
 					$ukContainer.html(data);
@@ -163,8 +179,10 @@ $(document).ready(function(){
 				dataType:'html',
 				async:true,
 				error:function(){
-					console.log("데이터 불러오기 실패");
 					$ukContainer.html('데이타가 없어요^^');
+					setTimeout(function(){
+						loadingEnd();
+					}, loadingEndTime);
 				},
 				success:function(data){
 					$ukContainer.html(data);
@@ -212,14 +230,26 @@ $(document).ready(function(){
 		}
 
 		history.pushState(this_link_url, null, this_link_url);
+		setTimeout(function(){
+			if( $html.is('.'+hd_sitemap_on) ) $sitemap_btn.trigger('click');
+		}, loadingStartTime/2);
+		return false;
+	});
+	
+	//hash_link 클릭(페이지 내 링크) - (후에 sub_action으로 이동 예정)
+	$('.'+hash_link).click(function(){
+		console.log('hash_link 클릭!');
 		return false;
 	});
 
 	//브라우저 뒤로/앞으로 클릭
 	window.onpopstate = function(event){
-		//history.back();   //pushState로 인하여 페이지가 하나 더 생성되기 떄문에 한번에 뒤로가기 위해서 뒤로가기를 한번 더 해줍니다.
 		loadStage = false;
 		$body.addClass(hide_fix_loading);
+		//var change_url = history.state;
+		//console.log(change_url)
+		//if( history.state.match('#') ) history.state = history.state.split('#')[0];
+
 		if( history.state === '/' ){
 			mainSet( loadingStartTime );
 		}
@@ -252,6 +282,19 @@ $(document).ready(function(){
 	//header progress bar 생성
 	$ukHeader.addClass(device_check);
 	$ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
+
+	//header nav
+	$sitemap_btn.click(function(){
+		if( !$(this).is('.active') ){
+			$(this).addClass('active').removeClass('after');
+			$html.css('overflow','hidden').addClass(hd_sitemap_on);
+		}
+		else if( $(this).is('.active') ){
+			$(this).removeClass('active').addClass('after');
+			$html.removeAttr('style').removeClass(hd_sitemap_on);
+		}
+		return false;
+	});
 
 
 	//resize
@@ -292,20 +335,7 @@ $(document).ready(function(){
 
 
 
-
-//nav_area()
-function nav_area(){
-	var el_navArea = $('.nav_area');
-	el_navArea.find('button').click(function(){
-		if( !$(this).is('.active') ){
-			$(this).addClass('active').removeClass('after');
-		}else if( $(this).is('.active') ){
-			$(this).removeClass('active').addClass('after');
-		}
-		return false;
-	});
-}
-
+//main_action
 function main_action(){
 	var $main_intro = $ukContainer.find('.main_intro');
 	var $main_info = $ukContainer.find('.main_info');
@@ -317,7 +347,7 @@ function main_action(){
 
 	$(document).on('click', '.next_content', function(){
 		var topSize = $main_intro.height() - $ukHeader.height();
-		$htmlbody.stop().animate({'scrollTop':topSize}, 900, 'easeInOutExpo');
+		$htmlbody.stop().animate({'scrollTop':topSize}, 1000, 'easeInOutQuint');
 		return false;
 	});
 
@@ -357,8 +387,10 @@ function main_action(){
 	});
 }
 
+
+//sub_action
 function sub_action(){
-	console.log('sub_action');
+	//console.log('sub_action');
 }
 
 
