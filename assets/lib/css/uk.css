@@ -2576,6 +2576,21 @@ body {
     width: calc(25% - 20px);
   }
 }
+@media (max-width: 1100px) {
+  .hd_assetsLink .assetsLink_in .al_depth2 > li {
+    width: calc(33.333% - 20px);
+  }
+}
+@media (max-width: 860px) {
+  .hd_assetsLink .assetsLink_in .al_depth2 > li {
+    width: calc(50% - 20px);
+  }
+}
+@media (max-width: 560px) {
+  .hd_assetsLink .assetsLink_in .al_depth2 > li {
+    width: calc(100% - 20px);
+  }
+}
 .hd_assetsLink .assetsLink_in .al_depth2 > li:before {
   left: 15px;
   top: 15px;
