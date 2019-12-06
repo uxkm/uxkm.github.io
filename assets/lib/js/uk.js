@@ -7,13 +7,13 @@ var $wrap= $('.wrap');
 
 var $ukHeader = $('.uk_header');
 var hd_progress = 'hd_progress';
-var $hdNavArea = $ukHeader.find('.nav_area');
+var $hdNavArea = $ukHeader.find('.hd_nav_area');
 var $hdNav= $hdNavArea.find('.nav');
 
 var $search_btn = $hdNavArea.find('.search_btn');
-var $sitemap_btn = $hdNavArea.find('.sitemap_btn');
-var $sitemapArea= $hdNavArea.find('.sitemap_area');
-var hd_sitemap_on = 'hd_sitemap_on';
+var $assetsLink_btn = $hdNavArea.find('.assetsLink_btn');
+var $assetsLinka_area= $hdNavArea.find('.assetsLink_area');
+var hd_assetsLink_on = 'hd_assetsLink_on';
 
 var $ukContainer = $('.uk_container');
 
@@ -25,11 +25,16 @@ var sub_true = $html.is('.'+sub_page);
 var uk_link = 'uk_link';
 var hash_link = 'hash_link';
 
+
 $(document).ready(function(){
 	//ajax start --------------------------------------------------------------------------------------------------------------//
 	var loadStage = true;
-	var loadingStartTime = 200;
+	var loadingStartTime = 400;
 	var loadingEndTime = 400;
+	var al_depth1, al_depth2, al_depth3;
+	var d1_on, d2_on, d3_on, d4_on;
+	var d4_true = false;
+
 
 	//loading
 	var loading = $('.loading');
@@ -53,54 +58,6 @@ $(document).ready(function(){
 	}
 
 
-	//sitemap 생성
-	var depth1, depth2, depth3, depth4;
-
-	$sitemapArea.children().append('<ul class="depth1"></ul>');
-	depth1 = $sitemapArea.find('.depth1');
-
-	//1depth 생성
-	for( a=0; a<menu.length; a++ ){
-		depth1.append('<li><a href="'+ menu[a].d1_url +'" class="'+uk_link+'">'+ menu[a].d1_nm +'</a></li>');
-	}
-	depth1.find('li').each(function(a, b){
-		var d2 = menu[a].d2;
-		if( typeof d2 !== 'undefined' ){
-			$(b).append('<ul class="depth2"></ul>');
-			depth2 = $(b).find('.depth2');
-
-			//depth2 생성
-			for( c=0; c<d2.length; c++ ){
-				depth2.append('<li><a href="'+ d2[c].d2_url +'" class="'+uk_link+'">'+ d2[c].d2_nm +'</a></li>'); //<span> ' +d2[c].d2_url+'</span>
-			}
-			depth2.find('li').each(function(c, d){
-				var d3 = menu[a].d2[c].d3;
-				if( typeof d3 !== 'undefined' ){
-					$(d).append('<ul class="depth3"></ul>');
-					depth3 = $(d).find('.depth3');
-
-					//depth3 생성
-					for( e=0; e<d3.length; e++ ){
-						depth3.append('<li><a href="'+ d3[e].d3_url +'" class="'+uk_link+'">'+ d3[e].d3_nm + '</a></li>'); //<span> ' +d3[e].d3_url+'</span>
-					}
-					depth3.find('li').each(function(e, f){
-						var d4 = menu[a].d2[c].d3[e].d4;
-						if( typeof d4 !== 'undefined' ){
-							$(f).append('<ul class="depth4"></ul>');
-							depth4 = $(f).find('.depth4');
-
-							//depth4 생성
-							for( g=0; g<d4.length; g++ ){
-								depth4.append('<li><a href="'+ d4[g].d4_url +'" class="'+hash_link+'">'+ d4[g].d4_nm + '</a></li>'); //<span> ' +d3[e].d3_url+'</span>
-							}
-						}
-					});
-				}
-			});
-		}
-	});
-
-
 	//로딩 시mina sub class 부여
 	mainSubClass();
 	function mainSubClass(){
@@ -113,11 +70,13 @@ $(document).ready(function(){
 		}
 	}
 
-	//main / sub ajax
-	//mainSet
+	//mainSet ajax
 	function mainSet( time ){
 		loadingStart();
 		setTimeout(function(){
+			$assetsLinka_area.find('li').removeClass('on');	//assets메뉴 활성화 초기화
+			al_depth1.find('>li').eq(0).addClass('on');			//assets메뉴 html텝 활성화
+
 			$html.removeClass(sub_page).addClass(main_page);
 			$ukContainer.children().remove();
 			$.ajax({
@@ -148,29 +107,13 @@ $(document).ready(function(){
 			});
 		}, time);
 	}
-	//subSet
+	//subSet ajax
 	function subSet( time, target_url ){
 		loadingStart();
-		var first_split = target_url.split('=')[1].split('&');
-		var idx1, idx2, idx3;
-		for( i=0; i<menu.length; i++ ){
-			if( menu[i].d1_nm.match( first_split[0] ) ) idx1 = i;
-		}
-		var menuFileArrD2 = menu[idx1].d2;
-		if( typeof menuFileArrD2 !== 'undefined' ){
-			for( i=0; i<menuFileArrD2.length; i++ ){
-				if( menuFileArrD2[i].d2_nm.match( first_split[1] ) ) idx2 = i;
-			}
-		}
-		var menuFileArrD3 = menuFileArrD2[idx2].d3;
-		if( typeof menuFileArrD3 !== 'undefined' ){
-			for( i=0; i<menuFileArrD3.length; i++ ){
-				if( menuFileArrD3[i].d3_url.match( first_split[2] ) ) idx3 = i;
-			}
-		}
-		var file_url = menu[idx1].d2[idx2].d3[idx3].d3_file;
-
 		setTimeout(function(){
+			onindex( target_url );
+			var file_url = menu[d1_on].d2[d2_on].d3[d3_on].d3_file;
+
 			$html.removeClass(main_page).addClass(sub_page);
 			$ukContainer.children().remove();
 			$.ajax({
@@ -200,6 +143,54 @@ $(document).ready(function(){
 	}
 
 
+	//assets link 생성(assets의 하위메뉴만 생성)
+	$assetsLinka_area.children().append('<ul class="al_depth1"></ul>');
+	al_depth1 = $assetsLinka_area.find('.al_depth1');
+	var d2 = menu[0].d2;
+	if( typeof d2 !== 'undefined' ){
+		//al_depth1 생성
+		for( c=0; c<d2.length; c++ ){
+			al_depth1.append('<li><a href="'+ d2[c].d2_url +'" class="d1_link link_0'+(c+1)+'"><i>'+ d2[c].d2_nm +'</i></a></li>');
+			//al_depth1.find('>li').eq(d2_on).addClass('on');
+		}
+		al_depth1.find('li').each(function(c, d){
+			var d3 = d2[c].d3;
+			if( typeof d3 !== 'undefined' ){
+				$(d).append('<div class="al_depth2_wrap"><ol class="al_depth2"></ol></div>');
+				al_depth2 = $(d).find('.al_depth2');
+
+				//al_depth2 생성
+				for( e=0; e<d3.length; e++ ){
+					al_depth2.append('<li class="item"><a href="'+ d3[e].d3_url +'" class="'+uk_link+'">'+ d3[e].d3_nm + '</a></li>');
+					//if( c === d2_on && e === d3_on ) al_depth2.find('>li').eq(e).addClass('on');
+				}
+				al_depth2.find('li').each(function(e, f){
+					var d4 = d3[e].d4;
+					if( typeof d4 !== 'undefined' ){
+						$(f).append('<ol class="al_depth3"></ol>');
+						al_depth3 = $(f).find('.al_depth3');
+
+						//al_depth3 생성
+						for( g=0; g<d4.length; g++ ){
+							al_depth3.append('<li><a href="'+ d4[g].d4_url +'" class="'+hash_link+'">'+ d4[g].d4_nm + '</a></li>');
+							//if( c === d2_on && e === d3_on && g === d4_on && d4_true ) al_depth3.find('>li').eq(g).addClass('on');
+						}
+					}
+				});
+			}
+		});
+	}
+
+	//assets link masonry 적용
+	al_depth1.find('> li').each(function(i, e){
+		$(e).find('.al_depth2').masonry({
+			itemSelector: '.item',
+			percentPosition: true
+		});
+	});
+	al_depth1.find('> li').eq(al_depth1).trigger('click');
+
+
 	//로딩 시 페이지 ajax 로드
 	//main 로드
 	if( $html.is('.'+main_page) ){
@@ -210,6 +201,7 @@ $(document).ready(function(){
 		var t_url = basic_url.split('?')[1];
 		subSet( 0, t_url );
 	}
+
 
 	//uk_link 클릭
 	$('.'+uk_link).click(function(){
@@ -231,16 +223,67 @@ $(document).ready(function(){
 
 		history.pushState(this_link_url, null, this_link_url);
 		setTimeout(function(){
-			if( $html.is('.'+hd_sitemap_on) ) $sitemap_btn.trigger('click');
+			if( $html.is('.'+hd_assetsLink_on) ) $assetsLink_btn.trigger('click');
 		}, loadingStartTime/2);
 		return false;
 	});
-	
+
+
 	//hash_link 클릭(페이지 내 링크) - (후에 sub_action으로 이동 예정)
 	$('.'+hash_link).click(function(){
 		console.log('hash_link 클릭!');
 		return false;
 	});
+
+
+	//on index
+	if( sub_true ) onindex( basic_url );
+	function onindex( edit_url ){
+		var first_split = edit_url.split('=')[1].split('&');
+		if( first_split.length === 4 ) d4_true = true;
+
+		for( i=0; i<menu.length; i++ ){
+			if( menu[i].d1_nm.match( first_split[0] ) ) d1_on = i;
+		}
+		//depth2 on index
+		var menuFileArrD2 = menu[d1_on].d2;
+		if( typeof menuFileArrD2 !== 'undefined' ){
+			for( i=0; i<menuFileArrD2.length; i++ ){
+				if( menuFileArrD2[i].d2_nm.match( first_split[1] ) ) d2_on = i;
+			}
+		}
+		//depth3 on index
+		var menuFileArrD3 = menuFileArrD2[d2_on].d3;
+		if( typeof menuFileArrD3 !== 'undefined' ){
+			for( i=0; i<menuFileArrD3.length; i++ ){
+				if( menuFileArrD3[i].d3_url.match( first_split[2] ) ) d3_on = i;
+			}
+		}
+		//depth4 on index
+		if( d4_true ){
+			var menuFileArrD4 = menuFileArrD3[d3_on].d4;
+			if( typeof menuFileArrD4 !== 'undefined' ){
+				for( i=0; i<menuFileArrD4.length; i++ ){
+					if( menuFileArrD4[i].d4_url.match( first_split[3] ) ) d4_on = i;
+				}
+			}
+		}
+
+		//assets 링크 활성화
+		al_depth1.find('li').removeClass('on');
+		var al_dp1_on = al_depth1.find('>li').eq(d2_on);
+		al_dp1_on.addClass('on');
+
+		var al_dp2_on = al_dp1_on.find('.al_depth2>li').eq(d3_on);
+		al_dp2_on.addClass('on');
+
+		console.log(d4_true);
+		if( d4_true ){
+			var al_dp3_on = al_dp2_on.find('.al_depth3>li').eq(d4_on);
+			al_dp3_on.addClass('on');
+		}
+	}
+
 
 	//브라우저 뒤로/앞으로 클릭
 	window.onpopstate = function(event){
@@ -259,6 +302,7 @@ $(document).ready(function(){
 		}
 	};
 
+
 	//새로고침 후 스크롤 높이 유지
 	function loadScrollTop(){
 		if( loadStage ){
@@ -275,6 +319,18 @@ $(document).ready(function(){
 	}
 	//ajax end --------------------------------------------------------------------------------------------------------------//
 
+	//assets link tab
+	$('.d1_link ').click(function(){
+		if( $(this).parent().index() < 2 ){
+			$(this).parent().addClass('on').siblings().removeClass('on');
+		}
+		else{
+			alert('준비중 입니다^^');
+		}
+		return false;
+	});
+
+
 
 
 
@@ -284,14 +340,14 @@ $(document).ready(function(){
 	$ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
 
 	//header nav
-	$sitemap_btn.click(function(){
+	$assetsLink_btn.click(function(){
 		if( !$(this).is('.active') ){
 			$(this).addClass('active').removeClass('after');
-			$html.css('overflow','hidden').addClass(hd_sitemap_on);
+			$html.css('overflow','hidden').addClass(hd_assetsLink_on);
 		}
 		else if( $(this).is('.active') ){
 			$(this).removeClass('active').addClass('after');
-			$html.removeAttr('style').removeClass(hd_sitemap_on);
+			$html.removeAttr('style').removeClass(hd_assetsLink_on);
 		}
 		return false;
 	});
@@ -395,6 +451,58 @@ function sub_action(){
 
 
 
+
+
+
+
+
+
+
+//전체메뉴 생성 백업
+/*
+var depth1, depth2, depth3, depth4;
+$assetsLinka_area.children().append('<ul class="depth1"></ul>');
+depth1 = $assetsLinka_area.find('.depth1');
+for( a=0; a<menu.length; a++ ){
+	depth1.append('<li><a href="'+ menu[a].d1_url +'" class="'+uk_link+'">'+ menu[a].d1_nm +'</a></li>');
+}
+depth1.find('li').each(function(a, b){
+	var d2 = menu[a].d2;
+	if( typeof d2 !== 'undefined' ){
+		$(b).append('<ul class="depth2"></ul>');
+		depth2 = $(b).find('.depth2');
+
+		//depth2 생성
+		for( c=0; c<d2.length; c++ ){
+			depth2.append('<li><a href="'+ d2[c].d2_url +'" class="'+uk_link+'">'+ d2[c].d2_nm +'</a></li>'); //<span> ' +d2[c].d2_url+'</span>
+		}
+		depth2.find('li').each(function(c, d){
+			var d3 = menu[a].d2[c].d3;
+			if( typeof d3 !== 'undefined' ){
+				$(d).append('<ul class="depth3"></ul>');
+				depth3 = $(d).find('.depth3');
+
+				//depth3 생성
+				for( e=0; e<d3.length; e++ ){
+					depth3.append('<li><a href="'+ d3[e].d3_url +'" class="'+uk_link+'">'+ d3[e].d3_nm + '</a></li>'); //<span> ' +d3[e].d3_url+'</span>
+				}
+				depth3.find('li').each(function(e, f){
+					var d4 = menu[a].d2[c].d3[e].d4;
+					if( typeof d4 !== 'undefined' ){
+						$(f).append('<ul class="depth4"></ul>');
+						depth4 = $(f).find('.depth4');
+
+						//depth4 생성
+						for( g=0; g<d4.length; g++ ){
+							depth4.append('<li><a href="'+ d4[g].d4_url +'" class="'+hash_link+'">'+ d4[g].d4_nm + '</a></li>'); //<span> ' +d3[e].d3_url+'</span>
+						}
+					}
+				});
+			}
+		});
+	}
+});
+*/
 
 
 

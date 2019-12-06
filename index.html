@@ -68,9 +68,9 @@
 
 	<header class="uk_header">
 		<div class="inner">
-			<h1 class="uk_logo"><a href="/" class="uk_link">uxkm</a></h1>
+			<h1 class="hd_logo uk_logo"><a href="/" class="uk_link">uxkm</a></h1>
 
-			<div class="nav_area">
+			<div class="hd_nav_area">
 				<nav class="nav">
 					<h2 class="sound_only">상단 메뉴</h2>
 					<a class="uk_link" href="?data=Assets&HTML&htmlStart"><i>UI/UX Assets</i></a>
@@ -80,19 +80,21 @@
 
 				<section class="aside">
 					<h2 class="sound_only">유틸 메뉴</h2>
+					<!-- 검색 -->
 					<article class="hd_search">
-						<h3 class="sound_only">검색창</h3>
+						<h3 class="sound_only">검색</h3>
 						<button type="button" class="ly_btn search_btn"><i>Search button</i></button>
-						<div class="hd_layer_box search_area">
+						<div class="hd_layer_box search_area" style="display:none">
 							search area
 						</div>
 					</article>
-					<article class="hd_sitemap">
-						<h3 class="sound_only">Site map</h3>
-						<button type="button" class="ly_btn sitemap_btn"><i>site map button</i></button>
-						<div class="hd_layer_box sitemap_area">
-							<div class="sitemap_in inner">
-								<h4>Site map</h4>
+					<!-- 사이트맵 -->
+					<article class="hd_assetsLink">
+						<h3 class="sound_only">UI/UX Assets 전체메뉴</h3>
+						<button type="button" class="ly_btn assetsLink_btn"><i>Assets link button</i></button>
+						<div class="hd_layer_box assetsLink_area">
+							<div class="assetsLink_in inner">
+								<h4>UI/UX <i>A</i>ssets Link</h4>
 							</div>
 						</div>
 					</article>
@@ -136,6 +138,7 @@
 <!-- plugin -->
 <script type="text/javascript" src="/assets/lib/js/plugin/jquery.easing.1.3.min.js"></script>
 <script type="text/javascript" src="/assets/lib/js/plugin/ukDetect-1.0.0.js"></script>
+<script type="text/javascript" src="/assets/lib/js/plugin/masonry.pkgd.min.js"></script>
 
 <!-- codemirror -->
 <script src="assets/lib/js/codemirror/lib/codemirror.js"></script><!-- 기본 -->
@@ -153,7 +156,7 @@
 <script src="assets/lib/js/codemirror/codemirror.js"></script>
 
 <!-- uk.js -->
-<script type="text/javascript" src="/assets/lib/js/uk.js"></script>
 <script type="text/javascript" src="/assets/lib/js/menu.js"></script>
+<script type="text/javascript" src="/assets/lib/js/uk.js"></script>
 </body>
 </html>

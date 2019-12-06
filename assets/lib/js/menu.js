@@ -85,9 +85,9 @@ var menu = [
 						]
 					},
 
-					//섹션 콘텐츠 (Section Conetnt)
+					//섹션 콘텐츠(Section Conetnt)
 					{
-						d3_nm:	'섹션 콘텐츠 (Section Conetnt)',
+						d3_nm:	'섹션 콘텐츠(Section Conetnt)',
 						d3_url:		url_html+'sections',
 						d3_file:		file_html+'/03-sections/sections.html',
 						d4:[
@@ -344,8 +344,68 @@ var menu = [
 						d3_file:		file_html+'/06-embedded/embedded.html',
 						d4:[
 							{
-								d4_nm:	'000000000',
-								d4_url:		url_html+'embedded&000000000',
+								d4_nm:	'iframe element',
+								d4_url:		url_html+'embedded&iframe_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'img element',
+								d4_url:		url_html+'embedded&img_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'map element',
+								d4_url:		url_html+'embedded&map_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'area element',
+								d4_url:		url_html+'embedded&area_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'video element',
+								d4_url:		url_html+'embedded&video_element',
+								html5:		true
+							},
+							{
+								d4_nm:	'audio element',
+								d4_url:		url_html+'embedded&audio_element',
+								html5:		true,
+							},
+							{
+								d4_nm:	'track element',
+								d4_url:		url_html+'embedded&track_element',
+								html5:		true,
+							},
+							{
+								d4_nm:	'picture element',
+								d4_url:		url_html+'embedded&picture_element',
+								html5:		true,
+							},
+							{
+								d4_nm:	'source element',
+								d4_url:		url_html+'embedded&source_element',
+								html5:		true,
+							},
+							{
+								d4_nm:	'svg element',
+								d4_url:		url_html+'embedded&svg_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'embed element',
+								d4_url:		url_html+'embedded&embed_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'object element',
+								d4_url:		url_html+'embedded&object_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'param element',
+								d4_url:		url_html+'embedded&param_element',
 								html5:		false,
 							},
 						]
@@ -358,8 +418,13 @@ var menu = [
 						d3_file:		file_html+'/07-edits/edits.html',
 						d4:[
 							{
-								d4_nm:	'000000000',
-								d4_url:		url_html+'edits&000000000',
+								d4_nm:	'del(Deleted Text) element',
+								d4_url:		url_html+'edits&del_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'ins(insert) element',
+								d4_url:		url_html+'edits&ins_element',
 								html5:		false,
 							},
 						]
@@ -372,8 +437,53 @@ var menu = [
 						d3_file:		file_html+'/08-table/table.html',
 						d4:[
 							{
-								d4_nm:	'000000000',
-								d4_url:		url_html+'table&000000000',
+								d4_nm:	'table element',
+								d4_url:		url_html+'table&table_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'caption element',
+								d4_url:		url_html+'table&caption_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'colgroup element',
+								d4_url:		url_html+'table&colgroup_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'col element',
+								d4_url:		url_html+'table&col_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'thead element',
+								d4_url:		url_html+'table&thead_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'tbody element',
+								d4_url:		url_html+'table&tbody_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'tfoot element',
+								d4_url:		url_html+'table&tfoot_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'tr element',
+								d4_url:		url_html+'table&tr_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'th element',
+								d4_url:		url_html+'table&th_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'td element',
+								d4_url:		url_html+'table&td_element',
 								html5:		false,
 							},
 						]
@@ -386,8 +496,73 @@ var menu = [
 						d3_file:		file_html+'/09-forms/forms.html',
 						d4:[
 							{
-								d4_nm:	'000000000',
-								d4_url:		url_html+'forms&000000000',
+								d4_nm:	'form element',
+								d4_url:		url_html+'forms&form_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'label element',
+								d4_url:		url_html+'forms&label_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'input element',
+								d4_url:		url_html+'forms&input_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'button element',
+								d4_url:		url_html+'forms&button_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'select element',
+								d4_url:		url_html+'forms&select_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'optgroup element',
+								d4_url:		url_html+'forms&optgroup_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'option element',
+								d4_url:		url_html+'forms&option_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'datalist element',
+								d4_url:		url_html+'forms&datalist_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'textarea element',
+								d4_url:		url_html+'forms&textarea_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'output element',
+								d4_url:		url_html+'forms&output_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'progress element',
+								d4_url:		url_html+'forms&progress_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'meter element',
+								d4_url:		url_html+'forms&meter_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'fieldset element',
+								d4_url:		url_html+'forms&fieldset_element',
+								html5:		false,
+							},
+							{
+								d4_nm:	'legend element',
+								d4_url:		url_html+'forms&legend_element',
 								html5:		false,
 							},
 						]
@@ -400,8 +575,13 @@ var menu = [
 						d3_file:		file_html+'/10-structure/structure.html',
 						d4:[
 							{
-								d4_nm:	'000000000',
-								d4_url:		url_html+'structure&000000000',
+								d4_nm:	'HTML4에서의 문서 구조',
+								d4_url:		url_html+'structure&html4_document',
+								html5:		false,
+							},
+							{
+								d4_nm:	'HTML5에서의 문서 구조',
+								d4_url:		url_html+'structure&html5_document',
 								html5:		false,
 							},
 						]
@@ -412,13 +592,6 @@ var menu = [
 						d3_nm:	'컨텐츠 모델(Content models)',
 						d3_url:		url_html+'models',
 						d3_file:		file_html+'/11-models/models.html',
-						d4:[
-							{
-								d4_nm:	'000000000',
-								d4_url:		url_html+'models&000000000',
-								html5:		false,
-							},
-						]
 					},
 
 					//참조 사이트
@@ -426,13 +599,6 @@ var menu = [
 						d3_nm:	'참조 사이트',
 						d3_url:		url_html+'bookmark',
 						d3_file:		file_html+'/12-bookmark/bookmark.html',
-						d4:[
-							{
-								d4_nm:	'000000000',
-								d4_url:		url_html+'bookmark&000000000',
-								html5:		false,
-							},
-						]
 					},
 				]
 			},
@@ -449,9 +615,39 @@ var menu = [
 						d3_file:		file_css+'/01-cssStart/cssStart.html',
 						d4:[
 							{
-								d4_nm:		'HTML이란?',
-								d4_url:		url_css+'htmlStart#HTML',
-								html5:	false,
+								d4_nm:	'CSS란?',
+								d4_url:		url_css+'cssStart&css_intro',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS를 사용하는 이유?',
+								d4_url:		url_css+'cssStart&css_reason',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS의 발전',
+								d4_url:		url_css+'cssStart&css_history',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS 모듈과 표준화 과정',
+								d4_url:		url_css+'cssStart&css_modules',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS의 문법',
+								d4_url:		url_css+'cssStart&css_syntax',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS 선언방식',
+								d4_url:		url_css+'cssStart&css_apply',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS 상속과 캐스케이딩',
+								d4_url:		url_css+'cssStart&css_cascading',
+								html5:		false,
 							},
 						]
 					},
@@ -460,35 +656,181 @@ var menu = [
 					{
 						d3_nm:	'CSS 초급',
 						d3_url:		url_css+'cssBeginner',
-						d3_file:		file_css+'/02-cssBeginner/cssBeginner.html'
+						d3_file:		file_css+'/02-cssBeginner/cssBeginner.html',
+						d4:[
+							{
+								d4_nm:	'CSS 단위',
+								d4_url:		url_css+'cssBeginner&css_units',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS 선택자 level 1,2',
+								d4_url:		url_css+'cssBeginner&css_selectors_level1',
+								html5:		false,
+							},
+							{
+								d4_nm:	'Color 속성',
+								d4_url:		url_css+'cssBeginner&css_color',
+								html5:		false,
+							},
+							{
+								d4_nm:	'Font 속성',
+								d4_url:		url_css+'cssBeginner&css_font',
+								html5:		false,
+							},
+							{
+								d4_nm:	'Text 속성',
+								d4_url:		url_css+'cssBeginner&css_text',
+								html5:		false,
+							},
+							{
+								d4_nm:	'Background 속성',
+								d4_url:		url_css+'cssBeginner&css_background',
+								html5:		false,
+							},
+							{
+								d4_nm:	'List 속성',
+								d4_url:		url_css+'cssBeginner&css_list',
+								html5:		false,
+							},
+							{
+								d4_nm:	'Table 속성',
+								d4_url:		url_css+'cssBeginner&css_table',
+								html5:		false,
+							},
+							{
+								d4_nm:	'박스 모델 속성',
+								d4_url:		url_css+'cssBeginner&css_boxmodel',
+								html5:		false,
+							},
+							{
+								d4_nm:	'시각적인 속성',
+								d4_url:		url_css+'cssBeginner&css_effects',
+								html5:		false,
+							},
+							{
+								d4_nm:	'위치 속성',
+								d4_url:		url_css+'cssBeginner&css_formatting',
+								html5:		false,
+							},
+							{
+								d4_nm:	'사용자 인터페이스 속성',
+								d4_url:		url_css+'cssBeginner&css_interface',
+								html5:		false,
+							},
+						]
 					},
 
 					//CSS 중급
 					{
 						d3_nm:	'CSS 중급',
 						d3_url:		url_css+'cssMiddleclass',
-						d3_file:		file_css+'/03-cssMiddleclass/cssMiddleclass.html'
+						d3_file:		file_css+'/03-cssMiddleclass/cssMiddleclass.html',
+						d4:[
+							{
+								d4_nm:	'CSS 선택자 level 3',
+								d4_url:		url_css+'cssMiddleclass&css_selectors_level3',
+								html5:		false,
+							},
+							{
+								d4_nm:	'가상 요소',
+								d4_url:		url_css+'cssMiddleclass&css_content',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS 카운터',
+								d4_url:		url_css+'cssMiddleclass&css_counter',
+								html5:		false,
+							},
+							{
+								d4_nm:	'접두어',
+								d4_url:		url_css+'cssMiddleclass&css_vendor',
+								html5:		false,
+							},
+							{
+								d4_nm:	'IR 기법',
+								d4_url:		url_css+'cssMiddleclass&css_ir',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS3 모듈',
+								d4_url:		url_css+'cssMiddleclass&css_module3',
+								html5:		false,
+							},
+							{
+								d4_nm:	'@규칙(At-Rule)',
+								d4_url:		url_css+'cssMiddleclass&css_atrule',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS 속성 선언순서',
+								d4_url:		url_css+'cssMiddleclass&css_attr_rule',
+								html5:		false,
+							},
+						]
 					},
 
 					//CSS 고급
 					{
 						d3_nm:	'CSS 고급',
 						d3_url:		url_css+'cssAdvanced',
-						d3_file:		file_css+'/04-cssAdvanced/cssAdvanced.html'
+						d3_file:		file_css+'/04-cssAdvanced/cssAdvanced.html',
+						d4:[
+							{
+								d4_nm:	'미디어 쿼리',
+								d4_url:		url_css+'cssAdvanced&css_mediaquery',
+								html5:		false,
+							},
+							{
+								d4_nm:	'Print',
+								d4_url:		url_css+'cssAdvanced&css_print',
+								html5:		false,
+							},
+							{
+								d4_nm:	'Transform',
+								d4_url:		url_css+'cssAdvanced&css_transform',
+								html5:		false,
+							},
+							{
+								d4_nm:	'Transition',
+								d4_url:		url_css+'cssAdvanced&css_transition',
+								html5:		false,
+							},
+							{
+								d4_nm:	'Animation',
+								d4_url:		url_css+'cssAdvanced&css_animation',
+								html5:		false,
+							},
+							{
+								d4_nm:	'그리드 레이아웃',
+								d4_url:		url_css+'cssAdvanced&css_grid',
+								html5:		false,
+							},
+							{
+								d4_nm:	'플렉서블 박스 레이아웃',
+								d4_url:		url_css+'cssAdvanced&css_flexible',
+								html5:		false,
+							},
+							{
+								d4_nm:	'CSS 선택자 level 4',
+								d4_url:		url_css+'cssAdvanced&css_selectors_level4',
+								html5:		false,
+							},
+						]
 					},
 
 					//UI/UX 구현
 					{
 						d3_nm:	'UI/UX 구현',
 						d3_url:		url_css+'uiux',
-						d3_file:		file_css+'/05-uiux/uiux.html'
+						d3_file:		file_css+'/05-uiux/uiux.html',
 					},
 
 					//참조 사이트
 					{
 						d3_nm:	'참조 사이트',
 						d3_url:		url_css+'bookmark',
-						d3_file:		file_css+'/06-bookmark/bookmark.html'
+						d3_file:		file_css+'/06-bookmark/bookmark.html',
 					},
 				]
 			},
@@ -508,7 +850,8 @@ var menu = [
 			//NCS ---------------------------------------------------//
 			{
 				d2_nm:	'NCS',
-				d2_url:		url_ncs+'ncs',
+				//d2_url:		url_ncs+'ncs',
+				d2_url:		'javascript:alert("페이지 준비중");',
 			},
 		]
 	},
