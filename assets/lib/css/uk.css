@@ -2820,20 +2820,13 @@ body {
 .desktop.hd_assetsLink_on.edge .uk_header {
   right: 16px;
 }
-/**/
-html {
-  overflow: hidden;
-}
-.hd_assetsLink .assetsLink_area {
-  left: 0 !important;
-  top: 0 !important;
-  opacity: 1 !important;
-  transform: scale(1, 1) !important;
-  overflow-y: scroll !important;
-}
-.hd_assetsLink .assetsLink_in {
-  transform: scale(1, 1) !important;
-}
+/*
+	html {overflow:hidden;}
+	.hd_assetsLink {
+		.assetsLink_area {left:0 !important; top:0 !important; opacity:1 !important; transform:scale(1,1) !important; overflow-y:scroll !important;}
+		.assetsLink_in {transform:scale(1,1) !important;}
+	}
+*/
 .uk_footer {
   position: relative;
   z-index: 8;
