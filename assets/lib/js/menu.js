@@ -9,8 +9,11 @@ var url_accessibility =	'?'+data+'=Assets&ACCESSIBILITY&';
 var url_ncs =				'?'+data+'=Assets&NCS&';
 
 var file = '/assets/';
-var file_html = file+'html';
-var file_css = file+'css';
+var file_html = file+'01-html';
+var file_css = file+'02-css';
+var file_javascript = file+'03-javascript';
+var file_accessibility = file+'04-accessibility';
+var file_ncs = file+'05-ncs';
 
 var menu = [
 	{
@@ -838,30 +841,36 @@ var menu = [
 			//JAVASCRIPT ----------------------------------------//
 			{
 				d2_nm:	'JAVASCRIPT',
-				d2_url:		url_javascript+'javascript',
+				//d2_url:		url_javascript+'javascript',
+				d2_url:		'#',
 			},
 
 			//ACCESSIBILITY --------------------------------------//
 			{
 				d2_nm:	'ACCESSIBILITY',
-				d2_url:		url_accessibility+'accessibility',
+				//d2_url:		url_accessibility+'accessibility',
+				d2_url:		'#',
 			},
 
 			//NCS ---------------------------------------------------//
 			{
 				d2_nm:	'NCS',
 				//d2_url:		url_ncs+'ncs',
-				d2_url:		'javascript:alert("페이지 준비중");',
+				d2_url:		'#',
 			},
 		]
 	},
 	{
 		d1_nm:	'Project GUIDE',
-		d1_url:		'?'+data+'GUIDE',
+		d1_url:		'?'+data+'=GUIDE',
+		//d1_url:		'#',
+		d1_tile:		file+ '/project_guide.html',
 	},
 	{
 		d1_nm:	'Web Trends',
-		d1_url:		'?'+data+'Trends',
+		d1_url:		'?'+data+'=Trends',
+		//d1_url:		'#',
+		d1_tile:		file+ '/web_trends.html',
 	}
 ];
 //console.log( menu[0].d2[0].d3[0].d3_file );

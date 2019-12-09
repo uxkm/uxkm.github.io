@@ -1,22 +1,30 @@
 
 var respon_size = 767;
 var $html = $('html');
+var $title = $('title');
 var $body = $('body');
 var $htmlbody = $('html, body');
 var $wrap= $('.wrap');
 
+//header
 var $ukHeader = $('.uk_header');
-var hd_progress = 'hd_progress';
 var $hdNavArea = $ukHeader.find('.hd_nav_area');
 var $hdNav= $hdNavArea.find('.nav');
-
 var $search_btn = $hdNavArea.find('.search_btn');
 var $assetsLink_btn = $hdNavArea.find('.assetsLink_btn');
-var $assetsLinka_area= $hdNavArea.find('.assetsLink_area');
+var $assetsLink_area = $hdNavArea.find('.assetsLink_area');
+var hd_progress = 'hd_progress';
 var hd_assetsLink_on = 'hd_assetsLink_on';
 
+//footer
+var $ukFooter = $('.uk_footer');
+var $ftDepth1 = $ukFooter.find('.depth1');
+var $ftDepth2 = $ukFooter.find('.depth2');
+
+//container
 var $ukContainer = $('.uk_container');
 
+//class
 var main_page = 'main_page';
 var sub_page = 'sub_page';
 var main_true = $html.is('.'+main_page);
@@ -24,19 +32,20 @@ var sub_true = $html.is('.'+sub_page);
 
 var uk_link = 'uk_link';
 var hash_link = 'hash_link';
+var ready_link = 'ready_link';
 
 
 $(document).ready(function(){
 	//ajax start --------------------------------------------------------------------------------------------------------------//
 	var loadStage = true;
 	var loadingStartTime = 400;
-	var loadingEndTime = 400;
+	var loadingEndTime = 500;
 	var al_depth1, al_depth2, al_depth3;
 	var d1_on, d2_on, d3_on, d4_on;
 	var d4_true = false;
 
 
-	//loading
+	//loading ---------------------------------------------------------------------------------//
 	var loading = $('.loading');
 	var hide_loading = 'hide_loading';
 	var hide_fix_loading = 'hide_fix_loading';
@@ -53,12 +62,11 @@ $(document).ready(function(){
 	}
 	function loadingStart(){
 		loading.removeClass(hide_loading);
-		//loading.removeClass(hide_fix_loading);
 		$wrap.removeClass(hide_loading);
 	}
 
 
-	//로딩 시mina sub class 부여
+	//로딩 시mina sub class 부여 -----------------------------------------------------------//
 	mainSubClass();
 	function mainSubClass(){
 		var re_url = basic_url.split('/');
@@ -74,8 +82,12 @@ $(document).ready(function(){
 	function mainSet( time ){
 		loadingStart();
 		setTimeout(function(){
-			$assetsLinka_area.find('li').removeClass('on');	//assets메뉴 활성화 초기화
+			$title.text('UXKM');
+			$assetsLink_area.find('li').removeClass('on');	//assets메뉴 활성 초기화
 			al_depth1.find('>li').eq(0).addClass('on');			//assets메뉴 html텝 활성화
+			$hdNav.find('a').removeClass('on');					//상단 메뉴 활성 초기화
+			$ftDepth1.children().removeClass('on');			//하단 메뉴 depth1 활성 초기화
+			$ftDepth2.children().removeClass('on');			//하단 메뉴 depth2 활성 초기화
 
 			$html.removeClass(sub_page).addClass(main_page);
 			$ukContainer.children().remove();
@@ -112,7 +124,12 @@ $(document).ready(function(){
 		loadingStart();
 		setTimeout(function(){
 			onindex( target_url );
-			var file_url = menu[d1_on].d2[d2_on].d3[d3_on].d3_file;
+			var file_url;
+			if( d1_on === 0 ) file_url = menu[d1_on].d2[d2_on].d3[d3_on].d3_file;
+			else {
+				file_url = menu[d1_on].d1_tile;
+				$ftDepth2.children().removeClass('on');
+			}
 
 			$html.removeClass(main_page).addClass(sub_page);
 			$ukContainer.children().remove();
@@ -131,6 +148,7 @@ $(document).ready(function(){
 					$ukContainer.html(data);
 					uk_editor();
 					sub_action();
+					depth4_scroll(target_url, 0);
 					setTimeout(function(){
 						$(window).trigger('resize');
 						$(window).trigger('scroll');
@@ -143,9 +161,9 @@ $(document).ready(function(){
 	}
 
 
-	//assets link 생성(assets의 하위메뉴만 생성)
-	$assetsLinka_area.children().append('<ul class="al_depth1"></ul>');
-	al_depth1 = $assetsLinka_area.find('.al_depth1');
+	//assets link 생성(assets의 하위메뉴만 생성) ------------------------------------------//
+	$assetsLink_area.children().append('<ul class="al_depth1"></ul>');
+	al_depth1 = $assetsLink_area.find('.al_depth1');
 	var d2 = menu[0].d2;
 	if( typeof d2 !== 'undefined' ){
 		//al_depth1 생성
@@ -188,10 +206,32 @@ $(document).ready(function(){
 			percentPosition: true
 		});
 	});
-	al_depth1.find('> li').eq(al_depth1).trigger('click');
 
 
-	//로딩 시 페이지 ajax 로드
+	//상단 nav / 하단 nav 생성 --------------------------------------------------------------//
+	for( i=0; i<menu.length; i++ ){
+		 if( menu[i].d1_url === '#' ){
+			 $hdNav.append('<a href="'+menu[i].d1_url+'" class="'+ready_link+'"><i>'+menu[i].d1_nm+'</i></a>');
+			 $ftDepth1.append('<a href="'+menu[i].d1_url+'" class="'+ready_link+'"><i>'+menu[i].d1_nm+'</i></a>');
+		 }
+		 else{
+			 $hdNav.append('<a href="'+menu[i].d1_url+'" class="'+uk_link+'"><i>'+menu[i].d1_nm+'</i></a>');
+			 $ftDepth1.append('<a href="'+menu[i].d1_url+'" class="'+uk_link+'"><i>'+menu[i].d1_nm+'</i></a>');
+		 }
+
+	}
+	var ft_depth2 = menu[0].d2;
+	for( i=0; i<ft_depth2.length; i++ ){
+		if( ft_depth2[i].d2_url === '#' ){
+			$ftDepth2.append('<a href="'+ft_depth2[i].d2_url+'" class="'+ready_link+'"><i>'+ft_depth2[i].d2_nm+'</i></a>');
+		}
+		else{
+			$ftDepth2.append('<a href="'+ft_depth2[i].d2_url+'" class="'+uk_link+'"><i>'+ft_depth2[i].d2_nm+'</i></a>');
+		}
+	}
+
+
+	//로딩 시 페이지 ajax 로드 ---------------------------------------------------------------//
 	//main 로드
 	if( $html.is('.'+main_page) ){
 		mainSet( 0 );
@@ -203,7 +243,7 @@ $(document).ready(function(){
 	}
 
 
-	//uk_link 클릭
+	//uk_link 클릭 ----------------------------------------------------------------------------//
 	$('.'+uk_link).click(function(){
 		var this_local_url = location.href.split('?')[1];
 		var this_link_url = $(this).attr('href');
@@ -217,81 +257,153 @@ $(document).ready(function(){
 		//클릭 시 페이지 이동
 		else{
 			loadStage = false;
-			if( this_link_url === '/' ) mainSet(loadingStartTime);	//메인 이동
-			else subSet( loadingStartTime, this_link_url );				//서브 이동
+
+			//메인 이동
+			if( this_link_url === '/' ) mainSet(loadingStartTime);
+			//서브 이동
+			else {
+				var before = this_local_url.split('&')[2];
+				var after = this_link_url.split('&')[ this_link_url.split('&').length-1 ];
+
+				if( before === after )$htmlbody.stop().animate({'scrollTop':0}, 300);
+				else subSet( loadingStartTime, this_link_url );
+			}
 		}
 
 		history.pushState(this_link_url, null, this_link_url);
+		//assets link 닫기
 		setTimeout(function(){
 			if( $html.is('.'+hd_assetsLink_on) ) $assetsLink_btn.trigger('click');
-		}, loadingStartTime/2);
+			$htmlbody.stop().animate({'scrollTop':0}, 0);
+		}, loadingStartTime);
 		return false;
 	});
 
 
-	//hash_link 클릭(페이지 내 링크) - (후에 sub_action으로 이동 예정)
+	//hash_link 클릭(페이지 내 링크) -------------------------------------------------------//
 	$('.'+hash_link).click(function(){
-		console.log('hash_link 클릭!');
+		var this_local_url;
+		if( !location.href.match('data') ) this_local_url = '/';
+		else this_local_url = location.href.split('?')[1].split('&');
+
+		var this_link_url = $(this).attr('href');
+		var this_link_split = this_link_url.split('?')[1].split('&');
+
+		//페이지 내 링크
+		if( this_local_url[2] === this_link_split[2] ){
+			depth4_scroll(this_link_url, 300);
+
+			$(this).parent().addClass('on').siblings().removeClass('on');
+			history.replaceState(this_link_url, null, this_link_url);
+		}
+		//페이지 이동
+		else{
+			subSet( loadingStartTime, this_link_url );
+			history.pushState(this_link_url, null, this_link_url);
+
+		}
+
+		//assets link 닫기
+		setTimeout(function(){
+			if( $html.is('.'+hd_assetsLink_on) ) $assetsLink_btn.trigger('click');
+		}, loadingStartTime);
 		return false;
 	});
 
 
-	//on index
+	//on index & browser tit --------------------------------------------------------------//
 	if( sub_true ) onindex( basic_url );
 	function onindex( edit_url ){
+		if( edit_url.match('#') ) edit_url = edit_url.split('#')[0];
 		var first_split = edit_url.split('=')[1].split('&');
 		if( first_split.length === 4 ) d4_true = true;
 
 		for( i=0; i<menu.length; i++ ){
 			if( menu[i].d1_nm.match( first_split[0] ) ) d1_on = i;
 		}
-		//depth2 on index
-		var menuFileArrD2 = menu[d1_on].d2;
-		if( typeof menuFileArrD2 !== 'undefined' ){
-			for( i=0; i<menuFileArrD2.length; i++ ){
-				if( menuFileArrD2[i].d2_nm.match( first_split[1] ) ) d2_on = i;
-			}
-		}
-		//depth3 on index
-		var menuFileArrD3 = menuFileArrD2[d2_on].d3;
-		if( typeof menuFileArrD3 !== 'undefined' ){
-			for( i=0; i<menuFileArrD3.length; i++ ){
-				if( menuFileArrD3[i].d3_url.match( first_split[2] ) ) d3_on = i;
-			}
-		}
-		//depth4 on index
-		if( d4_true ){
-			var menuFileArrD4 = menuFileArrD3[d3_on].d4;
-			if( typeof menuFileArrD4 !== 'undefined' ){
-				for( i=0; i<menuFileArrD4.length; i++ ){
-					if( menuFileArrD4[i].d4_url.match( first_split[3] ) ) d4_on = i;
+		if( d1_on === 0 ){
+			//depth2 on index
+			var menuFileArrD2 = menu[d1_on].d2;
+			if( typeof menuFileArrD2 !== 'undefined' ){
+				for( i=0; i<menuFileArrD2.length; i++ ){
+					if( menuFileArrD2[i].d2_nm.match( first_split[1] ) ) d2_on = i;
 				}
 			}
+			//depth3 on index
+			var menuFileArrD3 = menuFileArrD2[d2_on].d3;
+			if( typeof menuFileArrD3 !== 'undefined' ){
+				for( i=0; i<menuFileArrD3.length; i++ ){
+					if( menuFileArrD3[i].d3_url.match( first_split[2] ) ) d3_on = i;
+				}
+			}
+			//depth4 on index
+			if( d4_true ){
+				var menuFileArrD4 = menuFileArrD3[d3_on].d4;
+				if( typeof menuFileArrD4 !== 'undefined' ){
+					for( i=0; i<menuFileArrD4.length; i++ ){
+						if( menuFileArrD4[i].d4_url.match( first_split[3] ) ) d4_on = i;
+					}
+				}
+			}
+
+			//assets 링크 활성화
+			al_depth1.find('li').removeClass('on');
+			var al_dp1_on = al_depth1.find('>li').eq(d2_on);
+			al_dp1_on.addClass('on');
+
+			var al_dp2_on = al_dp1_on.find('.al_depth2>li').eq(d3_on);
+			al_dp2_on.addClass('on');
+
+			//console.log(d4_true, first_split.length);
+			if( d4_true && first_split.length > 3 ){
+				var al_dp3_on = al_dp2_on.find('.al_depth3>li').eq(d4_on);
+				al_dp3_on.addClass('on');
+			}
 		}
 
-		//assets 링크 활성화
-		al_depth1.find('li').removeClass('on');
-		var al_dp1_on = al_depth1.find('>li').eq(d2_on);
-		al_dp1_on.addClass('on');
+		//상단, 하단 링크 활성화
+		$hdNav.find('a').removeClass('on').eq(d1_on).addClass('on');
+		$ftDepth1.children().removeClass('on').eq(d1_on).addClass('on');
+		if( d1_on === 0 ) $ftDepth2.children().removeClass('on').eq(d2_on).addClass('on');
 
-		var al_dp2_on = al_dp1_on.find('.al_depth2>li').eq(d3_on);
-		al_dp2_on.addClass('on');
+		//browser tit
+		var browser_tit;
+		//UI/UX Assets이 아닐 경우
+		if( d1_on !== 0 ){
+			browser_tit = menu[d1_on].d1_nm;
+		}
+		//UI/UX Assets의 하위메뉴
+		else{
+			if( d4_true ){
+				browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].d4_nm;
+			}
+			else{
+				browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
+			}
+		}
+		$title.text(browser_tit+' | UXKM');
+	}
 
-		console.log(d4_true);
-		if( d4_true ){
-			var al_dp3_on = al_dp2_on.find('.al_depth3>li').eq(d4_on);
-			al_dp3_on.addClass('on');
+
+	//4차메뉴 스크롤 이동 -------------------------------------------------------------------//
+	function depth4_scroll(target_url, scrollSpeed){
+		var this_link_split = target_url.split('=')[1].split('&');
+
+		if( this_link_split.length > 3 ){
+			var this_id = this_link_split[this_link_split.length-1];
+			var scrollTarget = $ukContainer.find('#'+this_id).offset().top - $ukHeader.height();
+			$htmlbody.stop().animate({'scrollTop':scrollTarget}, scrollSpeed);
 		}
 	}
 
 
-	//브라우저 뒤로/앞으로 클릭
-	window.onpopstate = function(event){
+	//브라우저 뒤로/앞으로 클릭 -------------------------------------------------------------//
+	window.onpopstate = function(){
+	//window.onpopstate = function(event){
 		loadStage = false;
 		$body.addClass(hide_fix_loading);
-		//var change_url = history.state;
-		//console.log(change_url)
-		//if( history.state.match('#') ) history.state = history.state.split('#')[0];
+
+		if( history.state === null )history.back(+1);
 
 		if( history.state === '/' ){
 			mainSet( loadingStartTime );
@@ -309,19 +421,45 @@ $(document).ready(function(){
 			var someVarName;
 			$(window).scroll(function(){
 				someVarName = $(window).scrollTop();
-				sessionStorage .setItem('scrollTop', someVarName);
+				sessionStorage.setItem('scrollTop', someVarName);
 			});
 			$htmlbody.animate({'scrollTop':sessionStorage.scrollTop}, 0);
 		}
 		else {
-			$htmlbody.animate({'scrollTop':0}, 0);
+			//$htmlbody.animate({'scrollTop':0}, 0);
 		}
 	}
-	//ajax end --------------------------------------------------------------------------------------------------------------//
+	//ajax end --------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+	//common function start --------------------------------------------------------------------------------------------------//
+	//header progress bar 생성
+	$ukHeader.addClass(device_check);
+	$ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
+
+	//assetsLink open btn
+	$assetsLink_btn.click(function(){
+		if( !$(this).is('.active') ){
+			$(this).addClass('active').removeClass('after');
+			$html.css('overflow','hidden').addClass(hd_assetsLink_on);
+			setTimeout(function(){
+				al_depth1.find('> li').each(function(i, e){
+					$(e).find('.al_depth2').masonry('layout');
+				});
+			}, loadingEndTime);
+		}
+		else if( $(this).is('.active') ){
+			$(this).removeClass('active').addClass('after');
+			$html.removeAttr('style').removeClass(hd_assetsLink_on);
+		}
+		return false;
+	});
 
 	//assets link tab
-	$('.d1_link ').click(function(){
-		if( $(this).parent().index() < 2 ){
+	$assetsLink_area.find('.d1_link').click(function(){
+		if( $(this).attr('href') !== '#' ){
 			$(this).parent().addClass('on').siblings().removeClass('on');
 		}
 		else{
@@ -330,27 +468,14 @@ $(document).ready(function(){
 		return false;
 	});
 
-
-
-
-
-	//common function start --------------------------------------------------------------------------------------------//
-	//header progress bar 생성
-	$ukHeader.addClass(device_check);
-	$ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
-
-	//header nav
-	$assetsLink_btn.click(function(){
-		if( !$(this).is('.active') ){
-			$(this).addClass('active').removeClass('after');
-			$html.css('overflow','hidden').addClass(hd_assetsLink_on);
-		}
-		else if( $(this).is('.active') ){
-			$(this).removeClass('active').addClass('after');
-			$html.removeAttr('style').removeClass(hd_assetsLink_on);
-		}
+	//준비중 페이지 클릭
+	$('.'+ready_link).click(function(){
+		alert('준비중 입니다^^');
+		console.log('준비중 입니다^^');
 		return false;
 	});
+
+
 
 
 	//resize
@@ -386,7 +511,7 @@ $(document).ready(function(){
 		});
 		//end scroll --------------------------------------------------------------------------//
 	});
-	//common function end --------------------------------------------------------------------------------------------//
+	//common function end -----------------------------------------------------------------------------------------------//
 });
 
 
@@ -401,11 +526,33 @@ function main_action(){
 	var mainInfoStep4 = $main_info.find('.step4');
 	var mainInfoStep5 = $main_info.find('.step5');
 
+	//메인 인트로
 	$(document).on('click', '.next_content', function(){
 		var topSize = $main_intro.height() - $ukHeader.height();
 		$htmlbody.stop().animate({'scrollTop':topSize}, 1000, 'easeInOutQuint');
 		return false;
 	});
+
+	var intro_link = menu[0].d2;
+	for( i=0; i<intro_link.length; i++ ){
+		if( intro_link[i].d2_url === '#' ){
+			$ukContainer.find('.main_intro').find('.banner').append('<a href="'+intro_link[i].d2_url+'" class="'+ready_link+' bn'+(i+1)+'">'+intro_link[i].d2_nm+'</a>');
+		}
+		else{
+			$ukContainer.find('.main_intro').find('.banner').append('<a href="'+intro_link[i].d2_url+'" class="'+uk_link+' bn'+(i+1)+'">'+intro_link[i].d2_nm+'</a>');
+		}
+
+		if( i === 2 ){
+			$ukContainer.find('.main_intro').find('.banner a').eq(i).text('js');
+		}
+	}
+	//준비중 페이지 클릭
+	$main_intro.find('.'+ready_link).click(function(){
+		alert('준비중 입니다^^');
+		console.log('준비중 입니다^^');
+		return false;
+	});
+
 
 	//resize
 	$(window).resize(function(){
@@ -461,8 +608,8 @@ function sub_action(){
 //전체메뉴 생성 백업
 /*
 var depth1, depth2, depth3, depth4;
-$assetsLinka_area.children().append('<ul class="depth1"></ul>');
-depth1 = $assetsLinka_area.find('.depth1');
+$assetsLink_area.children().append('<ul class="depth1"></ul>');
+depth1 = $assetsLink_area.find('.depth1');
 for( a=0; a<menu.length; a++ ){
 	depth1.append('<li><a href="'+ menu[a].d1_url +'" class="'+uk_link+'">'+ menu[a].d1_nm +'</a></li>');
 }
