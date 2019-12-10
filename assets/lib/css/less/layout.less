@@ -1431,6 +1431,7 @@
 
 
 
+
 //sub ----------------------------------------------------------------------------------------//
 	.sub_page {background:#000;}
 	.device.sub_page {background:#fff;}
@@ -1441,3 +1442,153 @@
 	@media(max-width:@screen-sm-max){
 		.sub_page .uk_container {padding-top:@hdHeightMb;}
 	}
+
+
+	//sub top
+	.sub_top {
+		position:relative; text-align:center;
+		padding:110px 0 55px;
+		border-bottom:1px solid #eee;
+
+		.tit {
+			display:inline-block; position:relative; z-index:1;
+			line-height:200%; padding-top:5px;
+			.font-en; font-size:38px; font-weight:800; color:@navy;
+			letter-spacing:-1px;
+			&:before {
+				position:absolute; left:0; top:0; right:0;
+				height:4px; background:#eee;
+				content:"";
+			}
+		}
+		.top_link {
+			display:block; height:1px;
+			ul {
+				position:absolute; left:@pc_padding; right:@pc_padding; top:40px;
+				font-size:0;
+				li {
+					display:inline-block; position:relative; padding-left:3px;
+					&:before {
+						position:absolute; left:0; top:50%;
+						width:3px; height:3px; margin-top:-2px;
+						background:#444; border-radius:100%;
+						content:"";
+					}
+					&:first-child {padding-left:0;}
+					&:first-child:before {display:none;}
+
+					a {
+						display:block;
+						line-height:200%; padding:0 15px;
+						font-size:18px; color:fade(@navy, 85%);
+						font-weight:400; letter-spacing:-0.3px;
+						transition:color .15s;
+					}
+					i {display:block; position:relative; z-index:1;}
+					&:hover a, &.on a {color:darken(@blue, 15%);}
+					&.on a {font-weight:600;}
+					&.on i:before {
+						position:absolute; left:-3px; right:-3px; bottom:5px; z-index:-1;
+						height:12px; background:@yellow; border-radius:3px;
+						content:"";
+					}
+				}
+			}
+		}
+		.inner {
+			display:inline-block;
+			&:before {display:block; height:1px; content:"";}
+		}
+		.common_info, .top_info {
+			line-height:160%;
+			font-size:14px; color:#666; font-weight:400;
+			letter-spacing:-0.5px;
+		}
+		.top_info {
+			text-align:left;
+			margin-top:15px; padding:13px 18px;
+			background:#f3f3f3;
+			li {
+				position:relative;
+				padding-left:10px; color:#444;
+				&:before {
+					position:absolute; left:0; top:10px;
+					width:3px; height:3px;
+					font-weight:bold;
+					background:#777; border-radius:100%;
+					content:"";
+					//content:"·";
+				}
+			}
+		}
+	}
+	@media(max-width:@screen-sm-max){
+		.sub_top {
+			padding:70px 0 27px;
+
+			.tit {
+				line-height:120%; padding-top:0;
+				font-size:30px; font-weight:800;
+				letter-spacing:-1px;
+				&:before {left:-20px; right:-20px; height:22px; z-index:-1;}
+			}
+			.top_link {
+				ul {
+					left:0; right:0; top:18px;
+					li {
+						padding-left:2px;
+						&:before {width:2px; height:2px; margin-top:-1px;}
+
+						a {
+							line-height:260%; padding:0 6px;
+							font-size:13px; font-weight:500;
+						}
+						&:hover a {color:fade(@navy, 85%)}
+						&.on i:before {bottom:5px; height:10px;}
+					}
+				}
+			}
+			.inner {display:none;}
+		}
+	}
+
+	//sub content common
+	.sub_content {
+		.clear; padding-top:50px; padding-bottom:100px;
+	}
+
+	.side_menu_area {
+		.lft; width:250px;
+		position:sticky; top:@hdHeight + 20px;
+
+		.tit {}
+
+		.side_menu {margin-top:10px;}
+		li {margin-top:5px;}
+		li.on a {color:#fff; background:red;}
+	}
+	.content_area {
+		.rgt; width:calc(100% - 250px);
+	}
+
+
+	.curriculum_box {
+		padding-top:50px;
+		&:first-child {padding-top:0;}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

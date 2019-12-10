@@ -31,15 +31,16 @@ var main_true = $html.is('.'+main_page);
 var sub_true = $html.is('.'+sub_page);
 
 var uk_link = 'uk_link';
+var side_uk_link = 'side_uk_link';
 var hash_link = 'hash_link';
 var ready_link = 'ready_link';
-
 var loadStage = true;
+
+var loadingStartTime = 400;
+var loadingEndTime = 500;
 
 $(document).ready(function(){
 	//ajax start --------------------------------------------------------------------------------------------------------------//
-	var loadingStartTime = 400;
-	var loadingEndTime = 500;
 	var al_depth1, al_depth2, al_depth3;
 	var d1_on, d2_on, d3_on, d4_on;
 	var d4_true = false;
@@ -331,6 +332,14 @@ $(document).ready(function(){
 	});
 
 
+	//준비중 페이지 클릭 ---------------------------------------------------------------------//
+	$(document).on('click', '.'+ready_link, function(){
+		alert('준비중 입니다^^');
+		console.log('준비중 입니다^^');
+		return false;
+	});
+
+
 	//on index & browser tit --------------------------------------------------------------//
 	if( sub_true ) onindex( basic_url );
 	function onindex( edit_url ){
@@ -560,12 +569,6 @@ function main_action(){
 
 		if( i === 2 ) $ukContainer.find('.main_intro').find('.banner a').eq(i).text('js');
 	}
-	//준비중 페이지 클릭
-	$main_intro.find('.'+ready_link).click(function(){
-		alert('준비중 입니다^^');
-		console.log('준비중 입니다^^');
-		return false;
-	});
 
 
 	//resize
@@ -611,28 +614,31 @@ function subPage_html(data, d1_on, d2_on, d3_on, d4_on){
 	var top_link = 'top_link';
 	var common_info = 'common_info';
 	var top_info = 'top_info';
+	var side_menu_area = 'side_menu_area';
+	var side_menu = 'side_menu';
 	var content_area = 'content_area';
 	if( d1_on === 0 ){
 		var d2_target = menu[0].d2[d2_on];
+		var d3_target = d2_target.d3[d3_on];
 		$ukContainer.append(
 			'<section class="sub_top">' +
 				'<h1 class="tit">'+d2_target.d2_nm+'</h1>' +
+				'<nav class="'+top_link+'"><ul></ul></nav>' +
 				'<div class="inner">' +
-					'<nav class="'+top_link+'"><ul></ul></nav>' +
 					'<div class="'+common_info+'"></div>' +
 					'<ul class="'+top_info+'"></ul>' +
 				'</div>' +
 			'</section>' +
 			'<div class="sub_content inner">' +
-				'<aside class="side_menu">' +
-					'<h1><i>'+d2_target.d2_nm+'</i> <i>Table of Contents</i></h1>' +
-					'<nav><ul><li>메뉴1</li><li>메뉴2</li></ul></nav>' +
+				'<aside class="'+side_menu_area+'">' +
+					'<h1 class="tit"><i>'+d2_target.d2_nm+'</i> <i>Table of Contents</i></h1>' +
+					'<nav class="'+side_menu+'"><ul></ul></nav>' +
 				'</aside>' +
 				'<main class="'+content_area+'" role="main"></main>' +
 			'</div>'
 		);
 
-		//상단 info 생성
+		//상단 생성
 		conAjax( $('.'+common_info), file+'common_info.html' );	//상단 공통 info 생성
 		conAjax( $('.'+top_info), d2_target.d2_info );						//상단 개별 info 생성
 		function conAjax(el, target){
@@ -641,8 +647,48 @@ function subPage_html(data, d1_on, d2_on, d3_on, d4_on){
 			});
 		}
 
+		//상단 메뉴 생성
+		var assets_d2 = menu[0].d2;
+		for( i=0; i<assets_d2.length; i++ ){
+			if( assets_d2[i].d2_url === '#' ){
+				$('.'+top_link+' ul').append('<li><a href="'+assets_d2[i].d2_url+'" class="'+ready_link+'"><i>'+assets_d2[i].d2_nm+'</i></a></li>');
+			}
+			else{
+				$('.'+top_link+' ul').append('<li><a href="'+assets_d2[i].d2_url+'" class="'+uk_link+'"><i>'+assets_d2[i].d2_nm+'</i></a></li>');
+			}
+			if( i === d2_on ) $('.'+top_link+' li').eq(i).addClass('on');
+		}
+
+		//컨텐츠 생성
 		$ukContainer.find('.'+content_area).html(data);
+		$ukContainer.find('.'+content_area).prepend('<h1>'+d3_target.d3_nm+'</h1>');
+		
+		//컨텐츠 사이드 메뉴 생성
+		var side_d3 = d2_target.d3;
+		for( i=0; i<side_d3.length; i++ ){
+			$('.'+side_menu+'>ul').append(
+				'<li>' +
+					'<a href="'+side_d3[i].d3_url+'" class="'+uk_link+' '+side_uk_link+'">'+side_d3[i].d3_nm+'</a>' +
+					'<ul class="side_d2"></ul>' +
+				'</li>'
+			);
+			if( i === d3_on ) $('.'+side_menu+'>ul>li').eq(i).addClass('on');
+		}
+		$('.'+side_menu+'>ul>li').each(function(i, e){
+			//$(e).find('.side_d2').append('<li><a href="#">'+side_d3[i].d4.d4_nm+'</a></li>');
+		});
+
+		//사이드 1차 메뉴 클릭 시 컨텐츠 스크롤 조정
+		$(document).on('click','.'+side_uk_link, function(){
+			if( !$(this).parent().is('.on') ){
+				setTimeout(function(){
+					var scrollTarget = $ukContainer.find('.sub_content').offset().top - $ukHeader.height();
+					$htmlbody.stop().animate({'scrollTop':scrollTarget}, 0);
+				}, loadingStartTime+400);
+			}
+		});
 	}
+
 	///Project GUIDE, Web Trends 링크
 	else{
 		$ukContainer.html(data);
