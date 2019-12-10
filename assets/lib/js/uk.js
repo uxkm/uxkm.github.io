@@ -132,7 +132,6 @@ $(document).ready(function(){
 			else {
 				file_url = menu[d1_on].d1_tile;
 				$ftDepth2.children().removeClass('on'); 			//푸터 2뎁스 on클래스 제거
-
 				al_depth1.find('li').removeClass('on');
 				al_depth1.find('>li').eq(0).addClass('on');			//assets메뉴 html텝 활성화
 			}
@@ -151,7 +150,8 @@ $(document).ready(function(){
 					}, loadingEndTime);
 				},
 				success:function(data){
-					$ukContainer.html(data);
+					//$ukContainer.html(data);
+					subPage_html(data, d1_on, d2_on, d3_on, d4_on)
 					uk_editor();
 					sub_action(d1_on, d2_on, d3_on, d4_on);
 					depth4_scroll(target_url, 0);
@@ -605,12 +605,53 @@ function main_action(){
 }
 
 
+//sub page html 생성
+function subPage_html(data, d1_on, d2_on, d3_on, d4_on){
+	//assets 링크
+	var top_link = 'top_link';
+	var common_info = 'common_info';
+	var top_info = 'top_info';
+	var content_area = 'content_area';
+	if( d1_on === 0 ){
+		var d2_target = menu[0].d2[d2_on];
+		$ukContainer.append(
+			'<section class="sub_top">' +
+				'<h1 class="tit">'+d2_target.d2_nm+'</h1>' +
+				'<div class="inner">' +
+					'<nav class="'+top_link+'"><ul></ul></nav>' +
+					'<div class="'+common_info+'"></div>' +
+					'<ul class="'+top_info+'"></ul>' +
+				'</div>' +
+			'</section>' +
+			'<div class="sub_content inner">' +
+				'<aside class="side_menu">' +
+					'<h1><i>'+d2_target.d2_nm+'</i> <i>Table of Contents</i></h1>' +
+					'<nav><ul><li>메뉴1</li><li>메뉴2</li></ul></nav>' +
+				'</aside>' +
+				'<main class="'+content_area+'" role="main"></main>' +
+			'</div>'
+		);
+
+		//상단 info 생성
+		conAjax( $('.'+common_info), file+'common_info.html' );	//상단 공통 info 생성
+		conAjax( $('.'+top_info), d2_target.d2_info );						//상단 개별 info 생성
+		function conAjax(el, target){
+			$.get(target, function(content){
+				el.append(content);
+			});
+		}
+
+		$ukContainer.find('.'+content_area).html(data);
+	}
+	///Project GUIDE, Web Trends 링크
+	else{
+		$ukContainer.html(data);
+	}
+}
+
+
 //sub action
 function sub_action(d1_on, d2_on, d3_on, d4_on){
-	//assets 링크일 경우
-	if( d1_on === 0 ){
-		console.log('assets');
-	}
 }
 
 

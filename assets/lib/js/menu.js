@@ -11,8 +11,8 @@ var url_ncs =				'?'+data+'=Assets&NCS&';
 var file = '/assets/';
 var file_html = file+'01-html';
 var file_css = file+'02-css';
-var file_javascript = file+'03-javascript';
-var file_accessibility = file+'04-accessibility';
+var file_js = file+'03-javascript';
+var file_acc = file+'04-accessibility';
 var file_ncs = file+'05-ncs';
 
 var menu = [
@@ -24,6 +24,7 @@ var menu = [
 			{
 				d2_nm:	'HTML',
 				d2_url:		url_html+ 'htmlStart',
+				d2_info:	file_html+ '/info.html',
 				d3:[
 					//HTML 시작
 					{
@@ -610,6 +611,7 @@ var menu = [
 			{
 				d2_nm:	'CSS',
 				d2_url:		url_css+'cssStart',
+				d2_info:	file_css+ '/info.html',
 				d3:[
 					//CSS 시작하기
 					{
@@ -843,6 +845,7 @@ var menu = [
 				d2_nm:	'JAVASCRIPT',
 				//d2_url:		url_javascript+'javascript',
 				d2_url:		'#',
+				d2_info:	file_js+ '/info.html',
 			},
 
 			//ACCESSIBILITY --------------------------------------//
@@ -850,6 +853,7 @@ var menu = [
 				d2_nm:	'ACCESSIBILITY',
 				//d2_url:		url_accessibility+'accessibility',
 				d2_url:		'#',
+				d2_info:	file_acc+ '/info.html',
 			},
 
 			//NCS ---------------------------------------------------//
@@ -857,6 +861,7 @@ var menu = [
 				d2_nm:	'NCS',
 				//d2_url:		url_ncs+'ncs',
 				d2_url:		'#',
+				d2_info:	file_ncs+ '/info.html',
 			},
 		]
 	},
