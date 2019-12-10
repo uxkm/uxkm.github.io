@@ -34,10 +34,10 @@ var uk_link = 'uk_link';
 var hash_link = 'hash_link';
 var ready_link = 'ready_link';
 
+var loadStage = true;
 
 $(document).ready(function(){
 	//ajax start --------------------------------------------------------------------------------------------------------------//
-	var loadStage = true;
 	var loadingStartTime = 400;
 	var loadingEndTime = 500;
 	var al_depth1, al_depth2, al_depth3;
@@ -69,8 +69,7 @@ $(document).ready(function(){
 	//로딩 시mina sub class 부여 -----------------------------------------------------------//
 	mainSubClass();
 	function mainSubClass(){
-		var re_url = basic_url.split('/');
-		if( re_url[re_url.length-1].match(data) ){
+		if( location.href.match(data) ){
 			$html.removeClass(main_page).addClass(sub_page);
 		}
 		else{
@@ -125,10 +124,15 @@ $(document).ready(function(){
 		setTimeout(function(){
 			onindex( target_url );
 			var file_url;
-			if( d1_on === 0 ) file_url = menu[d1_on].d2[d2_on].d3[d3_on].d3_file;
+			//assets 메뉴 활성화 시 || assets 메뉴 파일 경로
+			if( d1_on === 0 ){
+				file_url = menu[d1_on].d2[d2_on].d3[d3_on].d3_file;
+			}
+			//Project GUIDE, Web Trends 외 메뉴 활성화 시 || Project GUIDE, Web Trends 메뉴 파일 경로
 			else {
 				file_url = menu[d1_on].d1_tile;
-				$ftDepth2.children().removeClass('on');
+				$ftDepth2.children().removeClass('on'); 			//푸터 2뎁스 on클래스 제거
+				al_depth1.find('>li').eq(0).addClass('on');			//assets메뉴 html텝 활성화
 			}
 
 			$html.removeClass(main_page).addClass(sub_page);
@@ -244,7 +248,7 @@ $(document).ready(function(){
 
 
 	//uk_link 클릭 ----------------------------------------------------------------------------//
-	$('.'+uk_link).click(function(){
+	$(document).on('click', '.'+uk_link, function(){
 		var this_local_url = location.href.split('?')[1];
 		var this_link_url = $(this).attr('href');
 		var this_link_split = this_link_url.split('?')[1];
@@ -259,18 +263,30 @@ $(document).ready(function(){
 			loadStage = false;
 
 			//메인 이동
-			if( this_link_url === '/' ) mainSet(loadingStartTime);
+			if( this_link_url === '/' ){
+				mainSet(loadingStartTime);
+				setTimeout(function(){
+					$htmlbody.stop().animate({'scrollTop':0},0);
+				}, loadingStartTime);
+			}
 			//서브 이동
 			else {
-				var before = this_local_url.split('&')[2];
+				var before;
+				if( location.href.match(data) ) before = this_local_url.split('&')[2];
+				else before = '/';
 				var after = this_link_url.split('&')[ this_link_url.split('&').length-1 ];
 
+				//서브 같은 페이지
 				if( before === after ){
 					$htmlbody.stop().animate({'scrollTop':0}, 300);
 					$(this).siblings().find('li').removeClass('on');
 				}
+				//서브 이동
 				else{
 					subSet( loadingStartTime, this_link_url );
+					setTimeout(function(){
+						$htmlbody.stop().animate({'scrollTop':0},0);
+					}, loadingStartTime);
 				}
 			}
 		}
@@ -279,14 +295,13 @@ $(document).ready(function(){
 		//assets link 닫기
 		setTimeout(function(){
 			if( $html.is('.'+hd_assetsLink_on) ) $assetsLink_btn.trigger('click');
-			$htmlbody.stop().animate({'scrollTop':0}, 0);
 		}, loadingStartTime);
 		return false;
 	});
 
 
 	//hash_link 클릭(페이지 내 링크) -------------------------------------------------------//
-	$('.'+hash_link).click(function(){
+	$(document).on('click', '.'+hash_link, function(){
 		var this_local_url;
 		if( !location.href.match('data') ) this_local_url = '/';
 		else this_local_url = location.href.split('?')[1].split('&');
@@ -297,7 +312,6 @@ $(document).ready(function(){
 		//페이지 내 링크
 		if( this_local_url[2] === this_link_split[2] ){
 			depth4_scroll(this_link_url, 300);
-
 			$(this).parent().addClass('on').siblings().removeClass('on');
 			history.replaceState(this_link_url, null, this_link_url);
 		}
@@ -305,7 +319,6 @@ $(document).ready(function(){
 		else{
 			subSet( loadingStartTime, this_link_url );
 			history.pushState(this_link_url, null, this_link_url);
-
 		}
 
 		//assets link 닫기
@@ -320,25 +333,25 @@ $(document).ready(function(){
 	if( sub_true ) onindex( basic_url );
 	function onindex( edit_url ){
 		if( edit_url.match('#') ) edit_url = edit_url.split('#')[0];
-		var first_split = edit_url.split('=')[1].split('&');
-		if( first_split.length === 4 ) d4_true = true;
+		var this_link_split = edit_url.split('=')[1].split('&');
+		if( this_link_split.length === 4 ) d4_true = true;
 
 		for( i=0; i<menu.length; i++ ){
-			if( menu[i].d1_nm.match( first_split[0] ) ) d1_on = i;
+			if( menu[i].d1_nm.match( this_link_split[0] ) ) d1_on = i;
 		}
 		if( d1_on === 0 ){
 			//depth2 on index
 			var menuFileArrD2 = menu[d1_on].d2;
 			if( typeof menuFileArrD2 !== 'undefined' ){
 				for( i=0; i<menuFileArrD2.length; i++ ){
-					if( menuFileArrD2[i].d2_nm.match( first_split[1] ) ) d2_on = i;
+					if( menuFileArrD2[i].d2_nm.match( this_link_split[1] ) ) d2_on = i;
 				}
 			}
 			//depth3 on index
 			var menuFileArrD3 = menuFileArrD2[d2_on].d3;
 			if( typeof menuFileArrD3 !== 'undefined' ){
 				for( i=0; i<menuFileArrD3.length; i++ ){
-					if( menuFileArrD3[i].d3_url.match( first_split[2] ) ) d3_on = i;
+					if( menuFileArrD3[i].d3_url.match( this_link_split[2] ) ) d3_on = i;
 				}
 			}
 			//depth4 on index
@@ -346,7 +359,7 @@ $(document).ready(function(){
 				var menuFileArrD4 = menuFileArrD3[d3_on].d4;
 				if( typeof menuFileArrD4 !== 'undefined' ){
 					for( i=0; i<menuFileArrD4.length; i++ ){
-						if( menuFileArrD4[i].d4_url.match( first_split[3] ) ) d4_on = i;
+						if( menuFileArrD4[i].d4_url.match( this_link_split[3] ) ) d4_on = i;
 					}
 				}
 			}
@@ -359,8 +372,8 @@ $(document).ready(function(){
 			var al_dp2_on = al_dp1_on.find('.al_depth2>li').eq(d3_on);
 			al_dp2_on.addClass('on');
 
-			//console.log(d4_true, first_split.length);
-			if( d4_true && first_split.length > 3 ){
+			//console.log(d4_true, this_link_split.length);
+			if( d4_true && this_link_split.length > 3 ){
 				var al_dp3_on = al_dp2_on.find('.al_depth3>li').eq(d4_on);
 				al_dp3_on.addClass('on');
 			}
@@ -379,7 +392,7 @@ $(document).ready(function(){
 		}
 		//UI/UX Assets의 하위메뉴
 		else{
-			if( first_split.length > 3 ) browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].d4_nm;
+			if( this_link_split.length > 3 ) browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].d4_nm;
 			else browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
 		}
 		$title.text(browser_tit+' | UXKM');
@@ -433,6 +446,8 @@ $(document).ready(function(){
 	//ajax end --------------------------------------------------------------------------------------------------------------------//
 
 
+	//-------------------------------------------------------------------------------------------------------------------------------//
+	//-------------------------------------------------------------------------------------------------------------------------------//
 
 
 	//common function start --------------------------------------------------------------------------------------------------//
@@ -476,9 +491,6 @@ $(document).ready(function(){
 		return false;
 	});
 
-
-
-
 	//resize
 	$(window).resize(function(){
 		var win_w = $(window).width();
@@ -517,7 +529,7 @@ $(document).ready(function(){
 
 
 
-//main_action
+//main action
 function main_action(){
 	var $main_intro = $ukContainer.find('.main_intro');
 	var $main_info = $ukContainer.find('.main_info');
@@ -535,17 +547,16 @@ function main_action(){
 	});
 
 	var intro_link = menu[0].d2;
+	var intro_banner = $main_intro.find('.banner');
 	for( i=0; i<intro_link.length; i++ ){
 		if( intro_link[i].d2_url === '#' ){
-			$ukContainer.find('.main_intro').find('.banner').append('<a href="'+intro_link[i].d2_url+'" class="'+ready_link+' bn'+(i+1)+'">'+intro_link[i].d2_nm+'</a>');
+			intro_banner.append('<a href="'+intro_link[i].d2_url+'" class="'+ready_link+' bn'+(i+1)+'">'+intro_link[i].d2_nm+'</a>');
 		}
 		else{
-			$ukContainer.find('.main_intro').find('.banner').append('<a href="'+intro_link[i].d2_url+'" class="'+uk_link+' bn'+(i+1)+'">'+intro_link[i].d2_nm+'</a>');
+			intro_banner.append('<a href="'+intro_link[i].d2_url+'" class="'+uk_link+' bn'+(i+1)+'">'+intro_link[i].d2_nm+'</a>');
 		}
 
-		if( i === 2 ){
-			$ukContainer.find('.main_intro').find('.banner a').eq(i).text('js');
-		}
+		if( i === 2 ) $ukContainer.find('.main_intro').find('.banner a').eq(i).text('js');
 	}
 	//준비중 페이지 클릭
 	$main_intro.find('.'+ready_link).click(function(){
@@ -592,7 +603,7 @@ function main_action(){
 }
 
 
-//sub_action
+//sub action
 function sub_action(){
 	//console.log('sub_action');
 }

@@ -609,11 +609,11 @@ var menu = [
 			//CSS --------------------------------------------------//
 			{
 				d2_nm:	'CSS',
-				d2_url:		url_css+'css',
+				d2_url:		url_css+'cssStart',
 				d3:[
 					//CSS 시작하기
 					{
-						d3_nm:	'CSS 시작하기',
+						d3_nm:	'CSS 시작',
 						d3_url:		url_css+'cssStart',
 						d3_file:		file_css+'/01-cssStart/cssStart.html',
 						d4:[
