@@ -265,8 +265,13 @@ $(document).ready(function(){
 				var before = this_local_url.split('&')[2];
 				var after = this_link_url.split('&')[ this_link_url.split('&').length-1 ];
 
-				if( before === after )$htmlbody.stop().animate({'scrollTop':0}, 300);
-				else subSet( loadingStartTime, this_link_url );
+				if( before === after ){
+					$htmlbody.stop().animate({'scrollTop':0}, 300);
+					$(this).siblings().find('li').removeClass('on');
+				}
+				else{
+					subSet( loadingStartTime, this_link_url );
+				}
 			}
 		}
 
@@ -368,18 +373,14 @@ $(document).ready(function(){
 
 		//browser tit
 		var browser_tit;
-		//UI/UX Assets이 아닐 경우
+		//UI/UX Assets메뉴가 아닐 경우
 		if( d1_on !== 0 ){
 			browser_tit = menu[d1_on].d1_nm;
 		}
 		//UI/UX Assets의 하위메뉴
 		else{
-			if( d4_true ){
-				browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].d4_nm;
-			}
-			else{
-				browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
-			}
+			if( first_split.length > 3 ) browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].d4_nm;
+			else browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
 		}
 		$title.text(browser_tit+' | UXKM');
 	}
