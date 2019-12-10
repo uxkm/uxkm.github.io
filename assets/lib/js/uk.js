@@ -132,6 +132,8 @@ $(document).ready(function(){
 			else {
 				file_url = menu[d1_on].d1_tile;
 				$ftDepth2.children().removeClass('on'); 			//푸터 2뎁스 on클래스 제거
+
+				al_depth1.find('li').removeClass('on');
 				al_depth1.find('>li').eq(0).addClass('on');			//assets메뉴 html텝 활성화
 			}
 
@@ -151,7 +153,7 @@ $(document).ready(function(){
 				success:function(data){
 					$ukContainer.html(data);
 					uk_editor();
-					sub_action();
+					sub_action(d1_on, d2_on, d3_on, d4_on);
 					depth4_scroll(target_url, 0);
 					setTimeout(function(){
 						$(window).trigger('resize');
@@ -604,8 +606,11 @@ function main_action(){
 
 
 //sub action
-function sub_action(){
-	//console.log('sub_action');
+function sub_action(d1_on, d2_on, d3_on, d4_on){
+	//assets 링크일 경우
+	if( d1_on === 0 ){
+		console.log('assets');
+	}
 }
 
 
