@@ -73,9 +73,13 @@ etc
 .uksection h3::before{counter-increment:h3;content:counter(h2) "." counter(h3) ". ";}
 .uksection h3:not(:first-child){margin-top:40px;}
 .uksection article{counter-reset:h4;}
+.uksection article > section{counter-reset:h5;}
 .uksection h4{padding:10px 0;font-size:16px;font-weight:700;}
 .uksection h4::before{counter-increment:h4;content:counter(h2) "." counter(h3) "." counter(h4) ". ";}
 .uksection h4:not(:first-child){margin-top:20px;}
+.uksection h5{padding:10px 0;color:#3d7e9a;font-size:16px;font-weight:700;}
+.uksection h5::before{counter-increment:h5;content:counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". ";}
+.uksection h5:not(:first-child){margin-top:20px;}
 
 /* UK Contents */
 .ukmain blockquote{position:relative;margin:15px auto;padding:15px;background:#e9fbe9;line-height:24px;text-align:center;}
