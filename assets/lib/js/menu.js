@@ -290,53 +290,53 @@ var menu = [
 							},
 							{
 								d4_nm:	'var element',
-								d4_url:		url_html+'textLevel&000000000',
-								html5:		false,
-							},
-							{
-								d4_nm:	'abbr element',
 								d4_url:		url_html+'textLevel&var_element',
 								html5:		false,
 							},
 							{
-								d4_nm:	'data element',
+								d4_nm:	'abbr element',
 								d4_url:		url_html+'textLevel&abbr_element',
 								html5:		false,
 							},
 							{
-								d4_nm:	'time element',
+								d4_nm:	'data element',
 								d4_url:		url_html+'textLevel&data_element',
-								html5:		false,
+								html5:		true,
+							},
+							{
+								d4_nm:	'time element',
+								d4_url:		url_html+'textLevel&time_element',
+								html5:		true,
 							},
 							{
 								d4_nm:	'samp element',
-								d4_url:		url_html+'textLevel&time_element',
-								html5:		false,
-							},
-							{
-								d4_nm:	'kbd element',
 								d4_url:		url_html+'textLevel&samp_element',
 								html5:		false,
 							},
 							{
-								d4_nm:	'bdi element',
+								d4_nm:	'kbd element',
 								d4_url:		url_html+'textLevel&kbd_element',
 								html5:		false,
 							},
 							{
-								d4_nm:	'bdo element',
+								d4_nm:	'bdi element',
 								d4_url:		url_html+'textLevel&bdi_element',
+								html5:		true,
+							},
+							{
+								d4_nm:	'bdo element',
+								d4_url:		url_html+'textLevel&bdo_element',
 								html5:		false,
 							},
 							{
 								d4_nm:	'wbr element',
 								d4_url:		url_html+'textLevel&wbr_element',
-								html5:		false,
+								html5:		true,
 							},
 							{
 								d4_nm:	'ruby element',
 								d4_url:		url_html+'textLevel&ruby_element',
-								html5:		false,
+								html5:		true,
 							},
 						]
 					},
@@ -537,7 +537,7 @@ var menu = [
 							{
 								d4_nm:	'datalist element',
 								d4_url:		url_html+'forms&datalist_element',
-								html5:		false,
+								html5:		true,
 							},
 							{
 								d4_nm:	'textarea element',
@@ -547,17 +547,17 @@ var menu = [
 							{
 								d4_nm:	'output element',
 								d4_url:		url_html+'forms&output_element',
-								html5:		false,
+								html5:		true,
 							},
 							{
 								d4_nm:	'progress element',
 								d4_url:		url_html+'forms&progress_element',
-								html5:		false,
+								html5:		true,
 							},
 							{
 								d4_nm:	'meter element',
 								d4_url:		url_html+'forms&meter_element',
-								html5:		false,
+								html5:		true,
 							},
 							{
 								d4_nm:	'fieldset element',
@@ -781,6 +781,7 @@ var menu = [
 						d3_url:		url_css+'cssAdvanced',
 						d3_file:		file_css+'/04-cssAdvanced/cssAdvanced.html',
 						d4:[
+							/*
 							{
 								d4_nm:	'미디어 쿼리',
 								d4_url:		url_css+'cssAdvanced&css_mediaquery',
@@ -791,6 +792,7 @@ var menu = [
 								d4_url:		url_css+'cssAdvanced&css_print',
 								html5:		false,
 							},
+							*/
 							{
 								d4_nm:	'Transform',
 								d4_url:		url_css+'cssAdvanced&css_transform',
@@ -867,15 +869,15 @@ var menu = [
 	},
 	{
 		d1_nm:	'Project GUIDE',
-		d1_url:		'?'+data+'=GUIDE',
-		//d1_url:		'#',
-		d1_tile:		file+ '/project_guide.html',
+		//d1_url:		'?'+data+'=GUIDE',
+		d1_url:		'#',
+		d1_file:		file+ '/project_guide.html',
 	},
 	{
 		d1_nm:	'Web Trends',
-		d1_url:		'?'+data+'=Trends',
-		//d1_url:		'#',
-		d1_tile:		file+ '/web_trends.html',
+		//d1_url:		'?'+data+'=Trends',
+		d1_url:		'#',
+		d1_file:		file+ '/web_trends.html',
 	}
 ];
 //console.log( menu[0].d2[0].d3[0].d3_file );
