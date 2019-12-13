@@ -1462,6 +1462,7 @@
 	}
 
 
+	@course_padding:50px;
 	//sub top
 	.sub_top {
 		position:relative; text-align:center;
@@ -1470,7 +1471,7 @@
 
 		.tit {
 			display:inline-block; position:relative; z-index:1;
-			line-height:200%; padding-top:5px;
+			line-height:80px; padding-top:5px;
 			.font-en; font-size:38px; font-weight:800; color:@navy;
 			letter-spacing:-1px;
 			&:before {
@@ -1497,7 +1498,7 @@
 
 					a {
 						display:block;
-						line-height:200%; padding:0 15px;
+						line-height:36px; padding:0 15px;
 						font-size:18px; color:fade(@navy, 85%);
 						font-weight:400; letter-spacing:-0.3px;
 						transition:color .15s;
@@ -1518,7 +1519,7 @@
 			&:before {display:block; height:1px; content:"";}
 		}
 		.common_info, .top_info {
-			line-height:160%;
+			line-height:22px;
 			font-size:14px; color:#666; font-weight:400;
 			letter-spacing:-0.5px;
 		}
@@ -1545,7 +1546,7 @@
 			padding:60px 0 20px;
 
 			.tit {
-				line-height:120%; padding-top:0;
+				line-height:36px; padding-top:0;
 				font-size:30px; font-weight:800;
 				letter-spacing:-1px;
 				&:before {
@@ -1566,7 +1567,7 @@
 						&:before {width:2px; height:2px; margin-top:-1px;}
 
 						a {
-							line-height:260%; padding:0 6px;
+							line-height:33px; padding:0 6px;
 							font-size:13px; font-weight:500;
 						}
 						&:hover a {color:fade(@navy, 85%)}
@@ -1579,7 +1580,6 @@
 	}
 
 	//sub content common
-	@course_padding:50px;
 	.sub_content {.clear; padding-top:50px; padding-bottom:100px;}
 	.side_menu_area {.lft; width:250px;}
 	.content_area {.rgt; width:calc(100% - 250px); padding-left:60px;}
@@ -1587,7 +1587,7 @@
 	.side_menu_area {
 		position:sticky; top:@hdHeight + @course_padding;
 
-		.tit {
+		.tit { background:fade(red, 10%);
 			line-height:130%; padding-bottom:10px;
 			.font-en; font-size:18px; color:#777; font-weight:600; letter-spacing:-1px;
 			border-bottom:5px solid #eee;
@@ -1667,6 +1667,9 @@
 		}
 		.on .side_d2 {display:block;}
 	}
+	.content_area {
+		h1 {height:30px; line-height:30px; background:fade(@blue, 10%);}
+	}
 
 
 	@media(max-width:@screen-md-max){
@@ -1677,7 +1680,6 @@
 	@media(max-width:@screen-sm-max){
 
 	}
-
 
 
 
