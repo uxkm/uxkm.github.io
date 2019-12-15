@@ -328,6 +328,10 @@ $(document).ready(function(){
 					}, loadingStartTime);
 				}
 			}
+			//hd_progress 초기화
+			setTimeout(function(){
+				$('.'+hd_progress).removeAttr('style');
+			}, loadingStartTime);
 		}
 
 		history.pushState(this_link_url, null, this_link_url);
@@ -784,7 +788,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			});
 			*/
 		});
-		//console.log('aaa')
 	}).trigger('resize');
 
 	//scroll
@@ -792,21 +795,32 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		var sct = $(window).scrollTop();
 		hd_common(sct);
 
-		var change_url = null;
+		//스크롤 이동 시 on 클래스
 		$('.'+content_area).find('.'+uk_course).each(function(i, e){
 			if( sub_offsetTop[i] <= sct ){
-				change_url = null;
 				$assetsLink_area.find('li.'+dp4+'.on').removeClass('on');
 				$assetsLink_area.find('li.item.on li').eq(i).addClass('on');
 				$('.'+side_menu).find('li.'+dp4+'.on').removeClass('on');
 				$('.'+side_menu).find('li.item.on li').eq(i).addClass('on');
 
-				var local_url = $('.'+side_menu).find('li.item.on').find('li.on a').attr('href');
-				//change_url = menu[0].d2[d2_on].d3[d3_on].d4[i].d4_url;
-				console.log(local_url)
-				//history.replaceState(this_link_url, null, this_link_url);
 			}
 		});
+
+		//스크롤 높이가 sub content보다 작을 때 4뎁스 on클래스 제거
+		if( sct < sub_offsetTop[0] ){
+			$assetsLink_area.find('li.item.on li').eq(0).removeClass('on');
+			$('.'+side_menu).find('li.item.on li').eq(0).removeClass('on');
+		}
+
+		//스크롤 이동 시 주소 변경
+		var change_target = $('.'+side_menu).find('li.item.on');
+		var change_idx = change_target.find('li.on').index();
+		var parent_url = change_target.find('> a').attr('href');
+		var change_url = change_target.find('li.on a').attr('href');
+
+		if( change_idx !== -1 ) history.replaceState(change_url, null, change_url);
+		else history.replaceState(parent_url, null, parent_url);
+
 	});
 }
 
