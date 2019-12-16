@@ -83,9 +83,21 @@
 					<article class="hd_search">
 						<h3 class="sound_only">검색</h3>
 						<button type="button" class="ly_btn search_btn"><i>Search button</i></button>
-						<div class="hd_layer_box search_area" style="display:none">
-							search area
+						<div class="hd_layer_box search_area">
+							<div class="inner">
+								<h4>Search Area</h4>
+								<div class="form">
+									<input type="text" placeholder="검색어를 입력해 주세요." required />
+									<button type="button" class="sch_bt"><i>검색하기</i></button>
+								</div>
+
+								<dl class="keyword_ex">
+									<dt>keyword example</dt>
+									<dd>div, p, strong, width, border-color, click, function</dd>
+								</dl>
+							</div>
 						</div>
+						<button type="button" class="search_close">검색 닫기</button>
 					</article>
 					<!-- 사이트맵 -->
 					<article class="hd_assetsLink">
@@ -103,7 +115,7 @@
 	</header>
 	<!-- //uk-header -->
 
-	<section id="content" class="uk_container"></section>
+	<section class="uk_container"></section>
 	<!-- //uk-main -->
 
 	<footer class="uk_footer">

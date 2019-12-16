@@ -1,10 +1,12 @@
 
 var respon_size = 767;
+var UXKM = 'UXKM';
 var $html = $('html');
 var $title = $('title');
 var $body = $('body');
 var $htmlbody = $('html, body');
 var $wrap= $('.wrap');
+var $ukSkip= $('.uk-skip');
 
 //header
 var $ukHeader = $('.uk_header');
@@ -16,6 +18,7 @@ var $assetsLink_btn = $hdNavArea.find('.assetsLink_btn');
 var $assetsLink_area = $hdNavArea.find('.assetsLink_area');
 var hd_progress = 'hd_progress';
 var hd_assetsLink_on = 'hd_assetsLink_on';
+var hd_search_on = 'hd_search_on';
 
 //footer
 var $ukFooter = $('.uk_footer');
@@ -46,13 +49,13 @@ var dp4 = 'dp4';
 var ready_link = 'ready_link';
 var toggle_link = 'toggle_link';
 var html5_new = 'html5_new';
-var sub_verticalMove = 'sub_verticalMove';
 var loadStage = true;
 var pageMove = false;
 
 var loadingStartTime = 400;
 var loadingEndTime = 500;
 var depth4_scrollSpeed = 0;
+var pageTop_scrollSpeed = 500;
 var sub_offsetTop = [];
 
 
@@ -61,6 +64,7 @@ $(document).ready(function(){
 	var al_depth1, al_depth2, al_depth3;
 	var d1_on, d2_on, d3_on, d4_on;
 	var d4_true = false;
+	$ukSkip.attr('tabindex','-1');
 
 
 	//loading ---------------------------------------------------------------------------------//
@@ -100,8 +104,9 @@ $(document).ready(function(){
 		loadingStart();														//로딩 시작
 		$(window).off('scroll resize');								//scroll, resize 초기화
 		setTimeout(function(){
-			$title.text('UXKM');
-			$ukLogo.removeAttr('data_tit');
+			$title.text(UXKM);											//타이틀 변경
+			$ukSkip.trigger('focus');									//포커스 초기화
+			$ukLogo.removeAttr('data_tit');						//로고 data_tit 삭제
 			$assetsLink_area.find('li').removeClass('on');	//assets메뉴 활성 초기화
 			al_depth1.find('>li').eq(0).addClass('on');			//assets메뉴 html텝 활성화
 			$hdNav.find('a').removeClass('on');					//상단 메뉴 활성 초기화
@@ -142,6 +147,7 @@ $(document).ready(function(){
 		$(window).off('scroll resize');								//scroll, resize 초기화
 		setTimeout(function(){
 			onindex( target_url );										//현재 페이지 활성화
+			$ukSkip.trigger('focus');									//포커스 초기화
 			$ukLogo.attr('data-tit', menu[d1_on].d1_nm);	//로고에 1뎁스 메뉴명 적용
 
 			var file_url;
@@ -177,11 +183,13 @@ $(document).ready(function(){
 					setTimeout(loadScrollTop, loadingEndTime/3);
 					if( pageMove ){
 						setTimeout(function(){
-							depth4_scroll(target_url, depth4_scrollSpeed);
+							depth4_scroll(target_url, 0);
 							pageMove = false;
 						}, loadingStartTime + 100);
 					}
-					setTimeout(loadingEnd, loadingEndTime);
+					setTimeout(function(){
+						loadingEnd();
+					}, loadingEndTime);
 				}
 			});
 		}, time);
@@ -295,7 +303,7 @@ $(document).ready(function(){
 		//클릭 시 같은 페이지 일 경우
 		if( this_local_url === this_link_split ){
 			loadStage = true;
-			$htmlbody.stop().animate({'scrollTop':0}, 500, 'easeInOutCubic');
+			$htmlbody.stop().animate({'scrollTop':0}, pageTop_scrollSpeed, 'easeInOutCubic');
 		}
 		//클릭 시 페이지 이동
 		else{
@@ -317,7 +325,7 @@ $(document).ready(function(){
 
 				//서브 같은 페이지
 				if( before === after ){
-					$htmlbody.stop().animate({'scrollTop':0}, 300);
+					$htmlbody.stop().animate({'scrollTop':0}, pageTop_scrollSpeed);
 					$(this).siblings().find('li').removeClass('on');
 				}
 				//서브 이동
@@ -354,16 +362,10 @@ $(document).ready(function(){
 
 		//페이지 내 링크
 		if( this_local_url[2] === this_link_split[2] ){
-			/*
-			var this_idx = $(this).parent().index();
-			$(this).parent().addClass('on').siblings().removeClass('on');
-			$assetsLink_area.find('li.'+dp4+'.on').removeClass('on');
-			$assetsLink_area.find('li.item.on li').eq(this_idx).addClass('on');
-			$('.'+side_menu).find('li.'+dp4+'.on').removeClass('on');
-			$('.'+side_menu).find('li.item.on li').eq(this_idx).addClass('on');
-			*/
-
 			depth4_scroll(this_link_url, depth4_scrollSpeed);
+
+			var browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[$(this).parent().index()].d4_nm;
+			$title.text(browser_tit+' | '+UXKM);
 			history.replaceState(this_link_url, null, this_link_url);
 		}
 		//페이지 이동
@@ -480,7 +482,7 @@ $(document).ready(function(){
 			if( this_link_split.length > 3 ) browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].d4_nm;
 			else browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
 		}
-		$title.text(browser_tit+' | UXKM');
+		$title.text(browser_tit+' | '+UXKM);
 	}
 
 
@@ -498,8 +500,6 @@ $(document).ready(function(){
 			else scrollTarget = $ukContainer.find('#'+this_id).offset().top - $ukHeader.height();
 
 			$htmlbody.stop().animate({'scrollTop':scrollTarget}, scrollSpeed);
-			//console.log( scrollTarget, ' | ' ,$(window).scrollTop(), $('.'+sub_content).offset().top );
-			//$(window).trigger('resize');
 		}
 	}
 
@@ -564,27 +564,46 @@ $(document).ready(function(){
 		}
 		return false;
 	});
-
+	
 	//assets link tab
 	$assetsLink_area.find('.d1_link').click(function(){
-		if( $(this).attr('href') !== '#' ){
-			$(this).parent().addClass('on').siblings().removeClass('on');
-		}
-		else{
-			alert('준비중 입니다^^');
+		if( $(this).attr('href') !== '#' ) $(this).parent().addClass('on').siblings().removeClass('on');
+		else alert('준비중 입니다^^');
+		return false;
+	});
+
+	//search open
+	$search_btn.click(function(){
+		if( !$html.is('.'+hd_search_on) ){
+			$html.css('overflow','hidden').addClass(hd_search_on);
+			$assetsLink_btn.addClass('active');
+			$('.search_area input[type=text]').focus();
 		}
 		return false;
 	});
 
-	//준비중 페이지 클릭
-	/*$('.'+ready_link).click(function(){
-		alert('준비중 입니다^^');
-		console.log('준비중 입니다^^');
+	//search close
+	$('.search_close').click(function(){
+		$html.css('overflow','scroll').removeClass(hd_search_on);
+		$assetsLink_btn.removeClass('active').addClass('after');
 		return false;
-	});*/
+	});
+
+	//uk-skip click
+	$('.uk-skip a').on({
+		focusin:function(){
+			$(document).find('#content').attr('tabindex','0');
+		},
+		click:function(){
+			$(document).find('#content').trigger('focus');
+			if( $html.is('.sub_page') ){
+				$htmlbody.stop().animate({'scrollTop':$('.'+sub_content).offset().top - $ukHeader.height()}, 0);
+			}
+			return false;
+		}
+	});
 	//common function end -----------------------------------------------------------------------------------------------//
 });
-
 
 
 //main action
@@ -596,6 +615,9 @@ function main_action(){
 	var mainInfoStep3 = $main_info.find('.step3');
 	var mainInfoStep4 = $main_info.find('.step4');
 	var mainInfoStep5 = $main_info.find('.step5');
+
+	//ukContainer 아이디 생성
+	$ukContainer.attr('id','content');
 
 	//메인 인트로 next클릯
 	$(document).on('click', '.next_content', function(){
@@ -617,7 +639,6 @@ function main_action(){
 		if( i === 2 ) $ukContainer.find('.main_intro').find('.banner a').eq(i).text('js');
 	}
 
-
 	//resize
 	$(window).on('resize', function(){
 		var win_w = $(window).width();
@@ -627,7 +648,6 @@ function main_action(){
 		//main intro height
 		if( device_check === 'device' ) $main_intro.css('height',win_h);
 	}).trigger('resize');
-
 
 	//scroll
 	$(window).on('scroll', function(){
@@ -639,6 +659,7 @@ function main_action(){
 		if( sct >= info_top ) $main_info.addClass('info_scroll');
 		//keyboard 페럴렉스
 		var f_sct = sct - info_top;
+
 		if( $html.is('.pc') ){
 			mainInfoStep1.css('transform','translateY('+ (f_sct*-0.8) +'px)');
 			mainInfoStep2.css('transform','translateY('+ (f_sct*-0.6) +'px)');
@@ -654,6 +675,9 @@ function main_action(){
 			mainInfoStep5.css('transform','translateY('+ (f_sct*-0.05) +'px)');
 		}
 	});
+
+	removeTabindex();	//remove tabindex
+	focusControl();			//focus controll
 }
 
 
@@ -678,7 +702,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 					//'<h1 class="tit"><b>ACCESSIBILITY</b> <i>Table of Contents</i></h1>' +
 					'<nav class="'+side_menu+'"><ol></ol></nav>' +
 				'</aside>' +
-				'<main class="'+content_area+'" role="main"></main>' +
+				'<main id="content" class="'+content_area+'" role="main"></main>' + //tabindex="-1"
 			'</div>'
 		);
 
@@ -773,20 +797,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			if( i === 0 ) of_top = $('.'+sub_content).offset().top;
 			else of_top = $(e).offset().top;
 			sub_offsetTop.push( of_top + 44 );
-
-			/*
-			$(window).on('scroll', function(){
-				var sct = $(window).scrollTop();
-				hd_common(sct);
-
-				if( sub_offsetTop[i] <= sct ){
-					$assetsLink_area.find('li.'+dp4).removeClass('on');
-					$assetsLink_area.find('li.item.on li').eq(i).addClass('on');
-					$('.'+side_menu).find('li.'+dp4).removeClass('on');
-					$('.'+side_menu).find('li.item.on li').eq(i).addClass('on');
-				}
-			});
-			*/
 		});
 	}).trigger('resize');
 
@@ -795,33 +805,52 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		var sct = $(window).scrollTop();
 		hd_common(sct);
 
+		var remove_class = 'li.'+dp4+'.on';
+		var add_class = 'li.item.on li';
+
 		//스크롤 이동 시 on 클래스
 		$('.'+content_area).find('.'+uk_course).each(function(i, e){
 			if( sub_offsetTop[i] <= sct ){
-				$assetsLink_area.find('li.'+dp4+'.on').removeClass('on');
-				$assetsLink_area.find('li.item.on li').eq(i).addClass('on');
-				$('.'+side_menu).find('li.'+dp4+'.on').removeClass('on');
-				$('.'+side_menu).find('li.item.on li').eq(i).addClass('on');
-
+				$assetsLink_area.find(remove_class).removeClass('on');
+				$assetsLink_area.find(add_class).eq(i).addClass('on');
+				$('.'+side_menu).find(remove_class).removeClass('on');
+				$('.'+side_menu).find(add_class).eq(i).addClass('on');
 			}
 		});
 
 		//스크롤 높이가 sub content보다 작을 때 4뎁스 on클래스 제거
 		if( sct < sub_offsetTop[0] ){
-			$assetsLink_area.find('li.item.on li').eq(0).removeClass('on');
-			$('.'+side_menu).find('li.item.on li').eq(0).removeClass('on');
+			$assetsLink_area.find(add_class).eq(0).removeClass('on');
+			$('.'+side_menu).find(add_class).eq(0).removeClass('on');
 		}
 
 		//스크롤 이동 시 주소 변경
 		var change_target = $('.'+side_menu).find('li.item.on');
 		var change_idx = change_target.find('li.on').index();
-		var parent_url = change_target.find('> a').attr('href');
 		var change_url = change_target.find('li.on a').attr('href');
+		var parent_url = change_target.find('> a').attr('href');
+		var local_url = location.href.split('/')[location.href.split('/').length-1];
 
-		if( change_idx !== -1 ) history.replaceState(change_url, null, change_url);
-		else history.replaceState(parent_url, null, parent_url);
-
+		//스크롤 위치에 따른 브라우져 타이틀 및 주소 변경
+		var browser_tit;
+		if( change_idx !== -1 ){
+			if( local_url !== change_url ){
+				browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[change_idx].d4_nm;
+				$title.text(browser_tit+' | '+UXKM);
+				history.replaceState(change_url, null, change_url);
+			}
+		}
+		else{
+			if( local_url !== parent_url ){
+				browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
+				$title.text(browser_tit+' | '+UXKM);
+				history.replaceState(parent_url, null, parent_url);
+			}
+		}
 	});
+
+		removeTabindex();	//remove tabindex
+	focusControl();			//focus controll
 }
 
 
@@ -847,7 +876,71 @@ function hd_common(sct){
 }
 
 
+//#content remove tabindex
+function removeTabindex(){
+	$(document).find('#content').on('focusout', function(){
+		$(this).removeAttr('tabindex');
+	});
+}
 
+
+//focus 컨트롤
+function focusControl(){
+	/*
+	$assetsLink_btn.on({
+		focusout:function(){
+			if( !$(this).is('.active') ){
+				$ukContainer.find('a').first().focus();
+			}
+		}
+	});
+
+	$assetsLink_area.find('a').last().css('background','red');
+	$assetsLink_area.find('a').last().on('focus', function(){
+		if( !$html.is('.'+hd_assetsLink_on) ){
+
+			console.log('aaa');
+			$assetsLink_btn.trigger('focus');
+		}
+	});
+	*/
+	/*
+	$(document).find('.uk_container a').first().keydown(function(e){
+		if( e.keyCode == 9 && e.shiftKey ){
+		}
+	});
+	*/
+
+
+	$assetsLink_btn.on({
+		keydown:function(e){
+			//console.log('onKeyDown');
+			if( !$(this).is('.active') ){
+				if (e.keyCode == 9 && !e.shiftKey) {
+					$(this).blur();
+					$ukContainer.find('a').first().css('background','red');
+					$ukContainer.find('a').first().trigger('focus');
+					console.log('next');
+				}
+				if (e.keyCode == 9 && e.shiftKey) {
+					$search_btn.trigger('focus');
+					console.log('prev');
+				}
+			}
+		}
+	});
+
+	/*
+	$assetsLink_area.find('a').last().css('background','red');
+	$assetsLink_area.find('a').last().on('focus', function(){
+		if( !$html.is('.'+hd_assetsLink_on) ){
+
+			console.log('aaa');
+			$assetsLink_btn.trigger('focus');
+		}
+	});
+	*/
+}
 
 
 

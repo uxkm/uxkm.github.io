@@ -1,6 +1,5 @@
 
 
-
 //function set
 .clear {
 	*zoom:1;
@@ -10,6 +9,14 @@
 .rgt {float:right;}
 .both {float:none; clear:both;}
 .ell {overflow:hidden; white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis;}
+
+//placeholder
+.placeholder(@color: #999){
+	&::-webkit-input-placeholder {color:@color;}
+	&:-moz-placeholder {color:@color;}
+	&::-moz-placeholder {color:@color;}
+	&:-ms-input-placeholder {color:@color;}
+}
 
 //display-flex
 .display-flex(){
