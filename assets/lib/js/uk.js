@@ -14,6 +14,7 @@ var $ukLogo = $ukHeader.find('.uk_logo a');
 var $hdNavArea = $ukHeader.find('.hd_nav_area');
 var $hdNav= $hdNavArea.find('.nav');
 var $search_btn = $hdNavArea.find('.search_btn');
+var $search_area = $hdNavArea.find('.search_area');
 var $assetsLink_btn = $hdNavArea.find('.assetsLink_btn');
 var $assetsLink_area = $hdNavArea.find('.assetsLink_area');
 var hd_progress = 'hd_progress';
@@ -197,7 +198,7 @@ $(document).ready(function(){
 
 
 	//assets link 생성(assets의 하위메뉴만 생성) ------------------------------------------//
-	$assetsLink_area.children().append('<ul class="al_depth1"></ul>');
+	$assetsLink_area.attr('tabindex','0').children().append('<ul class="al_depth1"></ul>');
 	al_depth1 = $assetsLink_area.find('.al_depth1');
 	var d2 = menu[0].d2;
 	if( typeof d2 !== 'undefined' ){
@@ -552,6 +553,7 @@ $(document).ready(function(){
 		if( !$(this).is('.active') ){
 			$(this).addClass('active').removeClass('after');
 			$html.css('overflow','hidden').addClass(hd_assetsLink_on);
+			$assetsLink_area.trigger('focus');
 			setTimeout(function(){
 				al_depth1.find('> li').each(function(i, e){
 					$(e).find('.al_depth2').masonry('layout');
@@ -566,10 +568,20 @@ $(document).ready(function(){
 	});
 	
 	//assets link tab
-	$assetsLink_area.find('.d1_link').click(function(){
-		if( $(this).attr('href') !== '#' ) $(this).parent().addClass('on').siblings().removeClass('on');
-		else alert('준비중 입니다^^');
-		return false;
+	al_depth1.children().each(function(i, e){
+		var link = $(e).find('> a');
+		if( link.attr('href') !== '#' ){
+			link.on('click focus', function(){
+				$(this).parent().addClass('on').siblings().removeClass('on');
+				return false;
+			});
+		}
+		else{
+			link.on('click', function(){
+				alert('준비중 입니다^^');
+				return false;
+			});
+		}
 	});
 
 	//search open
@@ -886,60 +898,66 @@ function removeTabindex(){
 
 //focus 컨트롤
 function focusControl(){
-	/*
-	$assetsLink_btn.on({
-		focusout:function(){
-			if( !$(this).is('.active') ){
-				$ukContainer.find('a').first().focus();
-			}
-		}
-	});
-
-	$assetsLink_area.find('a').last().css('background','red');
-	$assetsLink_area.find('a').last().on('focus', function(){
-		if( !$html.is('.'+hd_assetsLink_on) ){
-
-			console.log('aaa');
-			$assetsLink_btn.trigger('focus');
-		}
-	});
-	*/
-	/*
-	$(document).find('.uk_container a').first().keydown(function(e){
-		if( e.keyCode == 9 && e.shiftKey ){
-		}
-	});
-	*/
-
-
 	$assetsLink_btn.on({
 		keydown:function(e){
-			//console.log('onKeyDown');
 			if( !$(this).is('.active') ){
-				if (e.keyCode == 9 && !e.shiftKey) {
-					$(this).blur();
-					$ukContainer.find('a').first().css('background','red');
-					$ukContainer.find('a').first().trigger('focus');
-					console.log('next');
+				if( e.keyCode == 9 && !e.shiftKey ){
+					setTimeout(function(){
+						$ukContainer.find('a').first().trigger('focus');
+					}, 10);
 				}
-				if (e.keyCode == 9 && e.shiftKey) {
-					$search_btn.trigger('focus');
-					console.log('prev');
+				if( e.keyCode == 9 && e.shiftKey ){
+					setTimeout(function(){
+						$search_btn.trigger('focus');
+					}, 10);
 				}
 			}
 		}
 	});
-
-	/*
-	$assetsLink_area.find('a').last().css('background','red');
-	$assetsLink_area.find('a').last().on('focus', function(){
-		if( !$html.is('.'+hd_assetsLink_on) ){
-
-			console.log('aaa');
-			$assetsLink_btn.trigger('focus');
+	$ukContainer.find('a').first().on({
+		keydown:function(e){
+			if( e.keyCode == 9 && e.shiftKey ){
+				setTimeout(function(){
+					$assetsLink_btn.trigger('focus');
+				}, 10);
+			}
 		}
 	});
-	*/
+	$assetsLink_area.find('a').last().on({
+		keydown:function(e){
+			if( e.keyCode == 9 && !e.shiftKey && $html.is('.'+hd_assetsLink_on) ){
+				setTimeout(function(){
+					$assetsLink_btn.trigger('focus').trigger('click');
+				}, 10);
+			}
+		}
+	});
+
+	$search_btn.on({
+		keydown:function(e){
+			if( !$html.is('.'+hd_search_on) ){
+				if (e.keyCode == 9 && !e.shiftKey){
+					setTimeout(function(){
+						$assetsLink_btn.trigger('focus');
+					}, 10);
+				}
+			}
+		}
+	});
+	$('.search_close').on({
+		focus:function(){
+			$(this).trigger('click');
+		}
+		/*
+		keydown:function(e){
+			if( e.keyCode == 9 && !e.shiftKey && $html.is('.'+hd_search_on) ){
+				setTimeout(function(){
+					$('.search_close').trigger('click');
+				}, 10);
+			}
+		}
+		*/
+	});
 }
 
 
