@@ -2468,7 +2468,6 @@ body {
 .hd_layer_box {
   overflow-x: hidden;
   overflow-y: hidden;
-  opacity: 0;
   display: block;
   position: fixed;
   left: -9999px;
@@ -2476,8 +2475,12 @@ body {
   z-index: 99997;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0);
   -webkit-overflow-scrolling: touch;
+}
+.hd_layer_box .inner {
+  opacity: 0;
+  transform: scale(1.5, 1.5);
 }
 .hd_layer_box h4 {
   line-height: 110px;
@@ -2490,28 +2493,38 @@ body {
 .hd_layer_box h4 i {
   color: #5193ff;
 }
+.ie_no .hd_layer_box {
+  outline: none;
+}
 @media (max-width: 767px) {
   .hd_layer_box h4 {
     line-height: 60px;
     font-size: 26px;
   }
 }
-.uk_container,
-.uk_footer {
-  transition: filter 0.4s;
-  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+.hd_assetsLink_on .assetsLink_area,
+.hd_search_on .search_area {
+  overflow-y: scroll;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.9);
 }
+.hd_assetsLink_on .assetsLink_area .inner,
+.hd_search_on .search_area .inner {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.uk_container,
+.uk_footer,
 .hd_logo a,
 .hd_nav_area .nav,
 .search_btn {
-  transition: filter 0.4s;
+  transition: filter 0.6s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .hd_assetsLink * {
   color: #ccc;
   font-weight: 300;
-}
-.hd_assetsLink .assetsLink_area {
-  background: rgba(0, 0, 0, 0.9);
 }
 .hd_assetsLink .assetsLink_in ul,
 .hd_assetsLink .assetsLink_in ol {
@@ -2774,100 +2787,8 @@ body {
     width: calc(100% - 10px);
   }
 }
-.hd_assetsLink_on .hd_assetsLink .assetsLink_btn {
+.hd_assetsLink_on .assetsLink_btn {
   z-index: 99999;
-}
-.hd_assetsLink_on .hd_assetsLink .assetsLink_area {
-  overflow-y: scroll;
-  opacity: 1;
-  left: 0;
-  top: 0;
-}
-.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i {
-  background-color: #fff;
-}
-.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:before,
-.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:after {
-  background-color: #fff;
-}
-.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn.active i {
-  background-color: transparent;
-}
-.desktop .hd_assetsLink .assetsLink_area {
-  transition: left 0s 0.6s, top 0s 0.6s, opacity 0.6s;
-  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-.desktop .hd_assetsLink .assetsLink_in {
-  transform: scale(1.5, 1.5);
-  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-.desktop.hd_assetsLink_on .hd_logo a,
-.desktop.hd_assetsLink_on .hd_nav_area .nav,
-.desktop.hd_assetsLink_on .search_btn {
-  filter: blur(3px);
-}
-.desktop.hd_assetsLink_on .hd_assetsLink .assetsLink_area {
-  transition: left 0s, top 0s, opacity 0.6s;
-  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-.desktop.hd_assetsLink_on .hd_assetsLink .assetsLink_in {
-  transform: scale(1, 1);
-}
-.desktop.hd_assetsLink_on .uk_container,
-.desktop.hd_assetsLink_on .uk_footer {
-  filter: blur(3px);
-}
-.device .hd_assetsLink .assetsLink_area {
-  transform: scale(1.5, 1.5);
-  transition: left 0s 0.6s, top 0s 0.6s, transform 0.4s, opacity 0.4s;
-  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-.device.hd_assetsLink_on .hd_logo a,
-.device.hd_assetsLink_on .hd_nav_area .nav,
-.device.hd_assetsLink_on .search_btn {
-  filter: blur(2px);
-}
-.device.hd_assetsLink_on .hd_assetsLink .assetsLink_area {
-  transform: scale(1, 1);
-  transition: left 0s, top 0s, opacity 0.4s, transform 0.4s;
-  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-.device.hd_assetsLink_on .uk_container,
-.device.hd_assetsLink_on .uk_footer {
-  filter: blur(2px);
-}
-.desktop.hd_assetsLink_on body,
-.desktop.hd_search_on body {
-  margin-right: 17px;
-}
-.desktop.hd_assetsLink_on .uk_header,
-.desktop.hd_search_on .uk_header {
-  right: 17px;
-}
-.desktop.hd_assetsLink_on.opera,
-.desktop.hd_search_on.opera {
-  margin-right: 15px;
-}
-.desktop.hd_assetsLink_on.opera .uk_header,
-.desktop.hd_search_on.opera .uk_header {
-  right: 15px;
-}
-.desktop.hd_assetsLink_on.edge,
-.desktop.hd_search_on.edge {
-  margin-right: 16px;
-}
-.desktop.hd_assetsLink_on.edge .uk_header,
-.desktop.hd_search_on.edge .uk_header {
-  right: 16px;
-}
-.hd_search .search_area {
-  opacity: 0;
-  transition: left 0s 0.6s, top 0s 0.6s, opacity 0.6s;
-  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-.hd_search .inner {
-  transform: scale(1.5, 1.5);
-  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .hd_search .form {
   position: relative;
@@ -3034,33 +2955,115 @@ body {
 .hd_search_on .assetsLink_btn {
   z-index: 99998;
 }
-.hd_search_on .hd_search .search_area {
-  overflow-y: scroll;
-  opacity: 1;
-  left: 0;
-  top: 0;
-  transition: left 0s, top 0s, opacity 0.6s;
-  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-.hd_search_on .hd_search .inner {
-  transform: scale(1, 1);
-}
 .hd_search_on .hd_search .search_close {
   display: block;
 }
-.hd_search_on .hd_search .uk_container,
-.hd_search_on .hd_search .uk_footer {
+.desktop .hd_layer_box {
+  transition: left 0s 0.6s, top 0s 0.6s, background-color 0.6s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.desktop .hd_layer_box .inner {
+  transition: transform 0.6s, opacity 0.6s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.desktop.hd_assetsLink_on .hd_layer_box,
+.desktop.hd_search_on .hd_layer_box {
+  transition: left 0s, top 0s, background-color 0.6s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.desktop.hd_assetsLink_on .hd_logo a,
+.desktop.hd_search_on .hd_logo a,
+.desktop.hd_assetsLink_on .hd_nav_area .nav,
+.desktop.hd_search_on .hd_nav_area .nav,
+.desktop.hd_assetsLink_on .search_btn,
+.desktop.hd_search_on .search_btn,
+.desktop.hd_assetsLink_on .uk_container,
+.desktop.hd_search_on .uk_container,
+.desktop.hd_assetsLink_on .uk_footer,
+.desktop.hd_search_on .uk_footer {
   filter: blur(3px);
 }
-.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i {
+.desktop.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i,
+.desktop.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i {
   background-color: #fff;
 }
-.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:before,
-.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:after {
+.desktop.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:before,
+.desktop.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:before,
+.desktop.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:after,
+.desktop.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:after {
   background-color: #fff;
 }
-.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn.active i {
+.desktop.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn.active i,
+.desktop.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn.active i {
   background-color: transparent;
+}
+.device .hd_layer_box {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.5, 1.5);
+  transition: left 0s 0.6s, top 0s 0.6s, transform 0.6s, opacity 0.6s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.device .hd_layer_box .inner {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.device.hd_assetsLink_on .hd_layer_box,
+.device.hd_search_on .hd_layer_box {
+  opacity: 1;
+  transform: scale(1, 1);
+  transition: left 0s, top 0s, opacity 0.6s, transform 0.6s;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.device.hd_assetsLink_on .hd_logo a,
+.device.hd_search_on .hd_logo a,
+.device.hd_assetsLink_on .hd_nav_area .nav,
+.device.hd_search_on .hd_nav_area .nav,
+.device.hd_assetsLink_on .search_btn,
+.device.hd_search_on .search_btn,
+.device.hd_assetsLink_on .uk_container,
+.device.hd_search_on .uk_container,
+.device.hd_assetsLink_on .uk_footer,
+.device.hd_search_on .uk_footer {
+  filter: blur(2px);
+}
+.device.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i,
+.device.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i {
+  background-color: #fff;
+}
+.device.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:before,
+.device.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:before,
+.device.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:after,
+.device.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i:after {
+  background-color: #fff;
+}
+.device.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn.active i,
+.device.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn.active i {
+  background-color: transparent;
+}
+.desktop.hd_assetsLink_on body,
+.desktop.hd_search_on body {
+  margin-right: 17px;
+}
+.desktop.hd_assetsLink_on .uk_header,
+.desktop.hd_search_on .uk_header {
+  right: 17px;
+}
+.desktop.hd_assetsLink_on.opera,
+.desktop.hd_search_on.opera {
+  margin-right: 15px;
+}
+.desktop.hd_assetsLink_on.opera .uk_header,
+.desktop.hd_search_on.opera .uk_header {
+  right: 15px;
+}
+.desktop.hd_assetsLink_on.edge,
+.desktop.hd_search_on.edge {
+  margin-right: 16px;
+}
+.desktop.hd_assetsLink_on.edge .uk_header,
+.desktop.hd_search_on.edge .uk_header {
+  right: 16px;
 }
 /*
 	html {overflow:hidden;}
@@ -4578,14 +4581,13 @@ body {
   clear: both;
   content: "";
 }
-.side_menu_area {
-  float: left;
-  width: 250px;
-}
 .content_area {
   float: right;
   width: calc(100% - (250px + 60px));
-  /*padding-left:60px;*/
+}
+.side_menu_area {
+  float: left;
+  width: 250px;
 }
 .side_menu_area {
   position: sticky;
@@ -4739,21 +4741,21 @@ body {
 .side_menu_area .on .side_d2 {
   display: block;
 }
-.content_area h1 {
-  height: 30px;
-  line-height: 30px;
-  background: rgba(30, 115, 255, 0.1);
-}
 @media (max-width: 993px) {
+  .content_area,
   .side_menu_area {
     float: none;
     width: auto;
   }
-  .content_area {
-    float: none;
-    width: auto;
-    padding-left: 0;
+  .side_menu_area {
+    top: 110px;
+    margin: 0 -50px;
   }
+}
+.content_area h1 {
+  height: 30px;
+  line-height: 30px;
+  background: rgba(30, 115, 255, 0.1);
 }
 .uk_course {
   padding-top: 50px;

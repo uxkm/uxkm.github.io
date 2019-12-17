@@ -431,13 +431,15 @@
 	}
 
 
+	//assetsLink, search 공통
 	.hd_layer_box {
-		overflow-x:hidden; overflow-y:hidden; opacity:0;
+		overflow-x:hidden; overflow-y:hidden;
 		display:block;
 		position:fixed; left:-9999px; top:-9999px; z-index:99997;
 		width:100%; height:100%;
-		background:rgba(0,0,0,.9);
+		background:rgba(0,0,0,0); //outline:none;
 		-webkit-overflow-scrolling:touch;
+		.inner {opacity:0; transform:scale(1.5,1.5);}
 		h4 {
 			line-height:@hdHeight;
 			.font-tit; font-size:40px; color:#fff; font-weight:normal;
@@ -445,25 +447,27 @@
 			i {color:lighten(@blue, 10%);}
 		}
 	}
+	.ie_no .hd_layer_box {outline:none;}
 	@media(max-width:@screen-sm-max){
 		.hd_layer_box {
-			h4 {
-				line-height:@hdHeightMb;
-				font-size:26px;
-			}
+			h4 {line-height:@hdHeightMb; font-size:26px;}
 		}
 	}
+	.hd_assetsLink_on .assetsLink_area,
+	.hd_search_on .search_area {
+		overflow-y:scroll;
+		left:0; top:0;
+		background-color:rgba(0,0,0,.9);
+		.inner {opacity:1; transform:scale(1,1);}
+	}
 
-
-	//hd_AssetsLink common
-	.uk_container, .uk_footer {
-		transition:filter @hd_layer_time - .2s;
+	//assetsLink 디자인
+	.uk_container, .uk_footer, .hd_logo a, .hd_nav_area .nav, .search_btn {
+		transition:filter @hd_layer_time;
 		transition-timing-function:@hd_layer_timing;
 	}
-	.hd_logo a, .hd_nav_area .nav, .search_btn {transition:filter @hd_layer_time - .2s;}
 	.hd_assetsLink {
 		* {color:#ccc; font-weight:300;}
-		.assetsLink_area {background:rgba(0,0,0,.9);}
 		.assetsLink_in {
 			@d1_h:46px;
 			@d2_pd:15px;
@@ -613,102 +617,11 @@
 		}
 	}
 	.hd_assetsLink_on {
-		.hd_assetsLink {
-			.assetsLink_btn {z-index:99999;}
-			.assetsLink_area {
-				overflow-y:scroll; opacity:1;
-				left:0; top:0;
-			}
-		}
-		//서브페이지에서 사이트맵 버튼 색상 변경
-		&.sub_page .uk_header {
-			.hd_nav_area {
-				.aside {
-					.assetsLink_btn {
-						i {
-							background-color:#fff;
-							&:before, &:after {background-color:#fff;}
-						}
-						&.active i {background-color:transparent;}
-					}
-				}
-			}
-		}
+		.assetsLink_btn {z-index:99999;}
 	}
 
-	//hd_assetsLink desktop action
-	.desktop .hd_assetsLink {
-		.assetsLink_area {
-			transition:left 0s @hd_layer_time, top 0s @hd_layer_time, opacity @hd_layer_time;
-			transition-timing-function:@hd_layer_timing;
-		}
-		.assetsLink_in {
-			transform:scale(1.5,1.5);
-			transition:transform @hd_layer_time @hd_layer_timing;
-		}
-	}
-	.desktop.hd_assetsLink_on {
-		.hd_logo a, .hd_nav_area .nav, .search_btn {filter:blur(3px)}
-		.hd_assetsLink {
-			.assetsLink_area {
-				transition:left 0s, top 0s, opacity @hd_layer_time;
-				transition-timing-function:@hd_layer_timing;
-			}
-			.assetsLink_in {transform:scale(1,1);}
-		}
-		.uk_container, .uk_footer {filter:blur(3px);}
-	}
-
-	//hd_assetsLink device action
-	.device .hd_assetsLink {
-		.assetsLink_area {
-			transform:scale(1.5,1.5);
-			transition:
-					left 0s @hd_layer_time,
-					top 0s @hd_layer_time,
-					transform @hd_layer_time - .2s,
-					opacity @hd_layer_time - .2s;
-			transition-timing-function:@hd_layer_timing;
-		}
-	}
-	.device.hd_assetsLink_on {
-		.hd_logo a, .hd_nav_area .nav, .search_btn {filter:blur(2px)}
-		.hd_assetsLink {
-			.assetsLink_area {
-				transform:scale(1,1);
-				transition:
-						left 0s, top 0s,
-						opacity @hd_layer_time - .2s,
-						transform @hd_layer_time - .2s;
-				transition-timing-function:@hd_layer_timing;
-			}
-		}
-		.uk_container, .uk_footer {filter:blur(2px);}
-	}
-
-	//desktop 환경에서 세로 스크롤 대응
-	.desktop.hd_assetsLink_on,
-	.desktop.hd_search_on {
-		body {margin-right:17px;}
-		.uk_header {right:17px;}
-		&.opera {margin-right:15px;}
-		&.opera .uk_header {right:15px;}
-		&.edge {margin-right:16px;}
-		&.edge .uk_header {right:16px;}
-	}
-
-
-	//검색영역
+	//search 디자인
 	.hd_search {
-		.search_area {
-			opacity:0;
-			transition:left 0s @hd_layer_time, top 0s @hd_layer_time, opacity @hd_layer_time;
-			transition-timing-function:@hd_layer_timing;
-		}
-		.inner {
-			transform:scale(1.5,1.5);
-			transition:transform @hd_layer_time @hd_layer_timing;
-		}
 		.form {
 			@size:120px;
 			position:relative; margin:120px 50px 0;
@@ -805,18 +718,30 @@
 	}
 	.hd_search_on {
 		.assetsLink_btn {z-index:99998;}
-		.hd_search {
-			.search_area {
-				overflow-y:scroll; opacity:1;
-				left:0; top:0;
-				transition:left 0s, top 0s, opacity @hd_layer_time;
-				transition-timing-function:@hd_layer_timing;
-			}
-			.inner {transform:scale(1, 1);}
-			.search_close {display:block;}
+		.hd_search .search_close {display:block;}
+	}
 
-			.uk_container, .uk_footer {filter:blur(3px);}
+	//desktop action(assetsLink, search)
+	.desktop .hd_layer_box {
+		transition:
+				left 0s @hd_layer_time,
+				top 0s @hd_layer_time,
+				background-color @hd_layer_time;
+		transition-timing-function:@hd_layer_timing;
+		.inner {
+			transition:
+					transform @hd_layer_time, opacity @hd_layer_time;
+			transition-timing-function:@hd_layer_timing;
 		}
+	}
+	.desktop.hd_assetsLink_on,
+	.desktop.hd_search_on {
+		.hd_layer_box {
+			transition:left 0s, top 0s, background-color @hd_layer_time;
+			transition-timing-function:@hd_layer_timing;
+		}
+		.hd_logo a, .hd_nav_area .nav, .search_btn,
+		.uk_container, .uk_footer {filter:blur(3px);}
 
 		//서브페이지에서 사이트맵 버튼 색상 변경
 		&.sub_page .uk_header {
@@ -834,6 +759,58 @@
 		}
 	}
 
+	//device action(assetsLink, search)
+	.device .hd_layer_box {
+		opacity:0; background-color:rgba(0,0,0,.9);
+		transform:scale(1.5,1.5);
+		transition:
+				left 0s @hd_layer_time,
+				top 0s @hd_layer_time,
+				transform @hd_layer_time,
+				opacity @hd_layer_time;
+		transition-timing-function:@hd_layer_timing;
+		.inner {opacity:1; transform:scale(1,1);}
+	}
+	.device.hd_assetsLink_on,
+	.device.hd_search_on {
+		.hd_layer_box {
+			opacity:1;
+			transform:scale(1,1);
+			transition:
+					left 0s, top 0s,
+					opacity @hd_layer_time,
+					transform @hd_layer_time;
+			transition-timing-function:@hd_layer_timing;
+		}
+		.hd_logo a, .hd_nav_area .nav, .search_btn,
+		.uk_container, .uk_footer {filter:blur(2px);}
+
+		//서브페이지에서 사이트맵 버튼 색상 변경
+		&.sub_page .uk_header {
+			.hd_nav_area {
+				.aside {
+					.assetsLink_btn {
+						i {
+							background-color:#fff;
+							&:before, &:after {background-color:#fff;}
+						}
+						&.active i {background-color:transparent;}
+					}
+				}
+			}
+		}
+	}
+
+	//desktop 환경에서 세로 스크롤 대응
+	.desktop.hd_assetsLink_on,
+	.desktop.hd_search_on {
+		body {margin-right:17px;}
+		.uk_header {right:17px;}
+		&.opera {margin-right:15px;}
+		&.opera .uk_header {right:15px;}
+		&.edge {margin-right:16px;}
+		&.edge .uk_header {right:16px;}
+	}
 
 	//작업용(사이트맵 완료 후 삭제)
 	/*
@@ -1720,9 +1697,8 @@
 
 	//sub content common
 	.sub_content {.clear; padding-top:50px; padding-bottom:100px;}
+	.content_area {.rgt; width:calc(100% - (250px + 60px));} //padding-left:60px;
 	.side_menu_area {.lft; width:250px;}
-	.content_area {.rgt; width:calc(100% - (250px + 60px)); /*padding-left:60px;*/}
-
 	.side_menu_area {
 		position:sticky; top:@hdHeight + @course_padding;
 
@@ -1733,7 +1709,6 @@
 			b, i {display:inline-block;}
 			b {color:@navy; font-weight:800;}
 		}
-
 		li {line-height:18px; font-size:14px; color:#888;}
 		a {
 			display:block; position:relative; z-index:1;
@@ -1806,18 +1781,22 @@
 		}
 		.on .side_d2 {display:block;}
 	}
-	.content_area {
-		h1 {height:30px; line-height:30px; background:fade(@blue, 10%);}
-	}
-
 
 	@media(max-width:@screen-md-max){
-		.side_menu_area {float:none; width:auto;}
-		.content_area {float:none; width:auto; padding-left:0;}
+		.content_area, .side_menu_area {float:none; width:auto;}
+		.side_menu_area {
+			top:@hdHeight; margin:0 -@pc_padding;
+		}
 	}
 
 	@media(max-width:@screen-sm-max){
 
+	}
+
+
+	//content_area
+	.content_area {
+		h1 {height:30px; line-height:30px; background:fade(@blue, 10%);}
 	}
 
 

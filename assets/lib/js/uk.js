@@ -198,7 +198,7 @@ $(document).ready(function(){
 
 
 	//assets link 생성(assets의 하위메뉴만 생성) ------------------------------------------//
-	$assetsLink_area.attr('tabindex','0').children().append('<ul class="al_depth1"></ul>');
+	$assetsLink_area.attr('tabindex','0').find('.assetsLink_in').append('<ul class="al_depth1"></ul>');
 	al_depth1 = $assetsLink_area.find('.al_depth1');
 	var d2 = menu[0].d2;
 	if( typeof d2 !== 'undefined' ){
@@ -589,7 +589,8 @@ $(document).ready(function(){
 		if( !$html.is('.'+hd_search_on) ){
 			$html.css('overflow','hidden').addClass(hd_search_on);
 			$assetsLink_btn.addClass('active');
-			$('.search_area input[type=text]').focus();
+			$('.search_area input[type="text"]').trigger('focus');
+			//setTimeout(function(){}, 600);
 		}
 		return false;
 	});
@@ -925,7 +926,8 @@ function focusControl(){
 	});
 	$assetsLink_area.find('a').last().on({
 		keydown:function(e){
-			if( e.keyCode == 9 && !e.shiftKey && $html.is('.'+hd_assetsLink_on) ){
+			console.log('down');
+			if( e.keyCode == 9 && !e.shiftKey){
 				setTimeout(function(){
 					$assetsLink_btn.trigger('focus').trigger('click');
 				}, 10);
