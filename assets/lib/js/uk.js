@@ -424,8 +424,10 @@ $(document).ready(function(){
 
 	//준비중 페이지 클릭 ---------------------------------------------------------------------//
 	$(document).on('click', '.'+ready_link, function(){
-		alert('준비중 입니다^^');
-		console.log('준비중 입니다^^');
+		var txt = $(this).text();
+		if( txt === 'js' ) txt = 'JAVASCRIPT';
+		alert(txt+' 컨텐츠 준비 중입니다.');
+		//console.log('준비중 입니다^^');
 		return false;
 	});
 
@@ -665,7 +667,7 @@ function main_action(){
 		else{
 			intro_banner.append('<a href="'+intro_link[i].d2_url+'" class="'+uk_link+' bn'+(i+1)+'">'+intro_link[i].d2_nm+'</a>');
 		}
-		if( i === 2 ) $ukContainer.find('.main_intro').find('.banner a').eq(i).text('js');
+		if( i === 2 ) $ukContainer.find('.main_intro').find('.banner a').eq(i).text('JS');
 	}
 
 	//resize
