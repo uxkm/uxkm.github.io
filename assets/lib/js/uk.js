@@ -1101,10 +1101,14 @@ function focusControl(){
 //top_link, side_menu offset().top 컨트롤
 function offsetTopControl(){
 	if( !$html.is('.'+md_state) ){
-		$('.'+top_link+' ul').css('top',$(window).scrollTop() + $ukHeader.height());
+		if( $('.'+top_link+' ul').is('.fixed') ){
+			$('.'+top_link+' ul').css('top',$(window).scrollTop() + $ukHeader.height());
+		}
 	}
 	else{
-		$('.'+side_menu).css('top',$(window).scrollTop() + $ukHeader.height());
+		if( $('.'+side_menu_area).is('.fixed') ){
+			$('.'+side_menu).css('top',$(window).scrollTop() + $ukHeader.height());
+		}
 	}
 }
 
