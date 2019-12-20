@@ -3351,6 +3351,14 @@ body {
 .desktop.hd_search_on .loading {
   right: 17px;
 }
+.desktop.hd_assetsLink_on.md_state .side_menu_area.fixed .side_menu,
+.desktop.hd_search_on.md_state .side_menu_area.fixed .side_menu {
+  right: 17px;
+}
+.desktop.hd_assetsLink_on .sub_top .top_link ul.fixed.opacity_on,
+.desktop.hd_search_on .sub_top .top_link ul.fixed.opacity_on {
+  right: 71px;
+}
 .desktop.hd_assetsLink_on.opera body,
 .desktop.hd_search_on.opera body {
   margin-right: 15px;
@@ -3361,6 +3369,14 @@ body {
 .desktop.hd_search_on.opera .loading {
   right: 15px;
 }
+.desktop.hd_assetsLink_on.opera.md_state .side_menu_area.fixed .side_menu,
+.desktop.hd_search_on.opera.md_state .side_menu_area.fixed .side_menu {
+  right: 15px;
+}
+.desktop.hd_assetsLink_on.opera .sub_top .top_link ul.fixed.opacity_on,
+.desktop.hd_search_on.opera .sub_top .top_link ul.fixed.opacity_on {
+  right: 69px;
+}
 .desktop.hd_assetsLink_on.edge body,
 .desktop.hd_search_on.edge body {
   margin-right: 16px;
@@ -3370,6 +3386,14 @@ body {
 .desktop.hd_assetsLink_on.edge .loading,
 .desktop.hd_search_on.edge .loading {
   right: 16px;
+}
+.desktop.hd_assetsLink_on.edge.md_state .side_menu_area.fixed .side_menu,
+.desktop.hd_search_on.edge.md_state .side_menu_area.fixed .side_menu {
+  right: 16px;
+}
+.desktop.hd_assetsLink_on.edge .sub_top .top_link ul.fixed.opacity_on,
+.desktop.hd_search_on.edge .sub_top .top_link ul.fixed.opacity_on {
+  right: 70px;
 }
 /*
 	html {overflow:hidden;}
@@ -4704,6 +4728,8 @@ body {
   font-size: 0;
   background: #fff;
   box-shadow: none;
+  transition: opacity .3s;
+  opacity: 1;
 }
 .top_link_css li {
   display: inline-block;
@@ -4802,6 +4828,8 @@ body {
   font-size: 0;
   background: #fff;
   box-shadow: none;
+  transition: opacity .3s;
+  opacity: 1;
 }
 .sub_top .top_link ul li {
   display: inline-block;
@@ -4867,6 +4895,9 @@ body {
   z-index: 4;
   padding: 0 5px;
   box-shadow: 0 0 0 4px #e9e9e9;
+}
+.sub_top .top_link ul.fixed.opacity_on {
+  opacity: 0;
 }
 .sub_top .top_link ul.fixed:before {
   display: none;
@@ -4954,6 +4985,8 @@ body {
     font-size: 0;
     background: #fff;
     box-shadow: none;
+    transition: opacity .3s;
+    opacity: 1;
   }
   .sub_top .top_link ul li,
   .sub_top .top_link ul.fixed li {
@@ -5316,6 +5349,11 @@ body {
     left: 0;
     right: 0;
     padding: 0 50px;
+    transition: opacity .3s;
+    opacity: 1;
+  }
+  .side_menu_area.fixed .side_menu.opacity_on {
+    opacity: 0;
   }
   .side_menu_area .side_d2 {
     position: absolute;

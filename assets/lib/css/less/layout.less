@@ -1007,19 +1007,25 @@
 	//desktop 환경에서 세로 스크롤 대응
 	.desktop.hd_assetsLink_on,
 	.desktop.hd_search_on {
-		body {margin-right:17px;}
-		.uk_header, .loading {right:17px;}
-		//&.md_state .side_menu_area.fixed .side_menu {right:17px;}
+		@bs_rgt:17px;
+		body {margin-right:@bs_rgt;}
+		.uk_header, .loading {right:@bs_rgt;}
+		&.md_state .side_menu_area.fixed .side_menu {right:@bs_rgt;}
+		.sub_top .top_link ul.fixed.opacity_on {right:@bs_rgt + @pc_padding + 4px;}
 
-		&.opera body {margin-right:15px;}
+		@op_rgt:15px;
+		&.opera body {margin-right:@op_rgt;}
 		&.opera .uk_header,
-		&.opera .loading {right:15px;}
-		//&.opera.md_state .side_menu_area.fixed .side_menu {right:15px;}
+		&.opera .loading {right:@op_rgt;}
+		&.opera.md_state .side_menu_area.fixed .side_menu {right:@op_rgt;}
+		&.opera .sub_top .top_link ul.fixed.opacity_on {right:@op_rgt + @pc_padding + 4px;}
 
-		&.edge body {margin-right:16px;}
+		@ed_rgt:16px;
+		&.edge body {margin-right:@ed_rgt;}
 		&.edge .uk_header,
-		&.edge .loading {right:16px;}
-		//&.edge.md_state .side_menu_area.fixed .side_menu {right:16px;}
+		&.edge .loading {right:@ed_rgt;}
+		&.edge.md_state .side_menu_area.fixed .side_menu {right:@ed_rgt;}
+		&.edge .sub_top .top_link ul.fixed.opacity_on {right:@ed_rgt + @pc_padding + 4px;}
 	}
 
 	//작업용(사이트맵 완료 후 삭제)
@@ -1793,6 +1799,7 @@
 		position:absolute; left:@pc_padding; right:@pc_padding; top:40px; z-index:3;
 		padding:0;
 		font-size:0; background:#fff; box-shadow:none;
+		transition:opacity .3s; opacity:1;
 		li {
 			display:inline-block; position:relative; padding-left:3px;
 			&:before {
@@ -1844,6 +1851,7 @@
 				position:fixed; left:auto; right:@pc_padding + 4px; top:@hdHeight; z-index:4;
 				padding:0 5px;
 				box-shadow:0 0 0 4px #e9e9e9; //rgba(0,0,0,.1)
+				&.opacity_on {opacity:0;}
 				&:before {
 					display:none;
 					.font-en; font-size:16px; color:@navy;
@@ -2053,6 +2061,8 @@
 			&.fixed .side_menu {
 				position:fixed; top:@hdHeight; left:0; right:0;
 				padding:0 @pc_padding;
+				transition:opacity .3s; opacity:1;
+				&.opacity_on {opacity:0;}
 			}
 			.side_d2 {
 				position:absolute; left:0; top:@a_size; right:0;
