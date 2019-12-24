@@ -5808,14 +5808,14 @@ body {
 }
 .ready_content i {
   font-size: 40px;
-  color: #bbb;
+  color: #ddd;
 }
 .ready_content p {
   line-height: 30px;
   margin-top: 10px;
   font-family: 'Anton', 'Malgun Gothic', 'Dotum', sans-serif;
   font-size: 24px;
-  color: #bbb;
+  color: #ddd;
 }
 @media (max-width: 767px) {
   .ready_content {
