@@ -768,6 +768,16 @@ var menu = [
 								html5:		false,
 							},
 							{
+								d4_nm:	'@font-face',
+								d4_url:		url_css+'cssMiddleclass&css_fontface',
+								html5:		false,
+							},
+							{
+								d4_nm:	'@media',
+								d4_url:		url_css+'cssMiddleclass&css_media',
+								html5:		false,
+							},
+							{
 								d4_nm:	'CSS 속성 선언순서',
 								d4_url:		url_css+'cssMiddleclass&css_attr_rule',
 								html5:		false,
