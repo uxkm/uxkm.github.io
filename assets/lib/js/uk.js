@@ -648,7 +648,8 @@ $(document).ready(function(){
 		}
 		else{
 			link.on('click', function(){
-				alert('준비중 입니다^^');
+				var txt = $(this).text();
+				alert(txt+' 컨텐츠 준비 중입니다.');
 				return false;
 			});
 		}
@@ -824,6 +825,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			$(e).find('h2').attr('data-number', (d3_on+1)+'.'+(i+1)+'. ');
 			$(e).find('h2').next().addClass('both');
 		});
+		$ukContainer.find('.'+uk_course).last().addClass('last_course');
 		
 		//컨텐츠 사이드 메뉴 생성
 		var side_d3 = d2_target.d3;

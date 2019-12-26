@@ -1280,6 +1280,7 @@ input[type="range"]::-ms-thumb {
 .uk_editor .CodeMirror-simplescroll-vertical {
   bottom: 3px;
   right: 3px;
+  z-index: 4;
   border-radius: 100px;
 }
 .uk_editor .CodeMirror-simplescroll-horizontal {
@@ -1578,7 +1579,7 @@ body {
     padding: 0 10px;
   }
 }
-.wrap {
+.ie_no .wrap {
   *zoom: 1;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1597,47 +1598,50 @@ body {
   min-height: 100%;
   transition: opacity .2s;
 }
-.wrap:after {
+.ie_no .wrap:after {
   display: block;
   clear: both;
   content: "";
 }
-.wrap.hide_loading {
+.ie_no .wrap.hide_loading {
   opacity: 1;
 }
-.wrap .uk_header {
+.ie_no .wrap .uk_header {
   -webkit-box-flex: none;
   -webkit-flex: none;
   -ms-flex: none;
   flex-grow: none;
   flex: none;
 }
-.wrap .uk_container {
+.ie_no .wrap .uk_container {
   -webkit-box-flex: auto;
   -webkit-flex: auto;
   -ms-flex: auto;
   flex-grow: auto;
   flex: auto;
 }
-.wrap .uk_footer {
+.ie_no .wrap .uk_footer {
   -webkit-box-flex: none;
   -webkit-flex: none;
   -ms-flex: none;
   flex-grow: none;
   flex: none;
 }
+.ie_yes .wrap {
+  opacity: 0;
+}
 @media (max-width: 767px) {
-  .wrap {
+  .ie_no .wrap {
     display: block;
   }
-  .wrap .uk_header {
+  .ie_no .wrap .uk_header {
     display: block;
   }
-  .wrap .uk_container {
+  .ie_no .wrap .uk_container {
     display: block;
     min-height: calc(100vh - 171px - 60px);
   }
-  .wrap .uk_footer {
+  .ie_no .wrap .uk_footer {
     display: block;
   }
 }
@@ -5520,7 +5524,8 @@ body {
   border-radius: 100px;
   content: "Last Updated on " attr(data-last-update);
 }
-.uk_course:last-child {
+.uk_course:last-child,
+.uk_course.last_course {
   padding-bottom: 0;
   border-bottom: 0;
 }
@@ -5607,6 +5612,23 @@ body {
   background: #f9f9f9;
   border-left: 5px solid #1e73ff;
 }
+.uk_note .tit {
+  float: none;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #3b5682;
+  letter-spacing: 0;
+}
+.uk_note .tit:before,
+.uk_note .tit:after {
+  font-weight: 800;
+}
+.uk_note .tit:before {
+  content: "[";
+}
+.uk_note .tit:after {
+  content: "]";
+}
 @media (max-width: 767px) {
   .uk_note {
     padding: 10px 15px;
@@ -5635,6 +5657,7 @@ body {
   font-size: 14px;
 }
 .view_editor .ve_tit {
+  line-height: 20px;
   font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
   font-size: 18px;
   color: #1e73ff;
@@ -5648,11 +5671,26 @@ body {
 .view_editor.ex_code .ve_tit {
   color: #00986b;
 }
+.view_editor.ex_code.ex_wrong .ve_tit {
+  color: #e44d26;
+}
 .view_editor.edit_code .ve_tit {
   color: #1e73ff;
 }
 .view_editor .uk_editor {
   margin-top: 10px;
+}
+@media (max-width: 767px) {
+  .view_editor .ve_tit {
+    line-height: 17px;
+    font-size: 14px;
+  }
+  .view_editor .ve_tit:before {
+    margin: 0 6px 0 0;
+  }
+  .view_editor .uk_editor {
+    margin-top: 10px;
+  }
 }
 .txt_ex > p {
   margin-top: 10px;
@@ -5757,6 +5795,37 @@ body {
     font-size: 13px;
   }
 }
+.reference_box {
+  margin-top: 50px;
+}
+.reference_box .tit {
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 20px;
+  margin-left: 10px;
+  padding: 0 8px;
+  font-size: 16px;
+  color: #666;
+  font-weight: 600;
+  background: #fff;
+}
+.reference_box .link_lst {
+  *zoom: 1;
+  vertical-align: top;
+  margin-top: -17px;
+  padding: 30px;
+  border: 4px solid #eee;
+}
+.reference_box .link_lst:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.reference_box .link_lst li {
+  float: left;
+  margin-right: 20px;
+}
 .reference a {
   line-height: 26px;
   font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
@@ -5776,6 +5845,9 @@ body {
 .reference a:hover {
   color: #1e73ff;
 }
+.mt_lm {
+  margin-top: 50px;
+}
 .mt_l {
   margin-top: 30px;
 }
@@ -5789,7 +5861,7 @@ body {
   margin-top: 5px;
 }
 .indent {
-  padding-left: 20px;
+  margin-left: 25px;
 }
 .t_blue {
   color: #1e73ff;
@@ -5799,7 +5871,7 @@ body {
 }
 @media (max-width: 767px) {
   .indent {
-    padding-left: 5px;
+    margin-left: 8px;
   }
 }
 .ready_content {
@@ -5829,7 +5901,7 @@ body {
     font-size: 18px;
   }
 }
-/*
+/*-
 
 .sub_top {
 	position:relative; text-align:center;
