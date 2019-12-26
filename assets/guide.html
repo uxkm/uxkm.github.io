@@ -68,15 +68,15 @@
 
 		<p>
 			[상하 간격]<br>
+			.mt_lm { margin-top 50px }<br>
 			.mt_l { margin-top 30px }<br>
 			.mt_m { margin-top 20px }<br>
 			.mt_s { margin-top 10px }<br>
 			.mt_sm { margin-top 5px }<br>
 
 			[들여쓰기]<br>
-			.indent {padding-left:20px;} (모바일에서 5px)
+			.indent {margin-left:25px;} (모바일에서 8px)
 		</p>
-
 
 		<div class="uk_note mt_l">
 			<h3 class="sound_only">요약 설명</h3>
@@ -129,49 +129,32 @@
 		</ul>
 		<!-- browser_support -->
 
-		<div class="view_editor ex_code mt_l">
+		<div class="view_editor ex_code mt_l" data-target="html/01-htmlStart/1.1.html_basic.html">
 			<h3 class="ve_tit">코드 설명용 에디터</h3>
 			<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-				<div class="code_wrap">
-				<textarea readonly="readonly">
-<!DOCTYPE html>
-<html lang="ko">
-	<head>
-		<title>웹페이지 문서 제목입니다</title>
-	</head>
-	<body>
-		<h1>문서 제목 입니다.</h1>
-		<p>문서 단락 내용입니다.</p>
-	</body>
-</html></textarea>
-				</div>
+				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</div>
 		<!-- 코드 설명용 에디터 -->
 
-		<div class="view_editor edit_code mt_l">
+		<div class="view_editor edit_code mt_l" data-target="html/01-htmlStart/1.1.html_basic.html">
 			<h3 class="ve_tit">코드 편집용 에디터</h3>
 			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
-				<div class="code_wrap">
-					<textarea>
-<!DOCTYPE html>
-<html lang="ko">
-	<head>
-		<title>웹페이지 문서 제목입니다</title>
-	</head>
-	<body>
-		<h1>문서 제목 입니다.</h1>
-		<p>문서 단락 내용입니다.</p>
-	</body>
-</html>
-				</textarea>
-				</div>
+				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</div>
 		<!-- 코드 편집용 에디터 -->
 
 		<p class="reference mt_l">참조 : <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API" target="_blank">Drag and Drop API</a></p>
 
+		<article class="reference_box mt_l">
+			<h2 class="tit">참조</h2>
+			<ul class="link_lst">
+				<li class="reference"><a href="https://www.w3.org/TR/html52/document-metadata.html" target="_blank" class="fas">W3C 문서</a></li>
+				<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element" target="_blank" class="fas">MDN 문서</a></li>
+				<li class="reference"><a href="https://www.w3.org/TR/html51/dom.html#global-attributes" target="_blank" class="fas">W3C 전역속성</a></li>
+			</ul>
+		</article>
 	</div>
 </div><!-- //wrap -->
 
@@ -195,10 +178,26 @@
 <script src="/assets/lib/js/codemirror/mode/xml/xml.js"></script><!-- 모드 -->
 <link href="/assets/lib/js/codemirror/theme/moxer.css" rel="stylesheet" /><!-- 테마 -->
 <script src="/assets/lib/js/codemirror/addon/scroll/simplescrollbars.js"></script><!-- 스크롤바 -->
-<script src="/assets/lib/js/codemirror/codemirror.js"></script>
 
 <!-- uk.js -->
 <script type="text/javascript" src="/assets/lib/js/menu.js"></script>
 <script type="text/javascript" src="/assets/lib/js/uk.js"></script>
+<script src="/assets/lib/js/codemirror/codemirror.js"></script>
+<script>
+	$(function(){
+		var uk_editor = $('.uk_editor');
+		uk_editor.each(function(i, e){
+			var target = $(e).parent().attr('data-target');
+			var txtarea = $(e).find('textarea');
+			if( target.match('html') ){
+				$.get('/ukncs/tutorials/'+target, function(content){
+					txtarea.text(content);
+				});
+			}
+		});
+	});
+
+	setTimeout(uk_editor, 500);
+</script>
 </body>
 </html>

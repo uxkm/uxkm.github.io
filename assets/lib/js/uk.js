@@ -200,9 +200,9 @@ $(document).ready(function(){
 					}, loadingEndTime);
 				},
 				success:function(data){
-					sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on)
-					uk_editor();
-					setTimeout(loadScrollTop, loadingEndTime/3);
+					sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on);
+					setTimeout(uk_editor, 200);
+					setTimeout(loadScrollTop, loadingEndTime);
 					if( pageMove ){
 						setTimeout(function(){
 							depth4_scroll(target_url, 0);
@@ -211,7 +211,8 @@ $(document).ready(function(){
 					}
 					setTimeout(function(){
 						$(window).on('load', loadingEnd());
-						$(window).trigger('resize scroll');
+						$(window).trigger('resize');
+						$(window).trigger('scroll');
 					}, loadingEndTime);
 				}
 			});
@@ -648,7 +649,8 @@ $(document).ready(function(){
 		}
 		else{
 			link.on('click', function(){
-				alert('준비중 입니다^^');
+				var txt = $(this).text();
+				alert(txt+' 컨텐츠 준비 중입니다.');
 				return false;
 			});
 		}
@@ -824,6 +826,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			$(e).find('h2').attr('data-number', (d3_on+1)+'.'+(i+1)+'. ');
 			$(e).find('h2').next().addClass('both');
 		});
+		$ukContainer.find('.'+uk_course).last().addClass('last_course');
 		
 		//컨텐츠 사이드 메뉴 생성
 		var side_d3 = d2_target.d3;
@@ -888,9 +891,9 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			//if( i === 0 ) of_top = $(e).offset().top - hd_h;
 			else of_top = $(e).offset().top - hd_h;
 			sub_offsetTop.push( of_top );
+			//console.log( sub_offsetTop );
 			
 			//준비중 페이지
-			//if( $(e).attr('data-last-update') === '' ){
 			if( !$(e).find('h2').next().is(':visible') ){
 				$(e).append('<div class="ready_content both"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
 			}
@@ -992,6 +995,18 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 	//common
 	removeTabindex();	//remove tabindex
 	focusControl();			//focus controll
+
+	//uk_editor 코드 적용
+	var uk_editor = $('.uk_editor');
+	uk_editor.each(function(i, e){
+		var target = $(e).parent().attr('data-target');
+		var txtarea = $(e).find('textarea');
+		if( target.match('html') ){
+			$.get('/ukncs/tutorials/'+target, function(content){
+				txtarea.text(content);
+			});
+		}
+	});
 }
 
 

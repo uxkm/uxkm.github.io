@@ -29,23 +29,10 @@
 				</ol>
 			</div>
 
-			<div class="view_editor edit_code mt_l">
+			<div class="view_editor edit_code mt_l" data-target="html/01-htmlStart/1.1.html_basic.html">
 				<h3 class="ve_tit">HTML 기본구조</h3>
 				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
-					<div class="code_wrap">
-						<textarea>
-	<!DOCTYPE html>
-	<html lang="ko">
-		<head>
-			<title>웹페이지 문서 제목입니다</title>
-		</head>
-		<body>
-			<h1>문서 제목 입니다.</h1>
-			<p>문서 단락 내용입니다.</p>
-		</body>
-	</html>
-					</textarea>
-					</div>
+					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
 		</div>
@@ -98,25 +85,25 @@
 				<!--
 				<div class="line_code indent mt_m">
 					<h4>HTML5 doctype</h4>
-					<p>&lt;!DOCTYPE html&gt;</p>
+					<p class="indent">&lt;!DOCTYPE html&gt;</p>
 				</div>
 				<div class="line_code indent mt_m">
 					<h4>HTML 4.01 strict doctype</h4>
-					<p>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</p>
+					<p class="indent">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</p>
 				</div>
 				<div class="line_code indent mt_m">
 					<h4>HTML 4.01 transitional doctype</h4>
-					<p>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</p>
+					<p class="indent">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</p>
 				</div>
 				<div class="line_code indent mt_m">
 					<h4>XML 1.0 strict and transitional doctypes</h4>
-					<p>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</p>
-					<p>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</p>
+					<p class="indent">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</p>
+					<p class="indent">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</p>
 				</div>
 				<div class="line_code indent mt_m">
 					<h4>HTML 4.01 and XML 1.0 frameset doctypes</h4>
-					<p>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</p>
-					<p>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</p>
+					<p class="indent">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</p>
+					<p class="indent">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</p>
 				</div>
 				-->
 
@@ -331,23 +318,13 @@
 								현재 많이 사용하는 방법이며 활용성면에서도 우수함.<br>
 								HTML에 JavaScript에서 이용할 수 있는 데이터(정보)를 저장하는 용도로 사용.
 							</p>
-							<div class="view_editor ex_code mt_s">
+
+							<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.data-global.html">
 								<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-									<div class="code_wrap">
-				<textarea readonly="readonly">
-<div id="me" data-my-name="Heropy" data-my-age="851">Heropy</div>
-
-<script>
-// dataset.customDataAttributes
-const $me = document.getElementById('me');
-
-console.log($me.dataset.myName); // "Heropy"
-
-console.log($me.dataset.myAge); // "851"
-</script></textarea>
-									</div>
+									<div class="code_wrap"><textarea></textarea></div>
 								</div>
 							</div>
+
 							<ul class="browser_support mt_m" data-tit="data-global">
 								<li class="ie">지원</li>
 								<li class="edge">지원</li>
@@ -373,16 +350,13 @@ console.log($me.dataset.myAge); // "851"
 									<li>false 는 요소가 드래그되지 않을 수 있음을 나타냅니다.</li>
 								</ol>
 							</div>
-							<div class="view_editor ex_code mt_s">
-								<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-									<div class="code_wrap">
-				<textarea readonly="readonly">
 
-<div draggable="true">The element to drag.</div>
-				</textarea>
-									</div>
+							<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.draggable.html">
+								<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+									<div class="code_wrap"><textarea></textarea></div>
 								</div>
 							</div>
+
 							<ul class="browser_support mt_m" data-tit="draggable">
 								<li class="ie">지원</li>
 								<li class="edge">지원</li>
@@ -403,18 +377,13 @@ console.log($me.dataset.myAge); // "851"
 								불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.<br>
 								해당요소를 숨김(CSS 기본값 : display:none;).
 							</p>
-							<div class="view_editor ex_code mt_s">
-								<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-									<div class="code_wrap">
-				<textarea readonly="readonly">
-<form id="hidden-form" action="/form-action" hidden>
-숨겨진 양식들..
-</form>
 
-<button form="hidden-form" type="submit">전송</button></textarea>
-									</div>
+							<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.hidden.html">
+								<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+									<div class="code_wrap"><textarea></textarea></div>
 								</div>
 							</div>
+
 							<ul class="browser_support mt_m" data-tit="hidden">
 								<li class="ie">지원</li>
 								<li class="edge">지원</li>
@@ -438,18 +407,13 @@ console.log($me.dataset.myAge); // "851"
 								tabindex="-1"을 통해 포커스는 가능하지만 탭 순서에서 제외 가능.<br>
 								tabindex="1" 이상의 양수 값은 논리적 흐름을 방해하기 때문에 사용을 추천하지 않음.
 							</p>
-							<div class="view_editor ex_code mt_s">
+
+							<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.tabindex.html">
 								<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-									<div class="code_wrap">
-				<textarea readonly="readonly">
-<h1 tabindex="0">Sign In</h1>
-<label>Username: <input type="text"></label>
-<label>Password: <input type="password"></label>
-<label>PS: <input type="text" tabindex="-1"></label>
-<input type="submit" value="Sign In"></textarea>
-									</div>
+									<div class="code_wrap"><textarea></textarea></div>
 								</div>
 							</div>
+
 							<ul class="browser_support mt_m" data-tit="tabindex">
 								<li class="ie">지원</li>
 								<li class="edge">지원</li>
@@ -479,16 +443,13 @@ console.log($me.dataset.myAge); // "851"
 								&lt;label contenteditable&gt;Example Label&lt;/label&gt;와 같은 축약적인 표현은 허용되지 않습니다.<br>
 								올바른 사용법은 &lt;label contenteditable=&quot;true&quot;&gt;Example Label&lt;/label&gt; 입니다.
 							</p>
-							<div class="view_editor ex_code mt_s">
-								<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-									<div class="code_wrap">
-										<textarea readonly="readonly">
 
-<p contenteditable="true">uxkm.github.io</p>
-										</textarea>
-									</div>
+							<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.contenteditable.html">
+								<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+									<div class="code_wrap"><textarea></textarea></div>
 								</div>
 							</div>
+
 							<ul class="browser_support mt_m" data-tit="contenteditable">
 								<li class="ie">5.5+</li>
 								<li class="edge">지원</li>
@@ -533,17 +494,13 @@ console.log($me.dataset.myAge); // "851"
 								auto 값은 사용자 입력 데이터와 같이 데이터의 방향성을 모르며 최종적으로 데이터베이스에 저장되는 데이터일 경우에만 사용되어야 합니다.
 							</p>
 
-							<div class="view_editor ex_code mt_s">
+							<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.dir.html">
 								<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-									<div class="code_wrap">
-										<textarea readonly="readonly">
-
-<p dir="ltr">uxkm.github.io</p>
-										</textarea>
-									</div>
+									<div class="code_wrap"><textarea></textarea></div>
 								</div>
 							</div>
-							<ul class="browser_support mt_s" data-tit="dir">
+
+							<ul class="browser_support mt_m" data-tit="dir">
 								<li class="ie false">지원안함</li>
 								<li class="edge false">지원안함</li>
 								<li class="chrome">지원</li>
@@ -559,3 +516,33 @@ console.log($me.dataset.myAge); // "851"
 		</div>
 	</article>
 	<!-- HTML 요소 -->
+
+
+
+	<article class="uk_note mt_lm">
+		<h2 class="tit">Javascript에서 사용하는 이벤트 핸들러 속성</h2>
+		<p>
+			onabort, onautocomplete, onautocompleteerror, onblur, oncancel, oncanplay,
+			oncanplaythrough, onchange, onclick, onclose, oncontextmenu, oncuechange,
+			ondblclick, ondrag, ondragend, ondragenter, ondragleave, ondragover,
+			ondragstart, ondrop, ondurationchange, onemptied, onfocus, onerror,
+			onfocus, oninput, oninvalid, onkeydown, onkeypress, onkeyup, onload,
+			onloadeddata, onloadedmetadata, onloadstart, onmousedown, onmouseenter,
+			onmouseleave, onmousemove, onmouseout, onmouseover, onmouseup,
+			onmousewheel, onpause, onplay, onplaying, onprogress, onratechange,
+			onseeked, onresize, onscroll, onseeked, onseeking, onselect, onshow, onsort,
+			onstalled, onsubmit, onsuspend, ontimeupdate, ontoggle, onvolumechange, onwaiting.
+		</p>
+	</article>
+	<!-- 요약 설명 -->
+
+
+	<article class="reference_box">
+		<h2 class="tit">참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/html52/document-metadata.html" target="_blank" class="fas">W3C 문서</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element" target="_blank" class="fas">MDN 문서</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/html51/dom.html#global-attributes" target="_blank" class="fas">W3C 전역속성</a></li>
+		</ul>
+	</article>
+	<!-- 참조 -->

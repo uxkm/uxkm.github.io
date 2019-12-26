@@ -638,7 +638,7 @@ input[type="range"] {
 	.CodeMirror-sizer {padding-bottom:8px !important;}
 	.CodeMirror-simplescroll-horizontal,
 	.CodeMirror-simplescroll-vertical {
-		bottom:3px; right:3px; border-radius:100px;
+		bottom:3px; right:3px; z-index:4; border-radius:100px;
 	}
 	.CodeMirror-simplescroll-horizontal {transform:scale(.99, 1);}
 	.CodeMirror-simplescroll-vertical {transform:scale(1, .99);}
@@ -660,7 +660,7 @@ input[type="range"] {
 	}
 	&[data-theme="default"]{
 		.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
-			background:#bbb;
+			background:rgba(0,0,0,.15);
 		}
 	}
 }
@@ -670,6 +670,7 @@ input[type="range"] {
 		@device_iframe_height:220px;
 		@bro_height:35px;
 		@info_i_height:316px;
+		border-width:2px;
 
 		&[data-result="true"]{
 			.code_wrap, .result_wrap {width:auto;}
