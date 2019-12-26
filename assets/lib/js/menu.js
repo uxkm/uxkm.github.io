@@ -819,13 +819,18 @@ var menu = [
 								html5:		false,
 							},
 							{
+								d4_nm:	'플렉서블 박스 레이아웃',
+								d4_url:		url_css+'cssAdvanced&css_flexible',
+								html5:		false,
+							},
+							{
 								d4_nm:	'그리드 레이아웃',
 								d4_url:		url_css+'cssAdvanced&css_grid',
 								html5:		false,
 							},
 							{
-								d4_nm:	'플렉서블 박스 레이아웃',
-								d4_url:		url_css+'cssAdvanced&css_flexible',
+								d4_nm:	'멀티 컬럼 레이아웃',
+								d4_url:		url_css+'cssAdvanced&css_multicolumn',
 								html5:		false,
 							},
 							{
