@@ -200,9 +200,9 @@ $(document).ready(function(){
 					}, loadingEndTime);
 				},
 				success:function(data){
-					sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on)
-					uk_editor();
-					setTimeout(loadScrollTop, loadingEndTime/3);
+					sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on);
+					setTimeout(uk_editor, 200);
+					setTimeout(loadScrollTop, loadingEndTime);
 					if( pageMove ){
 						setTimeout(function(){
 							depth4_scroll(target_url, 0);
@@ -211,7 +211,8 @@ $(document).ready(function(){
 					}
 					setTimeout(function(){
 						$(window).on('load', loadingEnd());
-						$(window).trigger('resize scroll');
+						$(window).trigger('resize');
+						$(window).trigger('scroll');
 					}, loadingEndTime);
 				}
 			});
@@ -890,9 +891,9 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			//if( i === 0 ) of_top = $(e).offset().top - hd_h;
 			else of_top = $(e).offset().top - hd_h;
 			sub_offsetTop.push( of_top );
+			//console.log( sub_offsetTop );
 			
 			//준비중 페이지
-			//if( $(e).attr('data-last-update') === '' ){
 			if( !$(e).find('h2').next().is(':visible') ){
 				$(e).append('<div class="ready_content both"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
 			}
@@ -994,6 +995,18 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 	//common
 	removeTabindex();	//remove tabindex
 	focusControl();			//focus controll
+
+	//uk_editor 코드 적용
+	var uk_editor = $('.uk_editor');
+	uk_editor.each(function(i, e){
+		var target = $(e).parent().attr('data-target');
+		var txtarea = $(e).find('textarea');
+		if( target.match('html') ){
+			$.get('/ukncs/tutorials/'+target, function(content){
+				txtarea.text(content);
+			});
+		}
+	});
 }
 
 

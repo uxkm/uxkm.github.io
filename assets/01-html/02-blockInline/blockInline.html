@@ -26,14 +26,10 @@
 					<li>블록 레벨 요소는 인라인 요소(Inline elements)에 중첩될(Nested inside)수 없습니다. 그러나 블록 레벨 요소는 다른 블록 레벨 요소에 중첩될 수 있습니다.</li>
 				</ol>
 			</div>
-			<div class="view_editor ex_code mt_l">
+			<div class="view_editor ex_code mt_l" data-target="html/02-blockInline/2.1.block_element.html">
 				<h3 class="ve_tit">block 요소의 기본 구조</h3>
 				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap">
-					<textarea readonly="readonly">
-<p style="border: 3px solid red"> p요소는 display 속성값이 기본이 블록인 요소입니다.</p>
-</textarea>
-					</div>
+					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
 			<div class="uk_note mt_l">
@@ -52,18 +48,14 @@
 		<div class="indent mt_l">
 			<p>&lt;div&gt;요소는 다른 HTML 요소들을 하나로 묶는 데 자주 사용되는 대표적인 블록(block) 요소입니다.</p>
 			<p>&lt;div&gt;요소는 주로 여러 요소들의 스타일을 한 번에 적용하기 위해 사용됩니다.</p>
-			<div class="view_editor ex_code mt_l">
+
+			<div class="view_editor ex_code mt_l" data-target="html/02-blockInline/2.2.div_block.html">
 				<h3 class="ve_tit">div 구조 예시</h3>
 				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap">
-				<textarea readonly="readonly">
-<div style="background-color:lightgrey; color:green; text-align:center">
-	<h1>div요소를 이용한 스타일 적용</h1>
-	<p>이렇게 div요소로 여러 요소들을 묶은 다음에 style 속성과 클래스 등을 이용하여 한 번에 스타일을 적용할 수 있습니다.</p>
-</div></textarea>
-					</div>
+					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
+
 			<ul class="browser_support mt_l" data-tit="div">
 				<li class="ie">지원</li>
 				<li class="edge">지원</li>
@@ -91,16 +83,14 @@
 					</li>
 				</ol>
 			</div>
-			<div class="view_editor ex_code mt_l">
+
+			<div class="view_editor ex_code mt_l" data-target="html/02-blockInline/2.3.inline_element.html">
 				<h3 class="ve_tit">inline 요소의 기본 구조</h3>
 				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap">
-					<textarea readonly="readonly">
-<p><span style="background-color:grey; color:orange">span태그</span>는 display 속성값이 기본이 인라인인 요소입니다.</p>
-<em>first</em><em>second</em><em>third</em></textarea>
-					</div>
+					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
+
 			<div class="uk_note mt_l">
 				<h2 class="sound_only">블록 레벨 요소 요약 설명</h2>
 				<p>대표적인 인라인 요소에는 다음과 같은 요소들이 있습니다.</p>
@@ -117,18 +107,14 @@
 		<div class="indent mt_l">
 			<p>&lt;span&gt;요소는 텍스트(text)의 특정 부분을 묶는 데 자주 사용되는 인라인(inline) 요소입니다.</p>
 			<p>&lt;span&gt;요소는 주로 텍스트의 특정 부분에 따로 스타일을 적용하기 위해 사용됩니다.</p>
-			<div class="view_editor ex_code mt_l">
+
+			<div class="view_editor ex_code mt_l" data-target="html/02-blockInline/2.4.span_inline.html">
 				<h3 class="ve_tit">span 구조 예시</h3>
 				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap">
-				<textarea readonly="readonly">
-<p>이렇게
-	<span style="border: 3px solid red">span요소로 텍스트의 일부분</span>
-	만을 따로 묶은 후에 스타일을 적용할 수 있습니다.
-</p></textarea>
-					</div>
+					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
+
 			<ul class="browser_support mt_l" data-tit="div">
 				<li class="ie">지원</li>
 				<li class="edge">지원</li>
@@ -147,14 +133,10 @@
 		<div class="indent mt_l">
 			<p>요소를 다른 요소의 안에 놓을 수 있습니다 — 이것을 <b>중첩(nesting)</b>이라고 부릅니다.</p>
 
-			<div class="view_editor ex_code mt_l">
+			<div class="view_editor ex_code mt_l" data-target="html/02-blockInline/2.5.element_nesting1.html">
 				<h3 class="ve_tit">요소 중첩의 올바른 예</h3>
 				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap">
-				<textarea readonly="readonly">
-<p>블록요소(단락) 안에 <strong>인라인 요소(강조)</strong> 가 중첩되어 있습니다.</p>
-</textarea>
-					</div>
+					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
 
@@ -166,14 +148,10 @@
 				<p>다음은 잘못된 예제입니다.</p>
 			</div>
 
-			<div class="view_editor ex_code ex_wrong mt_l">
+			<div class="view_editor ex_code ex_wrong mt_l" data-target="html/02-blockInline/2.5.element_nesting2.html">
 				<h3 class="ve_tit">요소 중첩의 잘못된 예</h3>
 				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap">
-				<textarea readonly="readonly">
-<p>블록요소(단락) 안에 <strong>인라인 요소(강조)</p> 가 중첩되어 있습니다.</strong>
-<span><p>블록요소(단락) 안에 <strong>인라인 요소(강조)</strong> 가 중첩되어 있습니다.</p></span></textarea>
-					</div>
+					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
 		</div>
@@ -189,13 +167,9 @@
 				대표적으로 meta, link, img, hr, br 요소가 있습니다.
 			</p>
 
-			<div class="view_editor ex_code mt_l">
+			<div class="view_editor ex_code mt_l" data-target="html/02-blockInline/2.6.only_empty.html">
 				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap">
-				<textarea readonly="readonly">
-<img src="sample.png" alt="샘플 이미지" />
-				</textarea>
-					</div>
+					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
 

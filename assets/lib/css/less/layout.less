@@ -2318,6 +2318,7 @@
 	}
 	@media(max-width:@screen-sm-max){
 		.browser_support {
+			border-width:2px;
 			&:before {font-size:13px;}
 		}
 	}
@@ -2352,7 +2353,15 @@
 			&:hover {color:@blue;}
 		}
 	}
-	@media(max-width:@screen-sm-max){}
+	@media(max-width:@screen-sm-max){
+		.reference_box {
+			margin-top:30px;
+			.link_lst {
+				margin-top:-14px; padding:20px 15px;
+				border-width:2px;
+			}
+		}
+	}
 
 	.mt_lm {margin-top:50px;}
 	.mt_l {margin-top:30px;}
@@ -2364,6 +2373,7 @@
 	.break_all {word-break:break-all;}
 	@media(max-width:@screen-sm-max){
 		.indent {margin-left:8px;}
+		.mt_lm {margin-top:30px;}
 	}
 
 

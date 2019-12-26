@@ -660,7 +660,7 @@ input[type="range"] {
 	}
 	&[data-theme="default"]{
 		.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
-			background:#bbb;
+			background:rgba(0,0,0,.15);
 		}
 	}
 }
@@ -670,6 +670,7 @@ input[type="range"] {
 		@device_iframe_height:220px;
 		@bro_height:35px;
 		@info_i_height:316px;
+		border-width:2px;
 
 		&[data-result="true"]{
 			.code_wrap, .result_wrap {width:auto;}
