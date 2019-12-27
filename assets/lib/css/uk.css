@@ -46,6 +46,9 @@
 .font-icon {
   font-family: "Font Awesome 5 Free", sans-serif;
 }
+.font-icon2 {
+  font-family: "Font Awesome 5 Brands", sans-serif;
+}
 /* reset */
 html,
 body,
@@ -326,6 +329,24 @@ input[type="range"]::-ms-thumb {
   background: #fff;
   border: 2px solid #666;
   border-radius: 100%;
+}
+mark {
+  position: relative;
+  z-index: 1;
+  color: #444;
+  background: rgba(255, 0, 0, 0.1);
+}
+mark:before {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  height: 50%;
+  background: rgba(228, 77, 38, 0.25);
+  border-radius: 2px;
+  content: "";
 }
 .dp_pc {
   display: block !important;
@@ -1325,6 +1346,7 @@ input[type="range"]::-ms-thumb {
   .uk_editor[data-result="true"] .result_wrap {
     position: relative;
     top: 0;
+    padding-top: 31px;
     border-left: 0;
     border-top: 1px solid #ccc;
   }
@@ -1343,22 +1365,22 @@ input[type="range"]::-ms-thumb {
     left: 16px;
     top: 10px;
   }
-  .uk_editor.desktop .result_wrap .browserBtn .minimize_btn {
+  .uk_editor[data-result="true"].desktop .result_wrap .browserBtn .minimize_btn {
     display: none;
   }
-  .uk_editor.desktop .result_wrap .browserBtn .closing_btn {
+  .uk_editor[data-result="true"].desktop .result_wrap .browserBtn .closing_btn {
     display: none;
   }
-  .uk_editor.device .result_wrap:before,
-  .uk_editor.device .result_wrap:after {
+  .uk_editor[data-result="true"].device .result_wrap:before,
+  .uk_editor[data-result="true"].device .result_wrap:after {
     display: none;
   }
-  .uk_editor.device .result_wrap iframe {
+  .uk_editor[data-result="true"].device .result_wrap iframe {
     height: 220px;
     margin: 0;
     border: 0;
   }
-  .uk_editor.device .result_wrap .browserBtn {
+  .uk_editor[data-result="true"].device .result_wrap .browserBtn {
     display: none;
   }
   .uk_editor .btn_wrap {
@@ -5476,12 +5498,21 @@ body {
 .content_area h2 {
   float: left;
   line-height: 32px;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
   font-size: 24px;
   color: #081121;
   letter-spacing: -1px;
 }
 .content_area h2:before {
   content: attr(data-number);
+}
+.content_area h2.html5:after {
+  margin: 0 0 0 7px;
+  font-family: "Font Awesome 5 Brands", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #e44d26;
+  content: "\f13b";
 }
 .content_area h3 {
   line-height: 30px;
@@ -5567,6 +5598,10 @@ body {
     padding-bottom: 24px;
     font-size: 18px;
   }
+  .content_area h2.html5:after {
+    margin: 0 0 0 6px;
+    font-size: 16px;
+  }
   .content_area h3 {
     line-height: 22px;
     font-size: 16px;
@@ -5607,6 +5642,10 @@ body {
 @media (max-width: 360px) {
   .content_area h2 {
     font-size: 16px;
+  }
+  .content_area h2.html5:after {
+    margin: 0 0 0 6px;
+    font-size: 14px;
   }
 }
 .uk_note {
@@ -5699,18 +5738,19 @@ body {
   margin-top: 10px;
 }
 .line_code strong {
-  color: #081121;
-  font-weight: 600;
+  color: #444;
+  font-weight: 500;
 }
 .line_code > p {
   margin-top: 2px;
-  padding: 10px 15px;
+  padding: 8px 15px;
   font-family: 'Open Sans', 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
   word-break: break-all;
   background: #f9f9f9;
 }
 .line_code h3 + p,
-.line_code h4 + p {
+.line_code h4 + p,
+.line_code span + p {
   margin-top: 10px;
 }
 .img_figure {

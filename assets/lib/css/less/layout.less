@@ -2125,8 +2125,13 @@
 
 		h1 {line-height:38px; font-size:30px; color:@navy; letter-spacing:-1px;}
 		h1:before {content:attr(data-number);}
-		h2 {.lft; line-height:32px; font-size:24px; color:@navy; letter-spacing:-1px;}
+		h2 {.lft; line-height:32px; .font-kr; font-size:24px; color:@navy; letter-spacing:-1px;}
 		h2:before {content:attr(data-number);}
+		h2.html5:after {
+			margin:0 0 0 7px;
+			.font-icon2; font-size:22px; font-weight:bold; color:@red;
+			content:"\f13b";
+		}
 		//h2:after {content:"Last Updated on "attr(data-last-update);}
 		h3 {line-height:30px; font-size:20px; color:fade(@navy, 90%); letter-spacing:-0.3px;}
 		h4 {line-height:26px; font-size:18px; color:fade(@navy, 80%); letter-spacing:-0.3px;}
@@ -2174,6 +2179,7 @@
 				float:none; line-height:@h2_h; padding-bottom:@h2_h;
 				font-size:18px;
 			}
+			h2.html5:after {margin:0 0 0 6px; font-size:16px;}
 			h3 {line-height:22px; font-size:16px;}
 			h4 {line-height:20px; font-size:15px;}
 			h4 .fa-html5 {margin:4px 0 0;}
@@ -2196,6 +2202,7 @@
 	@media(max-width:@screen-xxs){
 		.content_area {
 			h2 {font-size:16px;}
+			h2.html5:after {margin:0 0 0 6px; font-size:14px;}
 		}
 	}
 
@@ -2267,12 +2274,12 @@
 	@media(max-width:@screen-sm-max){}
 
 	.line_code {
-		strong {color:@navy; font-weight:600;}
+		strong {color:#444; font-weight:500;}
 		> p {
-			margin-top:2px; padding:10px 15px;
+			margin-top:2px; padding:8px 15px;
 			.font-en; word-break:break-all; background:#f9f9f9;
 		}
-		h3 + p, h4 + p {margin-top:10px;}
+		h3 + p, h4 + p, span + p {margin-top:10px;}
 	}
 	@media(max-width:@screen-sm-max){}
 

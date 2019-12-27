@@ -8,6 +8,7 @@
 .font-tit2 {font-family:'Cinzel Decorative', cursive;}
 .font-logo {font-family:'Jura', sans-serif;}
 .font-icon {font-family:"Font Awesome 5 Free", sans-serif;}
+.font-icon2 {font-family: "Font Awesome 5 Brands", sans-serif;}
 
 
 //media size
@@ -88,6 +89,19 @@ input[type="range"] {
 	&::-webkit-slider-thumb {width:30px; height:30px; margin-top:-12px; background:@white; border:2px solid @gray; border-radius:100%; -webkit-appearance:none;}
 	&::-moz-range-thumb {width:26px; height:26px; margin-top:-10px; background:@white; border:2px solid @gray; border-radius:100%;}
 	&::-ms-thumb {width:26px; height:26px; margin-top:0; background:@white; border:2px solid @gray; border-radius:100%;}
+}
+
+
+//mark tag
+mark {
+	position:relative; z-index:1;
+	color:#444; background:fade(red, 10%);
+	&:before {
+		display:none;
+		position:absolute; left:0; right:0; bottom:0; z-index:-1;
+		height:50%; background:fade(@red, 25%); border-radius:2px;
+		content:"";
+	}
 }
 
 
@@ -676,6 +690,7 @@ input[type="range"] {
 			.code_wrap, .result_wrap {width:auto;}
 			.result_wrap {
 				position:relative; top:0;
+				padding-top:31px;
 				border-left:0; border-top:1px solid @edt_border_color;
 				//&:before, &:after {display:none;}
 				iframe {
@@ -689,17 +704,18 @@ input[type="range"] {
 					.i_favicon {left:16px; top:10px;}
 				}
 			}
+
+			&.desktop .result_wrap .browserBtn {
+				.minimize_btn {display:none;}
+				.closing_btn {display:none;}
+			}
+			&.device .result_wrap {
+				&:before, &:after {display:none;}
+				iframe {height:@device_iframe_height; margin:0; border:0;}
+				.browserBtn {display:none;}
+			}
 		}
 
-		&.desktop .result_wrap .browserBtn {
-			.minimize_btn {display:none;}
-			.closing_btn {display:none;}
-		}
-		&.device .result_wrap {
-			&:before, &:after {display:none;}
-			iframe {height:@device_iframe_height; margin:0; border:0;}
-			.browserBtn {display:none;}
-		}
 
 		.btn_wrap {
 			right:0; top:auto; bottom:@iframe_height + @bro_height + 42px;
