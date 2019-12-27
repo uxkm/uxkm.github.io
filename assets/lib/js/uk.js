@@ -67,6 +67,7 @@ var pageTop_scrollSpeed = 0;
 var sub_offsetTop = [];
 var side_offsetTop = [];
 var top_link_offsetTop = [];
+var top_link_offsetLeft = [];
 
 var loading = $('.loading');
 var hide_loading = 'hide_loading';
@@ -201,19 +202,24 @@ $(document).ready(function(){
 				},
 				success:function(data){
 					sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on);
-					setTimeout(uk_editor, 200);
-					setTimeout(loadScrollTop, loadingEndTime);
+					ukEditor_txtarea();
+					setTimeout(uk_editor, 100);
+					setTimeout(function(){
+						$(window).on('load', loadingEnd());
+					}, loadingEndTime);
+					setTimeout(function(){
+						$(window).trigger('resize');
+						$(window).trigger('scroll');
+						loadScrollTop();
+						//if( !pageMove ) loadScrollTop();
+						ukEditor_re();
+					}, loadingEndTime*2);
 					if( pageMove ){
 						setTimeout(function(){
 							depth4_scroll(target_url, 0);
 							pageMove = false;
-						}, loadingStartTime + 50);
+						}, loadingEndTime*2);
 					}
-					setTimeout(function(){
-						$(window).on('load', loadingEnd());
-						$(window).trigger('resize');
-						$(window).trigger('scroll');
-					}, loadingEndTime);
 				}
 			});
 		}, time);
@@ -915,6 +921,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 				side_target.removeClass(tg_on).find('ol').hide();
 				side_state = true;
 			}
+			$('.'+top_link+' ul').removeAttr('style');
 		}
 		else{
 			$html.removeClass(md_state);
@@ -923,8 +930,11 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 				side_target.addClass(tg_on).find('ol').show();
 				side_state = false;
 			}
+			var top_left = $('.'+sub_content).offset().left + Number($('.'+sub_content).css('paddingLeft').split('px')[0]) + 4;
+			top_link_offsetLeft = [];
+			top_link_offsetLeft.push(top_left);
+			if( $('.'+top_link+' ul').is('.fixed') ) $('.'+top_link+' ul').css('right',top_left+'px');
 		}
-	//});
 	}).trigger('resize');
 
 	//scroll
@@ -935,8 +945,12 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		if( sct > side_offsetTop )$('.'+side_menu_area).addClass('fixed');
 		else $('.'+side_menu_area).removeClass('fixed');
 
-		if( sct > top_link_offsetTop[0] )$('.'+top_link+' ul').addClass('fixed');
-		else $('.'+top_link+' ul').removeClass('fixed');
+		if( sct > top_link_offsetTop[0] ){
+			$('.'+top_link+' ul').addClass('fixed').css('right',top_link_offsetLeft+'px');
+		}
+		else{
+			$('.'+top_link+' ul').removeClass('fixed').removeAttr('style');
+		}
 
 		var remove_class = 'li.'+dp4+'.on';
 		var add_class = 'li.item.on li';
@@ -995,18 +1009,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 	//common
 	removeTabindex();	//remove tabindex
 	focusControl();			//focus controll
-
-	//uk_editor 코드 적용
-	var uk_editor = $('.uk_editor');
-	uk_editor.each(function(i, e){
-		var target = $(e).parent().attr('data-target');
-		var txtarea = $(e).find('textarea');
-		if( target.match('html') ){
-			$.get('/ukncs/tutorials/'+target, function(content){
-				txtarea.text(content);
-			});
-		}
-	});
 }
 
 
@@ -1136,7 +1138,32 @@ function offsetTopControl(){
 }
 
 
+//uk_editor 코드 적용
+function ukEditor_txtarea(){
+	var uk_editor = $('.uk_editor');
+	uk_editor.each(function(i, e){
+		var target = $(e).parent().attr('data-target');
+		var txtarea = $(e).find('textarea');
+		if( target.match('html') ){
+			$.get('/ukncs/tutorials/'+target, function(content){
+				txtarea.text(content);
+			});
+		}
+	});
+}
 
+
+//uk_editor 적용 실패 시 윈도우 강제 리프레시
+function ukEditor_re(){
+	var uk_editor = $('.uk_editor');
+	uk_editor.each(function(i, e){
+		var code = $(e).find('.CodeMirror-code');
+		if( code.text().length < 3 ){
+			var be_url =  location.href;
+			window.location.replace(be_url);
+		}
+	});
+}
 
 
 
