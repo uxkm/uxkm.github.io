@@ -2269,15 +2269,17 @@
 	}
 
 	.txt_ex {
+		> b {font-size:15px; color:#444; font-weight:600;}
 		> p {.mt_s;}
 	}
 	@media(max-width:@screen-sm-max){}
 
 	.line_code {
 		strong {color:#444; font-weight:500;}
+		b {font-weight:500;}
 		> p {
 			margin-top:2px; padding:8px 15px;
-			.font-en; word-break:break-all; background:#f9f9f9;
+			.font-kr; word-break:break-all; background:#f9f9f9;
 		}
 		h3 + p, h4 + p, span + p {margin-top:10px;}
 	}

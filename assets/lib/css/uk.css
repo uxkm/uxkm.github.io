@@ -330,24 +330,18 @@ input[type="range"]::-ms-thumb {
   border: 2px solid #666;
   border-radius: 100%;
 }
+/*
 mark {
-  position: relative;
-  z-index: 1;
-  color: #444;
-  background: rgba(255, 0, 0, 0.1);
+	position:relative; z-index:1;
+	color:#444; background:fade(red, 10%);
+	&:before {
+		display:none;
+		position:absolute; left:0; right:0; bottom:0; z-index:-1;
+		height:50%; background:fade(@red, 25%); border-radius:2px;
+		content:"";
+	}
 }
-mark:before {
-  display: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  height: 50%;
-  background: rgba(228, 77, 38, 0.25);
-  border-radius: 2px;
-  content: "";
-}
+*/
 .dp_pc {
   display: block !important;
 }
@@ -454,7 +448,7 @@ mark:before {
 }
 .uk_editor[data-result="true"] .CodeMirror-scroll {
   min-height: 320px;
-  max-height: 628px;
+  max-height: 528px;
 }
 .uk_editor[data-result="true"] .code_wrap,
 .uk_editor[data-result="true"] .result_wrap {
@@ -5734,6 +5728,11 @@ body {
     margin-top: 10px;
   }
 }
+.txt_ex > b {
+  font-size: 15px;
+  color: #444;
+  font-weight: 600;
+}
 .txt_ex > p {
   margin-top: 10px;
 }
@@ -5741,10 +5740,13 @@ body {
   color: #444;
   font-weight: 500;
 }
+.line_code b {
+  font-weight: 500;
+}
 .line_code > p {
   margin-top: 2px;
   padding: 8px 15px;
-  font-family: 'Open Sans', 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
   word-break: break-all;
   background: #f9f9f9;
 }
