@@ -158,6 +158,10 @@ $(document).ready(function(){
 						loadingEnd();
 						$('.main_intro').addClass('start');
 					}, loadingEndTime);
+					setTimeout(function(){
+						$(window).trigger('resize');
+						$(window).trigger('scroll');
+					}, loadingEndTime*2);
 				}
 			});
 		}, time);
@@ -203,9 +207,10 @@ $(document).ready(function(){
 				success:function(data){
 					sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on);
 					ukEditor_txtarea();
-					setTimeout(uk_editor, 100);
+					//setTimeout(uk_editor, 100);
 					setTimeout(function(){
 						$(window).on('load', loadingEnd());
+						uk_editor();
 					}, loadingEndTime);
 					setTimeout(function(){
 						$(window).trigger('resize');
@@ -598,6 +603,7 @@ $(document).ready(function(){
 			$(window).scroll(function(){
 				someVarName = $(window).scrollTop();
 				sessionStorage.setItem('scrollTop', someVarName);
+				//console.log(someVarName);
 			});
 			$htmlbody.animate({'scrollTop':sessionStorage.scrollTop}, 0);
 		}
@@ -1161,7 +1167,7 @@ function ukEditor_re(){
 		if( code.text().length < 3 ){
 			//var be_url =  location.href;
 			//window.location.replace(be_url);
-			uk_editor();
+			//uk_editor();
 		}
 	});
 }

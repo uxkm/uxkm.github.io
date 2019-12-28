@@ -1,6 +1,7 @@
 
 //uk_editor();
 function uk_editor(){
+	//console.log('aaa');
 	function qsa(sel){
 		return Array.apply(null, document.querySelectorAll(sel));
 	}
