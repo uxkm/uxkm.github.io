@@ -1155,12 +1155,13 @@ function ukEditor_txtarea(){
 
 //uk_editor 적용 실패 시 윈도우 강제 리프레시
 function ukEditor_re(){
-	var uk_editor = $('.uk_editor');
-	uk_editor.each(function(i, e){
+	var ukEditor = $('.uk_editor');
+	ukEditor.each(function(i, e){
 		var code = $(e).find('.CodeMirror-code');
 		if( code.text().length < 3 ){
-			var be_url =  location.href;
-			window.location.replace(be_url);
+			//var be_url =  location.href;
+			//window.location.replace(be_url);
+			uk_editor();
 		}
 	});
 }
