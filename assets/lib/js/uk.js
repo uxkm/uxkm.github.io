@@ -1,6 +1,8 @@
 
 var respon_size = 767 - 17;
 var md_size = 993 - 17;
+var type_indiv = 'indiv';
+var uk_type = type_indiv;
 var UXKM = 'UXKM';
 var $html = $('html');
 var $title = $('title');
@@ -29,6 +31,7 @@ var $ftDepth2 = $ukFooter.find('.depth2');
 
 //container
 var $ukContainer = $('.uk_container');
+var sub_top = 'sub_top';
 var top_link = 'top_link';
 var common_info = 'common_info';
 var top_info = 'top_info';
@@ -83,7 +86,7 @@ $(document).ready(function(){
 
 
 	//loading ---------------------------------------------------------------------------------//
-	loading.css('height',window.innerHeight).find('.tit').addClass(device_check);
+	loading/*.css('height',window.innerHeight)*/.find('.tit').addClass(device_check);
 	function loadingEnd(){
 		if( loading.is('.uxkm_start') ){
 			setTimeout(function(){
@@ -179,7 +182,12 @@ $(document).ready(function(){
 			var file_url;
 			//assets 메뉴 활성화 시 || assets 메뉴 파일 경로
 			if( d1_on === 0 ){
-				file_url = menu[d1_on].d2[d2_on].d3[d3_on].d3_file;
+				if( target_url.split('&').length > 3 ){
+					file_url = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].d4_file;
+				}
+				else{
+					file_url = menu[d1_on].d2[d2_on].d3[d3_on].d3_file;
+				}
 			}
 			//Project GUIDE, Web Trends 외 메뉴 활성화 시 || Project GUIDE, Web Trends 메뉴 파일 경로
 			else {
@@ -260,7 +268,12 @@ $(document).ready(function(){
 
 						//al_depth3 생성
 						for( g=0; g<d4.length; g++ ){
-							al_depth3.append('<li class="'+dp4+'"><a href="'+ d4[g].d4_url +'" class="'+hash_link+'">'+ d4[g].d4_nm + '</a></li>');
+							if( uk_type === type_indiv ){
+								al_depth3.append('<li class="'+dp4+'"><a href="'+ d4[g].d4_url +'" class="'+uk_link+'">'+ d4[g].d4_nm + '</a></li>');
+							}
+							else{
+								al_depth3.append('<li class="'+dp4+'"><a href="'+ d4[g].d4_url +'" class="'+hash_link+'">'+ d4[g].d4_nm + '</a></li>');
+							}
 							//if( c === d2_on && e === d3_on && g === d4_on && d4_true ) al_depth3.find('>li').eq(g).addClass('on');
 
 							//element 텍스트 색상 분기 처리
@@ -348,10 +361,11 @@ $(document).ready(function(){
 		}
 
 		//클릭 시 같은 페이지 일 경우
-		if( this_local === this_link_split ){
+		if( this_local_url === this_link_split ){
 			loadStage = true;
 			$htmlbody.stop().animate({'scrollTop':0}, pageTop_scrollSpeed, 'easeInOutCubic');
-			if( location.href.match(data) ){
+
+			if( location.href.match(data) && uk_type !== type_indiv ){
 				$('.dp4').removeClass('on');
 				var browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
 				$title.text(browser_tit+' | '+UXKM);
@@ -791,13 +805,15 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 	if( d1_on === 0 ){
 		var d2_target = menu[0].d2[d2_on];
 		var d3_target = d2_target.d3[d3_on];
+		if( target_url.split('&').length > 3 ) var d4_target = d3_target.d4[d4_on];
 		$ukContainer.append(
-			'<section class="sub_top">' +
-				'<h1 class="tit">'+d2_target.d2_nm+'</h1>' +
+			'<section class="'+sub_top+'">' +
+				//'<h1 class="tit">'+d2_target.d2_nm+'</h1>' +
+				'<h1 class="tit">'+(d3_on+1)+'. '+d3_target.d3_nm+'</h1>' +
 				'<nav class="'+top_link+'"><ul></ul></nav>' +
 				'<div class="inner">' +
 					'<div class="'+common_info+'"></div>' +
-					'<ul class="'+top_info+'"></ul>' +
+					'<div class="'+top_info+'"></div>' +
 				'</div>' +
 			'</section>' +
 			'<div class="sub_content inner">' +
@@ -809,15 +825,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 				'<main id="content" class="'+content_area+'" role="main"></main>' + //tabindex="-1"
 			'</div>'
 		);
-
-		//상단 생성
-		conAjax( $('.'+common_info), file+'common_info.html' );	//상단 공통 info 생성
-		conAjax( $('.'+top_info), d2_target.d2_info );						//상단 개별 info 생성
-		function conAjax(el, target){
-			$.get(target, function(content){
-				el.append(content);
-			});
-		}
 
 		//상단 메뉴 생성
 		var assets_d2 = menu[0].d2;
@@ -832,14 +839,41 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		}
 
 		//컨텐츠 생성
-		$ukContainer.find('.'+content_area).html(data);
-		$ukContainer.find('.'+content_area).prepend('<h1 data-number="'+(d3_on+1)+'. ">'+d3_target.d3_nm+'</h1>');
-		$ukContainer.find('.'+uk_course).each(function(i, e){
-			$(e).find('h2').attr('data-number', (d3_on+1)+'.'+(i+1)+'. ');
-			$(e).find('h2').next().addClass('both');
-		});
-		$ukContainer.find('.'+uk_course).last().addClass('last_course');
-		
+		$('.'+content_area).html(data);
+		if( target_url.split('&').length > 3 ){
+			$ukContainer.find('.'+content_area+' >h1').text(d4_target.d4_nm).attr('data-number', (d3_on+1)+'.'+(d4_on+1)+'. ');
+		}
+		else{
+			$ukContainer.find('.'+content_area+' >h1').text(d3_target.d3_nm).attr('data-number', (d3_on+1)+'. ');
+		}
+
+		//요약설명 / 참조 생성 / 상단 컨텐츠 생성
+		var d3Note = d3_target.d3_note;
+		var d3Refer = d3_target.d3_refer;
+		var d3_fileUrl = d3_target.d3_file;
+		//상단 공통 info 생성
+		conAjax( $('.'+common_info), file+'common_info.html' );
+		//요약설명 또는 공통 설명 생성
+		if( d3Note === true ){
+			var note_file = d3_fileUrl + 'note.html';
+			conAjax( $('.'+sub_top+' .inner'), note_file );
+		}
+		else{
+			conAjax( $('.'+top_info), d2_target.d2_info );						//상단 개별 info 생성
+		}
+		//참조 생성
+		if( d3Refer === true ){
+			var refer_file = d3_fileUrl + 'reference.html';
+			conAjax( $('.'+content_area), refer_file );
+		}
+
+		//상단 생성 컨텐트 생성
+		function conAjax(el, target){
+			$.get(target, function(content){
+				el.append(content);
+			});
+		}
+
 		//컨텐츠 사이드 메뉴 생성
 		var side_d3 = d2_target.d3;
 		for( i=0; i<side_d3.length; i++ ){
@@ -852,11 +886,17 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			var side_d4 = side_d3[i].d4;
 			if( typeof side_d4 !== 'undefined' ){
 				$(e).append('<ol class="side_d2"></ol>');
-				$(e).find('>a').addClass(toggle_link);
+				//$(e).find('>a').addClass(toggle_link);
+				$(e).addClass('toggle_box').find('>a').addClass(toggle_link);
 
 				//4차메뉴 생성
 				for( a=0; a<side_d4.length; a++ ){
-					$(e).find('>ol').append('<li class="'+dp4+'"><a href="'+side_d4[a].d4_url+'" class="'+hash_link+'">'+side_d4[a].d4_nm+'</a></li>');
+					if( uk_type === type_indiv ){
+						$(e).find('>ol').append('<li class="'+dp4+'"><a href="'+side_d4[a].d4_url+'" class="'+uk_link+'">'+side_d4[a].d4_nm+'</a></li>');
+					}
+					else{
+						$(e).find('>ol').append('<li class="'+dp4+'"><a href="'+side_d4[a].d4_url+'" class="'+hash_link+'">'+side_d4[a].d4_nm+'</a></li>');
+					}
 					if( i === d3_on && a === d4_on && target_url.split('&').length > 3  ){
 						$(e).find('li').eq(a).addClass('on');
 					}
@@ -881,6 +921,20 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 				$(e).find('>a').addClass(uk_link);
 			}
 		});
+
+		//사이드 메뉴 data-tit
+		var change_target = $('.'+side_menu).find('li.item.on');
+		if( target_url.split('&').length > 3 ){
+			var active_target = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on];
+			var browser_tit = active_target.d4_nm;
+			change_target.find('>a').attr('data-tit',(d3_on+1)+'.'+(d4_on+1)+'. '+browser_tit);
+			if( active_target.html5 === true ) change_target.find('>a').addClass('html5');
+		}
+
+		//준비중 페이지
+		if( !$('.'+content_area+' >h1').next().is(':visible') ){
+			$('.'+content_area).append('<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
+		}
 	}
 
 	///Project GUIDE, Web Trends 링크
@@ -895,21 +949,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		var win_w = $(window).width();
 		var hd_h = $ukHeader.height();
 		pc_mb_class(win_w);
-
-		sub_offsetTop = [];
-		$('.'+content_area).find('.'+uk_course).each(function(i, e){
-			var of_top;
-			if( i === 0 ) of_top = $('.'+sub_content).offset().top - hd_h;
-			//if( i === 0 ) of_top = $(e).offset().top - hd_h;
-			else of_top = $(e).offset().top - hd_h;
-			sub_offsetTop.push( of_top );
-			//console.log( sub_offsetTop );
-			
-			//준비중 페이지
-			if( !$(e).find('h2').next().is(':visible') ){
-				$(e).append('<div class="ready_content both"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
-			}
-		});
 
 		side_offsetTop = [];
 		side_offsetTop.push( $('.'+side_menu_area).offset().top - hd_h );
@@ -948,16 +987,13 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		var sct = $(window).scrollTop();
 		hd_common(sct);
 
-		if( sct > side_offsetTop )$('.'+side_menu_area).addClass('fixed');
+		if( sct > side_offsetTop ) $('.'+side_menu_area).addClass('fixed');
 		else $('.'+side_menu_area).removeClass('fixed');
 
-		if( sct > top_link_offsetTop[0] ){
-			$('.'+top_link+' ul').addClass('fixed').css('right',top_link_offsetLeft+'px');
-		}
-		else{
-			$('.'+top_link+' ul').removeClass('fixed').removeAttr('style');
-		}
+		if( sct > top_link_offsetTop[0] ) $('.'+top_link+' ul').addClass('fixed').css('right',top_link_offsetLeft+'px');
+		else $('.'+top_link+' ul').removeClass('fixed').removeAttr('style');
 
+		/*
 		var remove_class = 'li.'+dp4+'.on';
 		var add_class = 'li.item.on li';
 
@@ -1004,13 +1040,16 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
 			change_target.find('>a').attr('data-tit',(d3_on+1)+'. '+browser_tit);
 		}
+		*/
 	});
 
 	//스크롤값이 0일때 3뎁스 .on에 data-tit
+	/*
 	if( $(window).scrollTop === 0 || $(window).scrollTop() < $('.'+sub_content).offset().top - $ukHeader.height() ){
 		var browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
 		$('.'+side_menu).find('li.item.on >a').attr('data-tit',(d3_on+1)+'. '+browser_tit);
 	}
+	*/
 
 	//common
 	removeTabindex();	//remove tabindex
