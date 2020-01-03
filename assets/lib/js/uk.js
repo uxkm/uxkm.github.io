@@ -811,7 +811,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 				//'<h1 class="tit">'+d2_target.d2_nm+'</h1>' +
 				'<h1 class="tit">'+(d3_on+1)+'. '+d3_target.d3_nm+'</h1>' +
 				'<nav class="'+top_link+'"><ul></ul></nav>' +
-				'<div class="inner">' +
+				'<div class="inner note_none">' +
 					'<div class="'+common_info+'"></div>' +
 					'<div class="'+top_info+'"></div>' +
 				'</div>' +
@@ -826,6 +826,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			'</div>'
 		);
 
+
 		//상단 메뉴 생성
 		var assets_d2 = menu[0].d2;
 		for( i=0; i<assets_d2.length; i++ ){
@@ -838,6 +839,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			if( i === d2_on ) $('.'+top_link+' li').eq(i).addClass('on');
 		}
 
+
 		//컨텐츠 생성
 		$('.'+content_area).html(data);
 		if( target_url.split('&').length > 3 ){
@@ -846,6 +848,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		else{
 			$ukContainer.find('.'+content_area+' >h1').text(d3_target.d3_nm).attr('data-number', (d3_on+1)+'. ');
 		}
+
 
 		//요약설명 / 참조 생성 / 상단 컨텐츠 생성
 		var d3Note = d3_target.d3_note;
@@ -857,6 +860,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		if( d3Note === true ){
 			var note_file = d3_fileUrl + 'note.html';
 			conAjax( $('.'+sub_top+' .inner'), note_file );
+			$('.'+sub_top+' .inner').removeClass('note_none');
 		}
 		else{
 			conAjax( $('.'+top_info), d2_target.d2_info );						//상단 개별 info 생성
@@ -873,6 +877,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 				el.append(content);
 			});
 		}
+
 
 		//컨텐츠 사이드 메뉴 생성
 		var side_d3 = d2_target.d3;
@@ -922,6 +927,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			}
 		});
 
+
 		//사이드 메뉴 data-tit
 		var change_target = $('.'+side_menu).find('li.item.on');
 		if( target_url.split('&').length > 3 ){
@@ -931,16 +937,19 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			if( active_target.html5 === true ) change_target.find('>a').addClass('html5');
 		}
 
+
 		//준비중 페이지
 		if( !$('.'+content_area+' >h1').next().is(':visible') ){
 			$('.'+content_area).append('<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
 		}
 	}
 
+
 	///Project GUIDE, Web Trends 링크
 	else{
 		$ukContainer.html(data);
 	}
+
 
 	//resize
 	var side_state = false;
@@ -981,6 +990,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			if( $('.'+top_link+' ul').is('.fixed') ) $('.'+top_link+' ul').css('right',top_left+'px');
 		}
 	}).trigger('resize');
+
 
 	//scroll
 	$(window).on('scroll', function(){
@@ -1043,6 +1053,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		*/
 	});
 
+
 	//스크롤값이 0일때 3뎁스 .on에 data-tit
 	/*
 	if( $(window).scrollTop === 0 || $(window).scrollTop() < $('.'+sub_content).offset().top - $ukHeader.height() ){
@@ -1050,6 +1061,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		$('.'+side_menu).find('li.item.on >a').attr('data-tit',(d3_on+1)+'. '+browser_tit);
 	}
 	*/
+
 
 	//common
 	removeTabindex();	//remove tabindex

@@ -106,7 +106,9 @@ var menu = [
 					{
 						d3_nm:	'섹션 콘텐츠(Section Conetnt)',
 						d3_url:		url_html+ 'sections&header_element',
-						d3_file:		file_html+'/03-sections/sections.html',
+						d3_file:		file_html+'/03-sections/',
+						d3_note:	true,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'header element',
@@ -163,7 +165,9 @@ var menu = [
 					{
 						d3_nm:	'콘텐츠 그룹화(Grouping content)',
 						d3_url:		url_html+'grouping&main_element',
-						d3_file:		file_html+'/04-grouping/grouping.html',
+						d3_file:		file_html+'/04-grouping/',
+						d3_note:	true,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'main element',

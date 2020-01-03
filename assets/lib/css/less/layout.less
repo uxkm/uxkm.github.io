@@ -1899,6 +1899,16 @@
 		.uk_note {
 			text-align:left;
 			line-height:22px; margin-top:15px;
+			border:0;
+			li {
+				position:relative; padding-left:12px;
+				&:before {
+					position:absolute; left:0; top:9px;
+					width:3px; height:3px;
+					background:#4b6da5; border-radius:100%;
+					content:"";
+				}
+			}
 		}
 	}
 	@media(max-width:@screen-md-max){
@@ -1950,7 +1960,18 @@
 					}
 				}
 			}
-			.inner {display:none;}
+			.inner.note_none {display:none;}
+			.inner {margin-top:0;}
+			.common_info, .top_info {display:none;}
+			.uk_note {
+				position:relative; z-index:2;
+				line-height:20px; margin:-3px -10px 0; padding:0 0 10px;
+				font-size:13px;
+				background:#fff; border-bottom:1px solid #eee;
+				ul {padding:10px; background:#f9f9f9;}
+				li {padding-left:10px;}
+				li:before {top:8px;}
+			}
 		}
 	}
 
