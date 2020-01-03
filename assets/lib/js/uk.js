@@ -1,8 +1,6 @@
 
 var respon_size = 767 - 17;
 var md_size = 993 - 17;
-var type_indiv = 'indiv';
-var uk_type = type_indiv;
 var UXKM = 'UXKM';
 var $html = $('html');
 var $title = $('title');
@@ -53,21 +51,17 @@ var sub_black = 'sub_black';
 var opacity_on = 'opacity_on';
 
 var uk_link = 'uk_link';
-var hash_link = 'hash_link';
 var hash_move = 'hash_move';
 var dp4 = 'dp4';
 var ready_link = 'ready_link';
 var toggle_link = 'toggle_link';
 var html5_new = 'html5_new';
-var loadStage = true;
-var pageMove = false;
 
+var load_scrollTop;
 var loadingFirstStart = 1000;
 var loadingStartTime = 300;
 var loadingEndTime = 300;
-var depth4_scrollSpeed = 0;
 var pageTop_scrollSpeed = 0;
-var sub_offsetTop = [];
 var side_offsetTop = [];
 var top_link_offsetTop = [];
 var top_link_offsetLeft = [];
@@ -221,18 +215,11 @@ $(document).ready(function(){
 						uk_editor();
 					}, loadingEndTime);
 					setTimeout(function(){
+						ukEditor_re();
+						loadScrollTop();
 						$(window).trigger('resize');
 						$(window).trigger('scroll');
-						loadScrollTop();
-						//if( !pageMove ) loadScrollTop();
-						ukEditor_re();
 					}, loadingEndTime*2);
-					if( pageMove ){
-						setTimeout(function(){
-							depth4_scroll(target_url, 0);
-							pageMove = false;
-						}, loadingEndTime*2);
-					}
 				}
 			});
 		}, time);
@@ -268,12 +255,7 @@ $(document).ready(function(){
 
 						//al_depth3 생성
 						for( g=0; g<d4.length; g++ ){
-							if( uk_type === type_indiv ){
-								al_depth3.append('<li class="'+dp4+'"><a href="'+ d4[g].d4_url +'" class="'+uk_link+'">'+ d4[g].d4_nm + '</a></li>');
-							}
-							else{
-								al_depth3.append('<li class="'+dp4+'"><a href="'+ d4[g].d4_url +'" class="'+hash_link+'">'+ d4[g].d4_nm + '</a></li>');
-							}
+							al_depth3.append('<li class="'+dp4+'"><a href="'+ d4[g].d4_url +'" class="'+uk_link+'">'+ d4[g].d4_nm + '</a></li>');
 							//if( c === d2_on && e === d3_on && g === d4_on && d4_true ) al_depth3.find('>li').eq(g).addClass('on');
 
 							//element 텍스트 색상 분기 처리
@@ -362,22 +344,14 @@ $(document).ready(function(){
 
 		//클릭 시 같은 페이지 일 경우
 		if( this_local_url === this_link_split ){
-			loadStage = true;
 			$htmlbody.stop().animate({'scrollTop':0}, pageTop_scrollSpeed, 'easeInOutCubic');
-
-			if( location.href.match(data) && uk_type !== type_indiv ){
-				$('.dp4').removeClass('on');
-				var browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
-				$title.text(browser_tit+' | '+UXKM);
-				if( $(this).siblings('.al_depth3').is(':visible') && device_check === 'device' ){
-					$assetsLink_area.addClass(hash_move);
-				}
-			}
 		}
 
 		//클릭 시 페이지 이동
 		else{
-			loadStage = false;
+			load_scrollTop = 0;
+			sessionStorage.setItem('scrollTop', load_scrollTop);
+			$assetsLink_area.addClass(assets_page_move);
 
 			//메인 이동
 			if( this_link_url === '/' ){
@@ -412,73 +386,14 @@ $(document).ready(function(){
 				$('.'+hd_progress).removeAttr('style');
 			}, loadingStartTime);
 
-			$assetsLink_area.addClass(assets_page_move);
+			history.pushState(this_link_url, null, this_link_url);
 		}
 
-		history.pushState(this_link_url, null, this_link_url);
 
 		//assets link 닫기
 		setTimeout(function(){
 			if( $html.is('.'+hd_assetsLink_on) ) $assetsLink_btn.trigger('click');
 		}, 0); //loadingStartTime
-		return false;
-	});
-
-
-	//hash_link 클릭(페이지 내 링크) -------------------------------------------------------//
-	$(document).on('click', '.'+hash_link, function(){
-		var this_local_url;
-		if( !location.href.match('data') ) this_local_url = '/';
-		else this_local_url = location.href.split('?')[1].split('&');
-
-		var this_link_url = $(this).attr('href');
-		var this_link_split = this_link_url.split('?')[1].split('&');
-
-		//페이지 내 링크
-		if( this_local_url[2] === this_link_split[2] ){
-			var idx = $(this).parent().index();
-			depth4_scroll(this_link_url, depth4_scrollSpeed);
-
-			var browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[$(this).parent().index()].d4_nm;
-			var side_target = $('.'+side_menu+' .item.on > a');
-			$title.text(browser_tit+' | '+UXKM);
-			side_target.attr('data-tit',(d3_on+1)+'.'+(idx+1)+'. '+browser_tit);
-			history.replaceState(this_link_url, null, this_link_url);
-
-			//side menu click
-			if( $html.is('.'+md_state) && $(this).parents('.side_d2').is(':visible') ){
-				side_target.trigger('click');
-			}
-
-			//assets menu click
-			if( $(this).parents('.al_depth3').is(':visible') ){
-				if( device_check === 'device' ){
-					$assetsLink_area.addClass(hash_move);
-				}else{
-					offsetTopControl();
-				}
-			}
-
-			//assets link 닫기
-			setTimeout(function(){
-				if( $html.is('.'+hd_assetsLink_on) ) $assetsLink_btn.trigger('click');
-			}, depth4_scrollSpeed);
-		}
-		//페이지 이동
-		else{
-			subSet( loadingStartTime, this_link_url );
-			history.pushState(this_link_url, null, this_link_url);
-			pageMove = true;
-
-			//assets link 닫기
-			setTimeout(function(){
-				if( $html.is('.'+hd_assetsLink_on) ){
-					$assetsLink_btn.trigger('click');
-					$assetsLink_area.addClass(assets_page_move);
-				}
-			}, 0);//loadingStartTime
-		}
-
 		return false;
 	});
 
@@ -574,28 +489,11 @@ $(document).ready(function(){
 	}
 
 
-	//4차메뉴 스크롤 이동 -------------------------------------------------------------------//
-	function depth4_scroll(target_url, scrollSpeed){
-		var this_link_split = target_url.split('=')[1].split('&');
-
-		if( this_link_split.length > 3 ){
-			var this_id = this_link_split[this_link_split.length-1];
-			var ba_id = menu[d1_on].d2[d2_on].d3[d3_on].d4[0].d4_url;
-			var ba_split = ba_id.split('&')[ba_id.split('&').length-1];
-
-			var scrollTarget;
-			if( ba_split === this_id ) scrollTarget = $('.'+sub_content).offset().top - $ukHeader.height();
-			else scrollTarget = $ukContainer.find('#'+this_id).offset().top - $ukHeader.height();
-
-			$htmlbody.stop().animate({'scrollTop':scrollTarget}, scrollSpeed);
-		}
-	}
-
-
 	//브라우저 뒤로/앞으로 클릭 -------------------------------------------------------------//
 	window.onpopstate = function(){
-	//window.onpopstate = function(event){
-		loadStage = false;
+		load_scrollTop = 0;
+		sessionStorage.setItem('scrollTop', load_scrollTop);
+
 		$body.addClass(hide_fix_loading);
 
 		if( history.state === null )history.back(+1);
@@ -612,18 +510,11 @@ $(document).ready(function(){
 
 	//새로고침 후 스크롤 높이 유지
 	function loadScrollTop(){
-		if( loadStage ){
-			var someVarName;
-			$(window).scroll(function(){
-				someVarName = $(window).scrollTop();
-				sessionStorage.setItem('scrollTop', someVarName);
-				//console.log(someVarName);
-			});
-			$htmlbody.animate({'scrollTop':sessionStorage.scrollTop}, 0);
-		}
-		else {
-			//$htmlbody.animate({'scrollTop':0}, 0);
-		}
+		$(window).on('scroll', function(){
+			load_scrollTop = $(window).scrollTop();
+			sessionStorage.setItem('scrollTop', load_scrollTop);
+		});
+		$htmlbody.animate({'scrollTop':sessionStorage.scrollTop}, 0);
 	}
 	//ajax end --------------------------------------------------------------------------------------------------------------------//
 
@@ -807,25 +698,23 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		var d3_target = d2_target.d3[d3_on];
 		if( target_url.split('&').length > 3 ) var d4_target = d3_target.d4[d4_on];
 		$ukContainer.append(
-			'<section class="'+sub_top+'">' +
+			'<article class="'+sub_top+'">' +
 				//'<h1 class="tit">'+d2_target.d2_nm+'</h1>' +
 				'<h1 class="tit">'+(d3_on+1)+'. '+d3_target.d3_nm+'</h1>' +
 				'<nav class="'+top_link+'"><ul></ul></nav>' +
-				'<div class="inner note_none">' +
+				'<blockquote class="inner note_none" cite="https://uxkm.github.io">' +
 					'<div class="'+common_info+'"></div>' +
-					'<div class="'+top_info+'"></div>' +
-				'</div>' +
-			'</section>' +
-			'<div class="sub_content inner">' +
+				'</blockquote>' +
+			'</article>' +
+			'<article class="sub_content inner">' +
 				'<aside class="'+side_menu_area+'">' +
 					'<h1 class="tit"><b>'+d2_target.d2_nm+'</b> <i>Table of Contents</i></h1>' +
 					//'<h1 class="tit"><b>ACCESSIBILITY</b> <i>Table of Contents</i></h1>' +
 					'<nav class="'+side_menu+'"><ol></ol></nav>' +
 				'</aside>' +
 				'<main id="content" class="'+content_area+'" role="main"></main>' + //tabindex="-1"
-			'</div>'
+			'</article>'
 		);
-
 
 		//상단 메뉴 생성
 		var assets_d2 = menu[0].d2;
@@ -839,7 +728,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			if( i === d2_on ) $('.'+top_link+' li').eq(i).addClass('on');
 		}
 
-
 		//컨텐츠 생성
 		$('.'+content_area).html(data);
 		if( target_url.split('&').length > 3 ){
@@ -849,22 +737,23 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			$ukContainer.find('.'+content_area+' >h1').text(d3_target.d3_nm).attr('data-number', (d3_on+1)+'. ');
 		}
 
-
 		//요약설명 / 참조 생성 / 상단 컨텐츠 생성
 		var d3Note = d3_target.d3_note;
 		var d3Refer = d3_target.d3_refer;
 		var d3_fileUrl = d3_target.d3_file;
 		//상단 공통 info 생성
 		conAjax( $('.'+common_info), file+'common_info.html' );
+
 		//요약설명 또는 공통 설명 생성
 		if( d3Note === true ){
 			var note_file = d3_fileUrl + 'note.html';
-			conAjax( $('.'+sub_top+' .inner'), note_file );
-			$('.'+sub_top+' .inner').removeClass('note_none');
+			conAjax( $('.'+sub_top), note_file );
 		}
 		else{
-			conAjax( $('.'+top_info), d2_target.d2_info );						//상단 개별 info 생성
+			$('.'+sub_top+' .inner').append('<div class="'+top_info+'"></div>')
+			conAjax( $('.'+top_info), d2_target.d2_info );
 		}
+
 		//참조 생성
 		if( d3Refer === true ){
 			var refer_file = d3_fileUrl + 'reference.html';
@@ -877,7 +766,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 				el.append(content);
 			});
 		}
-
 
 		//컨텐츠 사이드 메뉴 생성
 		var side_d3 = d2_target.d3;
@@ -896,12 +784,8 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 
 				//4차메뉴 생성
 				for( a=0; a<side_d4.length; a++ ){
-					if( uk_type === type_indiv ){
-						$(e).find('>ol').append('<li class="'+dp4+'"><a href="'+side_d4[a].d4_url+'" class="'+uk_link+'">'+side_d4[a].d4_nm+'</a></li>');
-					}
-					else{
-						$(e).find('>ol').append('<li class="'+dp4+'"><a href="'+side_d4[a].d4_url+'" class="'+hash_link+'">'+side_d4[a].d4_nm+'</a></li>');
-					}
+					$(e).find('>ol').append('<li class="'+dp4+'"><a href="'+side_d4[a].d4_url+'" class="'+uk_link+'">'+side_d4[a].d4_nm+'</a></li>');
+
 					if( i === d3_on && a === d4_on && target_url.split('&').length > 3  ){
 						$(e).find('li').eq(a).addClass('on');
 					}
@@ -927,7 +811,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			}
 		});
 
-
 		//사이드 메뉴 data-tit
 		var change_target = $('.'+side_menu).find('li.item.on');
 		if( target_url.split('&').length > 3 ){
@@ -937,19 +820,16 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			if( active_target.html5 === true ) change_target.find('>a').addClass('html5');
 		}
 
-
 		//준비중 페이지
 		if( !$('.'+content_area+' >h1').next().is(':visible') ){
 			$('.'+content_area).append('<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
 		}
 	}
 
-
 	///Project GUIDE, Web Trends 링크
 	else{
 		$ukContainer.html(data);
 	}
-
 
 	//resize
 	var side_state = false;
@@ -991,77 +871,18 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		}
 	}).trigger('resize');
 
-
 	//scroll
 	$(window).on('scroll', function(){
 		var sct = $(window).scrollTop();
 		hd_common(sct);
+		//console.log(sct);
 
 		if( sct > side_offsetTop ) $('.'+side_menu_area).addClass('fixed');
 		else $('.'+side_menu_area).removeClass('fixed');
 
 		if( sct > top_link_offsetTop[0] ) $('.'+top_link+' ul').addClass('fixed').css('right',top_link_offsetLeft+'px');
 		else $('.'+top_link+' ul').removeClass('fixed').removeAttr('style');
-
-		/*
-		var remove_class = 'li.'+dp4+'.on';
-		var add_class = 'li.item.on li';
-
-		//스크롤 이동 시 on 클래스
-		$('.'+content_area).find('.'+uk_course).each(function(i, e){
-			if( sub_offsetTop[i] <= sct ){
-				$assetsLink_area.find(remove_class).removeClass('on');
-				$assetsLink_area.find(add_class).eq(i).addClass('on');
-				$('.'+side_menu).find(remove_class).removeClass('on');
-				$('.'+side_menu).find(add_class).eq(i).addClass('on');
-			}
-		});
-
-		//스크롤 이동 시 주소 변경
-		var change_target = $('.'+side_menu).find('li.item.on');
-		var change_idx = change_target.find('li.on').index();
-		var change_url = change_target.find('li.on a').attr('href');
-		var parent_url = change_target.find('> a').attr('href');
-		var local_url = location.href.split('/')[location.href.split('/').length-1];
-
-		//스크롤 위치에 따른 브라우져 타이틀 및 주소 변경
-		var browser_tit;
-		if( change_idx !== -1 ){
-			browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[change_idx].d4_nm;
-			change_target.find('>a').attr('data-tit',(d3_on+1)+'.'+(change_idx+1)+'. '+browser_tit);
-			if( local_url !== change_url ){ //한번만 실행
-				$title.text(browser_tit+' | '+UXKM);
-				history.replaceState(change_url, null, change_url);
-			}
-		}
-		else{
-			browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
-			change_target.find('>a').attr('data-tit',(d3_on+1)+'. '+browser_tit);
-			if( local_url !== parent_url ){ //한번만 실행
-				$title.text(browser_tit+' | '+UXKM);
-				history.replaceState(parent_url, null, parent_url);
-			}
-		}
-
-		//스크롤 높이가 sub content보다 작을 때 4뎁스 on클래스 제거
-		if( sct < sub_offsetTop[0] ){
-			$assetsLink_area.find(add_class).eq(0).removeClass('on');
-			$('.'+side_menu).find(add_class).eq(0).removeClass('on');
-			browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
-			change_target.find('>a').attr('data-tit',(d3_on+1)+'. '+browser_tit);
-		}
-		*/
 	});
-
-
-	//스크롤값이 0일때 3뎁스 .on에 data-tit
-	/*
-	if( $(window).scrollTop === 0 || $(window).scrollTop() < $('.'+sub_content).offset().top - $ukHeader.height() ){
-		var browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
-		$('.'+side_menu).find('li.item.on >a').attr('data-tit',(d3_on+1)+'. '+browser_tit);
-	}
-	*/
-
 
 	//common
 	removeTabindex();	//remove tabindex
@@ -1218,7 +1039,7 @@ function ukEditor_re(){
 		if( code.text().length < 3 ){
 			//var be_url =  location.href;
 			//window.location.replace(be_url);
-			//uk_editor();
+			uk_editor();
 		}
 	});
 }

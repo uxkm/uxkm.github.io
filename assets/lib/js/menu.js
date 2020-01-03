@@ -254,7 +254,9 @@ var menu = [
 					{
 						d3_nm:	'문자 컨텐츠(Text-level semantics)',
 						d3_url:		url_html+'textLevel&a_element',
-						d3_file:		file_html+'/05-textLevel/textLevel.html',
+						d3_file:		file_html+'/05-textLevel/',
+						d3_note:	true,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'a element',
@@ -407,7 +409,9 @@ var menu = [
 					{
 						d3_nm:	'내장 컨텐츠(Embedded content)',
 						d3_url:		url_html+'embedded&iframe_element',
-						d3_file:		file_html+'/06-embedded/embedded.html',
+						d3_file:		file_html+'/06-embedded/',
+						d3_note:	false,
+						d3_refer:	false,
 						d4:[
 							{
 								d4_nm:	'iframe element',
@@ -494,7 +498,9 @@ var menu = [
 					{
 						d3_nm:	'수정(edits)',
 						d3_url:		url_html+'edits&del_element',
-						d3_file:		file_html+'/07-edits/edits.html',
+						d3_file:		file_html+'/07-edits/',
+						d3_note:	false,
+						d3_refer:	false,
 						d4:[
 							{
 								d4_nm:	'del(Deleted Text) element',
@@ -515,7 +521,9 @@ var menu = [
 					{
 						d3_nm:	'표 데이터(Tabular data)',
 						d3_url:		url_html+'table&table_element',
-						d3_file:		file_html+'/08-table/table.html',
+						d3_file:		file_html+'/08-table/',
+						d3_note:	false,
+						d3_refer:	false,
 						d4:[
 							{
 								d4_nm:	'table element',
@@ -584,7 +592,9 @@ var menu = [
 					{
 						d3_nm:	'폼(forms)',
 						d3_url:		url_html+'forms&form_element',
-						d3_file:		file_html+'/09-forms/forms.html',
+						d3_file:		file_html+'/09-forms/',
+						d3_note:	false,
+						d3_refer:	false,
 						d4:[
 							{
 								d4_nm:	'form element',
@@ -677,7 +687,9 @@ var menu = [
 					{
 						d3_nm:	'HTML 문서구조',
 						d3_url:		url_html+'structure&html4_document',
-						d3_file:		file_html+'/10-structure/structure.html',
+						d3_file:		file_html+'/10-structure/',
+						d3_note:	false,
+						d3_refer:	false,
 						d4:[
 							{
 								d4_nm:	'HTML4에서의 문서 구조',
@@ -699,6 +711,8 @@ var menu = [
 						d3_nm:	'컨텐츠 모델(Content models)',
 						d3_url:		url_html+'models',
 						d3_file:		file_html+'/11-models/models.html',
+						d3_note:	false,
+						d3_refer:	false,
 					},
 
 					//참조 사이트
@@ -706,6 +720,8 @@ var menu = [
 						d3_nm:	'참조 사이트',
 						d3_url:		url_html+'bookmark',
 						d3_file:		file_html+'/12-bookmark/bookmark.html',
+						d3_note:	false,
+						d3_refer:	false,
 					},
 				]
 			},
@@ -971,12 +987,14 @@ var menu = [
 								d4_file:		file_css+'/04-cssAdvanced/06-css_multicolumn.html',
 								html5:		false,
 							},
+							/*
 							{
 								d4_nm:	'CSS 선택자 level 4',
 								d4_url:		url_css+'cssAdvanced&css_selectors_level4',
 								d4_file:		file_css+'/04-cssAdvanced/07-css_selectors_level4.html',
 								html5:		false,
 							},
+							*/
 						]
 					},
 

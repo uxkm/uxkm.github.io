@@ -4959,7 +4959,7 @@ body {
 }
 .sub_top .common_info,
 .sub_top .top_info {
-  line-height: 22px;
+  line-height: 24px;
   font-size: 14px;
   color: #666;
   font-weight: 400;
@@ -4979,7 +4979,7 @@ body {
 .sub_top .top_info ul li:before {
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 11px;
   width: 3px;
   height: 3px;
   font-weight: bold;
@@ -4988,9 +4988,11 @@ body {
   content: "";
 }
 .sub_top .uk_note {
+  display: inline-block;
   text-align: left;
-  line-height: 22px;
-  margin-top: 15px;
+  line-height: 24px;
+  margin: 15px 50px 0;
+  font-size: 14px;
   border: 0;
 }
 .sub_top .uk_note li {
@@ -5000,7 +5002,7 @@ body {
 .sub_top .uk_note li:before {
   position: absolute;
   left: 0;
-  top: 9px;
+  top: 11px;
   width: 3px;
   height: 3px;
   background: #4b6da5;
@@ -5162,35 +5164,9 @@ body {
     bottom: 5px;
     height: 10px;
   }
-  .sub_top .inner.note_none {
-    display: none;
-  }
-  .sub_top .inner {
-    margin-top: 0;
-  }
-  .sub_top .common_info,
-  .sub_top .top_info {
-    display: none;
-  }
+  .sub_top .inner,
   .sub_top .uk_note {
-    position: relative;
-    z-index: 2;
-    line-height: 20px;
-    margin: -3px -10px 0;
-    padding: 0 0 10px;
-    font-size: 13px;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-  }
-  .sub_top .uk_note ul {
-    padding: 10px;
-    background: #f9f9f9;
-  }
-  .sub_top .uk_note li {
-    padding-left: 10px;
-  }
-  .sub_top .uk_note li:before {
-    top: 8px;
+    display: none;
   }
 }
 .sub_content {
@@ -5631,7 +5607,6 @@ body {
   .content_area h2 {
     float: none;
     line-height: 24px;
-    padding-bottom: 24px;
     font-size: 18px;
   }
   .content_area h2.html5:after {
@@ -5730,18 +5705,18 @@ body {
   color: #1e73ff;
 }
 .view_editor .uk_editor {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 @media (max-width: 767px) {
   .view_editor .ve_tit {
     line-height: 17px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .view_editor .ve_tit:before {
     margin: 0 6px 0 0;
   }
   .view_editor .uk_editor {
-    margin-top: 10px;
+    margin-top: 15px;
   }
 }
 .txt_ex > b {
@@ -5936,8 +5911,14 @@ body {
 .mt_sm {
   margin-top: 5px;
 }
+.ml_mn {
+  margin-left: -25px;
+}
 .indent {
   margin-left: 25px;
+}
+.indent_max {
+  margin-left: 50px;
 }
 .t_blue {
   color: #1e73ff;
@@ -5946,11 +5927,17 @@ body {
   word-break: break-all;
 }
 @media (max-width: 767px) {
+  .mt_lm {
+    margin-top: 30px;
+  }
+  .ml_mn {
+    margin-left: -8px;
+  }
   .indent {
     margin-left: 8px;
   }
-  .mt_lm {
-    margin-top: 30px;
+  .indent_max {
+    margin-left: 16px;
   }
 }
 .ready_content {
