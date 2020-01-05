@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 flexible align-items</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+
+			.box {
+				display: flex;
+    		flex-wrap: wrap;
+
+				width: 300px;
+				height:150px;
+				margin:20px;
+				border: 2px dotted rgb(96, 139, 168);
+			}
+			.box > * {
+				width: 50px;
+				border: 1px solid #8c8c8c;
+				text-align:center;
+			}
+
+			.stretch{
+				align-items: stretch;
+			}
+			.flex-start{
+				align-items: flex-start;
+			}
+			.flex-end{
+				align-items: flex-end;
+			}
+			.center{
+				align-items: center;
+			}
+			.baseline{
+				align-items: baseline;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>align-items: stretch;</h2>
+		<div class="box stretch">
+			<div>1</div>
+			<div>2</div>
+			<div>A</div>
+			<div>a</div>
+			<div>가</div>
+			<div>라</div>
+			<div>Y</div>
+			<div>y</div>
+			<div>g</div>
+			<div>G</div>
+		</div>
+		<h2>align-items: flex-start;</h2>
+		<div class="box flex-start">
+			<div>1</div>
+			<div>2</div>
+			<div>A</div>
+			<div>a</div>
+			<div>가</div>
+			<div>라</div>
+			<div>Y</div>
+			<div>y</div>
+			<div>g</div>
+			<div>G</div>
+		</div>
+		<h2>align-items: flex-end;</h2>
+		<div class="box flex-end">
+			<div>1</div>
+			<div>2</div>
+			<div>A</div>
+			<div>a</div>
+			<div>가</div>
+			<div>라</div>
+			<div>Y</div>
+			<div>y</div>
+			<div>g</div>
+			<div>G</div>
+		</div>
+		<h2>align-items: center;</h2>
+		<div class="box center">
+			<div>1</div>
+			<div>2</div>
+			<div>A</div>
+			<div>a</div>
+			<div>가</div>
+			<div>라</div>
+			<div>Y</div>
+			<div>y</div>
+			<div>g</div>
+			<div>G</div>
+		</div>
+		<h2>align-items: baseline;</h2>
+		<div class="box baseline">
+			<div>1</div>
+			<div>2</div>
+			<div>A</div>
+			<div>a</div>
+			<div>가</div>
+			<div>라</div>
+			<div>Y</div>
+			<div>y</div>
+			<div>g</div>
+			<div>G</div>
+		</div>
+	</body>
+</html>
