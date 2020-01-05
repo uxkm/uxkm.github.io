@@ -17876,6 +17876,152 @@ flex: unset;
 									<figcaption>3번째, 4번째 flex item은 align-self 속성값이 우선 적용되어 정렬된다.</figcaption>
 									<img src="images/css/flexbox-align-self.jpg" alt="">
 								</figure>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 flexible align-self&lt;/title&gt;
+		&lt;style&gt;
+			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+			body {
+				background-color: #F5F5F5;
+				color: #555;
+				font-size: 1.1em;
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			}
+
+			.container {
+				position: relative;
+				max-width: 840px;
+				height: 400px;
+				margin: 150px auto;
+				padding: 20px;
+				background-color: #594255;
+
+				-webkit-display: -webkit-box;
+				-webkit-display: -webkit-flex;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+
+				-webkit-align-items: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+			}
+
+			.line {
+				visibility: hidden;
+				position: absolute;
+				top: 120px;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				border-bottom: 2px solid deepPink;
+			}
+
+			.item {
+				width: 100px;
+				margin: 1%;
+				background-color: #fff;
+				color: #594255;
+				font-weight: bold;
+				font-family: sans-serif;
+				font-size: 4em;
+				line-height: 100px;
+				text-align: center;
+			}
+
+			.big {
+				width: 150px;
+				font-size: 7em;
+			}
+
+			.small {
+				font-size: 2em;
+			}
+
+			.controls {
+				position: fixed;
+				top: 0;
+				right: 0;
+				width: 300px;
+				padding: 20px;
+				border: 1px solid #ddd;
+				background-color: white;
+				line-height: 150%;
+			}
+
+			#three {
+				background-color: salmon;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div class="container" id="container"&gt;
+			&lt;div class="item big"&gt;1&lt;/div&gt;
+			&lt;div class="item"&gt;2&lt;/div&gt;
+			&lt;div class="item" id="three"&gt;3&lt;/div&gt;
+			&lt;div class="item big"&gt;4&lt;/div&gt;
+			&lt;div class="item"&gt;5&lt;/div&gt;
+			&lt;div class="line" id="line"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="controls"&gt;
+			&lt;input type="radio" name="align-self" id="flex-start" 
+							onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'flex-start'; 
+											container.style.alignSelf = 'flex-start'; 
+											"&gt;
+			&lt;label for="flex-start"&gt;align-self: flex-start;&lt;/label&gt;
+			&lt;br&gt;
+			&lt;input type="radio" name="align-self" id="flex-end" 
+						 onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'flex-end'; 
+											container.style.alignSelf = 'flex-end'; 
+											"&gt;
+			&lt;label for="flex-end"&gt;align-self: flex-end;&lt;/label&gt;
+			&lt;br&gt;
+			&lt;input type="radio" name="align-self" id="center" 
+						 onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'center'; 
+											container.style.alignSelf = 'center'; 
+											"&gt;
+			&lt;label for="center"&gt;align-self: center;&lt;/label&gt;
+			&lt;br&gt;
+			&lt;input type="radio" name="align-self" id="baseline" 
+						 onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'baseline';
+											container.style.alignSelf = 'baseline';
+											"&gt;
+			&lt;label for="baseline"&gt;align-self: baseline;&lt;/label&gt;
+			&lt;br&gt;
+			&lt;input type="radio" name="align-self" id="stretch" 
+						 onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'stretch'; 
+											container.style.alignSelf = 'stretch'; 
+											"&gt;
+			&lt;label for="stretch"&gt;align-self: stretch;&lt;/label&gt;
+			&lt;br&gt;
+			&lt;input type="radio" name="align-self" id="auto" 
+						 onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'auto'; 
+											container.style.alignSelf = 'auto'; 
+											" checked&gt;
+			&lt;label for="auto"&gt;align-self: auto;&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 								<aside class="bosupport">
 									<strong>Web Browser Support</strong>
 									<ul>
@@ -17929,6 +18075,162 @@ flex: unset;
 									<figcaption>flex item의 배치 순서를 지정</figcaption>
 									<img src="images/css/flexbox-order.jpg" alt="">
 								</figure>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 flexible order&lt;/title&gt;
+		&lt;style&gt;
+			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+			body {
+				max-width: 800px;
+				margin: 0 auto;
+				background-color: #F5F5F5;
+				color: #555;
+				font-size: 1.1em;
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			}
+
+			p {
+				font-size: 1.5em;
+				font-weight: bold;
+			}
+
+			hr {
+				margin: 50px 0;
+			}
+
+			.container {
+				width: 100%;
+				margin: 20px auto;
+				padding: 20px;
+				background-color: #594255;
+
+				-webkit-display: -webkit-box;
+				-webkit-display: -webkit-flex;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+
+				-webkit-flex-wrap: wrap;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+			}
+
+			.item {
+				width: 100px;
+				height: 100px;
+				margin: 2px;
+				background-color: #fff;
+				color: #594255;
+				font-weight: bold;
+				font-family: sans-serif;
+				font-size: 5em;
+				line-height: 100px;
+				text-align: center;
+			}
+
+			.three {
+				background-color: #E18D87;
+			}
+
+			.container-1 .three,
+			.container-2 .three {
+				-webkit-order: -1;
+				-webkit-box-ordinal-group: 0;
+				-ms-flex-order: -1;
+				order: -1;
+			}
+
+			.container-2 .five {
+				background-color: orange;
+				-webkit-order: -2;
+				-webkit-box-ordinal-group: -1;
+				-ms-flex-order: -2;
+				order: -2;
+			}
+
+			.container-3 .three {
+				-webkit-order: 7;
+				-webkit-box-ordinal-group: 8;
+				-ms-flex-order: 7;
+				order: 7;
+			}
+
+			.container-4 .three {
+				-webkit-order: 1;
+				-webkit-box-ordinal-group: 2;
+				-ms-flex-order: 1;
+				order: 1;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;
+			&lt;code&gt;.three { order: -1; }&lt;/code&gt;
+		&lt;/p&gt;
+		&lt;div class="container container-1"&gt;
+			&lt;div class="item one"&gt;1&lt;/div&gt;
+			&lt;div class="item two"&gt;2&lt;/div&gt;
+			&lt;div class="item three"&gt;3&lt;/div&gt;
+			&lt;div class="item four"&gt;4&lt;/div&gt;
+			&lt;div class="item five"&gt;5&lt;/div&gt;
+			&lt;div class="item six"&gt;6&lt;/div&gt;
+			&lt;div class="item seven"&gt;7&lt;/div&gt;
+			&lt;div class="item eight"&gt;8&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;hr&gt;
+		&lt;p&gt;
+			&lt;code&gt;.three { order: -1; }&lt;/code&gt;
+			&lt;br&gt;
+			&lt;code&gt;.five { order: -2; }&lt;/code&gt;
+		&lt;/p&gt;
+		&lt;div class="container container-2"&gt;
+			&lt;div class="item one"&gt;1&lt;/div&gt;
+			&lt;div class="item two"&gt;2&lt;/div&gt;
+			&lt;div class="item three"&gt;3&lt;/div&gt;
+			&lt;div class="item four"&gt;4&lt;/div&gt;
+			&lt;div class="item five"&gt;5&lt;/div&gt;
+			&lt;div class="item six"&gt;6&lt;/div&gt;
+			&lt;div class="item seven"&gt;7&lt;/div&gt;
+			&lt;div class="item eight"&gt;8&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;hr&gt;
+		&lt;p&gt;
+			&lt;code&gt;.three { order: 7; }&lt;/code&gt;
+		&lt;/p&gt;
+		&lt;div class="container container-3"&gt;
+			&lt;div class="item one"&gt;1&lt;/div&gt;
+			&lt;div class="item two"&gt;2&lt;/div&gt;
+			&lt;div class="item three"&gt;3&lt;/div&gt;
+			&lt;div class="item four"&gt;4&lt;/div&gt;
+			&lt;div class="item five"&gt;5&lt;/div&gt;
+			&lt;div class="item six"&gt;6&lt;/div&gt;
+			&lt;div class="item seven"&gt;7&lt;/div&gt;
+			&lt;div class="item eight"&gt;8&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;hr&gt;
+		&lt;p&gt;
+			&lt;code&gt;.three { order: 1; }&lt;/code&gt;
+			&lt;code&gt;/* since all items are order: 0; the item with #3 will be put after them. */&lt;/code&gt;
+		&lt;/p&gt;
+		&lt;div class="container container-4"&gt;
+			&lt;div class="item one"&gt;1&lt;/div&gt;
+			&lt;div class="item two"&gt;2&lt;/div&gt;
+			&lt;div class="item three"&gt;3&lt;/div&gt;
+			&lt;div class="item four"&gt;4&lt;/div&gt;
+			&lt;div class="item five"&gt;5&lt;/div&gt;
+			&lt;div class="item six"&gt;6&lt;/div&gt;
+			&lt;div class="item seven"&gt;7&lt;/div&gt;
+			&lt;div class="item eight"&gt;8&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 								<aside class="bosupport">
 									<strong>Web Browser Support</strong>
 									<ul>
