@@ -1,59 +1,66 @@
 
 
-	<h1></h1><!-- p element -->
-	<time class="last_update" datetime="2019-11-11">2019-11-11</time>
+	<header>
+		<h1></h1><!-- p element -->
+		<time class="last_update" datetime="2019-12-27">2019-12-27</time>
+	</header>
 
-	<p class="mt_l">
-		단락(Paragraph)이란 내용상 끊어서 구분할 수 있는 하나하나의 부분을 의미하며, 문단이라고도 부릅니다.<br>
-		HTML에서는 &lt;p&gt;태그를 이용하여 이러한 단락을 표현합니다.<br>
-		브라우저 기본 스타일은 문단끼리 한 줄의 간격으로 분리합니다. 첫 줄 들여쓰기 등 다른 구분 방법은 CSS를 통해 사용할 수 있습니다.
-	</p>
-
-	<div class="ol_lst indent mt_sm">
-		<ol>
-			<li>콘텐츠를 문단으로 나누면 페이지의 접근성을 높입니다.</li>
-			<li>스크린 리더 등 보조 기술은 다음 문단으로 넘어갈 수 있는 단축키 등을 제공하므로, 시각적 매체의 여백이 사용자의 빠른 콘텐츠 탐색을 돕는 것과 같은 효과를 얻을 수 있습니다.</li>
-			<li>빈 &lt;p&gt; 요소를 사용해 두 문단에 여백을 추가하는건 스크린 리더 사용자에게 부정적인 경험을 줄 수 있습니다.</li>
-			<li>스크린 리더가 문단의 존재는 알려주고서 그 내용은, 사실 아무 내용도 없기 때문에, 읽지 않을 것이기 때문에 스크린 리더 사용자는 혼란스러울 수 있습니다.</li>
-			<li>여분의 공간이 필요하다면 margin 등 CSS 속성을 통해 적용하세요.</li>
-		</ol>
-	</div>
-
-	<div class="uk_note mt_m">
+	<blockquote class="uk_note mt_m" role="note">
 		<h2 class="sound_only">요약 설명</h2>
 		<p>
 			시작 태그는 필수이며, 닫는 태그는 &lt;p&gt; 요소의 바로 뒤에 &lt;address&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;blockquote&gt;, &lt;div&gt;, &lt;dl&gt;, &lt;fieldset&gt;, &lt;footer&gt;, &lt;form&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;, &lt;header&gt;, &lt;hr&gt;, &lt;menu&gt;, &lt;nav&gt;, &lt;ol&gt;, &lt;pre&gt;, &lt;section&gt;, &lt;table&gt;, &lt;ul&gt;, &lt;p&gt; 요소가 위치하는 경우 또는, 부모 태그의 콘텐츠가 더 존재하지 않고 부모가 &lt;a&gt; 요소가 아닐 때 생략할 수 있습니다.
 			<br><br>
 			습관적으로 종료 태그는 사용 해주는것을 권장합니다.
 		</p>
-	</div>
+	</blockquote>
 
-	<div class="view_editor ex_code mt_m" data-target="html/04-grouping/4.2.p_element/4.2.p_element1.html">
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
-		</div>
-	</div>
-	<div class="view_editor ex_code mt_m" data-target="html/04-grouping/4.2.p_element/4.2.p_element2.html">
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
-		</div>
-	</div>
-	<div class="view_editor ex_code mt_m" data-target="html/04-grouping/4.2.p_element/4.2.p_element3.html">
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
-		</div>
-	</div>
-	<div class="view_editor ex_code mt_m" data-target="html/04-grouping/4.2.p_element/4.2.p_element4.html">
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
-		</div>
-	</div>
+	<section class="ol_lst mt_l">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			단락(Paragraph)이란 내용상 끊어서 구분할 수 있는 하나하나의 부분을 의미하며, 문단이라고도 부릅니다.<br>
+			HTML에서는 &lt;p&gt;태그를 이용하여 이러한 단락을 표현합니다.<br>
+			브라우저 기본 스타일은 문단끼리 한 줄의 간격으로 분리합니다. 첫 줄 들여쓰기 등 다른 구분 방법은 CSS를 통해 사용할 수 있습니다.
+		</p>
+		<ol class="indent">
+			<li>콘텐츠를 문단으로 나누면 페이지의 접근성을 높입니다.</li>
+			<li>스크린 리더 등 보조 기술은 다음 문단으로 넘어갈 수 있는 단축키 등을 제공하므로, 시각적 매체의 여백이 사용자의 빠른 콘텐츠 탐색을 돕는 것과 같은 효과를 얻을 수 있습니다.</li>
+			<li>빈 &lt;p&gt; 요소를 사용해 두 문단에 여백을 추가하는건 스크린 리더 사용자에게 부정적인 경험을 줄 수 있습니다.</li>
+			<li>스크린 리더가 문단의 존재는 알려주고서 그 내용은, 사실 아무 내용도 없기 때문에, 읽지 않을 것이기 때문에 스크린 리더 사용자는 혼란스러울 수 있습니다.</li>
+			<li>여분의 공간이 필요하다면 margin 등 CSS 속성을 통해 적용하세요.</li>
+		</ol>
+	</section>
 
-	<ul class="browser_support mt_l" data-tit="p">
-		<li class="ie">지원</li>
-		<li class="edge">지원</li>
-		<li class="chrome">지원</li>
-		<li class="firefox">지원</li>
-		<li class="opera">지원</li>
-		<li class="safari">지원</li>
-	</ul>
+	<section class="ex_code view_editor mt_l">
+		<h2 class="ve_tit">예제</h2>
+		<div class="ex_code" data-target="html/04-grouping/4.2.p_element/4.2.p_element1.html">
+			<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</div>
+		<div class="ex_code mt_s" data-target="html/04-grouping/4.2.p_element/4.2.p_element2.html">
+			<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</div>
+		<div class="ex_code mt_s" data-target="html/04-grouping/4.2.p_element/4.2.p_element3.html">
+			<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</div>
+		<div class="ex_code mt_s" data-target="html/04-grouping/4.2.p_element/4.2.p_element4.html">
+			<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_l" data-tit="p">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">지원</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>

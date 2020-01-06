@@ -730,10 +730,10 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		//컨텐츠 생성
 		$('.'+content_area).html(data);
 		if( target_url.split('&').length > 3 ){
-			$ukContainer.find('.'+content_area+' >h1').text(d4_target.d4_nm).attr('data-number', (d3_on+1)+'.'+(d4_on+1)+'. ');
+			$ukContainer.find('.'+content_area+' h1').text(d4_target.d4_nm).attr('data-number', (d3_on+1)+'.'+(d4_on+1)+'. ');
 		}
 		else{
-			$ukContainer.find('.'+content_area+' >h1').text(d3_target.d3_nm).attr('data-number', (d3_on+1)+'. ');
+			$ukContainer.find('.'+content_area+' h1').text(d3_target.d3_nm).attr('data-number', (d3_on+1)+'. ');
 		}
 
 		//요약설명 / 참조 생성 / 상단 컨텐츠 생성
@@ -759,7 +759,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			conAjax( $('.'+content_area), refer_file );
 		}
 
-		//상단 생성 컨텐트 생성
+		//상단 생성 컨텐트 생성 함수
 		function conAjax(el, target){
 			$.get(target, function(content){
 				el.append(content);
@@ -820,7 +820,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		}
 
 		//준비중 페이지
-		if( !$('.'+content_area+' >h1').next().is(':visible') ){
+		if( !$('.'+content_area+' h1').parent().next().is(':visible') ){
 			$('.'+content_area).append('<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
 		}
 	}

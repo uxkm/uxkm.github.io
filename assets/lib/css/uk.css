@@ -49,6 +49,12 @@
 .font-icon2 {
   font-family: "Font Awesome 5 Brands", sans-serif;
 }
+.font-code {
+  font-family: 'Courgette', cursive;
+}
+.font-code2 {
+  font-family: 'Exo', sans-serif;
+}
 /* reset */
 html,
 body,
@@ -5522,6 +5528,16 @@ body {
   letter-spacing: -0.3px;
   font-weight: 400;
 }
+.content_area code {
+  padding: 0 2px;
+  font-family: 'Courgette', cursive;
+  font-size: 16px;
+  color: #222;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: -0.2px;
+  background: #eee;
+}
 .content_area h1 {
   line-height: 32px;
   font-size: 28px;
@@ -5564,6 +5580,9 @@ body {
   color: #081121;
   letter-spacing: -1px;
 }
+.content_area h2 code {
+  font-size: 24px;
+}
 .content_area h3 {
   line-height: 28px;
   font-size: 18px;
@@ -5593,6 +5612,9 @@ body {
     line-height: 22px;
     font-size: 13px;
   }
+  .content_area code {
+    font-size: 14px;
+  }
   .content_area .last_update {
     display: block;
     height: auto;
@@ -5605,13 +5627,11 @@ body {
     border-radius: 0;
   }
   .content_area h2 {
-    float: none;
     line-height: 24px;
     font-size: 18px;
   }
-  .content_area h2.html5:after {
-    margin: 0 0 0 6px;
-    font-size: 16px;
+  .content_area h2 code {
+    font-size: 20px;
   }
   .content_area h3 {
     line-height: 22px;
@@ -5658,6 +5678,11 @@ body {
     padding: 10px 15px;
     border-left-width: 3px;
   }
+}
+.ol_lst > b {
+  font-size: 15px;
+  color: #444;
+  font-weight: 600;
 }
 .ol_lst ol {
   counter-reset: lst_number;
@@ -5896,6 +5921,9 @@ body {
     padding: 20px 15px;
     border-width: 2px;
   }
+}
+.italic {
+  font-style: italic;
 }
 .mt_lm {
   margin-top: 50px;

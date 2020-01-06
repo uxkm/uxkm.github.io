@@ -2160,6 +2160,12 @@
 	.content_area {
 		line-height:@line-height; font-size:14px; color:#666;
 		letter-spacing:-0.3px; font-weight:400;
+		code {
+			padding:0 2px;
+			.font-code; font-size:16px; color:#222;
+			font-style:normal; font-weight:normal; letter-spacing:-0.2px;
+			background:#eee;
+		}
 
 		h1 {line-height:32px; font-size:28px; color:@navy; letter-spacing:-1px;}
 		h1:before {content:attr(data-number);}
@@ -2176,6 +2182,7 @@
 			&:before {margin-right:6px; content:"Last Updated on";}
 		}
 		h2 {line-height:32px; .font-kr; font-size:22px; color:@navy; letter-spacing:-1px;}
+		h2 code {font-size:24px;}
 		h3 {line-height:28px; font-size:18px; color:fade(@navy, 90%); letter-spacing:-0.3px;}
 		h3 .fa-html5 {margin:5px 0 0; color:@red;}
 	}
@@ -2189,6 +2196,7 @@
 		@course_pd:80px;
 		.content_area {
 			line-height:@line-height-mb; font-size:13px;
+			code {font-size:14px;}
 
 			.last_update {
 				display:block;
@@ -2196,11 +2204,8 @@
 				font-size:12px; color:#888;
 				background:#f5f5f5; border-radius:0;
 			}
-			h2 {
-				float:none; line-height:@h2_h;
-				font-size:18px;
-			}
-			h2.html5:after {margin:0 0 0 6px; font-size:16px;}
+			h2 {line-height:@h2_h; font-size:18px;}
+			h2 code {font-size:20px;}
 			h3 {line-height:22px; font-size:16px;}
 			h3 .fa-html5 {margin:4px 0 0;}
 		}
@@ -2235,6 +2240,7 @@
 	}
 
 	.ol_lst {
+		> b {font-size:15px; color:#444; font-weight:600;}
 		ol {counter-reset:lst_number;}
 		li {
 			position:relative; counter-increment:lst_number;
@@ -2379,6 +2385,7 @@
 		}
 	}
 
+	.italic {font-style:italic;}
 	.mt_lm {margin-top:50px;}
 	.mt_l {margin-top:30px;}
 	.mt_m {margin-top:20px;}
