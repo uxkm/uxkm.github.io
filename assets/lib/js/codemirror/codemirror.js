@@ -1,80 +1,80 @@
 
 //uk_editor();
 function uk_editor(){
-	//console.log('aaa');
 	function qsa(sel){
 		return Array.apply(null, document.querySelectorAll(sel));
 	}
-	window.onload = function(){};
+	//window.onload = function(){};
 	qsa(".uk_editor").forEach(function(e){
-		//타켓 class
-		var wrapArr = ['code_wrap', 'result_wrap', 'btn_wrap', 'info_wrap'];
-		var btnArr = ['Reset', 'Download', 'Result', 'Info'];
-		var browserBtnArr = [
-			['minimize', '최소화'],
-			['exitMinimize', '이전 크기로 복원'],
-			['fixed', '브라우저 전체화면'],
-			['exitFixed', '이전 크기로 복원'],
-			['fullscreen', '모니터 전체화면'],
-			['exitFullscreen', '이전 크기로 복원'],
-			['closing', '닫기']
-		];
-		var infoArr = ['edite_info', 'browser_info'];
-		var info_txtArr = [
-			[
-				'초기 코드로 되돌립니다.',
-				'코드를 html 파일로 다운로드할 수 있습니다.',
-				'코드의 결과물을 확인할 수 있으며, 우측 Result Area의 모든 창모드를 기본으로 되돌립니다.'
-			],
-			[
-				'Result Area를 최소화 합니다.',
-				'Result Area를 브라우저 기준 전체 화면으로 확대합니다.',
-				'Result Area를 모니터 기준 전체 화면으로 확대합니다.',
-				'Result Area를 닫습니다. Result button을 클릭하여 기본 모드로 되돌릴 수 있습니다.',
-			]
-		];
-		var title_txt;
-		var editor_info = 'editor_info';
-		var browser_full = 'browser_full';
-		var browser_hide = 'browser_hide';
-		var browser_mini = 'browser_mini';
-		var browser_fixed = 'browser_fixed';
-		var readonly = true;
-		var resulr_true = e.getAttribute('data-result') === 'true';
-		e.classList.add(device_check);
+		editor_start();
+		function editor_start(){
+			//타켓 class
+			var wrapArr = ['code_wrap', 'result_wrap', 'btn_wrap', 'info_wrap'];
+			var btnArr = ['Reset', 'Download', 'Result', 'Info'];
+			var browserBtnArr = [
+				['minimize', '최소화'],
+				['exitMinimize', '이전 크기로 복원'],
+				['fixed', '브라우저 전체화면'],
+				['exitFixed', '이전 크기로 복원'],
+				['fullscreen', '모니터 전체화면'],
+				['exitFullscreen', '이전 크기로 복원'],
+				['closing', '닫기']
+			];
+			var infoArr = ['edite_info', 'browser_info'];
+			var info_txtArr = [
+				[
+					'초기 코드로 되돌립니다.',
+					'코드를 html 파일로 다운로드할 수 있습니다.',
+					'코드의 결과물을 확인할 수 있으며, 우측 Result Area의 모든 창모드를 기본으로 되돌립니다.'
+				],
+				[
+					'Result Area를 최소화 합니다.',
+					'Result Area를 브라우저 기준 전체 화면으로 확대합니다.',
+					'Result Area를 모니터 기준 전체 화면으로 확대합니다.',
+					'Result Area를 닫습니다. Result button을 클릭하여 기본 모드로 되돌릴 수 있습니다.',
+				]
+			];
+			var title_txt;
+			var editor_info = 'editor_info';
+			var browser_full = 'browser_full';
+			var browser_hide = 'browser_hide';
+			var browser_mini = 'browser_mini';
+			var browser_fixed = 'browser_fixed';
+			var readonly = true;
+			var resulr_true = e.getAttribute('data-result') === 'true';
+			e.classList.add(device_check);
 
-		//타켓 정의 및 reset_btn 생성
-		if( resulr_true ){
-			readonly = false;
-			var rs_wrap = document.createElement('div');
-			e.appendChild(rs_wrap).classList.add(wrapArr[1]);
-			var bt_wrap = document.createElement('div');
-			e.appendChild(bt_wrap).classList.add(wrapArr[2]);
-			var if_wrap = document.createElement('div');
-			e.appendChild(if_wrap).classList.add(wrapArr[3]);
-		}
-		for( i=0; i<e.children.length; i++ ){
-			if( e.children[i].className === wrapArr[0] ){
-				var el_codeWrap = e.children[i];
-				/*
-				var el_txtarea = el_codeWrap.children[0];
-				var target = e.parentElement.dataset.target;
-
-				if( target.match('html') ){
-					$.get('/ukncs/tutorials/'+target, function(content){
-						el_txtarea.innerHTML = content;
-					});
-				}
-				*/
-			}
+			//타켓 정의 및 reset_btn 생성
 			if( resulr_true ){
-				if( e.children[i].className === wrapArr[1] ) var el_resultWrap = e.children[i];
-				if( e.children[i].className === wrapArr[2] ) var el_btnWrap = e.children[i];
-				if( e.children[i].className === wrapArr[3] ) var el_infoWrap = e.children[i];
+				readonly = false;
+				var rs_wrap = document.createElement('div');
+				e.appendChild(rs_wrap).classList.add(wrapArr[1]);
+				var bt_wrap = document.createElement('div');
+				e.appendChild(bt_wrap).classList.add(wrapArr[2]);
+				var if_wrap = document.createElement('div');
+				e.appendChild(if_wrap).classList.add(wrapArr[3]);
 			}
-		}
+			for( i=0; i<e.children.length; i++ ){
+				if( e.children[i].className === wrapArr[0] ){
+					var el_codeWrap = e.children[i];
+					/*
+					var el_txtarea = el_codeWrap.children[0];
+					var target = e.parentElement.dataset.target;
 
-		setTimeout(function(){
+					if( target.match('html') ){
+						$.get('/ukncs/tutorials/'+target, function(content){
+							el_txtarea.innerHTML = content;
+						});
+					}
+					*/
+				}
+				if( resulr_true ){
+					if( e.children[i].className === wrapArr[1] ) var el_resultWrap = e.children[i];
+					if( e.children[i].className === wrapArr[2] ) var el_btnWrap = e.children[i];
+					if( e.children[i].className === wrapArr[3] ) var el_infoWrap = e.children[i];
+				}
+			}
+
 			//코드미러 적용
 			var el_editor = el_codeWrap.firstElementChild;
 			var beforeVal = el_editor.value;
@@ -378,6 +378,15 @@ function uk_editor(){
 					return false;
 				}
 			}
-		}, 0);
+		}
+
+		//코드미러 적용이 실패시 재시도
+		setTimeout(function(){
+			var codeTxt = e.querySelector('.CodeMirror-code').textContent;
+			if( codeTxt.length < 3 ){
+				editor_start();
+				console.log('reload');
+			}
+		}, 200);
 	});
 }

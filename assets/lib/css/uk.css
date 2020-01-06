@@ -5873,6 +5873,7 @@ body {
   color: #666;
   text-decoration: underline;
   font-weight: 400;
+  word-break: break-all;
 }
 .reference a:after {
   display: inline-block;
