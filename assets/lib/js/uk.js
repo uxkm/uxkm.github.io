@@ -61,7 +61,7 @@ var load_scrollTop;
 var loadingFirstStart = 1000;
 var loadingStartTime = 300;
 var loadingEndTime = 300;
-var pageTop_scrollSpeed = 0;
+var pageTop_scrollSpeed = 700;
 var side_offsetTop = [];
 var top_link_offsetTop = [];
 var top_link_offsetLeft = [];
@@ -368,7 +368,7 @@ $(document).ready(function(){
 
 				//서브 같은 페이지
 				if( before === after ){
-					$htmlbody.stop().animate({'scrollTop':0}, pageTop_scrollSpeed);
+					$htmlbody.stop().animate({'scrollTop':0}, pageTop_scrollSpeed, 'easeInOutCubic');
 					$(this).siblings().find('li').removeClass('on');
 				}
 				//서브 이동

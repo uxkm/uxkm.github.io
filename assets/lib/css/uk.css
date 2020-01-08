@@ -50,10 +50,7 @@
   font-family: "Font Awesome 5 Brands", sans-serif;
 }
 .font-code {
-  font-family: 'Courgette', cursive;
-}
-.font-code2 {
-  font-family: 'Exo', sans-serif;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 /* reset */
 html,
@@ -5530,13 +5527,16 @@ body {
 }
 .content_area code {
   padding: 0 2px;
-  font-family: 'Courgette', cursive;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: #111;
   font-size: 16px;
-  color: #222;
   font-style: normal;
   font-weight: normal;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.5px;
   background: #eee;
+}
+.content_area mark code {
+  background: none;
 }
 .content_area h1 {
   line-height: 32px;
@@ -5613,7 +5613,7 @@ body {
     font-size: 13px;
   }
   .content_area code {
-    font-size: 14px;
+    font-size: 13px;
   }
   .content_area .last_update {
     display: block;
@@ -5679,8 +5679,8 @@ body {
     border-left-width: 3px;
   }
 }
-.ol_lst > b {
-  font-size: 15px;
+.ol_lst > b,
+.ol_lst > strong {
   color: #444;
   font-weight: 600;
 }
@@ -5744,7 +5744,8 @@ body {
     margin-top: 15px;
   }
 }
-.txt_ex > b {
+.txt_ex > b,
+.txt_ex > strong {
   font-size: 15px;
   color: #444;
   font-weight: 600;

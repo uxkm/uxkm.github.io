@@ -2162,10 +2162,12 @@
 		letter-spacing:-0.3px; font-weight:400;
 		code {
 			padding:0 2px;
-			.font-code; font-size:16px; color:#222;
-			font-style:normal; font-weight:normal; letter-spacing:-0.2px;
+			.font-code; color:#111;
+			font-size:16px;
+			font-style:normal; font-weight:normal; letter-spacing:-0.5px;
 			background:#eee;
 		}
+		mark code {background:none;}
 
 		h1 {line-height:32px; font-size:28px; color:@navy; letter-spacing:-1px;}
 		h1:before {content:attr(data-number);}
@@ -2196,7 +2198,7 @@
 		@course_pd:80px;
 		.content_area {
 			line-height:@line-height-mb; font-size:13px;
-			code {font-size:14px;}
+			code {font-size:13px;}
 
 			.last_update {
 				display:block;
@@ -2240,7 +2242,7 @@
 	}
 
 	.ol_lst {
-		> b {font-size:15px; color:#444; font-weight:600;}
+		> b, > strong {color:#444; font-weight:600;}
 		ol {counter-reset:lst_number;}
 		li {
 			position:relative; counter-increment:lst_number;
@@ -2281,7 +2283,7 @@
 	}
 
 	.txt_ex {
-		> b {font-size:15px; color:#444; font-weight:600;}
+		> b, > strong {font-size:15px; color:#444; font-weight:600;}
 		> p {.mt_s;}
 	}
 	@media(max-width:@screen-sm-max){}
