@@ -1052,12 +1052,6 @@ var menu = [
 		d1_file:		file+ '/web_trends.html',
 	}
 ];
-//console.log( menu[0].d2[0].d3[0].d3_file );
-
-
-
-
-
 
 
 

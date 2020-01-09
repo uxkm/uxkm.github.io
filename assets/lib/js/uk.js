@@ -823,6 +823,12 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		if( !$('.'+content_area+' h1').parent().next().is(':visible') ){
 			$('.'+content_area).append('<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
 		}
+
+		//gist
+		// $('.gist').each(function(i, e){
+		// 	var gist_url = $(e).attr('data-url');
+		// 	$(e).append('<script src="'+gist_url+'"></script>');
+		// });
 	}
 
 	///Project GUIDE, Web Trends 링크
@@ -882,6 +888,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		if( sct > top_link_offsetTop[0] ) $('.'+top_link+' ul').addClass('fixed').css('right',top_link_offsetLeft+'px');
 		else $('.'+top_link+' ul').removeClass('fixed').removeAttr('style');
 	});
+
 
 	//common
 	removeTabindex();	//remove tabindex
