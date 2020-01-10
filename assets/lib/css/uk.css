@@ -5538,6 +5538,9 @@ body {
 .content_area mark code {
   background: none;
 }
+.content_area strong code {
+  font-weight: bold;
+}
 .content_area h1 {
   line-height: 32px;
   font-size: 28px;
