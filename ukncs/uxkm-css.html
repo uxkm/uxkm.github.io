@@ -10580,6 +10580,21 @@ background: repeating-radial-gradient(red, white 10%, blue 20%);
 					<h4 id="css3-calc">calc</h4>
 					<section>
 						<p>CSS Values and Units Module Level 3</p>
+						<p>calc() CSS 함수를 사용하면 CSS 속성의 값으로 계산식을 지정할 수 있습니다.</p>
+						<p>&lt;length&gt;, &lt;frequency&gt;, &lt;angle&gt;, &lt;time&gt;, &lt;percentage&gt;, &lt;number&gt;, 또는 &lt;integer&gt;를 받는 속성의 값으로 사용할 수 있습니다.</p>
+						<p>calc() 함수는 매개변수로 표현식 하나를 받고, 표현식의 결과가 최종 값이 됩니다. 표현식은 단순 계산식은 무엇이든 가능하며, 표준 연산자 우선순위를 따릅니다.</p>
+						<ul>
+							<li>+ 덧셈.</li>
+							<li>- 뺄셈.</li>
+							<li>* 곱셈.
+								<p>하나 이상의 피연산자가 &lt;number&gt;여야 합니다.</p>
+							</li>
+							<li>/ 나눗셈.
+								<p>오른쪽 피연산자는 &lt;number&gt;여야 합니다.</p>
+								<p>피연산자로는 &lt;length&gt; 구문의 아무 값이나 사용할 수 있고, 원한다면 서로 다른 단위끼리도 계산할 수 있습니다.</p>
+								<p>괄호를 사용해서 연산 순서를 바꿀 수도 있습니다.</p>
+							</li>
+						</ul>
 <pre><code>
 section {
 	float: left;
@@ -23579,7 +23594,7 @@ columns: unset;
 
 			</section>
 			<!-- //.uksection -->
-
+											
 			<hr title="Separator for Contents">
 
 			<h2 id="css-uiux">UI/UX 구현</h2>
