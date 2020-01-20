@@ -1375,7 +1375,7 @@ mark {
   .uk_editor[data-result="true"].device .result_wrap iframe {
     height: 220px;
     margin: 0;
-    border: 0;
+    border-top: 0;
   }
   .uk_editor[data-result="true"].device .result_wrap .browserBtn {
     display: none;
@@ -1464,6 +1464,25 @@ mark {
   }
   .uk_editor.browser_mini .result_wrap .browserBtn .fullscreen_btn:after {
     background: #e9e9e9;
+  }
+  .uk_editor.browser_fixed {
+    z-index: 9999;
+  }
+  .uk_editor.browser_fixed .result_wrap {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    z-index: 9999;
+    width: calc(100% - (15px*2));
+    height: calc(100% - (15px*2));
+    border: 1px solid #1e73ff;
+    box-shadow: 0 0 0 50px rgba(0, 0, 0, 0.7);
+  }
+  .uk_editor.browser_fixed .result_wrap .browserBtn .fixed_btn {
+    display: none;
+  }
+  .uk_editor.browser_fixed .result_wrap .browserBtn .exitFixed_btn {
+    display: inline-block;
   }
   .uk_editor.browser_mini.device .result_wrap:before,
   .uk_editor.browser_mini.device .result_wrap:after {
