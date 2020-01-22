@@ -718,7 +718,7 @@ mark {
 			}
 			&.device .result_wrap {
 				&:before, &:after {display:none;}
-				iframe {height:@device_iframe_height; margin:0; border:0;}
+				iframe {height:@device_iframe_height; margin:0; border-top:0;}
 				.browserBtn {display:none;}
 			}
 		}
@@ -767,6 +767,20 @@ mark {
 				.fullscreen_btn {
 					&:before {background:@edt_tit_bg;}
 					&:after {background:@edt_tit_bg;}
+				}
+			}
+		}
+		&.browser_fixed {
+			z-index:9999;
+			.result_wrap {
+				@p_size:15px;
+				position:fixed; right:@p_size; top:@p_size; z-index:9999;
+				width:calc(100% - (@p_size*2)); height:calc(100% - (@p_size*2));
+				border:1px solid @blue;
+				box-shadow:0 0 0 50px rgba(0,0,0,.7);
+				.browserBtn {
+					.fixed_btn {display:none;}
+					.exitFixed_btn {display:inline-block;}
 				}
 			}
 		}
