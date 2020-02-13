@@ -1,8 +1,53 @@
 
 
 	<header>
-		<h1></h1><!-- 000000 -->
-		<time class="last_update" datetime="2020-00-00">Coming sooon</time>
+		<h1></h1><!-- map element -->
+		<time class="last_update" datetime="2020-02-13">2020-02-13</time>
 	</header>
 
+	<section class="mt_l">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;map&gt;</code> 요소는 클라이언트 사이드 이미지맵(client-side image-map)을 정의할 때 사용합니다.<br>
+			이미지맵(image-map)은 클릭할 수 있는 영역을 가지는 이미지를 의미합니다.<br>
+			<code>&lt;area&gt;</code> 요소는 이러한 이미지맵의 클릭할 수 있는 영역을 정의하는데 사용되며, <code>&lt;map&gt;</code> 요소는 하나 이상의 <code>&lt;area&gt;</code> 요소를 포함할 수 있습니다.<br>
+			<code>&lt;map&gt;</code> 요소의 필수 속성인 name 속성은 <code>&lt;img&gt;</code> 요소의 usemap 속성과 결합하여, 이미지(image)와 맵(map) 사이의 관계를 설정합니다.<br>
+			HTML5에서는 요소에 id 속성을 명시할 때 그 값을 반드시 name 속성값과 같은 값으로 명시해야만 합니다.<br>
+			XHTML에서는 name 속성을 더 이상 지원하지 않으므로, name 속성 대신 전역 속성인 id 속성을 사용해야 합니다. HTML5에서는 nohref 속성은 폐기되었습니다.<br>
+			<mark>HTML5.1부터 hreflang, type 속성은 더 이상 지원하지 않음.</mark>
+		</p>
+		<div class="line_code mt_m">
+			<p class="t_blue">CSS 기본값 : map {display: inline;}</p>
+		</div>
+	</section>
+
+	<section class="txt_ex mt_l">
+		<h2>6.3.1. map 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[name] <span class="t_blue">&lt;img name=&quot;이름&quot; id=&quot;name이름과 동일&quot;&gt;</span></h3>
+			<p class="mt_sm">
+				필수 속성으로, 이미지맵의 이름을 명시함.
+			</p>
+		</article>
+	</section>
+
+	<section class="view_editor edit_code mt_l" data-target="html/06-embedded/6.3.map_element.html">
+		<h3 class="ve_tit">예제</h3>
+		<div class="uk_editor min-height-400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+	<!-- 코드 편집용 에디터 -->
+
+	<aside class="browser_support mt_l" data-tit="img">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">지원</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
 

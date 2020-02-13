@@ -64,6 +64,7 @@ function uk_editor(){
 					if( target.match('html') ){
 						$.get('/ukncs/tutorials/'+target, function(content){
 							el_txtarea.innerHTML = content;
+							//console.log(el_txtarea);
 						});
 					}
 					*/
@@ -78,6 +79,7 @@ function uk_editor(){
 			//코드미러 적용
 			var el_editor = el_codeWrap.firstElementChild;
 			var beforeVal = el_editor.value;
+			//console.log(beforeVal);
 			var code_editor = CodeMirror.fromTextArea(el_editor, {
 				mode: e.getAttribute('data-mode'),
 				theme: e.getAttribute('data-theme'),
@@ -385,7 +387,7 @@ function uk_editor(){
 			var codeTxt = e.querySelector('.CodeMirror-code').textContent;
 			if( codeTxt.length < 3 ){
 				editor_start();
-				console.log('reload');
+				console.log('editor reload');
 			}
 		}, 200);
 	});

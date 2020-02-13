@@ -410,8 +410,8 @@ var menu = [
 						d3_nm:	'내장 컨텐츠(Embedded content)',
 						d3_url:		url_html+'embedded&iframe_element',
 						d3_file:		file_html+'/06-embedded/',
-						d3_note:	false,
-						d3_refer:	false,
+						d3_note:	true,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'iframe element',

@@ -1025,12 +1025,24 @@ function offsetTopControl(){
 //uk_editor 코드 적용
 function ukEditor_txtarea(){
 	var uk_editor = $('.uk_editor');
+	/*
+		uk_editor.each(function(i, e){
+			var target = $(e).parent().attr('data-target');
+			var txtarea = $(e).find('textarea');
+			if( target.match('html') ){
+				$.get('/ukncs/tutorials/'+target, function(content){
+					txtarea.text(content);
+				});
+			}
+		});
+	*/
 	uk_editor.each(function(i, e){
 		var target = $(e).parent().attr('data-target');
 		var txtarea = $(e).find('textarea');
-		if( target.match('html') ){
+		txtarea.val('');
+		if( target !== 'none' || target !== 'false' || target !== '' ){
 			$.get('/ukncs/tutorials/'+target, function(content){
-				txtarea.text(content);
+				txtarea.val(content);
 			});
 		}
 	});

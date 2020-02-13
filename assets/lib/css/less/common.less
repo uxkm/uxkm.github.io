@@ -172,6 +172,20 @@ mark {
 	.CodeMirror-line * {display:inline-block; vertical-align:top;}
 	&[data-result="true"]{
 		.CodeMirror-scroll {min-height:320px; max-height:528px;}
+		&.min-height-400 .CodeMirror-scroll {min-height:400px;}
+		&.min-height-450 .CodeMirror-scroll {min-height:450px;}
+		&.min-height-500 .CodeMirror-scroll {min-height:500px;}
+		&.min-height-550 .CodeMirror-scroll {min-height:550px;}
+		&.min-height-600 .CodeMirror-scroll {min-height:600px;}
+		&.min-height-650 .CodeMirror-scroll {min-height:650px;}
+		&.min-height-700 .CodeMirror-scroll {min-height:700px;}
+		&.min-height-750 .CodeMirror-scroll {min-height:750px;}
+		&.min-height-800 .CodeMirror-scroll {min-height:800px;}
+		&.min-height-850 .CodeMirror-scroll {min-height:850px;}
+		&.min-height-900 .CodeMirror-scroll {min-height:900px;}
+		&.min-height-950 .CodeMirror-scroll {min-height:950px;}
+		&.min-height-1000 .CodeMirror-scroll {min-height:1000px;}
+
 		.code_wrap, .result_wrap {position:relative; width:50%;}
 		.result_wrap {
 			position:absolute; right:0; top:0; overflow:hidden;
@@ -721,6 +735,20 @@ mark {
 				iframe {height:@device_iframe_height; margin:0; border-top:0;}
 				.browserBtn {display:none;}
 			}
+
+			&.min-height-400 .CodeMirror-scroll,
+			&.min-height-450 .CodeMirror-scroll,
+			&.min-height-500 .CodeMirror-scroll,
+			&.min-height-550 .CodeMirror-scroll,
+			&.min-height-600 .CodeMirror-scroll,
+			&.min-height-650 .CodeMirror-scroll,
+			&.min-height-700 .CodeMirror-scroll,
+			&.min-height-750 .CodeMirror-scroll,
+			&.min-height-800 .CodeMirror-scroll,
+			&.min-height-850 .CodeMirror-scroll,
+			&.min-height-900 .CodeMirror-scroll,
+			&.min-height-950 .CodeMirror-scroll,
+			&.min-height-1000 .CodeMirror-scroll {min-height:320px;}
 		}
 
 

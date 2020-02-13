@@ -453,6 +453,45 @@ mark {
   min-height: 320px;
   max-height: 528px;
 }
+.uk_editor[data-result="true"].min-height-400 .CodeMirror-scroll {
+  min-height: 400px;
+}
+.uk_editor[data-result="true"].min-height-450 .CodeMirror-scroll {
+  min-height: 450px;
+}
+.uk_editor[data-result="true"].min-height-500 .CodeMirror-scroll {
+  min-height: 500px;
+}
+.uk_editor[data-result="true"].min-height-550 .CodeMirror-scroll {
+  min-height: 550px;
+}
+.uk_editor[data-result="true"].min-height-600 .CodeMirror-scroll {
+  min-height: 600px;
+}
+.uk_editor[data-result="true"].min-height-650 .CodeMirror-scroll {
+  min-height: 650px;
+}
+.uk_editor[data-result="true"].min-height-700 .CodeMirror-scroll {
+  min-height: 700px;
+}
+.uk_editor[data-result="true"].min-height-750 .CodeMirror-scroll {
+  min-height: 750px;
+}
+.uk_editor[data-result="true"].min-height-800 .CodeMirror-scroll {
+  min-height: 800px;
+}
+.uk_editor[data-result="true"].min-height-850 .CodeMirror-scroll {
+  min-height: 850px;
+}
+.uk_editor[data-result="true"].min-height-900 .CodeMirror-scroll {
+  min-height: 900px;
+}
+.uk_editor[data-result="true"].min-height-950 .CodeMirror-scroll {
+  min-height: 950px;
+}
+.uk_editor[data-result="true"].min-height-1000 .CodeMirror-scroll {
+  min-height: 1000px;
+}
 .uk_editor[data-result="true"] .code_wrap,
 .uk_editor[data-result="true"] .result_wrap {
   position: relative;
@@ -1379,6 +1418,21 @@ mark {
   }
   .uk_editor[data-result="true"].device .result_wrap .browserBtn {
     display: none;
+  }
+  .uk_editor[data-result="true"].min-height-400 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-450 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-500 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-550 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-600 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-650 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-700 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-750 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-800 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-850 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-900 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-950 .CodeMirror-scroll,
+  .uk_editor[data-result="true"].min-height-1000 .CodeMirror-scroll {
+    min-height: 320px;
   }
   .uk_editor .btn_wrap {
     right: 0;
@@ -5615,6 +5669,12 @@ body {
   margin: 5px 0 0;
   color: #e44d26;
 }
+.content_area h4 {
+  line-height: 24px;
+  font-size: 16px;
+  color: rgba(8, 17, 33, 0.9);
+  letter-spacing: -0.3px;
+}
 @media (max-width: 993px) {
   .content_area h1 {
     overflow: hidden;
@@ -5662,6 +5722,10 @@ body {
   .content_area h3 .fa-html5 {
     margin: 4px 0 0;
   }
+  .content_area h4 {
+    line-height: 20px;
+    font-size: 15px;
+  }
 }
 @media (max-width: 360px) {
   .content_area h2 {
@@ -5694,6 +5758,9 @@ body {
 }
 .uk_note .tit:after {
   content: "]";
+}
+.uk_note code {
+  color: #1b283c;
 }
 @media (max-width: 767px) {
   .uk_note {
@@ -5729,6 +5796,25 @@ body {
 .ol_lst li.line_code.font14:before {
   line-height: 26px;
   font-size: 14px;
+}
+.dot_lst > b,
+.dot_lst > strong {
+  color: #444;
+  font-weight: 600;
+}
+.dot_lst li {
+  position: relative;
+  padding-left: 12px;
+}
+.dot_lst li:before {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 4px;
+  height: 4px;
+  background: #999;
+  border-radius: 100%;
+  content: "";
 }
 .view_editor .ve_tit {
   line-height: 20px;
@@ -5791,6 +5877,9 @@ body {
   word-break: break-all;
   background: #f9f9f9;
 }
+.line_code > p code {
+  background: #fff;
+}
 .line_code h3 + p,
 .line_code h4 + p,
 .line_code span + p {
@@ -5808,9 +5897,23 @@ body {
 .img_figure figcaption {
   line-height: 20px;
   margin-top: 20px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 400;
   color: #888;
+}
+.img_figure figcaption p {
+  margin-top: 2px;
+  padding: 8px 15px;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
+  word-break: break-all;
+  color: #777;
+  background: #f9f9f9;
+}
+.img_figure figcaption p:first-child {
+  margin-top: 0;
+}
+.img_figure figcaption p code {
+  background: #fff;
 }
 .browser_support {
   *zoom: 1;
@@ -5882,6 +5985,17 @@ body {
   }
   .browser_support:before {
     font-size: 13px;
+  }
+}
+@media (max-width: 320px) {
+  .browser_support li {
+    width: 33.333%;
+  }
+  .browser_support li:nth-child(3n+3) {
+    border-right: 0;
+  }
+  .browser_support li:nth-child(3) ~ li {
+    border-top: 1px solid #eee;
   }
 }
 .reference_box {
@@ -5957,6 +6071,9 @@ body {
 .mt_m {
   margin-top: 20px;
 }
+.mt_ms {
+  margin-top: 15px;
+}
 .mt_s {
   margin-top: 10px;
 }
@@ -5974,6 +6091,9 @@ body {
 }
 .t_blue {
   color: #1e73ff;
+}
+.t_black {
+  color: #222;
 }
 .break_all {
   word-break: break-all;
