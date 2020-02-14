@@ -9161,68 +9161,37 @@ pattern 속성을 사용하여 입력 값이 유효해야한다는 정규 표현
 
 				<h3 id="datalist-element"><mark>datalist</mark> element <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins></h3>
 				<article>
-					<time datetime="2019-11-11 17:15:41">Last Updated on 2019-11-11 17:15:41</time>
+					<time datetime="2020-02-14 13:23:14">Last Updated on 2020-02-14 13:23:14</time>
 					<p>
 						&lt;datalist&gt; 요소는 &lt;input&gt; 요소에서 사용하기 위한 옵션들의 리스트를 미리 정의할 때 사용합니다.<br>
 						&lt;datalist&gt; 요소는 사용자가 &lt;input&gt; 요소에 데이터를 입력할 때 미리 정의된 옵션을 드롭다운 리스트로 보여줌으로써 자동완성 기능을 제공합니다.<br>
 						&lt;input&gt; 요소의 list 속성값으로 &lt;datalist&gt; 요소의 id 속성값을 명시하면, 해당 &lt;datalist&gt; 요소에서 미리 정의한 옵션들을 &lt;input&gt; 요소에서 사용할 수 있습니다.
 						<br><br>
+						이 요소는 전역 특성만 포함합니다.<br>
 						&lt;datalist&gt; 요소는 HTML5에서 새롭게 추가된 요소입니다.<br>
 						CSS 기본값 : datalist {display: none;}
 					</p>
-
-					<h4>datalist 속성</h4>
-					<dl>
-						<dt>[open] <code>&lt;details open&gt;</code></dt>
-						<dd>
-							<p>&lt;details&gt; 요소의 open 속성은 &lt;details&gt; 요소가 클릭하지 않아도 사용자에게 바로 보임을 명시합니다.</p>
-							<p>open 속성은 불리언(boolean) 속성입니다.</p>
-							<p>불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.</p>
 <pre><code>
-&lt;details open&gt;
-	&lt;summary&gt;오늘의 환율&lt;/summary&gt;
-	&lt;ul&gt;
-		&lt;li&gt;달러($) : 1,135.90&lt;/li&gt;
-		&lt;li&gt;유로(€) : 1,284.08&lt;/li&gt;
-		&lt;li&gt;엔(￥) : 1,014.88&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/details&gt;
-</code></pre>
-							<aside class="bosupport">
-								<strong>Web Browser Support for open</strong>
-								<ul>
-									<li><img src="images/icon/ico_ie-false.png" alt="IE Browser"><em>지원 안 함</em></li>
-									<li><img src="images/icon/ico_edge-false.png" alt="Edge Browser"><em>지원 안 함</em></li>
-									<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>12.0</em></li>
-									<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>49.0</em></li>
-									<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>15.0</em></li>
-									<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>6.0</em></li>
-								</ul>
-							</aside>
-						</dd>
-					</dl>
-<pre><code>
-&lt;form action="/examples/media/action_target.php" method="get"&gt;
-	&lt;label&gt;학과 : &lt;input type="text" name="st_department" list="depList"&gt;&lt;/label&gt;&lt;br&gt;
-	&lt;label&gt;이름 : &lt;input type="text" name="st_name"&gt;&lt;/label&gt;&lt;br&gt;&lt;br&gt;
-	&lt;datalist id="depList"&gt;
-		&lt;option value="컴퓨터공학과"&gt;&lt;/option&gt;
-		&lt;option value="영어영문과"&gt;&lt;/option&gt;
-		&lt;option value="경영학과"&gt;&lt;/option&gt;
-		&lt;option value="사회체육과"&gt;&lt;/option&gt;
-	&lt;/datalist&gt;
-	&lt;button type="submit"&gt;제출하기&lt;/button&gt;
-&lt;/form&gt;
+&lt;label for="myBrowser"&gt;아래 목록에서 브라우저를 선택하세요:&lt;/label&gt;
+&lt;input list="browsers" id="myBrowser" name="myBrowser" /&gt;
+&lt;datalist id="browsers"&gt;
+	&lt;option value="Chrome"&gt;
+	&lt;option value="Firefox"&gt;
+	&lt;option value="Internet Explorer"&gt;
+	&lt;option value="Opera"&gt;
+	&lt;option value="Safari"&gt;
+	&lt;option value="Microsoft Edge"&gt;
+&lt;/datalist&gt;
 </code></pre>
 					<aside class="bosupport">
 						<strong>Web Browser Support for datalist</strong>
 						<ul>
 							<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>10+</em></li>
-							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
 							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>20.0</em></li>
 							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>4.0</em></li>
 							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>9.5</em></li>
-							<li><img src="images/icon/ico_safari-false.png" alt="Safari Browser"><em>지원 안 함</em></li>
+							<li><img src="images/icon/ico_safari-false.png" alt="Safari Browser"><em>12.1</em></li>
 						</ul>
 					</aside>
 				</article>
@@ -9754,7 +9723,7 @@ pattern 속성을 사용하여 입력 값이 유효해야한다는 정규 표현
 					<aside class="bosupport">
 						<strong>Web Browser Support for fieldset</strong>
 						<ul>
-							<li><img src="images/icon/ico_ie-false.png" alt="IE Browser"><em>지원</em></li>
+							<li><img src="images/icon/ico_ie-true.png" alt="IE Browser"><em>지원</em></li>
 							<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>지원</em></li>
 							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>지원</em></li>
 							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>지원</em></li>
@@ -10248,7 +10217,7 @@ pattern 속성을 사용하여 입력 값이 유효해야한다는 정규 표현
 
 			<h2 id="content-models">콘텐츠 모델(Content models)</h2>
 			<section class="uksection">
-				<time datetime="2019-11-11 17:15:41">Last Updated on 2019-11-11 17:15:41</time>
+				<time datetime="2020-02-14 13:48:14">Last Updated on 2020-02-14 13:48:14</time>
 				<figure class="bdrn">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="-250 -150 1024 288">
 						<g class="a" transform="translate(2, -3)">
@@ -10593,6 +10562,86 @@ pattern 속성을 사용하여 입력 값이 유효해야한다는 정규 표현
 						</code></p>
 					</dd>
 				</dl>
+
+				<p>위에서 언급하지 않은 요소들은 다음과 같습니다.</p>
+				<h3 id="details-element">인터랙티브 요소 <mark>&lt;details&gt;</mark> element <ins><img src="images/icon/ico_html5.png" alt="HTML5에서 새롭게 추가"></ins></h3>
+				<article>
+					<blockquote class="note" role="note">
+						<p>
+							&lt;details&gt; 요소는 "열림" 상태일 때만 내부 정보를 보여주는 정보 공개 위젯을 생성합니다.<br>
+							요약이나 레이블은 &lt;summary&gt; 요소를 통해 제공할 수 있습니다.
+							<br><br>
+							정보 공개 위젯은 보통 레이블 옆의 작은 삼각형이 돌아가면서 열림/닫힘 상태를 나타냅니다.<br>
+							&lt;details&gt; 요소의 첫 번째 자식이 &lt;summary&gt; 요소라면, &lt;summary&gt;의 콘텐츠를 위젯의 레이블로 사용합니다.
+							<br><br>
+							즉, 사용자가 직접 조작하여 보거나 숨길 수 있는 부가적인 세부사항(additional details)을 명시할 때 사용합니다.<br>
+							&lt;details&gt; 요소는 보통 사용자가 직접 접거나 펼 수 있는 대화형 위젯(interactive widget)을 정의할 때 사용되며,<br>
+							그 안에는 어떠한 종류의 콘텐츠도 포함될 수 있습니다.<br>
+							이러한 &lt;details&gt; 요소의 콘텐츠는 open 속성이 설정되기 전까지는 화면에 보이지 않습니다.
+							<br><br>
+							&lt;summary&gt; 요소는 &lt;details&gt; 요소에서 화면에 보일 제목(visible heading)을 명시할 때 사용합니다.<br>
+							이 제목을 마우스로 클릭함으로써 &lt;details&gt; 요소를 보이도록 할 수도 있고 숨길 수도 있습니다.
+						</p>
+					</blockquote>
+					<h4>option 속성</h4>
+					<dl>
+						<dt>[open] <code>&lt;details open&gt;</code></dt>
+						<dd>
+							<p>요소가 사용자에게 보이도록 펼쳐짐을 명시함.</p>
+							<p>상세 정보, 즉 &lt;details&gt; 요소의 콘텐츠가 현재 보이는 상태인지 나타냅니다.</p>
+							<p>기본값 false는 정보가 보이지 않는다는 뜻입니다.</p>
+						</dd>
+					</dl>
+<pre><code>
+&lt;!-- 기본예제 --&gt;
+&lt;details&gt;
+  &lt;p&gt;Requires a computer running an operating system. The computer
+  must have some memory and ideally some kind of long-term storage.
+  An input device as well as some form of output device is
+  recommended.&lt;/p&gt;
+&lt;/details&gt;
+</code></pre>
+
+<pre><code>
+&lt;!-- 요약 제공 예제 --&gt;
+&lt;details&gt;
+  &lt;summary&gt;System Requirements&lt;/summary&gt;
+  &lt;p&gt;Requires a computer running an operating system. The computer
+  must have some memory and ideally some kind of long-term storage.
+  An input device as well as some form of output device is
+  recommended.&lt;/p&gt;
+&lt;/details&gt;
+</code></pre>
+
+<pre><code>
+&lt;!-- 열려 있는 상태 예제 --&gt;
+&lt;details open&gt;
+  &lt;summary&gt;System Requirements&lt;/summary&gt;
+  &lt;p&gt;Requires a computer running an operating system. The computer
+  must have some memory and ideally some kind of long-term storage.
+  An input device as well as some form of output device is
+  recommended.&lt;/p&gt;
+&lt;/details&gt;
+</code></pre>
+					<aside class="bosupport">
+						<strong>Web Browser Support for fieldset</strong>
+						<ul>
+							<li><img src="images/icon/ico_ie-false.png" alt="IE Browser"><em>지원 안 함</em></li>
+							<li><img src="images/icon/ico_edge-false.png" alt="Edge Browser"><em>지원 안 함</em></li>
+							<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>12.0</em></li>
+							<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>49.0</em></li>
+							<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>15.0</em></li>
+							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>6.0</em></li>
+						</ul>
+					</aside>
+					<dl>
+						<dt>참조</dt>
+						<dd>
+							<a href="https://www.w3.org/TR/html51/semantics.html#the-details-element" target="_blank" title="새 창 열림">W3C details specification</a>
+							<a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element/details" target="_blank" title="새 창 열림">MDN details specification</a>
+						</dd>
+					</dl>
+				</article>
 
 				<dl class="linkdoc">
 					<dt>참조</dt>
