@@ -447,6 +447,7 @@ var menu = [
 								d4_nm:	'audio element',
 								d4_url:		url_html+'embedded&audio_element',
 								d4_file:		file_html+'/06-embedded/06-audio_element.html',
+								//d4_file:		file_html+'/06-embedded/05-video_element.html',
 								html5:		true,
 							},
 							{

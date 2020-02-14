@@ -2257,9 +2257,17 @@
 			content:counters(lst_number, ".") ". ";
 		}
 		li.line_code:before {line-height:28px; font-size:18px; color:fade(@navy, 90%);}
+		li.tit_h3:before {line-height:28px; font-size:18px; color:fade(@navy, 90%); font-weight:bold;}
 		li.line_code.font14:before {line-height:26px; font-size:14px;}
 	}
-	@media(max-width:@screen-sm-max){}
+	@media(max-width:@screen-sm-max){
+		.ol_lst {
+			li {padding-left:18px;}
+			li.line_code:before {line-height:28px; font-size:18px;}
+			li.tit_h3:before {line-height:22px; font-size:16px;}
+			li.line_code.font14:before {line-height:22px; font-size:13px;}
+		}
+	}
 
 	.dot_lst {
 		> b, > strong {color:#444; font-weight:600;}
@@ -2303,7 +2311,7 @@
 
 	.txt_ex {
 		> b, > strong {font-size:15px; color:#444; font-weight:600;}
-		> p {.mt_s;}
+		> p {margin-top:10px;}
 	}
 	@media(max-width:@screen-sm-max){}
 
@@ -2402,7 +2410,7 @@
 	.reference {
 		a {
 			line-height:@line-height;
-			.font-kr; color:#666; text-decoration:underline; font-weight:400;
+			.font-kr; color:@link; text-decoration:underline; font-weight:400;
 			word-break:break-all;
 			&:after {
 				display:inline-block; vertical-align:top;
@@ -2423,22 +2431,32 @@
 		}
 	}
 
+	.dashed_line {
+		margin:0;
+		border:0; border-top:1px dashed #ddd;
+	}
+	.dotted_line {
+		margin:0;
+		border:0; border-top:1px dotted #ddd;
+	}
+
 	.italic {font-style:italic;}
-	.mt_lm {margin-top:50px;}
-	.mt_l {margin-top:30px;}
-	.mt_m {margin-top:20px;}
-	.mt_ms {margin-top:15px;}
-	.mt_s {margin-top:10px;}
-	.mt_sm {margin-top:5px;}
-	.ml_mn {margin-left:-25px;}
+	.mt_lm {margin-top:50px !important;}
+	.mt_l {margin-top:30px !important;}
+	.mt_ml {margin-top:25px !important;}
+	.mt_m {margin-top:20px !important;}
+	.mt_ms {margin-top:15px !important;}
+	.mt_s {margin-top:10px !important;}
+	.mt_sm {margin-top:5px !important;}
+	.ml_mn {margin-left:-25px !important;}
 	.indent {margin-left:25px;}
 	.indent_max {margin-left:50px;}
 	.t_blue {color:@blue;}
 	.t_black {color:#222;}
 	.break_all {word-break:break-all;}
 	@media(max-width:@screen-sm-max){
-		.mt_lm {margin-top:30px;}
-		.ml_mn {margin-left:-8px;}
+		.mt_lm {margin-top:30px !important;}
+		.ml_mn {margin-left:-8px !important;}
 		.indent {margin-left:8px;}
 		.indent_max {margin-left:16px;}
 	}
