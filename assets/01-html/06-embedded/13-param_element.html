@@ -1,8 +1,62 @@
 
 
 	<header>
-		<h1></h1><!-- 000000 -->
-		<time class="last_update" datetime="2020-00-00">Coming sooon</time>
+		<h1 class="html5"></h1><!-- param element -->
+		<time class="last_update" datetime="2020-02-17">2020-02-17</time>
 	</header>
+
+	<section class="mt_l">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;object&gt;</code> 요소에 의해 호출되는 플러그인의 매개변수(parameter)를 정의할 때 사용합니다.<br>
+			단일요소이며, HTML에서는 <code>&lt;param&gt;</code> 요소를 닫지 않지만, XHTML에서는 반드시 태그를 닫아야만 합니다.
+		</p>
+		<p class="mt_s">
+			HTML5에서는 <code>&lt;param&gt;</code>요소에서 type, valuetype 속성을 더 이상 지원하지 않습니다.
+		</p>
+		<div class="line_code mt_m">
+			<p class="t_blue">CSS 기본값 : param {display: none;}</p>
+		</div>
+	</section>
+
+	<section class="txt_ex mt_lm">
+		<h2>6.13.1. param 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[name] <span class="t_blue">&lt;param name="이름"&gt;</span></h3>
+			<p class="mt_s">
+				매개변수의 이름을 명시함
+				이 속성은 value 속성과 함께 사용하여 <code>&lt;object&gt;</code> 요소에 의해 호출되는 플러그인의 매개변수(parameter)를 명시합니다.
+				name 속성값에는 명시된 객체가 지원하는 이름이라면 어떠한 이름이라도 사용할 수 있습니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[value] <span class="t_blue">&lt;param value="값"&gt;</span></h3>
+			<p class="mt_s">
+				매개변수의 값을 명시함
+				이 속성은 name 속성과 함께 사용하여 <code>&lt;object&gt;</code> 요소에 의해 호출되는 플러그인의 매개변수(parameter)를 명시합니다.
+				value 속성값에는 명시된 객체가 지원하는 값이라면 어떠한 값이라도 사용할 수 있습니다.
+			</p>
+		</article>
+	</section>
+
+	<section class="view_editor edit_code mt_l" data-target="html/06-embedded/6.13.param_element.html">
+		<h2 class="ve_tit">예제</h2>
+		<div  class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="default" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_l" data-tit="param">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
 
 
