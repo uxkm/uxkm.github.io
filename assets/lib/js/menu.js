@@ -594,8 +594,8 @@ var menu = [
 						d3_nm:	'폼(forms)',
 						d3_url:		url_html+'forms&form_element',
 						d3_file:		file_html+'/09-forms/',
-						d3_note:	false,
-						d3_refer:	false,
+						d3_note:	true,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'form element',

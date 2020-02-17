@@ -2287,6 +2287,11 @@
 		li.line_code:before {line-height:28px; font-size:18px; color:fade(@navy, 90%);}
 		li.tit_h3:before {line-height:28px; font-size:18px; color:fade(@navy, 90%); font-weight:bold;}
 		li.line_code.font14:before {line-height:26px; font-size:14px;}
+
+		li.t_black {
+			&:before {.t_black; font-weight:bold;}
+			p, div {color:#666;}
+		}
 	}
 	@media(max-width:@screen-sm-max){
 		.ol_lst {
@@ -2347,7 +2352,7 @@
 		strong {
 			display:inline-block; vertical-align:top; color:fade(@navy, 90%);
 			//font-weight:500;
-			font-weight:400;
+			font-weight:500;
 			code {font-weight:normal;}
 		}
 		b {font-weight:500;}
@@ -2389,7 +2394,7 @@
 			background:#eee;
 			content:"Web Browser Support for "attr(data-tit);
 		}
-		li {
+		li, p {
 			.lft; width:16.666%; padding:15px 0 10px;
 			border-right:1px solid #eee;
 			&:last-child {border-right:0;}
@@ -2411,11 +2416,12 @@
 		.browser_support {
 			border-width:2px;
 			&:before {font-size:13px;}
+			li, p  {font-size:12px;}
 		}
 	}
 	@media(max-width:@screen-xxxxs){
 		.browser_support {
-			li {
+			li, p {
 				width:33.333%;
 				&:nth-child(3n+3) {border-right:0;}
 				&:nth-child(3) ~ li {border-top:1px solid #eee;}

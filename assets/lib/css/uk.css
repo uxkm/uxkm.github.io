@@ -5852,6 +5852,14 @@ body {
   line-height: 26px;
   font-size: 14px;
 }
+.ol_lst li.t_black:before {
+  color: #222;
+  font-weight: bold;
+}
+.ol_lst li.t_black p,
+.ol_lst li.t_black div {
+  color: #666;
+}
 @media (max-width: 767px) {
   .ol_lst li {
     padding-left: 18px;
@@ -5937,7 +5945,7 @@ body {
   display: inline-block;
   vertical-align: top;
   color: rgba(8, 17, 33, 0.9);
-  font-weight: 400;
+  font-weight: 500;
 }
 .line_code strong code {
   font-weight: normal;
@@ -6016,16 +6024,19 @@ body {
   background: #eee;
   content: "Web Browser Support for " attr(data-tit);
 }
-.browser_support li {
+.browser_support li,
+.browser_support p {
   float: left;
   width: 16.666%;
   padding: 15px 0 10px;
   border-right: 1px solid #eee;
 }
-.browser_support li:last-child {
+.browser_support li:last-child,
+.browser_support p:last-child {
   border-right: 0;
 }
-.browser_support li:before {
+.browser_support li:before,
+.browser_support p:before {
   display: block;
   width: 20px;
   height: 20px;
@@ -6033,25 +6044,32 @@ body {
   background-size: 100% auto;
   content: "";
 }
-.browser_support li.false:before {
+.browser_support li.false:before,
+.browser_support p.false:before {
   filter: grayscale(100%);
 }
-.browser_support li.chrome:before {
+.browser_support li.chrome:before,
+.browser_support p.chrome:before {
   background-image: url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/archive/chrome-android_18-36/chrome-android_18-36_48x48.png');
 }
-.browser_support li.firefox:before {
+.browser_support li.firefox:before,
+.browser_support p.firefox:before {
   background-image: url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/archive/firefox_57-70/firefox_57-70_48x48.png');
 }
-.browser_support li.ie:before {
+.browser_support li.ie:before,
+.browser_support p.ie:before {
   background-image: url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/61.1.3/archive/internet-explorer_9-11/internet-explorer_9-11.svg');
 }
-.browser_support li.edge:before {
+.browser_support li.edge:before,
+.browser_support p.edge:before {
   background-image: url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/edge/edge_48x48.png');
 }
-.browser_support li.opera:before {
+.browser_support li.opera:before,
+.browser_support p.opera:before {
   background-image: url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/archive/opera_15-32/opera_15-32_48x48.png');
 }
-.browser_support li.safari:before {
+.browser_support li.safari:before,
+.browser_support p.safari:before {
   background-image: url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/archive/safari_1-7/safari_1-7_48x48.png');
 }
 @media (max-width: 767px) {
@@ -6061,15 +6079,22 @@ body {
   .browser_support:before {
     font-size: 13px;
   }
+  .browser_support li,
+  .browser_support p {
+    font-size: 12px;
+  }
 }
 @media (max-width: 320px) {
-  .browser_support li {
+  .browser_support li,
+  .browser_support p {
     width: 33.333%;
   }
-  .browser_support li:nth-child(3n+3) {
+  .browser_support li:nth-child(3n+3),
+  .browser_support p:nth-child(3n+3) {
     border-right: 0;
   }
-  .browser_support li:nth-child(3) ~ li {
+  .browser_support li:nth-child(3) ~ li,
+  .browser_support p:nth-child(3) ~ li {
     border-top: 1px solid #eee;
   }
 }
