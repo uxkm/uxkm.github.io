@@ -5936,8 +5936,11 @@ body {
 .line_code strong {
   display: inline-block;
   vertical-align: top;
-  color: #444;
-  font-weight: 500;
+  color: rgba(8, 17, 33, 0.9);
+  font-weight: 400;
+}
+.line_code strong code {
+  font-weight: normal;
 }
 .line_code b {
   font-weight: 500;

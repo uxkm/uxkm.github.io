@@ -523,8 +523,8 @@ var menu = [
 						d3_nm:	'표 데이터(Tabular data)',
 						d3_url:		url_html+'table&table_element',
 						d3_file:		file_html+'/08-table/',
-						d3_note:	false,
-						d3_refer:	false,
+						d3_note:	true,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'table element',
