@@ -500,8 +500,8 @@ var menu = [
 						d3_nm:	'수정(edits)',
 						d3_url:		url_html+'edits&del_element',
 						d3_file:		file_html+'/07-edits/',
-						d3_note:	false,
-						d3_refer:	false,
+						d3_note:	true,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'del(Deleted Text) element',
