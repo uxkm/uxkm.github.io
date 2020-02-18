@@ -382,13 +382,28 @@ function uk_editor(){
 			}
 		}
 
-		//코드미러 적용이 실패시 재시도
+		//코드미러 적용이 실패시 재시도 및 클래스 부여
+		var codeScrollA = e.getElementsByClassName('CodeMirror-scroll');
+		var codeScrollB = e.querySelector('.CodeMirror-scroll');
 		setTimeout(function(){
 			var codeTxt = e.querySelector('.CodeMirror-code').textContent;
 			if( codeTxt.length < 3 ){
 				editor_start();
 				console.log('editor reload');
 			}
+
+			var codeScrollCount = codeScrollA.length;
+			for(i=0; i<codeScrollCount; i++){
+				codeScrollB.classList.add('removeScroll'+(1+i));
+			}
 		}, 200);
+
+		//.CodeMirror-code가 두개 이상일 때 마지막 .CodeMirror-code 제거
+		setTimeout(function(){
+			var removeScroll = e.querySelector('.removeScroll2');
+			if( removeScroll != null ){
+				removeScroll.parentNode.removeChild(removeScroll);
+			}
+		}, 300);
 	});
 }
