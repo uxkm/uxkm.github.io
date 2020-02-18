@@ -6252,6 +6252,9 @@ body {
     font-size: 18px;
   }
 }
+.CodeMirror-scroll {
+  border: 1px solid red;
+}
 /*-
 
 .sub_top {
