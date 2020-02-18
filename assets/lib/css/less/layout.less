@@ -2273,32 +2273,46 @@
 		}
 	}
 
-	.ol_lst {
+	.ol_list_set(@name) {
 		> b, > strong {color:#444; font-weight:600;}
-		ol {counter-reset:lst_number;}
-		li {
-			position:relative; counter-increment:lst_number;
+		> ol {counter-reset:@name;}
+		> li, > ol > li {
+			position:relative; counter-increment:@name;
 			padding-left:22px;
 		}
-		li:before {
+		> li:before, > ol > li:before {
 			position:absolute; left:0; top:0; z-index:2;
-			content:counters(lst_number, ".") ". ";
+			content:counters(@name, ".") ". ";
 		}
-		li.line_code:before {line-height:28px; font-size:18px; color:fade(@navy, 90%);}
-		li.tit_h3:before {line-height:28px; font-size:18px; color:fade(@navy, 90%); font-weight:bold;}
-		li.line_code.font14:before {line-height:26px; font-size:14px;}
+		> li.line_code:before,
+		> ol > li.line_code:before {line-height:28px; font-size:18px; color:fade(@navy, 90%);}
+		> li.tit_h3:before,
+		> ol > li.tit_h3:before {line-height:28px; font-size:18px; color:fade(@navy, 90%); font-weight:bold;}
+		> li.line_code.font14:before,
+		> ol > li.line_code.font14:before {line-height:26px; font-size:14px;}
 
-		li.t_black {
+		> li.t_black,
+		> ol > li.t_black {
 			&:before {.t_black; font-weight:bold;}
 			p, div {color:#666;}
 		}
 	}
+	.ol_lst {
+		.ol_list_set(lst_number);
+	}
+	.ol_lst_second {
+		.ol_list_set(lst_num);
+		strong, span {font-weight:400 !important;}
+	}
 	@media(max-width:@screen-sm-max){
-		.ol_lst {
-			li {padding-left:18px;}
-			li.line_code:before {line-height:28px; font-size:18px;}
-			li.tit_h3:before {line-height:22px; font-size:16px;}
-			li.line_code.font14:before {line-height:22px; font-size:13px;}
+		.ol_lst, .ol_lst_second {
+			> li, > ol > li {padding-left:18px;}
+			> li.line_code:before,
+			> ol > li.line_code:before {line-height:28px; font-size:18px;}
+			> li.tit_h3:before,
+			> ol > li.tit_h3:before {line-height:22px; font-size:16px;}
+			> li.line_code.font14:before,
+			> ol > li.line_code.font14:before {line-height:22px; font-size:13px;}
 		}
 	}
 
@@ -2470,6 +2484,14 @@
 		}
 	}
 
+	.html5_small {
+		&:after {
+			margin-left:4px;
+			.font-icon2; font-size:14px; color:@red;
+			content:"\f13b";
+		}
+	}
+
 	.dashed_line {
 		margin:0;
 		border:0; border-top:1px dashed #ddd;
@@ -2489,9 +2511,10 @@
 	.mt_sm {margin-top:5px !important;}
 	.ml_mn {margin-left:-25px !important;}
 	.indent {margin-left:25px;}
+	.indent_small {margin-left:15px;}
 	.indent_max {margin-left:50px;}
-	.t_blue {color:@blue;}
-	.t_black {color:#222;}
+	.t_blue {color:@blue !important;}
+	.t_black {color:#222 !important;}
 	.break_all {word-break:break-all;}
 	@media(max-width:@screen-sm-max){
 		.mt_lm {margin-top:30px !important;}
