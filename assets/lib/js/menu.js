@@ -689,8 +689,8 @@ var menu = [
 						d3_nm:	'HTML 문서구조',
 						d3_url:		url_html+'structure&html4_document',
 						d3_file:		file_html+'/10-structure/',
-						d3_note:	false,
-						d3_refer:	false,
+						d3_note:	true,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'HTML4에서의 문서 구조',
@@ -704,6 +704,12 @@ var menu = [
 								d4_file:		file_html+'/10-structure/02-html5_document.html',
 								html5:		false,
 							},
+							{
+								d4_nm:	'프레임셋 문서 구조',
+								d4_url:		url_html+'structure&frameset_document',
+								d4_file:		file_html+'/10-structure/03-frameset_document.html',
+								html5:		false,
+							},
 						]
 					},
 
@@ -713,7 +719,7 @@ var menu = [
 						d3_url:		url_html+'models',
 						d3_file:		file_html+'/11-models/models.html',
 						d3_note:	false,
-						d3_refer:	false,
+						d3_refer:	true,
 					},
 
 					//참조 사이트

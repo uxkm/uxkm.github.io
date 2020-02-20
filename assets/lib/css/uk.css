@@ -6290,6 +6290,12 @@ body {
 .t_blue {
   color: #1e73ff !important;
 }
+.t_red {
+  color: #e44d26 !important;
+}
+.t_green {
+  color: #00986b !important;
+}
 .t_black {
   color: #222 !important;
 }

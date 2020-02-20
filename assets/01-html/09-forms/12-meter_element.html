@@ -1,4 +1,105 @@
 
-	<h1></h1><!-- 000000 -->
 
+	<header>
+		<h1 class="html5"></h1><!-- meter element -->
+		<time class="last_update" datetime="2020-02-20">2020-02-20</time>
+	</header>
 
+	<section class="mt_l">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;meter&gt;</code> 요소는 분수 값이나 게이지(gauge) 내에서 특정 스칼라 값(scalar measurement)이 어느 정도인지를 표현할 때 사용합니다.<br>
+			예를 들어, 디스크의 사용량, 특정 후보를 선택한 투표 인구의 비율 등을 시각적으로 보여주고 싶을 때 <code>&lt;meter&gt;</code> 요소를 사용할 수 있습니다.<br>
+			하지만 <code>&lt;meter&gt;</code> 요소를 진행 정도를 나타내는데 사용해서는 안 되며, 진행 상황을 나타낼 때는 <code>&lt;progress&gt;</code> 요소를 사용해야 합니다.
+		</p>
+		<p class="mt_s">
+			<code>&lt;meter&gt;</code> 요소는 HTML5에서 새롭게 추가된 요소입니다.<br>
+			<mark>Internet Explorer는 지원하지 않음</mark>
+		</p>
+	</section>
+
+	<section class="txt_ex mt_lm">
+		<h2>9.12.1. meter 속성</h2>
+
+		<!-- value -->
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[value] <span class="t_blue">&lt;meter value="숫자"&gt;</span></h3>
+			<p class="mt_s">
+				value 속성은 게이지의 현재 또는 측정된 값을 명시합니다.<br>
+				value 속성은 <code>&lt;meta&gt;</code> 요소의 필수 속성으로, value 속성값은 반드시 min 속성값과 max 속성값 사이의 값이어야 합니다.
+			</p>
+		</article>
+
+		<!-- high -->
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[high] <span class="t_blue">&lt;meter high="숫자"&gt;</span></h3>
+			<p class="mt_s">
+				high 속성은 범위(gauge) 내에서 높은 값(high value)으로 간주될 구간을 명시합니다.<br>
+				high 속성값은 max 속성값보다 작거나 같아야 하며, low 속성값과 min 속성값보다는 크거나 같아야 합니다.
+			</p>
+		</article>
+
+		<!-- low -->
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[low] <span class="t_blue">&lt;meter low="숫자"&gt;</span></h3>
+			<p class="mt_s">
+				low 속성은 범위(gauge) 내에서 낮은 값(low value)으로 간주될 구간을 명시합니다.<br>
+				low 속성값은 min 속성값보다 크거나 같아야 하며, high 속성값과 max 속성값보다는 작거나 같아야 합니다.
+			</p>
+		</article>
+
+		<!-- max -->
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[max] <span class="t_blue">&lt;meter max="숫자"&gt;</span></h3>
+			<p class="mt_s">
+				max 속성은 게이지(gauge)의 최댓값을 명시합니다.max 속성값은 min 속성값보다 크거나 같아야 하며, 만약 명시되지 않는다면 기본값인 1로 설정됩니다.<br>
+				이러한 max 속성은 min 속성과 함께 사용하여 전체 범위를 설정할 수 있습니다.<br>
+				max 속성값은 min 속성값보다 크거나 같아야 하며, 만약 명시되지 않는다면 기본값인 1로 설정됩니다.
+			</p>
+		</article>
+
+		<!-- min -->
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[min] <span class="t_blue">&lt;meter min="숫자"&gt;</span></h3>
+			<p class="mt_s">
+				min 속성은 게이지(gauge)의 최솟값을 명시합니다.min 속성값은 max 속성값보다 작거나 같아야 하며, 만약 명시되지 않는다면 기본값인 0으로 설정됩니다.<br>
+				이러한 min 속성은 max 속성과 함께 사용하여 전체 범위를 설정할 수 있습니다.<br>
+				min 속성값은 max 속성값보다 작거나 같아야 하며, 만약 명시되지 않는다면 기본값인 0으로 설정됩니다.
+			</p>
+		</article>
+
+		<!-- optimum -->
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[optimum] <span class="t_blue">&lt;meter optimum="숫자"&gt;</span></h3>
+			<p class="mt_s">
+				optimum 속성은 범위(gauge) 내에서 최적값(optimal value)으로 간주될 값을 명시합니다.
+			</p>
+		</article>
+
+		<!-- form -->
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[form] <span class="t_blue">&lt;meter form="form id"&gt;</span></h3>
+			<p class="mt_s">
+				<code>&lt;meter&gt;</code> 요소가 포함될 하나 이상의 <code>&lt;form&gt;</code> 요소를 명시함.<br>
+				이 속성값은 같은 문서 내에 위치하는 <code>&lt;meter&gt;</code> 요소의 id 값이어야만 합니다.<br>
+				이 속성값은 현재 모든 브라우저에서 지원 안 함.
+			</p>
+		</article>
+	</section>
+
+	<section class="view_editor edit_code mt_l" data-target="html/09-forms/9.12.meter_element.html">
+		<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_l" data-tit="meter">
+		<ul>
+			<li class="ie false">지원안함</li>
+			<li class="edge">지원</li>
+			<li class="chrome">6.0</li>
+			<li class="firefox">16.0</li>
+			<li class="opera">11.0</li>
+			<li class="safari">6.0</li>
+		</ul>
+	</aside>

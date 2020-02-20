@@ -745,6 +745,16 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 
 		//요약설명 또는 공통 설명 생성
 		if( d3Note === true ){
+			var noteUrl_split = d3_fileUrl.split('/');
+			var noteUrl_length = noteUrl_split.length - 1;
+			var noteUrl_re = noteUrl_split[noteUrl_length];
+			var noteUrl_custom = noteUrl_split[0]+'/';
+			if( noteUrl_re !== '' ){
+				for( i=1; i<noteUrl_length; i++ ){
+					noteUrl_custom += noteUrl_split[i]+'/';
+				}
+				d3_fileUrl = noteUrl_custom;
+			}
 			var note_file = d3_fileUrl + 'note.html';
 			conAjax( $('.'+sub_top), note_file );
 		}
@@ -755,6 +765,16 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 
 		//참조 생성
 		if( d3Refer === true ){
+			var filerUrl_split = d3_fileUrl.split('/');
+			var filerUrl_length = filerUrl_split.length - 1;
+			var filerUrl_re = filerUrl_split[filerUrl_length];
+			var filerUrl_custom = filerUrl_split[0]+'/';
+			if( filerUrl_re !== '' ){
+				for( i=1; i<filerUrl_length; i++ ){
+					filerUrl_custom += filerUrl_split[i]+'/';
+				}
+				d3_fileUrl = filerUrl_custom;
+			}
 			var refer_file = d3_fileUrl + 'reference.html';
 			conAjax( $('.'+content_area), refer_file );
 		}
