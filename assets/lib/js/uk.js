@@ -734,6 +734,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		}
 		else{
 			$ukContainer.find('.'+content_area+' h1').text(d3_target.d3_nm).attr('data-number', (d3_on+1)+'. ');
+			$('.sub_content').addClass('depth3_last');
 		}
 
 		//요약설명 / 참조 생성 / 상단 컨텐츠 생성
@@ -745,16 +746,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 
 		//요약설명 또는 공통 설명 생성
 		if( d3Note === true ){
-			var noteUrl_split = d3_fileUrl.split('/');
-			var noteUrl_length = noteUrl_split.length - 1;
-			var noteUrl_re = noteUrl_split[noteUrl_length];
-			var noteUrl_custom = noteUrl_split[0]+'/';
-			if( noteUrl_re !== '' ){
-				for( i=1; i<noteUrl_length; i++ ){
-					noteUrl_custom += noteUrl_split[i]+'/';
-				}
-				d3_fileUrl = noteUrl_custom;
-			}
+			filerUrl_reset();
 			var note_file = d3_fileUrl + 'note.html';
 			conAjax( $('.'+sub_top), note_file );
 		}
@@ -762,9 +754,13 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			$('.'+sub_top+' .inner').append('<div class="'+top_info+'"></div>')
 			conAjax( $('.'+top_info), d2_target.d2_info );
 		}
-
 		//참조 생성
 		if( d3Refer === true ){
+			filerUrl_reset();
+			var refer_file = d3_fileUrl + 'reference.html';
+			conAjax( $('.'+content_area), refer_file );
+		}
+		function filerUrl_reset(){
 			var filerUrl_split = d3_fileUrl.split('/');
 			var filerUrl_length = filerUrl_split.length - 1;
 			var filerUrl_re = filerUrl_split[filerUrl_length];
@@ -775,8 +771,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 				}
 				d3_fileUrl = filerUrl_custom;
 			}
-			var refer_file = d3_fileUrl + 'reference.html';
-			conAjax( $('.'+content_area), refer_file );
 		}
 
 		//상단 생성 컨텐트 생성 함수

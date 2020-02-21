@@ -2132,6 +2132,10 @@
 				}
 			}
 		}
+		.depth3_last {
+			.side_menu_area {display:none;}
+			.content_area {padding-top:20px;}
+		}
 	}
 	@media(max-width:@screen-sm-max){
 		.sub_content {padding-top:0; padding-bottom:50px;}
@@ -2171,6 +2175,17 @@
 				left:-10px; right:-10px; top:@a_size;
 				padding:0 10px;
 				border-bottom:2px solid #ccc;
+			}
+		}
+		.depth3_last {
+			z-index:1;
+			&:before {
+				position:absolute; left:0; top:0; right:0;
+				height:2px; background:#ccc;
+				content:"";
+			}
+			.content_area {
+				margin-top:-2px; padding-top:2px;
 			}
 		}
 	}
@@ -2213,6 +2228,11 @@
 		}
 		h2 {line-height:32px; .font-kr; font-size:22px; color:@navy; letter-spacing:-1px;}
 		h2 code {font-size:24px;}
+		h2.html5:after {
+			margin:0 0 0 7px;
+			.font-icon2; font-size:22px; font-weight:bold; color:@red;
+			content:"\f13b";
+		}
 		h3 {line-height:28px; font-size:18px; color:fade(@navy, 90%); letter-spacing:-0.3px;}
 		h3 .fa-html5 {margin:5px 0 0; color:@red;}
 		h3.reference a {font-weight:bold;}
@@ -2238,6 +2258,7 @@
 			}
 			h2 {line-height:@h2_h; font-size:18px;}
 			h2 code {font-size:20px;}
+			h2.html5:after {font-size:20px;}
 			h3 {line-height:22px; font-size:16px;}
 			h3 .fa-html5 {margin:4px 0 0;}
 			h4 {line-height:20px; font-size:15px;}
@@ -2247,6 +2268,7 @@
 		.content_area {
 			h2 {font-size:16px;}
 			h2.html5:after {margin:0 0 0 6px; font-size:14px;}
+			h2.html5:after {font-size:16px;}
 		}
 	}
 
@@ -2384,7 +2406,7 @@
 		border:4px solid #eee; text-align:center;
 		img {max-width:100%; min-width:240px;}
 		figcaption {
-			line-height:20px; margin-top:20px;
+			line-height:20px; margin-top:20px; text-align:center;
 			font-size:14px; font-weight:400; color:#888;
 			p {
 				margin-top:2px; padding:8px 15px;
@@ -2482,6 +2504,85 @@
 				border-width:2px;
 			}
 		}
+		.reference {
+			a {line-height:@line-height-mb;}
+		}
+	}
+
+	.content_models {
+		.img_figure;
+		.tab_wrap {
+			ul {
+				position:relative;
+				display:inline-block;
+				width:50%; min-width:480px; min-height:200px;
+				margin:15px auto 0; padding-top:20%;
+				li {
+					position:absolute; cursor:pointer;
+					border:3px solid fade(@blue, 70%); border-radius:100%;
+					background:fade(@blue, 50%);
+					i {
+						position:absolute; left:0; right:0; top:50%;
+						line-height:16px; margin-top:-8px;
+						text-align:center;
+						.font-en; font-size:14px; color:#fff; font-weight:600;
+						text-shadow:0 0 3px darken(@blue, 10%);
+					}
+					&.on {border-color:darken(@blue, 20%);}
+				}
+				.flow			{
+					left:0; top:0; width:100%; height:100%;
+					i {top:10%;}
+				}
+				.metadata		{
+					left:0; bottom:0; transform:rotate(-10deg);
+					width:45%; height:40%;
+					i {transform:rotate(10deg);}
+				}
+				.interactive	{left:5%; top:20%; width:35%; height:30%;}
+				.heading		{right:8%; top:20%; width:30%; height:26%;}
+				.sectioning		{right:8%; bottom:20%; width:30%; height:26%;}
+				.phrasing		{left:30%; top:22%; width:30%; height:72%;}
+				.embedded		{left:34%; top:29%; width:21%; height:20%;}
+			}
+		}
+		.result_wrap {
+			position:relative; margin-top:30px;
+			dl {
+				visibility:hidden;
+				&:not(:first-child) {position:absolute; left:0; right:0; top:0;}
+				&.on {visibility:visible;}
+			}
+			dt {
+				line-height:20px;
+				font-size:16px; color:#444; font-weight:600;
+				&:after {
+					display:block;
+					width:100px; height:2px; margin:14px auto 0;
+					background:#ddd;
+					content:"";
+				}
+			}
+			dd {
+				margin-top:8px; color:@blue;
+				span {color:#888;}
+			}
+		}
+	}
+	@media(max-width:@screen-sm){
+		.content_models {
+			.tab_wrap {
+				ul {
+					width:100%; min-width:auto; min-height:auto;
+					padding-top:50%;
+					li {
+						border-width:2px;
+						i {font-size:12px; font-weight:500;}
+					}
+				}
+			}
+			.result_wrap dt {font-size:14px;}
+		}
 	}
 
 	.html5_small {
@@ -2526,9 +2627,6 @@
 	}
 
 
-
-
-
 	//coming soon
 	.ready_content {
 		padding:220px 0 170px; text-align:center;
@@ -2545,7 +2643,6 @@
 			p {line-height:20px; font-size:18px;}
 		}
 	}
-
 
 
 
