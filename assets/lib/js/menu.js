@@ -715,7 +715,7 @@ var menu = [
 
 					//컨텐츠 모델(Content models)
 					{
-						d3_nm:	'컨텐츠 모델(Content models)',
+						d3_nm:	'콘텐츠 모델(Content models)',
 						d3_url:		url_html+'models',
 						d3_file:		file_html+'/11-models/models.html',
 						d3_note:	false,
