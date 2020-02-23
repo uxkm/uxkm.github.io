@@ -7,8 +7,8 @@
 	<blockquote class="uk_note mt_l" role="note">
 		<h2 class="sound_only">요약 설명</h2>
 		<p>
-			Document Type Definition 는 브라우저 랜더링 모드를 지정해주고 유효성 검증기의 기준이 되므로 XHTML 문서의 상단에 반드시 선언해 주어야 한다.<br>
-			만일 DTD 를 생략 하거나 형식이 잘못된 문서일 경우에는 웹 브라우저마다 코드의 해석방식이 다른 Quirks mode 로 렌더링이 되기 때문에
+			Document Type Definition는 브라우저 렌더링 모드를 지정해주고 유효성 검증기의 기준이 되므로 XHTML문서의 상단에 반드시 선언해 주어야 한다.<br>
+			만일 DTD를 생략하거나 형식이 잘못된 문서일 경우에는 웹 브라우저마다 코드의 해석방식이 다른 Quirks mode로 렌더링이 되기 때문에
 			엉뚱한 결과물로 출력되는 문제에 직면하게 된다.<br>
 		</p>
 
@@ -21,29 +21,29 @@
 			PUBLIC<br>
 			① 국제적이며<br>
 			"-//W3C//DTD XHTML 1.0 Transitional//EN"<br>
-			② 비공인인증인 W3C기관에 의해 XHTML 1.0을 Transitional 방식으로 영어공용어로 출력하며<br>
+			② 비공인 인증인 W3C기관에 의해 XHTML 1.0을 Transitional방식으로 영어 공용어로 출력하며<br>
 			"<span class="break_all">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</span>"<br>
-			③ 참조할 DTD 문서는"<span class="break_all">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</span>" 이거다.<br><br>
+			③ 참조할 DTD 문서는"<span class="break_all">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</span>" 이다.<br><br>
 
-			이런 식으로 되있으며<br>
-			① 최상위 엘리먼트네임<br>
-			② 국제적,공용 or 내부적 제한용<br>
-			③ ISO공인인증기관 또는 비공인인증기관 등 본문서가 어디에서 만든 DTD를 사용하는 가에 대한 내용이다.<br>
-			공인 인증기관 일경우 "+"를 비공인인증기관일경우엔 "-"를 사용한다. 참고로 W3C는 비공인 인증기관이다.<br><br>
+			이런 식으로 되어 있으며<br>
+			① 최상위 엘리먼트 네임<br>
+			② 국제적, 공용 혹은 내부적 제한용<br>
+			③ ISO 공인 인증 기관 또는 비공인 인증 기관 등 본 문서가 어디에서 만든 DTD를 사용하는 가에 대한 내용이다.<br>
+			공인 인증 기관 일경우 "+"를, 비공인 인증 기관일 경우엔 "-"를 사용한다. 참고로 W3C는 비공인 인증 기관이다.<br><br>
 
 			DOCTYPE 정의<br>
-			– DOCTYPE은 브라우저에게 웹페이지의 문서 종류를 알려주는 선언문이다.<br>
+			– DOCTYPE은 브라우저에게 웹 페이지의 문서 종류를 알려주는 선언문이다.<br>
 			– DOCTYPE은 HTML 태그가 아닌, DTD로 정의되어 있다.<br>
-			– DOCTYPE은 웹페이지에서 제일 처음에 선언되어야 한다.<br>
+			– DOCTYPE은 웹 페이지에서 제일 처음에 선언되어야 한다.<br>
 			– DOCTYPE은 브라우저가 올바른 화면표시(rendering)를 하기 위해 필요하다.<br>
-			– DOCTYPE을 선언하지 않는다면, 브라우저는 호환모드(quirks mode)로 웹페이지를 해석해서 화면표시를 한다.<br>
+			– DOCTYPE을 선언하지 않는다면, 브라우저는 호환모드(quirks mode)로 웹 페이지를 해석해서 화면표시를 한다.<br>
 			하지만 호환모드일 경우, 브라우저별로 정확한 화면표시를 보장할 수 없다.
 		</p>
 	</blockquote>
 
 	<section class="txt_ex mt_l">
 		<h2>&lt;!DOCTYPE html&gt;</h2>
-		<p>현재 문서가 HTML5 문서임을 명시합니다. doctype은 문서의 최상위에 위치해야 하며, doctype의 선언방식은 다음과 같습니다.</p>
+		<p>현재 문서가 HTML5문서임을 명시합니다. doctype은 문서의 최상위에 위치해야 하며, doctype의 선언 방식은 다음과 같습니다.</p>
 
 		<div class="ol_lst indent">
 			<ol>
@@ -85,7 +85,7 @@
 
 	<section class="txt_ex mt_l">
 		<h2>&lt;meta charset=&quot;utf-8&quot;&gt;</h2>
-		<p>이 요소는 문서가 사용해야 할 문자 집합을 utf-8으로 설정합니다. charset은 사용언어에 따라 euc-kr로 설정 가능합니다.</p>
+		<p>이 요소는 문서가 사용해야 할 문자 집합을 utf-8으로 설정합니다. charset은 사용 언어에 따라 euc-kr로 설정 가능합니다.</p>
 	</section>
 
 	<section class="txt_ex mt_l">
@@ -100,7 +100,7 @@
 
 	<section class="txt_ex mt_l">
 		<h2>&lt;h1&gt;&lt;/h1&gt;</h2>
-		<p><code>&lt;h1&gt;</code> 요소. 문서의 제목을 의미합니다. 이 요소는 여러 검색엔진은 각 웹 사이트의 내용을 바로 이 태그를 이용하여 키워드를 수집하고, 그 내용을 파악합니다. 따라서 HTML 문서에 포함되는 제목은 이 태그로 작성해야만 검색엔진에 의해 제대로 검색될 확률을 높일 수 있습니다.</p>
+		<p><code>&lt;h1&gt;</code> 요소. 문서의 제목을 의미합니다. 이 요소는 여러 검색 엔진은 각 웹 사이트의 내용을 바로 이 태그를 이용하여 키워드를 수집하고, 그 내용을 파악합니다. 따라서 HTML문서에 포함되는 제목은 이 태그로 작성해야만 검색 엔진에 의해 제대로 검색될 확률을 높일 수 있습니다.</p>
 	</section>
 
 	<section class="txt_ex mt_l">
