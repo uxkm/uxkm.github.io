@@ -797,8 +797,8 @@ var menu = [
 						d3_nm:	'CSS 초급',
 						d3_url:		url_css+'cssBeginner&css_units',
 						d3_file:		file_css+'/02-cssBeginner/cssBeginner.html',
-						d3_note:	false,
-						d3_refer:	false,
+						d3_note:	true,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'CSS 단위',
