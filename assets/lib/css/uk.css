@@ -6089,7 +6089,6 @@ body {
   min-width: 240px;
 }
 .img_figure figcaption {
-  line-height: 20px;
   margin-top: 20px;
   text-align: center;
   font-size: 14px;
@@ -6241,6 +6240,9 @@ body {
   float: left;
   margin-right: 20px;
 }
+.reference {
+  line-height: 26px;
+}
 .reference a {
   line-height: 26px;
   font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
@@ -6284,7 +6286,6 @@ body {
   min-width: 240px;
 }
 .content_models figcaption {
-  line-height: 20px;
   margin-top: 20px;
   text-align: center;
   font-size: 14px;
@@ -6510,6 +6511,12 @@ body {
 .break_all {
   word-break: break-all;
 }
+.el_block {
+  display: block !important;
+}
+.font16 {
+  font-size: 16px;
+}
 @media (max-width: 767px) {
   .mt_lm {
     margin-top: 30px !important;
@@ -6522,6 +6529,9 @@ body {
   }
   .indent_max {
     margin-left: 16px;
+  }
+  .font16 {
+    font-size: 15px;
   }
 }
 .ready_content {

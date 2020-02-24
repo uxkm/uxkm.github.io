@@ -2406,7 +2406,7 @@
 		border:4px solid #eee; text-align:center;
 		img {max-width:100%; min-width:240px;}
 		figcaption {
-			line-height:20px; margin-top:20px; text-align:center;
+			margin-top:20px; text-align:center;
 			font-size:14px; font-weight:400; color:#888;
 			p {
 				margin-top:2px; padding:8px 15px;
@@ -2483,6 +2483,7 @@
 		}
 	}
 	.reference {
+		line-height:@line-height;
 		a {
 			line-height:@line-height;
 			.font-kr; color:@link; text-decoration:underline; font-weight:400;
@@ -2619,11 +2620,14 @@
 	.t_green {color:@green !important;}
 	.t_black {color:#222 !important;}
 	.break_all {word-break:break-all;}
+	.el_block {display:block !important;}
+	.font16 {font-size:16px;}
 	@media(max-width:@screen-sm-max){
 		.mt_lm {margin-top:30px !important;}
 		.ml_mn {margin-left:-8px !important;}
 		.indent {margin-left:8px;}
 		.indent_max {margin-left:16px;}
+		.font16 {font-size:15px;}
 	}
 
 

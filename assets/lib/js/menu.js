@@ -744,6 +744,8 @@ var menu = [
 						d3_nm:	'CSS 시작',
 						d3_url:		url_css+'cssStart&css_intro',
 						d3_file:		file_css+'/01-cssStart/cssStart.html',
+						d3_note:	false,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'CSS란?',
@@ -795,6 +797,8 @@ var menu = [
 						d3_nm:	'CSS 초급',
 						d3_url:		url_css+'cssBeginner&css_units',
 						d3_file:		file_css+'/02-cssBeginner/cssBeginner.html',
+						d3_note:	false,
+						d3_refer:	false,
 						d4:[
 							{
 								d4_nm:	'CSS 단위',
@@ -876,6 +880,8 @@ var menu = [
 						d3_nm:	'CSS 중급',
 						d3_url:		url_css+'cssMiddleclass&css_selectors_level3',
 						d3_file:		file_css+'/03-cssMiddleclass/cssMiddleclass.html',
+						d3_note:	false,
+						d3_refer:	false,
 						d4:[
 							{
 								d4_nm:	'CSS 선택자 level 3',
@@ -945,6 +951,8 @@ var menu = [
 						d3_nm:	'CSS 고급',
 						d3_url:		url_css+'cssAdvanced&css_transform',
 						d3_file:		file_css+'/04-cssAdvanced/cssAdvanced.html',
+						d3_note:	false,
+						d3_refer:	false,
 						d4:[
 							/*
 							{
@@ -1010,6 +1018,8 @@ var menu = [
 						d3_nm:	'UI/UX 구현',
 						d3_url:		url_css+'uiux',
 						d3_file:		file_css+'/05-uiux/uiux.html',
+						d3_note:	false,
+						d3_refer:	false,
 					},
 
 					//참조 사이트
@@ -1017,6 +1027,8 @@ var menu = [
 						d3_nm:	'참조 사이트',
 						d3_url:		url_css+'bookmark',
 						d3_file:		file_css+'/06-bookmark/bookmark.html',
+						d3_note:	false,
+						d3_refer:	false,
 					},
 				]
 			},
