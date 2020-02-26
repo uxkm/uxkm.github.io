@@ -897,7 +897,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 				var the_height;
 				the_height = target.contents().find('body').height();
 				$(e).css({'height': the_height});
-				console.log(the_height);
 
 				if( the_height === null ){
 					var th_interval = setInterval(function(){
@@ -908,7 +907,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 						else {
 							clearInterval(th_interval);
 						}
-						console.log('aaaa');
 					}, 100);
 				}
 			});
