@@ -27,7 +27,9 @@
 <body>
 <div class="wrap">
 
-
+	<style>
+		.box.b_width {box-shadow:none !important;}
+	</style>
 	<section class="contentArea" style="padding:0;">
 
 		<!-- box model -->
@@ -66,10 +68,11 @@
 								<p class="copy_txt lft"><span>border: <i>0</i>px solid #ff8383</span>;</p>
 								<p class="copy_txt lft"><span>border-radius: <i>0</i>px</span>;</p>
 								<p class="copy_txt both"><span>margin: <i>0</i>px</span>;</p>
+								<!--<p class="copy_txt both"><span>box-shadow: <i>0</i>px <i>0</i>px <i>0</i>px <i>0</i>px <i>0</i> <i>0</i></span>;</p>-->
 							</div>
 							<p>}</p>
 						</div>
-						<div class="form f_tit inp_range clear mobil_set">
+						<div class="form f_tit inp_range clear mobil_set clear">
 							<!--
 							<p class="copy_w" data-tit="width"><input type="range" min="60" max="120" step="1" value="120"></p>
 							<p class="hide" data-tit="height"><input type="range" min="60" max="120" step="1" value="120"></p>
@@ -80,6 +83,13 @@
 							<p class="lf" data-tit="border"><input type="range" min="0" max="30" step="1" value="10"></p>
 							<p class="lf" data-tit="border-radius"><input type="range" min="0" max="100" step="1" value="20"></p>
 							<p class="both" data-tit="margin"><input type="range" min="0" max="30" step="1" value="20"></p>
+							<!--
+							<p class="lft" style="width:auto; padding-right:2px;" data-tit="X"><input type="text" value="10"></p>
+							<p class="lft" style="width:auto; padding-right:2px;" data-tit="y"><input type="text" value="10"></p>
+							<p class="lft" style="width:auto; padding-right:2px;" data-tit="blur"><input type="text" value="10"></p>
+							<p class="lft" style="width:auto; padding-right:2px;" data-tit="spread"><input type="text" value="10"></p>
+							<p class="lft" style="width:auto; padding-right:2px;" data-tit="color"><input type="text" value="blue"></p>
+							-->
 						</div>
 					</div>
 				</li>
