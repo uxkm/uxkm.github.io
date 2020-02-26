@@ -6733,6 +6733,20 @@ body {
   margin-left: 7px;
   color: #e44d26;
 }
+.iframe_con {
+  position: relative;
+  overflow-y: hidden;
+  height: 678px;
+  border: 4px solid #eee;
+}
+.iframe_con iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 /*-
 
 .sub_top {
