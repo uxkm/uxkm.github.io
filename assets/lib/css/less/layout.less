@@ -1924,11 +1924,15 @@
 			}
 		}
 		.uk_note {
-			display:inline-block;
-			text-align:left;
-			line-height:24px; margin:15px @pc_padding 0;
+			text-align:center;
+			line-height:24px; margin:15px @pc_padding 0; padding:0;
 			font-size:14px;
-			border:0;
+			border:0; background:none;
+			ul {
+				display:inline-block;
+				text-align:left;
+				padding:22px 30px; background:#f9f9f9;
+			}
 			li {
 				position:relative; padding-left:12px;
 				&:before {
@@ -2362,11 +2366,14 @@
 
 	.view_editor {
 		.ve_tit {
-			line-height:20px;
+			position:relative;
+			line-height:24px; padding-left:20px;
 			.font-kr; font-size:18px; color:@blue; font-weight:700;
 			&:before {
+				position:absolute; left:0; top:0;
+				margin:0 8px 0 0;
 				.font-icon;
-				margin:0 8px 0 0; content:"\f1c9";
+				content:"\f1c9";
 			}
 		}
 		&.ex_code .ve_tit {color:@green;}
@@ -2377,11 +2384,11 @@
 	@media(max-width:@screen-sm-max){
 		.view_editor {
 			.ve_tit {
-				line-height:17px;
+				line-height:20px;
 				font-size:16px;
 				&:before {margin:0 6px 0 0;}
 			}
-			.uk_editor {margin-top:15px;}
+			.uk_editor {margin-top:10px;}
 		}
 	}
 

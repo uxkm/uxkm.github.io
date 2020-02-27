@@ -880,8 +880,8 @@ var menu = [
 						d3_nm:	'CSS 중급',
 						d3_url:		url_css+'cssMiddleclass&css_selectors_level3',
 						d3_file:		file_css+'/03-cssMiddleclass/cssMiddleclass.html',
-						d3_note:	false,
-						d3_refer:	false,
+						d3_note:	true,
+						d3_refer:	true,
 						d4:[
 							{
 								d4_nm:	'CSS 선택자 level 3',

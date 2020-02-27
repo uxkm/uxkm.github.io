@@ -5118,12 +5118,19 @@ body {
   content: "";
 }
 .sub_top .uk_note {
-  display: inline-block;
-  text-align: left;
+  text-align: center;
   line-height: 24px;
   margin: 15px 50px 0;
+  padding: 0;
   font-size: 14px;
   border: 0;
+  background: none;
+}
+.sub_top .uk_note ul {
+  display: inline-block;
+  text-align: left;
+  padding: 22px 30px;
+  background: #f9f9f9;
 }
 .sub_top .uk_note li {
   position: relative;
@@ -6028,15 +6035,20 @@ body {
   content: "";
 }
 .view_editor .ve_tit {
-  line-height: 20px;
+  position: relative;
+  line-height: 24px;
+  padding-left: 20px;
   font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
   font-size: 18px;
   color: #1e73ff;
   font-weight: 700;
 }
 .view_editor .ve_tit:before {
-  font-family: "Font Awesome 5 Free", sans-serif;
+  position: absolute;
+  left: 0;
+  top: 0;
   margin: 0 8px 0 0;
+  font-family: "Font Awesome 5 Free", sans-serif;
   content: "\f1c9";
 }
 .view_editor.ex_code .ve_tit {
@@ -6053,14 +6065,14 @@ body {
 }
 @media (max-width: 767px) {
   .view_editor .ve_tit {
-    line-height: 17px;
+    line-height: 20px;
     font-size: 16px;
   }
   .view_editor .ve_tit:before {
     margin: 0 6px 0 0;
   }
   .view_editor .uk_editor {
-    margin-top: 15px;
+    margin-top: 10px;
   }
 }
 .txt_ex > b,
