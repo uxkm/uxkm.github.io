@@ -55,16 +55,16 @@ var menu = [
 						]
 					},
 
-					//블록 레벨 요소 vs 인라인 요소
+					//블록 요소 vs 인라인 요소
 					{
-						d3_nm:	'블록 레벨 요소 vs 인라인 요소',
+						d3_nm:	'블록 요소 vs 인라인 요소',
 						d3_url:		url_html+'blockInline&block_element',
 						d3_file:		file_html+'/02-blockInline/',
 						d3_note:	true,
 						d3_refer:	false,
 						d4:[
 							{
-								d4_nm:	'블록 레벨 요소',
+								d4_nm:	'블록 요소',
 								d4_url:		url_html+'blockInline&block_element',
 								d4_file:		file_html+'/02-blockInline/01-block_element.html',
 								html5:		false,
