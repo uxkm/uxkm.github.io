@@ -8,10 +8,10 @@
 	<section class="mt_l">
 		<h2 class="sound_only">요소 설명</h2>
 		<p>
-			<code>&lt;img&gt;</code> 요소는 빈 요소(empty elements) or 단일요소 입니다.<br>
+			<code>&lt;img&gt;</code> 요소는 빈 요소(empty elements) 또는 단일요소 입니다.<br>
 			<code>&lt;img&gt;</code> 요소는 HTML 문서에서 이미지(image)를 정의할 때 사용합니다.<br>
 			<code>&lt;img&gt;</code> 요소로 정의된 이미지는 HTML 문서에 직접 삽입되는 것이 아니라, HTML 문서에 이미지가 링크되는 형태입니다.<br>
-			즉, <code>&lt;img&gt;</code> 요소는 이렇게 참조된 이미지를 위한 일종의 수용 공간을 만들어 주는 것입니다.<br>
+			즉, <code>&lt;img&gt;</code> 요소는 참조된 이미지를 위한 일종의 수용 공간을 만들어 주는 것입니다.<br>
 			<code>&lt;img&gt;</code> 요소에는 src(source) 속성과 alt(alternative text) 속성을 반드시 명시해야만 합니다.<br>
 			HTML5에서는 <code>&lt;img&gt;</code> 요소의 align, border, hspace, vspace 속성을 더 이상 지원하지 않습니다.<br>
 			HTML에서는 <code>&lt;img&gt;</code> 요소를 닫지 않지만, XHTML에서는 다음과 같이 반드시 요소를 닫아야만(/) 합니다.
@@ -50,9 +50,9 @@
 				시각 장애인용 스크린 리더의 사용 등 어떤 이유로든 사용자가 이미지를 볼 수 없을 때 이미지 대신 제공할 대체 정보를 제공합니다.
 			</p>
 			<ol class="ol_lst mt_s indent">
-				<li>만약 이미지가 정보를 포함하고 있다면, 텍스트는 이미지를 묘사해야 함.</li>
-				<li>만약 이미지가 <code>&lt;a&gt;</code> 요소 내에 위치하고 있다면, 텍스트는 링크가 어디와 연결되어 있는지를 설명해야 함.</li>
-				<li>만약 이미지가 단순한 장식이라면 <code>alt=&quot;&quot;</code>와 같이 사용해야 함.</li>
+				<li>만약 이미지가 정보를 포함하고 있다면, 텍스트는 이미지를 묘사해야 합니다.</li>
+				<li>만약 이미지가 <code>&lt;a&gt;</code> 요소 내에 위치하고 있다면, 텍스트는 링크가 어디와 연결되어 있는지를 설명해야 합니다.</li>
+				<li>만약 이미지가 정보를 포함하지 않은 단순한 장식이라면 <code>alt=&quot;&quot;</code>와 같이 사용해야 합니다만, 이런 경우에는 css를 사용하여 배경(background-image)으로 사용하는 것을 권장합니다.</li>
 			</ol>
 		</article>
 
@@ -63,9 +63,9 @@
 				이미지의 height 속성과 width 속성은 언제나 명시하는 것이 좋습니다.<br>
 				이 속성들이 명시되어 있으면 웹 페이지가 로드될 때 브라우저가 해당 이미지를 위한 적절한 공간을 남겨둘 수 있지만,
 				이 속성들이 명시되어 있지 않으면 브라우저는 이미지의 크기를 알 수 없어 필요한 공간을 남겨둘 수 없게 됩니다.<br>
-				따라서 이미지가 로딩되는 순간 페이지의 레이아웃이 변경되는 결과를 초래할 수 있습니다.<br>
-				height 속성과 width 속성을 사용하여 크기가 큰 이미지를 작게 보이도록 했을지라도 사용자가 해당 이미지를 다운로드하면 여전히 큰 이미지가 다운로드됩니다.<br>
-				따라서 사용자에게 작은 크기의 이미지를 다운로드받게 하고 싶다면 이미지를 웹 페이지에 사용하기 전 이미지의 크기를 재조정하여 사용해야 합니다.<br>
+				따라서 이미지가 로딩되는 순간 페이지의 레이아웃이 변형되는 결과를 초래할 수 있습니다.<br>
+				height 속성과 width 속성을 사용하여 크기가 큰 이미지를 작게 보이도록 했을지라도 사용자가 해당 이미지를 다운로드하면 여전히 원본 크기의 이미지를 내려받게 됩니다.<br>
+				따라서 사용자에게 현재 화면에 출력된 크기의 이미지를 내려받게 하고 싶다면 이미지를 웹 페이지에 사용하기 전에 이미지의 크기를 재조정하여 사용해야 합니다.<br>
 				HTML 4.01에서 <code>&lt;img&gt;</code> 요소의 width, height 속성값은 픽셀(pixel) 단위뿐만 아니라 퍼센트(%) 단위로도 정의할 수 있었습니다.<br>
 				하지만 HTML5에서는 오직 픽셀(pixel) 단위만을 사용해야 합니다.
 			</p>
@@ -79,7 +79,7 @@
 				만약 해당 <code>&lt;img&gt;</code> 요소가 <code>&lt;a&gt;</code>요소나 <code>&lt;button&gt;</code> 요소의 자손 요소(descendant element)이면 usemap 속성은 사용할 수 없습니다.
 			</p>
 			<ol class="ol_lst mt_s indent">
-				<li>#맵이름 값 : 해시 문자(#)와 함께 사용할 <code>&lt;map&gt;</code> 요소의 name 속성값을 명시함.</li>
+				<li>#맵이름 값 : 해시 문자(#)와 함께 사용할 <code>&lt;map&gt;</code> 요소의 name 속성값을 명시합니다.</li>
 			</ol>
 			<div class="view_editor ex_code mt_s" data-target="html/06-embedded/6.2.img_element_usemap.html">
 				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
@@ -103,16 +103,16 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[srcset] <span class="t_blue">&lt;img srcset=&quot;/images/img1.jpg 960w, /images/img2.jpg 575w&quot;&gt;</span></h3>
 			<p class="mt_s">
-				이브라우저에 제시할(사용할) 이미지들과 그 이미지들의 원본 크기를 지정합니다.<br>
+				이 브라우저에 제시할(사용할) 이미지들과 그 이미지들의 원본 크기를 지정합니다.<br>
 				다양한 상황 (예 : 고해상도 디스플레이, 소형 모니터 등)에서 사용할 이미지<br>
 				<code>&lt;img&gt;</code> 요소의 srcset 속성은 각각 다른 환경에서 사용될 이미지 소스를 명시합니다.<br>
 				srcset 속성은 브라우저가 사용할 수 있는 이미지 소스를 나타내는 하나 이상의 문자열을 콤마(,)로 결합한 리스트를 속성값으로 가집니다.<br>
 				각 이미지 소스를 나타내는 문자열은 다음과 같이 구성됩니다.<br>
-				<mark>Internet Explorer는 지원하지 않음.</mark>
+				<mark>Internet Explorer는 지원하지 않습니다.</mark>
 			</p>
 			<ol class="ol_lst indent mt_s">
 				<li class="line_code font14">
-					<strong>w 단위(Width descriptor)는 이미지의 원본 크기(가로 너비)를 의미합니다. 예를 들어 400x300(px) 크기 이미지의 w 값은 400w입니다.</strong>
+					<strong>w 단위(Width descriptor)는 이미지의 원본 크기(가로 너비)를 의미합니다. 예를 들어 400x300(px) 크기 이미지의 w값은 400w입니다.</strong>
 					<p>뷰포트 너비가 400px 이하일 때 small.png(400px)가 사용됩니다.</p>
 					<p>뷰포트 너비가 401~700px 일 때 medium.png(700px)가 사용됩니다.</p>
 					<p>뷰포트 너비가 701px 이상일 때 large.png(1000px)가 사용됩니다.</p>
@@ -143,7 +143,7 @@
 				<code>&lt;img&gt;</code> 요소의 sizes 속성은 서로 다른 페이지 레이아웃에 대한 이미지 소스의 크기를 명시합니다.<br>
 				sizes 속성은 이미지 소스의 크기를 나타내는 하나 이상의 문자열을 콤마(,)로 결합한 리스트를 속성값으로 가집니다.<br>
 				각 이미지 소스의 크기를 나타내는 문자열은 다음과 같이 구성됩니다.<br>
-				<mark>Internet Explorer는 지원하지 않음.</mark>
+				<mark>Internet Explorer는 지원하지 않습니다.</mark>
 			</p>
 			<ol class="ol_lst mt_s indent">
 				<li>미디어 상태(마지막 아이템에서는 생략함).</li>
@@ -163,20 +163,20 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[crossorigin] <span class="t_blue">&lt;img crossorigin=&quot;anonymous | use-credentials&quot;&gt;</span></h3>
 			<p class="mt_s">
-				<code>&lt;canvas&gt;</code> 요소에 사용될 이미지에 교차 출처 접근(cross-origin access)을 허용하는 제3의 사이트(third-party site)로부터의 이미지 허용 여부를 명시함.
+				<code>&lt;canvas&gt;</code> 요소에 사용될 이미지에 교차 출처 접근(cross-origin access)을 허용하는 제3의 사이트(third-party site)로부터의 이미지 허용 여부를 명시합니다.
 			</p>
 			<ol class="ol_lst mt_s indent">
 				<li>
-					anonymous 값 : 교차 출처 요청 (예 : Origin:HTTP 헤더 사용)이 수행되지만 자격 증명이 전송되지 않습니다.<br>
+					anonymous 값 : 교차 출처 요청(예 : Origin:HTTP 헤더 사용)이 수행되지만 자격 증명이 전송되지 않습니다.<br>
 					(예 : 쿠키, X.509 인증서 또는 HTTP 기본 인증 없음).<br>
-					서버가 Access-Control-Allow-OriginHTTP 헤더를 설정하지 않고 원본 사이트에 자격 증명을 제공하지 않으면 이미지가 오염되고 사용이 제한됩니다
+					서버가 Access-Control-Allow-OriginHTTP 헤더를 설정하지 않고 원본 사이트에 자격 증명을 제공하지 않으면 이미지가 오염되고 사용이 제한됩니다.
 				</li>
 				<li>
-					use-credentials : Origin전송 된 자격 증명<br>
-					(예 : 쿠키, 인증서 또는 HTTP 기본 인증)과 함께 수행 되는 교차 출처 요청 (즉, HTTP 헤더 사용)<br>
+					use-credentials : Origin 전송된 자격 증명<br>
+					(예 : 쿠키, 인증서 또는 HTTP 기본 인증)과 함께 수행되는 교차 출처 요청(즉, HTTP 헤더 사용)<br>
 					서버가 Access-Control-Allow-CredentialsHTTP 헤더를 통해 원본 사이트에 자격 증명을 제공하지 않으면 이미지가 오염되고 사용이 제한됩니다.<br>
-					속성이 없으면 CORS 요청없이 (즉, OriginHTTP 헤더 를 보내지 않고) 리소스를 가져 와서 <code>&lt;canvas&gt;</code>요소 에서 오염되지 않은 사용을 방지합니다.
-					유효하지 않은 경우, anonymous값이 사용 된 것처럼 처리 됩니다.
+					속성이 없으면 CORS 요청없이(즉, OriginHTTP 헤더 를 보내지 않고) 리소스를 가져와서 <code>&lt;canvas&gt;</code>요소 에서 오염되지 않은 사용을 방지합니다.
+					유효하지 않은 경우, anonymous값이 사용된 것처럼 처리됩니다.
 				</li>
 			</ol>
 		</article>
@@ -184,7 +184,7 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[longdesc] <span class="t_blue">&lt;img longdesc=&quot;[html-longdesc]에 정의 된 이미지의 확장 된 설명에 대한 링크를 제공하는 URL&quot;&gt;</span></h3>
 			<p class="mt_s">
-				<code>&lt;img&gt;</code> 요소의 longdesc 속성은 이미지에 대한 alt속성의 섦명이 부족한 경우 longdesc 속성을 제공하여 부가적인 설명을 제공하는 URL을 명시합니다.<br>
+				<code>&lt;img&gt;</code> 요소의 longdesc 속성은 이미지에 대한 alt 속성의 설명이 부족한 경우 longdesc 속성을 제공하여 부가적인 설명을 제공하는 URL을 명시합니다.<br>
 				현재는 접근성 관련하여 이 속성보다는 다른방법으로 대체하는 것을 권장합니다.
 			</p>
 			<div class="view_editor ex_code mt_s" data-target="html/06-embedded/6.2.img_element_longdesc.html">
