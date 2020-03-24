@@ -6518,6 +6518,12 @@ body {
 .ml_mn {
   margin-left: -25px !important;
 }
+.mb_sm {
+  margin-bottom: 5px !important;
+}
+.mb_s {
+  margin-bottom: 10px !important;
+}
 .indent {
   margin-left: 25px;
 }
