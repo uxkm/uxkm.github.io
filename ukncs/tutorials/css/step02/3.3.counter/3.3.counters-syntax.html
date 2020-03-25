@@ -1,7 +1,7 @@
 <style>
-	ol{counter-reset: chapter;}
+	ol {counter-reset: chapter;}
 	li {list-style:none;}
-	li:before{
+	li:before {
 		counter-increment: chapter;
 		content: counters(chapter, ".", upper-roman);
 	}
