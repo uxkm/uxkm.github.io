@@ -6558,7 +6558,7 @@ body {
   display: block !important;
 }
 .font16 {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 .t_center {
   text-align: center;
@@ -6637,6 +6637,9 @@ body {
 .table_basic .lst_bd > li:last-child .cell {
   border-bottom: 0;
 }
+.table_basic.first_cell_th .lst_bd .cell:first-child {
+  background: #fbfbfb;
+}
 .specificity1 .tit,
 .specificity2 .tit {
   width: 150px;
@@ -6656,6 +6659,10 @@ body {
 .specificity2 .result {
   text-align: left;
   padding-left: 15px;
+}
+.nth_chart .cell {
+  padding-left: 0;
+  padding-right: 0;
 }
 @media (max-width: 620px) {
   .specificity1,

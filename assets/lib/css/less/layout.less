@@ -2643,7 +2643,7 @@
 
 	.break_all {word-break:break-all;}
 	.el_block {display:block !important;}
-	.font16 {font-size:16px;}
+	.font16 {font-size:16px !important;}
 	.t_center {text-align:center;}
 	.t_left {text-align:left;}
 	.t_right {text-align:right;}
@@ -2687,6 +2687,8 @@
 		.lst_bd > li {display:table; width:100%; table-layout:fixed;}
 		.lst_hd {text-align:center; color:#444; background:#fbfbfb;}
 		.lst_bd > li:last-child .cell {border-bottom:0;}
+
+		&.first_cell_th .lst_bd .cell:first-child {background:#fbfbfb;}
 	}
 
 	.specificity1, .specificity2 {
@@ -2694,6 +2696,9 @@
 		.con_a, .con_b, .con_c, .equals {width:50px; .t_center;}
 		.result {.t_left; padding-left:15px;}
 	}
+
+	.nth_chart .cell {padding-left:0; padding-right:0;}
+
 	@media(max-width:@screen-sm){
 		.specificity1, .specificity2 {
 			font-size:12px;
@@ -2760,6 +2765,9 @@
 			overflow:hidden;
 		}
 	}
+
+
+
 
 //sub top , sub content common bakup
 /*-
