@@ -2212,6 +2212,11 @@
 			font-size:16px;
 			font-style:normal; font-weight:normal; letter-spacing:-0.5px;
 			background:#eee;
+			&.clear {
+				display:block;
+				i {.lft; margin-right:4px;}
+			}
+			&.in_block i {display:inline-block;}
 		}
 		mark code {background:none;}
 		strong code {font-weight:bold;}
@@ -2313,6 +2318,7 @@
 		> li, > ol > li {
 			position:relative; counter-increment:@name;
 			padding-left:22px;
+			&.font14:before {font-weight:500;}
 		}
 		> li:before, > ol > li:before {
 			position:absolute; left:0; top:0; z-index:2;
@@ -2409,7 +2415,8 @@
 		> p {
 			margin-top:2px; padding:8px 15px;
 			.font-kr; word-break:break-all; background:#f9f9f9;
-			code {background:#fff;}
+			//code {background:#fff;}
+			code {color:#444; background:#f9f9f9; word-break:keep-all;}
 		}
 		h3 + p, h4 + p, span + p {margin-top:10px;}
 	}

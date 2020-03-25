@@ -5691,6 +5691,16 @@ body {
   letter-spacing: -0.5px;
   background: #eee;
 }
+.content_area code.clear {
+  display: block;
+}
+.content_area code.clear i {
+  float: left;
+  margin-right: 4px;
+}
+.content_area code.in_block i {
+  display: inline-block;
+}
 .content_area mark code {
   background: none;
 }
@@ -5894,6 +5904,10 @@ body {
   counter-increment: lst_number;
   padding-left: 22px;
 }
+.ol_lst > li.font14:before,
+.ol_lst > ol > li.font14:before {
+  font-weight: 500;
+}
 .ol_lst > li:before,
 .ol_lst > ol > li:before {
   position: absolute;
@@ -5944,6 +5958,10 @@ body {
   position: relative;
   counter-increment: lst_num;
   padding-left: 22px;
+}
+.ol_lst_second > li.font14:before,
+.ol_lst_second > ol > li.font14:before {
+  font-weight: 500;
 }
 .ol_lst_second > li:before,
 .ol_lst_second > ol > li:before {
@@ -6104,7 +6122,9 @@ body {
   background: #f9f9f9;
 }
 .line_code > p code {
-  background: #fff;
+  color: #444;
+  background: #f9f9f9;
+  word-break: keep-all;
 }
 .line_code h3 + p,
 .line_code h4 + p,
