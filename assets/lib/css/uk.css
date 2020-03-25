@@ -6571,6 +6571,9 @@ body {
 .t_orange {
   color: #f79d30 !important;
 }
+.weight-500 {
+  font-weight: 500 !important;
+}
 .break_all {
   word-break: break-all;
 }

@@ -8,7 +8,6 @@
 <title>UXKM CSS3 Counter</title>
 <style>
 	*{margin:0;padding:0;box-sizing:border-box;}
-	.box{width:500px;margin:0 auto;border:1px solid #000;}
 	ol {counter-reset: item;}
 	li {display: block;}
 	li:before { 
@@ -20,30 +19,31 @@
 </head>
 <body>
 	<div class="box">
-		<ol>                    <!-- {item[0]=0        -->
-			<li>item</li>         <!--  item[0]++ (=1)   -->
-			<li>item              <!--  item[0]++ (=2)   -->
-				<ol>                <!--  {item[1]=0       -->
-					<li>item</li>     <!--   item[1]++ (=1)  -->
-					<li>item</li>     <!--   item[1]++ (=2)  -->
-					<li>item          <!--   item[1]++ (=3)  -->
-						<ol>            <!--   {item[2]=0      -->
-							<LI>item</LI> <!--    item[2]++ (=1) -->
-						</ol>           <!--                   -->
-						<ol>            <!--   }{item[2]=0     -->
-							<li>item</li> <!--    item[2]++ (=1) -->
-						</ol>           <!--                   -->
-					</li>             <!--   }               -->
-					<li>item</li>     <!--   item[1]++ (=4)  -->
-				</ol>               <!--                   -->
-			</li>                 <!--  }                -->
-			<li>item</li>         <!--  item[0]++ (=3)   -->
-			<li>item</li>         <!--  item[0]++ (=4)   -->
-		</ol>                   <!--                   -->
-		<ol>                    <!-- }{item[0]=0       -->
-			<li>item</li>         <!--  item[0]++ (=1)   -->
-			<li>item</li>         <!--  item[0]++ (=2)   -->
-		</ol>                   <!--                   --> 
+		<ol>								<!-- {item[0]=0        -->
+			<li>item</li>					<!--  item[0]++ (=1)   -->
+			<li>item						<!--  item[0]++ (=2)   -->
+				<ol>						<!--  {item[1]=0       -->
+					<li>item</li>			<!--   item[1]++ (=1)  -->
+					<li>item</li>			<!--   item[1]++ (=2)  -->
+					<li>item				<!--   item[1]++ (=3)  -->
+						<ol>				<!--   {item[2]=0      -->
+							<LI>item</LI>	<!--    item[2]++ (=1) -->
+						</ol>				<!--                   -->
+						<ol>				<!--   }{item[2]=0     -->
+							<li>item</li>	<!--    item[2]++ (=1) -->
+						</ol>				<!--                   -->
+					</li>					<!--   }               -->
+					<li>item</li>			<!--   item[1]++ (=4)  -->
+				</ol>						<!--                   -->
+			</li>							<!--  }                -->
+			<li>item</li>					<!--  item[0]++ (=3)   -->
+			<li>item</li>					<!--  item[0]++ (=4)   -->
+		</ol>								<!--  }                -->
+		<hr>
+		<ol>								<!-- {item[0]=0       -->
+			<li>item</li>					<!--  item[0]++ (=1)   -->
+			<li>item</li>					<!--  item[0]++ (=2)   -->
+		</ol>								<!--                   -->
 	</div>
 </body>
 </html>
