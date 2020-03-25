@@ -6183,6 +6183,11 @@ body {
   background: #eee;
   content: "Web Browser Support for " attr(data-tit);
 }
+.browser_support.vendor:before {
+  font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
+  font-weight: 500;
+  content: "주요 웹 브라우저의 벤더 프리픽스 " attr(data-tit);
+}
 .browser_support li,
 .browser_support p {
   float: left;
