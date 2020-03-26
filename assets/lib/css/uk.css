@@ -5858,6 +5858,110 @@ body {
     font-size: 16px;
   }
 }
+.tab_menu ul {
+  *zoom: 1;
+  height: 50px;
+  border-bottom: 1px solid #ddd;
+}
+.tab_menu ul:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.tab_menu li {
+  float: left;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #ddd;
+  border-bottom: 0;
+}
+.tab_menu li.on {
+  z-index: 2;
+}
+.tab_menu li:not(:first-child) {
+  margin-left: -1px;
+}
+.tab_menu li a {
+  display: block;
+  position: relative;
+  line-height: 48px;
+  padding: 0 30px;
+  font-size: 15px;
+  color: #888;
+  font-weight: 500;
+  background: #f5f5f5;
+}
+.tab_menu li.on a {
+  line-height: 49px;
+  color: #1e73ff;
+  background: #fff;
+}
+.tab_menu li.on a:before {
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  right: -1px;
+  height: 3px;
+  background: #1e73ff;
+  content: "";
+}
+@media (max-width: 767px) {
+  .tab_menu {
+    text-align: center;
+  }
+  .tab_menu ul {
+    height: auto;
+    border: 1px solid #ddd;
+    border-right: 0;
+    border-bottom: 0;
+  }
+  .tab_menu li {
+    border: 1px solid #ddd;
+    border-top: 0;
+    border-left: 0;
+  }
+  .tab_menu li:not(:first-child) {
+    margin-left: 0;
+  }
+  .tab_menu li a {
+    line-height: 40px;
+    padding: 0 5px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .tab_menu li.on:before {
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    transform: translate(-50%, 0) rotate(45deg);
+    width: 14px;
+    height: 14px;
+    border: 1px solid #ddd;
+    background: #fff;
+    content: "";
+  }
+  .tab_menu li.on a {
+    line-height: 40px;
+  }
+  .tab_menu li.on a:before {
+    height: 2px;
+  }
+  .tab_menu li.on a:after {
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    content: "";
+  }
+  .tab_menu.x4 li {
+    width: 25%;
+  }
+  .tab_menu.x3 li {
+    width: 33.333%;
+  }
+  .tab_menu.x2 li {
+    width: 50%;
+  }
+}
 .uk_note {
   padding: 22px 30px;
   color: #4b6da5;
@@ -5882,7 +5986,8 @@ body {
   content: "]";
 }
 .uk_note code {
-  color: #1b283c;
+  color: #2b3f5f;
+  background: transparent;
 }
 @media (max-width: 767px) {
   .uk_note {

@@ -260,11 +260,18 @@ $(document).ready(function(){
 							//element 텍스트 색상 분기 처리
 							if( d4[g].d4_nm.match('element') ){
 								var txt_split = d4[g].d4_nm.split(' ');
-								var element_txt = txt_split[txt_split.length-1];
 								var tag_txt;
-								if( txt_split.length <= 2 ) tag_txt = txt_split[0];
-								else tag_txt = txt_split[0] + ' ' + txt_split[1];
-								$(f).find('li a').eq(g).html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+								if( txt_split[txt_split.length-1] === 'element' ){
+									var element_txt = txt_split[txt_split.length-1];
+									if( txt_split.length <= 2 ) tag_txt = txt_split[0];
+									else tag_txt = txt_split[0] + ' ' + txt_split[1];
+									$(f).find('li a').eq(g).html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+								}
+								else if( txt_split[1] === 'element' ) {
+									var ex_txt = txt_split[txt_split.length-1];
+									tag_txt = txt_split[0];
+									$(f).find('li a').eq(g).html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+								}
 							}
 
 							//html5에서 새로 생성된 태그 표시
@@ -805,12 +812,28 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 
 					//element 텍스트 색상 분기 처리
 					if( side_d4[a].d4_nm.match('element') ){
+						/*
+							var txt_split = side_d4[a].d4_nm.split(' ');
+							var element_txt = txt_split[txt_split.length-1];
+							var tag_txt;
+							if( txt_split.length <= 2 ) tag_txt = txt_split[0];
+							else tag_txt = txt_split[0] + ' ' + txt_split[1];
+							$(e).find('li a').eq(a).html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+						*/
+
 						var txt_split = side_d4[a].d4_nm.split(' ');
-						var element_txt = txt_split[txt_split.length-1];
 						var tag_txt;
-						if( txt_split.length <= 2 ) tag_txt = txt_split[0];
-						else tag_txt = txt_split[0] + ' ' + txt_split[1];
-						$(e).find('li a').eq(a).html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+						if( txt_split[txt_split.length-1] === 'element' ){
+							var element_txt = txt_split[txt_split.length-1];
+							if( txt_split.length <= 2 ) tag_txt = txt_split[0];
+							else tag_txt = txt_split[0] + ' ' + txt_split[1];
+							$(e).find('li a').eq(a).html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+						}
+						else if( txt_split[1] === 'element' ) {
+							var ex_txt = txt_split[txt_split.length-1];
+							tag_txt = txt_split[0];
+							$(e).find('li a').eq(a).html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+						}
 					}
 
 					//html5에서 새로 생성된 태그 표시

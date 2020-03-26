@@ -610,9 +610,21 @@ var menu = [
 								html5:		false,
 							},
 							{
-								d4_nm:	'input element',
-								d4_url:		url_html+'forms&input_element',
-								d4_file:		file_html+'/09-forms/03-input_element.html',
+								d4_nm:	'input element part-1',
+								d4_url:		url_html+'forms&input_element_part1',
+								d4_file:		file_html+'/09-forms/03-input_element_part1.html',
+								html5:		false,
+							},
+							{
+								d4_nm:	'input element part-2',
+								d4_url:		url_html+'forms&input_element_part2',
+								d4_file:		file_html+'/09-forms/03-input_element_part2.html',
+								html5:		false,
+							},
+							{
+								d4_nm:	'input element part-3',
+								d4_url:		url_html+'forms&input_element_part3',
+								d4_file:		file_html+'/09-forms/03-input_element_part3.html',
 								html5:		false,
 							},
 							{

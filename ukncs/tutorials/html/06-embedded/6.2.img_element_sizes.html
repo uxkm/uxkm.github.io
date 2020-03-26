@@ -1,23 +1,14 @@
-<img srcset="/examples/images/people_960.jpg 960w,
-			 /examples/images/people_575.jpg 575w"
-	 sizes="(min-width: 960px) 50vw,
-			(min-width: 575px) 75vw,
-			100vw"
+<img srcset="/examples/images/people_960.jpg 960w, /examples/images/people_575.jpg 575w"
+	 sizes="(min-width: 960px) 50vw, (min-width: 575px) 75vw, 100vw"
 	 src="/examples/images/people_575.jpg" alt="people">
-<img srcset="경로 원본크기,
-			 경로 원본크기,
-			 경로 원본크기"
-	 sizes="(미디어조건) 최적화출력크기,
-			(미디어조건) 최적화출력크기,
-			기본출력크기"
+<img srcset="경로 원본크기, 경로 원본크기, 경로 원본크기"
+	 sizes="(미디어조건) 최적화출력크기, (미디어조건) 최적화출력크기, 기본출력크기"
 	 src="경로" alt="대체텍스트">
 
 
 
 <!-- 미디어 조건 예 -->
-<img srcset="small.png 400w,
-			 medium.png 700w,
-			 large.png 1000w"
+<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
 	 sizes="(min-width: 1000px) 700px"
 	 src="default.png" alt="default">
 <!--
@@ -33,9 +24,7 @@ sizes="(min-width: 1000px) 700px"에서 (min-width: 1000px)은 ‘뷰포트 너�
 -->
 
 <!-- 미디어 조건 생략 예 -->
-<img srcset="small.png 400w,
-			 medium.png 700w,
-			 large.png 1000w"
+<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
 	 sizes="500px"
 	 src="default.png" alt="default">
 <!--
@@ -44,9 +33,7 @@ sizes="(min-width: 1000px) 700px"에서 (min-width: 1000px)은 ‘뷰포트 너�
 -->
 
 <!-- sizes는 없고 width만 있는 경우 예 -->
-<img srcset="small.png 400w,
-			 medium.png 700w,
-			 large.png 1000w"
+<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
 	 width="500"
 	 src="default.png" alt="default">
 <!--
@@ -63,16 +50,10 @@ sizes와 width를 같이 작성할 경우 width가 우선합니다.
 -->
 
 <!-- ,혼합하여 사용하는 경우 예 -->
-<img srcset="small.png 400w,
-			 medium.png 700w,
-			 large.png 1000w"
-	 sizes="(min-width: 701px) 1000px,
-			(min-width: 401px) 700px,
-			400px"
+<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+	 sizes="(min-width: 701px) 1000px, (min-width: 401px) 700px, 400px"
 	 src="default.png" alt="default">
 
 <!-- 위 예제는 아래와 동일하기 때문에 sizes를 사용할 필요가 없음 -->
-<img srcset="small.png 400w,
-			 medium.png 700w,
-			 large.png 1000w"
+<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
 	 src="default.png" alt="default">
