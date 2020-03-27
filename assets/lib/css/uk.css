@@ -6188,11 +6188,11 @@ body {
 }
 @media (max-width: 767px) {
   .view_editor .ve_tit {
-    line-height: 20px;
-    font-size: 16px;
+    line-height: 22px;
+    font-size: 15px;
   }
   .view_editor .ve_tit:before {
-    margin: 0 6px 0 0;
+    margin: 1px 6px 0 0;
   }
   .view_editor .uk_editor {
     margin-top: 10px;
@@ -6243,7 +6243,7 @@ body {
 }
 .img_figure img {
   max-width: 100%;
-  min-width: 240px;
+  min-width: 100px;
 }
 .img_figure figcaption {
   margin-top: 20px;
@@ -6441,7 +6441,7 @@ body {
 }
 .content_models img {
   max-width: 100%;
-  min-width: 240px;
+  min-width: 100px;
 }
 .content_models figcaption {
   margin-top: 20px;
@@ -6663,6 +6663,9 @@ body {
 .indent_max {
   margin-left: 50px;
 }
+.t_color {
+  color: #666 !important;
+}
 .t_blue {
   color: #1e73ff !important;
 }
@@ -6683,6 +6686,9 @@ body {
 }
 .weight-500 {
   font-weight: 500 !important;
+}
+.underline {
+  text-decoration: underline !important;
 }
 .break_all {
   word-break: break-all;
