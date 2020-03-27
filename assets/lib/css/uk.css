@@ -6642,6 +6642,9 @@ body {
 .mt_sm {
   margin-top: 5px !important;
 }
+.mt_1 {
+  margin-top: 1px !important;
+}
 .mt_0 {
   margin-top: 0 !important;
 }
