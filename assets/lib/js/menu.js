@@ -934,31 +934,31 @@ var menu = [
 							{
 								d4_nm:	'CSS3 Module part-2',
 								d4_url:		url_css+'cssMiddleclass&css_module3_part2',
-								d4_file:		file_css+'/03-cssMiddleclass/06-css_module3_part2.html',
+								d4_file:		file_css+'/03-cssMiddleclass/07-css_module3_part2.html',
 								html5:		false,
 							},
 							{
 								d4_nm:	'@규칙(At-Rule)',
 								d4_url:		url_css+'cssMiddleclass&css_atrule',
-								d4_file:		file_css+'/03-cssMiddleclass/07-css_atrule.html',
+								d4_file:		file_css+'/03-cssMiddleclass/08-css_atrule.html',
 								html5:		false,
 							},
 							{
 								d4_nm:	'@font-face',
 								d4_url:		url_css+'cssMiddleclass&css_fontface',
-								d4_file:		file_css+'/03-cssMiddleclass/08-css_fontface.html',
+								d4_file:		file_css+'/03-cssMiddleclass/09-css_fontface.html',
 								html5:		false,
 							},
 							{
 								d4_nm:	'@media',
 								d4_url:		url_css+'cssMiddleclass&css_media',
-								d4_file:		file_css+'/03-cssMiddleclass/09-css_media.html',
+								d4_file:		file_css+'/03-cssMiddleclass/10-css_media.html',
 								html5:		false,
 							},
 							{
 								d4_nm:	'CSS 속성 선언순서',
 								d4_url:		url_css+'cssMiddleclass&css_attr_rule',
-								d4_file:		file_css+'/03-cssMiddleclass/10-css_attr_rule.html',
+								d4_file:		file_css+'/03-cssMiddleclass/11-css_attr_rule.html',
 								html5:		false,
 							},
 						]
