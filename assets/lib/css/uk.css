@@ -5494,7 +5494,7 @@ body {
 .side_menu_area .side_d2 li.on {
   color: #1e73ff;
 }
-.side_menu_area .side_d2 li.on:not(.part):after {
+.side_menu_area .side_d2 li.on:after {
   position: absolute;
   left: -10px;
   top: 3px;
