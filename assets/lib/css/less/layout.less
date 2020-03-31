@@ -767,16 +767,37 @@
 					&:before {font-size:14px;}
 				}
 				&:hover {
-					&:before,
-					a, b, i, p {color:lighten(@blue, 20%);}
+					&:before {color:lighten(@blue, 20%);}
+					&:not(.part):not(.on) {
+						a, b, i, span {color:lighten(@blue, 20%);}
+					}
 				}
-				&.on:before,
-				&.on a, &.on b, &.on i, &.on p {color:#fff;}
-				&.on a:before {
+				&.part p:hover {
+					a, b, i, span {color:lighten(@blue, 20%);}
+				}
+
+				&.on:not(.part) {
+					&:before, a, b, i, span {color:#fff;}
+				}
+				//&.on:not(.part):before,
+				//&.on a, &.on b, &.on i, &.on span {color:#fff;}
+				&.on:not(.part) a:before {
 					position:absolute; left:-3px; right:-3px; z-index:-1;
 					height:100%;
 					background:fade(@blue, 50%);
 					content:"";
+				}
+				&.on.part p {
+					position:relative;
+					&.on {
+						&:before {
+							position:absolute; left:-3px; right:-3px; z-index:-1;
+							height:100%;
+							background:fade(@blue, 50%);
+							content:"";
+						}
+						a, b, i, span {color:#fff;}
+					}
 				}
 			}
 		}
@@ -1061,8 +1082,17 @@
 	/*
 	html {overflow:hidden;}
 	.hd_assetsLink {
-		.assetsLink_area {left:0 !important; top:0 !important; opacity:1 !important; transform:scale(1,1) !important; overflow-y:scroll !important;}
-		.assetsLink_in {transform:scale(1,1) !important;}
+
+		.assetsLink_area {
+			background:rgba(0,0,0,.9);
+			left:0 !important; top:0 !important; opacity:1 !important;
+			transform:scale(1,1) !important;
+			overflow-y:scroll !important;
+		}
+		.assetsLink_in {
+			opacity:1;
+			transform:scale(1,1) !important;
+		}
 	}
 	*/
 	//작업용(검색 완료 후 삭제)
@@ -2052,27 +2082,31 @@
 				a {padding-left:32px;}
 				a, b {color:#444; font-weight:400;}
 				i {color:#888; font-weight:300;}
-				p {color:#aaa; font-weight:400;}
+				span {color:#aaa; font-weight:400;}
 				.html5 {
 					margin:4px 0 0 4px; font-size:0;
+					color:#aaa;
 					&:before {font-size:14px;}
 				}
-				&:hover {
-					a, b, i, p {color:@blue;}
+				&:not(.part):hover {
+					a, b, i, span {color:@blue;}
+				}
+				&.part p:hover {
+					a, b, i, span {color:@blue;}
 				}
 				&.on {
 					color:@blue;
-					/*&:after {
-						position:absolute; left:-15px; top:6px; z-index:2;
-						width:6px; height:6px; background:@blue; border-radius:100%;
-						content:"";
-					}*/
-					&:after {
-						position:absolute; left:-10px; top:3px; bottom:3px; z-index:2;
-						width:3px; background:@blue;
-						content:"";
+					&:not(.part) {
+						&:after {
+							position:absolute; left:-10px; top:3px; bottom:3px; z-index:2;
+							width:3px; background:@blue;
+							content:"";
+						}
+						a, b, i, span {color:@blue;}
 					}
-					a, b, i, p {color:@blue;}
+					&.part p.on {
+						a, b, i, span {color:@blue;}
+					}
 				}
 			}
 		}
@@ -2221,7 +2255,11 @@
 		mark code {background:none;}
 		strong code {font-weight:bold;}
 
-		h1 {line-height:32px; font-size:28px; color:@navy; letter-spacing:-1px;}
+		h1 {
+			line-height:32px; font-size:28px; color:@navy; letter-spacing:-1px;
+			//i {color:#888;}
+			i {color:@blue;}
+		}
 		h1:before {content:attr(data-number);}
 		h1.html5:after {
 			margin:0 0 0 7px;

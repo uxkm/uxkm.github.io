@@ -1,0 +1,91 @@
+
+
+	<header>
+		<h1></h1><!-- @font-face -->
+		<time class="last_update" datetime="2020-03-30">2020-03-30</time>
+	</header>
+
+	<blockquote class="uk_note mt_lm" role="note">
+		<h3 class="sound_only">요약 설명</h3>
+		<p>
+			웹이 발전함에 따라 사용자가 웹에서 정보를 얻는 과정의 경험(UX)을 개선하려는 노력이 행해지고 있습니다.<br>
+			그런 노력 중 하나인 웹 폰트는 로컬의 폰트 설치 상황에 상관없이 웹에서 항상 원하는 타이포그래피를 사용할 수 있게 하는 기술입니다.
+		</p>
+	</blockquote>
+	<p class="mt_l">
+		<code>@font-face</code> 규칙은 웹 폰트(web font)를 정의할 때 사용하는 규칙입니다.<br>
+		웹 폰트는 사용자가 폰트를 설치하지 않아도 디자이너가 원하는 타이포그래피를 웹 페이지에 구현할 수 있게 하는 기술입니다.<br>
+		우선 웹 폰트를 서버에 올려놓고, CSS 파일에 <code>@font-face</code> 규칙을 사용하여 웹 폰트를 정의하고 추가합니다.<br>
+		그러면 해당 웹 페이지에 접속하는 모든 웹 브라우저는 자동으로 서버에서 웹 폰트를 내려받아 해당 글꼴을 표시하게 됩니다.
+	</p>
+	<div class="mt_ms ol_lst indent">
+		<p class="weight-500 ml_mn t_black">CSS3에서 <code>@font-face</code> 규칙을 사용하려면 다음과 같이 지정을 해야 합니다.</p>
+		<ol class="mt_s">
+			<li>
+				<strong class="weight-500 t_black">font-family</strong>
+				: 사용할 웹 폰트의 이름을 지정합니다. 이 이름은 폰트 파일의 이름과 일치하지 않아도 상관없습니다. 하지만 비슷하게 설정하는 것이 유지 보수에 좋습니다.
+			</li>
+			<li>
+				<strong class="weight-500 t_black">src</strong>
+				: 폰트 파일의 경로와 폰트의 형식을 지정합니다. url에 폰트 파일의 경로를 설정하고, format에 폰트 파일의 형식을 설정합니다.
+			</li>
+		</ol>
+	</div>
+	<p class="mt_ml">
+		<code>@font-face</code> 규칙을 설정한 다음 웹 폰트가 필요한 선택자(selector)의 font-family 속성에서 사용할 웹 폰트의 이름을 호출해 사용합니다.<br>
+		만약 웹 폰트 로딩이 실패하면 다음에 선언된 폰트가 렌더링됩니다. 이 폰트를 폴백 폰트(fallback font)라 합니다.
+	</p>
+	<figure class="img_figure mt_m">
+		<img src="/ukncs/images/css/img_webfont.png" alt="[@font-face 규칙">
+		<figcaption>[@font-face 규칙]</figcaption>
+	</figure>
+
+	<!-- 3.9.1. 웹 글꼴의 형식 -->
+	<section class="txt_ex indent mt_l">
+		<h2 class="ml_mn t_blue">@charset</h2>
+		<p class="mt_ms">
+			스타일 시트에 쓰이는 문자 인코딩을 지정합니다.<br>
+			스타일 시트의 첫 번째 요소여야 하며 어떤 문자가 선행되지 않아야 합니다; 중첩된 문이 아니기에, 조건부 그룹 at-규칙 내에 사용될 수 없습니다.<br>
+			여러 @charset at-규칙이 정의된 경우, 첫 번째 것만 사용되고 HTML 요소의 style attribute
+			또는 HTML 페이지의 문자 집합과 관련 있는 <code>&lt;style&gt;</code> 요소 내에서 사용될 수 없습니다.
+		</p>
+		<p class="mt_ms">
+			<code>ex) @charset "utf-8";</code><br>
+			<code>@charset "UTF-8"; /* 스타일 시트의 인코딩을 Unicode UTF-8로 설정 */</code><br>
+			<code>@charset 'iso-8859-15'; /* 스타일 시트의 인코딩을 Latin-9 (서유럽어, euro sign 있는) 로 설정 */</code>
+		</p>
+		<aside class="browser_support mt_m" data-tit="@charset">
+			<ul>
+				<li class="ie">5.5+</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">1.0</li>
+				<li class="firefox">1.5</li>
+				<li class="opera">9.0</li>
+				<li class="safari">4.0</li>
+			</ul>
+		</aside>
+	</section>
+
+
+
+	<br><br><br><br><br><br><br><br><br>
+	<aside class="reference_box mt_lm">
+		<h2 class="tit">@규칙(At-Rule) 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://compat.spec.whatwg.org/#css-at-rules" target="_blank" class="fas" title="새창열림">W3C CSS At-rules</a></li>
+			<li class="reference"><a href="https://drafts.csswg.org/css-conditional-3/" target="_blank" class="fas" title="새창열림">CSS Conditional Rules Module Level 3</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule" target="_blank" class="fas" title="새창열림">MDN At-rule</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/CSS2/syndata.html#x57" target="_blank" class="fas" title="새창열림">W3C CSS Level 2 (Revision 1) </a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/CSS1/#the-cascade" target="_blank" class="fas" title="새창열림">W3C CSS Level 1 @import specification.</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/CSS2/cascade.html#at-import" target="_blank" class="fas" title="새창열림">W3C CSS Level 2 (Revision 1) @import specification.</a></li>
+			<li class="reference"><a href="https://drafts.csswg.org/mediaqueries-3/#media0" target="_blank" class="fas" title="새창열림">W3C Media Queries @import specification.</a></li>
+			<li class="reference"><a href="https://drafts.csswg.org/css-cascade-3/#at-ruledef-import" target="_blank" class="fas" title="새창열림">W3C CSS Cascading and Inheritance Level 3 @import specification.</a></li>
+			<li class="reference"><a href="https://drafts.csswg.org/css-namespaces-3/#declaration" target="_blank" class="fas" title="새창열림">W3C CSS Namespaces Module</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/CSS2/page.html#page-selectors" target="_blank" class="fas" title="새창열림">W3C CSS Level 2 (Revision 1) @page specification</a></li>
+			<li class="reference"><a href="https://drafts.csswg.org/css-animations/#keyframes" target="_blank" class="fas" title="새창열림">W3C CSS Animations</a></li>
+			<li class="reference"><a href="https://drafts.csswg.org/css-device-adapt/#the-atviewport-rule" target="_blank" class="fas" title="새창열림">W3C CSS Device Adaptation</a></li>
+		</ul>
+	</aside>
+
+
+

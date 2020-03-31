@@ -182,6 +182,12 @@ $(document).ready(function(){
 				else{
 					file_url = menu[d1_on].d2[d2_on].d3[d3_on].d3_file;
 				}
+
+				//part로 나뉜 파일 경로
+				if( target_url.match('part') ){
+					var part_idx = target_url.split('part')[1]-1;
+					file_url = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].part_div[part_idx].part_file;
+				}
 			}
 			//Project GUIDE, Web Trends 외 메뉴 활성화 시 || Project GUIDE, Web Trends 메뉴 파일 경로
 			else {
@@ -254,18 +260,29 @@ $(document).ready(function(){
 
 						//al_depth3 생성
 						for( g=0; g<d4.length; g++ ){
-							al_depth3.append('<li class="'+dp4+'"><a href="'+ d4[g].d4_url +'" class="'+uk_link+'">'+ d4[g].d4_nm + '</a></li>');
-							//if( c === d2_on && e === d3_on && g === d4_on && d4_true ) al_depth3.find('>li').eq(g).addClass('on');
+							var part_state = d4[g].part;
 
-							//element 텍스트 색상 분기 처리
-							if( d4[g].d4_nm.match('element') ){
-								element_color_div(d4[g].d4_nm, $(f), g);
-							}
+							/*
+							var $e_ol = $(f).find('>ol');
+							$e_ol.append('<li class="'+dp4+'"></li>');
+							var $e_ol_li = $e_ol.find('>li');
 
-							//html5에서 새로 생성된 태그 표시
-							if( d4[g].html5 === true ){
-								$(f).find('li a').eq(g).addClass(html5_new).append('<p class="html5 fab fa-html5">HTML5에서 새롭게 추가</p>');
+							//part 아닐 경우
+							if( !part_state ){
+								$e_ol_li.eq(g).append('<a href="'+d4[g].d4_url+'" class="'+uk_link+'">'+d4[g].d4_nm+'</a>');
 							}
+							//part 일 경우
+							else if( part_state ){
+								$e_ol_li.eq(g).addClass('part');
+								var part_div = d4[g].part_div;
+								for( p=0; p<part_div.length; p++ ){
+									$e_ol_li.eq(g).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+part_div[p].part_nm+'</a></p>');
+								}
+							}
+							*/
+
+							//메뉴 생성 / element 텍스트 색상 분기 처리 / html5 표시
+							element_color_div(part_state, d4[g].d4_nm, $(f), g, d4);
 						}
 					}
 				});
@@ -442,8 +459,11 @@ $(document).ready(function(){
 					for( i=0; i<menuFileArrD4.length; i++ ){
 						var before_split = menuFileArrD4[i].d4_url.split('&');
 						var before = before_split[before_split.length-1];
+						if(before.match('_part') ) before = before.split('_part')[0];
+						var this_ls = this_link_split[3];
+						if(this_ls.match('_part') ) this_ls = this_ls.split('_part')[0];
 						//if( menuFileArrD4[i].d4_url.match( this_link_split[3] ) ) d4_on = i;
-						if( before === this_link_split[3] ) d4_on = i;
+						if( before === this_ls ) d4_on = i;
 					}
 				}
 			}
@@ -460,6 +480,11 @@ $(document).ready(function(){
 			if( d4_true && this_link_split.length > 3 ){
 				var al_dp3_on = al_dp2_on.find('.al_depth3>li').eq(d4_on);
 				al_dp3_on.addClass('on');
+
+				if( al_dp3_on.is('.part') ){
+					var part_idx = location.href.split('_part')[1]-1;
+					al_dp3_on.find('p').removeClass('on').eq(part_idx).addClass('on');
+				}
 			}
 		}
 
@@ -478,7 +503,15 @@ $(document).ready(function(){
 		else{
 			if( this_link_split.length > 3 ) browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].d4_nm;
 			else browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d3_nm;
+
+			var target_url = location.href;
+			var part_idx;
+			if( target_url.match('_part') ){
+				part_idx = target_url.split('_part')[1]-1;
+				browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].part_div[part_idx].part_nm;
+			}
 		}
+
 		$title.text(browser_tit+' | '+UXKM);
 	}
 
@@ -725,12 +758,23 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		//컨텐츠 생성
 		$('.'+content_area).html(data);
 		if( target_url.split('&').length > 3 ){
-			$ukContainer.find('.'+content_area+' h1').text(d4_target.d4_nm).attr('data-number', (d3_on+1)+'.'+(d4_on+1)+'. ');
+			if( d4_target.part === true ){
+				var target_idx = target_url.split('_part')[1];
+				$ukContainer.find('.'+content_area+' h1').html(d4_target.d4_nm + ' <i>part-'+target_idx+'</i>').attr('data-number', (d3_on+1)+'.'+(d4_on+1)+'. ');
+			}
+			else {
+				$ukContainer.find('.'+content_area+' h1').text(d4_target.d4_nm).attr('data-number', (d3_on+1)+'.'+(d4_on+1)+'. ');
+			}
 		}
 		else{
 			$ukContainer.find('.'+content_area+' h1').text(d3_target.d3_nm).attr('data-number', (d3_on+1)+'. ');
 			$('.sub_content').addClass('depth3_last');
 		}
+		//html5일 경우 클래스 생성
+		if( d4_target.html5 === true ){
+			$ukContainer.find('.'+content_area+' h1').addClass('html5');
+		}
+
 
 		//요약설명 / 참조 생성 / 상단 컨텐츠 생성
 		var d3Note = d3_target.d3_note;
@@ -775,6 +819,19 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			});
 		}
 
+		//part가 있을 시 텝메뉴 생성
+		if( d4_target.part === true && !$('.tab_menu').is(':visible') ){
+			$('.'+content_area+'>header').after('<nav class="tab_menu mt_lm x'+d4_target.part_div.length+'"><ul></ul></nav>');
+			var part_tab = $('.'+content_area+' .tab_menu ul');
+			for( i=0; i<d4_target.part_div.length; i++  ){
+				var part_target = d4_target.part_div[i];
+				part_tab.append('<li><a href="'+part_target.part_url+'" class="uk_link">'+part_target.part_tab+'</a></li>');
+			}
+
+			var part_idx = Number(location.href.split('_part')[1]-1);
+			part_tab.find('li').eq(part_idx).addClass('on');
+		}
+		
 		//컨텐츠 사이드 메뉴 생성
 		var side_d3 = d2_target.d3;
 		for( i=0; i<side_d3.length; i++ ){
@@ -787,25 +844,42 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			var side_d4 = side_d3[i].d4;
 			if( typeof side_d4 !== 'undefined' ){
 				$(e).append('<ol class="side_d2"></ol>');
-				//$(e).find('>a').addClass(toggle_link);
 				$(e).addClass('toggle_box').find('>a').addClass(toggle_link);
 
 				//4차메뉴 생성
 				for( a=0; a<side_d4.length; a++ ){
-					$(e).find('>ol').append('<li class="'+dp4+'"><a href="'+side_d4[a].d4_url+'" class="'+uk_link+'">'+side_d4[a].d4_nm+'</a></li>');
+					var part_state = side_d4[a].part;
 
+					/*
+					var $e_ol = $(e).find('>ol');
+					$e_ol.append('<li class="'+dp4+'"></li>');
+					var $e_ol_li = $e_ol.find('>li');
+
+					//part 아닐 경우
+					if( !part_state ){
+						$e_ol_li.eq(a).append('<a href="'+side_d4[a].d4_url+'" class="'+uk_link+'">'+side_d4[a].d4_nm+'</a>');
+					}
+					//part 일 경우
+					else if( part_state ){
+						$e_ol_li.eq(a).addClass('part');
+						var part_div = side_d4[a].part_div;
+						for( p=0; p<part_div.length; p++ ){
+							$e_ol_li.eq(a).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+part_div[p].part_nm+'</a></p>');
+						}
+					}
+					*/
+
+					//메뉴 생성 / element 텍스트 색상 분기 처리 / html5 표시
+					element_color_div(part_state, side_d4[a].d4_nm, $(e), a, side_d4);
+
+					//on 활성화
 					if( i === d3_on && a === d4_on && target_url.split('&').length > 3  ){
 						$(e).find('li').eq(a).addClass('on');
 					}
-
-					//element 텍스트 색상 분기 처리
-					if( side_d4[a].d4_nm.match('element') ){
-						element_color_div(side_d4[a].d4_nm, $(e), a);
-					}
-
-					//html5에서 새로 생성된 태그 표시
-					if( side_d4[a].html5 === true ){
-						$(e).find('li a').eq(a).addClass(html5_new).append('<p class="html5 fab fa-html5">HTML5에서 새롭게 추가</p>');
+					//part메뉴 활성화
+					if( part_state ){
+						var part_idx = Number(location.href.split('_part')[1]-1);
+						$(e).find('>ol>li.part p').eq(part_idx).addClass('on');
 					}
 				}
 			}
@@ -819,6 +893,11 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		if( target_url.split('&').length > 3 ){
 			var active_target = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on];
 			var browser_tit = active_target.d4_nm;
+			if( d4_target.part === true ) {
+				var target_idx = target_url.split('_part')[1];
+				browser_tit += ' part-'+target_idx;
+			}
+
 			change_target.find('>a').attr('data-tit',(d3_on+1)+'.'+(d4_on+1)+'. '+browser_tit);
 			if( active_target.html5 === true ) change_target.find('>a').addClass('html5');
 		}
@@ -829,10 +908,12 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		}
 
 		//gist
+		/*
 		$('.gist').each(function(i, e){
 			var gist_url = $(e).attr('data-url');
 			$(e).append('<script src="'+gist_url+'"></script>');
 		});
+		*/
 	}
 
 	///Project GUIDE, Web Trends 링크
@@ -1077,23 +1158,74 @@ function ukEditor_txtarea(){
 }
 
 
-//element 텍스트 색상 분기 처리
-function element_color_div(target, el_this, index){
-	var txt_split = target.split(' ');
-	var tag_txt;
-	if( txt_split[txt_split.length-1] === 'element' ){
-		var element_txt = txt_split[txt_split.length-1];
-		if( txt_split.length <= 2 ) tag_txt = txt_split[0];
-		else tag_txt = txt_split[0] + ' ' + txt_split[1];
-		el_this.find('li a').eq(index).html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+//메뉴 생성 / element 텍스트 색상 분기 처리 / html5 표시
+function element_color_div(part_state, target, target_this, target_idx, d4){
+	var $e_ol = target_this.find('>ol');
+	$e_ol.append('<li class="'+dp4+'"></li>');
+	var $e_ol_li = $e_ol.find('>li');
+
+	//part 아닐 경우
+	if( !part_state ){
+		$e_ol_li.eq(target_idx).append('<a href="'+d4[target_idx].d4_url+'" class="'+uk_link+'">'+d4[target_idx].d4_nm+'</a>');
 	}
-	else if( txt_split[1] === 'element' ) {
-		var ex_txt = txt_split[txt_split.length-1];
-		tag_txt = txt_split[0];
-		el_this.find('li a').eq(index).html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+	//part 일 경우
+	else if( part_state ){
+		$e_ol_li.eq(target_idx).addClass('part');
+		var part_div = d4[target_idx].part_div;
+		for( p=0; p<part_div.length; p++ ){
+			$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+part_div[p].part_nm+'</a></p>');
+		}
+	}
+
+	//element 텍스트 색상 분기
+	if( !part_state ){
+		if( target.match('element') ){
+			var txt_split = target.split(' ');
+			var tag_txt;
+			if( txt_split[txt_split.length-1] === 'element' ){
+				var element_txt = txt_split[txt_split.length-1];
+				if( txt_split.length <= 2 ) tag_txt = txt_split[0];
+				else tag_txt = txt_split[0] + ' ' + txt_split[1];
+				target_this.find('li').eq(target_idx).find('>a').html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+			}
+			else if( txt_split[1] === 'element' ) {
+				var ex_txt = txt_split[txt_split.length-1];
+				tag_txt = txt_split[0];
+				target_this.find('li').eq(target_idx).find('>a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+			}
+		}
+	}
+	else if( part_state ){
+		var color_div_target = target_this.find('li').eq(target_idx).find('p');
+		color_div_target.each(function(z, x){
+			var part_div = d4[target_idx].part_div;
+			var txt_split = part_div[z].part_nm.split(' ');
+			var tag_txt;
+
+			if( txt_split[txt_split.length-1] === 'element' ){
+				var element_txt = txt_split[txt_split.length-1];
+				if( txt_split.length <= 2 ) tag_txt = txt_split[0];
+				else tag_txt = txt_split[0] + ' ' + txt_split[1];
+				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+			}
+			else if( txt_split[1] === 'element' ) {
+				var ex_txt = txt_split[txt_split.length-1];
+				tag_txt = txt_split[0];
+				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+			}
+		});
+	}
+
+	//html5에서 새로 생성된 태그 표시
+	if( d4[target_idx].html5 === true ){
+		if( !part_state ){
+			target_this.find('li').eq(target_idx).find('a').addClass(html5_new).append('<span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>');
+		}
+		else if( part_state ){
+			target_this.find('li').eq(target_idx).find('p a').addClass(html5_new).append('<span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>');
+		}
 	}
 }
-
 
 
 //각 메뉴의 element 텍스트 감싸기

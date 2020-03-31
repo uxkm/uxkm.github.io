@@ -3136,21 +3136,29 @@ body {
 .hd_assetsLink .assetsLink_in .al_depth3 > li .html5:before {
   font-size: 14px;
 }
-.hd_assetsLink .assetsLink_in .al_depth3 > li:hover:before,
-.hd_assetsLink .assetsLink_in .al_depth3 > li:hover a,
-.hd_assetsLink .assetsLink_in .al_depth3 > li:hover b,
-.hd_assetsLink .assetsLink_in .al_depth3 > li:hover i,
-.hd_assetsLink .assetsLink_in .al_depth3 > li:hover p {
+.hd_assetsLink .assetsLink_in .al_depth3 > li:hover:before {
   color: #84b2ff;
 }
-.hd_assetsLink .assetsLink_in .al_depth3 > li.on:before,
-.hd_assetsLink .assetsLink_in .al_depth3 > li.on a,
-.hd_assetsLink .assetsLink_in .al_depth3 > li.on b,
-.hd_assetsLink .assetsLink_in .al_depth3 > li.on i,
-.hd_assetsLink .assetsLink_in .al_depth3 > li.on p {
+.hd_assetsLink .assetsLink_in .al_depth3 > li:hover:not(.part):not(.on) a,
+.hd_assetsLink .assetsLink_in .al_depth3 > li:hover:not(.part):not(.on) b,
+.hd_assetsLink .assetsLink_in .al_depth3 > li:hover:not(.part):not(.on) i,
+.hd_assetsLink .assetsLink_in .al_depth3 > li:hover:not(.part):not(.on) span {
+  color: #84b2ff;
+}
+.hd_assetsLink .assetsLink_in .al_depth3 > li.part p:hover a,
+.hd_assetsLink .assetsLink_in .al_depth3 > li.part p:hover b,
+.hd_assetsLink .assetsLink_in .al_depth3 > li.part p:hover i,
+.hd_assetsLink .assetsLink_in .al_depth3 > li.part p:hover span {
+  color: #84b2ff;
+}
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on:not(.part):before,
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on:not(.part) a,
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on:not(.part) b,
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on:not(.part) i,
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on:not(.part) span {
   color: #fff;
 }
-.hd_assetsLink .assetsLink_in .al_depth3 > li.on a:before {
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on:not(.part) a:before {
   position: absolute;
   left: -3px;
   right: -3px;
@@ -3158,6 +3166,24 @@ body {
   height: 100%;
   background: rgba(30, 115, 255, 0.5);
   content: "";
+}
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on.part p {
+  position: relative;
+}
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on.part p.on:before {
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  z-index: -1;
+  height: 100%;
+  background: rgba(30, 115, 255, 0.5);
+  content: "";
+}
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on.part p.on a,
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on.part p.on b,
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on.part p.on i,
+.hd_assetsLink .assetsLink_in .al_depth3 > li.on.part p.on span {
+  color: #fff;
 }
 @media (max-width: 767px) {
   .hd_assetsLink .assetsLink_in {
@@ -3554,8 +3580,17 @@ body {
 /*
 	html {overflow:hidden;}
 	.hd_assetsLink {
-		.assetsLink_area {left:0 !important; top:0 !important; opacity:1 !important; transform:scale(1,1) !important; overflow-y:scroll !important;}
-		.assetsLink_in {transform:scale(1,1) !important;}
+
+		.assetsLink_area {
+			background:rgba(0,0,0,.9);
+			left:0 !important; top:0 !important; opacity:1 !important;
+			transform:scale(1,1) !important;
+			overflow-y:scroll !important;
+		}
+		.assetsLink_in {
+			opacity:1;
+			transform:scale(1,1) !important;
+		}
 	}
 	*/
 /*
@@ -5432,32 +5467,34 @@ body {
   color: #888;
   font-weight: 300;
 }
-.side_menu_area .side_d2 li p {
+.side_menu_area .side_d2 li span {
   color: #aaa;
   font-weight: 400;
 }
 .side_menu_area .side_d2 li .html5 {
   margin: 4px 0 0 4px;
   font-size: 0;
+  color: #aaa;
 }
 .side_menu_area .side_d2 li .html5:before {
   font-size: 14px;
 }
-.side_menu_area .side_d2 li:hover a,
-.side_menu_area .side_d2 li:hover b,
-.side_menu_area .side_d2 li:hover i,
-.side_menu_area .side_d2 li:hover p {
+.side_menu_area .side_d2 li:not(.part):hover a,
+.side_menu_area .side_d2 li:not(.part):hover b,
+.side_menu_area .side_d2 li:not(.part):hover i,
+.side_menu_area .side_d2 li:not(.part):hover span {
+  color: #1e73ff;
+}
+.side_menu_area .side_d2 li.part p:hover a,
+.side_menu_area .side_d2 li.part p:hover b,
+.side_menu_area .side_d2 li.part p:hover i,
+.side_menu_area .side_d2 li.part p:hover span {
   color: #1e73ff;
 }
 .side_menu_area .side_d2 li.on {
   color: #1e73ff;
-  /*&:after {
-						position:absolute; left:-15px; top:6px; z-index:2;
-						width:6px; height:6px; background:@blue; border-radius:100%;
-						content:"";
-					}*/
 }
-.side_menu_area .side_d2 li.on:after {
+.side_menu_area .side_d2 li.on:not(.part):after {
   position: absolute;
   left: -10px;
   top: 3px;
@@ -5467,10 +5504,16 @@ body {
   background: #1e73ff;
   content: "";
 }
-.side_menu_area .side_d2 li.on a,
-.side_menu_area .side_d2 li.on b,
-.side_menu_area .side_d2 li.on i,
-.side_menu_area .side_d2 li.on p {
+.side_menu_area .side_d2 li.on:not(.part) a,
+.side_menu_area .side_d2 li.on:not(.part) b,
+.side_menu_area .side_d2 li.on:not(.part) i,
+.side_menu_area .side_d2 li.on:not(.part) span {
+  color: #1e73ff;
+}
+.side_menu_area .side_d2 li.on.part p.on a,
+.side_menu_area .side_d2 li.on.part p.on b,
+.side_menu_area .side_d2 li.on.part p.on i,
+.side_menu_area .side_d2 li.on.part p.on span {
   color: #1e73ff;
 }
 .side_menu_area .on .side_d2 {
@@ -5712,6 +5755,9 @@ body {
   font-size: 28px;
   color: #081121;
   letter-spacing: -1px;
+}
+.content_area h1 i {
+  color: #1e73ff;
 }
 .content_area h1:before {
   content: attr(data-number);
