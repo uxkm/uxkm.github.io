@@ -2273,7 +2273,7 @@
 			background:#eee; border-radius:100px;
 			&:before {margin-right:6px; content:"Last Updated on";}
 		}
-		h2 {line-height:32px; .font-kr; font-size:22px; color:@navy; letter-spacing:-1px;}
+		h2 {line-height:32px; font-size:22px; color:@navy; letter-spacing:-1px;}
 		h2 code {font-size:24px;}
 		h2.html5:after {
 			margin:0 0 0 7px;
@@ -2531,7 +2531,7 @@
 		b {font-weight:500;}
 		> p {
 			margin-top:2px; padding:8px 15px;
-			.font-kr; word-break:break-all; background:#f9f9f9;
+			word-break:break-all; background:#f9f9f9;
 			//code {background:#fff;}
 			code {color:#444; background:#f9f9f9; word-break:keep-all;}
 		}
@@ -2594,7 +2594,15 @@
 		.browser_support {
 			border-width:2px;
 			&:before {font-size:13px;}
-			li, p  {font-size:12px;}
+			li, p  {
+				width:33.333%; padding:12px 0 8px;
+				font-size:12px;
+				&:before {
+					margin-bottom:2px;
+				}
+				&:nth-child(3n+3) {border-right:0;}
+				&:nth-child(3) ~ li {border-top:1px solid #eee;}
+			}
 		}
 	}
 	@media(max-width:@screen-xxxxs){
@@ -2770,6 +2778,7 @@
 	.t_green {color:@green !important;}
 	.t_black {color:#222 !important;}
 	.t_orange {color:@orange !important;}
+
 	.weight-500 {font-weight:500 !important;}
 	.underline {text-decoration:underline !important;}
 
@@ -2898,7 +2907,11 @@
 		}
 	}
 
-
+	.font-face-page {
+		h1, h2, h3, h4 {
+			font-family: 'Yeon Sung', cursive;
+		}
+	}
 
 
 //sub top , sub content common bakup
