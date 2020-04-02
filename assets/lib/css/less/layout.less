@@ -2445,6 +2445,8 @@
 		> ol > li.line_code:before {line-height:28px; font-size:18px; color:fade(@navy, 90%);}
 		> li.tit_h3:before,
 		> ol > li.tit_h3:before {line-height:28px; font-size:18px; color:fade(@navy, 90%); font-weight:bold;}
+		> li.tit_h4:before,
+		> ol > li.tit_h4:before {line-height:24px; font-size:16px; color:fade(@navy, 90%); font-weight:bold;}
 		> li.line_code.font14:before,
 		> ol > li.line_code.font14:before {line-height:26px; font-size:14px;}
 		> li.t_black,
@@ -2467,6 +2469,8 @@
 			> ol > li.line_code:before {line-height:28px; font-size:18px;}
 			> li.tit_h3:before,
 			> ol > li.tit_h3:before {line-height:22px; font-size:16px;}
+			> li.tit_h4:before,
+			> ol > li.tit_h4:before {line-height:20px; font-size:15px;}
 			> li.line_code.font14:before,
 			> ol > li.line_code.font14:before {line-height:22px; font-size:13px;}
 		}
@@ -2555,7 +2559,9 @@
 			}
 		}
 	}
-	@media(max-width:@screen-sm-max){}
+	@media(max-width:@screen-sm-max){
+		.img_figure {padding:10px 10px;}
+	}
 
 	.browser_support {
 		.clear; position:relative;
@@ -2784,6 +2790,7 @@
 
 	.break_all {word-break:break-all;}
 	.el_block {display:block !important;}
+	.font16 {font-size:16px !important;}
 	.font16 {font-size:16px !important;}
 	.t_center {text-align:center;}
 	.t_left {text-align:left;}
