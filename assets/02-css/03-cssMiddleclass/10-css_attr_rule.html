@@ -5,7 +5,7 @@
 		<time class="last_update" datetime="2020-04-02">2020-04-02</time>
 	</header>
 
-	<blockquote class="uk_note mt_l" role="note">
+	<blockquote class="uk_note mt_xxl" role="note">
 		<h3 class="sound_only">요약 설명</h3>
 		<p>
 			CSS 에 속성을 선언하는데에는 암묵적·묵시적인 선언 순서가 있습니다.<br>
@@ -39,9 +39,9 @@
 	</p>
 
 	<!-- 해당 문서에서 사용되는 CSS 속성 선언 순서 -->
-	<section class="txt_ex indent mt_l">
+	<section class="txt_ex indent mt_xxl">
 		<h2 class="ml_mn">해당 문서에서 사용되는 CSS 속성 선언 순서</h2>
-		<div class="ol_lst indent mt_ms">
+		<div class="ol_lst mt_ms">
 			<ol>
 				<li><strong class="weight-500 t_black">overflow</strong> - 시각적인 속성(Visual effects)</li>
 				<li><strong class="weight-500 t_black">visibility</strong> - 시각적인 속성(Visual effects)</li>
@@ -83,36 +83,68 @@
 		</div>
 	</section>
 
-
-
-
-	<!--
-	<section class="view_editor edit_code mt_ms" data-target="css/step02/3.9.media/3.9.6.css3-media-rwd_mostly-fluid.html">
-		<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
+	<!-- Naver Site CSS 속성 선언 순서 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_green">Naver</i> Site CSS 속성 선언 순서</h2>
+		<div class="ol_lst mt_ms">
+			<ol>
+				<li><strong class="weight-500 t_black">display</strong> - 표시(관련속성:visibility)</li>
+				<li><strong class="weight-500 t_black">overflow</strong> - 넘침</li>
+				<li><strong class="weight-500 t_black">float</strong> - 흐름(관련속성:clear)</li>
+				<li><strong class="weight-500 t_black">position</strong> - 위치(관련속성:top,right,bottom,left,z-index)</li>
+				<li><strong class="weight-500 t_black">width & height</strong> - 크기</li>
+				<li><strong class="weight-500 t_black">margin & padding(그룹)</strong> - 간격</li>
+				<li><strong class="weight-500 t_black">border(그룹)</strong> - 테두리</li>
+				<li><strong class="weight-500 t_black">background(그룹)</strong> - 배경</li>
+				<li><strong class="weight-500 t_black">font(그룹)</strong> - 폰트(관련속성:colr,letter-spacing,text-align,text-decoration,text-indent,vertical-align,white-space 등)</li>
+				<li><strong class="weight-500 t_black">animation</strong> - 동작(관련속성:animation,transform,transition,marquee 등)</li>
+				<li><strong class="weight-500 t_black">기타</strong> - 위에 언급되지 않은 나머지 속성들로 폰트의 관련 속성 이후에 선언하며, 기타 속성 내의 선언 순서는 무관함.</li>
+			</ol>
+		</div>
+		<div class="view_editor ex_code mt_m" data-target="css/step02/3.10.css-attr-rule/3.10.css-attr-rule-naver.html">
+			<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
 		</div>
 	</section>
 
-	<aside class="reference_box mt_lm">
-		<h2 class="tit">@규칙(At-Rule) 참조</h2>
+	<!-- Daum Site CSS 속성 선언 순서 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">Daum</i> Site CSS 속성 선언 순서</h2>
+		<div class="ol_lst mt_ms">
+			<ol>
+				<li><strong class="weight-500 t_black">display</strong> - 표시</li>
+				<li><strong class="weight-500 t_black">overflow</strong> - 넘침</li>
+				<li><strong class="weight-500 t_black">float</strong> - 흐름</li>
+				<li><strong class="weight-500 t_black">position</strong> - 위치</li>
+				<li><strong class="weight-500 t_black">z-index</strong> - 정렬</li>
+				<li><strong class="weight-500 t_black">width & height</strong> - 크기</li>
+				<li><strong class="weight-500 t_black">margin & padding</strong> - 간격</li>
+				<li><strong class="weight-500 t_black">border</strong> - 보더</li>
+				<li><strong class="weight-500 t_black">font</strong> - 폰트(축약형 사용시)</li>
+				<li><strong class="weight-500 t_black">font-style</strong> - 폰트스타일(font-style:bold;축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-variant</strong> - 폰트 소문자,대문자(font-variant:small-caps;축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-weight</strong> - 폰트굵기(font-weight:bold;축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-size</strong> - 폰트 사이즈(font-size:14px;축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">line-height</strong> - 폰트 행간높이(line-height:1.5;축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-family</strong> - 폰트(font-family:'굴림',Gulim,sans-serif;축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">background</strong> - 배경</li>
+				<li><strong class="weight-500 t_black">etc(기타)</strong> - color,text-decoration,text-indent,clear...</li>
+			</ol>
+		</div>
+		<div class="view_editor ex_code mt_m" data-target="css/step02/3.10.css-attr-rule/3.10.css-attr-rule-daum.html">
+			<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</div>
+	</section>
+
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">CSS 속성 선언순서 참조</h2>
 		<ul class="link_lst">
-			<li class="reference"><a href="https://www.w3.org/TR/css3-mediaqueries/" target="_blank" class="fas" title="새창열림">W3C Media Queries</a></li>
-			<li class="reference"><a href="https://www.w3.org/TR/mediaqueries-4/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level 4</a></li>
-			<li class="reference"><a href="https://drafts.csswg.org/mediaqueries-3/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level drafts 3</a></li>
-			<li class="reference"><a href="https://drafts.csswg.org/mediaqueries-4/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level drafts 4</a></li>
-			<li class="reference"><a href="https://drafts.csswg.org/mediaqueries-5/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level drafts 5</a></li>
-			<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Media_queries" target="_blank" class="fas" title="새창열림">MDN 미디어 쿼리 사용하기</a></li>
-			<li class="reference"><a href="https://dev.opera.com/articles/an-introduction-to-meta-viewport-and-viewport/" target="_blank" class="fas" title="새창열림">메타 뷰포트 소개 @viewport</a></li>
-			<li class="reference"><a href="https://visual.ly/community/infographic/technology/adaptive-web-design-vs-responsive-web-design" target="_blank" class="fas" title="새창열림">AWD vs RWD</a></li>
-			<li class="reference"><a href="https://torquemag.io/2013/09/responsive-design-vs-adaptive-design/" target="_blank" class="fas" title="새창열림">반응형 디자인과 적응형 디자인</a></li>
-			<li class="reference"><a href="https://en.wikipedia.org/wiki/Adaptive_web_design" target="_blank" class="fas" title="새창열림">적응형 웹 디자인</a></li>
-			<li class="reference"><a href="https://www.techrepublic.com/blog/web-designer/what-is-the-difference-between-responsive-vs-adaptive-web-design/" target="_blank" class="fas" title="새창열림">RWD vs AWD 차이점</a></li>
-			<li class="reference"><a href="https://www.lukew.com/ff/entry.asp?933" target="_blank" class="fas" title="새창열림">Luke Wroblewski 모바일 퍼스트</a></li>
-			<li class="reference"><a href="https://tobyyun.tumblr.com/post/58232536556/rwd-3-%EB%AA%A8%EB%B0%94%EC%9D%BC-%ED%8D%BC%EC%8A%A4%ED%8A%B8%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%9A%B0%EC%84%A0%EC%A3%BC%EC%9D%98" target="_blank" class="fas" title="새창열림">Toby Yun 모바일 퍼스트</a></li>
-			<li class="reference"><a href="https://developers.google.com/web/fundamentals/design-and-ux/responsive" target="_blank" class="fas" title="새창열림">반응형 웹 디자인 기본사항</a></li>
-			<li class="reference"><a href="https://bradfrost.com/blog/post/responsive-nav-patterns/" target="_blank" class="fas" title="새창열림">responsive navigation patterns</a></li>
+			<li class="reference"><a href="https://nuli.navercorp.com/sharing/fe/coding" target="_blank" class="fas" title="새창열림">NHN Coding Convention</a></li>
+			<li class="reference"><a href="http://darum.daum.net/convention/css/css_convention" target="_blank" class="fas" title="새창열림">Web Standards Darum</a></li>
 		</ul>
 	</aside>
-	-->
 
 

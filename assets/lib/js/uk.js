@@ -824,7 +824,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 
 		//part가 있을 시 텝메뉴 생성
 		if( dp4_true && d4_target.part === true && !$('.tab_menu').is(':visible') ){
-			$('.'+content_area+'>header').after('<nav class="tab_menu mt_lm x'+d4_target.part_div.length+'"><ul></ul></nav>');
+			$('.'+content_area+'>header').after('<nav class="tab_menu mt_xxl x'+d4_target.part_div.length+'"><ul></ul></nav>');
 			var part_tab = $('.'+content_area+' .tab_menu ul');
 			for( i=0; i<d4_target.part_div.length; i++  ){
 				var part_target = d4_target.part_div[i];

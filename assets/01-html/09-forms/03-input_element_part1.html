@@ -5,7 +5,7 @@
 		<time class="last_update" datetime="2020-02-19">2020-02-19</time>
 	</header>
 
-	<blockquote class="uk_note mt_lm" role="note">
+	<blockquote class="uk_note mt_xxl" role="note">
 		<h3 class="sound_only">요약 설명</h3>
 		<p>
 			<b class="t_blue">input part1</b> 에서는 <code>&lt;input&gt;</code>의 속성 중 <code>[type]</code>에 대한 내용을 다루고 있습니다.
@@ -32,25 +32,23 @@
 		</p>
 	</section>
 
-	<section class="txt_ex mt_lm">
+	<section class="txt_ex mt_xxl">
 		<h2>9.3.1. input 속성</h2>
 
 		<!-- type -->
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[type] <span class="t_blue">&lt;input type="요소가 나타낼 타입을 명시"&gt;</span></h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>&lt;form&gt;</code> 요소의 action 속성은 폼 데이터(form data)를 서버로 보낼 때 해당 데이터가 도착할 URL을 명시합니다.<br>
 				이 값은 <code>&lt;button&gt;</code> 또는 <code>&lt;input&gt;</code> 요소 의 formaction 속성 으로 대체 될 수 있습니다.<br>
 				HTML5에서는 더 이상 <code>&lt;form&gt;</code> 요소에 반드시 action 속성을 명시할 필요가 없도록 변경되었습니다.
 			</p>
-			<div class="ol_lst mt_ms">
-				<h4>type 속성에 사용되는 값은 다음과 같습니다.</h4>
+			<div class="ol_lst mt_m">
+				<b class="font16 t_black">type 속성에 사용되는 값은 다음과 같습니다.</b>
 				<ol class="indent">
 					<!-- text -->
-					<li class="font14 mt_s t_black">
-						<div>
-							<strong class="t_black">text</strong> : <span class="t_blue">&lt;input type="text"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_m t_black">
+						<h4>text : <span class="t_blue">&lt;input type="text"&gt;</span></h4>
 						<p class="mt_sm">
 							type 속성의 기본값으로, 한 줄로 된 텍스트 필드를 정의함. 줄 바꿈은 입력 값에서 자동으로 제거됩니다.<br>
 							텍스트 필드의 기본 너비는 20개의 문자(character)가 보일 수 있는 너비입니다.
@@ -71,10 +69,8 @@
 					</li>
 
 					<!-- password -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black">password</strong> : <span class="t_blue">&lt;input type="password"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4>password : <span class="t_blue">&lt;input type="password"&gt;</span></h4>
 						<p class="mt_sm">
 							비밀번호를 입력할 수 있는 입력 필드를 정의합니다.<br>
 							사용자가 안전하게 암호를 입력하는 방법을 제공합니다.<br>
@@ -105,10 +101,8 @@
 					</li>
 
 					<!-- checkbox -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black">checkbox</strong> : <span class="t_blue">&lt;input type="checkbox"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4>checkbox : <span class="t_blue">&lt;input type="checkbox"&gt;</span></h4>
 						<p class="mt_sm">
 							체크박스(checkbox)를 정의함. 기본적으로 활성화 될 때 선택 (체크)되는 사각형 상자로 렌더링됩니다.
 						</p>
@@ -136,10 +130,8 @@
 					</li>
 
 					<!-- radio -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black">radio</strong> : <span class="t_blue">&lt;input type="radio"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4>radio : <span class="t_blue">&lt;input type="radio"&gt;</span></h4>
 						<p class="mt_sm">
 							라디오 버튼(radio button)을 정의함.<br>
 							서로 연관된 옵션들의 집합을 보통 하나의 라디오 버튼 그룹으로 나타내며, 그룹 내의 라디오 버튼은 오직 하나만이 선택될 수 있습니다.<br>
@@ -161,10 +153,8 @@
 					</li>
 
 					<!-- file -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black">file</strong> : <span class="t_blue">&lt;input type="file"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4>file : <span class="t_blue">&lt;input type="file"&gt;</span></h4>
 						<p class="mt_sm">
 							로드할 파일을 선택할 수 있는 입력 필드와 &quot;파일 선택&quot; 버튼을 정의함.<br>
 							이 입력 필드를 통해 사용자는 자신의 저장소(storage)에서 파일을 선택할 수 있으며, multiple 속성이 명시되어 있으면 여러 개의 파일을 동시에 선택할 수도 있습니다.<br>
@@ -186,10 +176,8 @@
 					</li>
 
 					<!-- reset -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black">reset</strong> : <span class="t_blue">&lt;input type="reset"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4>reset : <span class="t_blue">&lt;input type="reset"&gt;</span></h4>
 						<p class="mt_sm">
 							리셋 버튼(reset button)을 정의함.<br>
 							모든 양식 필드가 기본값으로 다시 설정됩니다. 경우에 따라 양식 설정에 따라 필드가 지워집니다.
@@ -210,10 +198,8 @@
 					</li>
 
 					<!-- submit -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black">submit</strong> : <span class="t_blue">&lt;input type="submit"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4>submit : <span class="t_blue">&lt;input type="submit"&gt;</span></h4>
 						<p class="mt_sm">
 							제출 버튼(submit button)을 정의함.<br>
 							서버의 폼 핸들러(form handler)로 폼 데이터(form date)를 전송하는 제출 버튼(submit button)을 정의합니다.<br>
@@ -235,10 +221,8 @@
 					</li>
 
 					<!-- image -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black">image</strong> : <span class="t_blue">&lt;input type="image" src="이미지 경로" alt="대체 텍스트"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4>image : <span class="t_blue">&lt;input type="image" src="이미지 경로" alt="대체 텍스트"&gt;</span></h4>
 						<p class="mt_sm">
 							제출 버튼(submit button)으로 사용될 이미지를 정의함.<br>
 							이 속성값은 텍스트가 아닌 이미지 형태로 된 제출 버튼을 생성하며, 이때 해당 이미지의 경로는 src 속성에 명시됩니다.<br>
@@ -260,10 +244,8 @@
 					</li>
 
 					<!-- button -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black">button</strong> : <span class="t_blue">&lt;input type="button" value="버튼명"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4>button : <span class="t_blue">&lt;input type="button" value="버튼명"&gt;</span></h4>
 						<p class="mt_sm">
 							클릭할 수 있는 버튼을 정의함.<br>
 							<code>&lt;input type=&quot;button&quot;&gt;</code>은 주로 자바스크립트와 함께 스크립트를 활성화시키기 위해 사용되는 클릭할 수 있는 버튼을 정의합니다.<br>
@@ -297,10 +279,8 @@
 					</li>
 
 					<!-- hidden -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black">hidden</strong> : <span class="t_blue">&lt;input type="hidden"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4>hidden : <span class="t_blue">&lt;input type="hidden"&gt;</span></h4>
 						<p class="mt_sm">
 							사용자에게는 보이지 않는 숨겨진 입력 필드를 정의함.<br>
 							숨겨진 입력 필드는 렌더링이 끝난 웹 페이지에서는 전혀 보이지 않으며, 페이지 콘텐츠 내에서 그것을 볼 수 있게 만드는 방법도 없습니다.<br>
@@ -323,10 +303,8 @@
 					</li>
 
 					<!-- color -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">color</strong> : <span class="t_blue">&lt;input type="color" value="#000000"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">color</span> : <span class="t_blue">&lt;input type="color" value="#000000"&gt;</span></h4>
 						<p class="mt_sm">
 							색을 선택할 수 있는 입력 필드(color picker)를 정의함.<br>
 							value속성과 같이 사용되며, value의 입력 필드의 기본값은 "#000000"으로 검정색을 나타내며,
@@ -348,10 +326,8 @@
 					</li>
 
 					<!-- email -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">email</strong> : <span class="t_blue">&lt;input type="email" multiple&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">email</span> : <span class="t_blue">&lt;input type="email" multiple&gt;</span></h4>
 						<p class="mt_sm">
 							이메일 주소를 입력할 수 있는 입력 필드를 정의함.<br>
 							이 속성값은 입력받은 값이 유효한 이메일 주소인지를 자동으로 검증하는 입력 필드를 생성합니다.<br>
@@ -383,7 +359,6 @@
 							</div>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-email2.html">
-							<h3 class="ve_tit sound_only">예제</h3>
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
@@ -399,10 +374,8 @@
 					</li>
 
 					<!-- number -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">number</strong> : <span class="t_blue">&lt;input type="number"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">number</span> : <span class="t_blue">&lt;input type="number"&gt;</span></h4>
 						<p class="mt_sm">
 							숫자를 입력할 수 있는 입력 필드를 정의함.<br>
 							이 속성값은 다음 속성들과 함께 사용하여 그 범위를 제한할 수 있습니다.
@@ -439,10 +412,8 @@
 					</li>
 
 					<!-- range -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">range</strong> : <span class="t_blue">&lt;input type="range"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">range</span> : <span class="t_blue">&lt;input type="range"&gt;</span></h4>
 						<p class="mt_sm">
 							슬라이드 바를 조정하여 범위 내의 숫자를 선택할 수 있는 입력 필드를 정의함.<br>
 							기본 범위는 0부터 100까지이지만, 다음 속성들과 함께 사용하면 그 범위를 설정할 수 있습니다.
@@ -464,7 +435,6 @@
 							</ol>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-range2.html">
-							<h3 class="ve_tit sound_only">예제</h3>
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
@@ -480,10 +450,8 @@
 					</li>
 
 					<!-- search -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">search</strong> : <span class="t_blue">&lt;input type="search" name="q"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">search</span> : <span class="t_blue">&lt;input type="search" name="q"&gt;</span></h4>
 						<p class="mt_sm">
 							검색어를 입력할 수 있는 텍스트 필드를 정의함.<br>
 							검색 필드는 텍스트("text") 필드와 기능적으로는 완전히 똑같지만, 브라우저에 의해 다르게 표현될 수 있습니다.<br>
@@ -491,7 +459,6 @@
 							이때 가장 자주 사용되는 대표적인 name 속성값은 'q'입니다.
 						</p>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-search.html">
-							<h3 class="ve_tit sound_only">예제</h3>
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
@@ -507,10 +474,8 @@
 					</li>
 
 					<!-- tel -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">tel</strong> : <span class="t_blue">&lt;input type="tel"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">tel</span> : <span class="t_blue">&lt;input type="tel"&gt;</span></h4>
 						<p class="mt_sm">
 							전화번호를 입력할 수 있는 입력 필드를 정의함.<br>
 							이 속성값을 지원하지 않는 브라우저는 해당 입력 필드를 일반적인 텍스트 필드로 나타낼 것입니다.<br>
@@ -523,7 +488,6 @@
 							</div>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-tel2.html">
-							<h3 class="ve_tit sound_only">예제</h3>
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
@@ -539,10 +503,8 @@
 					</li>
 
 					<!-- url -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">url</strong> : <span class="t_blue">&lt;input type="url"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">url</span> : <span class="t_blue">&lt;input type="url"&gt;</span></h4>
 						<p class="mt_sm">
 							URL 주소를 입력할 수 있는 입력 필드를 정의함.<br>
 							이 입력 필드는 폼 데이터를 제출하기 전 입력된 값이 유효한 URL 주소인지 여부를 자동으로 검증합니다.
@@ -572,7 +534,6 @@
 							</div>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-url2.html">
-							<h3 class="ve_tit sound_only">예제</h3>
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
@@ -588,10 +549,8 @@
 					</li>
 
 					<!-- time -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">time</strong> : <span class="t_blue">&lt;input type="time"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">time</span> : <span class="t_blue">&lt;input type="time"&gt;</span></h4>
 						<p class="mt_sm">
 							시간을 선택할 수 있는 입력 필드를 정의함. (hour, minute)<br>
 							이 속성값은 자동으로 입력 내용을 검증하는 텍스트 필드를 통해 시간을 직접 입력하거나, 시간을 선택할 수 있는 특별한 입력기(time picker)를 사용하여 시간을 입력할 수 있는 입력 필드를 생성합니다.<br>
@@ -604,7 +563,6 @@
 							</div>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-time2.html">
-							<h3 class="ve_tit sound_only">예제</h3>
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
@@ -620,10 +578,8 @@
 					</li>
 
 					<!-- date -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">date</strong> : <span class="t_blue">&lt;input type="date"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">date</span> : <span class="t_blue">&lt;input type="date"&gt;</span></h4>
 						<p class="mt_sm">
 							날짜를 선택할 수 있는 입력 필드를 정의함. (year, month, day)<br>
 							이 속성값은 자동으로 입력 내용을 검증하는 텍스트 필드를 통해 날짜를 직접 입력하거나, 날짜를 선택할 수 있는 특별한 입력기(date picker)를 사용하여 날짜를 입력할 수 있는 입력 필드를 생성합니다.<br>
@@ -645,10 +601,8 @@
 					</li>
 
 					<!-- datetime-local -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">datetime-local</strong> : <span class="t_blue">&lt;input type="datetime-local"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">datetime-local</span> : <span class="t_blue">&lt;input type="datetime-local"&gt;</span></h4>
 						<p class="mt_sm">
 							날짜와 시간을 선택할 수 있는 입력 필드를 정의함. (year, month, day, hour, minute)<br>
 							이 속성값은 자동으로 입력 내용을 검증하는 텍스트 필드를 통해 날짜와 시간을 직접 입력하거나, 날짜를 선택할 수 있는 특별한 입력기(date picker)를 사용하여 날짜를 입력할 수 있는 입력 필드를 생성합니다.<br>
@@ -671,10 +625,8 @@
 					</li>
 
 					<!-- month -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">month</strong> : <span class="t_blue">&lt;input type="month"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">month</span> : <span class="t_blue">&lt;input type="month"&gt;</span></h4>
 						<p class="mt_sm">
 							날짜를 선택할 수 있는 입력 필드를 정의함. (year, month)<br>
 							이 속성값은 자동으로 입력 내용을 검증하는 텍스트 필드를 통해 날짜를 직접 입력하거나, 날짜를 선택할 수 있는 특별한 입력기(date picker)를 사용하여 날짜를 입력할 수 있는 입력 필드를 생성합니다.<br>
@@ -691,10 +643,8 @@
 					</li>
 
 					<!-- week -->
-					<li class="font14 mt_m t_black">
-						<div>
-							<strong class="t_black html5_small">week</strong> : <span class="t_blue">&lt;input type="week"&gt;</span>
-						</div>
+					<li class="tit_h4 mt_l t_black">
+						<h4><span class="t_black html5_small">week</span> : <span class="t_blue">&lt;input type="week"&gt;</span></h4>
 						<p class="mt_sm">
 							날짜를 선택할 수 있는 입력 필드를 정의함. (year, week)<br>
 							이 속성값은 자동으로 입력 내용을 검증하는 텍스트 필드를 통해 날짜를 직접 입력하거나, 날짜를 선택할 수 있는 특별한 입력기(date picker)를 사용하여 날짜를 입력할 수 있는 입력 필드를 생성합니다.<br>
@@ -727,7 +677,6 @@
 							</div>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-week2.html">
-							<h3 class="ve_tit sound_only">예제</h3>
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
@@ -744,11 +693,9 @@
 				</ol>
 			</div>
 		</article>
-
-
 	</section>
 
-	<aside class="browser_support mt_lm" data-tit="input">
+	<aside class="browser_support mt_xxl" data-tit="input">
 		<ul>
 			<li class="ie">지원</li>
 			<li class="edge">지원</li>

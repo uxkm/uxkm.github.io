@@ -446,9 +446,9 @@ mark {
 }
 .uk_editor .code_wrap * {
   line-height: 20px;
-  letter-spacing: 0;
+  letter-spacing: -0.5px;
   font-size: 13px;
-  font-family: 'Dotum', sans-serif;
+  font-family: 'Dotumche', sans-serif;
 }
 .uk_editor .CodeMirror {
   height: auto;
@@ -6072,12 +6072,20 @@ body {
   font-size: 18px;
   color: rgba(8, 17, 33, 0.9);
 }
+.ol_lst > li.tit_h3,
+.ol_lst > ol > li.tit_h3 {
+  padding-left: 28px;
+}
 .ol_lst > li.tit_h3:before,
 .ol_lst > ol > li.tit_h3:before {
   line-height: 28px;
   font-size: 18px;
   color: rgba(8, 17, 33, 0.9);
   font-weight: bold;
+}
+.ol_lst > li.tit_h4,
+.ol_lst > ol > li.tit_h4 {
+  padding-left: 26px;
 }
 .ol_lst > li.tit_h4:before,
 .ol_lst > ol > li.tit_h4:before {
@@ -6134,12 +6142,20 @@ body {
   font-size: 18px;
   color: rgba(8, 17, 33, 0.9);
 }
+.ol_lst_second > li.tit_h3,
+.ol_lst_second > ol > li.tit_h3 {
+  padding-left: 28px;
+}
 .ol_lst_second > li.tit_h3:before,
 .ol_lst_second > ol > li.tit_h3:before {
   line-height: 28px;
   font-size: 18px;
   color: rgba(8, 17, 33, 0.9);
   font-weight: bold;
+}
+.ol_lst_second > li.tit_h4,
+.ol_lst_second > ol > li.tit_h4 {
+  padding-left: 26px;
 }
 .ol_lst_second > li.tit_h4:before,
 .ol_lst_second > ol > li.tit_h4:before {
@@ -6182,12 +6198,24 @@ body {
     line-height: 28px;
     font-size: 18px;
   }
+  .ol_lst > li.tit_h3,
+  .ol_lst_second > li.tit_h3,
+  .ol_lst > ol > li.tit_h3,
+  .ol_lst_second > ol > li.tit_h3 {
+    padding-left: 26px;
+  }
   .ol_lst > li.tit_h3:before,
   .ol_lst_second > li.tit_h3:before,
   .ol_lst > ol > li.tit_h3:before,
   .ol_lst_second > ol > li.tit_h3:before {
     line-height: 22px;
     font-size: 16px;
+  }
+  .ol_lst > li.tit_h4,
+  .ol_lst_second > li.tit_h4,
+  .ol_lst > ol > li.tit_h4,
+  .ol_lst_second > ol > li.tit_h4 {
+    padding-left: 24px;
   }
   .ol_lst > li.tit_h4:before,
   .ol_lst_second > li.tit_h4:before,
@@ -6705,8 +6733,11 @@ body {
 .italic {
   font-style: italic;
 }
-.mt_lm {
+.mt_xxl {
   margin-top: 50px !important;
+}
+.mt_xl {
+  margin-top: 45px !important;
 }
 .mt_l {
   margin-top: 30px !important;
@@ -6805,7 +6836,7 @@ body {
   text-align: right;
 }
 @media (max-width: 767px) {
-  .mt_lm {
+  .mt_xxl {
     margin-top: 40px !important;
   }
   .ml_mn {

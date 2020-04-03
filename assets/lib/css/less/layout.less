@@ -2443,8 +2443,12 @@
 		}
 		> li.line_code:before,
 		> ol > li.line_code:before {line-height:28px; font-size:18px; color:fade(@navy, 90%);}
+		> li.tit_h3,
+		> ol > li.tit_h3 {padding-left:28px;}
 		> li.tit_h3:before,
 		> ol > li.tit_h3:before {line-height:28px; font-size:18px; color:fade(@navy, 90%); font-weight:bold;}
+		> li.tit_h4,
+		> ol > li.tit_h4 {padding-left:26px;}
 		> li.tit_h4:before,
 		> ol > li.tit_h4:before {line-height:24px; font-size:16px; color:fade(@navy, 90%); font-weight:bold;}
 		> li.line_code.font14:before,
@@ -2467,8 +2471,12 @@
 			> li, > ol > li {padding-left:18px;}
 			> li.line_code:before,
 			> ol > li.line_code:before {line-height:28px; font-size:18px;}
+			> li.tit_h3,
+			> ol > li.tit_h3 {padding-left:26px;}
 			> li.tit_h3:before,
 			> ol > li.tit_h3:before {line-height:22px; font-size:16px;}
+			> li.tit_h4,
+			> ol > li.tit_h4 {padding-left:24px;}
 			> li.tit_h4:before,
 			> ol > li.tit_h4:before {line-height:20px; font-size:15px;}
 			> li.line_code.font14:before,
@@ -2761,7 +2769,8 @@
 
 	.italic {font-style:italic;}
 
-	.mt_lm {margin-top:50px !important;}
+	.mt_xxl {margin-top:50px !important;}
+	.mt_xl {margin-top:45px !important;}
 	.mt_l {margin-top:30px !important;}
 	.mt_ml {margin-top:25px !important;}
 	.mt_m {margin-top:20px !important;}
@@ -2798,7 +2807,7 @@
 	.t_left {text-align:left;}
 	.t_right {text-align:right;}
 	@media(max-width:@screen-sm-max){
-		.mt_lm {margin-top:40px !important;}
+		.mt_xxl {margin-top:40px !important;}
 		.ml_mn {margin-left:-8px !important;}
 		.indent {margin-left:8px;}
 		.indent_max {margin-left:16px;}
