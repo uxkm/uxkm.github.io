@@ -971,6 +971,21 @@ var menu = [
 								d4_url:		url_css+'cssMiddleclass&css_media',
 								d4_file:	file_css+'/03-cssMiddleclass/09-css_media.html',
 								html5:		false,
+								part:       true,
+								part_div : [
+									{
+										part_nm :   '@media part-1',
+										part_tab :  '@media part-1',
+										part_url :  url_css+'cssMiddleclass&css_media_part1',
+										part_file : file_css+'/03-cssMiddleclass/09-css_media_part1.html',
+									},
+									{
+										part_nm :   '@media part-2',
+										part_tab :  '@media part-2',
+										part_url :  url_css+'cssMiddleclass&css_media_part2',
+										part_file : file_css+'/03-cssMiddleclass/09-css_media_part2.html',
+									},
+								],
 							},
 							{
 								d4_nm:	    'CSS 속성 선언순서',

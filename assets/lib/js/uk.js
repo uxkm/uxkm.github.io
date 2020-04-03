@@ -743,6 +743,8 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			'</article>'
 		);
 
+		var dp4_true = target_url.split('&').length > 3;
+
 		//상단 메뉴 생성
 		var assets_d2 = menu[0].d2;
 		for( i=0; i<assets_d2.length; i++ ){
@@ -757,7 +759,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 
 		//컨텐츠 생성
 		$('.'+content_area).html(data);
-		if( target_url.split('&').length > 3 ){
+		if( dp4_true ){
 			if( d4_target.part === true ){
 				var target_idx = target_url.split('_part')[1];
 				$ukContainer.find('.'+content_area+' h1').html(d4_target.d4_nm + ' <i>part-'+target_idx+'</i>').attr('data-number', (d3_on+1)+'.'+(d4_on+1)+'. ');
@@ -770,8 +772,9 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			$ukContainer.find('.'+content_area+' h1').text(d3_target.d3_nm).attr('data-number', (d3_on+1)+'. ');
 			$('.sub_content').addClass('depth3_last');
 		}
+
 		//html5일 경우 클래스 생성
-		if( d4_target.html5 === true ){
+		if( dp4_true && d4_target.html5 === true ){
 			$ukContainer.find('.'+content_area+' h1').addClass('html5');
 		}
 
@@ -820,7 +823,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		}
 
 		//part가 있을 시 텝메뉴 생성
-		if( d4_target.part === true && !$('.tab_menu').is(':visible') ){
+		if( dp4_true && d4_target.part === true && !$('.tab_menu').is(':visible') ){
 			$('.'+content_area+'>header').after('<nav class="tab_menu mt_lm x'+d4_target.part_div.length+'"><ul></ul></nav>');
 			var part_tab = $('.'+content_area+' .tab_menu ul');
 			for( i=0; i<d4_target.part_div.length; i++  ){
@@ -879,7 +882,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 					//part메뉴 활성화
 					if( part_state ){
 						var part_idx = Number(location.href.split('_part')[1]-1);
-						$(e).find('>ol>li.part p').eq(part_idx).addClass('on');
+						$(e).find('>ol>li.part.on p').eq(part_idx).addClass('on');
 					}
 				}
 			}
