@@ -616,19 +616,19 @@ var menu = [
 								part:     true,
 								part_div : [
 									{
-										part_nm :   'input element part-1',
+										part_nm :   'part-1',
 										part_tab :  'input part-1',
 										part_url :  url_html+'forms&input_element_part1',
 										part_file : file_html+'/09-forms/03-input_element_part1.html',
 									},
 									{
-										part_nm :   'input element part-2',
+										part_nm :   'part-2',
 										part_tab :  'input part-2',
 										part_url :  url_html+'forms&input_element_part2',
 										part_file : file_html+'/09-forms/03-input_element_part2.html',
 									},
 									{
-										part_nm :   'input element part-3',
+										part_nm :   'part-3',
 										part_tab :  'input part-3',
 										part_url :  url_html+'forms&input_element_part3',
 										part_file : file_html+'/09-forms/03-input_element_part3.html',
@@ -941,13 +941,13 @@ var menu = [
 								part:       true,
 								part_div : [
 									{
-										part_nm :   'CSS3 Module part-1',
+										part_nm :   'part-1',
 										part_tab :  'CSS3 Module part-1',
 										part_url :  url_css+'cssMiddleclass&css_module3_part1',
 										part_file : file_css+'/03-cssMiddleclass/06-css_module3_part1.html',
 									},
 									{
-										part_nm :   'CSS3 Module part-2',
+										part_nm :   'part-2',
 										part_tab :  'CSS3 Module part-2',
 										part_url :  url_css+'cssMiddleclass&css_module3_part2',
 										part_file : file_css+'/03-cssMiddleclass/06-css_module3_part2.html',
@@ -974,13 +974,13 @@ var menu = [
 								part:       true,
 								part_div : [
 									{
-										part_nm :   '@media part-1',
+										part_nm :   'part-1',
 										part_tab :  '@media part-1',
 										part_url :  url_css+'cssMiddleclass&css_media_part1',
 										part_file : file_css+'/03-cssMiddleclass/09-css_media_part1.html',
 									},
 									{
-										part_nm :   '@media part-2',
+										part_nm :   'part-2',
 										part_tab :  '@media part-2',
 										part_url :  url_css+'cssMiddleclass&css_media_part2',
 										part_file : file_css+'/03-cssMiddleclass/09-css_media_part2.html',
@@ -1021,6 +1021,21 @@ var menu = [
 								d4_url:		url_css+'cssAdvanced&css_transform',
 								d4_file:	file_css+'/04-cssAdvanced/01-css_transform.html',
 								html5:		false,
+								part:       true,
+								part_div : [
+									{
+										part_nm :   '2D',
+										part_tab :  'Transform 2D',
+										part_url :  url_css+'cssAdvanced&css_transform_part1',
+										part_file : file_css+'/04-cssAdvanced/01-css_transform_part1.html',
+									},
+									{
+										part_nm :   '3D',
+										part_tab :  'Transform 3D',
+										part_url :  url_css+'cssAdvanced&css_transform_part2',
+										part_file : file_css+'/04-cssAdvanced/01-css_transform_part2.html',
+									},
+								],
 							},
 							{
 								d4_nm:	    'Transition',

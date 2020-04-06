@@ -1,0 +1,247 @@
+
+
+	<header>
+		<h1></h1><!-- Transform part2 -->
+		<time class="last_update" datetime="2020-04-06">2020-04-06</time>
+	</header>
+	<blockquote class="uk_note mt_xxl" role="note">
+		<h2 class="sound_only">요약 설명</h2>
+		<p>
+			<b class="t_blue">Transform part1</b> 에서는 <code>[3D transform]</code>에 대한 내용을 다루고 있습니다.
+		</p>
+		<p class="mt_m">
+			CSS의 transform 속성을 사용함으로써, CSS의 시각적 서식 모델(visual formatting model)의 좌표 공간을 변형시킬 수 있습니다.<br>
+			해당 속성에 지정된 값에 따라 엘리먼트(element)에 이동(translate), 회전(rotate), 크기변경(scale), 기울임(skew)등의 효과를 줄 수 있습니다.<br>
+			CSS3에서는 transform 속성을 사용하여 2D 변형(transform)과 3D 변형(transform)을 모두 제공합니다.<br>
+			transform 속성에서는 x, y, z 좌표 체계를 따릅니다.<br>
+			CSS 좌표 체계에서 기준점은 브라우저의 왼쪽 상단이 됩니다.<br>
+			Z축은 입체적인 방향으로 모니터를 바라보고 있는 여러분이 있는 방향을 가리키는 좌표축입니다.<br>
+			또한, 각 좌표축의 화살표 방향이 양의 방향이며, 반대쪽이 음의 방향을 가리킵니다.
+		</p>
+	</blockquote>
+
+	<!-- 4.1.2. 3D Transform -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">4.1.2. 3D Transform</h2>
+		<blockquote class="uk_note mt_ml" role="note">
+			<h3 class="sound_only">요약 설명</h3>
+			<p>
+				CSS 3D transform 은 평면에서의 여러 개 CSS 속성을 조합하고
+				3D 공간에서의 회전, 확대, 이동, 비틀기를 포함하고 원근감, 관찰자의 위치을 부여해 3D 공간을 만들어 낼 수 있습니다.<br>
+				3D transform 은 크게
+				트랜스폼을 적용할 요소에 적용하는 속성과
+				자식 요소를 3D로 처리하기 위해 부모 요소에 설정하기 위한 속성이 있습니다.<br>
+				rotate3d(), translate3d(), scale3d() 메소드와 같이 입체적으로 보여지는 3D 변형에 관련된 메소드는
+				perspective() 메소드를 사용하여 원근감을 표현할 기준을 명시해야 합니다.
+			</p>
+			<p class="mt_s">
+				CSS에서<br>
+				x 축은 수평 (왼쪽 및 오른쪽)<br>
+				y 축은 수직 (위 아래)<br>
+				z 축은 깊이 (앞으로 및 뒤로 / 더 멀리 그리고 더 깊이)
+			</p>
+		</blockquote>
+		<div class="indent mt_l">
+			<p class="ml_mn font16 t_black">CSS3 3D transform 속성은 다음과 같습니다.</p>
+			<div class="ol_lst mt_ms">
+				<ol>
+					<li><code>transform</code> : 요소에 2D 또는 3D 변형(transform)을 적용합니다.</li>
+					<li><code>transform-origin</code> : 요소에 변형(transform)을 적용하는 변환 중심을 설정합니다. 기본값은 <code>transform-origin: 50% 50%;</code></li>
+					<li><code>transform-style</code> : 요소에 변형을 적용할 때 그 변환이 자식(child) 요소들에게도 적용될지 안 될지를 설정합니다.</li>
+					<li><code>perspective</code> : 3D 요소에 원근감을 표현할 때 사용할 픽셀 수를 설정합니다.</li>
+					<li><code>perspective-origin</code> : 3D 요소에 원근감을 표현할 때 사용할 기준 축을 설정합니다.</li>
+					<li><code>backface-visibility</code> : 요소의 앞면만을 표현하고, 뒷면을 표현할지 안 할지를 설정합니다. 입체적인 뒷면의 가시성을 결정하는 속성입니다.</li>
+				</ol>
+			</div>
+		</div>
+		<div class="indent mt_l">
+			<p class="ml_mn font16 t_black">자식 요소를 3D 처리하기 위한 부모 요소에 설정하기 위한 속성</p>
+			<div class="ol_lst mt_ms">
+				<ol>
+					<li><code>perspective</code> : 원근, 소실점, 투시도법</li>
+					<li><code>perspective-origin</code> : 원근법에 대한 기준점을 설정</li>
+					<li><code>transform-style</code> : preserve-3d 요소의 자식이 3D 공간에 배치</li>
+				</ol>
+			</div>
+		</div>
+		<div class="indent mt_l">
+			<p class="ml_mn font16 t_black">
+				CSS3 3D transform은 프로퍼티값으로 변환함수(transform function)를 사용합니다.
+				사용할 수 있는 변환함수는 다음과 같습니다.
+			</p>
+			<div class="ol_lst mt_ms">
+				<ol>
+					<li><code>translate3d(x,y,z)</code> : 요소의 위치를 X축으로 x만큼, Y축으로 y만큼 Z축으로 z만큼 이동시킵니다. (단위 : px, %, em 등)</li>
+					<li><code>translateX(n)</code> : 요소의 위치를 X축으로 x만큼 이동시킵니다. (단위 : px, %, em 등)</li>
+					<li><code>translateY(n)</code> : 요소의 위치를 Y축으로 y만큼 이동시킵니다. (단위 : px, %, em 등)</li>
+					<li><code>translateZ(n)</code> : 요소의 위치를 Z축으로 z만큼 이동시킵니다. (단위 : px, %, em 등)</li>
+					<li><code>scale3d(x,y)</code> : 요소의 크기를 X축으로 x배, Y축으로 y배, Z축으로 z배 확대 또는 축소 시킵니다. (단위 : 0과 양수)</li>
+					<li><code>scaleX(n)</code> : 요소의 크기를 X축으로 x배 확대 또는 축소 시킵니다. (단위 : 0과 양수)</li>
+					<li><code>scaleY(n)</code> : 요소의 크기를 Y축으로 y배 확대 또는 축소 시킵니다. (단위 : 0과 양수)</li>
+					<li><code>scaleZ(n)</code> : 요소의 크기를 Z축으로 z배 확대 또는 축소 시킵니다. (단위 : 0과 양수)</li>
+					<li><code>rotate3d(x,y,z)</code> : 요소를 X축으로 x각도, Y축으로 y각도, Z축으로 z각도 회전시킵니다. (단위 : +/- 각도(deg))</li>
+					<li><code>rotateX(x)</code> : 요소를 X축으로 x각도 회전시킵니다. (단위 : +/- 각도(deg))</li>
+					<li><code>rotateY(y)</code> : 요소를 Y축으로 y각도 회전시킵니다. (단위 : +/- 각도(deg))</li>
+					<li><code>rotateZ(z)</code> : 요소를 Z축으로 z각도 회전시킵니다. (단위 : +/- 각도(deg))</li>
+				</ol>
+			</div>
+		</div>
+
+		<!-- transform 속성 -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn"><i class="t_blue">transform</i> 속성</h3>
+			<p class="t_color mt_ms font16">
+				CSS3 2D transform에서 설명한 부분은 제외합니다.<br>
+				<span class="el_block mt_sm"><code>transform : none | &lt;transform-function&gt; [ &lt;transform-function&gt; ]*</code></span>
+			</p>
+			<div class="ol_lst mt_m">
+				<ol>
+					<!-- 1. translate3d(x,y,z) -->
+					<li class="tit_h4 line_code">
+						<h4 class="mb_ms">translate3d(x,y,z)</h4>
+						<p><code>translate3d()</code> 메소드는 현재 위치에서 해당 요소를 주어진 x축과 y축, z축의 거리만큼 이동시킵니다.</p>
+						<p>주어진 거리가 양수이면 해당 축의 양의 방향으로, 음수이면 해당 축의 음의 방향으로 이동시킵니다.</p>
+						<p>
+							<code>transform: translate3d(tx, ty, tz);</code><br>
+							- 좌표 공간에서의 3D 이동(translation) 함수입니다.
+						</p>
+						<div class="view_editor ex_code mt_s" data-target="css/step03/4.1.transform/4.1.2.css3-2d-transform-translate3d-function.html">
+							<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</li>
+
+					<!-- 2. translateZ(tz) -->
+					<li class="tit_h4 line_code mt_l">
+						<h4 class="mb_ms">translateZ(tz)</h4>
+						<p>현재의 위치에서 해당 요소를 주어진 z축의 거리만큼 이동시킵니다.</p>
+						<p>
+							<code>transform: translateZ(tz);</code><br>
+							- 요소를 Z축을 따라 지정된 값만큼 이동(translate)시킵니다.
+						</p>
+						<div class="view_editor ex_code mt_s" data-target="css/step03/4.1.transform/4.1.2.css3-2d-transform-translateZ-function.html">
+							<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</li>
+
+					<!-- 3. scale3d(sx, sy, sz) -->
+					<li class="tit_h4 line_code mt_l">
+						<h4 class="mb_ms">scale3d(sx, sy, sz)</h4>
+						<p>해당 요소의 크기를 주어진 배율만큼 x축, y축과 z축 방향으로 늘리거나 줄입니다.</p>
+						<p>
+							<code>transform: scale3d(sx, sy, sz);</code><br>
+							- 3D 크기 변환 함수입니다.
+						</p>
+						<div class="view_editor ex_code mt_s" data-target="css/step03/4.1.transform/4.1.2.css3-2d-transform-scale3d-function.html">
+							<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</li>
+
+					<!-- 4. scaleZ(sz) -->
+					<li class="tit_h4 line_code mt_l">
+						<h4 class="mb_ms">scaleZ(sz)</h4>
+						<p>해당 요소의 z축 크기를 주어진 배율만큼 늘리거나 줄입니다.</p>
+						<p>
+							<code>transform: scaleZ(sz);</code><br>
+							- <code>transform: scale(1, 1, sz)</code>와 같은 모습을 보여줍니다.
+						</p>
+						<div class="view_editor ex_code mt_s" data-target="css/step03/4.1.transform/4.1.2.css3-2d-transform-scaleZ-function.html">
+							<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</li>
+
+					<li class="t_red mt_l">rotate3d(x, y , z, angle) 부터 작업</li>
+				</ol>
+			</div>
+		</article>
+
+
+		<div style="display:none">
+			<!-- transform-origin 속성 -->
+			<article class="indent mt_l">
+				<h3 class="ml_mn"><i class="t_blue">transform-origin</i> 속성</h3>
+				<p class="mt_s">요소의 기본기준점을 설정할 때 사용되며, 기본기준점은 요소의 정중앙 입이다. (50%,50%)</p>
+				<p>이동은 기준점을 변경하여도 일정 거리만큼 이동하므로 의미가 없습니다.</p>
+				<p>설정값으로 %, px, top left, bottom right을 사용할 수 있습니다. 0, 0은 top left, 100% 100%는 bottom right과 같은 값입니다.</p>
+				<p>transform-origin은 transform에 대한 원점을 지정하는 속성입니다.</p>
+
+				<ol class="dot_lst indent mt_sm">
+					<li>기본 값은 50% 50%. 즉 요소의 정중앙입니다.</li>
+					<li>값으로는 px, %, cm 등등 외에도 left, center, right, top, bottom를 쓸 수 있습니다.</li>
+				</ol>
+
+				<div class="view_editor ex_code mt_ms" data-target="css/step03/4.1.transform/4.1.1.css3-2d-transform-origin.html">
+					<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</article>
+
+			<!-- 2D transform 예제 -->
+			<article class="view_editor edit_code mt_l" data-target="css/step03/4.1.transform/4.1.1.css3-2d-transform.html">
+				<h3 class="ve_tit">2D Transform 예제</h3>
+				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</article>
+
+			<!-- 2D transform 테스트 -->
+			<article class="indent mt_l">
+				<h3 class="ml_mn"><i class="t_blue">2D transform 테스트</i></h3>
+				<p class="mt_s">
+					위에 설명된 transform의 속성 과 transform-origin의  확인할 수 있습니다.
+					각 속성을 좌·우로 드래그하여 테스트해보세요.
+				</p>
+			</article>
+
+		</div>
+	</section>
+
+
+	<aside class="browser_support mt_xxl" data-tit="transform">
+		<ul>
+			<li class="ie">10+</li>
+			<li class="edge">12.0</li>
+			<li class="chrome">36.0</li>
+			<li class="firefox">16.0</li>
+			<li class="opera">23.0</li>
+			<li class="safari">9.0</li>
+		</ul>
+	</aside>
+
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">Transform 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/css-transforms-1/" target="_blank" class="fas" title="새창열림">W3c CSS Transforms Module Level 1</a></li>
+			<li class="reference"><a href="https://drafts.csswg.org/css-transforms-2/" target="_blank" class="fas" title="새창열림">W3C CSS Transforms Module Level 2</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/transform" target="_blank" class="fas" title="새창열림">MDN transform</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function" target="_blank" class="fas" title="새창열림">MDN transform function</a></li>
+			<li class="reference"><a href="http://www.useragentman.com/matrix/" target="_blank" class="fas" title="새창열림">useragentman.com/matrix/</a></li>
+			<li class="reference"><a href="https://css-tricks.com/almanac/properties/b/backface-visibility/" target="_blank" class="fas" title="새창열림">backface-visibility</a></li>
+			<li class="reference"><a href="http://westciv.com/tools/3Dtransforms/" target="_blank" class="fas" title="새창열림">3D 변환 테스트 페이지</a></li>
+			<li class="reference"><a href="http://thewebrocks.com/demos/3D-css-tester/" target="_blank" class="fas" title="새창열림">3D CSS Tester</a></li>
+		</ul>
+	</aside>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

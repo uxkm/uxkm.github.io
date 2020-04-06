@@ -508,7 +508,11 @@ $(document).ready(function(){
 			var part_idx;
 			if( target_url.match('_part') ){
 				part_idx = target_url.split('_part')[1]-1;
-				browser_tit = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on].part_div[part_idx].part_nm;
+				var on_target, before_mm, after_nm;
+				on_target = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on];
+				before_mm = on_target.d4_nm;
+				after_nm = on_target.part_div[part_idx].part_nm;
+				browser_tit = before_mm + ' ' + after_nm;
 			}
 		}
 
@@ -761,8 +765,9 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		$('.'+content_area).html(data);
 		if( dp4_true ){
 			if( d4_target.part === true ){
-				var target_idx = target_url.split('_part')[1];
-				$ukContainer.find('.'+content_area+' h1').html(d4_target.d4_nm + ' <i>part-'+target_idx+'</i>').attr('data-number', (d3_on+1)+'.'+(d4_on+1)+'. ');
+				var target_idx = target_url.split('_part')[1]-1;
+				var part_nm = d4_target.part_div[target_idx].part_nm;
+				$ukContainer.find('.'+content_area+' h1').html(d4_target.d4_nm + ' <i>'+part_nm+'</i>').attr('data-number', (d3_on+1)+'.'+(d4_on+1)+'. ');
 			}
 			else {
 				$ukContainer.find('.'+content_area+' h1').text(d4_target.d4_nm).attr('data-number', (d3_on+1)+'.'+(d4_on+1)+'. ');
@@ -1175,12 +1180,20 @@ function element_color_div(part_state, target, target_this, target_idx, d4){
 	else if( part_state ){
 		$e_ol_li.eq(target_idx).addClass('part');
 		var part_div = d4[target_idx].part_div;
+
+
+		var on_target, before_mm, after_nm;
+		on_target = d4[target_idx];
+		before_mm = on_target.d4_nm;
+
 		for( p=0; p<part_div.length; p++ ){
-			$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+part_div[p].part_nm+'</a></p>');
+			after_nm = on_target.part_div[p].part_nm;
+			var part_nm = before_mm + ' ' + after_nm;
+			//$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+part_div[p].part_nm+'</a></p>');
+			$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+ part_nm +'</a></p>');
 		}
 	}
 
-	//element 텍스트 색상 분기
 	if( !part_state ){
 		if( target.match('element') ){
 			var txt_split = target.split(' ');
@@ -1202,7 +1215,8 @@ function element_color_div(part_state, target, target_this, target_idx, d4){
 		var color_div_target = target_this.find('li').eq(target_idx).find('p');
 		color_div_target.each(function(z, x){
 			var part_div = d4[target_idx].part_div;
-			var txt_split = part_div[z].part_nm.split(' ');
+			var part_nm = on_target.d4_nm + ' ' + part_div[z].part_nm;
+			var txt_split = part_nm.split(' ');
 			var tag_txt;
 
 			if( txt_split[txt_split.length-1] === 'element' ){

@@ -1,13 +1,13 @@
 
 
 	<header>
-		<h1></h1><!-- Transform -->
+		<h1></h1><!-- Transform part1 -->
 		<time class="last_update" datetime="2020-04-06">2020-04-06</time>
 	</header>
 	<blockquote class="uk_note mt_xxl" role="note">
 		<h2 class="sound_only">요약 설명</h2>
 		<p>
-			<b class="t_blue">Transform part1</b> 에서는 <code>2D transform</code>에 대한 내용을 다루고 있습니다.
+			<b class="t_blue">Transform part1</b> 에서는 <code>[2D transform]</code>에 대한 내용을 다루고 있습니다.
 		</p>
 		<p class="mt_m">
 			CSS의 transform 속성을 사용함으로써, CSS의 시각적 서식 모델(visual formatting model)의 좌표 공간을 변형시킬 수 있습니다.<br>
@@ -44,13 +44,12 @@
 			</li>
 		</ol>
 	</div>
-	<p class="mt_ml"><i class="t_black weight-500">기본문법</i> : <code>&lt;transform-function&gt; [&lt;transform-function&gt;]* | none</code></p>
-	<section class="view_editor ex_code mt_s" data-target="css/step03/4.1.transform/4.1.1.css3-2d-transform-syntax.html">
+	<p class="mt_ml indent"><i class="t_black weight-500">기본문법</i> : <code>&lt;transform-function&gt; [&lt;transform-function&gt;]* | none</code></p>
+	<section class="view_editor ex_code indent mt_s" data-target="css/step03/4.1.transform/4.1.1.css3-2d-transform-syntax.html">
 		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
 	</section>
-
 
 	<!-- 4.1.1. 2D Transform -->
 	<section class="txt_ex indent mt_xxl">
@@ -284,8 +283,12 @@
 						</p>
 						<figure class="img_figure mt_s">
 							<figcaption class="mt_0">[<b class="t_black weight-500">matrix 표</b> 이미지 참조 : wikimedia matrix]</figcaption>
-							<img src="/ukncs/images/css/img_matrix2.png" alt="matrix 표" class="mt_m max-w900">
-							<img src="/ukncs/images/css/2D_affine_transformation_matrix.svg" alt="matrix 표" class="mt_l max-w700">
+							<div class="mt_m">
+								<img src="/ukncs/images/css/img_matrix2.png" alt="matrix 표" class="max-w900">
+							</div>
+							<div class="mt_l">
+								<img src="/ukncs/images/css/2D_affine_transformation_matrix.svg" alt="matrix 표" class="max-w700">
+							</div>
 						</figure>
 						<div class="view_editor ex_code mt_s" data-target="css/step03/4.1.transform/4.1.1.css3-2d-transform-matrix-function.html">
 							<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
@@ -318,8 +321,8 @@
 		</article>
 
 		<!-- 2D transform 예제 -->
-		<article class="view_editor edit_code mt_l" data-target="css/step03/4.1.transform/4.1.1.css3-2d-transform.html">
-			<h3 class="ve_tit">2D Transform 예제</h3>
+		<article class="view_editor edit_code indent mt_l" data-target="css/step03/4.1.transform/4.1.1.css3-2d-transform.html">
+			<h3 class="ve_tit ml_mn">2D Transform 예제</h3>
 			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
 			</div>
@@ -327,11 +330,16 @@
 
 		<!-- 2D transform 테스트 -->
 		<article class="indent mt_l">
-			<h3 class="ml_mn"><i class="t_blue">2D transform 테스트</i></h3>
+			<h3 class="ml_mn"><i class="t_blue">2D transform</i> 테스트</h3>
 			<p class="mt_s">
-				위에 설명된 transform의 속성 과 transform-origin의  확인할 수 있습니다.
-				각 속성을 좌·우로 드래그하여 테스트해보세요.
+				위에 설명된 <i class="t_blue">transform의 속성</i> 과 <i class="t_blue">transform-origin</i>을 직접 테스트 할 수 있습니다.<br>
+				각 속성의 input값을 변경하여 마우스오버(hover) 또는 result버튼을 클릭하세요.<br>
+				<span class="reference mt_l">테스트기 출처 : <a href="http://921430km.com/_temp/transform/2d.php" target="_blank" title="새창열림">http://921430km.com/2d</a></span>
 			</p>
+
+			<div class="iframe_con mt_m">
+				<iframe class="box_model_iframe" src="/assets/kmtemp/transform/2d.html" width="100%" height="100%" scrolling="no"></iframe>
+			</div>
 		</article>
 	</section>
 
