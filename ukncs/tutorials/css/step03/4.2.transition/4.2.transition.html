@@ -39,7 +39,7 @@
 			div::after{
 				content:"";
 				display:block;
-				position:absolute;
+				position:absolute; left:0; top:0;
 				width:10px;
 				height:10px;
 				background-color:gray;
@@ -49,10 +49,14 @@
 				-ms-transition: all 1s ease .1s;
 				transition: all 1s ease .1s;
 			}
+			div.right::after, div.bottom::after {
+				left:auto; top:auto; right:0; bottom:0;
+			}
 
 			
 			.visibility:hover{
 				visibility:hidden;
+				opacity:0;
 			}
 			.top{top:0;}
 			.top:hover::after{

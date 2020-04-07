@@ -646,17 +646,19 @@ body {
   margin-top: 10px;
 }
 .contentArea .ex_lst {
-  margin-top: 50px;
-  padding: 40px;
+  margin-top: 20px;
+  padding: 20px;
   text-align: left;
-  font-family: 'S-CoreDream-4Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   background: #fff;
-  border: 7px solid #ccc;
-  border-radius: 4px;
+  border: 4px solid #ccc;
+}
+.contentArea .ex_lst.pc_mt_0 {
+  margin-top: 0;
 }
 .contentArea .ex_lst dt {
   line-height: 20px;
-  font-size: 18px;
+  font-size: 16px;
   color: #444;
   letter-spacing: -0.5px;
 }
@@ -667,11 +669,12 @@ body {
 .contentArea .ex_lst dd {
   position: relative;
   line-height: 22px;
-  margin-top: 8px;
+  margin-top: 4px;
   padding-left: 10px;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: -0.5px;
   color: #777;
+  font-weight: 400;
 }
 .contentArea .ex_lst dd:before {
   position: absolute;
@@ -939,10 +942,13 @@ body {
     font-size: 13px;
   }
   .contentArea .ex_lst {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 18px 15px 15px;
     border-width: 5px;
     border-radius: 0;
+  }
+  .contentArea .ex_lst.pc_mt_0 {
+    margin-top: 20px;
   }
   .contentArea .ex_lst dt {
     line-height: 20px;
@@ -1243,7 +1249,7 @@ body {
   font-size: 14px;
   color: #222;
   font-weight: 600;
-  background: #fff url('../../lib/img/select_arr.png') no-repeat right center;
+  background: #fff url('/assets/kmtemp/lib/img/select_arr.png') no-repeat right center;
   background-size: 15px auto;
   border: 0;
   border-radius: 2px;
@@ -2498,9 +2504,6 @@ body {
 }
 .transition_wrap > div:first-child {
   margin-top: 0;
-}
-.transition_wrap.ex_lst {
-  margin-top: 40px;
 }
 .transition_wrap .tit {
   line-height: 20px;

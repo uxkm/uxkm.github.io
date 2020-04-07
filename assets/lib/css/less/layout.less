@@ -2510,7 +2510,11 @@
 				.font-icon;
 				content:"\f1c9";
 			}
+			&.tit_h2 {
+				line-height:32px; padding-left:26px; font-size:22px;
+			}
 		}
+
 		&.ex_code .ve_tit {color:@green;}
 		&.ex_code.ex_wrong .ve_tit {color:@red;}
 		&.edit_code .ve_tit {color:@blue;}
@@ -2522,6 +2526,9 @@
 				line-height:22px;
 				font-size:15px;
 				&:before {margin:1px 6px 0 0;}
+				&.tit_h2 {
+					line-height:24px; padding-left:22px; font-size:18px;
+				}
 			}
 			.uk_editor {margin-top:10px;}
 		}
@@ -2550,6 +2557,16 @@
 		h3 + p, h4 + p, span + p {margin-top:10px;}
 	}
 	@media(max-width:@screen-sm-max){}
+
+	.line_code_box {
+		padding:13px 12px 13px 16px;
+		border-left:4px solid @green;
+		background:#f4f4f4;
+		code {background:#f4f4f4;}
+	}
+	@media(max-width:@screen-sm-max){
+		.line_code_box {padding:9px 7px 9px 11px;}
+	}
 
 	.img_figure {
 		padding:20px 15px;
@@ -2782,6 +2799,7 @@
 	.mt_ms {margin-top:15px !important;}
 	.mt_s {margin-top:10px !important;}
 	.mt_sm {margin-top:5px !important;}
+	.mt_2 {margin-top:2px !important;}
 	.mt_1 {margin-top:1px !important;}
 	.mt_0 {margin-top:0 !important;}
 	.ml_mn {margin-left:-25px !important;}
@@ -2793,7 +2811,10 @@
 	.indent_small {margin-left:15px;}
 	.indent_max {margin-left:50px;}
 
-	.t_color {color:#666 !important;}
+	.t_666 {color:#666 !important;}
+	.t_777 {color:#777 !important;}
+	.t_888 {color:#888 !important;}
+	.t_999 {color:#999 !important;}
 	.t_blue {color:@blue !important;}
 	.t_skyblue {color:@skyBlue !important;}
 	.t_red {color:@red !important;}
@@ -2802,12 +2823,16 @@
 	.t_orange {color:@orange !important;}
 
 	.weight-500 {font-weight:500 !important;}
+	.weight-400 {font-weight:400 !important;}
+	.weight-300 {font-weight:300 !important;}
+	.weight-200 {font-weight:200 !important;}
+	.weight-100 {font-weight:100 !important;}
 	.underline {text-decoration:underline !important;}
 
 	.break_all {word-break:break-all;}
 	.el_block {display:block !important;}
-	.font16 {font-size:16px !important;}
-	.font16 {font-size:16px !important;}
+	.font-14 {font-size:14px !important;}
+	.font-16 {font-size:16px !important;}
 	.t_center {text-align:center;}
 	.t_left {text-align:left;}
 	.t_right {text-align:right;}
@@ -2816,7 +2841,7 @@
 		.ml_mn {margin-left:-8px !important;}
 		.indent {margin-left:8px;}
 		.indent_max {margin-left:16px;}
-		.font16 {font-size:15px;}
+		.font-16 {font-size:15px;}
 	}
 
 
