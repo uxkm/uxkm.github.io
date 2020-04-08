@@ -1124,7 +1124,7 @@ var menu = [
 		]
 	},
 	{
-		d1_nm:	    'Project GUIDE',
+		d1_nm:	    'UI/UX GUIDE',
 		//d1_url:		'?'+data+'=GUIDE',
 		d1_url:		'#',
 		d1_file:	file+ '/project_guide.html',

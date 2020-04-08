@@ -1008,9 +1008,88 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 
 	//common
 	removeTabindex();	//remove tabindex
-	focusControl();			//focus controll
+	focusControl();		//focus controll
+	line_code_box();
 }
 
+
+//메뉴 생성 / element 텍스트 색상 분기 처리 / html5 표시
+function element_color_div(part_state, target, target_this, target_idx, d4){
+	var $e_ol = target_this.find('>ol');
+	$e_ol.append('<li class="'+dp4+'"></li>');
+	var $e_ol_li = $e_ol.find('>li');
+
+	//part 아닐 경우
+	if( !part_state ){
+		$e_ol_li.eq(target_idx).append('<a href="'+d4[target_idx].d4_url+'" class="'+uk_link+'">'+d4[target_idx].d4_nm+'</a>');
+	}
+	//part 일 경우
+	else if( part_state ){
+		$e_ol_li.eq(target_idx).addClass('part');
+		var part_div = d4[target_idx].part_div;
+
+
+		var on_target, before_mm, after_nm;
+		on_target = d4[target_idx];
+		before_mm = on_target.d4_nm;
+
+		for( p=0; p<part_div.length; p++ ){
+			after_nm = on_target.part_div[p].part_nm;
+			var part_nm = before_mm + ' ' + after_nm;
+			//$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+part_div[p].part_nm+'</a></p>');
+			$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+ part_nm +'</a></p>');
+		}
+	}
+
+	if( !part_state ){
+		if( target.match('element') ){
+			var txt_split = target.split(' ');
+			var tag_txt;
+			if( txt_split[txt_split.length-1] === 'element' ){
+				var element_txt = txt_split[txt_split.length-1];
+				if( txt_split.length <= 2 ) tag_txt = txt_split[0];
+				else tag_txt = txt_split[0] + ' ' + txt_split[1];
+				target_this.find('li').eq(target_idx).find('>a').html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+			}
+			else if( txt_split[1] === 'element' ) {
+				var ex_txt = txt_split[txt_split.length-1];
+				tag_txt = txt_split[0];
+				target_this.find('li').eq(target_idx).find('>a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+			}
+		}
+	}
+	else if( part_state ){
+		var color_div_target = target_this.find('li').eq(target_idx).find('p');
+		color_div_target.each(function(z, x){
+			var part_div = d4[target_idx].part_div;
+			var part_nm = on_target.d4_nm + ' ' + part_div[z].part_nm;
+			var txt_split = part_nm.split(' ');
+			var tag_txt;
+
+			if( txt_split[txt_split.length-1] === 'element' ){
+				var element_txt = txt_split[txt_split.length-1];
+				if( txt_split.length <= 2 ) tag_txt = txt_split[0];
+				else tag_txt = txt_split[0] + ' ' + txt_split[1];
+				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+			}
+			else if( txt_split[1] === 'element' ) {
+				var ex_txt = txt_split[txt_split.length-1];
+				tag_txt = txt_split[0];
+				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+			}
+		});
+	}
+
+	//html5에서 새로 생성된 태그 표시
+	if( d4[target_idx].html5 === true ){
+		if( !part_state ){
+			target_this.find('li').eq(target_idx).find('a').addClass(html5_new).append('<span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>');
+		}
+		else if( part_state ){
+			target_this.find('li').eq(target_idx).find('p a').addClass(html5_new).append('<span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>');
+		}
+	}
+}
 
 
 //pc&mb class
@@ -1166,82 +1245,37 @@ function ukEditor_txtarea(){
 }
 
 
-//메뉴 생성 / element 텍스트 색상 분기 처리 / html5 표시
-function element_color_div(part_state, target, target_this, target_idx, d4){
-	var $e_ol = target_this.find('>ol');
-	$e_ol.append('<li class="'+dp4+'"></li>');
-	var $e_ol_li = $e_ol.find('>li');
+//line_code_box
+function line_code_box(){
+	var lineCodeBox = $('.line_code_box');
+	lineCodeBox.each(function(i, e){
+		var li_target = $(e).find('ul > li');
+		var li_length = li_target.length;
 
-	//part 아닐 경우
-	if( !part_state ){
-		$e_ol_li.eq(target_idx).append('<a href="'+d4[target_idx].d4_url+'" class="'+uk_link+'">'+d4[target_idx].d4_nm+'</a>');
-	}
-	//part 일 경우
-	else if( part_state ){
-		$e_ol_li.eq(target_idx).addClass('part');
-		var part_div = d4[target_idx].part_div;
-
-
-		var on_target, before_mm, after_nm;
-		on_target = d4[target_idx];
-		before_mm = on_target.d4_nm;
-
-		for( p=0; p<part_div.length; p++ ){
-			after_nm = on_target.part_div[p].part_nm;
-			var part_nm = before_mm + ' ' + after_nm;
-			//$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+part_div[p].part_nm+'</a></p>');
-			$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+ part_nm +'</a></p>');
-		}
-	}
-
-	if( !part_state ){
-		if( target.match('element') ){
-			var txt_split = target.split(' ');
-			var tag_txt;
-			if( txt_split[txt_split.length-1] === 'element' ){
-				var element_txt = txt_split[txt_split.length-1];
-				if( txt_split.length <= 2 ) tag_txt = txt_split[0];
-				else tag_txt = txt_split[0] + ' ' + txt_split[1];
-				target_this.find('li').eq(target_idx).find('>a').html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
-			}
-			else if( txt_split[1] === 'element' ) {
-				var ex_txt = txt_split[txt_split.length-1];
-				tag_txt = txt_split[0];
-				target_this.find('li').eq(target_idx).find('>a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+		//line number 생성
+		if( $(e).is('.line_code_number') && li_length > 1 ){
+			$(e).find('ul').addClass('code_box');
+			$(e).addClass('line_true').prepend('<ol class="line_number">');
+			for( i=0; i<li_length; i++ ){
+				$(e).find('.line_number').append('<li>'+(i+1)+'</li>');
 			}
 		}
-	}
-	else if( part_state ){
-		var color_div_target = target_this.find('li').eq(target_idx).find('p');
-		color_div_target.each(function(z, x){
-			var part_div = d4[target_idx].part_div;
-			var part_nm = on_target.d4_nm + ' ' + part_div[z].part_nm;
-			var txt_split = part_nm.split(' ');
-			var tag_txt;
 
-			if( txt_split[txt_split.length-1] === 'element' ){
-				var element_txt = txt_split[txt_split.length-1];
-				if( txt_split.length <= 2 ) tag_txt = txt_split[0];
-				else tag_txt = txt_split[0] + ' ' + txt_split[1];
-				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+		//생상 변경
+		li_target.each(function(j, k){
+			var e_txt = $(k).text();
+
+			if( e_txt.match('{') || e_txt.match('}') ){
+				$(k).addClass('t_777');
 			}
-			else if( txt_split[1] === 'element' ) {
-				var ex_txt = txt_split[txt_split.length-1];
-				tag_txt = txt_split[0];
-				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+			if( e_txt.match('<!--') || e_txt.match('-->') ){
+				$(k).addClass('t_999');
+			}
+			if( e_txt.indexOf("/*") !== -1 || e_txt.indexOf("*/") !== -1 ){
+				$(k).addClass('t_999');
 			}
 		});
-	}
-
-	//html5에서 새로 생성된 태그 표시
-	if( d4[target_idx].html5 === true ){
-		if( !part_state ){
-			target_this.find('li').eq(target_idx).find('a').addClass(html5_new).append('<span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>');
-		}
-		else if( part_state ){
-			target_this.find('li').eq(target_idx).find('p a').addClass(html5_new).append('<span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>');
-		}
-	}
+	});
 }
 
 

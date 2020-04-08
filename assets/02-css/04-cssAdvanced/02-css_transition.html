@@ -83,7 +83,7 @@
 		<article class="indent mt_ml">
 			<h3 class="ml_mn">1. <i class="t_blue">ease</i></h3>
 			<p class="mt_sm t_black">초반은 느리게, 중간은 빠르게, 종료지점은 느리게 변화가 진행됩니다.</p>
-			<div class="line_code_box both mt_s">
+			<div class="line_code_box mt_s">
 				<code>transition: width 2s ease;</code>
 			</div>
 		</article>
@@ -128,15 +128,15 @@
 		<article class="indent mt_ml">
 			<h3 class="ml_mn">6. <i class="t_blue">steps(n)</i></h3>
 			<p class="mt_sm t_black">애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.</p>
-			<div class="line_code_box mt_s">
-				<code>
-					<span class="t_888">/* step-start */</span><br>
-					transition: width 2s step-start;<br>
-					<span class="t_888">/* step-end */</span><br>
-					transition: width 2s step-end;<br>
-					<span class="t_888">/* steps */</span><br>
-					transition: width 2s steps(4, start)
-				</code>
+			<div class="line_code_box line_code_number mt_s">
+				<ul>
+					<li>/* step-start */</li>
+					<li>transition: width 2s step-start;</li>
+					<li>/* step-end */</li>
+					<li>transition: width 2s step-end;</li>
+					<li>/* steps */</li>
+					<li>transition: width 2s steps(4, start)</li>
+				</ul>
 			</div>
 			<div class="line_code mt_s">
 				<p>변화가 점진적으로 진행되지 않고, 주어진 설정과 간격에 따라 일시에 진행되는 <code>step-start</code>, <code>step-end</code>, <code>steps</code> 가 있습니다.</p>
@@ -201,17 +201,15 @@
 				<code>transition</code>의 속성을 분리해서 정의할 수 있습니다.<br>
 				code가 길어지는 단점이 있지만, 전체 속성(all) 대신 꼭 필요한 속성만 사용할 수 있습니다.
 			</p>
-			<div class="line_code_box both mt_ms">
-				<code>
-					<span class="t_777">.box {</span>
-					<span class="el_block indent">
-						transition-property: transform, color, border;<br>
-						transition-duration: .5s;<br>
-						transition-timing-function: ease;<br>
-						transition-delay: .2s;
-					</span>
-					<span class="t_777">}</span>
-				</code>
+			<div class="line_code_box line_code_number mt_ms">
+				<ul>
+					<li>div {</li>
+					<li class="indent">transition-property: transform, color, border;</li>
+					<li class="indent">transition-duration: .5s;</li>
+					<li class="indent">transition-timing-function: ease;</li>
+					<li class="indent">transition-delay: .2s;</li>
+					<li>}</li>
+				</ul>
 			</div>
 		</article>
 
@@ -223,15 +221,13 @@
 				모든 css속성(property)에 적용하고, 기본 타이밍(ease)을 사용하고, 지연시간(delay)이 없을 경우<br>
 				<code>transition:.5s;</code> 이렇게 지속시간(duration)만 선언하여 사용 가능합니다.
 			</p>
-			<div class="line_code_box both mt_ms">
-				<code>
-					<span class="t_777">.box {</span>
-					<span class="el_block indent">
-						transition: all .5s ease 2s;<br>
-						<span class="t_888">/* transition: property(css 속성) duration(지속시간) timing delay(지연시간); */</span>
-					</span>
-					<span class="t_777">}</span>
-				</code>
+			<div class="line_code_box line_code_number mt_ms">
+				<ul>
+					<li>div {</li>
+					<li class="indent">transition: all .5s ease 2s;</li>
+					<li class="indent">/* transition: property(css 속성) duration(지속시간) timing delay(지연시간); */</li>
+					<li>}</li>
+				</ul>
 			</div>
 		</article>
 
@@ -241,18 +237,14 @@
 			<p class="mt_sm">
 				변경할 속성이 두 개 이상일 때 사용되며, 각 속성별로 독립적인 움직임을 줄 수 있습니다.
 			</p>
-			<div class="line_code_box both mt_ms">
-				<code>
-					<span class="t_777">.box {</span>
-					<span class="el_block indent">
-						transition:<br>
-						<span class="el_block indent">
-							transform .5s ease .2s,<br>
-							color .3s linear 1s;
-						</span>
-					</span>
-					<span class="t_777">}</span>
-				</code>
+			<div class="line_code_box line_code_number mt_ms">
+				<ul>
+					<li>div {</li>
+					<li class="indent">transition:</li>
+					<li class="indent_max">transform .5s ease .2s,</li>
+					<li class="indent_max">color .3s linear 1s;</li>
+					<li>}</li>
+				</ul>
 			</div>
 		</article>
 
@@ -262,17 +254,15 @@
 			<p class="mt_sm">
 				<code>transition-property</code>에 나열된 순서대로 다른 <code>transition</code>의 속성이 대입 적용됩니다.
 			</p>
-			<div class="line_code_box both mt_ms">
-				<code>
-					<span class="t_777">.box {</span>
-					<span class="el_block indent">
-						transition-property: transform, color, border;<br>
-						transition-duration: .5s, .3s, .25s;<br>
-						transition-timing-function: ease, linear, linear;<br>
-						transition-delay: .2s, 1s, 0s;
-					</span>
-					<span class="t_777">}</span>
-				</code>
+			<div class="line_code_box line_code_number mt_ms">
+				<ul>
+					<li>div {</li>
+					<li class="indent">transition-property: transform, color, border;</li>
+					<li class="indent">transition-duration: .5s, .3s, .25s;</li>
+					<li class="indent">transition-timing-function: ease, linear, linear;</li>
+					<li class="indent">transition-delay: .2s, 1s, 0s;</li>
+					<li>}</li>
+				</ul>
 			</div>
 		</article>
 
@@ -283,14 +273,12 @@
 				애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
 				duration 값과 연계해서 선언하여 일종의 Frame Rate(초당 프레임 수)를 설정하거나 혹은, 셀 애니메이션처럼 연계된 동작을 표현할 수도 있습니다.
 			</p>
-			<div class="line_code_box both mt_ms">
-				<code>
-					<span class="t_777">.box {</span>
-					<span class="el_block indent">
-						transition: all 1s steps(10);
-					</span>
-					<span class="t_777">}</span>
-				</code>
+			<div class="line_code_box line_code_number mt_ms">
+				<ul>
+					<li>div {</li>
+					<li class="indent">transition: all 1s steps(10);</li>
+					<li>}</li>
+				</ul>
 			</div>
 		</article>
 
@@ -299,7 +287,7 @@
 			<h3 class="ml_mn">6. <i class="t_blue">transition 작성 시 주의사항</i></h3>
 			<ol class="ol_lst">
 				<li class="tit_h4 line_code mt_ms">
-					<h4 class="mb_sm">transition 속성에서 각 항목의 순서는 중요합니다.</h4>
+					<h4 class="mb_sm weight-500">transition 속성에서 각 항목의 순서는 중요합니다.</h4>
 					<p>시간으로 해석될 수 있는 값이 첫번째에 위치한다면 transition-duration 로 적용되고, 두번째에 위치한다면 transition-delay 로 적용됩니다.</p>
 					<p>
 						속성값 목록이 알맞은 길이를 갖지 않는다면 어떻게 처리될지 궁금하다면 속성값 목록이 다른 개수를 가진 경우를 참고하세요.<br>
@@ -307,42 +295,34 @@
 					</p>
 				</li>
 				<li class="tit_h4 line_code mt_m">
-					<h4 class="mb_sm">속성값 목록이 다른 개수를 가진 경우</h4>
+					<h4 class="mb_sm weight-500">속성값 목록이 다른 개수를 가진 경우</h4>
 					<p>어떤 속성의 값 목록이 다른 것보다 짧다면, 일치되도록 그 값을 반복합니다.</p>
-					<div class="line_code_box both mt_2">
-						<code>
-							<span class="t_777">.box {</span>
-							<span class="el_block indent">
-								transition-property: opacity, left;<br>
-								transition-duration: 3s, 5s, 2s, 1s;
-							</span>
-							<span class="t_777">}</span><br>
-							<span class="font-14 t_888">/* 위는 아래와 같이 처리합니다. */</span><br>
-							<span class="t_777">.box {</span><br>
-							<span class="el_block indent">
-								transition-property: opacity, left;<br>
-								transition-duration: 3s, 5s, 2s, 1s;
-							</span>
-							<span class="t_777">}</span>
-						</code>
+					<div class="line_code_box line_code_number mt_2">
+						<ul>
+							<li>div {</li>
+							<li class="indent">transition-property: opacity, left, top, height;</li>
+							<li class="indent">transition-duration: 3s, 5s;</li>
+							<li>}</li>
+							<li>/* 위는 아래와 같이 처리합니다. */</li>
+							<li>div {</li>
+							<li class="indent">transition-property: opacity, left, top, height;</li>
+							<li class="indent">transition-duration: 3s, 5s, 3s, 5s;</li>
+							<li>}</li>
+						</ul>
 					</div>
 					<p>어떤 속성의 값 목록이 <code>transition-property</code> 목록보다 길다면, 필요 없는 값을 잘라냅니다.</p>
-					<div class="line_code_box both mt_2">
-						<code>
-							<span class="t_777">.box {</span>
-							<span class="el_block indent">
-								transition-property: opacity, left;<br>
-								transition-duration: 3s, 5s, 2s, 1s;
-							</span>
-							<span class="t_777">}</span><br>
-							<span class="font-14 t_888">/* 위를 아래와 같이 해석합니다. */</span><br>
-							<span class="t_777">.box {</span><br>
-							<span class="el_block indent">
-								transition-property: opacity, left;<br>
-								transition-duration: 3s, 5s;
-							</span>
-							<span class="t_777">}</span>
-						</code>
+					<div class="line_code_box line_code_number mt_2">
+						<ul>
+							<li>div {</li>
+							<li class="indent">transition-property: opacity, left;</li>
+							<li class="indent">transition-duration: 3s, 5s, 2s, 1s;</li>
+							<li>}</li>
+							<li>/* 위를 아래와 같이 해석합니다. */</li>
+							<li>div {</li>
+							<li class="indent">transition-property: opacity, left;</li>
+							<li class="indent">transition-duration: 3s, 5s;</li>
+							<li>}</li>
+						</ul>
 					</div>
 				</li>
 			</ol>
@@ -369,7 +349,6 @@
 			<iframe class="box_model_iframe" src="/assets/kmtemp/transform/transition.html" width="100%" height="100%" scrolling="no"></iframe>
 		</div>
 	</section>
-	<p class="mt_m t_red">---- 요약설명 텍스트 수정 필요 ----</p>
 
 	<aside class="browser_support mt_xxl" data-tit="transition">
 		<ul>
