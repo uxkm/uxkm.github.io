@@ -2594,11 +2594,12 @@
 						color:#888; text-align:right;
 					}
 				}
-				.code_box {
-					overflow:auto; position:relative; z-index:1;
+				.scroll_wrap {
+					position:relative; overflow:hidden;
 					margin-left:@size;
-					padding:@pd_top 0 @pd_top 16px;
 				}
+				.scroll_inner {display:inline-block; padding-right:12px;}
+				.code_box {padding:@pd_top 0 @pd_top 16px;}
 			}
 		}
 	}
@@ -2622,10 +2623,9 @@
 						font-size:13px;
 						li {padding-right:10px;}
 					}
-					.code_box {
-						margin-left:@size;
-						padding:@pd_top 0 @pd_top 10px;
-					}
+					.scroll_wrap {margin-left:@size;}
+					.scroll_inner {padding-right:10px;}
+					.code_box {padding:@pd_top 0 @pd_top 10px;}
 				}
 			}
 		}

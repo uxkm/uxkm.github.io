@@ -1251,6 +1251,7 @@ function line_code_box(){
 	lineCodeBox.each(function(i, e){
 		var li_target = $(e).find('ul > li');
 		var li_length = li_target.length;
+		$(e).find('ul').wrap('<div class="scroll_wrap" id="iscroll_'+i+'"><div class="scroll_inner"></div></div>');
 
 		//line number 생성
 		if( $(e).is('.line_code_number') && li_length > 1 ){
@@ -1276,7 +1277,34 @@ function line_code_box(){
 			}
 		});
 	});
+
+	//iscroll 적용
+	$('.scroll_wrap').each(function(i, e){
+		var s_target = $(e).attr('id');
+
+		new IScroll('#'+s_target, {
+			//scrollbars: true,
+			scrollbars: 'custom',
+			mouseWheel: true,
+			click: true,
+			scrollX: true,
+			scrollY: false,
+
+			disableMouse: true,
+			disablePointer: true,
+			//disableTouch: true,
+
+			onBeforeScrollStart: function (e) { e.preventDefault(); }, //클릭 가능
+			interactiveScrollbars: true,
+			shrinkScrollbars: 'scale'//,
+			//fadeScrollbars: true
+		});
+	});
 }
+
+
+
+
 
 
 //각 메뉴의 element 텍스트 감싸기
