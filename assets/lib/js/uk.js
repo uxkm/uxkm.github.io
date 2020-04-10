@@ -65,6 +65,8 @@ var pageTop_scrollSpeed = 700;
 var side_offsetTop = [];
 var top_link_offsetTop = [];
 var top_link_offsetLeft = [];
+var pcmb_state = [];
+var iscroll_psmb = [];
 
 var loading = $('.loading');
 var hide_loading = 'hide_loading';
@@ -1094,22 +1096,30 @@ function element_color_div(part_state, target, target_this, target_idx, d4){
 
 //pc&mb class
 function pc_mb_class(win_w){
-	var sroll_state = false;
+	var scroll_state = false;
 	//반응형 pc
 	if( win_w > respon_size ){
 		$html.addClass('pc').removeClass('mb');
-		if( !sroll_state ){
-			//$(window).trigger('scroll');
-			//sroll_state = true;
-		}
+		// pcmb_state = [];
+		// pcmb_state.push('state_pc');
+		// iscroll_psmb = [];
+		// iscroll_psmb.push(true);
+		// if( !scroll_state ){
+		// 	$(window).trigger('scroll');
+		// 	sroll_state = true;
+		// }
 	}
 	//반응형 mobile
 	else if( win_w <= respon_size ){
 		$html.addClass('mb').removeClass('pc');
-		if( sroll_state ){
-			//$(window).trigger('scroll');
-			//sroll_state = false;
-		}
+		// pcmb_state = [];
+		// pcmb_state.push('state_mb');
+		// iscroll_psmb = [];
+		// iscroll_psmb.push(false);
+		// if( scroll_state ){
+		// 	$(window).trigger('scroll');
+		// 	sroll_state = false;
+		// }
 	}
 }
 
@@ -1279,6 +1289,11 @@ function line_code_box(){
 	});
 
 	//iscroll 적용
+	// var isc_state ;
+	// $(window).resize(function(){
+	// 	isc_state = iscroll_psmb[0];
+	// 	console.log(isc_state);
+	// });
 	$('.scroll_wrap').each(function(i, e){
 		var s_target = $(e).attr('id');
 
@@ -1292,7 +1307,7 @@ function line_code_box(){
 
 			disableMouse: true,
 			disablePointer: true,
-			//disableTouch: true,
+			disableTouch: false,
 
 			onBeforeScrollStart: function (e) { e.preventDefault(); }, //클릭 가능
 			interactiveScrollbars: true,
