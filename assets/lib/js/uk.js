@@ -1268,7 +1268,8 @@ function line_code_box(){
 			$(e).find('ul').addClass('code_box');
 			$(e).addClass('line_true').prepend('<ol class="line_number">');
 			for( i=0; i<li_length; i++ ){
-				$(e).find('.line_number').append('<li>'+(i+1)+'</li>');
+				//$(e).find('.line_number').append('<li>'+(i+1)+'</li>');
+				$(e).find('.line_number').append('<li></li>');
 			}
 		}
 
@@ -1300,7 +1301,7 @@ function line_code_box(){
 		new IScroll('#'+s_target, {
 			//scrollbars: true,
 			scrollbars: 'custom',
-			mouseWheel: true,
+			mouseWheel: false,
 			click: true,
 			scrollX: true,
 			scrollY: false,

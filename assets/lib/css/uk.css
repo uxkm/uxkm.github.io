@@ -6470,6 +6470,7 @@ body {
   height: 100%;
   padding: 13px 0;
   background: rgba(255, 255, 255, 0.7);
+  counter-reset: line_number;
 }
 .line_code_box.line_code_number.line_true .line_number.clear {
   display: block;
@@ -6491,9 +6492,13 @@ body {
   content: "";
 }
 .line_code_box.line_code_number.line_true .line_number li {
-  padding-right: 11px;
+  padding-right: 12px;
   color: #888;
   text-align: right;
+}
+.line_code_box.line_code_number.line_true .line_number li:before {
+  counter-increment: line_number;
+  content: counters(line_number, "");
 }
 .line_code_box.line_code_number.line_true .scroll_wrap {
   position: relative;
