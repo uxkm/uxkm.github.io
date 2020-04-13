@@ -1277,9 +1277,9 @@ function line_code_box(){
 		li_target.each(function(j, k){
 			var e_txt = $(k).text();
 
-			if( e_txt.match('{') || e_txt.match('}') ){
-				$(k).addClass('t_777');
-			}
+			if( e_txt.match('{') && !e_txt.match('}') ) $(k).addClass('t_777');
+			if( e_txt.match('}') && !e_txt.match('{') ) $(k).addClass('t_777');
+
 			if( e_txt.match('<!--') || e_txt.match('-->') ){
 				$(k).addClass('t_999');
 			}

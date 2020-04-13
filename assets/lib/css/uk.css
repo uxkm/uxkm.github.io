@@ -5887,6 +5887,9 @@ body {
   color: rgba(8, 17, 33, 0.9);
   letter-spacing: -0.3px;
 }
+.content_area h3 * {
+  line-height: 28px;
+}
 .content_area h3 .fa-html5 {
   margin: 5px 0 0;
   color: #e44d26;
@@ -5951,6 +5954,9 @@ body {
   .content_area h3 {
     line-height: 22px;
     font-size: 16px;
+  }
+  .content_area h3 * {
+    line-height: 22px;
   }
   .content_area h3 .fa-html5,
   .content_area h3 .fa-css3-alt {
