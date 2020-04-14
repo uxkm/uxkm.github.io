@@ -917,6 +917,11 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			$('.'+content_area).append('<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
 		}
 
+		//css > 고급 > animation
+		if( dp4_true && d4_target.d4_nm === 'Animation' ){
+			$('.'+side_menu_area).addClass('animation_side');
+		}
+
 		//gist
 		/*
 		$('.gist').each(function(i, e){
