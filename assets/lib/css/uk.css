@@ -7471,6 +7471,7 @@ body {
   .ie_no .animation_side.side_menu_area .item.on a:before {
     font-size: 30px;
     font-weight: 800;
+    color: #081121;
     background-image: url('/assets/kmtemp/lib/img/wave_w_opacity_10.png'), url('/assets/kmtemp/lib/img/wave_w_opacity_10.png'), url('/assets/kmtemp/lib/img/wave_w_opacity_10.png');
     background-repeat: repeat-x;
     background-color: #fff;
@@ -7481,6 +7482,15 @@ body {
   }
 }
 @media (max-width: 767px) {
+  .ie_no .animation_page {
+    height: 26px;
+  }
+  .ie_no .animation_page h1 {
+    line-height: 26px;
+  }
+  .ie_no .animation_page .last_update {
+    margin-top: -22px;
+  }
   .ie_no .animation_side.side_menu_area .item.on a:before {
     font-size: 20px;
     animation: ani_h1 0.7s 2s cubic-bezier(0.65, 0, 0.35, 1) both, bg_ani_linear 80s 0.7s linear infinite;
