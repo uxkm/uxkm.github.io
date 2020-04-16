@@ -1080,7 +1080,7 @@ var menu = [
 
 					//UI/UX 구현
 					{
-						d3_nm:	    'UI/UX 구현',
+						d3_nm:	    'UI/UX 구현(가이드로 이동 예정)',
 						d3_url:		url_css+'uiux',
 						d3_file:	file_css+'/05-uiux/uiux.html',
 						d3_note:	false,
