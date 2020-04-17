@@ -3103,7 +3103,7 @@ body {
   width: 50px;
   height: 72px;
   margin-top: 10px;
-  background-image: url('../../lib/img/sprite-steps.png');
+  background-image: url('/assets/kmtemp/lib/img/sprite-steps.png');
   animation: steps_play .8s linear infinite;
 }
 .transition_wrap .steps_ex2 .ani_box.steps {
