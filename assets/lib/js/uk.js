@@ -904,8 +904,8 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			var active_target = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on];
 			var browser_tit = active_target.d4_nm;
 			if( d4_target.part === true ) {
-				var target_idx = target_url.split('_part')[1];
-				browser_tit += ' part-'+target_idx;
+				var target_idx = Number(target_url.split('_part')[1] - 1);
+				browser_tit += d4_target.part_div[target_idx].part_nm;
 			}
 
 			change_target.find('>a').attr('data-tit',(d3_on+1)+'.'+(d4_on+1)+'. '+browser_tit);
@@ -915,6 +915,11 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		//준비중 페이지
 		if( !$('.'+content_area+' h1').parent().next().is(':visible') ){
 			$('.'+content_area).append('<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
+		}
+		if( dp4_true && d4_target.part === true && $('.tab_menu').is(':visible') ){
+			if( !$('.'+content_area+' h1').parent().siblings('.tab_menu').next().is(':visible') ){
+				$('.'+content_area).append('<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
+			}
 		}
 
 		//css > 고급 > animation
