@@ -4,3 +4,176 @@
 		<h1></h1><!-- 플렉서블 레이아웃 - 부모 속성 -->
 		<time class="last_update" datetime="2020-04-17">2020-04-17</time>
 	</header>
+
+	<!-- 4.4.1. 부모 속성 -->
+	<section class="mt_xxl indent">
+		<h2 class="ml_mn">4.4.1. 부모 속성(Properties for the Parent - Flexbox Container)</h2>
+		<p class="mt_ms"><code>display: flex;</code>를 설정 한 부모 엘리먼트</p>
+		<figure class="img_figure mt_m">
+			<img src="/ukncs/images/css/flex-container.svg" alt="Flexbox Container" class="max-w650">
+			<figcaption>[Flexbox Container]</figcaption>
+		</figure>
+
+		<!-- display -->
+		<article class="mt_xxl indent">
+			<h3 class="ml_mn t_blue">display</h3>
+			<p class="mt_ms">
+				플렉스 서식 환경을 구성합니다.<br>
+				페이지 섹션에서 flexbox를 사용하려면 먼저 부모 컨테이너 <code>display: flex;</code>를 CSS 에 추가하여 부모 컨테이너를 flex 컨테이너로 변환해야 합니다.<br>
+				<code>display: flex;</code> 를 할당함으로써 부모 컨테이너에 대해 가로로 배열됩니다.
+				이것은 기본적으로 flexbox가 컨테이너에서 왼쪽에서 오른쪽으로 이동하는 항목을 표시 함을 보여줍니다.<br>
+				CSS 열은 플렉스 컨테이너에 영향을 미치지 않습니다.
+			</p>
+			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#flex-containers" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#flex-containers</a></p>
+			<div class="line_code_box line_code_number mt_m">
+				<ul>
+					<li>.box {</li>
+					<li class="indent">display: flex | inline-flex;</li>
+					<li>}</li>
+				</ul>
+			</div>
+			<aside class="browser_support mt_ml" data-tit="flex / inline-flex">
+				<ul>
+					<li class="ie">10+ -ms-</li>
+					<li class="edge">12.0</li>
+					<li class="chrome">29.0</li>
+					<li class="firefox">28.0</li>
+					<li class="opera">17.0</li>
+					<li class="safari">9.0</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- flex-direction -->
+		<article class="mt_xxl indent">
+			<h3 class="ml_mn t_blue">flex-direction</h3>
+			<p class="mt_ms">
+				방향, 흐름, 시각적인 순서를 처리합니다.
+			</p>
+			<p class="mt_s">
+				<code>flex-direction</code> 속성은 플렉스 컨테이너 안에서 플렉스 요소가 배치될 주축(main axis) 방향을 설정합니다.<br>
+				기술적으로, "수평(horizontal)"과 "수직(vertical)"은 "flex world"에서는 올바른 용어가 아니며, 이것은 주축(main axis) 및 교차 축(cross axis)으로 불립니다.<br>
+				기본적으로 <code>flex-direction</code> 속성은 행(row)으로 설정되고 주축을 따라 플렉스 아이템을 정렬합니다.
+			</p>
+			<p class="mt_s">
+				<code>flex-direction</code> 속성이 명시적으로 설정되지 않았더라도 기본값인 행(row)을 사용 한다.<br>
+				<code>flex-direction</code> 속성이 열(column)로 변경되면 플렉스 아이템이 교차 축을 따라 정렬됩니다.(왼쪽에서 오른쪽으로가 아니라 위에서 아래로 채워집니다.)<br>
+				<code>flex-direction</code>은 플렉스 항목들의 흐름 방향을 전체적으로 제어하기 때문에 플렉스 항목이 아닌 플렉스 컨테이너에 지정해야 합니다.<br>
+				그리고 <code>float</code> 레이아웃을 사용할 때는 변칙적인 <code>clear</code> 속성을 이용해 부모가 자식을 감싸주도록 하는 방법을 사용했지만<br>
+				플렉스 박스는 컨테이너 요소에 <code>display: flex;</code> 만 주게 되면 마치 모든 아이템에 <code>float</code> 를 정의해 준 것처럼 배치가 되면서 굳이 불필요하게 <code>clearfix</code> 라는 방식을 사용하지 않아도 됩니다.
+			</p>
+			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#flex-direction-property" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#flex-direction-property</a></p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[시각적으로 설명하는 다이어그램]</figcaption>
+				<img src="/ukncs/images/css/flex-direction.svg" alt="Flexbox Container" class="mt_m max-w650">
+				<img src="/ukncs/images/css/flex-direction-diagram.png" alt="Flexbox Container" class="max-w650">
+			</figure>
+
+			<div class="ol_lst indent mt_l">
+				<ol>
+					<!-- row (기본값) -->
+					<li class="tit_h4">
+						<h4>row (기본값)</h4>
+						<!--<p class="mt_s">기본 설정으로, 플렉스 요소는 왼쪽에서 오른쪽으로, 위쪽에서 아래쪽으로 배치됩니다.</p>-->
+						<p class="mt_s">기본 설정으로, 플렉스 요소는 왼쪽에서 오른쪽으로 배치됩니다.</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">flex-direction: row;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[flex-direction: row;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-flex-direction-row.jpg" alt="flex-direction: row;" class="mt_m max-w400"><!--<br>
+							<img src="/ukncs/images/css/flex-direction-row-axix.png" alt="flex-direction: row;" class="mt_m max-w300">-->
+						</figure>
+					</li>
+
+					<!-- row-reverse -->
+					<li class="tit_h4 mt_l">
+						<h4>row-reverse</h4>
+						<!--<p class="mt_s">플렉스 요소가 오른쪽에서 왼쪽으로, 위쪽에서 아래쪽으로 배치됩니다.</p>-->
+						<p class="mt_s">플렉스 요소가 오른쪽에서 왼쪽으로 배치됩니다.</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">flex-direction: row-reverse;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[flex-direction: row-reverse;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-flex-direction-row-reverse.jpg" alt="flex-direction: row-reverse;" class="mt_m max-w400"><!--<br>
+							<img src="/ukncs/images/css/flex-direction-row-reverse-axix.png" alt="flex-direction: row-reverse;" class="mt_m max-w300">-->
+						</figure>
+					</li>
+
+					<!-- column -->
+					<li class="tit_h4 mt_l">
+						<h4>column</h4>
+						<p class="mt_s">플렉스 요소가 위쪽에서 아래쪽으로 배치됩니다.</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">flex-direction: column;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[flex-direction: column;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-flex-direction-column.jpg" alt="flex-direction: column;" class="mt_m max-w400"><!--<br>
+							<img src="/ukncs/images/css/flex-direction-column-axix.png" alt="flex-direction: column;" class="mt_m max-w300">-->
+						</figure>
+					</li>
+
+					<!-- column-reverse -->
+					<li class="tit_h4 mt_l">
+						<h4>column-reverse</h4>
+						<p class="mt_s">플렉스 요소가 아래쪽에서 위쪽으로 배치됩니다</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">flex-direction: column-reverse;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[flex-direction: column-reverse;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-flex-direction-column-reverse.jpg" alt="flex-direction: column-reverse;" class="mt_m max-w400"><!--<br>
+							<img src="/ukncs/images/css/flex-direction-column-reverse-axix.png" alt="flex-direction: column-reverse;" class="mt_m max-w300">-->
+						</figure>
+					</li>
+				</ol>
+			</div>
+		</article>
+	</section>
+
+
+
+
+
+
+	<br><br><br><br><br><br><br><br><br>
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">플렉서블 박스 레이아웃 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/css-flexbox-1/" target="_blank" class="fas" title="새창열림">W3C CSS Flexible Box Layout Module Level 1</a></li>
+			<li class="reference"><a href="https://drafts.csswg.org/css-align/" target="_blank" class="fas" title="새창열림">W3C CSS Box Alignment Module Level 3</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode" target="_blank" class="fas" title="새창열림">W3C CSS Writing Modes Level 3</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank" class="fas" title="새창열림">MDN CSS Flexible Box</a></li>
+			<li class="reference"><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" class="fas" title="새창열림">A Complete Guide to Flexbox (CSS-Tricks)</a></li>
+			<li class="reference"><a href="https://www.tutorialspoint.com/flexbox/" target="_blank" class="fas" title="새창열림">Flexbox Tutorial for Beginners (Tutorials Point)</a></li>
+			<li class="reference"><a href="https://webdesign.tutsplus.com/tutorials/a-comprehensive-guide-to-flexbox-alignment--cms-30183" target="_blank" class="fas" title="새창열림">A Guide to Flexbox Alignment (Web Design Tuts)</a></li>
+			<li class="reference"><a href="http://yoksel.github.io/flex-cheatsheet/" target="_blank" class="fas" title="새창열림">flex-cheatsheet</a></li>
+			<li class="reference"><a href="https://jonneal.dev/flexibility/" target="_blank" class="fas" title="새창열림">flex-cheatsheet</a></li>
+			<li class="reference"><a href="https://www.freecodecamp.org/news/flexbox-the-ultimate-css-flex-cheatsheet/" target="_blank" class="fas" title="새창열림">CSS Flex Cheatsheet (freeCodeCamp)</a></li>
+			<li class="reference"><a href="https://dev.opera.com/articles/flexbox-basics/" target="_blank" class="fas" title="새창열림">Flexbox at Opera</a></li>
+			<li class="reference"><a href="https://bocoup.com/blog/dive-into-flexbox" target="_blank" class="fas" title="새창열림">Diving into Flexbox by Bocoup</a></li>
+			<li class="reference"><a href="https://css-tricks.com/using-flexbox/" target="_blank" class="fas" title="새창열림">Mixing syntaxes for best browser support on CSS-Tricks</a></li>
+			<li class="reference"><a href="https://www.alsacreations.com/tuto/lire/1493-css3-flexbox-layout-module.html" target="_blank" class="fas" title="새창열림">Flexbox by Raphael Goetter (FR)</a></li>
+			<li class="reference"><a href="https://bennettfeely.com/flexplorer/" target="_blank" class="fas" title="새창열림">Flexplorer by Bennett Feely</a></li>
+			<li class="reference"><a href="https://css-tricks.com/using-flexbox/" target="_blank" class="fas" title="새창열림">flexbox 구버전과 신버전 브라우저 지원을 위한 최고의 방법</a></li>
+			<li class="reference"><a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/dev-guides/hh673531(v=vs.85)?redirectedfrom=MSDN" target="_blank" class="fas" title="새창열림">IE flexbox 참고 자료</a></li>
+		</ul>
+	</aside>
