@@ -835,7 +835,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			var part_tab = $('.'+content_area+' .tab_menu ul');
 			for( i=0; i<d4_target.part_div.length; i++  ){
 				var part_target = d4_target.part_div[i];
-				part_tab.append('<li><a href="'+part_target.part_url+'" class="uk_link">'+part_target.part_tab+'</a></li>');
+				part_tab.append('<li><a href="'+part_target.part_url+'" class="uk_link"><i>'+part_target.part_tab+'</i></a></li>');
 			}
 
 			var part_idx = Number(location.href.split('_part')[1]-1);
