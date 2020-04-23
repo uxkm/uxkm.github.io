@@ -815,6 +815,7 @@ mark {
 					.fixed_btn {display:none;}
 					.exitFixed_btn {display:inline-block;}
 				}
+				iframe {height:calc(100% - 35px);}
 			}
 		}
 		&.browser_mini.device .result_wrap {
@@ -896,6 +897,8 @@ mark {
 	background:rgba(0,0,0,.2);
 	border-radius:10px;
 	cursor:pointer;
+	transition:background-color .3s !important;
+	&:hover {background-color:rgba(0,0,0,.4);}
 }
 .iScrollHorizontalScrollbar .iScrollIndicator {height:100%;}
 .iScrollVerticalScrollbar .iScrollIndicator {width:100%;}

@@ -56,7 +56,7 @@
 				기본적으로 <code>flex-direction</code> 속성은 행(row)으로 설정되고 주축을 따라 플렉스 아이템을 정렬합니다.
 			</p>
 			<p class="mt_s">
-				<code>flex-direction</code> 속성이 명시적으로 설정되지 않았더라도 기본값인 행(row)을 사용 한다.<br>
+				<code>flex-direction</code> 속성이 명시적으로 설정되지 않았더라도 기본값인 행(row)을 사용 합니다.<br>
 				<code>flex-direction</code> 속성이 열(column)로 변경되면 플렉스 아이템이 교차 축을 따라 정렬됩니다.(왼쪽에서 오른쪽으로가 아니라 위에서 아래로 채워집니다.)<br>
 				<code>flex-direction</code>은 플렉스 항목들의 흐름 방향을 전체적으로 제어하기 때문에 플렉스 항목이 아닌 플렉스 컨테이너에 지정해야 합니다.<br>
 				그리고 <code>float</code> 레이아웃을 사용할 때는 변칙적인 <code>clear</code> 속성을 이용해 부모가 자식을 감싸주도록 하는 방법을 사용했지만<br>
@@ -78,8 +78,25 @@
 
 			<div class="ol_lst indent mt_l">
 				<ol>
-					<!-- row (기본값) -->
+					<!--  -->
 					<li class="tit_h4">
+						<h4 class="t_blue">주측(main axis)과 교차축(cross axis)의 이해</h4>
+						<p class="mt_s">
+							위 요약에 언급됐듯이 <code>flex</code>에서 수평과 수직은 올바른 용어가 아닙니다.
+							대신 <i class="t_blue">주축(main axis)</i> 및 <i class="t_blue">교차 축(cross axis)</i>으로 불리며 사용됩니다.<br>
+							주축은 <code>flex-direction</code>에 의해 정의되며 4개의 값<code>(row | row-reverse | column | column-reverse)</code>을 가질 수 있습니다.
+						</p>
+						<p class="mt_s">
+							<code>row</code> 또는 <code>row-reverse</code>의 <mark>주축은 인라인 방향(가로 행)</mark>이며, <mark>교차 축은 블록 방향(세로 열)</mark>입니다.<br>
+							<code>column</code> 또는 <code>column-reverse</code>의 <mark>주축은 블록 방향(세로 열)</mark>이며, <mark>교차 축은 인라인 방향(가로 행)</mark>입니다.
+						</p>
+						<p class="mt_s">
+							<code>flex-direction</code>이 선언되지 않으면 기본값인 <code>row</code>가 적용되므로 <mark>주축은 인라인 방향(가로 행)</mark>이며, <mark>교차 축은 블록 방향(세로 열)</mark>입니다.
+						</p>
+					</li>
+
+					<!-- row (기본값) -->
+					<li class="tit_h4 mt_l">
 						<h4>row (기본값)</h4>
 						<!--<p class="mt_s">기본 설정으로, 플렉스 요소는 왼쪽에서 오른쪽으로, 위쪽에서 아래쪽으로 배치됩니다.</p>-->
 						<p class="mt_s">기본 설정으로, 플렉스 요소가 왼쪽에서 오른쪽으로 배치됩니다.</p>
@@ -495,164 +512,300 @@
 		<!-- align-content -->
 		<article class="mt_xxl indent">
 			<h3 class="ml_mn t_blue">align-content</h3>
-			<p class="mt_ms t_red">
-				작업 예정
+			<p class="mt_ms">
+				<code>flex container</code>의 교차 축(cross-axis)을 기준으로 <code>flex item</code>을 수직 정렬합니다.<br>
+				참고로 <code>justify-content</code> 속성은 <code>flex container</code>의 main axis를 기준으로 <code>flex item</code>을 수평 정렬합니다.
 			</p>
-
-			<div style="display:none;">
-				<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#justify-content-property" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#justify-content-property</a></p>
-				<div class="line_code_box line_code_number mt_m">
-					<ul>
-						<li>.box {</li>
-						<li class="indent">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe;</li>
-						<li>}</li>
-					</ul>
-				</div>
-				<figure class="img_figure mt_ml">
-					<figcaption class="mt_0">[justify-content를 시각적으로 설명하는 다이어그램]</figcaption>
-					<img src="/ukncs/images/css/flex-justify-content.svg" alt="justify-content를 시각적으로 설명하는 다이어그램" class="mt_m max-w650">
-					<img src="/ukncs/images/css/flex-justify-content.jpg" alt="justify-content를 시각적으로 설명하는 다이어그램" class="mt_m max-w600">
-				</figure>
-
-				<div class="ol_lst indent mt_l">
-					<ol>
-						<!-- flex-start (기본값) -->
-						<li class="tit_h4">
-							<h4>flex-start (기본값)</h4>
-							<p class="mt_s">기본값이며, 플렉스 요소가 플렉스 컨테이너의 앞쪽(왼쪽)부터 배치됩니다.</p>
-							<div class="line_code_box line_code_number mt_ms">
-								<ul>
-									<li>.box {</li>
-									<li class="indent">justify-content: flex-start;</li>
-									<li>}</li>
-								</ul>
-							</div>
-							<figure class="img_figure mt_m">
-								<figcaption class="mt_0">[justify-content: flex-start;]</figcaption>
-								<img src="/ukncs/images/css/flexbox-justify-content-flex-start.jpg" alt="flex-justify-content: flex-start;" class="mt_m max-w400">
-							</figure>
-						</li>
-
-						<!-- flex-end -->
-						<li class="tit_h4 mt_l">
-							<h4>flex-end</h4>
-							<p class="mt_s">플렉스 요소가 플렉스 컨테이너의 뒤쪽(오른쪽)부터 배치됩니다.</p>
-							<div class="line_code_box line_code_number mt_ms">
-								<ul>
-									<li>.box {</li>
-									<li class="indent">justify-content: flex-end;</li>
-									<li>}</li>
-								</ul>
-							</div>
-							<figure class="img_figure mt_m">
-								<figcaption class="mt_0">[justify-content: flex-end;]</figcaption>
-								<img src="/ukncs/images/css/flexbox-justify-content-flex-end.jpg" alt="flex-justify-content: flex-end;" class="mt_m max-w400">
-							</figure>
-						</li>
-
-						<!-- center -->
-						<li class="tit_h4 mt_l">
-							<h4>center</h4>
-							<p class="mt_s">플렉스 요소가 플렉스 컨테이너의 가운데에 배치됩니다. (Items를 가운데 정렬 항목이 선을 따라 중앙에 위치)</p>
-							<div class="line_code_box line_code_number mt_ms">
-								<ul>
-									<li>.box {</li>
-									<li class="indent">justify-content: center;</li>
-									<li>}</li>
-								</ul>
-							</div>
-							<figure class="img_figure mt_m">
-								<figcaption class="mt_0">[justify-content: center;]</figcaption>
-								<img src="/ukncs/images/css/flexbox-justify-content-center.jpg" alt="flex-justify-content: center;" class="mt_m max-w400">
-							</figure>
-						</li>
-
-						<!-- space-between -->
-						<li class="tit_h4 mt_l">
-							<h4>space-between</h4>
-							<p class="mt_s">
-								플렉스 요소 사이에 여유 공간을 두고 양쪽 끝에 마춰 배치됩니다.<br>
-								(시작 Item은 시작점에, 마지막 Item은 끝점에 정렬되고 나머지 Items는 사이에 고르게 정렬됩니다. 라인에 균등하게 분배)
-							</p>
-							<div class="line_code_box line_code_number mt_ms">
-								<ul>
-									<li>.box {</li>
-									<li class="indent">justify-content: space-between;</li>
-									<li>}</li>
-								</ul>
-							</div>
-							<figure class="img_figure mt_m">
-								<figcaption class="mt_0">[justify-content: space-between;]</figcaption>
-								<img src="/ukncs/images/css/flexbox-justify-content-space-between.jpg" alt="flex-justify-content: space-between;" class="mt_m max-w400">
-							</figure>
-						</li>
-
-						<!-- space-around -->
-						<li class="tit_h4 mt_l">
-							<h4>space-around</h4>
-							<p class="mt_s">
-								플렉스 요소의 양 옆에 동일한 여유 공간을 두고 배치됩니다.<br>
-								(Items를 균등한 여백을 포함하여 정렬합니다. 항목은 동일한 간격으로 줄에 균등하게 분배)
-							</p>
-							<div class="line_code_box line_code_number mt_ms">
-								<ul>
-									<li>.box {</li>
-									<li class="indent">justify-content: space-around;</li>
-									<li>}</li>
-								</ul>
-							</div>
-							<figure class="img_figure mt_m">
-								<figcaption class="mt_0">[justify-content: space-around;]</figcaption>
-								<img src="/ukncs/images/css/flexbox-justify-content-space-around.jpg" alt="flex-justify-content: space-around;" class="mt_m max-w400">
-							</figure>
-						</li>
-
-						<!-- space-evenly -->
-						<li class="tit_h4 mt_l">
-							<h4>space-evenly</h4>
-							<p class="mt_s">
-								플렉스 요소의 사이의 양쪽 간격이 동일하게 배치됩니다.
-							</p>
-							<div class="line_code_box line_code_number mt_ms">
-								<ul>
-									<li>.box {</li>
-									<li class="indent">justify-content: space-evenly;</li>
-									<li>}</li>
-								</ul>
-							</div>
-							<figure class="img_figure mt_m">
-								<figcaption class="mt_0">[justify-content: space-evenly;]</figcaption>
-								<img src="/ukncs/images/css/flexbox-justify-content-space-evenly.jpg" alt="flex-justify-content: space-evenly;" class="mt_m max-w400">
-							</figure>
-						</li>
-					</ol>
-				</div>
-
-				<section class="view_editor edit_code mt_l" data-target="/css/step03/4.4.flexible/4.4.1.flexible-justify-content.html">
-					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
-						<div class="code_wrap"><textarea></textarea></div>
-					</div>
-				</section>
-				<aside class="browser_support mt_ml" data-tit="flex-flow">
-					<ul>
-						<li class="ie">10+ -ms-</li>
-						<li class="edge">12.0</li>
-						<li class="chrome">29.0</li>
-						<li class="firefox">28.0</li>
-						<li class="opera">17.0</li>
-						<li class="safari">9.0</li>
-					</ul>
-				</aside>
+			<p class="mt_s">
+				주의할 점은 <code>flex item</code>이 한줄일 경우 작동하지 않으며, 2줄 이상에 <code>flex container</code>에 여백이 있는 경우에만 의미가 있습니다.<br>
+				또한 <code>flex-wrap</code>속성에 <code>nowrap</code>이 선언되어 있으면 <code>flex item</code>이 한줄로 정렬이 되기 때문에 이경우에도 의미가 없습니다.<br>
+				<code>flex item</code>이 한 줄일 경우 <code>align-items</code> 속성을 사용해야 합니다.
+			</p>
+			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#align-content-property" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#align-content-property</a></p>
+			<div class="line_code_box line_code_number mt_m">
+				<ul>
+					<li>.box {</li>
+					<li class="indent">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe;</li>
+					<li>}</li>
+				</ul>
 			</div>
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[align-content를 시각적으로 설명하는 다이어그램]</figcaption>
+				<img src="/ukncs/images/css/flex-align-content.svg" alt="align-content를 시각적으로 설명하는 다이어그램" class="mt_m max-w650">
+				<img src="/ukncs/images/css/flex-align-content.jpg" alt="align-content를 시각적으로 설명하는 다이어그램" class="mt_m max-w750">
+			</figure>
+
+			<div class="ol_lst indent mt_l">
+				<ol>
+					<!-- stretch (기본값) -->
+					<li class="tit_h4">
+						<h4>stretch (기본값)</h4>
+						<p class="mt_s">기본값이며, flex container의 교차 축을 채우기 위해 flex Items을 늘립니다.</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-content : stretch;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-content : stretch;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-align-content-stretch.jpg" alt="align-content : stretch;" class="mt_m max-w400">
+						</figure>
+					</li>
+
+					<!-- flex-start -->
+					<li class="tit_h4 mt_l">
+						<h4>flex-start</h4>
+						<p class="mt_s">flex Items을 시작점(위쪽) 기준으로 정렬합니다.</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-content : flex-start;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-content : flex-start;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-align-content-flex-start.jpg" alt="align-content : flex-start;" class="mt_m max-w400">
+						</figure>
+					</li>
+
+					<!-- flex-end -->
+					<li class="tit_h4 mt_l">
+						<h4>flex-end</h4>
+						<p class="mt_s">flex Items을 끝점(아래쪽) 기준으로 정렬합니다.</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-content : flex-end;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-content : flex-end;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-align-content-flex-end.jpg" alt="align-content : flex-end;" class="mt_m max-w400">
+						</figure>
+					</li>
+
+					<!-- center -->
+					<li class="tit_h4 mt_l">
+						<h4>center</h4>
+						<p class="mt_s">flex Items을 flex container 교차축 기준 가운데로 정렬합니다.</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-content : center;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-content : center;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-align-content-center.jpg" alt="align-content : center;" class="mt_m max-w400">
+						</figure>
+					</li>
+
+					<!-- space-between -->
+					<li class="tit_h4 mt_l">
+						<h4>space-between</h4>
+						<p class="mt_s">flex Items이 위/아래 기준 양쪽 끝에 정렬되고 나머지 flex Items은 위/아래 사이 공간에 고르게 정렬됩니다.</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-content : space-between;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-content : space-between;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-align-content-space-between.jpg" alt="align-content : space-between;" class="mt_m max-w400">
+						</figure>
+					</li>
+
+					<!-- space-around -->
+					<li class="tit_h4 mt_l">
+						<h4>space-around</h4>
+						<p class="mt_s">flex Item의 각 행이 flex container의 여백을 균등하게 나누어 정렬됩니다.</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-content : space-around;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-content : space-around;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-align-content-space-around.jpg" alt="align-content : space-around;" class="mt_m max-w400">
+						</figure>
+					</li>
+				</ol>
+			</div>
+
+			<section class="view_editor edit_code mt_l" data-target="/css/step03/4.4.flexible/4.4.1.flexible-align-content.html">
+				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+			<aside class="browser_support mt_ml" data-tit="align-content">
+				<ul>
+					<li class="ie">10+ -ms-</li>
+					<li class="edge">12.0</li>
+					<li class="chrome">29.0</li>
+					<li class="firefox">28.0</li>
+					<li class="opera">17.0</li>
+					<li class="safari">9.0</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- align-items -->
+		<article class="mt_xxl indent">
+			<h3 class="ml_mn t_blue">align-items</h3>
+			<p class="mt_ms">
+				<code>align-items</code>는 <code>flex container</code>에 지정하는 속성이며, <code>flex container</code>의 교차축(세로)을 기준으로 <code>flex item</code>을 정렬합니다.
+				<code>align-items</code> 속성은 모든 <code>flex item</code>에 적용됩니다. (<code>align-items</code> 속성은 모든 직속 자식의 <code>align-self</code>를 지정합니다.)
+			</p>
+			<p class="mt_s">
+				플렉스박스에서는 아이템의 교차 축 정렬을 지정하고, 그리드 레이아웃에서는 아이템 각자의 그리드 영역 내 블록 축 정렬을 지정합니다.
+			</p>
+			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#propdef-align-items" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#propdef-align-items</a></p>
+			<div class="line_code_box line_code_number mt_m">
+				<ul>
+					<li>.box {</li>
+					<li class="indent">align-items: stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe;</li>
+					<li>}</li>
+				</ul>
+			</div>
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[align-items를 시각적으로 설명하는 다이어그램]</figcaption>
+				<img src="/ukncs/images/css/flex-align-items.svg" alt="align-items를 시각적으로 설명하는 다이어그램" class="mt_m max-w650">
+				<img src="/ukncs/images/css/flex-align-items.jpg" alt="align-items를 시각적으로 설명하는 다이어그램" class="mt_m max-w750">
+			</figure>
+
+			<div class="ol_lst indent mt_l">
+				<ol>
+					<!-- stretch (기본값) -->
+					<li class="tit_h4">
+						<h4>stretch (기본값)</h4>
+						<p class="mt_s">
+							기본값이며,
+							모든 <code>flex item</code>은 <code>flex container</code>의 높이(cross start에서 cross end까지의 높이)에 꽉찬 높이를 갖습니다.<br>
+							(flex container의 교차 축을 채우기 위해 Items를 늘립니다.)
+						</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-items: stretch;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-items: stretch;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-align-items-stretch.jpg" alt="align-items : stretch;" class="mt_m max-w400">
+						</figure>
+					</li>
+
+					<!-- flex-start -->
+					<li class="tit_h4 mt_l">
+						<h4>flex-start</h4>
+						<p class="mt_s">
+							모든 <code>flex item</code>은 <code>flex container</code>의 cross start(위쪽) 기준으로 정렬됩니다.
+						</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-items: flex-start;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-items: flex-start;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-align-items-flex-start.jpg" alt="align-items : flex-start;" class="mt_m max-w400">
+						</figure>
+					</li>
+
+					<!-- flex-end -->
+					<li class="tit_h4 mt_l">
+						<h4>flex-end</h4>
+						<p class="mt_s">
+							모든 <code>flex item</code>은 <code>flex container</code>의 cross end(아래쪽) 기준으로 정렬됩니다.
+						</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-items: flex-end;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-items: flex-end;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-align-items-flex-end.jpg" alt="align-items : flex-end;" class="mt_m max-w400">
+						</figure>
+					</li>
+
+					<!-- center -->
+					<li class="tit_h4 mt_l">
+						<h4>center</h4>
+						<p class="mt_s">
+							모든 <code>flex item</code>은 <code>flex container</code>의 교차축(cross axis) 기준 중앙에 정렬됩니다.
+						</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-items: center;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-items: center;]</figcaption>
+							<img src="/ukncs/images/css/flexbox-align-items-center.jpg" alt="align-items : center;" class="mt_m max-w400">
+						</figure>
+					</li>
+
+					<!-- baseline -->
+					<li class="tit_h4 mt_l">
+						<h4>baseline</h4>
+						<p class="mt_s">
+							모든 <code>flex item</code>은 문자 기준선에 마춰 정렬됩니다.
+						</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>.box {</li>
+								<li class="indent">align-items: baseline;</li>
+								<li class="indent">align-items: first baseline;</li>
+								<li class="indent">align-items: last baseline; <i class="t_888">//오버플로우 정렬 (위치 정렬 전용)</i></li>
+								<li class="indent">align-items: safe center;</li>
+								<li class="indent">align-items: unsafe center;</li>
+								<li>}</li>
+							</ul>
+						</div>
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0">[align-items: baseline;]</figcaption>
+							<img src="/ukncs/images/css/410px-Typography_Line_Terms.svg.png" alt="align-items : baseline;" class="mt_m max-w400"><br>
+							<img src="/ukncs/images/css/flexbox-align-items-baseline.jpg" alt="align-items : baseline;" class="mt_m max-w800">
+						</figure>
+					</li>
+				</ol>
+			</div>
+
+			<section class="view_editor edit_code mt_l" data-target="/css/step03/4.4.flexible/4.4.1.flexible-align-items.html">
+				<div class="uk_editor min-height-650" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+			<aside class="browser_support mt_ml" data-tit="align-items">
+				<ul>
+					<li class="ie">10+ -ms-</li>
+					<li class="edge">12.0</li>
+					<li class="chrome">29.0</li>
+					<li class="firefox">28.0</li>
+					<li class="opera">17.0</li>
+					<li class="safari">9.0</li>
+				</ul>
+			</aside>
 		</article>
 	</section>
 
-
-
-
-
-
-	<br><br><br><br><br><br><br><br><br>
 	<aside class="reference_box mt_xxl">
 		<h2 class="tit">플렉서블 박스 레이아웃 참조</h2>
 		<ul class="link_lst">

@@ -1546,6 +1546,9 @@ mark {
   .uk_editor.browser_fixed .result_wrap .browserBtn .exitFixed_btn {
     display: inline-block;
   }
+  .uk_editor.browser_fixed .result_wrap iframe {
+    height: calc(100% - 35px);
+  }
   .uk_editor.browser_mini.device .result_wrap:before,
   .uk_editor.browser_mini.device .result_wrap:after {
     display: none;
@@ -1665,6 +1668,10 @@ mark {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   cursor: pointer;
+  transition: background-color 0.3s !important;
+}
+.iScrollIndicator:hover {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .iScrollHorizontalScrollbar .iScrollIndicator {
   height: 100%;
