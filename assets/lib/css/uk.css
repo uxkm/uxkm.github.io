@@ -1831,6 +1831,9 @@ mark {
 .font-16 {
   font-size: 16px !important;
 }
+.font-18 {
+  font-size: 18px !important;
+}
 .t_center {
   text-align: center;
 }
@@ -1861,6 +1864,9 @@ mark {
   }
   .font-16 {
     font-size: 15px;
+  }
+  .font-18 {
+    font-size: 16px;
   }
 }
 html,
@@ -6608,6 +6614,11 @@ body {
   color: #444;
   background: #f9f9f9;
   word-break: keep-all;
+}
+.line_code.outline p {
+  padding: 15px;
+  background: transparent;
+  border: 4px solid #eee;
 }
 .line_code h3 + p,
 .line_code h4 + p,

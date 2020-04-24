@@ -86,11 +86,17 @@
 							대신 <i class="t_blue">주축(main axis)</i> 및 <i class="t_blue">교차 축(cross axis)</i>으로 불리며 사용됩니다.<br>
 							주축은 <code>flex-direction</code>에 의해 정의되며 4개의 값<code>(row | row-reverse | column | column-reverse)</code>을 가질 수 있습니다.
 						</p>
-						<p class="mt_s">
-							<code>row</code> 또는 <code>row-reverse</code>의 <mark>주축은 인라인 방향(가로 행)</mark>이며, <mark>교차 축은 블록 방향(세로 열)</mark>입니다.<br>
-							<code>column</code> 또는 <code>column-reverse</code>의 <mark>주축은 블록 방향(세로 열)</mark>이며, <mark>교차 축은 인라인 방향(가로 행)</mark>입니다.
-						</p>
-						<p class="mt_s">
+						<div class="line_code outline">
+							<p class="mt_m">
+								<code>row</code> 또는 <code>row-reverse</code>의 <mark>주축은 인라인 방향(가로 행)</mark>이며, <mark>교차 축은 블록 방향(세로 열)</mark>입니다.<br>
+								<img src="/ukncs/images/css/main_axis1.png" alt="flex-direction:row; 기준 main axis" class="mt_s" />
+							</p>
+							<p class="mt_m">
+								<code>column</code> 또는 <code>column-reverse</code>의 <mark>주축은 블록 방향(세로 열)</mark>이며, <mark>교차 축은 인라인 방향(가로 행)</mark>입니다.<br>
+								<img src="/ukncs/images/css/main_axis2.png" alt="flex-direction:column; 기준 main axis" class="mt_s" />
+							</p>
+						</div>
+						<p class="mt_m">
 							<code>flex-direction</code>이 선언되지 않으면 기본값인 <code>row</code>가 적용되므로 <mark>주축은 인라인 방향(가로 행)</mark>이며, <mark>교차 축은 블록 방향(세로 열)</mark>입니다.
 						</p>
 					</li>

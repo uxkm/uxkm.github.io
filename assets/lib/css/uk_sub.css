@@ -1831,6 +1831,9 @@ mark {
 .font-16 {
   font-size: 16px !important;
 }
+.font-18 {
+  font-size: 18px !important;
+}
 .t_center {
   text-align: center;
 }
@@ -1861,6 +1864,9 @@ mark {
   }
   .font-16 {
     font-size: 15px;
+  }
+  .font-18 {
+    font-size: 16px;
   }
 }
 .table_basic {
