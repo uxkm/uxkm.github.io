@@ -69,7 +69,7 @@
 
 
 
-				<h3 id="css-flexible">플렉서블 박스(flexible box) 레이아웃</h3>
+				<h3 id="css-flexible" style="width:1px; height:1px; overflow:hidden;">플렉서블 박스(flexible box) 레이아웃</h3>
 				<article>
 					<div style="width:1px; height:1px; overflow:hidden;">
 						<time datetime="2020-01-05 15:53:39">Last Updated on 2020-01-05 15:53:39</time>
@@ -263,1452 +263,1452 @@
 							</aside>
 						</dd>
 					</dl>
-					</div>
 					
 
 
 
-					<h4 id="flex-parent-properties">부모 속성(Properties for the Parent - Flexbox Container)</h4>
-					<section>
-						<p>display: flex를 설정 한 부모 엘리먼트</p>
-						<figure>
-							<figcaption>Flexbox Container</figcaption>
-							<img src="images/css/flex-container.svg" alt="">
-						</figure>
-						<dl>
-							<dt>display</dt>
-							<dd>
-								<p>플렉스 서식 환경 구성</p>
-								<p>페이지 섹션에서 flexbox를 사용하려면 먼저 부모 컨테이너 display: flex;를 CSS 에 추가하여 부모 컨테이너를 flex 컨테이너로 변환해야 합니다.</p>
-								<p>display: flex; 를 할당함으로써 부모 컨테이너에 대해 가로로 배열됩니다. 이것은 기본적으로 flexbox가 컨테이너에서 왼쪽에서 오른쪽으로 이동하는 항목을 표시 함을 보여줍니다.</p>
-								<p>CSS 열은 플렉스 컨테이너에 영향을 미치지 않습니다.</p>
-								<p><a href="https://www.w3.org/TR/css-flexbox-1/#flex-containers" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#flex-containers</a></p>
-<pre><code>
-.container{
-	display: flex | inline-flex;
-}
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
+						<h4 id="flex-parent-properties">부모 속성(Properties for the Parent - Flexbox Container)</h4>
+						<section>
+							<p>display: flex를 설정 한 부모 엘리먼트</p>
+							<figure>
+								<figcaption>Flexbox Container</figcaption>
+								<img src="images/css/flex-container.svg" alt="">
+							</figure>
+							<dl>
+								<dt>display</dt>
+								<dd>
+									<p>플렉스 서식 환경 구성</p>
+									<p>페이지 섹션에서 flexbox를 사용하려면 먼저 부모 컨테이너 display: flex;를 CSS 에 추가하여 부모 컨테이너를 flex 컨테이너로 변환해야 합니다.</p>
+									<p>display: flex; 를 할당함으로써 부모 컨테이너에 대해 가로로 배열됩니다. 이것은 기본적으로 flexbox가 컨테이너에서 왼쪽에서 오른쪽으로 이동하는 항목을 표시 함을 보여줍니다.</p>
+									<p>CSS 열은 플렉스 컨테이너에 영향을 미치지 않습니다.</p>
+									<p><a href="https://www.w3.org/TR/css-flexbox-1/#flex-containers" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#flex-containers</a></p>
+	<pre><code>
+	.container{
+		display: flex | inline-flex;
+	}
+	</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>flex-direction</dt>
+								<dd>
+									<p>방향, 흐름, 시각적인 순서처리</p>
+									<p>flex-direction 속성은 플렉스 컨테이너 안에서 플렉스 요소가 배치될 주축(main axis) 방향을 설정합니다.</p>
+									<p>기술적으로, "수평(horizontal)"과 "수직(vertical)"은 "flex world"에서는 올바른 용어가 아니며, 이것은 주축(main axis) 및 교차 축(cross axis)으로 불린다.</p>
+									<p>기본적으로 flex-direction 속성은 행(row)으로 설정되고 주축을 따라 플렉스 아이템을 정렬한다.</p>
+									<p>flex-direction 속성이 명시적으로 설정되지 않았더라도 기본값인 행(row)을 사용 한다.</p>
+									<p>flex-direction 속성이 열(column)로 변경되면 플렉스 아이템이 교차 축을 따라 정렬된다.(왼쪽에서 오른쪽으로가 아니라 위에서 아래로 채워짐.)</p>
+									<p>flex-direction은 플렉스 항목들의 흐름 방향을 전체적으로 제어하기 때문에 플렉스 항목이 아닌 플렉스 컨테이너에 지정해야 합니다.</p>
+									<p>그리고 float 레이아웃을 사용할 때는 변칙적인 clear 속성을 이용해 부모가 자식을 감싸주도록 하는 방법을 사용했지만 플렉스 박스는 컨테이너 요소에 display: flex 만 주게 되면 마치 모든 아이템에 float 를 정의해 준 것처럼 배치가 되면서 굳이 불필요하게 clearfix 라는 방식을 사용하지 않아도 됩니다.</p>
+									<p><a href="https://www.w3.org/TR/css-flexbox-1/#flex-direction-property" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#flex-direction-property</a></p>
+									<figure>
+										<figcaption>시각적으로 설명하는 다이어그램</figcaption>
+										<img src="images/css/flex-direction.svg" alt="">
+										<img src="images/css/flex-direction-diagram.png" alt="">
+									</figure>
 									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										<li>row (기본값): ltr(left-to-right 왼쪽에서 오른쪽으로 ) | rtl(오른쪽에서 왼쪽으로); 기본 설정으로, 플렉스 요소는 왼쪽에서 오른쪽으로, 그리고 위쪽에서 아래쪽으로 배치됩니다.
+	<pre><code>
+	.container {
+		flex-direction: row;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>flex-direction: row;</figcaption>
+												<img src="images/css/flexbox-flex-direction-row.jpg" alt="">
+												<img src="images/css/flex-direction-row-axix.png" alt="">
+											</figure>
+										</li>
+										<li>row-reverse: ltr(left-to-right 오른쪽에서 왼쪽으로) | rtl(왼쪽에서 오른쪽으로); 만약에 direction 속성값이 ltr(left-to-right)이면, 플렉스 요소는 반대로 오른쪽에서 왼쪽으로 배치됩니다.
+	<pre><code>
+	.container {
+		flex-direction: row-reverse;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>flex-direction: row-reverse;</figcaption>
+												<img src="images/css/flexbox-flex-direction-row-reverse.jpg" alt="">
+												<img src="images/css/flex-direction-row-reverse-axix.png" alt="">
+											</figure>
+										</li>
+										<li>column: row와 동일 하지만 만약에 쓰기 방식이 수평이면, 플렉스 요소는 수직 방향으로 위쪽에서 아래쪽으로 배치됩니다.
+	<pre><code>
+	.container {
+		flex-direction: column;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>flex-direction: column;</figcaption>
+												<img src="images/css/flexbox-flex-direction-column.jpg" alt="">
+												<img src="images/css/flex-direction-column-axix.png" alt="">
+											</figure>
+										</li>
+										<li>column-reverse: row-reverse와 동일 하지만 만약에 쓰기 방식이 수평이면, 플렉스 요소는 수직 방향으로 아래쪽에서 위쪽으로 배치됩니다.
+	<pre><code>
+	.container {
+		flex-direction: column-reverse;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>flex-direction: column-reverse;</figcaption>
+												<img src="images/css/flexbox-flex-direction-column-reverse.jpg" alt="">
+												<img src="images/css/flex-direction-column-reverse-axix.png" alt="">
+											</figure>
+										</li>
 									</ul>
-								</aside>
-							</dd>
-							<dt>flex-direction</dt>
-							<dd>
-								<p>방향, 흐름, 시각적인 순서처리</p>
-								<p>flex-direction 속성은 플렉스 컨테이너 안에서 플렉스 요소가 배치될 주축(main axis) 방향을 설정합니다.</p>
-								<p>기술적으로, "수평(horizontal)"과 "수직(vertical)"은 "flex world"에서는 올바른 용어가 아니며, 이것은 주축(main axis) 및 교차 축(cross axis)으로 불린다.</p>
-								<p>기본적으로 flex-direction 속성은 행(row)으로 설정되고 주축을 따라 플렉스 아이템을 정렬한다.</p>
-								<p>flex-direction 속성이 명시적으로 설정되지 않았더라도 기본값인 행(row)을 사용 한다.</p>
-								<p>flex-direction 속성이 열(column)로 변경되면 플렉스 아이템이 교차 축을 따라 정렬된다.(왼쪽에서 오른쪽으로가 아니라 위에서 아래로 채워짐.)</p>
-								<p>flex-direction은 플렉스 항목들의 흐름 방향을 전체적으로 제어하기 때문에 플렉스 항목이 아닌 플렉스 컨테이너에 지정해야 합니다.</p>
-								<p>그리고 float 레이아웃을 사용할 때는 변칙적인 clear 속성을 이용해 부모가 자식을 감싸주도록 하는 방법을 사용했지만 플렉스 박스는 컨테이너 요소에 display: flex 만 주게 되면 마치 모든 아이템에 float 를 정의해 준 것처럼 배치가 되면서 굳이 불필요하게 clearfix 라는 방식을 사용하지 않아도 됩니다.</p>
-								<p><a href="https://www.w3.org/TR/css-flexbox-1/#flex-direction-property" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#flex-direction-property</a></p>
-								<figure>
-									<figcaption>시각적으로 설명하는 다이어그램</figcaption>
-									<img src="images/css/flex-direction.svg" alt="">
-									<img src="images/css/flex-direction-diagram.png" alt="">
-								</figure>
-								<ul>
-									<li>row (기본값): ltr(left-to-right 왼쪽에서 오른쪽으로 ) | rtl(오른쪽에서 왼쪽으로); 기본 설정으로, 플렉스 요소는 왼쪽에서 오른쪽으로, 그리고 위쪽에서 아래쪽으로 배치됩니다.
-<pre><code>
-.container {
-	flex-direction: row;
-}
-</code></pre>
-										<figure>
-											<figcaption>flex-direction: row;</figcaption>
-											<img src="images/css/flexbox-flex-direction-row.jpg" alt="">
-											<img src="images/css/flex-direction-row-axix.png" alt="">
-										</figure>
-									</li>
-									<li>row-reverse: ltr(left-to-right 오른쪽에서 왼쪽으로) | rtl(왼쪽에서 오른쪽으로); 만약에 direction 속성값이 ltr(left-to-right)이면, 플렉스 요소는 반대로 오른쪽에서 왼쪽으로 배치됩니다.
-<pre><code>
-.container {
-	flex-direction: row-reverse;
-}
-</code></pre>
-										<figure>
-											<figcaption>flex-direction: row-reverse;</figcaption>
-											<img src="images/css/flexbox-flex-direction-row-reverse.jpg" alt="">
-											<img src="images/css/flex-direction-row-reverse-axix.png" alt="">
-										</figure>
-									</li>
-									<li>column: row와 동일 하지만 만약에 쓰기 방식이 수평이면, 플렉스 요소는 수직 방향으로 위쪽에서 아래쪽으로 배치됩니다.
-<pre><code>
-.container {
-	flex-direction: column;
-}
-</code></pre>
-										<figure>
-											<figcaption>flex-direction: column;</figcaption>
-											<img src="images/css/flexbox-flex-direction-column.jpg" alt="">
-											<img src="images/css/flex-direction-column-axix.png" alt="">
-										</figure>
-									</li>
-									<li>column-reverse: row-reverse와 동일 하지만 만약에 쓰기 방식이 수평이면, 플렉스 요소는 수직 방향으로 아래쪽에서 위쪽으로 배치됩니다.
-<pre><code>
-.container {
-	flex-direction: column-reverse;
-}
-</code></pre>
-										<figure>
-											<figcaption>flex-direction: column-reverse;</figcaption>
-											<img src="images/css/flexbox-flex-direction-column-reverse.jpg" alt="">
-											<img src="images/css/flex-direction-column-reverse-axix.png" alt="">
-										</figure>
-									</li>
-								</ul>
-								<ul>
-									<li><strong>flex-direction: row</strong>
-										<p>주축(main axis) = 인라인 영역</p>
-										<p>main-start = 쓰기 모드에서 문장이 시작하는 지점</p>
-										<p>교차축(cross axis) = 블록 영역</p>
-										<figure>
-											<figcaption>row 와 row-reverse</figcaption>
-											<img src="images/css/flex-direction-row.gif" alt="">
-										</figure>
-									</li>
-									<li><strong>flex-direction: column</strong>
-										<p>주축(main axis) = 블록 영역</p>
-										<p>main-start = 쓰기 모드에서 블록이 나타나는 지점</p>
-										<p>교차축(cross axis) = 인라인 영역</p>
-										<figure>
-											<figcaption>column 과 column-reverse</figcaption>
-											<img src="images/css/flex-direction-reverse.gif" alt="">
-										</figure>
-									</li>
-								</ul>
-<pre><code>
-.container{
-	flex-direction: row | row-reverse | column | column-reverse;
-}
-
-/* flex-direction 속성의 row와 row-reverse 속성값을 이용한 예제 */
-.container{
-	-webkit-flex-direction: row-reverse; 
-	flex-direction: row-reverse;
-}
-/* flex-direction 속성의 column과 column-reverse 속성값을 이용한 예제 */
-.container { 
-	-webkit-flex-direction: column; 
-	flex-direction: column; 
-}
-.container { 
-	-webkit-flex-direction: column-reverse; 
-	flex-direction: column-reverse; 
-}
-</code></pre>
-								<figure>
-									<figcaption>flex-direction</figcaption>
-									<img src="images/css/flexbox-flex-direction.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 flexible flex-direction&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
-			.flexbox{
-				overflow:hidden;
-				max-width:500px;
-				margin: 0 auto;
-			}
-			.flex-container {
-				margin: 0;
-				padding: 0;
-				
-				-ms-box-orient: horizontal;
-				display: -webkit-box;
-				display: -moz-box;
-				display: -ms-flexbox;
-				display: -moz-flex;
-				display: -webkit-flex;
-				display: flex;
-			}
-
-			.row { 
-				-webkit-flex-direction: row; 
-				flex-direction: row;
-			}
-
-			.row-reverse { 
-				-webkit-flex-direction: row-reverse; 
-				flex-direction: row-reverse;
-			}  
-			.row-reverse li {
-				background: gold;
-			}
-
-			.column { 
-				-webkit-flex-direction: column; 
-				flex-direction: column; 
-				float: left;
-			}
-			.column li {
-				background: deepskyblue;
-			}
-
-			.column-reverse { 
-				-webkit-flex-direction: column-reverse; 
-				flex-direction: column-reverse; 
-				float: right;
-			}
-			.column-reverse li {
-				background: lightgreen;
-			}
-
-			.flex-item {
-				width: 50px;
-				height: 50px;
-				margin: 5px;
-				padding: 5px;
-				background: tomato;
-				
-				color: white;
-				font-weight: bold;
-				font-size: 2em;
-				line-height: 50px;
-				text-align: center;
-			}
-
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div class="flexbox"&gt;
-			&lt;h2&gt;flex-direction: row&lt;/h2&gt;
-			&lt;ul class="flex-container row"&gt;
-				&lt;li class="flex-item"&gt;1&lt;/li&gt;
-				&lt;li class="flex-item"&gt;2&lt;/li&gt;
-				&lt;li class="flex-item"&gt;3&lt;/li&gt;
-				&lt;li class="flex-item"&gt;4&lt;/li&gt;
-				&lt;li class="flex-item"&gt;5&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/div&gt;
-		
-		&lt;div class="flexbox"&gt;
-			&lt;h2&gt;flex-direction: row-reverse&lt;/h2&gt;
-			&lt;ul class="flex-container row-reverse"&gt;
-				&lt;li class="flex-item"&gt;1&lt;/li&gt;
-				&lt;li class="flex-item"&gt;2&lt;/li&gt;
-				&lt;li class="flex-item"&gt;3&lt;/li&gt;
-				&lt;li class="flex-item"&gt;4&lt;/li&gt;
-				&lt;li class="flex-item"&gt;5&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/div&gt;
-		
-		&lt;div class="flexbox"&gt;
-			&lt;h2&gt;flex-direction: column&lt;/h2&gt;
-			&lt;ul class="flex-container column"&gt;
-				&lt;li class="flex-item"&gt;1&lt;/li&gt;
-				&lt;li class="flex-item"&gt;2&lt;/li&gt;
-				&lt;li class="flex-item"&gt;3&lt;/li&gt;
-				&lt;li class="flex-item"&gt;4&lt;/li&gt;
-				&lt;li class="flex-item"&gt;5&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/div&gt;
-		
-		&lt;div class="flexbox"&gt;
-			&lt;h2&gt;flex-direction: column-reverse&lt;/h2&gt;
-			&lt;ul class="flex-container column-reverse"&gt;
-				&lt;li class="flex-item"&gt;1&lt;/li&gt;
-				&lt;li class="flex-item"&gt;2&lt;/li&gt;
-				&lt;li class="flex-item"&gt;3&lt;/li&gt;
-				&lt;li class="flex-item"&gt;4&lt;/li&gt;
-				&lt;li class="flex-item"&gt;5&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
 									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										<li><strong>flex-direction: row</strong>
+											<p>주축(main axis) = 인라인 영역</p>
+											<p>main-start = 쓰기 모드에서 문장이 시작하는 지점</p>
+											<p>교차축(cross axis) = 블록 영역</p>
+											<figure>
+												<figcaption>row 와 row-reverse</figcaption>
+												<img src="images/css/flex-direction-row.gif" alt="">
+											</figure>
+										</li>
+										<li><strong>flex-direction: column</strong>
+											<p>주축(main axis) = 블록 영역</p>
+											<p>main-start = 쓰기 모드에서 블록이 나타나는 지점</p>
+											<p>교차축(cross axis) = 인라인 영역</p>
+											<figure>
+												<figcaption>column 과 column-reverse</figcaption>
+												<img src="images/css/flex-direction-reverse.gif" alt="">
+											</figure>
+										</li>
 									</ul>
-								</aside>
-							</dd>
-							<dt>flex-wrap</dt>
-							<dd>
-								<p>flex-wrap 속성은 flex 컨테이너의 복수 flex item을 1행으로 또는 복수행으로 배치한다.(Items의 여러 줄 묶음(줄 바꿈)을 설정)</p>
-								<p>flex-wrap 속성은 flex 컨테이너의 width보다 flex item들의 width의 합계가 더 큰 경우, 한줄로 표현할 것인지, 여러줄로 표현할 것인지를 지정한다.</p>
-								<p><a href="https://www.w3.org/TR/css-flexbox-1/#flex-wrap-property" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#flex-wrap-property</a></p>
-<pre><code>
-.container{
-	flex-wrap: nowrap | wrap | wrap-reverse;
-}
-</code></pre>
-								<figure>
-									<figcaption>시각적으로 설명하는 다이어그램</figcaption>
-									<img src="images/css/flex-wrap.svg" alt="">
-									<img src="images/css/flex-wrap.jpg" alt="">
-									<img src="images/css/flexbox-wrap.png" alt="">
-								</figure>
-								<ul>
-									<li>nowrap : flex item을 개행하지 않고 1행에 배치한다. flex-wrap 속성의 기본값이다.(모든 Itmes를 여러 줄로 묶지 않음(한 줄에 표시))
-<pre><code>
-.container {
-	flex-wrap: nowrap;
-}
-</code></pre>
-										<figure>
-											<figcaption>flex-wrap: nowrap;</figcaption>
-											<img src="images/css/flexbox-flex-wrap-nowrap.jpg" alt="">
-										</figure>
-									</li>
-									<li>wrap : flex item들의 width의 합계가 flex 컨테이너의 width보다 큰 경우, flex item을 복수행에 배치한다. 기본적으로 좌에서 우로, 위에서 아래로 배치된다.(Items를 여러 줄로 묶음)
-<pre><code>
-.container {
-	flex-wrap: wrap;
-}
-</code></pre>
-										<figure>
-											<figcaption>flex-wrap: wrap;</figcaption>
-											<img src="images/css/flexbox-flex-wrap-wrap.jpg" alt="">
-										</figure>
-									</li>
-									<li>wrap-reverse : flex-wrap: wrap;과 동일하나 아래에서 위로 배치된다.(Items를 wrap의 역 방향으로 여러 줄로 묶음)
-<pre><code>
-.container {
-	flex-wrap: wrap-reverse;
-}
-</code></pre>
-										<figure>
-											<figcaption>flex-wrap: wrap-reverse;</figcaption>
-											<img src="images/css/flexbox-flex-wrap-wrap-reverse.jpg" alt="">
-										</figure>
-									</li>
-								</ul>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 flexible flex-wrap&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
-			.flexbox{
-				max-width:500px;
-				margin: 0 auto;
-			}
-			.flex-container {
-				margin: 0 auto;
-				padding: 0;
-				border: 1px solid silver;
-				-ms-box-orient: horizontal;
+	<pre><code>
+	.container{
+		flex-direction: row | row-reverse | column | column-reverse;
+	}
 
-				display: -webkit-box;
-				display: -moz-box;
-				display: -ms-flexbox;
-				display: -moz-flex;
-				display: -webkit-flex;
-				display: flex;
-			}
+	/* flex-direction 속성의 row와 row-reverse 속성값을 이용한 예제 */
+	.container{
+		-webkit-flex-direction: row-reverse;
+		flex-direction: row-reverse;
+	}
+	/* flex-direction 속성의 column과 column-reverse 속성값을 이용한 예제 */
+	.container {
+		-webkit-flex-direction: column;
+		flex-direction: column;
+	}
+	.container {
+		-webkit-flex-direction: column-reverse;
+		flex-direction: column-reverse;
+	}
+	</code></pre>
+									<figure>
+										<figcaption>flex-direction</figcaption>
+										<img src="images/css/flexbox-flex-direction.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 flexible flex-direction&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+				.flexbox{
+					overflow:hidden;
+					max-width:500px;
+					margin: 0 auto;
+				}
+				.flex-container {
+					margin: 0;
+					padding: 0;
 
-			.nowrap  { 
-				-webkit-flex-wrap: nowrap;
-				flex-wrap: nowrap;
-			}
+					-ms-box-orient: horizontal;
+					display: -webkit-box;
+					display: -moz-box;
+					display: -ms-flexbox;
+					display: -moz-flex;
+					display: -webkit-flex;
+					display: flex;
+				}
 
-			.wrap { 
-				-webkit-flex-wrap: wrap;
-				flex-wrap: wrap;
-			}  
-			.wrap li {
-				background: gold;
-			}
+				.row {
+					-webkit-flex-direction: row;
+					flex-direction: row;
+				}
 
-			.wrap-reverse { 
-				-webkit-flex-wrap: wrap-reverse;
-				flex-wrap: wrap-reverse;
-			}  
-			.wrap-reverse li {
-				background: deepskyblue;
-			}
+				.row-reverse {
+					-webkit-flex-direction: row-reverse;
+					flex-direction: row-reverse;
+				}
+				.row-reverse li {
+					background: gold;
+				}
 
-			.flex-item {
-				width: 100px;
-				height: 100px;
-				margin: 10px;
-				padding: 5px;
-				background: tomato;
-				color: white;
-				font-weight: bold;
-				font-size: 2em;
-				line-height: 100px;
-				text-align: center;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div class="flexbox"&gt;
-			&lt;h2&gt;flex-wrap: nowrap&lt;/h2&gt;
-			&lt;ul class="flex-container nowrap"&gt;
-				&lt;li class="flex-item"&gt;1&lt;/li&gt;
-				&lt;li class="flex-item"&gt;2&lt;/li&gt;
-				&lt;li class="flex-item"&gt;3&lt;/li&gt;
-				&lt;li class="flex-item"&gt;4&lt;/li&gt;
-				&lt;li class="flex-item"&gt;5&lt;/li&gt;
-				&lt;li class="flex-item"&gt;6&lt;/li&gt;
-				&lt;li class="flex-item"&gt;7&lt;/li&gt;
-				&lt;li class="flex-item"&gt;8&lt;/li&gt;
-			&lt;/ul&gt;
-			
-			&lt;h2&gt;flex-wrap: wrap&lt;/h2&gt;
-			&lt;ul class="flex-container wrap"&gt;
-				&lt;li class="flex-item"&gt;1&lt;/li&gt;
-				&lt;li class="flex-item"&gt;2&lt;/li&gt;
-				&lt;li class="flex-item"&gt;3&lt;/li&gt;
-				&lt;li class="flex-item"&gt;4&lt;/li&gt;
-				&lt;li class="flex-item"&gt;5&lt;/li&gt;
-				&lt;li class="flex-item"&gt;6&lt;/li&gt;
-				&lt;li class="flex-item"&gt;7&lt;/li&gt;
-				&lt;li class="flex-item"&gt;8&lt;/li&gt;
-			&lt;/ul&gt;
-			
-			&lt;h2&gt;flex-wrap: wrap-reverse&lt;/h2&gt;
-			&lt;ul class="flex-container wrap-reverse"&gt;
-				&lt;li class="flex-item"&gt;1&lt;/li&gt;
-				&lt;li class="flex-item"&gt;2&lt;/li&gt;
-				&lt;li class="flex-item"&gt;3&lt;/li&gt;
-				&lt;li class="flex-item"&gt;4&lt;/li&gt;
-				&lt;li class="flex-item"&gt;5&lt;/li&gt;
-				&lt;li class="flex-item"&gt;6&lt;/li&gt;
-				&lt;li class="flex-item"&gt;7&lt;/li&gt;
-				&lt;li class="flex-item"&gt;8&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
-									</ul>
-								</aside>
-							</dd>
-							<dt>flex-flow (Applies to: parent flex container element)</dt>
-							<dd>
-								<p>flex-flow 속성은 flex-direction 속성과 flex-wrap 속성을 설정하기 위한 shorthand이다. 기본값은 row nowrap이다.</p>
-								<p><a href="https://www.w3.org/TR/css-flexbox-1/#flex-flow-property" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#flex-flow-property</a></p>
-<pre><code>
-.container{
-	flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
-}
-</code></pre>
-								<figure>
-									<figcaption>Image showing the difference in layout directions between a horizontal language (English) and a vertical language (Japanese).</figcaption>
-									<img src="images/css/flex-flow-example.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 flexible flex-flow&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
-			.flexbox{
-				overflow:hidden;
-				max-width:600px;
-				margin: 0 auto;
-			}
-			.flexbox .flex-container {
-				margin: 0;
-				padding: 0;
-				
-				-ms-box-orient: horizontal;
-				display: -webkit-box;
-				display: -moz-box;
-				display: -ms-flexbox;
-				display: -moz-flex;
-				display: -webkit-flex;
-				display: flex;
-			}
+				.column {
+					-webkit-flex-direction: column;
+					flex-direction: column;
+					float: left;
+				}
+				.column li {
+					background: deepskyblue;
+				}
 
-			.flexbox h1 {
-				padding-left: .5em; 
-			}
+				.column-reverse {
+					-webkit-flex-direction: column-reverse;
+					flex-direction: column-reverse;
+					float: right;
+				}
+				.column-reverse li {
+					background: lightgreen;
+				}
 
-			.flexbox .shorthand { 
-				-webkit-flex-wrap: wrap;
-				flex-wrap: wrap;
-				-webkit-flex-direction: row;
-				flex-direction: row;
-			}
+				.flex-item {
+					width: 50px;
+					height: 50px;
+					margin: 5px;
+					padding: 5px;
+					background: tomato;
 
-			.flexbox .longhand { 
-				-webkit-flex-flow: wrap row;
-				flex-flow: wrap row;
-				
-			}
+					color: white;
+					font-weight: bold;
+					font-size: 2em;
+					line-height: 50px;
+					text-align: center;
+				}
 
-			.flexbox .longhand li {
-				background: deepskyblue;
-			}
-
-			.flexbox .flex-item {
-				background: tomato;
-				padding: 5px;
-				width: 100px;
-				height: 100px;
-				margin: 10px;
-				
-				color: white;
-				font-weight: bold;
-				font-size: 2em;
-				line-height: 100px;
-				text-align: center;
-			}
-
-
-			.demo-flex-flow{
-				max-width:900px;
-				margin:0 auto;
-				border:2px solid ddd;
-			}
-
-			hr {
-				margin: 50px 0;
-			}
-
-			.demo-flex-flow p {
-				font-size: 1.1em;
-				font-weight: bold;
-			}
-
-			.demo-flex-flow .container {
-				margin: 20px auto;
-				width: 100%;
-				padding: 20px;
-				-webkit-display: -webkit-box;
-				-webkit-display: -webkit-flex;
-				display: -webkit-box;
-				display: -ms-flexbox;
-				display: flex;
-				background-color: #594255;
-			}
-
-			.demo-flex-flow .item {
-				width: 100px;
-				height: 100px;
-				margin: 2px;
-				background-color: #fff;
-				color: #594255;
-				font-weight: bold;
-				font-family: sans-serif;
-				font-size: 5em;
-				line-height: 100px;
-				text-align: center;
-			}
-
-			.demo-flex-flow .container-1 {
-				-webkit-flex-flow: row nowrap;
-				-ms-flex-flow: row nowrap;
-				flex-flow: row nowrap;
-			}
-
-			.demo-flex-flow .container-2 {
-				-webkit-flex-flow: row wrap;
-				-ms-flex-flow: row wrap;
-				flex-flow: row wrap;
-			}
-
-			.demo-flex-flow .container-3 {
-				-webkit-flex-flow: row wrap-reverse;
-				-ms-flex-flow: row wrap-reverse;
-				flex-flow: row wrap-reverse;
-			}
-
-			.demo-flex-flow .container-4 {
-				height: 800px;
-				-webkit-flex-flow: column nowrap;
-				-ms-flex-flow: column nowrap;
-				flex-flow: column nowrap;
-			}
-
-			.demo-flex-flow .container-5 {
-				height: 800px;
-				-webkit-flex-flow: column wrap;
-				-ms-flex-flow: column wrap;
-				flex-flow: column wrap;
-			}
-
-			.demo-flex-flow .container-6 {
-				height: 800px;
-				-webkit-flex-flow: column wrap-reverse;
-				-ms-flex-flow: column wrap-reverse;
-				flex-flow: column wrap-reverse;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div class="flexbox"&gt;
-			&lt;p&gt;두 예제 모두 똑같은 방식으로 작동합니다.&lt;/p&gt;
-			&lt;h1&gt;flex-wrap: wrap; flex-direction: row;&lt;/h1&gt;
-			&lt;ul class="flex-container longhand"&gt;
-				&lt;li class="flex-item"&gt;1&lt;/li&gt;
-				&lt;li class="flex-item"&gt;2&lt;/li&gt;
-				&lt;li class="flex-item"&gt;3&lt;/li&gt;
-				&lt;li class="flex-item"&gt;4&lt;/li&gt;
-			&lt;/ul&gt;
-
-			&lt;h1&gt;flex-flow: row wrap;&lt;/h1&gt;
-			&lt;ul class="flex-container shorthand"&gt;
-				&lt;li class="flex-item"&gt;1&lt;/li&gt;
-				&lt;li class="flex-item"&gt;2&lt;/li&gt;
-				&lt;li class="flex-item"&gt;3&lt;/li&gt;
-				&lt;li class="flex-item"&gt;4&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/div&gt;
-
-		&lt;hr&gt;
-
-		&lt;div class="demo-flex-flow"&gt;
-			&lt;p&gt;
-				&lt;code&gt;flex-flow: row nowrap; /* the default value */&lt;/code&gt;
-			&lt;/p&gt;
-			&lt;div class="container container-1"&gt;
-				&lt;div class="item"&gt;1&lt;/div&gt;
-				&lt;div class="item"&gt;2&lt;/div&gt;
-				&lt;div class="item"&gt;3&lt;/div&gt;
-				&lt;div class="item"&gt;4&lt;/div&gt;
-				&lt;div class="item"&gt;5&lt;/div&gt;
-				&lt;div class="item"&gt;6&lt;/div&gt;
-				&lt;div class="item"&gt;7&lt;/div&gt;
-				&lt;div class="item"&gt;8&lt;/div&gt;
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;div class="flexbox"&gt;
+				&lt;h2&gt;flex-direction: row&lt;/h2&gt;
+				&lt;ul class="flex-container row"&gt;
+					&lt;li class="flex-item"&gt;1&lt;/li&gt;
+					&lt;li class="flex-item"&gt;2&lt;/li&gt;
+					&lt;li class="flex-item"&gt;3&lt;/li&gt;
+					&lt;li class="flex-item"&gt;4&lt;/li&gt;
+					&lt;li class="flex-item"&gt;5&lt;/li&gt;
+				&lt;/ul&gt;
 			&lt;/div&gt;
+
+			&lt;div class="flexbox"&gt;
+				&lt;h2&gt;flex-direction: row-reverse&lt;/h2&gt;
+				&lt;ul class="flex-container row-reverse"&gt;
+					&lt;li class="flex-item"&gt;1&lt;/li&gt;
+					&lt;li class="flex-item"&gt;2&lt;/li&gt;
+					&lt;li class="flex-item"&gt;3&lt;/li&gt;
+					&lt;li class="flex-item"&gt;4&lt;/li&gt;
+					&lt;li class="flex-item"&gt;5&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+
+			&lt;div class="flexbox"&gt;
+				&lt;h2&gt;flex-direction: column&lt;/h2&gt;
+				&lt;ul class="flex-container column"&gt;
+					&lt;li class="flex-item"&gt;1&lt;/li&gt;
+					&lt;li class="flex-item"&gt;2&lt;/li&gt;
+					&lt;li class="flex-item"&gt;3&lt;/li&gt;
+					&lt;li class="flex-item"&gt;4&lt;/li&gt;
+					&lt;li class="flex-item"&gt;5&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+
+			&lt;div class="flexbox"&gt;
+				&lt;h2&gt;flex-direction: column-reverse&lt;/h2&gt;
+				&lt;ul class="flex-container column-reverse"&gt;
+					&lt;li class="flex-item"&gt;1&lt;/li&gt;
+					&lt;li class="flex-item"&gt;2&lt;/li&gt;
+					&lt;li class="flex-item"&gt;3&lt;/li&gt;
+					&lt;li class="flex-item"&gt;4&lt;/li&gt;
+					&lt;li class="flex-item"&gt;5&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>flex-wrap</dt>
+								<dd>
+									<p>flex-wrap 속성은 flex 컨테이너의 복수 flex item을 1행으로 또는 복수행으로 배치한다.(Items의 여러 줄 묶음(줄 바꿈)을 설정)</p>
+									<p>flex-wrap 속성은 flex 컨테이너의 width보다 flex item들의 width의 합계가 더 큰 경우, 한줄로 표현할 것인지, 여러줄로 표현할 것인지를 지정한다.</p>
+									<p><a href="https://www.w3.org/TR/css-flexbox-1/#flex-wrap-property" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#flex-wrap-property</a></p>
+	<pre><code>
+	.container{
+		flex-wrap: nowrap | wrap | wrap-reverse;
+	}
+	</code></pre>
+									<figure>
+										<figcaption>시각적으로 설명하는 다이어그램</figcaption>
+										<img src="images/css/flex-wrap.svg" alt="">
+										<img src="images/css/flex-wrap.jpg" alt="">
+										<img src="images/css/flexbox-wrap.png" alt="">
+									</figure>
+									<ul>
+										<li>nowrap : flex item을 개행하지 않고 1행에 배치한다. flex-wrap 속성의 기본값이다.(모든 Itmes를 여러 줄로 묶지 않음(한 줄에 표시))
+	<pre><code>
+	.container {
+		flex-wrap: nowrap;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>flex-wrap: nowrap;</figcaption>
+												<img src="images/css/flexbox-flex-wrap-nowrap.jpg" alt="">
+											</figure>
+										</li>
+										<li>wrap : flex item들의 width의 합계가 flex 컨테이너의 width보다 큰 경우, flex item을 복수행에 배치한다. 기본적으로 좌에서 우로, 위에서 아래로 배치된다.(Items를 여러 줄로 묶음)
+	<pre><code>
+	.container {
+		flex-wrap: wrap;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>flex-wrap: wrap;</figcaption>
+												<img src="images/css/flexbox-flex-wrap-wrap.jpg" alt="">
+											</figure>
+										</li>
+										<li>wrap-reverse : flex-wrap: wrap;과 동일하나 아래에서 위로 배치된다.(Items를 wrap의 역 방향으로 여러 줄로 묶음)
+	<pre><code>
+	.container {
+		flex-wrap: wrap-reverse;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>flex-wrap: wrap-reverse;</figcaption>
+												<img src="images/css/flexbox-flex-wrap-wrap-reverse.jpg" alt="">
+											</figure>
+										</li>
+									</ul>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 flexible flex-wrap&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+				.flexbox{
+					max-width:500px;
+					margin: 0 auto;
+				}
+				.flex-container {
+					margin: 0 auto;
+					padding: 0;
+					border: 1px solid silver;
+					-ms-box-orient: horizontal;
+
+					display: -webkit-box;
+					display: -moz-box;
+					display: -ms-flexbox;
+					display: -moz-flex;
+					display: -webkit-flex;
+					display: flex;
+				}
+
+				.nowrap  {
+					-webkit-flex-wrap: nowrap;
+					flex-wrap: nowrap;
+				}
+
+				.wrap {
+					-webkit-flex-wrap: wrap;
+					flex-wrap: wrap;
+				}
+				.wrap li {
+					background: gold;
+				}
+
+				.wrap-reverse {
+					-webkit-flex-wrap: wrap-reverse;
+					flex-wrap: wrap-reverse;
+				}
+				.wrap-reverse li {
+					background: deepskyblue;
+				}
+
+				.flex-item {
+					width: 100px;
+					height: 100px;
+					margin: 10px;
+					padding: 5px;
+					background: tomato;
+					color: white;
+					font-weight: bold;
+					font-size: 2em;
+					line-height: 100px;
+					text-align: center;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;div class="flexbox"&gt;
+				&lt;h2&gt;flex-wrap: nowrap&lt;/h2&gt;
+				&lt;ul class="flex-container nowrap"&gt;
+					&lt;li class="flex-item"&gt;1&lt;/li&gt;
+					&lt;li class="flex-item"&gt;2&lt;/li&gt;
+					&lt;li class="flex-item"&gt;3&lt;/li&gt;
+					&lt;li class="flex-item"&gt;4&lt;/li&gt;
+					&lt;li class="flex-item"&gt;5&lt;/li&gt;
+					&lt;li class="flex-item"&gt;6&lt;/li&gt;
+					&lt;li class="flex-item"&gt;7&lt;/li&gt;
+					&lt;li class="flex-item"&gt;8&lt;/li&gt;
+				&lt;/ul&gt;
+
+				&lt;h2&gt;flex-wrap: wrap&lt;/h2&gt;
+				&lt;ul class="flex-container wrap"&gt;
+					&lt;li class="flex-item"&gt;1&lt;/li&gt;
+					&lt;li class="flex-item"&gt;2&lt;/li&gt;
+					&lt;li class="flex-item"&gt;3&lt;/li&gt;
+					&lt;li class="flex-item"&gt;4&lt;/li&gt;
+					&lt;li class="flex-item"&gt;5&lt;/li&gt;
+					&lt;li class="flex-item"&gt;6&lt;/li&gt;
+					&lt;li class="flex-item"&gt;7&lt;/li&gt;
+					&lt;li class="flex-item"&gt;8&lt;/li&gt;
+				&lt;/ul&gt;
+
+				&lt;h2&gt;flex-wrap: wrap-reverse&lt;/h2&gt;
+				&lt;ul class="flex-container wrap-reverse"&gt;
+					&lt;li class="flex-item"&gt;1&lt;/li&gt;
+					&lt;li class="flex-item"&gt;2&lt;/li&gt;
+					&lt;li class="flex-item"&gt;3&lt;/li&gt;
+					&lt;li class="flex-item"&gt;4&lt;/li&gt;
+					&lt;li class="flex-item"&gt;5&lt;/li&gt;
+					&lt;li class="flex-item"&gt;6&lt;/li&gt;
+					&lt;li class="flex-item"&gt;7&lt;/li&gt;
+					&lt;li class="flex-item"&gt;8&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>flex-flow (Applies to: parent flex container element)</dt>
+								<dd>
+									<p>flex-flow 속성은 flex-direction 속성과 flex-wrap 속성을 설정하기 위한 shorthand이다. 기본값은 row nowrap이다.</p>
+									<p><a href="https://www.w3.org/TR/css-flexbox-1/#flex-flow-property" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#flex-flow-property</a></p>
+	<pre><code>
+	.container{
+		flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
+	}
+	</code></pre>
+									<figure>
+										<figcaption>Image showing the difference in layout directions between a horizontal language (English) and a vertical language (Japanese).</figcaption>
+										<img src="images/css/flex-flow-example.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 flexible flex-flow&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+				.flexbox{
+					overflow:hidden;
+					max-width:600px;
+					margin: 0 auto;
+				}
+				.flexbox .flex-container {
+					margin: 0;
+					padding: 0;
+
+					-ms-box-orient: horizontal;
+					display: -webkit-box;
+					display: -moz-box;
+					display: -ms-flexbox;
+					display: -moz-flex;
+					display: -webkit-flex;
+					display: flex;
+				}
+
+				.flexbox h1 {
+					padding-left: .5em;
+				}
+
+				.flexbox .shorthand {
+					-webkit-flex-wrap: wrap;
+					flex-wrap: wrap;
+					-webkit-flex-direction: row;
+					flex-direction: row;
+				}
+
+				.flexbox .longhand {
+					-webkit-flex-flow: wrap row;
+					flex-flow: wrap row;
+
+				}
+
+				.flexbox .longhand li {
+					background: deepskyblue;
+				}
+
+				.flexbox .flex-item {
+					background: tomato;
+					padding: 5px;
+					width: 100px;
+					height: 100px;
+					margin: 10px;
+
+					color: white;
+					font-weight: bold;
+					font-size: 2em;
+					line-height: 100px;
+					text-align: center;
+				}
+
+
+				.demo-flex-flow{
+					max-width:900px;
+					margin:0 auto;
+					border:2px solid ddd;
+				}
+
+				hr {
+					margin: 50px 0;
+				}
+
+				.demo-flex-flow p {
+					font-size: 1.1em;
+					font-weight: bold;
+				}
+
+				.demo-flex-flow .container {
+					margin: 20px auto;
+					width: 100%;
+					padding: 20px;
+					-webkit-display: -webkit-box;
+					-webkit-display: -webkit-flex;
+					display: -webkit-box;
+					display: -ms-flexbox;
+					display: flex;
+					background-color: #594255;
+				}
+
+				.demo-flex-flow .item {
+					width: 100px;
+					height: 100px;
+					margin: 2px;
+					background-color: #fff;
+					color: #594255;
+					font-weight: bold;
+					font-family: sans-serif;
+					font-size: 5em;
+					line-height: 100px;
+					text-align: center;
+				}
+
+				.demo-flex-flow .container-1 {
+					-webkit-flex-flow: row nowrap;
+					-ms-flex-flow: row nowrap;
+					flex-flow: row nowrap;
+				}
+
+				.demo-flex-flow .container-2 {
+					-webkit-flex-flow: row wrap;
+					-ms-flex-flow: row wrap;
+					flex-flow: row wrap;
+				}
+
+				.demo-flex-flow .container-3 {
+					-webkit-flex-flow: row wrap-reverse;
+					-ms-flex-flow: row wrap-reverse;
+					flex-flow: row wrap-reverse;
+				}
+
+				.demo-flex-flow .container-4 {
+					height: 800px;
+					-webkit-flex-flow: column nowrap;
+					-ms-flex-flow: column nowrap;
+					flex-flow: column nowrap;
+				}
+
+				.demo-flex-flow .container-5 {
+					height: 800px;
+					-webkit-flex-flow: column wrap;
+					-ms-flex-flow: column wrap;
+					flex-flow: column wrap;
+				}
+
+				.demo-flex-flow .container-6 {
+					height: 800px;
+					-webkit-flex-flow: column wrap-reverse;
+					-ms-flex-flow: column wrap-reverse;
+					flex-flow: column wrap-reverse;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;div class="flexbox"&gt;
+				&lt;p&gt;두 예제 모두 똑같은 방식으로 작동합니다.&lt;/p&gt;
+				&lt;h1&gt;flex-wrap: wrap; flex-direction: row;&lt;/h1&gt;
+				&lt;ul class="flex-container longhand"&gt;
+					&lt;li class="flex-item"&gt;1&lt;/li&gt;
+					&lt;li class="flex-item"&gt;2&lt;/li&gt;
+					&lt;li class="flex-item"&gt;3&lt;/li&gt;
+					&lt;li class="flex-item"&gt;4&lt;/li&gt;
+				&lt;/ul&gt;
+
+				&lt;h1&gt;flex-flow: row wrap;&lt;/h1&gt;
+				&lt;ul class="flex-container shorthand"&gt;
+					&lt;li class="flex-item"&gt;1&lt;/li&gt;
+					&lt;li class="flex-item"&gt;2&lt;/li&gt;
+					&lt;li class="flex-item"&gt;3&lt;/li&gt;
+					&lt;li class="flex-item"&gt;4&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+
 			&lt;hr&gt;
-			&lt;p&gt;
-				&lt;code&gt;flex-flow: row wrap; /* flex items wrap. flex lines stack in the direction of the cross axis (which is top-to-bottom in a LTR language) */&lt;/code&gt;
-			&lt;/p&gt;
-			&lt;div class="container container-2"&gt;
-				&lt;div class="item"&gt;1&lt;/div&gt;
-				&lt;div class="item"&gt;2&lt;/div&gt;
-				&lt;div class="item"&gt;3&lt;/div&gt;
-				&lt;div class="item"&gt;4&lt;/div&gt;
-				&lt;div class="item"&gt;5&lt;/div&gt;
-				&lt;div class="item"&gt;6&lt;/div&gt;
-				&lt;div class="item"&gt;7&lt;/div&gt;
-				&lt;div class="item"&gt;8&lt;/div&gt;
+
+			&lt;div class="demo-flex-flow"&gt;
+				&lt;p&gt;
+					&lt;code&gt;flex-flow: row nowrap; /* the default value */&lt;/code&gt;
+				&lt;/p&gt;
+				&lt;div class="container container-1"&gt;
+					&lt;div class="item"&gt;1&lt;/div&gt;
+					&lt;div class="item"&gt;2&lt;/div&gt;
+					&lt;div class="item"&gt;3&lt;/div&gt;
+					&lt;div class="item"&gt;4&lt;/div&gt;
+					&lt;div class="item"&gt;5&lt;/div&gt;
+					&lt;div class="item"&gt;6&lt;/div&gt;
+					&lt;div class="item"&gt;7&lt;/div&gt;
+					&lt;div class="item"&gt;8&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;hr&gt;
+				&lt;p&gt;
+					&lt;code&gt;flex-flow: row wrap; /* flex items wrap. flex lines stack in the direction of the cross axis (which is top-to-bottom in a LTR language) */&lt;/code&gt;
+				&lt;/p&gt;
+				&lt;div class="container container-2"&gt;
+					&lt;div class="item"&gt;1&lt;/div&gt;
+					&lt;div class="item"&gt;2&lt;/div&gt;
+					&lt;div class="item"&gt;3&lt;/div&gt;
+					&lt;div class="item"&gt;4&lt;/div&gt;
+					&lt;div class="item"&gt;5&lt;/div&gt;
+					&lt;div class="item"&gt;6&lt;/div&gt;
+					&lt;div class="item"&gt;7&lt;/div&gt;
+					&lt;div class="item"&gt;8&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;hr&gt;
+				&lt;p&gt;
+					&lt;code&gt;flex-flow: row wrap-reverse; /* same as previous, except flex items wrap in the opposite direction of the cross axis*/&lt;/code&gt;
+				&lt;/p&gt;
+				&lt;div class="container container-3"&gt;
+					&lt;div class="item"&gt;1&lt;/div&gt;
+					&lt;div class="item"&gt;2&lt;/div&gt;
+					&lt;div class="item"&gt;3&lt;/div&gt;
+					&lt;div class="item"&gt;4&lt;/div&gt;
+					&lt;div class="item"&gt;5&lt;/div&gt;
+					&lt;div class="item"&gt;6&lt;/div&gt;
+					&lt;div class="item"&gt;7&lt;/div&gt;
+					&lt;div class="item"&gt;8&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;hr&gt;
+				&lt;p&gt;
+					&lt;code&gt;flex-flow: column nowrap; /* the main axis is rotated. In a LRT language and horizontal writing mode like this, the main axis becomes vertical. Items do not wrap and try to fit in one line */&lt;/code&gt;
+				&lt;/p&gt;
+				&lt;div class="container container-4"&gt;
+					&lt;div class="item"&gt;1&lt;/div&gt;
+					&lt;div class="item"&gt;2&lt;/div&gt;
+					&lt;div class="item"&gt;3&lt;/div&gt;
+					&lt;div class="item"&gt;4&lt;/div&gt;
+					&lt;div class="item"&gt;5&lt;/div&gt;
+					&lt;div class="item"&gt;6&lt;/div&gt;
+					&lt;div class="item"&gt;7&lt;/div&gt;
+					&lt;div class="item"&gt;8&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;hr&gt;
+				&lt;p&gt;
+					&lt;code&gt;flex-flow: column wrap; /* flex items wrap. The additional lines that the items wrap into are added horizontally instead of being stacked vertically, because after specifying "column" for the main axis, the cross axis becomes horizontal, and the stacked lines follow the cross axis */&lt;/code&gt;
+				&lt;/p&gt;
+				&lt;div class="container container-5"&gt;
+					&lt;div class="item"&gt;1&lt;/div&gt;
+					&lt;div class="item"&gt;2&lt;/div&gt;
+					&lt;div class="item"&gt;3&lt;/div&gt;
+					&lt;div class="item"&gt;4&lt;/div&gt;
+					&lt;div class="item"&gt;5&lt;/div&gt;
+					&lt;div class="item"&gt;6&lt;/div&gt;
+					&lt;div class="item"&gt;7&lt;/div&gt;
+					&lt;div class="item"&gt;8&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;hr&gt;
+				&lt;p&gt;
+					&lt;code&gt;flex-flow: column wrap-reverse; /* same as previous, except flex items wrap in the opposite direction of the cross axis */&lt;/code&gt;
+				&lt;/p&gt;
+				&lt;div class="container container-6"&gt;
+					&lt;div class="item"&gt;1&lt;/div&gt;
+					&lt;div class="item"&gt;2&lt;/div&gt;
+					&lt;div class="item"&gt;3&lt;/div&gt;
+					&lt;div class="item"&gt;4&lt;/div&gt;
+					&lt;div class="item"&gt;5&lt;/div&gt;
+					&lt;div class="item"&gt;6&lt;/div&gt;
+					&lt;div class="item"&gt;7&lt;/div&gt;
+					&lt;div class="item"&gt;8&lt;/div&gt;
+				&lt;/div&gt;
 			&lt;/div&gt;
-			&lt;hr&gt;
-			&lt;p&gt;
-				&lt;code&gt;flex-flow: row wrap-reverse; /* same as previous, except flex items wrap in the opposite direction of the cross axis*/&lt;/code&gt;
-			&lt;/p&gt;
-			&lt;div class="container container-3"&gt;
-				&lt;div class="item"&gt;1&lt;/div&gt;
-				&lt;div class="item"&gt;2&lt;/div&gt;
-				&lt;div class="item"&gt;3&lt;/div&gt;
-				&lt;div class="item"&gt;4&lt;/div&gt;
-				&lt;div class="item"&gt;5&lt;/div&gt;
-				&lt;div class="item"&gt;6&lt;/div&gt;
-				&lt;div class="item"&gt;7&lt;/div&gt;
-				&lt;div class="item"&gt;8&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;hr&gt;
-			&lt;p&gt;
-				&lt;code&gt;flex-flow: column nowrap; /* the main axis is rotated. In a LRT language and horizontal writing mode like this, the main axis becomes vertical. Items do not wrap and try to fit in one line */&lt;/code&gt;
-			&lt;/p&gt;
-			&lt;div class="container container-4"&gt;
-				&lt;div class="item"&gt;1&lt;/div&gt;
-				&lt;div class="item"&gt;2&lt;/div&gt;
-				&lt;div class="item"&gt;3&lt;/div&gt;
-				&lt;div class="item"&gt;4&lt;/div&gt;
-				&lt;div class="item"&gt;5&lt;/div&gt;
-				&lt;div class="item"&gt;6&lt;/div&gt;
-				&lt;div class="item"&gt;7&lt;/div&gt;
-				&lt;div class="item"&gt;8&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;hr&gt;
-			&lt;p&gt;
-				&lt;code&gt;flex-flow: column wrap; /* flex items wrap. The additional lines that the items wrap into are added horizontally instead of being stacked vertically, because after specifying "column" for the main axis, the cross axis becomes horizontal, and the stacked lines follow the cross axis */&lt;/code&gt;
-			&lt;/p&gt;
-			&lt;div class="container container-5"&gt;
-				&lt;div class="item"&gt;1&lt;/div&gt;
-				&lt;div class="item"&gt;2&lt;/div&gt;
-				&lt;div class="item"&gt;3&lt;/div&gt;
-				&lt;div class="item"&gt;4&lt;/div&gt;
-				&lt;div class="item"&gt;5&lt;/div&gt;
-				&lt;div class="item"&gt;6&lt;/div&gt;
-				&lt;div class="item"&gt;7&lt;/div&gt;
-				&lt;div class="item"&gt;8&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;hr&gt;
-			&lt;p&gt;
-				&lt;code&gt;flex-flow: column wrap-reverse; /* same as previous, except flex items wrap in the opposite direction of the cross axis */&lt;/code&gt;
-			&lt;/p&gt;
-			&lt;div class="container container-6"&gt;
-				&lt;div class="item"&gt;1&lt;/div&gt;
-				&lt;div class="item"&gt;2&lt;/div&gt;
-				&lt;div class="item"&gt;3&lt;/div&gt;
-				&lt;div class="item"&gt;4&lt;/div&gt;
-				&lt;div class="item"&gt;5&lt;/div&gt;
-				&lt;div class="item"&gt;6&lt;/div&gt;
-				&lt;div class="item"&gt;7&lt;/div&gt;
-				&lt;div class="item"&gt;8&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>justify-content</dt>
+								<dd>
+									<p>justify-content 속성은 플렉스 요소의 수평 방향 정렬 방식을 설정합니다(컨테이너의 항목을 기본 축을 따라 정렬하는 속성).</p>
+									<p>justify-content 속성은 주축을 따라 flex 항목 행을 정렬하는 방식을 지정합니다.</p>
+									<p>이 속성의 (아무것도 지정하지 않았을 때 적용되는)초기 값은 flex-start이며 이 값을 지정하면 flex 항목 행 내의 항목들은 flex 컨테이너의 시작선에서 부터 정렬됩니다.</p>
+									<p>flex-end로 지정하면 flex 항목 행의 마지막 항목이 flex 컨테이너의 끝선에서 정렬됩니다.</p>
+									<p>center로 지정하면 flex 항목들이 flex 항목 행의 가운데 정렬됩니다.</p>
+									<p>space-between을 지정하면 주죽 방향 여유 공간을 flex 항목 사이의 공간에 균등 배분합니다. </p>
+									<p>space-around는 시작선 및 끝선과 flex 항목간 공간도 균등 배분에 고려하므로 시작선 및 끝선과 flex 항목 간의 공간의 크기를 1로 배분한다면 flex 항목 사이의 공간은 2로 배분합니다.</p>
+									<p>space-evenly로 지정하면 여유 공간을 flex 항목 사이의 공간 및 시작선 및 끝선과 flex 항목 간의 공간에 모두 균등하게 배분합니다.</p>
+									<p><a href="https://www.w3.org/TR/css-flexbox-1/#justify-content-property" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#justify-content-property</a></p>
+									<figure>
+										<figcaption>시각적으로 설명하는 다이어그램</figcaption>
+										<img src="images/css/flex-justify-content.svg" alt="">
+										<img src="images/css/flex-justify-content.gif" alt="">
+										<img src="images/css/flex-justify-content.jpg" alt="">
+										<img src="images/css/flexbox-justify.png" alt="">
+									</figure>
+	<pre><code>
+	.container {
+		justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe;
+	}
+
+	/* Positional alignment */
+	justify-content: center;     /* Pack items around the center */
+	justify-content: start;      /* Pack items from the start */
+	justify-content: end;        /* Pack items from the end */
+	justify-content: flex-start; /* Pack flex items from the start */
+	justify-content: flex-end;   /* Pack flex items from the end */
+	justify-content: left;       /* Pack items from the left */
+	justify-content: right;      /* Pack items from the right */
+
+	/* Baseline alignment */
+	/* justify-content does not take baseline values */
+
+	/* Normal alignment */
+	justify-content: normal;
+
+	/* Distributed alignment */
+	justify-content: space-between; /* Distribute items evenly
+									   The first item is flush with the start,
+									   the last is flush with the end */
+	justify-content: space-around;  /* Distribute items evenly
+									   Items have a half-size space
+									   on either end */
+	justify-content: space-evenly;  /* Distribute items evenly
+									   Items have equal space around them */
+	justify-content: stretch;       /* Distribute items evenly
+									   Stretch 'auto'-sized items to fit
+									   the container */
+
+	/* Overflow alignment */
+	justify-content: safe center;
+	justify-content: unsafe center;
+
+	/* Global values */
+	justify-content: inherit;
+	justify-content: initial;
+	justify-content: unset;
+	</code></pre>
 									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										<li>flex-start : 기본 설정으로, 플렉스 요소는 플렉스 컨테이너의 앞쪽에서부터 배치됩니다.(Items를 시작점(flex-start)으로 정렬)
+											<figure>
+												<figcaption>justify-content: flex-start;</figcaption>
+												<img src="images/css/flexbox-justify-content-flex-start.jpg" alt="">
+											</figure>
+										</li>
+										<li>flex-end : 플렉스 요소는 플렉스 컨테이너의 뒤쪽에서부터 배치됩니다.(Items를 끝점[flex-end]으로 정렬	)
+											<figure>
+												<figcaption>justify-content: >flex-end;</figcaption>
+												<img src="images/css/flexbox-justify-content->flex-end.jpg" alt="">
+											</figure>
+										</li>
+										<li>center : 플렉스 요소는 플렉스 컨테이너의 가운데에서부터 배치됩니다.(Items를 가운데 정렬 항목이 선을 따라 중앙에 위치)
+											<figure>
+												<figcaption>justify-content: center;</figcaption>
+												<img src="images/css/flexbox-justify-content-center.jpg" alt="">
+											</figure>
+										</li>
+										<li>space-between : 플렉스 요소는 요소들 사이에만 여유 공간을 두고 배치됩니다.(시작 Item은 시작점에, 마지막 Item은 끝점에 정렬되고 나머지 Items는 사이에 고르게 정렬됨. 라인에 균등하게 분배)
+											<figure>
+												<figcaption>justify-content: space-between;</figcaption>
+												<img src="images/css/flexbox-justify-content-space-between.jpg" alt="">
+											</figure>
+										</li>
+										<li>space-around : 플렉스 요소는 앞, 뒤, 그리고 요소들 사이에도 모두 여유 공간을 두고 배치됩니다.(Items를 균등한 여백을 포함하여 정렬. 항목은 동일한 간격으로 줄에 균등하게 분배)
+											<figure>
+												<figcaption>justify-content: space-around;</figcaption>
+												<img src="images/css/flexbox-justify-content-space-around.jpg" alt="">
+											</figure>
+										</li>
+										<li>space-evenly : 두 항목 사이의 간격 (가장자리 간격)이 동일하도록 항목이 분산됩니다.</li>
 									</ul>
-								</aside>
-							</dd>
-							<dt>justify-content</dt>
-							<dd>
-								<p>justify-content 속성은 플렉스 요소의 수평 방향 정렬 방식을 설정합니다(컨테이너의 항목을 기본 축을 따라 정렬하는 속성).</p>
-								<p>justify-content 속성은 주축을 따라 flex 항목 행을 정렬하는 방식을 지정합니다.</p>
-								<p>이 속성의 (아무것도 지정하지 않았을 때 적용되는)초기 값은 flex-start이며 이 값을 지정하면 flex 항목 행 내의 항목들은 flex 컨테이너의 시작선에서 부터 정렬됩니다.</p>
-								<p>flex-end로 지정하면 flex 항목 행의 마지막 항목이 flex 컨테이너의 끝선에서 정렬됩니다.</p>
-								<p>center로 지정하면 flex 항목들이 flex 항목 행의 가운데 정렬됩니다.</p>
-								<p>space-between을 지정하면 주죽 방향 여유 공간을 flex 항목 사이의 공간에 균등 배분합니다. </p>
-								<p>space-around는 시작선 및 끝선과 flex 항목간 공간도 균등 배분에 고려하므로 시작선 및 끝선과 flex 항목 간의 공간의 크기를 1로 배분한다면 flex 항목 사이의 공간은 2로 배분합니다.</p>
-								<p>space-evenly로 지정하면 여유 공간을 flex 항목 사이의 공간 및 시작선 및 끝선과 flex 항목 간의 공간에 모두 균등하게 배분합니다.</p>
-								<p><a href="https://www.w3.org/TR/css-flexbox-1/#justify-content-property" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#justify-content-property</a></p>
-								<figure>
-									<figcaption>시각적으로 설명하는 다이어그램</figcaption>
-									<img src="images/css/flex-justify-content.svg" alt="">
-									<img src="images/css/flex-justify-content.gif" alt="">
-									<img src="images/css/flex-justify-content.jpg" alt="">
-									<img src="images/css/flexbox-justify.png" alt="">
-								</figure>
-<pre><code>
-.container {
-	justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe;
-}
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 flexible justify-content&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
 
-/* Positional alignment */
-justify-content: center;     /* Pack items around the center */
-justify-content: start;      /* Pack items from the start */
-justify-content: end;        /* Pack items from the end */
-justify-content: flex-start; /* Pack flex items from the start */
-justify-content: flex-end;   /* Pack flex items from the end */
-justify-content: left;       /* Pack items from the left */
-justify-content: right;      /* Pack items from the right */
+				.box {
+					display: flex;
 
-/* Baseline alignment */
-/* justify-content does not take baseline values */
+					width: 500px;
+					margin:20px;
+					border: 2px dotted rgb(96, 139, 168);
+				}
+				.box &gt; * {
+					border: 2px solid rgb(96, 139, 168);
+					border-radius: 5px;
+					background-color: rgba(96, 139, 168, .2);
+				}
 
-/* Normal alignment */
-justify-content: normal;
+				.flex-start{
+					justify-content: flex-start;
+				}
+				.flex-end{
+					justify-content: flex-end;
+				}
+				.center{
+					justify-content: center;
+				}
+				.space-between{
+					justify-content: space-between;
+				}
+				.space-around{
+					justify-content: space-around;
+				}
+				.space-evenly{
+					justify-content: space-evenly;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;h2&gt;justify-content: flex-start;&lt;/h2&gt;
+			&lt;div class="box flex-start"&gt;
+				&lt;div&gt;One&lt;/div&gt;
+				&lt;div&gt;Two&lt;/div&gt;
+				&lt;div&gt;Three&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;justify-content: flex-end;&lt;/h2&gt;
+			&lt;div class="box flex-end"&gt;
+				&lt;div&gt;One&lt;/div&gt;
+				&lt;div&gt;Two&lt;/div&gt;
+				&lt;div&gt;Three&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;justify-content: center;&lt;/h2&gt;
+			&lt;div class="box center"&gt;
+				&lt;div&gt;One&lt;/div&gt;
+				&lt;div&gt;Two&lt;/div&gt;
+				&lt;div&gt;Three&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;justify-content: space-between;&lt;/h2&gt;
+			&lt;div class="box space-between"&gt;
+				&lt;div&gt;One&lt;/div&gt;
+				&lt;div&gt;Two&lt;/div&gt;
+				&lt;div&gt;Three&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;justify-content: space-around;&lt;/h2&gt;
+			&lt;div class="box space-around"&gt;
+				&lt;div&gt;One&lt;/div&gt;
+				&lt;div&gt;Two&lt;/div&gt;
+				&lt;div&gt;Three&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;justify-content: space-evenly;&lt;/h2&gt;
+			&lt;div class="box space-evenly"&gt;
+				&lt;div&gt;One&lt;/div&gt;
+				&lt;div&gt;Two&lt;/div&gt;
+				&lt;div&gt;Three&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>align-content</dt>
+								<dd>
+									<p>flex container의 교차 축(cross-axis)을 기준으로 flex item을 수직 정렬한다.</p>
+									<p>참고로 justify-content 속성은 flex container의 main axis를 기준으로 flex item을 수평 정렬한다.</p>
+									<p>주의할 점은 flex-wrap 속성을 통해 Items가 여러 줄(2줄 이상)이고 여백이 있을 경우만 사용할 수 있습니다.</p>
+									<p>한줄밖에 안하는 flex container에는 아무런 의미가 없습니다. 2줄 이상이어야 의미가 있습니다. (i.e. flex container의 값이 flex-wrap: nowrap 이면 의미가 없다.)</p>
+									<p>Items가 한 줄일 경우 align-items 속성을 사용하세요.</p>
+									<p>stretch 값은 교차 축에 해당하는 너비(속성 width 혹은 height)가 값이 auto(기본값)일 경우 교차 축을 채우기 위해 자동으로 늘어납니다.</p>
+									<p><a href="https://www.w3.org/TR/css-flexbox-1/#align-content-property" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#align-content-property</a></p>
+									<figure>
+										<figcaption>align-content</figcaption>
+										<img src="images/css/flex-align-content.svg" alt="">
+										<img src="images/css/flex-align-content.jpg" alt="">
+									</figure>
+	<pre><code>
+	.container{
+		align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch | start | end | baseline | first baseline | last baseline + ... safe | unsafe;
+	}
 
-/* Distributed alignment */
-justify-content: space-between; /* Distribute items evenly
-                                   The first item is flush with the start,
-                                   the last is flush with the end */
-justify-content: space-around;  /* Distribute items evenly
-                                   Items have a half-size space
-                                   on either end */
-justify-content: space-evenly;  /* Distribute items evenly
-                                   Items have equal space around them */
-justify-content: stretch;       /* Distribute items evenly
-                                   Stretch 'auto'-sized items to fit
-                                   the container */
+	/* Basic positional alignment */
+	/* align-content does not take left and right values */
+	align-content: center;     /* Pack items around the center */
+	align-content: start;      /* Pack items from the start */
+	align-content: end;        /* Pack items from the end */
+	align-content: flex-start; /* Pack flex items from the start */
+	align-content: flex-end;   /* Pack flex items from the end */
 
-/* Overflow alignment */
-justify-content: safe center;
-justify-content: unsafe center;
+	/* Normal alignment */
+	align-content: normal;
 
-/* Global values */
-justify-content: inherit;
-justify-content: initial;
-justify-content: unset;
-</code></pre>
-								<ul>
-									<li>flex-start : 기본 설정으로, 플렉스 요소는 플렉스 컨테이너의 앞쪽에서부터 배치됩니다.(Items를 시작점(flex-start)으로 정렬)
-										<figure>
-											<figcaption>justify-content: flex-start;</figcaption>
-											<img src="images/css/flexbox-justify-content-flex-start.jpg" alt="">
-										</figure>
-									</li>
-									<li>flex-end : 플렉스 요소는 플렉스 컨테이너의 뒤쪽에서부터 배치됩니다.(Items를 끝점[flex-end]으로 정렬	)
-										<figure>
-											<figcaption>justify-content: >flex-end;</figcaption>
-											<img src="images/css/flexbox-justify-content->flex-end.jpg" alt="">
-										</figure>
-									</li>
-									<li>center : 플렉스 요소는 플렉스 컨테이너의 가운데에서부터 배치됩니다.(Items를 가운데 정렬 항목이 선을 따라 중앙에 위치)
-										<figure>
-											<figcaption>justify-content: center;</figcaption>
-											<img src="images/css/flexbox-justify-content-center.jpg" alt="">
-										</figure>
-									</li>
-									<li>space-between : 플렉스 요소는 요소들 사이에만 여유 공간을 두고 배치됩니다.(시작 Item은 시작점에, 마지막 Item은 끝점에 정렬되고 나머지 Items는 사이에 고르게 정렬됨. 라인에 균등하게 분배)
-										<figure>
-											<figcaption>justify-content: space-between;</figcaption>
-											<img src="images/css/flexbox-justify-content-space-between.jpg" alt="">
-										</figure>
-									</li>
-									<li>space-around : 플렉스 요소는 앞, 뒤, 그리고 요소들 사이에도 모두 여유 공간을 두고 배치됩니다.(Items를 균등한 여백을 포함하여 정렬. 항목은 동일한 간격으로 줄에 균등하게 분배)
-										<figure>
-											<figcaption>justify-content: space-around;</figcaption>
-											<img src="images/css/flexbox-justify-content-space-around.jpg" alt="">
-										</figure>
-									</li>
-									<li>space-evenly : 두 항목 사이의 간격 (가장자리 간격)이 동일하도록 항목이 분산됩니다.</li>
-								</ul>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 flexible justify-content&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
+	/* Baseline alignment */
+	align-content: baseline;
+	align-content: first baseline;
+	align-content: last baseline;
 
-			.box {
-				display: flex;
+	/* Distributed alignment */
+	align-content: space-between; /* Distribute items evenly
+									 The first item is flush with the start,
+									 the last is flush with the end */
+	align-content: space-around;  /* Distribute items evenly
+									 Items have a half-size space
+									 on either end */
+	align-content: space-evenly;  /* Distribute items evenly
+									 Items have equal space around them */
+	align-content: stretch;       /* Distribute items evenly
+									 Stretch 'auto'-sized items to fit
+									 the container */
 
-				width: 500px;
-				margin:20px;
-				border: 2px dotted rgb(96, 139, 168);
-			}
-			.box &gt; * {
-				border: 2px solid rgb(96, 139, 168);
-				border-radius: 5px;
-				background-color: rgba(96, 139, 168, .2);
-			}
+	/* Overflow alignment */
+	align-content: safe center;
+	align-content: unsafe center;
 
-			.flex-start{
-				justify-content: flex-start;
-			}
-			.flex-end{
-				justify-content: flex-end;
-			}
-			.center{
-				justify-content: center;
-			}
-			.space-between{
-				justify-content: space-between;
-			}
-			.space-around{
-				justify-content: space-around;
-			}
-			.space-evenly{
-				justify-content: space-evenly;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h2&gt;justify-content: flex-start;&lt;/h2&gt;
-		&lt;div class="box flex-start"&gt;
-			&lt;div&gt;One&lt;/div&gt;
-			&lt;div&gt;Two&lt;/div&gt;
-			&lt;div&gt;Three&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;justify-content: flex-end;&lt;/h2&gt;
-		&lt;div class="box flex-end"&gt;
-			&lt;div&gt;One&lt;/div&gt;
-			&lt;div&gt;Two&lt;/div&gt;
-			&lt;div&gt;Three&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;justify-content: center;&lt;/h2&gt;
-		&lt;div class="box center"&gt;
-			&lt;div&gt;One&lt;/div&gt;
-			&lt;div&gt;Two&lt;/div&gt;
-			&lt;div&gt;Three&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;justify-content: space-between;&lt;/h2&gt;
-		&lt;div class="box space-between"&gt;
-			&lt;div&gt;One&lt;/div&gt;
-			&lt;div&gt;Two&lt;/div&gt;
-			&lt;div&gt;Three&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;justify-content: space-around;&lt;/h2&gt;
-		&lt;div class="box space-around"&gt;
-			&lt;div&gt;One&lt;/div&gt;
-			&lt;div&gt;Two&lt;/div&gt;
-			&lt;div&gt;Three&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;justify-content: space-evenly;&lt;/h2&gt;
-		&lt;div class="box space-evenly"&gt;
-			&lt;div&gt;One&lt;/div&gt;
-			&lt;div&gt;Two&lt;/div&gt;
-			&lt;div&gt;Three&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
+	/* Global values */
+	align-content: inherit;
+	align-content: initial;
+	align-content: unset;
+	</code></pre>
 									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										<li>stretch	: 기본값으로, Container의 교차 축을 채우기 위해 Items를 늘림.
+											<figure>
+												<figcaption>align-content : stretch</figcaption>
+												<img src="images/css/flexbox-align-content-stretch.jpg" alt="">
+											</figure>
+										</li>
+										<li>flex-start : Items를 시작점(flex-start)으로 정렬.
+											<figure>
+												<figcaption>align-content : flex-start</figcaption>
+												<img src="images/css/flexbox-align-content-flex-start.jpg" alt="">
+											</figure>
+										</li>
+										<li>flex-end : Items를 끝점(flex-end)으로 정렬.
+											<figure>
+												<figcaption>align-content : flex-end</figcaption>
+												<img src="images/css/flexbox-align-content-flex-end.jpg" alt="">
+											</figure>
+										</li>
+										<li>center : Items를 가운데 정렬.
+											<figure>
+												<figcaption>align-content : center</figcaption>
+												<img src="images/css/flexbox-align-content-center.jpg" alt="">
+											</figure>
+										</li>
+										<li>space-between : 시작 Item은 시작점에, 마지막 Item은 끝점에 정렬되고 나머지 Items는 사이에 고르게 정렬됨.
+											<figure>
+												<figcaption>align-content : space-between</figcaption>
+												<img src="images/css/flexbox-align-content-space-between.jpg" alt="">
+											</figure>
+										</li>
+										<li>space-around : Items를 균등한 여백을 포함하여 정렬.</li>
 									</ul>
-								</aside>
-							</dd>
-							<dt>align-content</dt>
-							<dd>
-								<p>flex container의 교차 축(cross-axis)을 기준으로 flex item을 수직 정렬한다.</p>
-								<p>참고로 justify-content 속성은 flex container의 main axis를 기준으로 flex item을 수평 정렬한다.</p>
-								<p>주의할 점은 flex-wrap 속성을 통해 Items가 여러 줄(2줄 이상)이고 여백이 있을 경우만 사용할 수 있습니다.</p>
-								<p>한줄밖에 안하는 flex container에는 아무런 의미가 없습니다. 2줄 이상이어야 의미가 있습니다. (i.e. flex container의 값이 flex-wrap: nowrap 이면 의미가 없다.)</p>
-								<p>Items가 한 줄일 경우 align-items 속성을 사용하세요.</p>
-								<p>stretch 값은 교차 축에 해당하는 너비(속성 width 혹은 height)가 값이 auto(기본값)일 경우 교차 축을 채우기 위해 자동으로 늘어납니다.</p>
-								<p><a href="https://www.w3.org/TR/css-flexbox-1/#align-content-property" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#align-content-property</a></p>
-								<figure>
-									<figcaption>align-content</figcaption>
-									<img src="images/css/flex-align-content.svg" alt="">
-									<img src="images/css/flex-align-content.jpg" alt="">
-								</figure>
-<pre><code>
-.container{
-	align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch | start | end | baseline | first baseline | last baseline + ... safe | unsafe;
-}
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 flexible align-content&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
 
-/* Basic positional alignment */
-/* align-content does not take left and right values */
-align-content: center;     /* Pack items around the center */
-align-content: start;      /* Pack items from the start */
-align-content: end;        /* Pack items from the end */
-align-content: flex-start; /* Pack flex items from the start */
-align-content: flex-end;   /* Pack flex items from the end */
+				.box {
+					display: flex;
+					flex-wrap: wrap;
 
-/* Normal alignment */
-align-content: normal;
+					width: 300px;
+					height:300px;
+					margin:20px;
+					border: 2px dotted rgb(96, 139, 168);
+				}
+				.box &gt; * {
+					display: flex;
+					align-items: center;
+					justify-content: center;
 
-/* Baseline alignment */ 
-align-content: baseline;
-align-content: first baseline;
-align-content: last baseline;
+					width: 50px;
+					min-height: 30px;
+					border: 1px solid #8c8c8c;
+				}
 
-/* Distributed alignment */
-align-content: space-between; /* Distribute items evenly
-                                 The first item is flush with the start,
-                                 the last is flush with the end */
-align-content: space-around;  /* Distribute items evenly
-                                 Items have a half-size space
-                                 on either end */
-align-content: space-evenly;  /* Distribute items evenly
-                                 Items have equal space around them */
-align-content: stretch;       /* Distribute items evenly
-                                 Stretch 'auto'-sized items to fit
-                                 the container */
+				.stretch{
+					align-content: stretch;
+				}
+				.flex-start{
+					align-content: flex-start;
+				}
+				.flex-end{
+					align-content: flex-end;
+				}
+				.center{
+					align-content: center;
+				}
+				.space-between{
+					align-content: space-between;
+				}
+				.space-around{
+					align-content: space-around;
+				}
+				.space-evenly{
+					align-content: space-evenly;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;h2&gt;align-content: stretch;&lt;/h2&gt;
+			&lt;div class="box stretch"&gt;
+				&lt;div&gt;1&lt;/div&gt;
+				&lt;div&gt;2&lt;/div&gt;
+				&lt;div&gt;3&lt;/div&gt;
+				&lt;div&gt;4&lt;/div&gt;
+				&lt;div&gt;5&lt;/div&gt;
+				&lt;div&gt;6&lt;/div&gt;
+				&lt;div&gt;7&lt;/div&gt;
+				&lt;div&gt;8&lt;/div&gt;
+				&lt;div&gt;9&lt;/div&gt;
+				&lt;div&gt;10&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;align-content: flex-start;&lt;/h2&gt;
+			&lt;div class="box flex-start"&gt;
+				&lt;div&gt;1&lt;/div&gt;
+				&lt;div&gt;2&lt;/div&gt;
+				&lt;div&gt;3&lt;/div&gt;
+				&lt;div&gt;4&lt;/div&gt;
+				&lt;div&gt;5&lt;/div&gt;
+				&lt;div&gt;6&lt;/div&gt;
+				&lt;div&gt;7&lt;/div&gt;
+				&lt;div&gt;8&lt;/div&gt;
+				&lt;div&gt;9&lt;/div&gt;
+				&lt;div&gt;10&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;align-content: flex-end;&lt;/h2&gt;
+			&lt;div class="box flex-end"&gt;
+				&lt;div&gt;1&lt;/div&gt;
+				&lt;div&gt;2&lt;/div&gt;
+				&lt;div&gt;3&lt;/div&gt;
+				&lt;div&gt;4&lt;/div&gt;
+				&lt;div&gt;5&lt;/div&gt;
+				&lt;div&gt;6&lt;/div&gt;
+				&lt;div&gt;7&lt;/div&gt;
+				&lt;div&gt;8&lt;/div&gt;
+				&lt;div&gt;9&lt;/div&gt;
+				&lt;div&gt;10&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;align-content: center;&lt;/h2&gt;
+			&lt;div class="box center"&gt;
+				&lt;div&gt;1&lt;/div&gt;
+				&lt;div&gt;2&lt;/div&gt;
+				&lt;div&gt;3&lt;/div&gt;
+				&lt;div&gt;4&lt;/div&gt;
+				&lt;div&gt;5&lt;/div&gt;
+				&lt;div&gt;6&lt;/div&gt;
+				&lt;div&gt;7&lt;/div&gt;
+				&lt;div&gt;8&lt;/div&gt;
+				&lt;div&gt;9&lt;/div&gt;
+				&lt;div&gt;10&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;align-content: space-between;&lt;/h2&gt;
+			&lt;div class="box space-between"&gt;
+				&lt;div&gt;1&lt;/div&gt;
+				&lt;div&gt;2&lt;/div&gt;
+				&lt;div&gt;3&lt;/div&gt;
+				&lt;div&gt;4&lt;/div&gt;
+				&lt;div&gt;5&lt;/div&gt;
+				&lt;div&gt;6&lt;/div&gt;
+				&lt;div&gt;7&lt;/div&gt;
+				&lt;div&gt;8&lt;/div&gt;
+				&lt;div&gt;9&lt;/div&gt;
+				&lt;div&gt;10&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;align-content: space-around;&lt;/h2&gt;
+			&lt;div class="box space-around"&gt;
+				&lt;div&gt;1&lt;/div&gt;
+				&lt;div&gt;2&lt;/div&gt;
+				&lt;div&gt;3&lt;/div&gt;
+				&lt;div&gt;4&lt;/div&gt;
+				&lt;div&gt;5&lt;/div&gt;
+				&lt;div&gt;6&lt;/div&gt;
+				&lt;div&gt;7&lt;/div&gt;
+				&lt;div&gt;8&lt;/div&gt;
+				&lt;div&gt;9&lt;/div&gt;
+				&lt;div&gt;10&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;h2&gt;align-content: space-evenly;&lt;/h2&gt;
+			&lt;div class="box space-evenly"&gt;
+				&lt;div&gt;1&lt;/div&gt;
+				&lt;div&gt;2&lt;/div&gt;
+				&lt;div&gt;3&lt;/div&gt;
+				&lt;div&gt;4&lt;/div&gt;
+				&lt;div&gt;5&lt;/div&gt;
+				&lt;div&gt;6&lt;/div&gt;
+				&lt;div&gt;7&lt;/div&gt;
+				&lt;div&gt;8&lt;/div&gt;
+				&lt;div&gt;9&lt;/div&gt;
+				&lt;div&gt;10&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>align-items</dt>
+								<dd>
+									<p>flex item을 flex container의 수직 방향(cross axis)으로 정렬한다. align-items 속성은 모든 flex item에 적용된다.(align-items 속성은 모든 직속 자식의 align-self를 지정합니다.)</p>
+									<p>플렉스박스에서는 아이템의 교차 축 정렬을 지정하고, 그리드 레이아웃에서는 아이템 각자의 그리드 영역 내 블록 축 정렬을 지정합니다.</p>
+									<p>align-items는 flex 컨테이너에 지정하는 속성이며, 교차축을 따라 flex 항목 열을 정렬하는 방식을 지정합니다.</p>
+									<p>이 속성의 (아무것도 지정하지 않았을 때 적용되는)초기 값은 stretch이며 이 값을 지정하면 flex 항목의 높이는 flex 컨테이너 내 flex 항목 행의 최대 높이로 지정됩니다.</p>
+									<p>따라서, flex 항목 행이 하나 일 때는 flex 항목은 교차축 방향으로 flex 컨테이너를 가득 채우게 됩니다.</p>
+									<p>이 속성을 flex-start로 지정하면 flex 항목의 첫 열이 교차축 방향의 시작선에 정렬됩니다.</p>
+									<p>flex-end로 지정하면 flex 항목의 첫 열이 교차축 방향의 끝선에 정렬됩니다.</p>
+									<p>center로 지정하면 flex 항목 행에 배분된 공간의 가운데 라인에 정렬됩니다.</p>
+									<p><a href="https://www.w3.org/TR/css-flexbox-1/#propdef-align-items" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#propdef-align-items</a></p>
+	<pre><code>
+	.container {
+		align-items: stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe;
+	}
 
-/* Overflow alignment */
-align-content: safe center;
-align-content: unsafe center;
-
-/* Global values */
-align-content: inherit;
-align-content: initial;
-align-content: unset;
-</code></pre>
-								<ul>
-									<li>stretch	: 기본값으로, Container의 교차 축을 채우기 위해 Items를 늘림.
-										<figure>
-											<figcaption>align-content : stretch</figcaption>
-											<img src="images/css/flexbox-align-content-stretch.jpg" alt="">
-										</figure>
-									</li>
-									<li>flex-start : Items를 시작점(flex-start)으로 정렬.
-										<figure>
-											<figcaption>align-content : flex-start</figcaption>
-											<img src="images/css/flexbox-align-content-flex-start.jpg" alt="">
-										</figure>
-									</li>
-									<li>flex-end : Items를 끝점(flex-end)으로 정렬.
-										<figure>
-											<figcaption>align-content : flex-end</figcaption>
-											<img src="images/css/flexbox-align-content-flex-end.jpg" alt="">
-										</figure>
-									</li>
-									<li>center : Items를 가운데 정렬.
-										<figure>
-											<figcaption>align-content : center</figcaption>
-											<img src="images/css/flexbox-align-content-center.jpg" alt="">
-										</figure>
-									</li>
-									<li>space-between : 시작 Item은 시작점에, 마지막 Item은 끝점에 정렬되고 나머지 Items는 사이에 고르게 정렬됨.
-										<figure>
-											<figcaption>align-content : space-between</figcaption>
-											<img src="images/css/flexbox-align-content-space-between.jpg" alt="">
-										</figure>
-									</li>
-									<li>space-around : Items를 균등한 여백을 포함하여 정렬.</li>
-								</ul>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 flexible align-content&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-
-			.box {
-				display: flex;
-				flex-wrap: wrap;
-
-				width: 300px;
-				height:300px;
-				margin:20px;
-				border: 2px dotted rgb(96, 139, 168);
-			}
-			.box &gt; * {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-
-				width: 50px;
-				min-height: 30px;
-				border: 1px solid #8c8c8c;
-			}
-
-			.stretch{
-				align-content: stretch;
-			}
-			.flex-start{
-				align-content: flex-start;
-			}
-			.flex-end{
-				align-content: flex-end;
-			}
-			.center{
-				align-content: center;
-			}
-			.space-between{
-				align-content: space-between;
-			}
-			.space-around{
-				align-content: space-around;
-			}
-			.space-evenly{
-				align-content: space-evenly;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h2&gt;align-content: stretch;&lt;/h2&gt;
-		&lt;div class="box stretch"&gt;
-			&lt;div&gt;1&lt;/div&gt;
-			&lt;div&gt;2&lt;/div&gt;
-			&lt;div&gt;3&lt;/div&gt;
-			&lt;div&gt;4&lt;/div&gt;
-			&lt;div&gt;5&lt;/div&gt;
-			&lt;div&gt;6&lt;/div&gt;
-			&lt;div&gt;7&lt;/div&gt;
-			&lt;div&gt;8&lt;/div&gt;
-			&lt;div&gt;9&lt;/div&gt;
-			&lt;div&gt;10&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;align-content: flex-start;&lt;/h2&gt;
-		&lt;div class="box flex-start"&gt;
-			&lt;div&gt;1&lt;/div&gt;
-			&lt;div&gt;2&lt;/div&gt;
-			&lt;div&gt;3&lt;/div&gt;
-			&lt;div&gt;4&lt;/div&gt;
-			&lt;div&gt;5&lt;/div&gt;
-			&lt;div&gt;6&lt;/div&gt;
-			&lt;div&gt;7&lt;/div&gt;
-			&lt;div&gt;8&lt;/div&gt;
-			&lt;div&gt;9&lt;/div&gt;
-			&lt;div&gt;10&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;align-content: flex-end;&lt;/h2&gt;
-		&lt;div class="box flex-end"&gt;
-			&lt;div&gt;1&lt;/div&gt;
-			&lt;div&gt;2&lt;/div&gt;
-			&lt;div&gt;3&lt;/div&gt;
-			&lt;div&gt;4&lt;/div&gt;
-			&lt;div&gt;5&lt;/div&gt;
-			&lt;div&gt;6&lt;/div&gt;
-			&lt;div&gt;7&lt;/div&gt;
-			&lt;div&gt;8&lt;/div&gt;
-			&lt;div&gt;9&lt;/div&gt;
-			&lt;div&gt;10&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;align-content: center;&lt;/h2&gt;
-		&lt;div class="box center"&gt;
-			&lt;div&gt;1&lt;/div&gt;
-			&lt;div&gt;2&lt;/div&gt;
-			&lt;div&gt;3&lt;/div&gt;
-			&lt;div&gt;4&lt;/div&gt;
-			&lt;div&gt;5&lt;/div&gt;
-			&lt;div&gt;6&lt;/div&gt;
-			&lt;div&gt;7&lt;/div&gt;
-			&lt;div&gt;8&lt;/div&gt;
-			&lt;div&gt;9&lt;/div&gt;
-			&lt;div&gt;10&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;align-content: space-between;&lt;/h2&gt;
-		&lt;div class="box space-between"&gt;
-			&lt;div&gt;1&lt;/div&gt;
-			&lt;div&gt;2&lt;/div&gt;
-			&lt;div&gt;3&lt;/div&gt;
-			&lt;div&gt;4&lt;/div&gt;
-			&lt;div&gt;5&lt;/div&gt;
-			&lt;div&gt;6&lt;/div&gt;
-			&lt;div&gt;7&lt;/div&gt;
-			&lt;div&gt;8&lt;/div&gt;
-			&lt;div&gt;9&lt;/div&gt;
-			&lt;div&gt;10&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;align-content: space-around;&lt;/h2&gt;
-		&lt;div class="box space-around"&gt;
-			&lt;div&gt;1&lt;/div&gt;
-			&lt;div&gt;2&lt;/div&gt;
-			&lt;div&gt;3&lt;/div&gt;
-			&lt;div&gt;4&lt;/div&gt;
-			&lt;div&gt;5&lt;/div&gt;
-			&lt;div&gt;6&lt;/div&gt;
-			&lt;div&gt;7&lt;/div&gt;
-			&lt;div&gt;8&lt;/div&gt;
-			&lt;div&gt;9&lt;/div&gt;
-			&lt;div&gt;10&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;h2&gt;align-content: space-evenly;&lt;/h2&gt;
-		&lt;div class="box space-evenly"&gt;
-			&lt;div&gt;1&lt;/div&gt;
-			&lt;div&gt;2&lt;/div&gt;
-			&lt;div&gt;3&lt;/div&gt;
-			&lt;div&gt;4&lt;/div&gt;
-			&lt;div&gt;5&lt;/div&gt;
-			&lt;div&gt;6&lt;/div&gt;
-			&lt;div&gt;7&lt;/div&gt;
-			&lt;div&gt;8&lt;/div&gt;
-			&lt;div&gt;9&lt;/div&gt;
-			&lt;div&gt;10&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
-									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
-									</ul>
-								</aside>
-							</dd>
-							<dt>align-items</dt>
-							<dd>
-								<p>flex item을 flex container의 수직 방향(cross axis)으로 정렬한다. align-items 속성은 모든 flex item에 적용된다.(align-items 속성은 모든 직속 자식의 align-self를 지정합니다.)</p>
-								<p>플렉스박스에서는 아이템의 교차 축 정렬을 지정하고, 그리드 레이아웃에서는 아이템 각자의 그리드 영역 내 블록 축 정렬을 지정합니다.</p>
-								<p>align-items는 flex 컨테이너에 지정하는 속성이며, 교차축을 따라 flex 항목 열을 정렬하는 방식을 지정합니다.</p>
-								<p>이 속성의 (아무것도 지정하지 않았을 때 적용되는)초기 값은 stretch이며 이 값을 지정하면 flex 항목의 높이는 flex 컨테이너 내 flex 항목 행의 최대 높이로 지정됩니다.</p>
-								<p>따라서, flex 항목 행이 하나 일 때는 flex 항목은 교차축 방향으로 flex 컨테이너를 가득 채우게 됩니다.</p>
-								<p>이 속성을 flex-start로 지정하면 flex 항목의 첫 열이 교차축 방향의 시작선에 정렬됩니다.</p>
-								<p>flex-end로 지정하면 flex 항목의 첫 열이 교차축 방향의 끝선에 정렬됩니다.</p>
-								<p>center로 지정하면 flex 항목 행에 배분된 공간의 가운데 라인에 정렬됩니다.</p>
-								<p><a href="https://www.w3.org/TR/css-flexbox-1/#propdef-align-items" target="_blank" title="새 창 열림">w3.org/TR/css-flexbox-1/#propdef-align-items</a></p>
-<pre><code>
-.container {
-	align-items: stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe;
-}
-
-/* 기본 키워드 */ 
-align-items: normal; 
-align-items: stretch; 
-
-/* 위치 정렬 */ 
-/* align-items는 왼쪽 및 오른쪽 값을 받지 않음 */
-align-items: center; /* 아이템 중앙 정렬 */ 
-align-items: start; /* 아이템 시작점 정렬 */ 
-align-items: end; /* 아이템 끝점 정렬 */ 
-align-items: flex-start; /* 플렉스 아이템 시작점 정렬 */ 
-align-items: flex-end; /* 플렉스 아이템 끝점 정렬 */ 
-align-items: self-start; 
-align-items: self-end; 
-
-/* 기준선 정렬 */
-align-items: baseline; 
-align-items: first baseline; 
-align-items: last baseline; /* 오버플로우 정렬 (위치 정렬 전용) */ 
-align-items: safe center; 
-align-items: unsafe center; 
-
-/* 전역 값 */
-align-items: inherit; 
-align-items: initial; 
-align-items: unset;
-</code></pre>
-								<figure>
-									<figcaption>align-items</figcaption>
-									<img src="images/css/flex-align-items.svg" alt="">
-									<img src="images/css/flex-align-items.jpg" alt="">
-								</figure>
-								<figure>
-									<figcaption>stretch 값을 지정하면 요소의 auto 대신 특정 높이로 설정해야합니다.</figcaption>
-									<img src="images/css/flex-align-items.gif" alt="">
-								</figure>
-								<ul>
-									<li>stretch : 모든 flex item은 flex container의 높이(cross start에서 cross end까지의 높이)에 꽉찬 높이를 갖는다. align-items 속성의 기본값이다.(Container의 교차 축을 채우기 위해 Items를 늘림)
-<pre><code>
-.flex-container {
+	/* 기본 키워드 */
+	align-items: normal;
 	align-items: stretch;
-}
-</code></pre>
-										<figure>
-											<figcaption>align-items: stretch</figcaption>
-											<img src="images/css/flexbox-align-items-stretch.jpg" alt="">
-										</figure>
-									</li>
-									<li>flex-start : 모든 flex item은 flex container의 cross start 기준으로 정렬된다.(Items를 각 줄의 시작점(flex-start)으로 정렬	)
-<pre><code>
-.flex-container {
-	align-items: flex-start;
-}
-</code></pre>
-										<figure>
-											<figcaption>align-items: flex-start</figcaption>
-											<img src="images/css/flexbox-align-items-flex-start.jpg" alt="">
-										</figure>
-									</li>
-									<li>flex-end : 모든 flex item은 flex container의 cross end 기준으로 정렬된다.(Items를 각 줄의 끝점(flex-end)으로 정렬)
-<pre><code>
-.flex-container {
-	align-items: flex-end;
-}
-</code></pre>
-										<figure>
-											<figcaption>align-items: flex-end</figcaption>
-											<img src="images/css/flexbox-align-items-flex-end.jpg" alt="">
-										</figure>
-									</li>
-									<li>center : 모든 flex item은 flex container의 cross axis의 중앙에 정렬된다.(Items를 가운데 정렬)
-<pre><code>
-.flex-container {
-	align-items: center;
-}
-</code></pre>
-										<figure>
-											<figcaption>align-items: center</figcaption>
-											<img src="images/css/flexbox-align-items-center.jpg" alt="">
-										</figure>
-									</li>
-									<li>baseline : 모든 flex item은 flex container의 baseline을 기준으로 정렬된다.(Items를 문자 기준선에 정렬)
-<pre><code>
-.flex-container {
+
+	/* 위치 정렬 */
+	/* align-items는 왼쪽 및 오른쪽 값을 받지 않음 */
+	align-items: center; /* 아이템 중앙 정렬 */
+	align-items: start; /* 아이템 시작점 정렬 */
+	align-items: end; /* 아이템 끝점 정렬 */
+	align-items: flex-start; /* 플렉스 아이템 시작점 정렬 */
+	align-items: flex-end; /* 플렉스 아이템 끝점 정렬 */
+	align-items: self-start;
+	align-items: self-end;
+
+	/* 기준선 정렬 */
 	align-items: baseline;
-}
-</code></pre>
-										<figure>
-											<figcaption>align-items: baseline</figcaption>
-											<img src="images/css/410px-Typography_Line_Terms.svg.png" alt="">
-											<img src="images/css/flexbox-align-items-baseline.jpg" alt="">
-										</figure>
-									</li>
-								</ul>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 flexible align-items&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
+	align-items: first baseline;
+	align-items: last baseline; /* 오버플로우 정렬 (위치 정렬 전용) */
+	align-items: safe center;
+	align-items: unsafe center;
 
-			body {
-				background-color: #F5F5F5;
-				color: #555;
-				font-size: 1.1em;
-				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			}
-
-			hr {
-				margin: 50px 0;
-			}
-			.demo{
-				position:relative;
-				max-width:900px;
-				margin:0 auto;
-				border:4px solid #ddd;
-			}
-
-			.container {
-				position: relative;
-				max-width: 840px;
-				height: 400px;
-				margin: 150px auto;
-				padding: 20px;
-				background-color: #594255;
-
-				-webkit-display: -webkit-box;
-				-webkit-display: -webkit-flex;
-				display: -webkit-box;
-				display: -ms-flexbox;
-				display: flex;
-			}
-
-			.line {
-				visibility: hidden;
-				position: absolute;
-				top: 120px;
-				left: 0;
-				width: 100%;
-				height: 1px;
-				border-bottom: 2px solid deepPink;
-			}
-
-			.item {
-				width: 100px;
-				margin: 1%;
-				background-color: #fff;
-				color: #594255;
-				font-weight: bold;
-				font-family: sans-serif;
-				font-size: 4em;
-				line-height: 100px;
-				text-align: center;
-			}
-
-			.big {
-				width: 150px;
-				font-size: 5em;
-			}
-
-			.small {
-				font-size: 2em;
-			}
-
-			.controls {
-				position: absolute;
-				top: 0;
-				right: 0;
-				width: 300px;
-				padding: 20px;
-				border: 1px solid #ddd;
-				background-color: white;
-				line-height: 150%;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div class="demo"&gt;
-			&lt;div class="container" id="container"&gt;
-				&lt;div class="item big"&gt;1&lt;/div&gt;
-				&lt;div class="item"&gt;2&lt;/div&gt;
-				&lt;div class="item small"&gt;3&lt;/div&gt;
-				&lt;div class="item big"&gt;4&lt;/div&gt;
-				&lt;div class="item"&gt;5&lt;/div&gt;
-				&lt;div class="line" id="line"&gt;&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="radio" name="align-items" id="flex-start" 
-							onclick="
-												var container=document.getElementById('container'); 
-												container.style.WebkitAlignItems = 'flex-start';
-												container.style.alignItems = 'flex-start'; 
-												var line = document.getElementById('line'); 
-												line.style.visibility = 'hidden';  
-												"&gt;
-				&lt;label for="flex-start"&gt;align-items: flex-start;&lt;/label&gt;
-				&lt;br&gt;
-				&lt;input type="radio" name="align-items" id="flex-end" 
-							onclick="
-												var container=document.getElementById('container'); 
-												container.style.WebkitAlignItems = 'flex-end'; 
-												container.style.alignItems = 'flex-end'; 
-												var line = document.getElementById('line'); 
-												line.style.visibility = 'hidden';  
-												"&gt;
-				&lt;label for="flex-end"&gt;align-items: flex-end;&lt;/label&gt;
-				&lt;br&gt;
-				&lt;input type="radio" name="align-items" id="center" 
-							onclick="
-												var container=document.getElementById('container'); 
-												container.style.WebkitAlignItems = 'center'; 
-												container.style.alignItems = 'center'; 
-												var line = document.getElementById('line'); 
-												line.style.visibility = 'hidden';  
-												"&gt;
-				&lt;label for="center"&gt;align-items: center;&lt;/label&gt;
-				&lt;br&gt;
-				&lt;input type="radio" name="align-items" id="baseline" 
-							onclick="
-												var container=document.getElementById('container'); 
-												container.style.WebkitAlignItems = 'baseline'; 
-												container.style.alignItems = 'baseline'; 
-												var line = document.getElementById('line'); 
-												line.style.visibility = 'visible'; 
-												"&gt;
-				&lt;label for="baseline"&gt;align-items: baseline;&lt;/label&gt;
-				&lt;br&gt;
-				&lt;input type="radio" name="align-items" id="stretch" 
-							onclick="
-												var container=document.getElementById('container');
-												container.style.WebkitAlignItems = 'stretch';  
-												container.style.alignItems = 'stretch'; 
-												var line = document.getElementById('line'); 
-												line.style.visibility = 'hidden'; 
-												" checked&gt;
-				&lt;label for="stretch"&gt;align-items: stretch;&lt;/label&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<aside class="bosupport">
-									<strong>Web Browser Support</strong>
+	/* 전역 값 */
+	align-items: inherit;
+	align-items: initial;
+	align-items: unset;
+	</code></pre>
+									<figure>
+										<figcaption>align-items</figcaption>
+										<img src="images/css/flex-align-items.svg" alt="">
+										<img src="images/css/flex-align-items.jpg" alt="">
+									</figure>
+									<figure>
+										<figcaption>stretch 값을 지정하면 요소의 auto 대신 특정 높이로 설정해야합니다.</figcaption>
+										<img src="images/css/flex-align-items.gif" alt="">
+									</figure>
 									<ul>
-										<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
-										<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
-										<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
-										<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
-										<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
-										<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										<li>stretch : 모든 flex item은 flex container의 높이(cross start에서 cross end까지의 높이)에 꽉찬 높이를 갖는다. align-items 속성의 기본값이다.(Container의 교차 축을 채우기 위해 Items를 늘림)
+	<pre><code>
+	.flex-container {
+		align-items: stretch;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>align-items: stretch</figcaption>
+												<img src="images/css/flexbox-align-items-stretch.jpg" alt="">
+											</figure>
+										</li>
+										<li>flex-start : 모든 flex item은 flex container의 cross start 기준으로 정렬된다.(Items를 각 줄의 시작점(flex-start)으로 정렬	)
+	<pre><code>
+	.flex-container {
+		align-items: flex-start;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>align-items: flex-start</figcaption>
+												<img src="images/css/flexbox-align-items-flex-start.jpg" alt="">
+											</figure>
+										</li>
+										<li>flex-end : 모든 flex item은 flex container의 cross end 기준으로 정렬된다.(Items를 각 줄의 끝점(flex-end)으로 정렬)
+	<pre><code>
+	.flex-container {
+		align-items: flex-end;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>align-items: flex-end</figcaption>
+												<img src="images/css/flexbox-align-items-flex-end.jpg" alt="">
+											</figure>
+										</li>
+										<li>center : 모든 flex item은 flex container의 cross axis의 중앙에 정렬된다.(Items를 가운데 정렬)
+	<pre><code>
+	.flex-container {
+		align-items: center;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>align-items: center</figcaption>
+												<img src="images/css/flexbox-align-items-center.jpg" alt="">
+											</figure>
+										</li>
+										<li>baseline : 모든 flex item은 flex container의 baseline을 기준으로 정렬된다.(Items를 문자 기준선에 정렬)
+	<pre><code>
+	.flex-container {
+		align-items: baseline;
+	}
+	</code></pre>
+											<figure>
+												<figcaption>align-items: baseline</figcaption>
+												<img src="images/css/410px-Typography_Line_Terms.svg.png" alt="">
+												<img src="images/css/flexbox-align-items-baseline.jpg" alt="">
+											</figure>
+										</li>
 									</ul>
-								</aside>
-							</dd>
-						</dl>
-					</section>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 flexible align-items&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+
+				body {
+					background-color: #F5F5F5;
+					color: #555;
+					font-size: 1.1em;
+					font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				}
+
+				hr {
+					margin: 50px 0;
+				}
+				.demo{
+					position:relative;
+					max-width:900px;
+					margin:0 auto;
+					border:4px solid #ddd;
+				}
+
+				.container {
+					position: relative;
+					max-width: 840px;
+					height: 400px;
+					margin: 150px auto;
+					padding: 20px;
+					background-color: #594255;
+
+					-webkit-display: -webkit-box;
+					-webkit-display: -webkit-flex;
+					display: -webkit-box;
+					display: -ms-flexbox;
+					display: flex;
+				}
+
+				.line {
+					visibility: hidden;
+					position: absolute;
+					top: 120px;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					border-bottom: 2px solid deepPink;
+				}
+
+				.item {
+					width: 100px;
+					margin: 1%;
+					background-color: #fff;
+					color: #594255;
+					font-weight: bold;
+					font-family: sans-serif;
+					font-size: 4em;
+					line-height: 100px;
+					text-align: center;
+				}
+
+				.big {
+					width: 150px;
+					font-size: 5em;
+				}
+
+				.small {
+					font-size: 2em;
+				}
+
+				.controls {
+					position: absolute;
+					top: 0;
+					right: 0;
+					width: 300px;
+					padding: 20px;
+					border: 1px solid #ddd;
+					background-color: white;
+					line-height: 150%;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;div class="demo"&gt;
+				&lt;div class="container" id="container"&gt;
+					&lt;div class="item big"&gt;1&lt;/div&gt;
+					&lt;div class="item"&gt;2&lt;/div&gt;
+					&lt;div class="item small"&gt;3&lt;/div&gt;
+					&lt;div class="item big"&gt;4&lt;/div&gt;
+					&lt;div class="item"&gt;5&lt;/div&gt;
+					&lt;div class="line" id="line"&gt;&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class="controls"&gt;
+					&lt;input type="radio" name="align-items" id="flex-start"
+								onclick="
+													var container=document.getElementById('container');
+													container.style.WebkitAlignItems = 'flex-start';
+													container.style.alignItems = 'flex-start';
+													var line = document.getElementById('line');
+													line.style.visibility = 'hidden';
+													"&gt;
+					&lt;label for="flex-start"&gt;align-items: flex-start;&lt;/label&gt;
+					&lt;br&gt;
+					&lt;input type="radio" name="align-items" id="flex-end"
+								onclick="
+													var container=document.getElementById('container');
+													container.style.WebkitAlignItems = 'flex-end';
+													container.style.alignItems = 'flex-end';
+													var line = document.getElementById('line');
+													line.style.visibility = 'hidden';
+													"&gt;
+					&lt;label for="flex-end"&gt;align-items: flex-end;&lt;/label&gt;
+					&lt;br&gt;
+					&lt;input type="radio" name="align-items" id="center"
+								onclick="
+													var container=document.getElementById('container');
+													container.style.WebkitAlignItems = 'center';
+													container.style.alignItems = 'center';
+													var line = document.getElementById('line');
+													line.style.visibility = 'hidden';
+													"&gt;
+					&lt;label for="center"&gt;align-items: center;&lt;/label&gt;
+					&lt;br&gt;
+					&lt;input type="radio" name="align-items" id="baseline"
+								onclick="
+													var container=document.getElementById('container');
+													container.style.WebkitAlignItems = 'baseline';
+													container.style.alignItems = 'baseline';
+													var line = document.getElementById('line');
+													line.style.visibility = 'visible';
+													"&gt;
+					&lt;label for="baseline"&gt;align-items: baseline;&lt;/label&gt;
+					&lt;br&gt;
+					&lt;input type="radio" name="align-items" id="stretch"
+								onclick="
+													var container=document.getElementById('container');
+													container.style.WebkitAlignItems = 'stretch';
+													container.style.alignItems = 'stretch';
+													var line = document.getElementById('line');
+													line.style.visibility = 'hidden';
+													" checked&gt;
+					&lt;label for="stretch"&gt;align-items: stretch;&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>12.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>29.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>28.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>17.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>9.0</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+					</div>
 					
 
 

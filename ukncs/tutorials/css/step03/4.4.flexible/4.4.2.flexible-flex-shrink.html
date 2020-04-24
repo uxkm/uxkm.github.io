@@ -56,13 +56,11 @@
 
 			.demo{
 				position:relative;
-				max-width:900px;
-				margin:0 auto;
 			}
 
 			.shrink {
 				max-width: 500px;
-				margin: 150px auto;
+				margin: 50px 0 0;
 				padding: 20px;
 				background-color: #594255;
 
@@ -95,9 +93,7 @@
 			}
 
 			.controls {
-				position: absolute;
-				top: 0;
-				right: 0;
+				position: static;
 				width: 150px;
 				padding: 20px;
 				border: 1px solid #ddd;
@@ -144,19 +140,19 @@
 				<table>
 					<tr>
 						<td>One:</td>
-						<td><input type="text" value="0" onkeyup="var item=document.getElementById('one'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
+						<td><input type="text" value="1" onkeyup="var item=document.getElementById('one'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
 					</tr>
 					<tr>
 						<td>Two:</td>
-						<td><input type="text" value="0" onkeyup="var item=document.getElementById('two'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
+						<td><input type="text" value="1" onkeyup="var item=document.getElementById('two'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
 					</tr>
 					<tr>
 						<td>Three:</td>
-						<td><input type="text" value="0" onkeyup="var item=document.getElementById('three'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
+						<td><input type="text" value="1" onkeyup="var item=document.getElementById('three'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
 					</tr>
 					<tr>
 						<td>Four:</td>
-						<td><input type="text" value="0" onkeyup="var item=document.getElementById('four'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
+						<td><input type="text" value="1" onkeyup="var item=document.getElementById('four'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
 					</tr>
 				</table>
 			</div>
