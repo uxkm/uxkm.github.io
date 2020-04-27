@@ -2252,7 +2252,10 @@
 	.content_area {
 		line-height:@line-height; font-size:14px; color:#666;
 		letter-spacing:-0.3px; font-weight:400;
-		code {.code_css;}
+		code {
+			.code_css;
+			&.t_888, &.t_999 {background-color:transparent;}
+		}
 		mark code {background:none;}
 		strong code {font-weight:bold;}
 

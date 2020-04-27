@@ -5995,6 +5995,10 @@ body {
 .content_area code.in_block i {
   display: inline-block;
 }
+.content_area code.t_888,
+.content_area code.t_999 {
+  background-color: transparent;
+}
 .content_area mark code {
   background: none;
 }
