@@ -1801,6 +1801,18 @@ mark {
 .t_link {
   color: rgba(0, 50, 132, 0.75) !important;
 }
+.bg_none {
+  background-color: transparent !important;
+}
+.weight-800 {
+  font-weight: 500 !important;
+}
+.weight-700 {
+  font-weight: 500 !important;
+}
+.weight-600 {
+  font-weight: 500 !important;
+}
 .weight-500 {
   font-weight: 500 !important;
 }
@@ -7044,6 +7056,7 @@ body {
 }
 .reference a:hover {
   color: #1e73ff;
+  text-decoration: underline;
 }
 @media (max-width: 767px) {
   .reference_box {
