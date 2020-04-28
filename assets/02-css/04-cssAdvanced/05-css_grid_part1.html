@@ -229,25 +229,261 @@
 				반면 자동 맞춤(auto-fit)으로 설정하면 그리드 컨테이너 내부에 빈 트랙이 존재할 경우 그 공간을 나눠 맞춥니다.
 			</p>
 			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-grid-1/#fr-unit" target="_blank" title="새창열림">W3C Flexible Lengths: the fr unit 참조</a></p>
-			<div class="line_code_box line_code_number mt_m">
-				<ul>
-					<li>.container {</li>
-					<li class="indent t_red">작업해아함</li>
-					<li>}</li>
-				</ul>
-			</div>
+			<p class="mt_m">
+				각 코드 블록 내 컨테이너(.container)들은 모두 같은 의미이며, <code>repeat</code>함수를 활용하여 사용하는 방법을 보여주는 예시입니다.<br>
+				<code>repeat</code>함수를 활용하여 작업하면 코드가 간결해집니다.
+			</p>
 
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">/* repeat() 함수 사용법 */</li>
+						<li class="indent">grid-template-rows: repeat(2, 1fr);         <i class="t_999">// 1fr 1fr</i></li>
+						<li class="indent">grid-template-columns: repeat(3, 1fr 2fr);  <i class="t_999">// 1fr 2fr 1fr 2fr 1fr 2fr</i></li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="indent mt_m">
+				<h4 class="ml_mn">9컬럼 그리드 코드 예제</h4>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">100px 100px 100px 100px 100px 100px 100px 100px 100px</i>;</li>
+						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(9, 100px)</i>;</li>
+						<li>}</li>
+						<li></li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-rows: <i class="t_darkblue">[row-start] 200px [row-end row-start] 200px [row-end]</i>;</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">[col-start] 100px [col-end col-start] 100px [col-end col-start] 100px [col-end]</i>;</li>
+						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
+						<li class="indent">grid-template-rows: <i class="t_darkblue">repeat(2, [row-start] 200px [row-end])</i>;</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(3, [col-start] 100px [col-end])</i>;</li>
+						<li class="indent">/* 위 처럼 row, column에 각각 repeat함수가 있을 경우 아래처럼 한 줄로 축약 가능합니다. */</li>
+						<li class="indent">grid-template: <i class="t_darkblue">repeat(2, [row-start] 200px [row-end]) / repeat(3, [col-start] 100px [col-end])</i>;</li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="indent mt_m">
+				<h4 class="ml_mn">12컬럼 그리드 코드 예제</h4>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr</i>;</li>
+						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(6, 1fr 2fr)</i>;</li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
 
 			<figure class="img_figure mt_ml">
 				<figcaption class="mt_0">[repeat function]</figcaption>
 				<img src="/ukncs/images/css/grid_repeat-function.png" alt="repeat function" class="mt_m max-w550">
 			</figure>
 		</article>
+
+		<!-- minmax -->
+		<article class="mt_l indent">
+			<h3 class="ml_mn t_blue">minmax</h3>
+			<p class="mt_s">
+				<code>minmax()</code> 함수는 행/열(Track)의 '최소/최대 크기'를 정의합니다.<br>
+				<code>minmax()</code> 함수를 사용하면 최솟값, 최댓값 범위 내에서 값을 유연하게 처리합니다.<br>
+				첫 번째 인수는 '최솟값'이고 두 번째 인수는 '최댓값'입니다.<br>
+				<code>grid-template-rows</code>, <code>grid-template-columns</code>, <code>grid-auto-rows</code>, <code>grid-auto-columns</code>에서 사용합니다.
+			</p>
+
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>/* 일반 요소에 min-width와 max-width 속성을 동시 지정하는 것과 유사합니다. */</li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr);</li>
+						<li>}</li>
+						<li></li>
+						<li>/*</li>
+						<li class="indent t_999">minmax()를 통해 암시적 행/열(Track) 크기를 좀 더 유연하게 사용할 수 있습니다.</li>
+						<li class="indent t_999">다음 예제는 암시적 '행/열'의 크기를 최소 '200px/300px'으로 지정하지만 auto를 통해 그리드 아이템의 크기에 따라 확장될 수 있습니다.</li>
+						<li>*/</li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-auto-rows: minmax(200px, auto);</li>
+						<li class="indent">grid-auto-columns: minmax(300px, auto);</li>
+						<li>}</li>
+						<li></li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">/* minmax() 함수 사용법 */</li>
+						<li class="indent">grid-template-rows: repeat(2, minmax(20px, auto));</li>
+						<li class="indent">grid-template-columns: minmax(30px, auto) repeat(3, 1fr);</li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
+
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[minmax function]</figcaption>
+				<img src="/ukncs/images/css/grid_minmax-function.png" alt="minmax function" class="mt_m max-w550">
+			</figure>
+		</article>
+
+		<!-- fit-content -->
+		<article class="mt_l indent">
+			<h3 class="ml_mn t_blue">fit-content</h3>
+			<p class="mt_s">
+				<code>fit-content()</code> 함수는 행/열(Track)의 크기를 그리드 아이템(Item)이 포함하는 내용(Contents) 크기에 맞춥니다.<br>
+				&apos;내용의 최대 크기&apos;를 인수로 사용합니다.<br>
+				<code>minmax(auto, max-content)</code>와 유사합니다.<br>
+				<code>fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )</code>
+			</p>
+
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>/* &lt;length&gt; values */</li>
+						<li>fit-content(200px)</li>
+						<li>fit-content(5cm)</li>
+						<li>fit-content(30vw)</li>
+						<li>fit-content(100ch)</li>
+						<li></li>
+						<li>/* &lt;percentage&gt; value */</li>
+						<li>fit-content(40%)</li>
+						<li></li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: fit-content(300px) fit-content(300px) 1fr;</li>
+						<li class="indent">grid-gap: 5px;</li>
+						<li>}</li>
+						<li></li>
+						<li>&lt;div id=&quot;container&quot;&gt;</li>
+						<li class="indent">&lt;div&gt;<i class="t_888">Item as wide as the content.</i>&lt;/div&gt;</li>
+						<li class="indent">&lt;div&gt;</li>
+						<li class="indent_max t_888">Item with more text in it. Because the contents of it are</li>
+						<li class="indent_max t_888">wider than the maximum width, it is clamped at 300 pixels.</li>
+						<li class="indent">&lt;/div&gt;</li>
+						<li class="indent">&lt;div&gt;<i class="t_888">Flexible item</i>&lt;/div&gt;</li>
+						<li>&lt;/div&gt;</li>
+					</ul>
+				</div>
+			</section>
+
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[grid-template-columns: fit-content(300px) fit-content(300px) 1fr;]</figcaption>
+				<img src="/ukncs/images/css/grid_fit-content-function.png" alt="grid-template-columns: fit-content(300px) fit-content(300px) 1fr;" class="mt_m max-w700">
+			</figure>
+		</article>
+	</section>
+
+	<!-- 4.5.3. grid units -->
+	<section class="mt_xxl indent">
+		<h2 class="ml_mn">4.5.3. grid units</h2>
+		<p class="mt_ms">그리드에서 사용하는 주요 단위들에 대해서 설명합니다.</p>
+		<p class="t_red mt_ms">여기부터</p>
+
+		<!-- repeat
+		<article class="mt_l indent">
+			<h3 class="ml_mn t_blue">repeat</h3>
+			<p class="mt_s">
+				<code>repeat()</code> 함수의 첫번째 인자는 반복 횟수를 설정합니다.<br>
+				<code>repeat()</code> 함수는 행/열(Track)의 크기 정의를 반복히며, '반복되는 횟수'와 '행/열의 크기 정의'를 인수로 사용합니다.<br>
+				grid-template-rows와 grid-template-columns에서 사용합니다.<br>
+				<code>repeat()</code> 함수 또는 표기법(notation)을 사용하면 반복되는 값을 손쉽게 설정할 수 있습니다.<br>
+				상수 대신 변수 값으로 자동 채움(auto-fill)을 설정하면 컨테이너 영역을 자동으로 반복하여 채웁니다.<br>
+				반면 자동 맞춤(auto-fit)으로 설정하면 그리드 컨테이너 내부에 빈 트랙이 존재할 경우 그 공간을 나눠 맞춥니다.
+			</p>
+			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-grid-1/#fr-unit" target="_blank" title="새창열림">W3C Flexible Lengths: the fr unit 참조</a></p>
+			<p class="mt_m">
+				각 코드 블록 내 컨테이너(.container)들은 모두 같은 의미이며, <code>repeat</code>함수를 활용하여 사용하는 방법을 보여주는 예시입니다.<br>
+				<code>repeat</code>함수를 활용하여 작업하면 코드가 간결해집니다.
+			</p>
+
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">/* repeat() 함수 사용법 */</li>
+						<li class="indent">grid-template-rows: repeat(2, 1fr);         <i class="t_999">// 1fr 1fr</i></li>
+						<li class="indent">grid-template-columns: repeat(3, 1fr 2fr);  <i class="t_999">// 1fr 2fr 1fr 2fr 1fr 2fr</i></li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="indent mt_m">
+				<h4 class="ml_mn">9컬럼 그리드 코드 예제</h4>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">100px 100px 100px 100px 100px 100px 100px 100px 100px</i>;</li>
+						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(9, 100px)</i>;</li>
+						<li>}</li>
+						<li></li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-rows: <i class="t_darkblue">[row-start] 200px [row-end row-start] 200px [row-end]</i>;</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">[col-start] 100px [col-end col-start] 100px [col-end col-start] 100px [col-end]</i>;</li>
+						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
+						<li class="indent">grid-template-rows: <i class="t_darkblue">repeat(2, [row-start] 200px [row-end])</i>;</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(3, [col-start] 100px [col-end])</i>;</li>
+						<li class="indent">/* 위 처럼 row, column에 각각 repeat함수가 있을 경우 아래처럼 한 줄로 축약 가능합니다. */</li>
+						<li class="indent">grid-template: <i class="t_darkblue">repeat(2, [row-start] 200px [row-end]) / repeat(3, [col-start] 100px [col-end])</i>;</li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="indent mt_m">
+				<h4 class="ml_mn">12컬럼 그리드 코드 예제</h4>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr</i>;</li>
+						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
+						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(6, 1fr 2fr)</i>;</li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
+
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[repeat function]</figcaption>
+				<img src="/ukncs/images/css/grid_repeat-function.png" alt="repeat function" class="mt_m max-w550">
+			</figure>
+		</article>
+		-->
 	</section>
 
 
 
 	<br><br><br><br><br><br><br><br><br>
+	<aside class="browser_support mt_xxl" data-tit="grid">
+		<ul>
+			<li class="ie">10+ -ms-</li>
+			<li class="edge">16.0</li>
+			<li class="chrome">57.0</li>
+			<li class="firefox">52.0</li>
+			<li class="opera">44.0</li>
+			<li class="safari">10.1</li>
+		</ul>
+	</aside>
 	<aside class="reference_box mt_xxl">
 		<h2 class="tit">그리드 레이아웃 참조</h2>
 		<ul class="link_lst">

@@ -1133,6 +1133,7 @@ var menu = [
 					},
 
 					//UI/UX 구현
+					/*
 					{
 						d3_nm:	    'UI/UX 구현(가이드로 이동 예정)',
 						d3_url:		url_css+'uiux',
@@ -1140,6 +1141,7 @@ var menu = [
 						d3_note:	false,
 						d3_refer:	false,
 					},
+					*/
 
 					//참조 사이트
 					{
