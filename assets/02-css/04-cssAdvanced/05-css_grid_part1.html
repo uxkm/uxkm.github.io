@@ -391,89 +391,185 @@
 	<section class="mt_xxl indent">
 		<h2 class="ml_mn">4.5.3. grid units</h2>
 		<p class="mt_ms">그리드에서 사용하는 주요 단위들에 대해서 설명합니다.</p>
-		<p class="t_red mt_ms">여기부터</p>
 
-		<!-- repeat
+		<!-- fr -->
 		<article class="mt_l indent">
-			<h3 class="ml_mn t_blue">repeat</h3>
+			<h3 class="ml_mn t_blue">fr</h3>
 			<p class="mt_s">
-				<code>repeat()</code> 함수의 첫번째 인자는 반복 횟수를 설정합니다.<br>
-				<code>repeat()</code> 함수는 행/열(Track)의 크기 정의를 반복히며, '반복되는 횟수'와 '행/열의 크기 정의'를 인수로 사용합니다.<br>
-				grid-template-rows와 grid-template-columns에서 사용합니다.<br>
-				<code>repeat()</code> 함수 또는 표기법(notation)을 사용하면 반복되는 값을 손쉽게 설정할 수 있습니다.<br>
-				상수 대신 변수 값으로 자동 채움(auto-fill)을 설정하면 컨테이너 영역을 자동으로 반복하여 채웁니다.<br>
-				반면 자동 맞춤(auto-fit)으로 설정하면 그리드 컨테이너 내부에 빈 트랙이 존재할 경우 그 공간을 나눠 맞춥니다.
+				<code>fr(fractional unit)</code>은 사용 가능한 공간에 대한 비율을 의미합니다.<br>
+				그리드 트랙 사이즈로 사용 되는 <code>fr</code> 단위는 유연한 단위로 그리드 컨테이너의 여유 공간을 비율로 나눠 설정합니다.<br>
+				퍼센트(%) 단위와 유사해 보일 수 있으나, 퍼센트 값과 다르게 길이가 아닙니다.<br>
+				그래서 <code>calc()</code> 함수에서 다른 값과 함께 처리할 수 없습니다.
 			</p>
-			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-grid-1/#fr-unit" target="_blank" title="새창열림">W3C Flexible Lengths: the fr unit 참조</a></p>
-			<p class="mt_m">
-				각 코드 블록 내 컨테이너(.container)들은 모두 같은 의미이며, <code>repeat</code>함수를 활용하여 사용하는 방법을 보여주는 예시입니다.<br>
-				<code>repeat</code>함수를 활용하여 작업하면 코드가 간결해집니다.
-			</p>
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>/*</li>
+						<li class="indent t_999">그리드 컨테이너의 3번째 컬럼에 100px, 4번째 컬럼에 25%를 사용하고 </li>
+						<li class="indent t_999">남은 공간을 1번째 컬럼에 ‘1/3’, 2번째 컬럼에 ‘2/3’ 만큼 사용합니다.</li>
+						<li>*/</li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: 1fr 2fr 100px 25%;</li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[grid-template-columns: 1fr 1fr 1fr 1fr;]</figcaption>
+				<img src="/ukncs/images/css/grid_fr-units1.png" alt="grid-template-columns: 1fr 1fr 1fr 1fr;" class="mt_m max-w700">
+			</figure>
+		</article>
 
+		<!-- min-content -->
+		<article class="mt_l indent">
+			<h3 class="ml_mn t_blue">min-content</h3>
+			<p class="mt_s">
+				그리드 아이템이 포함하는 내용(Contents)의 최소 크기를 의미합니다.<br>
+				콘텐츠에 한글을 사용할 경우 단어가 묶여있어 아이템의 영역을 벗어날 때는 <code>word-break: keep-all;</code>을 선언하여 단어를 쪼개 줄바꿈 할 수 있게 설정하면 정상적으로 작동합니다.
+			</p>
 			<section class="indent mt_m">
 				<h4 class="ml_mn">코드 예제</h4>
 				<div class="line_code_box line_code_number mt_ms">
 					<ul>
 						<li>.container {</li>
 						<li class="indent">display: grid;</li>
-						<li class="indent">/* repeat() 함수 사용법 */</li>
-						<li class="indent">grid-template-rows: repeat(2, 1fr);         <i class="t_999">// 1fr 1fr</i></li>
-						<li class="indent">grid-template-columns: repeat(3, 1fr 2fr);  <i class="t_999">// 1fr 2fr 1fr 2fr 1fr 2fr</i></li>
-						<li>}</li>
-					</ul>
-				</div>
-			</section>
-
-			<section class="indent mt_m">
-				<h4 class="ml_mn">9컬럼 그리드 코드 예제</h4>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">100px 100px 100px 100px 100px 100px 100px 100px 100px</i>;</li>
-						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(9, 100px)</i>;</li>
+						<li class="indent">grid-template-columns: min-content 1fr;</li>
 						<li>}</li>
 						<li></li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-rows: <i class="t_darkblue">[row-start] 200px [row-end row-start] 200px [row-end]</i>;</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">[col-start] 100px [col-end col-start] 100px [col-end col-start] 100px [col-end]</i>;</li>
-						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
-						<li class="indent">grid-template-rows: <i class="t_darkblue">repeat(2, [row-start] 200px [row-end])</i>;</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(3, [col-start] 100px [col-end])</i>;</li>
-						<li class="indent">/* 위 처럼 row, column에 각각 repeat함수가 있을 경우 아래처럼 한 줄로 축약 가능합니다. */</li>
-						<li class="indent">grid-template: <i class="t_darkblue">repeat(2, [row-start] 200px [row-end]) / repeat(3, [col-start] 100px [col-end])</i>;</li>
-						<li>}</li>
+						<li>/* 한글을 사용하는 경우 word-break: keep-all;를 설정하면 정상적으로 동작합니다. */</li>
+						<li>&lt;div class=&quot;container&quot;&gt;</li>
+						<li class="indent">&lt;div class=&quot;item&quot;&gt;<i class="t_888">내용의 최소 크기</i>&lt;/div&gt;</li>
+						<li class="indent">&lt;!-- ... --&gt;</li>
+						<li>&lt;/div&gt;</li>
 					</ul>
 				</div>
 			</section>
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[한글을 사용하는 경우 word-break: keep-all;를 설정]</figcaption>
+				<img src="/ukncs/images/css/grid_min-content.png" alt="한글을 사용하는 경우 word-break: keep-all;를 설정" class="mt_m max-w800">
+			</figure>
+		</article>
 
+		<!-- max-content -->
+		<article class="mt_l indent">
+			<h3 class="ml_mn t_blue">max-content</h3>
+			<p class="mt_s">
+				그리드 아이템이 포함하는 내용(Contents)의 최대 크기를 의미합니다.
+			</p>
 			<section class="indent mt_m">
-				<h4 class="ml_mn">12컬럼 그리드 코드 예제</h4>
+				<h4 class="ml_mn">코드 예제</h4>
 				<div class="line_code_box line_code_number mt_ms">
 					<ul>
 						<li>.container {</li>
 						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr</i>;</li>
-						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(6, 1fr 2fr)</i>;</li>
+						<li class="indent">grid-template-columns: max-content 1fr;</li>
+						<li>}</li>
+						<li></li>
+						<li>/*</li>
+						<li class="indent t_999">그리드 함수들과 같이 더 유용하게 활용할 수 있습니다.</li>
+						<li class="indent t_999">다음 예제는 총 4컬럼 그리드를 생성하며 각 열(Track)은 최대 1fr 크기를 가지지만,</li>
+						<li class="indent t_999">max-content를 통해 포함된 그리드 아이템의 내용보다 작아질 수 없습니다.</li>
+						<li>*/</li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: repeat(4, minmax(max-content, 1fr));</li>
 						<li>}</li>
 					</ul>
 				</div>
 			</section>
-
 			<figure class="img_figure mt_ml">
-				<figcaption class="mt_0">[repeat function]</figcaption>
-				<img src="/ukncs/images/css/grid_repeat-function.png" alt="repeat function" class="mt_m max-w550">
+				<figcaption class="mt_0">[min-content / max-content]</figcaption>
+				<img src="/ukncs/images/css/grid_minmax-content.png" alt="min-content / max-content" class="mt_m max-w800">
 			</figure>
 		</article>
-		-->
+
+		<!-- auto-fill, auto-fit -->
+		<article class="mt_l indent">
+			<h3 class="ml_mn t_blue">auto-fill, auto-fit</h3>
+			<p class="mt_s">
+				아이템의 갯수를 알 수 없을 때 <code>auto-fit</code>, <code>auto-fill</code>을 사용합니다.<br>
+				즉, 트랙에 값을 정확히 알 수 없을 때 해당 값들을 넣어주면 됩니다.<br>
+				행/열(Track)의 개수를 그리드 컨테이너(Container) 및 행/열 크기에 맞게 자동으로(암시적) 조정합니다.<br>
+				<code>repeat()</code> 함수와 같이 사용하며, 행/열과 아이템(Item) 개수가 명확할 필요가 없거나 명확하지 않은 경우 유용합니다.(반응형 그리드)<br>
+				<code>auto-fill</code>과 <code>auto-fit</code>은 간단한 차이점을 제외하면 동일하게 동작합니다.
+			</p>
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>/*</li>
+						<li class="indent t_999">다음 4컬럼 그리드 예제에서 컨테이너의 크기가 아이템들을 수용하기 충분하지 않은 경우 아이템은 넘치기 시작합니다.</li>
+						<li class="indent t_999">(아이템의 최소 크기가 120px입니다.)</li>
+						<li>*/</li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: repeat(4, minmax(120px, 1fr));</li>
+						<li>}</li>
+						<li></li>
+						<li>/*</li>
+						<li class="indent t_999">만약 4컬럼 그리드를 고집할 필요가 없다면,</li>
+						<li class="indent t_999">다음과 같이 '반복횟수'(repeat() 함수의 첫 번째 인수)를 auto-fill이나 auto-fit으로 수정할 수 있습니다.</li>
+						<li class="indent t_999">이는 컨테이너의 크기가 아이템들을 수용하기 충분하지 않을 경우</li>
+						<li class="indent t_999">아이템을 자동으로 줄 바꿈 처리하며, 그에 맞게 암시적 행/열도 자동으로 수정합니다.</li>
+						<li>*/</li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));</li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[auto-fill과 auto-fit]</figcaption>
+				<img src="/ukncs/images/css/grid_auto-fill-fit.png" alt="auto-fill과 auto-fit" class="mt_m max-w700">
+			</figure>
+		</article>
+
+		<!-- auto-fill과 auto-fit의 차이 -->
+		<article class="mt_l indent">
+			<h3 class="ml_mn t_blue">auto-fill과 auto-fit의 차이</h3>
+			<p class="mt_s">
+				<code>auto-fill</code>과 <code>auto-fit</code>은 차이점은 그리드 컨테이너가 하나의 행/열(Track)에 모든 아이템을 수용하고 남는 공간이 있을 때 발생합니다.<br>
+				<code>auto-fill</code>은 남는 공간(빈 트랙)을 그대로 유지하고, <code>auto-fit</code>은 남는 공간을 축소합니다.
+			</p>
+			<section class="indent mt_m">
+				<h4 class="ml_mn">자동 채우기(auto-fill)</h4>
+				<p class="mt_s">
+					채움(fill)은 반복 횟수 주어질 경우, 크기 또는 최소, 최대 크기 만큼 계산하여 처리하지만 정해진 수 이상은 처리하지 않습니다.
+				</p>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: repeat(auto-fill, 1fr 2fr);</li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
+			<section class="indent mt_m">
+				<h4 class="ml_mn">자동 채우기(auto-fit)</h4>
+				<p class="mt_s">
+					맞춤(fit)은 채움과 유사하게 작동하지만, 그리드 내부에 빈 트랙이 존재할 경우 반복 횟수만큼 반복된 트랙을 빈 트랙 공간을 나눠 핏팅(fitting)합니다.
+				</p>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-rows: repeat(auto-fit, minmax(80px, auto));</li>
+						<li>}</li>
+					</ul>
+				</div>
+			</section>
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[auto-fill과 auto-fit 비교]</figcaption>
+				<img src="/ukncs/images/css/grid_auto-fill-3.jpg" alt="auto-fill과 auto-fit 비교" class="mt_m max-w850">
+			</figure>
+		</article>
 	</section>
 
 
-
-	<br><br><br><br><br><br><br><br><br>
 	<aside class="browser_support mt_xxl" data-tit="grid">
 		<ul>
 			<li class="ie">10+ -ms-</li>
