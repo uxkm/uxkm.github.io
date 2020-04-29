@@ -566,1917 +566,1917 @@
 
 					<!-- 명시적, 암시적 -->
 					<div style="width:1px; height:1px; overflow:hidden;">
+						<h4 id="grid-exim">명시적 그리드(Explicit Grids)와 암시적 그리드(Implicit Grids)의 차이점</h4>
+						<section>
+							<dl>
+								<dt>명시적 그리드(Explicit Grids)</dt>
+								<dd>
+									<p>속성을 사용하여 격자를 형성하는 선 트랙의 고정 된 수를 정의할 수 있습니다.</p>
+									<p>grid-template-rows, grid-template-columns, grid-template-areas 으로 정의 된 그리드를 명시적 그리드 라고 합니다.</p>
+									<figure>
+										<figcaption>4 개의 수직 트랙 (열)과 2 개의 수평 트랙 (행)이있는 명시적 그리드</figcaption>
+										<img src="images/css/grid-explicit-grid.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout: The explicit grid&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+
+				.grid {
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr 1fr;
+					grid-template-rows: 100px 100px;
+					grid-gap: 20px;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;section class="grid"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+				&lt;div class="item"&gt;item3&lt;/div&gt;
+				&lt;div class="item"&gt;item4&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<figure>
+										<figcaption>반복 표기법으로 생성 된 100px 너비의 세로 트랙 4 개가 포함 된 명시적 그리드</figcaption>
+										<img src="images/css/grid-explicit-grid-auto-fitting.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout Auto-fitting&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				body {
+					padding: 20px;
+				}
+
+				html, body {
+					height: 100%;
+				}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+
+				.grid {
+					display: grid;
+					grid-gap: 20px;
+				}
+
+				.grid1 {
+					grid-template-columns: repeat(4, 100px);
+				}
+				/*
+					반복 표기법은 매우 유용하지만 더 자동화 할 수 있습니다. 고정 된 반복 횟수를 설정하는 대신 auto-fill및 auto-fit키워드를 사용할 수 있습니다.
+				 */
+
+				.grid2 {
+					display: none;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;section class="grid grid1"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+				&lt;div class="item"&gt;item3&lt;/div&gt;
+				&lt;div class="item"&gt;item4&lt;/div&gt;
+			&lt;/section&gt;
+
+			&lt;section class="grid grid2"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+				&lt;div class="item"&gt;item3&lt;/div&gt;
+				&lt;div class="item"&gt;item4&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<figure>
+										<figcaption>그리드 컨테이너에 맞게 너비가 100px 인 수직 트랙을 반복</figcaption>
+										<img src="images/css/grid-explicit-grid-auto-fill.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout: auto-fill&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				body {
+					padding: 20px;
+				}
+
+				html, body {
+					height: 100%;
+				}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+
+				.grid {
+					display: grid;
+					grid-template-columns: repeat(auto-fill, 100px);
+					grid-gap: 20px;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;section class="grid"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+				&lt;div class="item"&gt;item3&lt;/div&gt;
+				&lt;div class="item"&gt;item4&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<figure>
+										<figcaption>auto-fit 키워드를 사용한 반복 표기법은 그리드 컨테이너에 필요한만큼 많은 트랙을 만듬</figcaption>
+										<img src="images/css/grid-explicit-grid-auto-fit.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout: auto-fit&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				body {
+					padding: 20px;
+				}
+
+				html, body {
+					height: 100%;
+				}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+
+				.grid {
+					display: grid;
+					grid-template-columns: repeat(auto-fit, 100px);
+					grid-gap: 20px;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;section class="grid"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+				&lt;div class="item"&gt;item3&lt;/div&gt;
+				&lt;div class="item"&gt;item4&lt;/div&gt;
+				&lt;div class="item"&gt;item5&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<figure>
+										<figcaption>세로 트랙보다 많은 항목이 있으면 더 많은 행이 추가</figcaption>
+										<img src="images/css/grid-explicit-grid-rows.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout implicit rows&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				body {
+					padding: 20px;
+				}
+
+				html, body {
+					height: 100%;
+				}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+
+				.grid {
+					display: grid;
+					grid-template-columns: repeat(4, 100px);
+					grid-gap: 20px;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;section class="grid"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+				&lt;div class="item"&gt;item3&lt;/div&gt;
+				&lt;div class="item"&gt;item4&lt;/div&gt;
+				&lt;div class="item"&gt;item5&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<figure>
+										<figcaption>두 축에서 auto-fill 키워드를 사용한 반복 표기법</figcaption>
+										<img src="images/css/grid-explicit-grid-auto-fill-both.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout: auto-fill on both axes&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				body {
+					padding: 20px;
+				}
+
+				html, body {
+					height: 100%;
+				}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+
+				.grid {
+					display: grid;
+					grid-template-columns: repeat(auto-fill, 100px);
+					grid-template-rows: repeat(auto-fill, 100px);
+					grid-gap: 20px;
+					height: 100%;
+				}
+
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;section class="grid"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+				&lt;div class="item"&gt;item3&lt;/div&gt;
+				&lt;div class="item"&gt;item4&lt;/div&gt;
+				&lt;div class="item"&gt;item5&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+								</dd>
+								<dt>암시적 그리드(Implicit Grids)</dt>
+								<dd>
+									<p>그리드에 셀보다 많은 그리드 항목이 있거나 그리드 항목이 명시적 그리드 외부에 배치 될 때 그리드 컨테이너는 그리드에 그리드 선을 추가하여 그리드 트랙을 자동으로 생성합니다.</p>
+									<p>이러한 추가 암시적 트랙 및 선과 함께 명시적 그리드는 소위 암시적 그리드를 형성합니다.</p>
+									<p>암시적 트랙은 명시적 그리드의 끝에 추가 될 수 없습니다. 명시적 그리드를 시작으로 확장해야 합니다.</p>
+									<figure>
+										<figcaption>암시적 선 및 트랙을 생성하는 명시적 그리드 외부에 배치 된 두 개의 항목</figcaption>
+										<img src="images/css/grid-implicit-grids.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout: implicit tracks&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+
+				.grid {
+					display: grid;
+					grid-template-columns: repeat(4, 1fr);
+					grid-template-rows: 100px 100px;
+					grid-gap: 20px;
+					max-width: 800px;
+				}
+
+				.item:first-child {
+					grid-column-start: -1;
+				}
+
+				.item:nth-child(2) {
+					grid-row-start: 4;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;section class="grid"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<figure>
+										<figcaption>암시적 트랙의 고정 너비 및 높이</figcaption>
+										<img src="images/css/grid-implicit-grids-tracks.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout: Sizing implicit tracks&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+
+				.grid {
+					display: grid;
+					grid-template-columns: repeat(4, 1fr);
+					grid-template-rows: 100px 100px;
+					grid-gap: 20px;
+
+					grid-auto-columns: 200px;
+					grid-auto-rows: 60px;
+					max-width: 800px;
+
+					/* minmax()표기법을 사용하여 범위를 지정하여 크기가 지정된 암시적 트랙을보다 유연하게 만들 수 있습니다.
+						grid-auto-columns: minmax(200px, auto);
+						grid-auto-rows: minmax(60px, auto);
+					*/
+
+				}
+
+				.item:first-child {
+					grid-column-start: -1;
+				}
+
+				.item:nth-child(2) {
+					grid-row-start: 4;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;section class="grid"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<figure>
+										<figcaption>한 행과 한 열씩 시작으로 확장 된 암시적 그리드</figcaption>
+										<img src="images/css/grid-implicit-grids2.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout: Sizing implicit tracks&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+
+				.grid {
+					display: grid;
+					grid-template-columns: repeat(4, 1fr);
+					grid-template-rows: 100px 100px;
+					grid-auto-columns: 200px;
+					grid-auto-rows: 60px;
+					grid-gap: 20px;
+					max-width: 800px;
+				}
+
+
+				.item:first-child {
+					grid-row-end: 2;
+					grid-row-start: span 2;
+				}
+
+				.item:nth-child(2) {
+					grid-column-end: 2;
+					grid-column-start: span 2;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;section class="grid"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<figure>
+										<figcaption>항목 수가 셀 수를 초과하면 행 대신 새 열이 추가</figcaption>
+										<img src="images/css/grid-implicit-grids-auto-flow.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout: grid-auto-flow&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				body {
+					padding: 20px;
+				}
+
+				h2 {
+					margin-bottom: 1em;
+				}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+
+				.grid {
+					display: grid;
+					grid-template-columns: repeat(4, 1fr);
+					grid-template-rows: 100px 100px;
+					grid-gap: 20px;
+				}
+
+				.grid2 {
+					grid-auto-flow: column;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;h2&gt;&lt;code&gt;grid-auto-flow: row;&lt;/code&gt;&lt;/h2&gt;
+			&lt;p&gt; The auto-placement algorithm places items by filling each row in turn&lt;/p&gt;
+			&lt;section class="grid"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+				&lt;div class="item"&gt;item3&lt;/div&gt;
+				&lt;div class="item"&gt;item4&lt;/div&gt;
+				&lt;div class="item"&gt;item5&lt;/div&gt;
+				&lt;div class="item"&gt;item6&lt;/div&gt;
+			&lt;/section&gt;
+
+			&lt;h2&gt;&lt;code&gt;grid-auto-flow: column;&lt;/code&gt;&lt;/h2&gt;
+			&lt;p&gt; The auto-placement algorithm places items by filling each column in turn&lt;/p&gt;
+			&lt;section class="grid grid2"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+				&lt;div class="item"&gt;item3&lt;/div&gt;
+				&lt;div class="item"&gt;item4&lt;/div&gt;
+				&lt;div class="item"&gt;item5&lt;/div&gt;
+				&lt;div class="item"&gt;item6&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+									<figure>
+										<figcaption>명시적인 선과 트랙이없는 암시적 그리드</figcaption>
+										<img src="images/css/grid-implicit-grids-only.png" alt="">
+									</figure>
+	<pre><code>
+	&lt;!DOCTYPE html&gt;
+	&lt;html lang="ko"&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+			&lt;title&gt;UXKM CSS3 Grid Layout Implicit grid only&lt;/title&gt;
+			&lt;style&gt;
+				*{margin:0;padding:0;box-sizing:border-box;}
+				.item, .grid-item {
+					padding: 10px;
+					border: none;
+					border-radius: 5px;
+					background-color: #D73B38;
+					color: #ffffff;
+				}
+				body {
+					padding: 20px;
+				}
+
+				.grid {
+					display: grid;
+					grid-auto-columns: minmax(60px, 200px);
+					grid-auto-rows: 60px;
+					grid-gap: 20px;
+				}
+
+				.item:first-child {
+					grid-row-end: span 2;
+				}
+
+				.item:nth-child(2) {
+					grid-column: 1 / span 2;
+				}
+
+				.item:nth-child(5) {
+					grid-column: 3;
+				}
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;section class="grid"&gt;
+				&lt;div class="item"&gt;item1&lt;/div&gt;
+				&lt;div class="item"&gt;item2&lt;/div&gt;
+				&lt;div class="item"&gt;item3&lt;/div&gt;
+				&lt;div class="item"&gt;item4&lt;/div&gt;
+				&lt;div class="item"&gt;item5&lt;/div&gt;
+			&lt;/section&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+	</code></pre>
+								</dd>
+							</dl>
+						</section>
 					</div>
-					<h4 id="grid-exim">명시적 그리드(Explicit Grids)와 암시적 그리드(Implicit Grids)의 차이점</h4>
-					<section>
-						<dl>
-							<dt>명시적 그리드(Explicit Grids)</dt>
-							<dd>
-								<p>속성을 사용하여 격자를 형성하는 선 트랙의 고정 된 수를 정의할 수 있습니다.</p>
-								<p>grid-template-rows, grid-template-columns, grid-template-areas 으로 정의 된 그리드를 명시적 그리드 라고 합니다.</p>
-								<figure>
-									<figcaption>4 개의 수직 트랙 (열)과 2 개의 수평 트랙 (행)이있는 명시적 그리드</figcaption>
-									<img src="images/css/grid-explicit-grid.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout: The explicit grid&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-
-			.grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr;
-				grid-template-rows: 100px 100px;
-				grid-gap: 20px;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;section class="grid"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-			&lt;div class="item"&gt;item3&lt;/div&gt;
-			&lt;div class="item"&gt;item4&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<figure>
-									<figcaption>반복 표기법으로 생성 된 100px 너비의 세로 트랙 4 개가 포함 된 명시적 그리드</figcaption>
-									<img src="images/css/grid-explicit-grid-auto-fitting.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout Auto-fitting&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			body {
-				padding: 20px;
-			}
-
-			html, body {
-				height: 100%;
-			}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-
-			.grid {
-				display: grid;
-				grid-gap: 20px;
-			}
-
-			.grid1 {
-				grid-template-columns: repeat(4, 100px);
-			}
-			/*
-				반복 표기법은 매우 유용하지만 더 자동화 할 수 있습니다. 고정 된 반복 횟수를 설정하는 대신 auto-fill및 auto-fit키워드를 사용할 수 있습니다.
-			 */
-
-			.grid2 {
-				display: none;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;section class="grid grid1"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-			&lt;div class="item"&gt;item3&lt;/div&gt;
-			&lt;div class="item"&gt;item4&lt;/div&gt;
-		&lt;/section&gt;
-
-		&lt;section class="grid grid2"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-			&lt;div class="item"&gt;item3&lt;/div&gt;
-			&lt;div class="item"&gt;item4&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<figure>
-									<figcaption>그리드 컨테이너에 맞게 너비가 100px 인 수직 트랙을 반복</figcaption>
-									<img src="images/css/grid-explicit-grid-auto-fill.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout: auto-fill&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			body {
-				padding: 20px;
-			}
-
-			html, body {
-				height: 100%;
-			}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, 100px);
-				grid-gap: 20px;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;section class="grid"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-			&lt;div class="item"&gt;item3&lt;/div&gt;
-			&lt;div class="item"&gt;item4&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<figure>
-									<figcaption>auto-fit 키워드를 사용한 반복 표기법은 그리드 컨테이너에 필요한만큼 많은 트랙을 만듬</figcaption>
-									<img src="images/css/grid-explicit-grid-auto-fit.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout: auto-fit&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			body {
-				padding: 20px;
-			}
-
-			html, body {
-				height: 100%;
-			}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, 100px);
-				grid-gap: 20px;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;section class="grid"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-			&lt;div class="item"&gt;item3&lt;/div&gt;
-			&lt;div class="item"&gt;item4&lt;/div&gt;
-			&lt;div class="item"&gt;item5&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<figure>
-									<figcaption>세로 트랙보다 많은 항목이 있으면 더 많은 행이 추가</figcaption>
-									<img src="images/css/grid-explicit-grid-rows.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout implicit rows&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			body {
-				padding: 20px;
-			}
-
-			html, body {
-				height: 100%;
-			}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(4, 100px);
-				grid-gap: 20px;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;section class="grid"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-			&lt;div class="item"&gt;item3&lt;/div&gt;
-			&lt;div class="item"&gt;item4&lt;/div&gt;
-			&lt;div class="item"&gt;item5&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<figure>
-									<figcaption>두 축에서 auto-fill 키워드를 사용한 반복 표기법</figcaption>
-									<img src="images/css/grid-explicit-grid-auto-fill-both.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout: auto-fill on both axes&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			body {
-				padding: 20px;
-			}
-
-			html, body {
-				height: 100%;
-			}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, 100px);
-				grid-template-rows: repeat(auto-fill, 100px);
-				grid-gap: 20px;
-				height: 100%;
-			}
-
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;section class="grid"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-			&lt;div class="item"&gt;item3&lt;/div&gt;
-			&lt;div class="item"&gt;item4&lt;/div&gt;
-			&lt;div class="item"&gt;item5&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-							</dd>
-							<dt>암시적 그리드(Implicit Grids)</dt>
-							<dd>
-								<p>그리드에 셀보다 많은 그리드 항목이 있거나 그리드 항목이 명시적 그리드 외부에 배치 될 때 그리드 컨테이너는 그리드에 그리드 선을 추가하여 그리드 트랙을 자동으로 생성합니다.</p>
-								<p>이러한 추가 암시적 트랙 및 선과 함께 명시적 그리드는 소위 암시적 그리드를 형성합니다.</p>
-								<p>암시적 트랙은 명시적 그리드의 끝에 추가 될 수 없습니다. 명시적 그리드를 시작으로 확장해야 합니다.</p>
-								<figure>
-									<figcaption>암시적 선 및 트랙을 생성하는 명시적 그리드 외부에 배치 된 두 개의 항목</figcaption>
-									<img src="images/css/grid-implicit-grids.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout: implicit tracks&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				grid-template-rows: 100px 100px;
-				grid-gap: 20px;
-				max-width: 800px;
-			}
-
-			.item:first-child {
-				grid-column-start: -1;
-			}
-
-			.item:nth-child(2) {
-				grid-row-start: 4;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;section class="grid"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<figure>
-									<figcaption>암시적 트랙의 고정 너비 및 높이</figcaption>
-									<img src="images/css/grid-implicit-grids-tracks.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout: Sizing implicit tracks&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				grid-template-rows: 100px 100px;
-				grid-gap: 20px;
-
-				grid-auto-columns: 200px;
-				grid-auto-rows: 60px;
-				max-width: 800px;
-
-				/* minmax()표기법을 사용하여 범위를 지정하여 크기가 지정된 암시적 트랙을보다 유연하게 만들 수 있습니다.
-					grid-auto-columns: minmax(200px, auto);
-					grid-auto-rows: minmax(60px, auto);
-				*/
-
-			}
-
-			.item:first-child {
-				grid-column-start: -1;
-			}
-
-			.item:nth-child(2) {
-				grid-row-start: 4;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;section class="grid"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<figure>
-									<figcaption>한 행과 한 열씩 시작으로 확장 된 암시적 그리드</figcaption>
-									<img src="images/css/grid-implicit-grids2.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout: Sizing implicit tracks&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				grid-template-rows: 100px 100px;
-				grid-auto-columns: 200px;
-				grid-auto-rows: 60px;
-				grid-gap: 20px;
-				max-width: 800px;
-			}
-
-
-			.item:first-child {
-				grid-row-end: 2;
-				grid-row-start: span 2;
-			}
-
-			.item:nth-child(2) {
-				grid-column-end: 2;
-				grid-column-start: span 2;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;section class="grid"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<figure>
-									<figcaption>항목 수가 셀 수를 초과하면 행 대신 새 열이 추가</figcaption>
-									<img src="images/css/grid-implicit-grids-auto-flow.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout: grid-auto-flow&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			body {
-				padding: 20px;
-			}
-
-			h2 {
-				margin-bottom: 1em;
-			}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				grid-template-rows: 100px 100px;
-				grid-gap: 20px;
-			}
-
-			.grid2 {
-				grid-auto-flow: column;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h2&gt;&lt;code&gt;grid-auto-flow: row;&lt;/code&gt;&lt;/h2&gt;
-		&lt;p&gt; The auto-placement algorithm places items by filling each row in turn&lt;/p&gt;
-		&lt;section class="grid"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-			&lt;div class="item"&gt;item3&lt;/div&gt;
-			&lt;div class="item"&gt;item4&lt;/div&gt;
-			&lt;div class="item"&gt;item5&lt;/div&gt;
-			&lt;div class="item"&gt;item6&lt;/div&gt;
-		&lt;/section&gt;
-
-		&lt;h2&gt;&lt;code&gt;grid-auto-flow: column;&lt;/code&gt;&lt;/h2&gt;
-		&lt;p&gt; The auto-placement algorithm places items by filling each column in turn&lt;/p&gt;
-		&lt;section class="grid grid2"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-			&lt;div class="item"&gt;item3&lt;/div&gt;
-			&lt;div class="item"&gt;item4&lt;/div&gt;
-			&lt;div class="item"&gt;item5&lt;/div&gt;
-			&lt;div class="item"&gt;item6&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-								<figure>
-									<figcaption>명시적인 선과 트랙이없는 암시적 그리드</figcaption>
-									<img src="images/css/grid-implicit-grids-only.png" alt="">
-								</figure>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ko"&gt;
-	&lt;head&gt;
-		&lt;meta charset="UTF-8"&gt;
-		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-		&lt;title&gt;UXKM CSS3 Grid Layout Implicit grid only&lt;/title&gt;
-		&lt;style&gt;
-			*{margin:0;padding:0;box-sizing:border-box;}
-			.item, .grid-item {
-				padding: 10px;
-				border: none;
-				border-radius: 5px;
-				background-color: #D73B38;
-				color: #ffffff;
-			}
-			body {
-				padding: 20px;
-			}
-
-			.grid {
-				display: grid;
-				grid-auto-columns: minmax(60px, 200px);
-				grid-auto-rows: 60px;
-				grid-gap: 20px;
-			}
-
-			.item:first-child {
-				grid-row-end: span 2;
-			}
-
-			.item:nth-child(2) {
-				grid-column: 1 / span 2;
-			}
-
-			.item:nth-child(5) {
-				grid-column: 3;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;section class="grid"&gt;
-			&lt;div class="item"&gt;item1&lt;/div&gt;
-			&lt;div class="item"&gt;item2&lt;/div&gt;
-			&lt;div class="item"&gt;item3&lt;/div&gt;
-			&lt;div class="item"&gt;item4&lt;/div&gt;
-			&lt;div class="item"&gt;item5&lt;/div&gt;
-		&lt;/section&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-							</dd>
-						</dl>
-					</section>
 
 
 
 					<!-- 부모 속성 -->
 					<div style="width:1px; height:1px; overflow:hidden;">
-						<h4 id="grid-parent-properties">부모 속성(Properties for the Parent - Grid Container)</h4>
-						<section>
-							<h5 id="grid-container">Grid 컨테이너</h5>
-							<section class="ukgroup">
-								<p>그리드 컨테이너는 display 속성을 사용해 설정할 수 있습니다.</p>
-								<p>설정 값에 따라 블록(Block) 그리드와 인라인(Inline) 그리드로 설정됩니다. 그리드 컨테이너 요소를 블록 또는 인라인 요소처럼 처리합니다.</p>
-								<dl>
-									<dt>display</dt>
-									<dd>
-										<p>그리드 컨테이너(Container)를 정의</p>
-										<p>정의된 컨테이너의 자식 요소들은 자동으로 Grid Items(아이템)로 정의됩니다.</p>
-										<p>그리드를 사용하기 위해 컨테이너에 필수로 작성합니다.</p>
-										<p>display : grid | inline-grid</p>
+					</div>
+					<h4 id="grid-parent-properties">부모 속성(Properties for the Parent - Grid Container)</h4>
+					<section>
+						<h5 id="grid-container">Grid 컨테이너</h5>
+						<section class="ukgroup">
+							<p>그리드 컨테이너는 display 속성을 사용해 설정할 수 있습니다.</p>
+							<p>설정 값에 따라 블록(Block) 그리드와 인라인(Inline) 그리드로 설정됩니다. 그리드 컨테이너 요소를 블록 또는 인라인 요소처럼 처리합니다.</p>
+							<dl>
+								<dt>display</dt>
+								<dd>
+									<p>그리드 컨테이너(Container)를 정의</p>
+									<p>정의된 컨테이너의 자식 요소들은 자동으로 Grid Items(아이템)로 정의됩니다.</p>
+									<p>그리드를 사용하기 위해 컨테이너에 필수로 작성합니다.</p>
+									<p>display : grid | inline-grid</p>
+									<ul>
+										<li>grid : Block 특성의 Grid Container를 정의</li>
+										<li>inline-grid : Inline 특성의 Grid Container를 정의</li>
+									</ul>
+									<p>참고 : 중첩 요소 (일명 하위 그리드)를 통해 그리드 매개 변수를 전달하는 기능 이 <a href="https://www.w3.org/TR/css-grid-2/#subgrids" target="_blank" title="새 창 열림"></a>CSS 그리드 사양의 레벨 2 로 이동되었습니다</p>
+<pre><code>
+.container {
+	display: grid;
+}
+</code></pre>
+									<figure>
+										<figcaption>display:grid</figcaption>
+										<img src="images/css/grid_display-grid.png" alt="">
+									</figure>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
 										<ul>
-											<li>grid : Block 특성의 Grid Container를 정의</li>
-											<li>inline-grid : Inline 특성의 Grid Container를 정의</li>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
 										</ul>
-										<p>참고 : 중첩 요소 (일명 하위 그리드)를 통해 그리드 매개 변수를 전달하는 기능 이 <a href="https://www.w3.org/TR/css-grid-2/#subgrids" target="_blank" title="새 창 열림"></a>CSS 그리드 사양의 레벨 2 로 이동되었습니다</p>
-	<pre><code>
-	.container {
-		display: grid;
-	}
-	</code></pre>
-										<figure>
-											<figcaption>display:grid</figcaption>
-											<img src="images/css/grid_display-grid.png" alt="">
-										</figure>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-								</dl>
-							</section>
+									</aside>
+								</dd>
+							</dl>
+						</section>
 
 
-							<hr title="Separator for Contents">
+						<hr title="Separator for Contents">
 
 
-							<h5 id="grid-template-colrow">Grid 템플릿 행/열</h5>
-							<section class="ukgroup">
-								<p>공백으로 구분된 값 리스트를 해석하여 그리드 행(Row), 열(Column)을 설정합니다. 각 값은 트랙 크기를 말합니다.</p>
-								<dl>
-									<dt>grid-template-columns / grid-template-rows</dt>
-									<dd>
-										<p>명시적(Explicit Grids) 열(Track) / 행(Track)의 크기를 정의</p>
-										<p>동시에 라인(Line)의 이름도 정의할 수 있습니다.</p>
-										<p>fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.</p>
-										<p>repeat() 함수를 사용할 수 있습니다.</p>
-										<p>공백으로 구분 된 값 목록으로 그리드의 열 / 행을 정의합니다. 값은 트랙 크기를 나타내며 그 사이의 공간은 그리드 선을 나타냅니다.</p>
-										<p>grid-template-rows : &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;</p>
-										<ul>
-											<li>&lt;track-size&gt; : 그리드에서 사용 가능한 공간의 길이 (px, rem, em, %, fr 등)</li>
-											<li>&lt;line-name&gt; : 사용자가 설정한 임의의 선 이름</li>
-										</ul>
-	<pre><code>
-	/* Keyword value */
-	grid-template-columns: none;
-	grid-template-rows: none;
+						<h5 id="grid-template-colrow">Grid 템플릿 행/열</h5>
+						<section class="ukgroup">
+							<p>공백으로 구분된 값 리스트를 해석하여 그리드 행(Row), 열(Column)을 설정합니다. 각 값은 트랙 크기를 말합니다.</p>
+							<dl>
+								<dt>grid-template-columns / grid-template-rows</dt>
+								<dd>
+									<p>명시적(Explicit Grids) 열(Track) / 행(Track)의 크기를 정의</p>
+									<p>동시에 라인(Line)의 이름도 정의할 수 있습니다.</p>
+									<p>fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.</p>
+									<p>repeat() 함수를 사용할 수 있습니다.</p>
+									<p>공백으로 구분 된 값 목록으로 그리드의 열 / 행을 정의합니다. 값은 트랙 크기를 나타내며 그 사이의 공간은 그리드 선을 나타냅니다.</p>
+									<p>grid-template-rows : &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;</p>
+									<ul>
+										<li>&lt;track-size&gt; : 그리드에서 사용 가능한 공간의 길이 (px, rem, em, %, fr 등)</li>
+										<li>&lt;line-name&gt; : 사용자가 설정한 임의의 선 이름</li>
+									</ul>
+<pre><code>
+/* Keyword value */
+grid-template-columns: none;
+grid-template-rows: none;
 
-	/* &lt;track-list&gt; values */
-	grid-template-columns: 100px 1fr;
-	grid-template-columns: [linename] 100px;
-	grid-template-columns: [linename1] 100px [linename2 linename3];
-	grid-template-columns: minmax(100px, 1fr);
-	grid-template-columns: fit-content(40%);
-	grid-template-columns: repeat(3, 200px);
-	grid-template-columns: subgrid;
+/* &lt;track-list&gt; values */
+grid-template-columns: 100px 1fr;
+grid-template-columns: [linename] 100px;
+grid-template-columns: [linename1] 100px [linename2 linename3];
+grid-template-columns: minmax(100px, 1fr);
+grid-template-columns: fit-content(40%);
+grid-template-columns: repeat(3, 200px);
+grid-template-columns: subgrid;
 
-	grid-template-rows: 100px 1fr;
-	grid-template-rows: [linename] 100px;
-	grid-template-rows: [linename1] 100px [linename2 linename3];
-	grid-template-rows: minmax(100px, 1fr);
-	grid-template-rows: fit-content(40%);
-	grid-template-rows: repeat(3, 200px);
-	grid-template-rows: subgrid;
+grid-template-rows: 100px 1fr;
+grid-template-rows: [linename] 100px;
+grid-template-rows: [linename1] 100px [linename2 linename3];
+grid-template-rows: minmax(100px, 1fr);
+grid-template-rows: fit-content(40%);
+grid-template-rows: repeat(3, 200px);
+grid-template-rows: subgrid;
 
-	/* &lt;auto-track-list&gt; values */
-	grid-template-columns: 200px repeat(auto-fill, 100px) 300px;
-	grid-template-columns: minmax(100px, max-content)
-							repeat(auto-fill, 200px) 20%;
-	grid-template-columns: [linename1] 100px [linename2]
-							repeat(auto-fit, [linename3 linename4] 300px)
-							100px;
-	grid-template-columns: [linename1 linename2] 100px
-							repeat(auto-fit, [linename1] 300px) [linename3];
-
-	grid-template-rows: 200px repeat(auto-fill, 100px) 300px;
-	grid-template-rows: minmax(100px, max-content)
+/* &lt;auto-track-list&gt; values */
+grid-template-columns: 200px repeat(auto-fill, 100px) 300px;
+grid-template-columns: minmax(100px, max-content)
 						repeat(auto-fill, 200px) 20%;
-	grid-template-rows: [linename1] 100px [linename2]
+grid-template-columns: [linename1] 100px [linename2]
 						repeat(auto-fit, [linename3 linename4] 300px)
 						100px;
-	grid-template-rows: [linename1 linename2] 100px
+grid-template-columns: [linename1 linename2] 100px
 						repeat(auto-fit, [linename1] 300px) [linename3];
 
-	/* Global values */
-	grid-template-columns: inherit;
-	grid-template-columns: initial;
-	grid-template-columns: unset;
+grid-template-rows: 200px repeat(auto-fill, 100px) 300px;
+grid-template-rows: minmax(100px, max-content)
+					repeat(auto-fill, 200px) 20%;
+grid-template-rows: [linename1] 100px [linename2]
+					repeat(auto-fit, [linename3 linename4] 300px)
+					100px;
+grid-template-rows: [linename1 linename2] 100px
+					repeat(auto-fit, [linename1] 300px) [linename3];
 
-	grid-template-rows: inherit;
-	grid-template-rows: initial;
-	grid-template-rows: unset;
-	</code></pre>
-										<figure>
-											<figcaption>트랙 값 사이에 빈 공간을 두면 그리드 선에 양수와 음수가 자동으로 할당</figcaption>
-											<img src="images/css/grid_template-columns-rows-01.svg" alt="">
-										</figure>
-										<figure>
-											<figcaption>명시적으로 줄 이름을 지정</figcaption>
-											<img src="images/css/grid_template-column-rows-02.svg" alt="">
-										</figure>
-										<figure>
-											<figcaption><code>grid-template-columns: [first] 400px [main] 200px [side] 100px [last];</code></figcaption>
-											<img src="images/css/grid-definition.svg" alt="">
-										</figure>
-	<pre><code>
-	.container {
-		display: grid;
-		grid-template-columns: 1열크기 2열크기 ...;
-		grid-template-columns: [선이름] 1열크기 [선이름] 2열크기 [선이름] ...;
-	}
-	/* 선 이름 설정 */
-	/* 사용자가 임의로 설정한 선 이름([이름])을 사용할 수도 있습니다. */
-	.grid-container {
-		grid-template-rows:
-			[row-1-start] 25% [row-1-end] 100px [third-line] auto [last-line];
-		grid-template-columns:
-			[first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
-	}
+/* Global values */
+grid-template-columns: inherit;
+grid-template-columns: initial;
+grid-template-columns: unset;
 
-	/* 각 열의 크기를 정의합니다. */
-	.container {
-		grid-template-columns: 100px 200px;
-	}
-	/* 동시에 각 라인의 이름도 정의할 수 있습니다. */
-	.container {
-		grid-template-columns: [first] 100px [second] 200px [third];
-	}
-	/* 라인에 중복된 이름을 지정할 수 있습니다. */
-	.container {
-		grid-template-columns: [col1-start] 100px [col1-end col2-start] 200px [col2-end];
-	}
-	/* 선 이름을 1개 이상 설정하는 것도 가능합니다. 방법은 [이름-1 이름-2]와 같이 [] 내부에 공백으로 구분된 이름을 추가하면 됩니다. */
-	.grid-container {
-		grid-template-rows: [row-1] 100px [rows-1-end row-2-start] 30% [row-2-end];
-	}
-	/* 설정이 반복되는 경우, repeat() 함수를 사용하여 손쉽게 설정할 수 있습니다. */
-	.grid-container {
-		grid-template-rows: repeat(3, 80px [row-start]) 5%;
-		/* 결과: 80px [row-start] 80px [row-start] 80px [row-start] 5% */
-		grid-template-columns: repeat(2, 15% 30px) auto;
-		/* 결과: 15% 30px 15% 30px auto */
-	}
-	/* fr 단위를 사용하여 &lt;track-size&gt;를 그리드의 남은 공간 일부를 설정할 수 있습니다. */
-	.grid-container {
-		grid-template-columns: repeat(3, 1fr); /* 1fr 1fr 1fr */
-	}
-	/* fr 단위는 고정 값(px, rem 등) 단위가 먼저 계산된 후, 남은 공간을 사용하여 계산 처리됩니다. */
-	.grid-container {
-		grid-template-rows: 1fr 100px 2fr;
-	}
-
-
-
-
-	/* 만약 1200px 너비의 ‘12컬럼 그리드 템플릿’을 정의한다면 다음과 작성할 수 있습니다. */
-	.container {
-		width: 1200px;
-		grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
-	}
-
-	/*
-	12개의 열(컬럼) 크기를 하나씩 지정했습니다만, 이 방법은 당연히 입력도 관리가 어려움이 있으나
-	repeat() 함수를 사용하면 위 내용을 다음과 같이 간소화할 수 있습니다.
-	*/
-	.container {
-		width: 1200px;
-		grid-template-columns: repeat(12, 100px);
-	}
-
-	/*
-	컬럼을 크기를 fr(fraction, 공간 비율) 단위를 사용해 다음과 같이 비율로 지정할 수도 있습니다.
-	각 컬럼은 비율에 맞게 출력되기 때문에 컨테이너의 너비가 가변해도 열 크기를 수정할 필요가 없습니다.
-	*/
-	.container {
-		width: 80%;
-		grid-template-columns: repeat(12, 1fr);
-	}
-
-
-	/* repeat() 함수는 2번째 인수를 반복하기 때문에 다음과 같이 활용할 수 있습니다. */
-	.container {
-		grid-template-columns: repeat(4, 100px 200px 50px);
-		/* grid-template-columns: 100px 200px 50px 100px 200px 50px 100px 200px 50px 100px 200px 50px; */
-	}
-	.container {
-		grid-template-columns: repeat(4, 1fr 2fr 3fr);
-		/* grid-template-columns: 1fr 2fr 3fr 1fr 2fr 3fr 1fr 2fr 3fr 1fr 2fr 3fr; */
-	}
-
-	/* 트랙 값 사이에 빈 공간을두면 그리드 선에 양수와 음수가 자동으로 할당됩니다. 하단 이미지 참조 */
-	.container {
-		grid-template-columns: 40px 50px auto 50px 40px;
-		grid-template-rows: 25% 100px auto;
-	}
-
-	/* 명시적으로 줄 이름을 지정할 수 있습니다. 행 이름의 대괄호 구문에 유의 */
-	.container {
-		grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
-		grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
-	}
-	/* 라인은 하나 이상의 이름을 가질 수 있습니다. 예를 들어, 두 번째 줄의 이름은 row1-end와 row2-start입니다. */
-	.container {
-		grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];
-	}
-
-	/* 정의에 반복되는 부분이 포함 된 경우 repeat()표기법을 사용하여 작업을 간소화 할 수 있습니다 . */
-	.container {
-		grid-template-columns: repeat(3, 20px [col-start]);
-	}
-	/* 위의 예제와 아럐 예제는 동일합니다. */
-	.container {
-		grid-template-columns: 20px [col-start] 20px [col-start] 20px [col-start];
-	}
-
-	/* 여러 줄이 같은 이름을 공유하는 경우 해당 줄 이름과 개수로 참조 할 수 있습니다. */
-	.item {
-		grid-column-start: col-start 2;
-	}
-	/*
-	fr를 사용하면 트랙의 크기를 그리드 컨테이너의 여유 공간의 일부로 설정할 수 있습니다.
-	예를 들어, 이것은 각 항목을 그리드 컨테이너 너비의 1/3로 설정합니다.
-	*/
-	.container {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
-	</code></pre>
+grid-template-rows: inherit;
+grid-template-rows: initial;
+grid-template-rows: unset;
+</code></pre>
 									<figure>
-										<figcaption>grid-template-rows</figcaption>
-										<img src="images/css/grid-template-rows-1.png" alt="">
+										<figcaption>트랙 값 사이에 빈 공간을 두면 그리드 선에 양수와 음수가 자동으로 할당</figcaption>
+										<img src="images/css/grid_template-columns-rows-01.svg" alt="">
 									</figure>
-	<pre><code>
-	.container {
-		display: grid;
-		grid-template-rows: 1행크기 2행크기 ...;
-		grid-template-rows: [선이름] 1행크기 [선이름] 2행크기 [선이름] ...;
-	}
+									<figure>
+										<figcaption>명시적으로 줄 이름을 지정</figcaption>
+										<img src="images/css/grid_template-column-rows-02.svg" alt="">
+									</figure>
+									<figure>
+										<figcaption><code>grid-template-columns: [first] 400px [main] 200px [side] 100px [last];</code></figcaption>
+										<img src="images/css/grid-definition.svg" alt="">
+									</figure>
+<pre><code>
+.container {
+	display: grid;
+	grid-template-columns: 1열크기 2열크기 ...;
+	grid-template-columns: [선이름] 1열크기 [선이름] 2열크기 [선이름] ...;
+}
+/* 선 이름 설정 */
+/* 사용자가 임의로 설정한 선 이름([이름])을 사용할 수도 있습니다. */
+.grid-container {
+	grid-template-rows:
+		[row-1-start] 25% [row-1-end] 100px [third-line] auto [last-line];
+	grid-template-columns:
+		[first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+}
 
-	/* 각 행의 크기를 정의합니다. */
-	.container {
-		grid-template-rows: 100px 200px;
-	}
-	/* 동시에 각 라인의 이름도 정의할 수 있습니다. */
-	.container {
-		grid-template-rows: [first] 100px [second] 200px [third];
-	}
-	/* 라인에 중복된 이름을 지정할 수 있습니다. */
-	.container {
-		grid-template-rows: [row1-start] 100px [row1-end row2-start] 200px [row2-end];
-	}
-
-	/* 각 라인은 행(Row, Track)과 열(Column, Track)의 개수대로 숫자(양수/음수) 라인 이름이 자동으로 지정되어 있어서,
-	꼭 필요한 경우가 아니면 라인 이름을 정의할 필요가 없습니다. */
-	.container {
-		grid-template-rows: 100px 200px;
-		/* grid-template-rows: [1 -3] 100px [2 -2] 200px [3 -1]; */
-	}
-	.container {
-		width: 400px;
-		display: grid;
-		grid-template-rows: repeat(3, 100px);
-		grid-template-columns: repeat(3, 1fr);
-	}
-	</code></pre>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-								</dl>
-							</section>
-
-
-							<hr title="Separator for Contents">
-
-
-							<h5 id="grid-template-area">Grid 템플릿 영역</h5>
-							<section class="ukgroup">
-								<p>grid-area 속성으로 설정된 그리드 영역의 이름을 참조하여, 그리드 템플릿 영역을 설정할 수 있습니다.</p>
-								<p>그리드 영역 이름을 반복하면 그리드 셀을 병합(merge, span) 합니다. 그리고 마침표(.)는 비어있는 그리드 셀을 말합니다.</p>
-								<dl>
-									<dt>grid-template-areas</dt>
-									<dd>
-										<p>영역(Area) 이름을 참조해 템플릿 생성</p>
-										<p>grid-area 속성으로 설정된 그리드 영역의 이름을 참조하여, 그리드 템플릿 영역을 설정할 수 있습니다.</p>
-										<p>이름을 반복하면 그리드 셀을 병합(merge, span) 합니다. 그리고 마침표(.)는 비어있는 그리드 셀을 말합니다.</p>
-										<p>grid-template-areas : &lt;grid-area-name&gt; | . | none</p>
-										<ul>
-											<li>&lt;grid-area-name&gt; : 사용자가 grid-area 속성 값으로 설정한 임의의 그리드 영역 이름</li>
-											<li>마침표(.) : 비어있는 그리드 셀</li>
-											<li>none : 그리드 영역으로 정의되지 않은 셀</li>
-										</ul>
-	<pre><code>
-	/* Keyword value */
-	grid-template-areas: none;
-
-	/* &lt;string&gt; values */
-	grid-template-areas: "a b";
-	grid-template-areas: "a b b"
-						"a c d";
-
-	/* Global values */
-	grid-template-areas: inherit;
-	grid-template-areas: initial;
-	grid-template-areas: unset;
-	</code></pre>
-	<pre><code>
-	.container {
-		grid-template-areas:
-			"&lt;grid-area-name&gt; | . | none | ..."
-			"...";
-	}
-
-	/* 다음은 3행 4열 그리드 템플릿 영역 설정 Example: */
-	/* 그리드 영역 이름 설정 */
-	.item-a {
-		grid-area: header;
-	}
-	.item-b {
-		grid-area: main;
-	}
-	.item-c {
-		grid-area: sidebar;
-	}
-	.item-d {
-		grid-area: footer;
-	}
-
-	.container {
-		display: grid;
-		grid-template-columns: 50px 50px 50px 50px;
-		grid-template-rows: auto;
-
-		/*
-		그리드 템플릿 영역 설정
-		각 행은 동일한 개수의 열 설정이 요구됩니다.
-		*/
-		grid-template-areas:
-			"header header header header" /* 1행: 4열 모두 header                */
-			"main main . sidebar"          /* 2행: 2열 main 1열, 공백 1열, sidebar */
-			"footer footer footer footer"; /* 3행: 4열 모두 header                */
-	}
-
-	/*
-	그리드 템플릿 영역 설정은 그리드 라인 설정이 아니라, 영역을 설정하는 것입니다.
-	영역을 설정하면 그리드 라인 이름이 자동으로 설정됩니다.
-	grid-area로 설정된 이름을 사용하여 각 행/열의 시작은 -start, 끝은 -end로 이름이 설정됩니다.
-	예를 들면 다음과 같습니다.
-	*/
-	[header-start]						       [header-end]
-	[main-start]  [main-end ] . [sidebar-start]  [sidebar-end]
-	[footer-start]						       [footer-end]
-	</code></pre>
-										<p><strong>명시적으로 그리드(Explicit Grids)를 정의할 때, 그리드 컨테이너에 3개의 속성을 사용해 설정할 수 있습니다.</strong></p>
-										<ul>
-											<li>grid-template-rows</li>
-											<li>grid-template-columns</li>
-											<li>grid-template-areas</li>
-										</ul>
-										<figure>
-											<figcaption>grid-template-areas(그리드 템플릿 영역)</figcaption>
-											<img src="images/css/grid-template-areas.svg" alt="">
-										</figure>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-								</dl>
-							</section>
+/* 각 열의 크기를 정의합니다. */
+.container {
+	grid-template-columns: 100px 200px;
+}
+/* 동시에 각 라인의 이름도 정의할 수 있습니다. */
+.container {
+	grid-template-columns: [first] 100px [second] 200px [third];
+}
+/* 라인에 중복된 이름을 지정할 수 있습니다. */
+.container {
+	grid-template-columns: [col1-start] 100px [col1-end col2-start] 200px [col2-end];
+}
+/* 선 이름을 1개 이상 설정하는 것도 가능합니다. 방법은 [이름-1 이름-2]와 같이 [] 내부에 공백으로 구분된 이름을 추가하면 됩니다. */
+.grid-container {
+	grid-template-rows: [row-1] 100px [rows-1-end row-2-start] 30% [row-2-end];
+}
+/* 설정이 반복되는 경우, repeat() 함수를 사용하여 손쉽게 설정할 수 있습니다. */
+.grid-container {
+	grid-template-rows: repeat(3, 80px [row-start]) 5%;
+	/* 결과: 80px [row-start] 80px [row-start] 80px [row-start] 5% */
+	grid-template-columns: repeat(2, 15% 30px) auto;
+	/* 결과: 15% 30px 15% 30px auto */
+}
+/* fr 단위를 사용하여 &lt;track-size&gt;를 그리드의 남은 공간 일부를 설정할 수 있습니다. */
+.grid-container {
+	grid-template-columns: repeat(3, 1fr); /* 1fr 1fr 1fr */
+}
+/* fr 단위는 고정 값(px, rem 등) 단위가 먼저 계산된 후, 남은 공간을 사용하여 계산 처리됩니다. */
+.grid-container {
+	grid-template-rows: 1fr 100px 2fr;
+}
 
 
-							<hr title="Separator for Contents">
 
 
-							<h5 id="grid-template-shorthand">Grid 템플릿 속기형</h5>
-							<section class="ukgroup">
-								<p>그리드 템플릿 행 / 열 / 영역 이름 설정을 속기형(shorthand)으로 설정 가능합니다.</p>
-								<dl>
-									<dt>grid-template</dt>
-									<dd>
-										<p>grid-template-xxx의 단축 속성</p>
-										<p>grid-template 속성은 grid-template-{rows,columns,areas} 속성을 축약형으로 사용할 수 있도록 합니다.</p>
-										<p>그리드 템플릿 행 / 열 / 영역 이름 설정을 속기형으로 설정 가능합니다.</p>
-										<p>grid-template: none | grid-template-rows | grid-template-columns | grid-template-areas;</p>
-										<ul>
-											<li>none : 3가지 설정을 모두 초기 값으로 적용</li>
-											<li>grid-template-rows / grid-template-columns : 행/열 그리드 템플릿 설정</li>
-											<li>라인이름(옵션) 영역이름(필수) 트랙 크기(옵션) 라인이름(옵션)</li>
-										</ul>
-	<pre><code>
-	/* Keyword value */
-	grid-template: none;
-	grid-template-columns: none;
-	grid-template-rows: none;
-	grid-template-areas: none;
+/* 만약 1200px 너비의 ‘12컬럼 그리드 템플릿’을 정의한다면 다음과 작성할 수 있습니다. */
+.container {
+	width: 1200px;
+	grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+}
 
-	/* grid-template-rows / grid-template-columns values */
-	grid-template: 100px 1fr / 50px 1fr;
-	grid-template: auto 1fr / auto 1fr auto;
-	grid-template: [linename] 100px / [columnname1] 30% [columnname2] 70%;
-	grid-template: fit-content(100px) / fit-content(40%);
+/*
+12개의 열(컬럼) 크기를 하나씩 지정했습니다만, 이 방법은 당연히 입력도 관리가 어려움이 있으나
+repeat() 함수를 사용하면 위 내용을 다음과 같이 간소화할 수 있습니다.
+*/
+.container {
+	width: 1200px;
+	grid-template-columns: repeat(12, 100px);
+}
 
-	/* grid-template-areas grid-template-rows / grid-template-column values */
-	grid-template: "a a a"
-						"b b b";
-	grid-template: "a a a" 20%
-						"b b b" auto;
-	grid-template: [header-top] "a a a"    [header-bottom]
-						[main-top] "b b b" 1fr [main-bottom]
-						/ auto 1fr auto;
-
-	/* Global values */
-	grid-template: inherit;
-	grid-template: initial;
-	grid-template: unset;
-	</code></pre>
-	<pre><code>
-	/* 그리드 행/열 템플릿을 축약형 속성으로 설정한 예 */
-	.grid-container {
-		grid-template: repeat(3, 100px) / repeat(2, 20px 40px) auto;
-	}
-
-	/* 축약형으로 적용된 속성을 개별 속성으로 풀어본 예 */
-	.grid-container {
-		grid-template-rows: repeat(3, 100px);
-		grid-template-columns: repeat(2, 20px 40px);
-		grid-template-areas: none;
-	}
-
-	/* 행/열 그리드 템플릿에 영역이름 템플릿을 함께 설정 한 예 */
-	.grid-container {
-		/* 2행 3열 그리드
-		* 1행 100px | 'header header header'
-		* 2행 100px | 'footer footer footer'
-		*/
-		grid-template:
-			[row-1-start] "header header header" 100px [row-1-end]
-			[row-2-start] "footer footer footer" 100px [row-2-end]
-			/ auto 200px auto;
-	}
-
-	/* 속기형으로 적용된 속성을 개별 속성으로 풀어본 예 */
-	.grid-container {
-		grid-template-rows: [row-1-start] 100px [row-1-end row-2-start] 100px [row-2-end];
-		grid-template-columns: auto 200px auto;
-		grid-template-areas:
-			"header header header"
-			"footer footer footer";
-	}
-	</code></pre>
-										<p><strong>grid-template-areas 속성은 암시적인 그리드 속성을 초기화하지 않습니다.</strong></p>
-										<ul>
-											<li>grid-auto-rows</li>
-											<li>grid-auto-columns</li>
-											<li>grid-auto-flow</li>
-										</ul>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-								</dl>
-							</section>
+/*
+컬럼을 크기를 fr(fraction, 공간 비율) 단위를 사용해 다음과 같이 비율로 지정할 수도 있습니다.
+각 컬럼은 비율에 맞게 출력되기 때문에 컨테이너의 너비가 가변해도 열 크기를 수정할 필요가 없습니다.
+*/
+.container {
+	width: 80%;
+	grid-template-columns: repeat(12, 1fr);
+}
 
 
-							<hr title="Separator for Contents">
+/* repeat() 함수는 2번째 인수를 반복하기 때문에 다음과 같이 활용할 수 있습니다. */
+.container {
+	grid-template-columns: repeat(4, 100px 200px 50px);
+	/* grid-template-columns: 100px 200px 50px 100px 200px 50px 100px 200px 50px 100px 200px 50px; */
+}
+.container {
+	grid-template-columns: repeat(4, 1fr 2fr 3fr);
+	/* grid-template-columns: 1fr 2fr 3fr 1fr 2fr 3fr 1fr 2fr 3fr 1fr 2fr 3fr; */
+}
 
+/* 트랙 값 사이에 빈 공간을두면 그리드 선에 양수와 음수가 자동으로 할당됩니다. 하단 이미지 참조 */
+.container {
+	grid-template-columns: 40px 50px auto 50px 40px;
+	grid-template-rows: 25% 100px auto;
+}
 
-							<h5 id="grid-track-auto">Grid 트랙 크기 자동 설정</h5>
-							<section class="ukgroup">
-								<p>미 설정된 트랙 사이즈 자동 설정</p>
-								<dl>
-									<dt>그리드 행/열 트랙 크기 자동 설정</dt>
-									<dd>
-										<p>암시적인 그리드 행/열 트랙 크기를 자동으로 설정합니다.</p>
-									</dd>
-									<dt>암시적인 그리드 트랙이란?</dt>
-									<dd>
-										<p>사용자가 설정하지 않은 임의의 트랙으로 사용자가 명시적으로 grid-template-rows / grid-template-columns 속성을 설정하지 않은 나머지 그리드 트랙을 가리킵니다.</p>
-									</dd>
-								</dl>
-								<dl>
-									<dt>grid-auto-columns / grid-auto-rows</dt>
-									<dd>
-										<p>암시적인(Implicit Grids) 열(Track)/행(Track)의 크기를 정의</p>
-										<p>자동 생성 된 그리드 트랙의 크기를 지정합니다 (일명 암시 적 그리드 트랙).</p>
-										<p>그리드에 셀보다 많은 그리드 항목이 있거나 그리드 항목이 명시적 그리드 외부에 배치되면 암시적 트랙이 생성됩니다.</p>
-										<ul>
-											<li>&lt;track-size&gt; : 그리드에서 사용 가능한 단위 (px, rem, em, %, fr 등)</li>
-										</ul>
-										<figure>
-											<figcaption>사용자가 명시적으로 열/행 템플릿 속성을 설정하면 그리드 트랙 크기로 적용(2열 2행 그리드)</figcaption>
-											<img src="images/css/grid-auto-columns-rows-01.svg" alt="">
-										</figure>
-	<pre><code>
-	.container {
-		grid-auto-columns: &lt;track-size&gt; ...;
-		grid-auto-rows: &lt;track-size&gt; ...;
-	}
-	.container {
-		grid-template-columns: 60px 60px;
-		grid-template-rows: 90px 90px;
-	}
-	</code></pre>
-										<figure>
-											<figcaption>개별 그리드 아이템에 열/행 위치를 그리드 라인 기준으로 배치하게 되면 다음과 같이 처리됨</figcaption>
-											<img src="images/css/grid-auto-columns-rows-02.svg" alt="">
-										</figure>
-	<pre><code>
-	.item-a {
-		grid-column: 1 / 2;
-		grid-row: 2 / 3;
-	}
-	.item-b {
-		grid-column: 5 / 6;
-		grid-row: 2 / 3;
-	}
-	/*
-	.item-b에 설정한 열 그리드 라인 5~6 배치는 암시적인 열 그리드(grid-auto-columns) 설정에서 정의되지 않은 영역으로,
-	존재하지 않는 열/행에 배치하기 위해 암시적인 트랙이 자동으로 생성됩니다.
-	(그림을 자세히 보면 암시적으로 생성된 트랙 크기는 0으로 설정됩니다)
-	*/
-	</code></pre>
-										<figure>
-											<figcaption>자동으로 생성되는 그리드 트랙 크기를 임의의 값으로 설정하고 싶다면 다음과 같이 설정할 수 있습니다.</figcaption>
-											<img src="images/css/grid-auto-columns-rows-03.svg" alt="">
-										</figure>
-	<pre><code>
-	/* 암시적으로 생성된 그리드 트랙 크기는 60px로 설정됩니다. */
-	.container {
-		grid-auto-columns: 60px;
-	}
-	</code></pre>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-								</dl>
-							</section>
+/* 명시적으로 줄 이름을 지정할 수 있습니다. 행 이름의 대괄호 구문에 유의 */
+.container {
+	grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+	grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+}
+/* 라인은 하나 이상의 이름을 가질 수 있습니다. 예를 들어, 두 번째 줄의 이름은 row1-end와 row2-start입니다. */
+.container {
+	grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];
+}
 
+/* 정의에 반복되는 부분이 포함 된 경우 repeat()표기법을 사용하여 작업을 간소화 할 수 있습니다 . */
+.container {
+	grid-template-columns: repeat(3, 20px [col-start]);
+}
+/* 위의 예제와 아럐 예제는 동일합니다. */
+.container {
+	grid-template-columns: 20px [col-start] 20px [col-start] 20px [col-start];
+}
 
-							<hr title="Separator for Contents">
-
-
-							<h5 id="grid-auto-flow">Grid 자동 흐름 설정</h5>
-							<section>
-								<p>그리드에 명시적으로 배치(레이아웃) 되지 않은 아이템이 있을 경우, 자동 배치 알고리즘이 실행되어 자동으로 배치 되도록 설정할 수 있습니다.</p>
-								<p>속성 값에 따라 자동 배치 알고리즘 작동 방식이 달라집니다.</p>
+/* 여러 줄이 같은 이름을 공유하는 경우 해당 줄 이름과 개수로 참조 할 수 있습니다. */
+.item {
+	grid-column-start: col-start 2;
+}
+/*
+fr를 사용하면 트랙의 크기를 그리드 컨테이너의 여유 공간의 일부로 설정할 수 있습니다.
+예를 들어, 이것은 각 항목을 그리드 컨테이너 너비의 1/3로 설정합니다.
+*/
+.container {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+</code></pre>
 								<figure>
-									<figcaption>속성 값에 따라 자동 배치 알고리즘 작동 방식</figcaption>
-									<img src="images/css/grid-auto-flow-column.png" alt="">
+									<figcaption>grid-template-rows</figcaption>
+									<img src="images/css/grid-template-rows-1.png" alt="">
 								</figure>
-								<dl>
-									<dt>grid-auto-flow</dt>
-									<dd>
-										<p>자동 배치 알고리즘 방식을 정의</p>
-										<p>기본적으로 항목을 배치 할 때 그리드에 간격이 생성되면 자동 배치 된 그리드 항목이 간격을 채우지 않고 대신 마지막 항목 뒤에 추가됩니다.</p>
-										<p>dense 키워드를 사용하여 이를 변경할 수 있습니다.</p>
-										<p>이는 암시적 그리드 알고리즘이 자동 배치 된 항목과의 간격을 채우고 다시 채우고 필요할 때 항목의 순서를 변경하도록 지시합니다.</p>
-										<p>항목 순서가 중요하지 않은 이미지 갤러리를 만들 때 실제로 유용 할 수 있습니다.</p>
-										<p>grid-auto-flow: row | column | row dense | column dense;</p>
+<pre><code>
+.container {
+	display: grid;
+	grid-template-rows: 1행크기 2행크기 ...;
+	grid-template-rows: [선이름] 1행크기 [선이름] 2행크기 [선이름] ...;
+}
+
+/* 각 행의 크기를 정의합니다. */
+.container {
+	grid-template-rows: 100px 200px;
+}
+/* 동시에 각 라인의 이름도 정의할 수 있습니다. */
+.container {
+	grid-template-rows: [first] 100px [second] 200px [third];
+}
+/* 라인에 중복된 이름을 지정할 수 있습니다. */
+.container {
+	grid-template-rows: [row1-start] 100px [row1-end row2-start] 200px [row2-end];
+}
+
+/* 각 라인은 행(Row, Track)과 열(Column, Track)의 개수대로 숫자(양수/음수) 라인 이름이 자동으로 지정되어 있어서,
+꼭 필요한 경우가 아니면 라인 이름을 정의할 필요가 없습니다. */
+.container {
+	grid-template-rows: 100px 200px;
+	/* grid-template-rows: [1 -3] 100px [2 -2] 200px [3 -1]; */
+}
+.container {
+	width: 400px;
+	display: grid;
+	grid-template-rows: repeat(3, 100px);
+	grid-template-columns: repeat(3, 1fr);
+}
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
 										<ul>
-											<li>row : 기본값으로 각 행을 차례로 채우고 필요에 따라 새 행을 추가하는 자동 배치 알고리즘</li>
-											<li>column : 각 열을 차례로 채우고 필요에 따라 새 열을 추가하는 자동 배치 알고리즘</li>
-											<li>dense : 배치 중 나중에 크기가 작은 아이템이 존재할 경우, 그리드 영역 앞부분의 남은 공간에 자동 배치하는 알고리즘</li>
-											<li>row dense : 각 행 축을 따라 차례로 배치, 빈 영역 메움.</li>
-											<li>column dense : 각 열 축을 따라 차례로 배치, 빈 영역 메움.</li>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
 										</ul>
-										<figure>
-											<figcaption>첫 번째 행 + 열에 하나의 명시적 20px x 20px 격자 셀과 추가 격자 항목을 보유하기 위해 생성 된 암시적 40px 열 및 행에서 생성 된 세 개의 추가 셀이있는 2×2 격자.</figcaption>
-											<img src="images/css/grid-auto-flow.svg" alt="">
-										</figure>
-	<pre><code>
-	&lt;!DOCTYPE html&gt;
-	&lt;html lang="ko"&gt;
-		&lt;head&gt;
-			&lt;meta charset="UTF-8"&gt;
-			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-			&lt;title&gt;UXKM CSS3 grid-auto-flow&lt;/title&gt;
-			&lt;style&gt;
-				*{margin:0;padding:0;box-sizing:border-box;}
-				div{border:1px solid;}
-				.container{
-					display: grid;
-					grid-template-columns: 60px 60px 60px 60px 60px;
-					grid-template-rows: 30px 30px;
-
-					margin:20px;
-					border:2px solid;
-				}
-
-				.row {
-					grid-auto-flow: row;
-				}
-				.column {
-					grid-auto-flow: column;
-				}
-
-				.item-a {
-					grid-column: 1;
-					grid-row: 1 / 3;
-				}
-				.item-e {
-					grid-column: 5;
-					grid-row: 1 / 3;
-				}
-			&lt;/style&gt;
-		&lt;/head&gt;
-		&lt;body&gt;
-			&lt;section class="container row"&gt;
-				&lt;div class="item-a"&gt;item-a&lt;/div&gt;
-				&lt;div class="item-b"&gt;item-b&lt;/div&gt;
-				&lt;div class="item-c"&gt;item-c&lt;/div&gt;
-				&lt;div class="item-d"&gt;item-d&lt;/div&gt;
-				&lt;div class="item-e"&gt;item-e&lt;/div&gt;
-			&lt;/section&gt;
-			&lt;section class="container column"&gt;
-				&lt;div class="item-a"&gt;item-a&lt;/div&gt;
-				&lt;div class="item-b"&gt;item-b&lt;/div&gt;
-				&lt;div class="item-c"&gt;item-c&lt;/div&gt;
-				&lt;div class="item-d"&gt;item-d&lt;/div&gt;
-				&lt;div class="item-e"&gt;item-e&lt;/div&gt;
-			&lt;/section&gt;
-		&lt;/body&gt;
-	&lt;/html&gt;
-	</code></pre>
-										<figure>
-											<figcaption>grid-auto-flow:row;grid-auto-flow:column;</figcaption>
-											<img src="images/css/grid-auto-flow-01.svg" alt="">
-											<img src="images/css/grid-auto-flow-02.svg" alt="">
-										</figure>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-								</dl>
-							</section>
-
-
-							<hr title="Separator for Contents">
-
-
-							<h5 id="grid-shorthand">Grid 속기형 속성</h5>
-							<section class="ukgroup">
-								<blockquote class="note" role="note">
-									<p>
-										하나의 속성에 다음 속성들을 모두 일괄 설정할 수 있는 grid 속기형 속성입니다.<br>
-										grid-template-rows<br>
-										grid-template-columns<br>
-										grid-template-areas<br>
-										grid-auto-rows<br>
-										grid-auto-columns<br>
-										grid-auto-flow
-									</p>
-								</blockquote>
-								<dl>
-									<dt>grid</dt>
-									<dd>
-										<p>grid-template-xxx과 grid-auto-xxx의 단축 속성</p>
-										<p>명시적 그리드 속성 (grid-template-rows, grid-template-columns, grid-template-areas)</p>
-										<p>암시적 그리드 속성 (grid-auto-rows, grid-auto-columns, grid-auto-flow)을 축약형으로 선언.</p>
-										<ul>
-											<li>none : 모든 속성을 초기 값으로 적용</li>
-											<li>&lt;grid-template-rows&gt; / &lt;grid-template-columns&gt; : grid-tempate-rows / grid-template-columns 속성 설정</li>
-											<li>&lt;grid-auto-flow&gt; [&lt;grid-auto-rows&gt; [/ &lt;grid-auto-columns&gt;]] : grid-auto-flow / grid-auto-rows / grid-auto-columns 속성 설정</li>
-										</ul>
-	<pre><code>
-	/* &lt;'grid-template'&gt; values */
-	grid: none;
-	grid: "a" 100px "b" 1fr;
-	grid: [linename1] "a" 100px [linename2];
-	grid: "a" 200px "b" min-content;
-	grid: "a" minmax(100px, max-content) "b" 20%;
-	grid: 100px / 200px;
-	grid: minmax(400px, min-content) / repeat(auto-fill, 50px);
-
-	/* &lt;'grid-template-rows'&gt; / [ auto-flow && dense ] &lt;'grid-auto-columns'&gt; values */
-	grid: 200px / auto-flow;
-	grid: 30% / auto-flow dense;
-	grid: repeat(3, [line1 line2 line3] 200px) / auto-flow 300px;
-	grid: [line1] minmax(20em, max-content) / auto-flow dense 40%;
-
-	/* [ auto-flow && dense ] &lt;'grid-auto-rows'&gt; / &lt;'grid-template-columns'&gt; values */
-	grid: auto-flow / 200px;
-	grid: auto-flow dense / 30%;
-	grid: auto-flow 300px / repeat(3, [line1 line2 line3] 200px);
-	grid: auto-flow dense 40% / [line1] minmax(20em, max-content);
-
-	/* Global values */
-	grid: inherit;
-	grid: initial;
-	grid: unset;
-
-	/* 기본 값 */
-	grid-template-rows: none;
-	grid-template-columns: none;
-	grid-template-areas: none;
-	grid-auto-rows: auto;
-	grid-auto-columns: auto;
-	grid-auto-flow: row;
-	grid-column-gap: 0;
-	grid-row-gap: 0;
-	column-gap: normal;
-	row-gap: normal;
-
-	/* 예시1 */
-	.container {
-		grid: 100px 300px / 3fr 1fr;
-		/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
-		grid-template-rows: 100px 300px;
-		grid-template-columns: 3fr 1fr;
-		*/
-	}
-
-	/* 예시2 */
-	.container {
-		grid: auto-flow / 200px 1fr;
-		/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
-		grid-auto-flow: row;
-		grid-template-columns: 200px 1fr;
-		*/
-	}
-
-	/* 예시3 */
-	.container {
-		grid: auto-flow dense 100px / 1fr 2fr;
-		/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
-		grid-auto-flow: row dense;
-		grid-auto-rows: 100px;
-		grid-template-columns: 1fr 2fr;
-		*/
-	}
-
-	/* 예시4 */
-	.container {
-		grid: 100px 300px / auto-flow 200px;
-		/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
-		grid-template-rows: 100px 300px;
-		grid-auto-flow: column;
-		grid-auto-columns: 200px;
-		*/
-	}
-
-	/* 예시5 */
-	.container {
-		grid: [row1-start] "header header header" 1fr [row1-end]
-					[row2-start] "footer footer footer" 25px [row2-end]
-					/ auto 50px auto;
-
-		/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
-		grid-template-areas:
-			"header header header"
-			"footer footer footer";
-		grid-template-rows: [row1-start] 1fr [row1-end row2-start] 25px [row2-end];
-		grid-template-columns: auto 50px auto;
-		*/
-	}
-	</code></pre>
-	<pre><code>
-	&lt;!DOCTYPE html&gt;
-	&lt;html lang="ko"&gt;
-		&lt;head&gt;
-			&lt;meta charset="UTF-8"&gt;
-			&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
-			&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
-			&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
-			&lt;title&gt;UXKM CSS3 grid&lt;/title&gt;
-			&lt;style&gt;
-				*{margin:0;padding:0;box-sizing:border-box;}
-				body {
-					margin: 1rem;
-					font: 12px system-ui;
-				}
-
-				.grid {
-					display: grid;
-					grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-					grid-gap: 1rem;
-				}
-				.grid &gt; div {
-					padding: 1.5rem;
-					border-radius: 1rem;
-					background: #EDE7F6;
-				}
-			&lt;/style&gt;
-		&lt;/head&gt;
-		&lt;body&gt;
-			&lt;div class="grid"&gt;
-				&lt;div&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse aliquid laboriosam minima ex praesentium recusandae reprehenderit unde sit tempore atque aut commodi quae expedita corrupti, dignissimos architecto. Eius, maiores ad?&lt;/div&gt;
-				&lt;div&gt;Quibusdam, eos esse dolorum facere voluptatem eius, dolore quas totam aspernatur obcaecati harum? Nihil eligendi eos minus odit minima earum incidunt rem fugit reprehenderit, molestiae possimus eveniet itaque laudantium excepturi.&lt;/div&gt;
-				&lt;div&gt;Ducimus quibusdam inventore delectus doloribus dignissimos. Dignissimos quos officia minus exercitationem perspiciatis harum iusto molestiae deleniti quod sunt amet recusandae autem, neque doloremque ad alias eaque consequuntur nesciunt quis eius!&lt;/div&gt;
-				&lt;div&gt;Cumque aspernatur ex ipsum dolorum eius, tempore omnis minus sequi architecto totam sunt maxime nemo, ab repellendus. Aut voluptatem saepe voluptatibus nisi ipsum. Debitis corporis culpa ipsa error nemo doloribus.&lt;/div&gt;
-				&lt;div&gt;Consequatur dolore, architecto quos saepe consequuntur libero minus totam? Enim optio provident commodi corporis officiis, sunt maiores? Cupiditate consequuntur, cumque natus corporis velit sunt ad magni aliquid facere deleniti molestiae.&lt;/div&gt;
-				&lt;div&gt;Voluptatibus similique modi voluptatum voluptatem quo quod minima ducimus facere, sequi libero accusamus nisi nobis? Minima error tempore quo esse quod odit, deleniti labore nulla ullam velit nemo neque sint!&lt;/div&gt;
-				&lt;div&gt;Qui, corporis delectus? Pariatur vel autem commodi, accusantium, voluptate obcaecati iste, a debitis facilis repellendus mollitia. Dolore dicta totam, quaerat omnis accusantium magni alias voluptates eligendi ex id aut dolorem?&lt;/div&gt;
-				&lt;div&gt;Recusandae tempora ab error omnis exercitationem illo accusamus esse sit ipsa accusantium iure, possimus ducimus quis consequuntur qui corporis nobis culpa repudiandae! Suscipit, debitis. Omnis delectus at vitae laborum quos?&lt;/div&gt;
-				&lt;div&gt;Dolorem saepe accusamus sed placeat porro ex, ab, vel eaque libero incidunt facilis delectus, iure odio dicta error consequuntur perspiciatis quasi? Corrupti incidunt quia asperiores quo magnam at minima laudantium?&lt;/div&gt;
-				&lt;div&gt;Dolor ad saepe, nemo fugit tempora autem est fugiat quis porro atque nam repellendus maxime neque voluptatem rerum amet odit aspernatur voluptates iusto eos laboriosam enim vel. Eius, debitis beatae!&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/body&gt;
-	&lt;/html&gt;
-	</code></pre>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-								</dl>
-							</section>
-
-
-							<hr title="Separator for Contents">
-
-
-							<h5 id="grid-gutters">Grid 거터</h5>
-							<section class="ukgroup">
-								<p>그리드 라인(행/열) 사이 간격(gap)을 조정합니다.</p>
-								<p>그리드 거터 속성의 이름 앞에 붙어 있던 grid- 는 모두 제외 되었습니다. 이전에 사용되던 이름은 grid-row-gap, grid-column-gap, gap 입니다.</p>
-								<p>모든 브라우저 호환 이전까지는 예전 이름을 사용하거나, <a href="https://jonneal.dev/postcss-gap-properties/" target="_blank" title="새 창 열림">postcss-gap-properties</a>를 사용합니다</p>
-								<dl>
-									<dt>column-gap(grid-column-gap) / row-gap(grid-row-gap)</dt>
-									<dd>
-										<p>열과 열 사이 및 행과 행 사이의 간격(Line)을 정의</p>
-										<p>grid- 접두사가 제거됨. grid-column-gap = column-gap, grid-row-gap = row-gap 으로 이름이 변경.</p>
-										<p>grid- 접두사가 없는 속성은 Chrome 68 이상, Safari 11.2 릴리스 50 이상 및 Opera 54 이상에서 지원됩니다.</p>
-										<ul>
-											<li>column-gap : &lt;line-size&gt;</li>
-											<li>row-gap : &lt;line-size&gt;</li>
-										</ul>
-	<pre><code>
-	.container {
-		grid-column-gap: &lt;line-size&gt;;
-		grid-row-gap: &lt;line-size&gt;;
-	}
-	/* Example: */
-	.container {
-		grid-template-columns: 100px 50px 100px;
-		grid-template-rows: 80px auto 80px;
-		grid-column-gap: 10px;
-		grid-row-gap: 15px;
-	}
-	</code></pre>
-										<figure>
-											<figcaption>gutters는 외부 모서리가 아닌 열 / 행 사이에만 작성됩니다.</figcaption>
-											<img src="images/css/grid-gap.svg" alt="">
-										</figure>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-									<dt>gap(grid-gap)</dt>
-									<dd>
-										<p>column-gap / row-gap 의 축약(shorthand) 속성</p>
-										<p>grid- 접두사가 제거되고 grid-gap = gap 으로 이름이 변경.</p>
-										<p>grid- 접두사가 없는 속성은 Chrome 68 이상, Safari 11.2 릴리스 50 이상 및 Opera 54 이상에서 지원됩니다.</p>
-										<p>그리드 거터 속성의 이름 앞에 붙어 있던 grid- 는 모두 제외 되었습니다. 이전에 사용되던 이름은 grid-row-gap, grid-column-gap, gap 입니다.</p>
-										<p>모든 브라우저 호환 이전까지는 예전 이름을 사용하거나, <a href="https://jonathantneal.github.io/postcss-gap-properties/" target="_blank" title="새 창 열림">postcss-gap-properties</a>를 사용합니다.</p>
-										<p>그리드 행 / 열 사이 간격을 조정할 수 있습니다. 퍼센트 값은 콘텐츠 영역에 상대적으로 설정 됩니다.</p>
-										<ul>
-											<li>축약(shorthand) 속성 - gap : &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;</li>
-										</ul>
-	<pre><code>
-	.container {
-		grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;
-	}
-	/* Example: */
-	.container {
-		grid-template-rows: 80px auto 80px;
-		grid-template-columns: 100px 50px 100px;
-		/* 행 사이 간격 설정 */
-		row-gap: 10px;
-		/* 열 사이 간격 설정 */
-		column-gap: 15px;
-	}
-	/* 축약형 */
-	.container {
-		grid-template: 80px auto 80px / 100px 50px 100px;
-		/* 행/열 사이 간격 설정 */
-		gap: 10px 15px;
-	}
-	/* grid-gap 값으로 1개만 입력하면 행/열 사이 간격이 동일하게 설정됩니다. */
-	gap: 20px; /* grid-row-gap: 20px; grid-column-gap: 20px; */
-	</code></pre>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-								</dl>
-							</section>
-
-
-							<hr title="Separator for Contents">
-
-
-							<h5 id="grid-contents-align">Grid 콘텐츠(Content) 정렬</h5>
-							<section class="ukgroup">
-								<dl>
-									<dt>align-content</dt>
-									<dd>
-										<p>그리드 콘텐츠(Grid Contents)를 수직(열 축) 정렬</p>
-										<p>그리드 컨테이너의 크기보다 작은 그리드 아이템 트랙(px와 같은 고정 단위로 설정된 경우)의 크기라면, 아이템 트랙을 정렬할 수 있습니다.</p>
-										<p>이 속성은 열(column) 축을 따라 그리드 아이템 트랙을 정렬합니다. (justify-content 속성의 반대)</p>
-	<pre><code>
-	.container {
-		align-content : start | center | end | stretch | space-around | space-between | space-evenly
-	}
-	</code></pre>
-										<ul>
-											<li>start : 그리드 컨테이너 영역의 시작점(위쪽)에 아이템 트랙을 정렬
-												<figure>
-													<figcaption><code>align-content: start;</code></figcaption>
-													<img src="images/css/gird-align-content-start.svg" alt="">
-												</figure>
-											</li>
-											<li>center : 그리드 컨테이너 영역의 중앙에 아이템 트랙을 정렬(수직 가운데 정렬)
-												<figure>
-													<figcaption><code>align-content: center;</code></figcaption>
-													<img src="images/css/gird-align-content-center.svg" alt="">
-												</figure>
-											</li>
-											<li>end : 그리드 컨테이너 영역의 끝점(아래쪽)에 아이템 트랙을 정렬
-												<figure>
-													<figcaption><code>align-content: end;</code></figcaption>
-													<img src="images/css/gird-align-content-end.svg" alt="">
-												</figure>
-											</li>
-											<li>stretch : 그리드 컨테이너 영역을 아이템 트랙 크기를 조정하여 채움(열 축을 채우기 위해 그리드 콘텐츠를 늘림)
-												<figure>
-													<figcaption><code>align-content: stretch;</code></figcaption>
-													<img src="images/css/gird-align-content-stretch.svg" alt="">
-												</figure>
-											</li>
-											<li>space-around : 그리드 컨테이너의 남은 영역을 아이템 트랙(열)이 좌/우 공간으로 나눔(양 가장자리 공간은 아이템 그룹 사이 간격의 1/2)(각 행 위아래에 여백을 고르게 정렬)
-												<figure>
-													<figcaption><code>align-content: space-around;</code></figcaption>
-													<img src="images/css/gird-align-content-space-around.svg" alt="">
-												</figure>
-											</li>
-											<li>space-between : 그리드 컨테이너 영역의 양 가장자리 공백 없이, 아이템 트랙(열) 사이 공간을 나눔(첫 행은 시작점에, 끝 행은 끝점에 정렬되고 나머지 여백으로 고르게 정렬)
-												<figure>
-													<figcaption><code>align-content: space-between;</code></figcaption>
-													<img src="images/css/gird-align-content-space-between.svg" alt="">
-												</figure>
-											</li>
-											<li>space-evenly : space-around와 비슷해보이지만, 공간을 모두 동일하게 나누는 점이 다름(모든 여백을 고르게 정렬)
-												<figure>
-													<figcaption><code>align-content: space-evenly;</code></figcaption>
-													<img src="images/css/gird-align-content-space-evenly.svg" alt="">
-												</figure>
-											</li>
-										</ul>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-									<dt>justify-content</dt>
-									<dd>
-										<p>그리드 콘텐츠를 수평(행 축) 정렬</p>
-										<p>그리드 컨테이너의 크기보다 작은 그리드 아이템 트랙(px와 같은 고정 단위로 설정된 경우)의 크기라면, 아이템 트랙을 정렬할 수 있습니다.</p>
-										<p>이 속성은 행(row) 축을 따라 그리드 아이템 트랙을 정렬합니다. (align-content 속성의 반대)</p>
-	<pre><code>
-	.container {
-		justify-content: start | end | center | stretch | space-around | space-between | space-evenly;
-	}
-	</code></pre>
-										<ul>
-											<li>start : 그리드 컨테이너 영역의 시작점(왼쪽)에 아이템 트랙을 정렬
-												<figure>
-													<figcaption><code>justify-content: start</code></figcaption>
-													<img src="images/css/grid-justify-content-start.svg" alt="">
-												</figure>
-											</li>
-											<li>center : 그리드 컨테이너 영역의 중앙에 아이템 트랙을 정렬
-												<figure>
-													<figcaption><code>justify-content: center</code></figcaption>
-													<img src="images/css/grid-justify-content-center.svg" alt="">
-												</figure>
-											</li>
-											<li>end : 그리드 컨테이너 영역의 끝점(오른쪽)에 아이템 트랙을 정렬
-												<figure>
-													<figcaption><code>justify-content: end</code></figcaption>
-													<img src="images/css/grid-justify-content-end.svg" alt="">
-												</figure>
-											</li>
-											<li>stretch : 그리드 컨테이너 영역을 아이템 트랙 크기를 조정하여 채움(행 축을 채우기 위해 그리드 콘텐츠를 늘림)
-												<figure>
-													<figcaption><code>justify-content: stretch</code></figcaption>
-													<img src="images/css/grid-justify-content-stretch.svg" alt="">
-												</figure>
-											</li>
-											<li>space-around : 그리드 컨테이너의 남은 영역을 아이템 트랙(열)이 좌/우 공간으로 나눔(양 가장자리 공간은 아이템 그룹 사이 간격의 1/2)(각 열 좌우에 여백을 고르게 정렬)
-												<figure>
-													<figcaption><code>justify-content: space-around</code></figcaption>
-													<img src="images/css/grid-justify-content-space-around.svg" alt="">
-												</figure>
-											</li>
-											<li>space-between : 그리드 컨테이너 영역의 양 가장자리 공백 없이, 아이템 트랙(열) 사이 공간을 나눔(첫 열은 시작점에, 끝 열은 끝점에 정렬되고 나머지 여백으로 고르게 정렬)
-												<figure>
-													<figcaption><code>justify-content: space-between</code></figcaption>
-													<img src="images/css/grid-justify-content-space-between.svg" alt="">
-												</figure>
-											</li>
-											<li>space-evenly : space-around와 비슷해보이지만, 공간을 모두 동일하게 나누는 점이 다름(모든 여백을 고르게 정렬)
-												<figure>
-													<figcaption><code>justify-content: space-evenly</code></figcaption>
-													<img src="images/css/grid-justify-content-space-evenly.svg" alt="">
-												</figure>
-											</li>
-										</ul>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-									<dt>place-content</dt>
-									<dd>
-										<p>&lt;align-content&gt; / &lt;justify-content&gt;의 단축 속성</p>
-										<p>첫 번째 값은 align-content속성 값이고 두 번째 값은 justify-content 속성 값입니다.</p>
-										<p>firefox버전 60부터는 align-content 및 justify-content에 모두 유효한 경우 단일 값만 지정할 수 있습니다</p>
-	<pre><code>
-	/* Positional alignment */
-	/* align-content does not take left and right values */
-	place-content: center start;
-	place-content: start center;
-	place-content: end left;
-	place-content: flex-start center;
-	place-content: flex-end center;
-
-	/* Baseline alignment */
-	/* justify-content does not take baseline values */
-	place-content: baseline center;
-	place-content: first baseline space-evenly;
-	place-content: last baseline right;
-
-	/* Distributed alignment */
-	place-content: space-between space-evenly;
-	place-content: space-around space-evenly;
-	place-content: space-evenly stretch;
-	place-content: stretch space-evenly;
-
-	/* Global values */
-	place-content: inherit;
-	place-content: initial;
-	place-content: unset;
-	</code></pre>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-false.png" alt="Edge Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>59.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>53.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>11.0</em></li>
-											</ul>
-										</aside>
-									</dd>
-								</dl>
-							</section>
-
-
-							<hr title="Separator for Contents">
-
-
-							<h5 id="grid-items-align">Grid 아이템(Items) 정렬</h5>
-							<section class="ukgroup">
-								<dl>
-									<dt>align-items</dt>
-									<dd>
-										<p>그리드 아이템(Items)들을 수직(열 축) 정렬</p>
-										<p>열(column) 축을 따라 그리드 아이템 내부 콘텐츠를 정렬합니다. (justify-items 속성의 반대)</p>
-										<p>이 설정은 그리드 컨테이너 내부 모든 그리드 아이템에 적용됩니다.</p>
-										<p>개별 그리드 아이템에 행축 콘텐츠 정렬 속성을 적용하려면 align-self 속성을 사용합니다.</p>
-	<pre><code>
-	.container {
-		align-items: start | end | center | stretch;
-	}
-	</code></pre>
-										<ul>
-											<li>start : 그리드 영역의 시작점(위쪽)에 콘텐츠 정렬
-												<figure>
-													<figcaption><code>align-items: start;</code></figcaption>
-													<img src="images/css/grid-align-items-start.svg" alt="">
-												</figure>
-											</li>
-											<li>center : 그리드 영역의 중앙에 콘텐츠 정렬(수직 가운데 정렬)
-												<figure>
-													<figcaption><code>align-items: center;</code></figcaption>
-													<img src="images/css/grid-align-items-center.svg" alt="">
-												</figure>
-											</li>
-											<li>end : 그리드 영역의 끝점(아래쪽)에 콘텐츠 정렬
-												<figure>
-													<figcaption><code>align-items: end;</code></figcaption>
-													<img src="images/css/grid-align-items-end.svg" alt="">
-												</figure>
-											</li>
-											<li>stretch : 기본값으로 그리드 영역 전체 너비를 채움(열 축을 채우기 위해 그리드 아이템을 늘림)
-												<figure>
-													<figcaption><code>align-items: stretch;</code></figcaption>
-													<img src="images/css/grid-align-items-stretch.svg" alt="">
-												</figure>
-											</li>
-										</ul>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-									<dt>justify-items</dt>
-									<dd>
-										<p>그리드 아이템들을 수평(행 축) 정렬</p>
-										<p>행 축을 따라 그리드 아이템 내부 콘텐츠를 정렬합니다. (열 축에 따라 정렬하는 align-self 속성과는 반대)</p>
-	<pre><code>
-	.container {
-		justify-items: start | end | center | stretch;
-	}
-	</code></pre>
-										<ul>
-											<li>start : 그리드 아이템 영역 행 축 시작점(왼쪽)에 콘텐츠를 정렬
-												<figure>
-													<figcaption><code>justify-items: start;</code></figcaption>
-													<img src="images/css/grid-justify-items-start.svg" alt="">
-												</figure>
-											</li>
-											<li>center : 그리드 아이템 영역 행 축 중앙에 콘텐츠를 정렬(수평 가운데 정렬)
-												<figure>
-													<figcaption><code>justify-items: center;</code></figcaption>
-													<img src="images/css/grid-justify-items-center.svg" alt="">
-												</figure>
-											</li>
-											<li>end : 그리드 아이템 영역 행 축 끝점(오른쪽)에 콘텐츠를 정렬
-												<figure>
-													<figcaption><code>justify-items: end;</code></figcaption>
-													<img src="images/css/grid-justify-items-end.svg" alt="">
-												</figure>
-											</li>
-											<li>stretch : 그리드 아이템 영역을 행 축에 가득 채움(행 축을 채우기 위해 그리드 아이템을 늘림)
-												<figure>
-													<figcaption><code>justify-items: stretch;</code></figcaption>
-													<img src="images/css/grid-justify-items-stretch.svg" alt="">
-												</figure>
-											</li>
-										</ul>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
-											</ul>
-										</aside>
-									</dd>
-									<dt>place-items</dt>
-									<dd>
-										<p>align-items와 justify-items의 단축 속성</p>
-										<p>첫 번째 값은 align-items 속성 값이고 두 번째 값은 justify-items 속성 값입니다.</p>
-	<pre><code>
-	/* Keyword values */
-	place-items: auto center;
-	place-items: normal start;
-
-	/* Positional alignment */
-	place-items: center normal;
-	place-items: start auto;
-	place-items: end normal;
-	place-items: self-start auto;
-	place-items: self-end normal;
-	place-items: flex-start auto;
-	place-items: flex-end normal;
-	place-items: left auto;
-	place-items: right normal;
-
-	/* Baseline alignment */
-	place-items: baseline normal;
-	place-items: first baseline auto;
-	place-items: last baseline normal;
-	place-items: stretch auto;
-
-	/* Global values */
-	place-items: inherit;
-	place-items: initial;
-	place-items: unset;
-	</code></pre>
-										<aside class="bosupport">
-											<strong>Web Browser Support</strong>
-											<ul>
-												<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_edge-false.png" alt="Edge Browser"><em>지원 안 함</em></li>
-												<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>59.0</em></li>
-												<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>45.0</em></li>
-												<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>46.0</em></li>
-												<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>11.0</em></li>
-											</ul>
-										</aside>
-									</dd>
-								</dl>
-							</section>
-
+									</aside>
+								</dd>
+							</dl>
 						</section>
-					</div>
+
+
+						<hr title="Separator for Contents">
+
+
+						<h5 id="grid-template-area">Grid 템플릿 영역</h5>
+						<section class="ukgroup">
+							<p>grid-area 속성으로 설정된 그리드 영역의 이름을 참조하여, 그리드 템플릿 영역을 설정할 수 있습니다.</p>
+							<p>그리드 영역 이름을 반복하면 그리드 셀을 병합(merge, span) 합니다. 그리고 마침표(.)는 비어있는 그리드 셀을 말합니다.</p>
+							<dl>
+								<dt>grid-template-areas</dt>
+								<dd>
+									<p>영역(Area) 이름을 참조해 템플릿 생성</p>
+									<p>grid-area 속성으로 설정된 그리드 영역의 이름을 참조하여, 그리드 템플릿 영역을 설정할 수 있습니다.</p>
+									<p>이름을 반복하면 그리드 셀을 병합(merge, span) 합니다. 그리고 마침표(.)는 비어있는 그리드 셀을 말합니다.</p>
+									<p>grid-template-areas : &lt;grid-area-name&gt; | . | none</p>
+									<ul>
+										<li>&lt;grid-area-name&gt; : 사용자가 grid-area 속성 값으로 설정한 임의의 그리드 영역 이름</li>
+										<li>마침표(.) : 비어있는 그리드 셀</li>
+										<li>none : 그리드 영역으로 정의되지 않은 셀</li>
+									</ul>
+<pre><code>
+/* Keyword value */
+grid-template-areas: none;
+
+/* &lt;string&gt; values */
+grid-template-areas: "a b";
+grid-template-areas: "a b b"
+					"a c d";
+
+/* Global values */
+grid-template-areas: inherit;
+grid-template-areas: initial;
+grid-template-areas: unset;
+</code></pre>
+<pre><code>
+.container {
+	grid-template-areas:
+		"&lt;grid-area-name&gt; | . | none | ..."
+		"...";
+}
+
+/* 다음은 3행 4열 그리드 템플릿 영역 설정 Example: */
+/* 그리드 영역 이름 설정 */
+.item-a {
+	grid-area: header;
+}
+.item-b {
+	grid-area: main;
+}
+.item-c {
+	grid-area: sidebar;
+}
+.item-d {
+	grid-area: footer;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 50px 50px 50px 50px;
+	grid-template-rows: auto;
+
+	/*
+	그리드 템플릿 영역 설정
+	각 행은 동일한 개수의 열 설정이 요구됩니다.
+	*/
+	grid-template-areas:
+		"header header header header" /* 1행: 4열 모두 header                */
+		"main main . sidebar"          /* 2행: 2열 main 1열, 공백 1열, sidebar */
+		"footer footer footer footer"; /* 3행: 4열 모두 header                */
+}
+
+/*
+그리드 템플릿 영역 설정은 그리드 라인 설정이 아니라, 영역을 설정하는 것입니다.
+영역을 설정하면 그리드 라인 이름이 자동으로 설정됩니다.
+grid-area로 설정된 이름을 사용하여 각 행/열의 시작은 -start, 끝은 -end로 이름이 설정됩니다.
+예를 들면 다음과 같습니다.
+*/
+[header-start]						       [header-end]
+[main-start]  [main-end ] . [sidebar-start]  [sidebar-end]
+[footer-start]						       [footer-end]
+</code></pre>
+									<p><strong>명시적으로 그리드(Explicit Grids)를 정의할 때, 그리드 컨테이너에 3개의 속성을 사용해 설정할 수 있습니다.</strong></p>
+									<ul>
+										<li>grid-template-rows</li>
+										<li>grid-template-columns</li>
+										<li>grid-template-areas</li>
+									</ul>
+									<figure>
+										<figcaption>grid-template-areas(그리드 템플릿 영역)</figcaption>
+										<img src="images/css/grid-template-areas.svg" alt="">
+									</figure>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
+
+						<hr title="Separator for Contents">
+
+
+						<h5 id="grid-template-shorthand">Grid 템플릿 속기형</h5>
+						<section class="ukgroup">
+							<p>그리드 템플릿 행 / 열 / 영역 이름 설정을 속기형(shorthand)으로 설정 가능합니다.</p>
+							<dl>
+								<dt>grid-template</dt>
+								<dd>
+									<p>grid-template-xxx의 단축 속성</p>
+									<p>grid-template 속성은 grid-template-{rows,columns,areas} 속성을 축약형으로 사용할 수 있도록 합니다.</p>
+									<p>그리드 템플릿 행 / 열 / 영역 이름 설정을 속기형으로 설정 가능합니다.</p>
+									<p>grid-template: none | grid-template-rows | grid-template-columns | grid-template-areas;</p>
+									<ul>
+										<li>none : 3가지 설정을 모두 초기 값으로 적용</li>
+										<li>grid-template-rows / grid-template-columns : 행/열 그리드 템플릿 설정</li>
+										<li>라인이름(옵션) 영역이름(필수) 트랙 크기(옵션) 라인이름(옵션)</li>
+									</ul>
+<pre><code>
+/* Keyword value */
+grid-template: none;
+grid-template-columns: none;
+grid-template-rows: none;
+grid-template-areas: none;
+
+/* grid-template-rows / grid-template-columns values */
+grid-template: 100px 1fr / 50px 1fr;
+grid-template: auto 1fr / auto 1fr auto;
+grid-template: [linename] 100px / [columnname1] 30% [columnname2] 70%;
+grid-template: fit-content(100px) / fit-content(40%);
+
+/* grid-template-areas grid-template-rows / grid-template-column values */
+grid-template: "a a a"
+					"b b b";
+grid-template: "a a a" 20%
+					"b b b" auto;
+grid-template: [header-top] "a a a"    [header-bottom]
+					[main-top] "b b b" 1fr [main-bottom]
+					/ auto 1fr auto;
+
+/* Global values */
+grid-template: inherit;
+grid-template: initial;
+grid-template: unset;
+</code></pre>
+<pre><code>
+/* 그리드 행/열 템플릿을 축약형 속성으로 설정한 예 */
+.grid-container {
+	grid-template: repeat(3, 100px) / repeat(2, 20px 40px) auto;
+}
+
+/* 축약형으로 적용된 속성을 개별 속성으로 풀어본 예 */
+.grid-container {
+	grid-template-rows: repeat(3, 100px);
+	grid-template-columns: repeat(2, 20px 40px);
+	grid-template-areas: none;
+}
+
+/* 행/열 그리드 템플릿에 영역이름 템플릿을 함께 설정 한 예 */
+.grid-container {
+	/* 2행 3열 그리드
+	* 1행 100px | 'header header header'
+	* 2행 100px | 'footer footer footer'
+	*/
+	grid-template:
+		[row-1-start] "header header header" 100px [row-1-end]
+		[row-2-start] "footer footer footer" 100px [row-2-end]
+		/ auto 200px auto;
+}
+
+/* 속기형으로 적용된 속성을 개별 속성으로 풀어본 예 */
+.grid-container {
+	grid-template-rows: [row-1-start] 100px [row-1-end row-2-start] 100px [row-2-end];
+	grid-template-columns: auto 200px auto;
+	grid-template-areas:
+		"header header header"
+		"footer footer footer";
+}
+</code></pre>
+									<p><strong>grid-template-areas 속성은 암시적인 그리드 속성을 초기화하지 않습니다.</strong></p>
+									<ul>
+										<li>grid-auto-rows</li>
+										<li>grid-auto-columns</li>
+										<li>grid-auto-flow</li>
+									</ul>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
+
+						<hr title="Separator for Contents">
+
+
+						<h5 id="grid-track-auto">Grid 트랙 크기 자동 설정</h5>
+						<section class="ukgroup">
+							<p>미 설정된 트랙 사이즈 자동 설정</p>
+							<dl>
+								<dt>그리드 행/열 트랙 크기 자동 설정</dt>
+								<dd>
+									<p>암시적인 그리드 행/열 트랙 크기를 자동으로 설정합니다.</p>
+								</dd>
+								<dt>암시적인 그리드 트랙이란?</dt>
+								<dd>
+									<p>사용자가 설정하지 않은 임의의 트랙으로 사용자가 명시적으로 grid-template-rows / grid-template-columns 속성을 설정하지 않은 나머지 그리드 트랙을 가리킵니다.</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>grid-auto-columns / grid-auto-rows</dt>
+								<dd>
+									<p>암시적인(Implicit Grids) 열(Track)/행(Track)의 크기를 정의</p>
+									<p>자동 생성 된 그리드 트랙의 크기를 지정합니다 (일명 암시 적 그리드 트랙).</p>
+									<p>그리드에 셀보다 많은 그리드 항목이 있거나 그리드 항목이 명시적 그리드 외부에 배치되면 암시적 트랙이 생성됩니다.</p>
+									<ul>
+										<li>&lt;track-size&gt; : 그리드에서 사용 가능한 단위 (px, rem, em, %, fr 등)</li>
+									</ul>
+									<figure>
+										<figcaption>사용자가 명시적으로 열/행 템플릿 속성을 설정하면 그리드 트랙 크기로 적용(2열 2행 그리드)</figcaption>
+										<img src="images/css/grid-auto-columns-rows-01.svg" alt="">
+									</figure>
+<pre><code>
+.container {
+	grid-auto-columns: &lt;track-size&gt; ...;
+	grid-auto-rows: &lt;track-size&gt; ...;
+}
+.container {
+	grid-template-columns: 60px 60px;
+	grid-template-rows: 90px 90px;
+}
+</code></pre>
+									<figure>
+										<figcaption>개별 그리드 아이템에 열/행 위치를 그리드 라인 기준으로 배치하게 되면 다음과 같이 처리됨</figcaption>
+										<img src="images/css/grid-auto-columns-rows-02.svg" alt="">
+									</figure>
+<pre><code>
+.item-a {
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+}
+.item-b {
+	grid-column: 5 / 6;
+	grid-row: 2 / 3;
+}
+/*
+.item-b에 설정한 열 그리드 라인 5~6 배치는 암시적인 열 그리드(grid-auto-columns) 설정에서 정의되지 않은 영역으로,
+존재하지 않는 열/행에 배치하기 위해 암시적인 트랙이 자동으로 생성됩니다.
+(그림을 자세히 보면 암시적으로 생성된 트랙 크기는 0으로 설정됩니다)
+*/
+</code></pre>
+									<figure>
+										<figcaption>자동으로 생성되는 그리드 트랙 크기를 임의의 값으로 설정하고 싶다면 다음과 같이 설정할 수 있습니다.</figcaption>
+										<img src="images/css/grid-auto-columns-rows-03.svg" alt="">
+									</figure>
+<pre><code>
+/* 암시적으로 생성된 그리드 트랙 크기는 60px로 설정됩니다. */
+.container {
+	grid-auto-columns: 60px;
+}
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
+
+						<hr title="Separator for Contents">
+
+
+						<h5 id="grid-auto-flow">Grid 자동 흐름 설정</h5>
+						<section>
+							<p>그리드에 명시적으로 배치(레이아웃) 되지 않은 아이템이 있을 경우, 자동 배치 알고리즘이 실행되어 자동으로 배치 되도록 설정할 수 있습니다.</p>
+							<p>속성 값에 따라 자동 배치 알고리즘 작동 방식이 달라집니다.</p>
+							<figure>
+								<figcaption>속성 값에 따라 자동 배치 알고리즘 작동 방식</figcaption>
+								<img src="images/css/grid-auto-flow-column.png" alt="">
+							</figure>
+							<dl>
+								<dt>grid-auto-flow</dt>
+								<dd>
+									<p>자동 배치 알고리즘 방식을 정의</p>
+									<p>기본적으로 항목을 배치 할 때 그리드에 간격이 생성되면 자동 배치 된 그리드 항목이 간격을 채우지 않고 대신 마지막 항목 뒤에 추가됩니다.</p>
+									<p>dense 키워드를 사용하여 이를 변경할 수 있습니다.</p>
+									<p>이는 암시적 그리드 알고리즘이 자동 배치 된 항목과의 간격을 채우고 다시 채우고 필요할 때 항목의 순서를 변경하도록 지시합니다.</p>
+									<p>항목 순서가 중요하지 않은 이미지 갤러리를 만들 때 실제로 유용 할 수 있습니다.</p>
+									<p>grid-auto-flow: row | column | row dense | column dense;</p>
+									<ul>
+										<li>row : 기본값으로 각 행을 차례로 채우고 필요에 따라 새 행을 추가하는 자동 배치 알고리즘</li>
+										<li>column : 각 열을 차례로 채우고 필요에 따라 새 열을 추가하는 자동 배치 알고리즘</li>
+										<li>dense : 배치 중 나중에 크기가 작은 아이템이 존재할 경우, 그리드 영역 앞부분의 남은 공간에 자동 배치하는 알고리즘</li>
+										<li>row dense : 각 행 축을 따라 차례로 배치, 빈 영역 메움.</li>
+										<li>column dense : 각 열 축을 따라 차례로 배치, 빈 영역 메움.</li>
+									</ul>
+									<figure>
+										<figcaption>첫 번째 행 + 열에 하나의 명시적 20px x 20px 격자 셀과 추가 격자 항목을 보유하기 위해 생성 된 암시적 40px 열 및 행에서 생성 된 세 개의 추가 셀이있는 2×2 격자.</figcaption>
+										<img src="images/css/grid-auto-flow.svg" alt="">
+									</figure>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 grid-auto-flow&lt;/title&gt;
+		&lt;style&gt;
+			*{margin:0;padding:0;box-sizing:border-box;}
+			div{border:1px solid;}
+			.container{
+				display: grid;
+				grid-template-columns: 60px 60px 60px 60px 60px;
+				grid-template-rows: 30px 30px;
+
+				margin:20px;
+				border:2px solid;
+			}
+
+			.row {
+				grid-auto-flow: row;
+			}
+			.column {
+				grid-auto-flow: column;
+			}
+
+			.item-a {
+				grid-column: 1;
+				grid-row: 1 / 3;
+			}
+			.item-e {
+				grid-column: 5;
+				grid-row: 1 / 3;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;section class="container row"&gt;
+			&lt;div class="item-a"&gt;item-a&lt;/div&gt;
+			&lt;div class="item-b"&gt;item-b&lt;/div&gt;
+			&lt;div class="item-c"&gt;item-c&lt;/div&gt;
+			&lt;div class="item-d"&gt;item-d&lt;/div&gt;
+			&lt;div class="item-e"&gt;item-e&lt;/div&gt;
+		&lt;/section&gt;
+		&lt;section class="container column"&gt;
+			&lt;div class="item-a"&gt;item-a&lt;/div&gt;
+			&lt;div class="item-b"&gt;item-b&lt;/div&gt;
+			&lt;div class="item-c"&gt;item-c&lt;/div&gt;
+			&lt;div class="item-d"&gt;item-d&lt;/div&gt;
+			&lt;div class="item-e"&gt;item-e&lt;/div&gt;
+		&lt;/section&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+									<figure>
+										<figcaption>grid-auto-flow:row;grid-auto-flow:column;</figcaption>
+										<img src="images/css/grid-auto-flow-01.svg" alt="">
+										<img src="images/css/grid-auto-flow-02.svg" alt="">
+									</figure>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
+
+						<hr title="Separator for Contents">
+
+
+						<h5 id="grid-shorthand">Grid 속기형 속성</h5>
+						<section class="ukgroup">
+							<blockquote class="note" role="note">
+								<p>
+									하나의 속성에 다음 속성들을 모두 일괄 설정할 수 있는 grid 속기형 속성입니다.<br>
+									grid-template-rows<br>
+									grid-template-columns<br>
+									grid-template-areas<br>
+									grid-auto-rows<br>
+									grid-auto-columns<br>
+									grid-auto-flow
+								</p>
+							</blockquote>
+							<dl>
+								<dt>grid</dt>
+								<dd>
+									<p>grid-template-xxx과 grid-auto-xxx의 단축 속성</p>
+									<p>명시적 그리드 속성 (grid-template-rows, grid-template-columns, grid-template-areas)</p>
+									<p>암시적 그리드 속성 (grid-auto-rows, grid-auto-columns, grid-auto-flow)을 축약형으로 선언.</p>
+									<ul>
+										<li>none : 모든 속성을 초기 값으로 적용</li>
+										<li>&lt;grid-template-rows&gt; / &lt;grid-template-columns&gt; : grid-tempate-rows / grid-template-columns 속성 설정</li>
+										<li>&lt;grid-auto-flow&gt; [&lt;grid-auto-rows&gt; [/ &lt;grid-auto-columns&gt;]] : grid-auto-flow / grid-auto-rows / grid-auto-columns 속성 설정</li>
+									</ul>
+<pre><code>
+/* &lt;'grid-template'&gt; values */
+grid: none;
+grid: "a" 100px "b" 1fr;
+grid: [linename1] "a" 100px [linename2];
+grid: "a" 200px "b" min-content;
+grid: "a" minmax(100px, max-content) "b" 20%;
+grid: 100px / 200px;
+grid: minmax(400px, min-content) / repeat(auto-fill, 50px);
+
+/* &lt;'grid-template-rows'&gt; / [ auto-flow && dense ] &lt;'grid-auto-columns'&gt; values */
+grid: 200px / auto-flow;
+grid: 30% / auto-flow dense;
+grid: repeat(3, [line1 line2 line3] 200px) / auto-flow 300px;
+grid: [line1] minmax(20em, max-content) / auto-flow dense 40%;
+
+/* [ auto-flow && dense ] &lt;'grid-auto-rows'&gt; / &lt;'grid-template-columns'&gt; values */
+grid: auto-flow / 200px;
+grid: auto-flow dense / 30%;
+grid: auto-flow 300px / repeat(3, [line1 line2 line3] 200px);
+grid: auto-flow dense 40% / [line1] minmax(20em, max-content);
+
+/* Global values */
+grid: inherit;
+grid: initial;
+grid: unset;
+
+/* 기본 값 */
+grid-template-rows: none;
+grid-template-columns: none;
+grid-template-areas: none;
+grid-auto-rows: auto;
+grid-auto-columns: auto;
+grid-auto-flow: row;
+grid-column-gap: 0;
+grid-row-gap: 0;
+column-gap: normal;
+row-gap: normal;
+
+/* 예시1 */
+.container {
+	grid: 100px 300px / 3fr 1fr;
+	/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
+	grid-template-rows: 100px 300px;
+	grid-template-columns: 3fr 1fr;
+	*/
+}
+
+/* 예시2 */
+.container {
+	grid: auto-flow / 200px 1fr;
+	/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
+	grid-auto-flow: row;
+	grid-template-columns: 200px 1fr;
+	*/
+}
+
+/* 예시3 */
+.container {
+	grid: auto-flow dense 100px / 1fr 2fr;
+	/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
+	grid-auto-flow: row dense;
+	grid-auto-rows: 100px;
+	grid-template-columns: 1fr 2fr;
+	*/
+}
+
+/* 예시4 */
+.container {
+	grid: 100px 300px / auto-flow 200px;
+	/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
+	grid-template-rows: 100px 300px;
+	grid-auto-flow: column;
+	grid-auto-columns: 200px;
+	*/
+}
+
+/* 예시5 */
+.container {
+	grid: [row1-start] "header header header" 1fr [row1-end]
+				[row2-start] "footer footer footer" 25px [row2-end]
+				/ auto 50px auto;
+
+	/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
+	grid-template-areas:
+		"header header header"
+		"footer footer footer";
+	grid-template-rows: [row1-start] 1fr [row1-end row2-start] 25px [row2-end];
+	grid-template-columns: auto 50px auto;
+	*/
+}
+</code></pre>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+	&lt;head&gt;
+		&lt;meta charset="UTF-8"&gt;
+		&lt;meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"&gt;
+		&lt;meta name="format-detection" content="telephone=no, address=no, email=no, date=no"&gt;
+		&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+		&lt;title&gt;UXKM CSS3 grid&lt;/title&gt;
+		&lt;style&gt;
+			*{margin:0;padding:0;box-sizing:border-box;}
+			body {
+				margin: 1rem;
+				font: 12px system-ui;
+			}
+
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				grid-gap: 1rem;
+			}
+			.grid &gt; div {
+				padding: 1.5rem;
+				border-radius: 1rem;
+				background: #EDE7F6;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div class="grid"&gt;
+			&lt;div&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse aliquid laboriosam minima ex praesentium recusandae reprehenderit unde sit tempore atque aut commodi quae expedita corrupti, dignissimos architecto. Eius, maiores ad?&lt;/div&gt;
+			&lt;div&gt;Quibusdam, eos esse dolorum facere voluptatem eius, dolore quas totam aspernatur obcaecati harum? Nihil eligendi eos minus odit minima earum incidunt rem fugit reprehenderit, molestiae possimus eveniet itaque laudantium excepturi.&lt;/div&gt;
+			&lt;div&gt;Ducimus quibusdam inventore delectus doloribus dignissimos. Dignissimos quos officia minus exercitationem perspiciatis harum iusto molestiae deleniti quod sunt amet recusandae autem, neque doloremque ad alias eaque consequuntur nesciunt quis eius!&lt;/div&gt;
+			&lt;div&gt;Cumque aspernatur ex ipsum dolorum eius, tempore omnis minus sequi architecto totam sunt maxime nemo, ab repellendus. Aut voluptatem saepe voluptatibus nisi ipsum. Debitis corporis culpa ipsa error nemo doloribus.&lt;/div&gt;
+			&lt;div&gt;Consequatur dolore, architecto quos saepe consequuntur libero minus totam? Enim optio provident commodi corporis officiis, sunt maiores? Cupiditate consequuntur, cumque natus corporis velit sunt ad magni aliquid facere deleniti molestiae.&lt;/div&gt;
+			&lt;div&gt;Voluptatibus similique modi voluptatum voluptatem quo quod minima ducimus facere, sequi libero accusamus nisi nobis? Minima error tempore quo esse quod odit, deleniti labore nulla ullam velit nemo neque sint!&lt;/div&gt;
+			&lt;div&gt;Qui, corporis delectus? Pariatur vel autem commodi, accusantium, voluptate obcaecati iste, a debitis facilis repellendus mollitia. Dolore dicta totam, quaerat omnis accusantium magni alias voluptates eligendi ex id aut dolorem?&lt;/div&gt;
+			&lt;div&gt;Recusandae tempora ab error omnis exercitationem illo accusamus esse sit ipsa accusantium iure, possimus ducimus quis consequuntur qui corporis nobis culpa repudiandae! Suscipit, debitis. Omnis delectus at vitae laborum quos?&lt;/div&gt;
+			&lt;div&gt;Dolorem saepe accusamus sed placeat porro ex, ab, vel eaque libero incidunt facilis delectus, iure odio dicta error consequuntur perspiciatis quasi? Corrupti incidunt quia asperiores quo magnam at minima laudantium?&lt;/div&gt;
+			&lt;div&gt;Dolor ad saepe, nemo fugit tempora autem est fugiat quis porro atque nam repellendus maxime neque voluptatem rerum amet odit aspernatur voluptates iusto eos laboriosam enim vel. Eius, debitis beatae!&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
+
+						<hr title="Separator for Contents">
+
+
+						<h5 id="grid-gutters">Grid 거터</h5>
+						<section class="ukgroup">
+							<p>그리드 라인(행/열) 사이 간격(gap)을 조정합니다.</p>
+							<p>그리드 거터 속성의 이름 앞에 붙어 있던 grid- 는 모두 제외 되었습니다. 이전에 사용되던 이름은 grid-row-gap, grid-column-gap, gap 입니다.</p>
+							<p>모든 브라우저 호환 이전까지는 예전 이름을 사용하거나, <a href="https://jonneal.dev/postcss-gap-properties/" target="_blank" title="새 창 열림">postcss-gap-properties</a>를 사용합니다</p>
+							<dl>
+								<dt>column-gap(grid-column-gap) / row-gap(grid-row-gap)</dt>
+								<dd>
+									<p>열과 열 사이 및 행과 행 사이의 간격(Line)을 정의</p>
+									<p>grid- 접두사가 제거됨. grid-column-gap = column-gap, grid-row-gap = row-gap 으로 이름이 변경.</p>
+									<p>grid- 접두사가 없는 속성은 Chrome 68 이상, Safari 11.2 릴리스 50 이상 및 Opera 54 이상에서 지원됩니다.</p>
+									<ul>
+										<li>column-gap : &lt;line-size&gt;</li>
+										<li>row-gap : &lt;line-size&gt;</li>
+									</ul>
+<pre><code>
+.container {
+	grid-column-gap: &lt;line-size&gt;;
+	grid-row-gap: &lt;line-size&gt;;
+}
+/* Example: */
+.container {
+	grid-template-columns: 100px 50px 100px;
+	grid-template-rows: 80px auto 80px;
+	grid-column-gap: 10px;
+	grid-row-gap: 15px;
+}
+</code></pre>
+									<figure>
+										<figcaption>gutters는 외부 모서리가 아닌 열 / 행 사이에만 작성됩니다.</figcaption>
+										<img src="images/css/grid-gap.svg" alt="">
+									</figure>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>gap(grid-gap)</dt>
+								<dd>
+									<p>column-gap / row-gap 의 축약(shorthand) 속성</p>
+									<p>grid- 접두사가 제거되고 grid-gap = gap 으로 이름이 변경.</p>
+									<p>grid- 접두사가 없는 속성은 Chrome 68 이상, Safari 11.2 릴리스 50 이상 및 Opera 54 이상에서 지원됩니다.</p>
+									<p>그리드 거터 속성의 이름 앞에 붙어 있던 grid- 는 모두 제외 되었습니다. 이전에 사용되던 이름은 grid-row-gap, grid-column-gap, gap 입니다.</p>
+									<p>모든 브라우저 호환 이전까지는 예전 이름을 사용하거나, <a href="https://jonathantneal.github.io/postcss-gap-properties/" target="_blank" title="새 창 열림">postcss-gap-properties</a>를 사용합니다.</p>
+									<p>그리드 행 / 열 사이 간격을 조정할 수 있습니다. 퍼센트 값은 콘텐츠 영역에 상대적으로 설정 됩니다.</p>
+									<ul>
+										<li>축약(shorthand) 속성 - gap : &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;</li>
+									</ul>
+<pre><code>
+.container {
+	grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;
+}
+/* Example: */
+.container {
+	grid-template-rows: 80px auto 80px;
+	grid-template-columns: 100px 50px 100px;
+	/* 행 사이 간격 설정 */
+	row-gap: 10px;
+	/* 열 사이 간격 설정 */
+	column-gap: 15px;
+}
+/* 축약형 */
+.container {
+	grid-template: 80px auto 80px / 100px 50px 100px;
+	/* 행/열 사이 간격 설정 */
+	gap: 10px 15px;
+}
+/* grid-gap 값으로 1개만 입력하면 행/열 사이 간격이 동일하게 설정됩니다. */
+gap: 20px; /* grid-row-gap: 20px; grid-column-gap: 20px; */
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
+
+						<hr title="Separator for Contents">
+
+
+						<h5 id="grid-contents-align">Grid 콘텐츠(Content) 정렬</h5>
+						<section class="ukgroup">
+							<dl>
+								<dt>align-content</dt>
+								<dd>
+									<p>그리드 콘텐츠(Grid Contents)를 수직(열 축) 정렬</p>
+									<p>그리드 컨테이너의 크기보다 작은 그리드 아이템 트랙(px와 같은 고정 단위로 설정된 경우)의 크기라면, 아이템 트랙을 정렬할 수 있습니다.</p>
+									<p>이 속성은 열(column) 축을 따라 그리드 아이템 트랙을 정렬합니다. (justify-content 속성의 반대)</p>
+<pre><code>
+.container {
+	align-content : start | center | end | stretch | space-around | space-between | space-evenly
+}
+</code></pre>
+									<ul>
+										<li>start : 그리드 컨테이너 영역의 시작점(위쪽)에 아이템 트랙을 정렬
+											<figure>
+												<figcaption><code>align-content: start;</code></figcaption>
+												<img src="images/css/gird-align-content-start.svg" alt="">
+											</figure>
+										</li>
+										<li>center : 그리드 컨테이너 영역의 중앙에 아이템 트랙을 정렬(수직 가운데 정렬)
+											<figure>
+												<figcaption><code>align-content: center;</code></figcaption>
+												<img src="images/css/gird-align-content-center.svg" alt="">
+											</figure>
+										</li>
+										<li>end : 그리드 컨테이너 영역의 끝점(아래쪽)에 아이템 트랙을 정렬
+											<figure>
+												<figcaption><code>align-content: end;</code></figcaption>
+												<img src="images/css/gird-align-content-end.svg" alt="">
+											</figure>
+										</li>
+										<li>stretch : 그리드 컨테이너 영역을 아이템 트랙 크기를 조정하여 채움(열 축을 채우기 위해 그리드 콘텐츠를 늘림)
+											<figure>
+												<figcaption><code>align-content: stretch;</code></figcaption>
+												<img src="images/css/gird-align-content-stretch.svg" alt="">
+											</figure>
+										</li>
+										<li>space-around : 그리드 컨테이너의 남은 영역을 아이템 트랙(열)이 좌/우 공간으로 나눔(양 가장자리 공간은 아이템 그룹 사이 간격의 1/2)(각 행 위아래에 여백을 고르게 정렬)
+											<figure>
+												<figcaption><code>align-content: space-around;</code></figcaption>
+												<img src="images/css/gird-align-content-space-around.svg" alt="">
+											</figure>
+										</li>
+										<li>space-between : 그리드 컨테이너 영역의 양 가장자리 공백 없이, 아이템 트랙(열) 사이 공간을 나눔(첫 행은 시작점에, 끝 행은 끝점에 정렬되고 나머지 여백으로 고르게 정렬)
+											<figure>
+												<figcaption><code>align-content: space-between;</code></figcaption>
+												<img src="images/css/gird-align-content-space-between.svg" alt="">
+											</figure>
+										</li>
+										<li>space-evenly : space-around와 비슷해보이지만, 공간을 모두 동일하게 나누는 점이 다름(모든 여백을 고르게 정렬)
+											<figure>
+												<figcaption><code>align-content: space-evenly;</code></figcaption>
+												<img src="images/css/gird-align-content-space-evenly.svg" alt="">
+											</figure>
+										</li>
+									</ul>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>justify-content</dt>
+								<dd>
+									<p>그리드 콘텐츠를 수평(행 축) 정렬</p>
+									<p>그리드 컨테이너의 크기보다 작은 그리드 아이템 트랙(px와 같은 고정 단위로 설정된 경우)의 크기라면, 아이템 트랙을 정렬할 수 있습니다.</p>
+									<p>이 속성은 행(row) 축을 따라 그리드 아이템 트랙을 정렬합니다. (align-content 속성의 반대)</p>
+<pre><code>
+.container {
+	justify-content: start | end | center | stretch | space-around | space-between | space-evenly;
+}
+</code></pre>
+									<ul>
+										<li>start : 그리드 컨테이너 영역의 시작점(왼쪽)에 아이템 트랙을 정렬
+											<figure>
+												<figcaption><code>justify-content: start</code></figcaption>
+												<img src="images/css/grid-justify-content-start.svg" alt="">
+											</figure>
+										</li>
+										<li>center : 그리드 컨테이너 영역의 중앙에 아이템 트랙을 정렬
+											<figure>
+												<figcaption><code>justify-content: center</code></figcaption>
+												<img src="images/css/grid-justify-content-center.svg" alt="">
+											</figure>
+										</li>
+										<li>end : 그리드 컨테이너 영역의 끝점(오른쪽)에 아이템 트랙을 정렬
+											<figure>
+												<figcaption><code>justify-content: end</code></figcaption>
+												<img src="images/css/grid-justify-content-end.svg" alt="">
+											</figure>
+										</li>
+										<li>stretch : 그리드 컨테이너 영역을 아이템 트랙 크기를 조정하여 채움(행 축을 채우기 위해 그리드 콘텐츠를 늘림)
+											<figure>
+												<figcaption><code>justify-content: stretch</code></figcaption>
+												<img src="images/css/grid-justify-content-stretch.svg" alt="">
+											</figure>
+										</li>
+										<li>space-around : 그리드 컨테이너의 남은 영역을 아이템 트랙(열)이 좌/우 공간으로 나눔(양 가장자리 공간은 아이템 그룹 사이 간격의 1/2)(각 열 좌우에 여백을 고르게 정렬)
+											<figure>
+												<figcaption><code>justify-content: space-around</code></figcaption>
+												<img src="images/css/grid-justify-content-space-around.svg" alt="">
+											</figure>
+										</li>
+										<li>space-between : 그리드 컨테이너 영역의 양 가장자리 공백 없이, 아이템 트랙(열) 사이 공간을 나눔(첫 열은 시작점에, 끝 열은 끝점에 정렬되고 나머지 여백으로 고르게 정렬)
+											<figure>
+												<figcaption><code>justify-content: space-between</code></figcaption>
+												<img src="images/css/grid-justify-content-space-between.svg" alt="">
+											</figure>
+										</li>
+										<li>space-evenly : space-around와 비슷해보이지만, 공간을 모두 동일하게 나누는 점이 다름(모든 여백을 고르게 정렬)
+											<figure>
+												<figcaption><code>justify-content: space-evenly</code></figcaption>
+												<img src="images/css/grid-justify-content-space-evenly.svg" alt="">
+											</figure>
+										</li>
+									</ul>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>place-content</dt>
+								<dd>
+									<p>&lt;align-content&gt; / &lt;justify-content&gt;의 단축 속성</p>
+									<p>첫 번째 값은 align-content속성 값이고 두 번째 값은 justify-content 속성 값입니다.</p>
+									<p>firefox버전 60부터는 align-content 및 justify-content에 모두 유효한 경우 단일 값만 지정할 수 있습니다</p>
+<pre><code>
+/* Positional alignment */
+/* align-content does not take left and right values */
+place-content: center start;
+place-content: start center;
+place-content: end left;
+place-content: flex-start center;
+place-content: flex-end center;
+
+/* Baseline alignment */
+/* justify-content does not take baseline values */
+place-content: baseline center;
+place-content: first baseline space-evenly;
+place-content: last baseline right;
+
+/* Distributed alignment */
+place-content: space-between space-evenly;
+place-content: space-around space-evenly;
+place-content: space-evenly stretch;
+place-content: stretch space-evenly;
+
+/* Global values */
+place-content: inherit;
+place-content: initial;
+place-content: unset;
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-false.png" alt="Edge Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>59.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>53.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>64.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>11.0</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
+
+						<hr title="Separator for Contents">
+
+
+						<h5 id="grid-items-align">Grid 아이템(Items) 정렬</h5>
+						<section class="ukgroup">
+							<dl>
+								<dt>align-items</dt>
+								<dd>
+									<p>그리드 아이템(Items)들을 수직(열 축) 정렬</p>
+									<p>열(column) 축을 따라 그리드 아이템 내부 콘텐츠를 정렬합니다. (justify-items 속성의 반대)</p>
+									<p>이 설정은 그리드 컨테이너 내부 모든 그리드 아이템에 적용됩니다.</p>
+									<p>개별 그리드 아이템에 행축 콘텐츠 정렬 속성을 적용하려면 align-self 속성을 사용합니다.</p>
+<pre><code>
+.container {
+	align-items: start | end | center | stretch;
+}
+</code></pre>
+									<ul>
+										<li>start : 그리드 영역의 시작점(위쪽)에 콘텐츠 정렬
+											<figure>
+												<figcaption><code>align-items: start;</code></figcaption>
+												<img src="images/css/grid-align-items-start.svg" alt="">
+											</figure>
+										</li>
+										<li>center : 그리드 영역의 중앙에 콘텐츠 정렬(수직 가운데 정렬)
+											<figure>
+												<figcaption><code>align-items: center;</code></figcaption>
+												<img src="images/css/grid-align-items-center.svg" alt="">
+											</figure>
+										</li>
+										<li>end : 그리드 영역의 끝점(아래쪽)에 콘텐츠 정렬
+											<figure>
+												<figcaption><code>align-items: end;</code></figcaption>
+												<img src="images/css/grid-align-items-end.svg" alt="">
+											</figure>
+										</li>
+										<li>stretch : 기본값으로 그리드 영역 전체 너비를 채움(열 축을 채우기 위해 그리드 아이템을 늘림)
+											<figure>
+												<figcaption><code>align-items: stretch;</code></figcaption>
+												<img src="images/css/grid-align-items-stretch.svg" alt="">
+											</figure>
+										</li>
+									</ul>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>justify-items</dt>
+								<dd>
+									<p>그리드 아이템들을 수평(행 축) 정렬</p>
+									<p>행 축을 따라 그리드 아이템 내부 콘텐츠를 정렬합니다. (열 축에 따라 정렬하는 align-self 속성과는 반대)</p>
+<pre><code>
+.container {
+	justify-items: start | end | center | stretch;
+}
+</code></pre>
+									<ul>
+										<li>start : 그리드 아이템 영역 행 축 시작점(왼쪽)에 콘텐츠를 정렬
+											<figure>
+												<figcaption><code>justify-items: start;</code></figcaption>
+												<img src="images/css/grid-justify-items-start.svg" alt="">
+											</figure>
+										</li>
+										<li>center : 그리드 아이템 영역 행 축 중앙에 콘텐츠를 정렬(수평 가운데 정렬)
+											<figure>
+												<figcaption><code>justify-items: center;</code></figcaption>
+												<img src="images/css/grid-justify-items-center.svg" alt="">
+											</figure>
+										</li>
+										<li>end : 그리드 아이템 영역 행 축 끝점(오른쪽)에 콘텐츠를 정렬
+											<figure>
+												<figcaption><code>justify-items: end;</code></figcaption>
+												<img src="images/css/grid-justify-items-end.svg" alt="">
+											</figure>
+										</li>
+										<li>stretch : 그리드 아이템 영역을 행 축에 가득 채움(행 축을 채우기 위해 그리드 아이템을 늘림)
+											<figure>
+												<figcaption><code>justify-items: stretch;</code></figcaption>
+												<img src="images/css/grid-justify-items-stretch.svg" alt="">
+											</figure>
+										</li>
+									</ul>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-true.png" alt="Edge Browser"><em>16.0</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>57.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>52.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>44.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
+										</ul>
+									</aside>
+								</dd>
+								<dt>place-items</dt>
+								<dd>
+									<p>align-items와 justify-items의 단축 속성</p>
+									<p>첫 번째 값은 align-items 속성 값이고 두 번째 값은 justify-items 속성 값입니다.</p>
+<pre><code>
+/* Keyword values */
+place-items: auto center;
+place-items: normal start;
+
+/* Positional alignment */
+place-items: center normal;
+place-items: start auto;
+place-items: end normal;
+place-items: self-start auto;
+place-items: self-end normal;
+place-items: flex-start auto;
+place-items: flex-end normal;
+place-items: left auto;
+place-items: right normal;
+
+/* Baseline alignment */
+place-items: baseline normal;
+place-items: first baseline auto;
+place-items: last baseline normal;
+place-items: stretch auto;
+
+/* Global values */
+place-items: inherit;
+place-items: initial;
+place-items: unset;
+</code></pre>
+									<aside class="bosupport">
+										<strong>Web Browser Support</strong>
+										<ul>
+											<li><img src="images/icon/ico_ie-false.png" alt="Internet Explorer Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_edge-false.png" alt="Edge Browser"><em>지원 안 함</em></li>
+											<li><img src="images/icon/ico_chrome-true.png" alt="Chrome Browser"><em>59.0</em></li>
+											<li><img src="images/icon/ico_firefox-true.png" alt="Firefox Browser"><em>45.0</em></li>
+											<li><img src="images/icon/ico_opera-true.png" alt="Opera Browser"><em>46.0</em></li>
+											<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>11.0</em></li>
+										</ul>
+									</aside>
+								</dd>
+							</dl>
+						</section>
+
+					</section>
 
 
 
