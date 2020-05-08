@@ -6106,6 +6106,13 @@ body {
   color: rgba(8, 17, 33, 0.9);
   letter-spacing: -0.3px;
 }
+.content_area h5 {
+  line-height: 22px;
+  font-size: 15px;
+  color: rgba(8, 17, 33, 0.9);
+  letter-spacing: -0.3px;
+  font-weight: 500 !important;
+}
 @media (max-width: 993px) {
   .content_area h1 {
     overflow: hidden;
@@ -6164,6 +6171,10 @@ body {
   .content_area h4 {
     line-height: 20px;
     font-size: 15px;
+  }
+  .content_area h5 {
+    line-height: 20px;
+    font-size: 14px;
   }
 }
 @media (max-width: 360px) {

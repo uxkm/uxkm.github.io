@@ -65,8 +65,8 @@
 			<section class="mt_l indent">
 				<h4 class="ml_mn t_blue">grid-template-columns / grid-template-rows</h4>
 				<p class="mt_s">
-					공백으로 구분 된 값 목록으로 그리드의 명시적(Explicit Grids) 열(Track) / 행(Track)의 크기를 정의합니다.
-					값은 트랙 크기를 나타내며, 그 사이의 공간은 그리드 선을 나타냅니다.
+					공백으로 구분 된 값 목록으로 그리드의 명시적(Explicit Grids) 열(Track) / 행(Track)의 크기를 정의합니다.<br>
+					값은 트랙 크기를 나타내며, 그 사이의 공간은 그리드 선을 나타냅니다.<br>
 					동시에 라인(Line)의 이름도 정의할 수 있습니다.
 				</p>
 				<p class="mt_s"><code>fr</code>(fraction, 공간 비율) 단위를 사용할 수 있으며, <code>repeat()</code> 함수를 사용할 수 있습니다.</p>
@@ -117,6 +117,11 @@
 					<figcaption class="mt_0">명시적으로 줄 이름을 지정</figcaption>
 					<img src="/ukncs/images/css/grid_template-column-rows-02.svg" alt="명시적으로 줄 이름을 지정" class="mt_m max-w550">
 				</figure>
+			</section>
+
+			<!-- grid-template-columns -->
+			<section class="mt_l indent">
+				<h4 class="ml_mn t_blue">grid-template-columns</h4>
 				<figure class="img_figure mt_m">
 					<figcaption class="mt_0">grid-template-columns: [first] 400px [main] 200px [side] 100px [last];</figcaption>
 					<img src="/ukncs/images/css/grid-definition.svg" alt="grid-template-columns: [first] 400px [main] 200px [side] 100px [last];" class="mt_m max-w550">
@@ -131,18 +136,18 @@
 					</ul>
 				</div>
 
-				<p class="mt_m">사용자가 임의로 설정한 선 이름([이름])을 사용할 수도 있습니다.</p>
+				<h5 class="mt_m">사용자가 임의로 설정한 선 이름([이름])을 사용할 수도 있습니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
 						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-rows: [row-1-start] 25% [row-1-end] 100px [third-line] auto [last-line];</li>
 						<li class="indent">grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];</li>
+						<li class="indent">grid-template-rows: [row-1-start] 25% [row-1-end] 100px [third-line] auto [last-line];</li>
 						<li>}</li>
 					</ul>
 				</div>
 
-				<p class="mt_m">각 열의 크기를 정의합니다.</p>
+				<h5 class="mt_m">각 열의 크기를 정의합니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -151,7 +156,7 @@
 					</ul>
 				</div>
 
-				<p class="mt_m">동시에 각 라인의 이름도 정의할 수 있습니다.</p>
+				<h5 class="mt_m">동시에 각 라인의 이름도 정의할 수 있습니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -160,7 +165,7 @@
 					</ul>
 				</div>
 
-				<p class="mt_m">라인에 중복된 이름을 지정할 수 있습니다.</p>
+				<h5 class="mt_m">라인에 중복된 이름을 지정할 수 있습니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -169,28 +174,28 @@
 					</ul>
 				</div>
 
-				<p class="mt_m">선 이름을 1개 이상 설정하는 것도 가능합니다. 방법은 [이름-1 이름-2]와 같이 [] 내부에 공백으로 구분된 이름을 추가하면 됩니다.</p>
+				<h5 class="mt_m">선 이름을 1개 이상 설정하는 것도 가능합니다. 방법은 [이름-1 이름-2]와 같이 [] 내부에 공백으로 구분된 이름을 추가하면 됩니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
-						<li class="indent">grid-template-rows: [row-1] 100px [rows-1-end row-2-start] 30% [row-2-end];</li>
+						<li class="indent">grid-template-columns: [columns-1] 100px [columns-1-end columns-2-start] 30% [columns-2-end];</li>
 						<li>}</li>
 					</ul>
 				</div>
 
-				<p class="mt_m">설정이 반복되는 경우, <code>repeat()</code> 함수를 사용하여 손쉽게 설정할 수 있습니다.</p>
+				<h5 class="mt_m">설정이 반복되는 경우, <code>repeat()</code> 함수를 사용하여 손쉽게 설정할 수 있습니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
-						<li class="indent">grid-template-rows: repeat(3, 80px [row-start]) 5%;</li>
-						<li class="indent">/* 결과: 80px [row-start] 80px [row-start] 80px [row-start] 5% */</li>
 						<li class="indent">grid-template-columns: repeat(2, 15% 30px) auto;</li>
 						<li class="indent">/* 결과: 15% 30px 15% 30px auto */</li>
+						<li class="indent">grid-template-rows: repeat(3, 80px [row-start]) 5%;</li>
+						<li class="indent">/* 결과: 80px [row-start] 80px [row-start] 80px [row-start] 5% */</li>
 						<li>}</li>
 					</ul>
 				</div>
 
-				<p class="mt_m"><code>fr</code> 단위를 사용하여 <code>&lt;track-size&gt;</code>를 그리드의 남은 공간 일부를 설정할 수 있습니다.</p>
+				<h5 class="mt_m"><code>fr</code> 단위를 사용하여 <code>&lt;track-size&gt;</code>를 그리드의 남은 공간 일부를 설정할 수 있습니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -199,7 +204,7 @@
 					</ul>
 				</div>
 
-				<p class="mt_m"><code>fr</code> 단위는 고정 값(px, rem 등) 단위가 먼저 계산된 후, 남은 공간을 사용하여 계산 처리됩니다.</p>
+				<h5 class="mt_m"><code>fr</code> 단위는 고정 값(px, rem 등) 단위가 먼저 계산된 후, 남은 공간을 사용하여 계산 처리됩니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -210,7 +215,7 @@
 
 				<hr class="dashed_line mt_l">
 
-				<p class="mt_l">만약 1200px 너비의 ‘12컬럼 그리드 템플릿’을 정의한다면 다음과 작성할 수 있습니다.</p>
+				<h5 class="mt_l">만약 1200px 너비의 ‘12컬럼 그리드 템플릿’을 정의한다면 다음과 작성할 수 있습니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -220,10 +225,10 @@
 					</ul>
 				</div>
 
-				<p class="mt_m">
+				<h5 class="mt_m">
 					위 예제에서는 12개의 열(컬럼) 크기를 각각 하나씩 지정하여 관리의 어려움이 있습니다.<br>
 					<code>repeat()</code> 함수를 사용하면 위 예제를 다음과 같이 간소화 할 수 있습니다.
-				</p>
+				</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -233,10 +238,10 @@
 					</ul>
 				</div>
 
-				<p class="mt_m">
+				<h5 class="mt_m">
 					컬럼을 크기를 <code>fr</code>(fraction, 공간 비율) 단위를 사용해 다음과 같이 비율로 지정할 수도 있습니다.<br>
 					각 컬럼은 비율에 맞게 출력되기 때문에 컨테이너의 너비가 가변해도 열 크기를 수정할 필요가 없습니다.
-				</p>
+				</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -246,7 +251,7 @@
 					</ul>
 				</div>
 
-				<p class="mt_m"><code>repeat()</code> 함수는 2번째 인수를 반복하기 때문에 다음과 같이 활용할 수 있습니다.</p>
+				<h5 class="mt_m"><code>repeat()</code> 함수는 2번째 인수를 반복하기 때문에 다음과 같이 활용할 수 있습니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -261,7 +266,7 @@
 					</ul>
 				</div>
 
-				<p class="mt_m">트랙 값 사이에 빈 공간을두면 그리드 선에 양수와 음수가 자동으로 할당됩니다. (위 '명시적으로 줄 이름을 지정' 이미지 참조)</p>
+				<h5 class="mt_m">트랙 값 사이에 빈 공간을두면 그리드 선에 양수와 음수가 자동으로 할당됩니다. (위 '명시적으로 줄 이름을 지정' 이미지 참조)</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -271,7 +276,7 @@
 					</ul>
 				</div>
 
-				<p class="mt_m">라인은 하나 이상의 이름을 가질 수 있습니다. 예를 들어, 두 번째 줄의 이름은 row1-end와 row2-start입니다.</p>
+				<h5 class="mt_m">라인은 하나 이상의 이름을 가질 수 있습니다. 예를 들어, 두 번째 줄의 이름은 row1-end와 row2-start입니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -280,7 +285,7 @@
 					</ul>
 				</div>
 
-				<p class="mt_m">여러 줄이 같은 이름을 공유하는 경우 해당 줄 이름과 개수로 참조 할 수 있습니다.</p>
+				<h5 class="mt_m">여러 줄이 같은 이름을 공유하는 경우 해당 줄 이름과 개수로 참조 할 수 있습니다.</h5>
 				<div class="line_code_box line_code_number mt_s">
 					<ul>
 						<li>.container {</li>
@@ -288,14 +293,206 @@
 						<li>}</li>
 					</ul>
 				</div>
+			</section>
 
+			<!-- grid-template-rows -->
+			<section class="mt_l indent">
+				<h4 class="ml_mn t_blue">grid-template-row</h4>
 				<figure class="img_figure mt_m">
 					<figcaption class="mt_0">grid-template-rows</figcaption>
 					<img src="/ukncs/images/css/grid-template-rows-1.png" alt="grid-template-rows" class="mt_m max-w600">
 				</figure>
+				<div class="line_code_box line_code_number mt_m">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-rows: 행크기 행크기 ...;</li>
+						<li class="indent">grid-template-rows: [선이름] 1행크기 [선이름] 1행크기 [선이름] ...;</li>
+						<li>}</li>
+					</ul>
+				</div>
 
-				<p class="mt_l font-18 t_red">작업 중...</p>
+				<h5 class="mt_m">각 행의 크기를 정의합니다.</h5>
+				<div class="line_code_box line_code_number mt_s">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">grid-template-rows: 100px 200px;</li>
+						<li>}</li>
+					</ul>
+				</div>
+
+				<h5 class="mt_m">동시에 각 라인의 이름도 정의할 수 있습니다.</h5>
+				<div class="line_code_box line_code_number mt_s">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">grid-template-rows: [first] 100px [second] 200px [third];</li>
+						<li>}</li>
+					</ul>
+				</div>
+
+				<h5 class="mt_m">라인에 중복된 이름을 지정할 수 있습니다.</h5>
+				<div class="line_code_box line_code_number mt_s">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">grid-template-rows: [row1-start] 100px [row1-end row2-start] 200px [row2-end];</li>
+						<li>}</li>
+					</ul>
+				</div>
+
+				<h5 class="mt_m">
+					각 라인은 행(row, track)과 열(column, track)의 개수대로 숫자(양수/음수) 라인 이름이 자동으로 지정되어 있어서,
+					꼭 필요한 경우가 아니면 라인 이름을 정의할 필요가 없습니다.
+				</h5>
+				<div class="line_code_box line_code_number mt_s">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">grid-template-rows: 100px 200px;</li>
+						<li class="indent">/* grid-template-rows: [1 -3] 100px [2 -2] 200px [3 -1]; */</li>
+						<li>}</li>
+						<li>.container {</li>
+						<li class="indent">width: 400px;</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-rows: repeat(3, 100px);</li>
+						<li class="indent">grid-template-columns: repeat(3, 1fr);</li>
+						<li>}</li>
+					</ul>
+				</div>
 			</section>
+
+			<aside class="browser_support mt_l" data-tit="grid-template-columns/rows">
+				<ul>
+					<li class="ie false">지원안함</li>
+					<li class="edge">16.0</li>
+					<li class="chrome">57.0</li>
+					<li class="firefox">52.0</li>
+					<li class="opera">44.0</li>
+					<li class="safari">10.1</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- 4.5.5.3. Grid 템플릿 영역 -->
+		<article class="mt_xl indent">
+			<h3 class="ml_mn">4.5.5.3. Grid 템플릿 영역</h3>
+			<p class="mt_ms">
+				<code>grid-area</code> 속성으로 설정된 그리드 영역의 이름을 참조하여, 그리드 템플릿 영역을 설정할 수 있습니다.<br>
+				그리드 영역 이름을 반복하면 그리드 셀을 병합(merge, span) 합니다. 그리고 마침표(.)는 비어있는 그리드 셀을 말합니다.
+			</p>
+
+			<!-- grid-template-areas -->
+			<section class="mt_l indent">
+				<h4 class="ml_mn t_blue">grid-template-areas</h4>
+				<p class="mt_s">영역(Area) 이름을 참조해 템플릿 생성합니다.</p>
+				<div class="line_code_box line_code_number mt_ms">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">grid-template-areas: &lt;grid-area-name&gt; | . | none;</li>
+						<li>}</li>
+					</ul>
+				</div>
+				<ol class="ol_lst mt_s indent">
+					<li><code class="weight-500 t_blue bg_none">&lt;grid-area-name&gt;</code> : 사용자가 <code>grid-area</code> 속성 값으로 설정한 임의의 그리드 영역 이름</li>
+					<li><strong class="weight-500 t_blue bg_none">마침표(.)</strong> : 비어있는 그리드 셀</li>
+					<li><code class="weight-500 t_blue bg_none">none</code> : 그리드 영역으로 정의되지 않은 셀</li>
+				</ol>
+
+				<h5 class="mt_m">다음은 3행 4열 그리드 템플릿 영역 설정 예제입니다.</h5>
+				<div class="line_code_box line_code_number mt_s">
+					<ul>
+						<li>/* 그리드 영역 이름 설정 */</li>
+						<li>.item-a { grid-area: header; }</li>
+						<li>.item-b { grid-area: main; }</li>
+						<li>.item-c { grid-area: sidebar; }</li>
+						<li>.item-d { grid-area: footer; }</li>
+						<li></li>
+						<li>.container {</li>
+						<li class="indent">display: grid;</li>
+						<li class="indent">grid-template-columns: 50px 50px 50px 50px;</li>
+						<li class="indent">grid-template-rows: auto;</li>
+						<li></li>
+						<li>/* 그리드 템플릿 영역 설정. 각 행은 동일한 개수의 열 설정이 요구됩니다. */</li>
+						<li class="indent">grid-template-areas:</li>
+						<li class="indent_max">"header header header header"  <i class="t_999">// 1행: 4열 모두 header</i></li>
+						<li class="indent_max">"main main . sidebar"          <i class="t_999 indent_max_max">// 2행: 2열 main 1열, 공백 1열, sidebar</i></li>
+						<li class="indent_max">"footer footer footer footer"; <i class="t_999">// 3행: 4열 모두 header</i></li>
+						<li>}</li>
+					</ul>
+				</div>
+				<figure class="img_figure mt_m">
+					<img src="/ukncs/images/css/grid-template-areas.svg" alt="3행 4열 그리드 템플릿 영역 설정 예제" class="max-w450">
+				</figure>
+
+				<h5 class="mt_m">명시적으로 그리드(Explicit Grids)를 정의할 때, 그리드 컨테이너에 3개의 속성을 사용해 설정할 수 있습니다.</h5>
+				<ol class="ol_lst mt_s indent">
+					<li><code>grid-template-rows</code></li>
+					<li><code>grid-template-columns</code></li>
+					<li><code>grid-template-areas</code></li>
+				</ol>
+			</section>
+
+			<aside class="browser_support mt_l" data-tit="grid-template-areas">
+				<ul>
+					<li class="ie false">지원안함</li>
+					<li class="edge">16.0</li>
+					<li class="chrome">57.0</li>
+					<li class="firefox">52.0</li>
+					<li class="opera">44.0</li>
+					<li class="safari">10.1</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- 4.5.5.4. Grid 템플릿 속기형 -->
+		<article class="mt_xl indent">
+			<h3 class="ml_mn">4.5.5.4. Grid 템플릿 속기형</h3>
+			<p class="mt_ms">그리드 템플릿 행 / 열 / 영역 이름 설정을 속기형(shorthand)으로 설정 가능합니다.</p>
+
+			<p class="mt_m font-16">작업 중...</p>
+			<!-- grid-template
+			<section class="mt_l indent">
+				<h4 class="ml_mn t_blue">grid-template</h4>
+				<p class="mt_ms">
+					<code>grid-template-xxx</code>의 단축 속성입니다.<br>
+					<code>grid-template</code> 속성은 <code>grid-template-{rows, columns, areas}</code> 속성을 축약형으로 사용할 수 있도록 합니다.
+				</p>
+				<ol class="ol_lst mt_s indent">
+					<li><code class="weight-500 t_blue bg_none">grid-none</code> : 3가지 설정을 모두 초기 값으로 적용</li>
+					<li><strong class="weight-500 t_blue bg_none">grid-template-rows / grid-template-columns</strong> : 행/열 그리드 템플릿 설정</li>
+					<li>라인이름(옵션) 영역이름(필수) 트랙 크기(옵션) 라인이름(옵션)</li>
+				</ol>
+
+				<h5 class="mt_m">그리드 행/열 템플릿을 축약형 속성으로 설정한 예</h5>
+				<div class="line_code_box line_code_number mt_s">
+					<ul>
+						<li>.container {</li>
+						<li class="indent">grid-template: repeat(3, 100px) / repeat(2, 20px 40px) auto;</li>
+						<li>}</li>
+					</ul>
+				</div>
+
+
+
+
+
+				<h5 class="mt_m">명시적으로 그리드(Explicit Grids)를 정의할 때, 그리드 컨테이너에 3개의 속성을 사용해 설정할 수 있습니다.</h5>
+				<ol class="ol_lst mt_s indent">
+					<li><code>grid-template-rows</code></li>
+					<li><code>grid-template-columns</code></li>
+					<li><code>grid-template-areas</code></li>
+				</ol>
+			</section>
+
+			<aside class="browser_support mt_l" data-tit="grid-template-areas">
+				<ul>
+					<li class="ie false">지원안함</li>
+					<li class="edge">16.0</li>
+					<li class="chrome">57.0</li>
+					<li class="firefox">52.0</li>
+					<li class="opera">44.0</li>
+					<li class="safari">10.1</li>
+				</ul>
+			</aside>
+			-->
 		</article>
 	</section>
 
