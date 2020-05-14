@@ -20,8 +20,8 @@
 			<code>&lt;input&gt;</code> 요소는 사용자가 데이터를 입력할 수 있는 입력 필드를 선언하기 위해 <code>&lt;form&gt;</code> 요소 내부에서 사용됩니다.<br>
 			이러한 입력 필드는 <code>&lt;input&gt;</code> 요소의 type 속성값을 달리함으로써 여러 가지 모양으로 나타낼 수 있습니다.<br>
 			<code>&lt;input&gt;</code> 요소는 빈 요소(empty elements)이며, 속성만을 포함하고 있습니다.<br>
-			<code>&lt;label&gt;</code> 요소를 사용하면 <code>&lt;input&gt;</code> 요소의 라벨(label)을 정의할 수도 있습니다.<br>
-			<code>&lt;input&gt;</code> 요소에 type 속성을 지정하지 않으면 채택되는 기본 유형은 text 입니다.
+			<code>&lt;label&gt;</code> 요소를 사용하면 <code>&lt;input&gt;</code> 요소의 레이블(label)을 정의할 수도 있습니다.<br>
+			<code>&lt;input&gt;</code> 요소에 type 속성을 지정하지 않으면 채택되는 기본 유형은 'text'입니다.
 		</p>
 		<p class="mt_s">
 			HTML5에서는 <code>&lt;input&gt;</code> 요소의 align 속성을 더 이상 지원하지 않습니다.<br>
@@ -29,7 +29,7 @@
 			HTML5에서는 <code>&lt;input&gt;</code> 요소에 다음과 같은 type 속성값들이 새롭게 추가되었습니다.<br>
 			color, date, datetime-local, email, month, number, range, search, tel, time, url, week
 			HTML에서는 <code>&lt;input&gt;</code> 요소를 닫지 않지만, XHTML에서는 반드시 요소를 닫아야만 합니다.<br>
-			input요소는 전역속성을 포함합니다.
+			input요소는 전역 속성을 포함합니다.
 		</p>
 	</section>
 
@@ -65,7 +65,7 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[list] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input list="datalist id"&gt;</span></h3>
 			<p class="mt_s">
-				<code>&lt;input&gt;</code> 요소에서 사용하기 위해 미리 정의해 놓은 옵션들을 포함하고 있는 <code>&lt;datalist&gt;</code> 요소를 명시함.
+				<code>&lt;input&gt;</code> 요소에서 사용하기 위해 미리 정의해 놓은 옵션들을 포함하고 있는 <code>&lt;datalist&gt;</code> 요소를 명시합니다.
 			</p>
 			<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_list.html">
 				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
@@ -86,7 +86,7 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[max] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input type="date | datetime | datetime-local | month | number | range | time | week" max="숫자|날짜"&gt;</span></h3>
 			<p class="mt_s">
-				<code>&lt;input&gt;</code> 요소의 max 속성은 <code>&lt;input&gt;</code> 요소의 최댓값을 명시합니다.<br>
+				<code>&lt;input&gt;</code> 요소의 max 속성은 <code>&lt;input&gt;</code> 요소의 최대값을 명시합니다.<br>
 				max 속성은 min 속성과 함께 <code>&lt;input&gt;</code> 요소에서 입력값의 허용 범위를 설정하는데 사용됩니다.<br>
 				min 속성과 max 속성이 제대로 동작하는 <code>&lt;input&gt;</code> 요소의 type 속성값은 다음과 같습니다.<br>
 				date, datetime, datetime-local, month, number, range, time, week
@@ -95,11 +95,11 @@
 				<ol>
 					<li class="line_code font14">
 						<strong>숫자</strong>
-						<p>허용되는 최댓값을 명시함.</p>
+						<p>허용되는 최대값을 명시합니다.</p>
 					</li>
 					<li class="line_code font14 mt_s">
 						<strong>날짜</strong>
-						<p>허용되는 최대 날짜를 명시함.</p>
+						<p>허용되는 최대 날짜를 명시합니다.</p>
 					</li>
 				</ol>
 			</div>
@@ -122,7 +122,7 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[min] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input type="date | datetime | datetime-local | month | number | range | time | week" max="숫자|날짜"&gt;</span></h3>
 			<p class="mt_s">
-				min 속성은 <code>&lt;input&gt;</code> 요소의 최솟값을 명시합니다.<br>
+				min 속성은 <code>&lt;input&gt;</code> 요소의 최소값을 명시합니다.<br>
 				max 속성은 min 속성과 함께 <code>&lt;input&gt;</code> 요소에서 입력값의 허용 범위를 설정하는데 사용됩니다.<br>
 				min 속성과 max 속성이 제대로 동작하는 <code>&lt;input&gt;</code> 요소의 type 속성값은 다음과 같습니다.<br>
 				date, datetime, datetime-local, month, number, range, time, week
@@ -131,11 +131,11 @@
 				<ol>
 					<li class="line_code font14">
 						<strong>숫자</strong>
-						<p>허용되는 최솟값을 명시함.</p>
+						<p>허용되는 최소값을 명시합니다.</p>
 					</li>
 					<li class="line_code font14 mt_s">
 						<strong>날짜</strong>
-						<p>허용되는 최소 날짜를 명시함.</p>
+						<p>허용되는 최소 날짜를 명시합니다.</p>
 					</li>
 				</ol>
 			</div>
@@ -158,7 +158,7 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[maxlength] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input maxlength="숫자"&gt;</span></h3>
 			<p class="mt_s">
-				<code>&lt;input&gt;</code> 요소에서 허용되는 최대 문자수를 명시함. 기본값은 524,288
+				<code>&lt;input&gt;</code> 요소에서 허용되는 최대 문자수를 명시합니다(기본값은 524,288).
 			</p>
 			<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_maxlength.html">
 				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
@@ -179,7 +179,7 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[minlength] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input minlength="숫자"&gt;</span></h3>
 			<p class="mt_s">
-				<code>&lt;input&gt;</code> 요소에서 허용되는 최소 문자수를 명시함.
+				<code>&lt;input&gt;</code> 요소에서 허용되는 최소 문자수를 명시합니다.
 			</p>
 			<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_minlength.html">
 				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
@@ -226,8 +226,8 @@
 			<h3 class="ml_mn">[multiple] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input type="email | file" multiple&gt;</span></h3>
 			<p class="mt_s">
 				<code>&lt;input&gt;</code> 요소의 multiple 속성은 <code>&lt;input&gt;</code> 요소에 사용자가 둘 이상의 값을 입력할 수 있음을 명시합니다.<br>
-				multiple 속성이 제대로 동작하는 type 속성에는 email, file 이 있습니다.<br>
-				<code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;email&quot;인 경우에는 이메일 사이에 콤마(,)를 추가하여 여러 이메일 주소를 동시에 입력할 수 있으며,
+				multiple 속성이 제대로 동작하는 type 속성에는 email, file이 있습니다.<br>
+				<code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;email&quot;인 경우에는 전자 메일 사이에 콤마(,)를 추가하여 여러 전자 메일 주소를 동시에 입력할 수 있으며,
 				type 속성값이 &quot;file&quot;인 경우에는 CTRL이나 SHIFT키를 사용하여 여러 파일을 동시에 선택할 수 있습니다.
 			</p>
 			<p class="mt_s">
@@ -257,7 +257,7 @@
 				이때 전역 속성인 title 속성을 사용하여 정규 표현식에 간단한 설명을 추가함으로써 사용자가 정확한 값을 입력할 수 있도록 도움을 줄 수 있습니다.<br>
 				<code>&lt;input&gt;</code> 요소의 pattern속성을 사용하면 JavaScript를 사용하지 않고도 기본 데이터 유효성 검사를 추가 할 수 있습니다.<br>
 				(단, 정규 표현식(regular expression)을 명시해야 합니다.)<br>
-				정규 표현식 패턴을 정의하는 문자의 정형화 된 문자열입니다. 예를 들어 [a-zA-Z0-9]+ 문자열에 소문자 (a-z), 대문자 (A-Z) 또는 숫자 (0-9) 만 포함되어 있으면 길이에 관계없이 문자열과 일치하는 패턴이 있습니다.
+				정규 표현식 패턴을 정의하는 문자의 정형화 된 문자열입니다. 예를 들어 [a-zA-Z0-9]+ 문자열에 소문자(a-z), 대문자(A-Z) 또는 숫자(0-9)만 포함되어 있으면 길이에 관계없이 문자열과 일치하는 패턴이 있습니다.
 			</p>
 			<div class="ol_lst indent mt_s">
 				<ol>
@@ -323,7 +323,7 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[form] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input form="form id"&gt;</span></h3>
 			<p class="mt_s">
-				해당 <code>&lt;input&gt;</code> 요소가 포함될 하나 이상의 <code>&lt;form&gt;</code> 요소를 명시함.<br>
+				해당 <code>&lt;input&gt;</code> 요소가 포함될 하나 이상의 <code>&lt;form&gt;</code> 요소를 명시합니다.<br>
 				이 속성값은 같은 문서 내에 위치하는 <code>&lt;form&gt;</code> 요소의 id 값이어야만 합니다.
 			</p>
 			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_form.html">
@@ -345,8 +345,8 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[formaction] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input type="submit | image" formaction="URL"&gt;</span></h3>
 			<p class="mt_s">
-				폼 데이터(form data)가 서버로 제출될 때 입력 데이터를 처리할 파일의 URL을 명시함.<br>
-				(단, <code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;submit&quot; 또는 &quot;image&quot;인 경우에만 사용할 수 있음)<br>
+				폼 데이터(form data)가 서버로 제출될 때 입력 데이터를 처리할 파일의 URL을 명시합니다.<br>
+				(단, <code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;submit&quot; 또는 &quot;image&quot;인 경우에만 사용 가능)<br>
 				formaction 속성은 <code>&lt;form&gt;</code> 요소의 action 속성값을 재정의(overriding)합니다.
 			</p>
 			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_formaction.html">
@@ -368,7 +368,7 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[formenctype] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input type="submit | image" formenctype="속성값"&gt;</span></h3>
 			<p class="mt_s">
-				폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩(encoding)되는 방식을 명시함.<br>
+				폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩(encoding)되는 방식을 명시합니다.<br>
 				이 속성은 <code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;submit&quot; 또는 &quot;image&quot;이면서,
 				<code>&lt;form&gt;</code> 요소의 method 속성값이 &quot;post&quot;인 경우에만 사용할 수 있습니다.<br>
 				formenctype 속성은 <code>&lt;form&gt;</code> 요소의 enctype 속성값을 재정의(overriding)합니다.
@@ -378,15 +378,15 @@
 				<ol>
 					<li class="line_code font14 mt_s">
 						<strong>application/x-www-form-urlencoded</strong>
-						<p>기본값으로, 모든 문자들은 서버로 보내기 전에 인코딩됨을 명시함.</p>
+						<p>기본값으로, 모든 문자들은 서버로 보내기 전에 인코딩됨을 명시합니다.</p>
 					</li>
 					<li class="line_code font14 mt_s">
 						<strong>multipart/form-data</strong>
-						<p>모든 문자를 인코딩하지 않음을 명시함. 이 방식은 <code>&lt;form&gt;</code> 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용함.</p>
+						<p>모든 문자를 인코딩하지 않음을 명시합니다. 이 방식은 <code>&lt;form&gt;</code> 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용합니다.</p>
 					</li>
 					<li class="line_code font14 mt_s">
 						<strong>text/plain</strong>
-						<p>공백 문자(space)는 "+" 기호로 변환하지만, 나머지 문자는 모두 인코딩되지 않음을 명시함.</p>
+						<p>공백 문자(space)는 "+" 기호로 변환하지만, 나머지 문자는 모두 인코딩되지 않음을 명시합니다.</p>
 					</li>
 				</ol>
 			</div>
@@ -409,12 +409,12 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[formmethod] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input type="submit | image" formenctype="get | post"&gt;</span></h3>
 			<p class="mt_s">
-				폼 데이터(form data)가 서버로 제출될 때 사용할 HTTP 메소드를 명시함.<br>
+				폼 데이터(form data)가 서버로 제출될 때 사용할 HTTP 메소드를 명시합니다.<br>
 				이 속성은 <code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;submit&quot; 또는 &quot;image&quot;인 경우에만 사용할 수 있으며,
 				<code>&lt;form&gt;</code> 요소의 method 속성값을 재정의(overriding)합니다.
 			</p>
 			<p class="mt_s">
-				formmethod 속성은 속성값으로 GET과 POST 두 가지 중 하나를 선택할 수 있습니다.<br>
+				formmethod 속성의 속성값으로 GET과 POST 두 가지 중 하나를 선택할 수 있습니다.<br>
 				GET 방식은 URL에 폼 데이터를 추가하여 서버로 전달하는 방식입니다.<br>
 				GET 방식의 HTTP 요청은 브라우저에 의해 캐시되어(cached) 저장됩니다.<br>
 				또한, GET 방식은 보통 쿼리 문자열(query string)에 포함되어 전송되므로, 길이의 제한이 있습니다.<br>
@@ -427,18 +427,18 @@
 				따라서 데이터의 길이에 대한 제한도 없으며, GET 방식보다 보안성이 높습니다.
 			</p>
 			<div class="ol_lst indent mt_s">
-				<h4>사용되는 값에는 다음과 같다.</h4>
+				<h4>사용되는 값에는 다음과 같습니다.</h4>
 				<ol>
 					<li class="line_code font14 mt_s">
 						<strong>get</strong>
 						<p>
-							기본값으로, 폼 데이터를 HTTP GET 메소드로 전송함.<br>
+							기본값으로, 폼 데이터를 HTTP GET 메소드로 전송합니다.<br>
 							ex) URL?name=value&name=value&...
 						</p>
 					</li>
 					<li class="line_code font14 mt_s">
 						<strong>post</strong>
-						<p>폼 데이터를 HTTP POST 메소드로 전송함.</p>
+						<p>폼 데이터를 HTTP POST 메소드로 전송합니다.</p>
 					</li>
 				</ol>
 			</div>
@@ -461,7 +461,7 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[formnovalidate] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input type="submit" formnovalidate&gt;</span></h3>
 			<p class="mt_s">
-				폼 데이터(form data)가 서버로 제출될 때 해당 데이터의 유효성 검사를 하지 않음을 명시함.<br>
+				폼 데이터(form data)가 서버로 제출될 때 해당 데이터의 유효성 검사를 하지 않음을 명시합니다.<br>
 				(단, <code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;submit&quot;인 경우에만 사용할 수 있으며,
 				<code>&lt;form&gt;</code> 요소의 novalidate 속성값을 재정의(overriding)합니다.)
 
@@ -489,8 +489,8 @@
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[formtarget] <i class="fab fa-html5"></i> <span class="t_blue">&lt;input formtarget="_blank | _self | _parent | _top | 프레임 이름"&gt;</span></h3>
 			<p class="mt_s">
-				폼 데이터(form data)가 서버로 제출된 후 받는 응답(response) 데이터를 어디에 표시할 지를 명시함.<br>
-				(단, <code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;submit&quot; 또는 &quot;image&quot;인 경우에만 사용할 수 있음)
+				폼 데이터(form data)가 서버로 제출된 후 받는 응답(response) 데이터를 어디에 표시할 지를 명시합니다.<br>
+				(단, <code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;submit&quot; 또는 &quot;image&quot;인 경우에만 사용 가능)
 			</p>
 			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_formtarget.html">
 				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
