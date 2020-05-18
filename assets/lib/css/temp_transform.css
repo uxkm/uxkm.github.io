@@ -866,7 +866,7 @@ body {
   line-height: 20px;
   padding-left: 10px;
   text-align: left;
-  font-family: 'S-CoreDream-4Regular', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   word-break: keep-all;
   font-size: 13px;
   color: #555;
@@ -3103,7 +3103,7 @@ body {
   width: 50px;
   height: 72px;
   margin-top: 10px;
-  background-image: url('../../lib/img/sprite-steps.png');
+  background-image: url('/assets/kmtemp/lib/img/sprite-steps.png');
   animation: steps_play .8s linear infinite;
 }
 .transition_wrap .steps_ex2 .ani_box.steps {

@@ -102,9 +102,9 @@ var menu = [
 						]
 					},
 
-					//섹션 콘텐츠(Section Conetnt)
+					//섹션 콘텐츠(Section content)
 					{
-						d3_nm:	    '섹션 콘텐츠(Section Conetnt)',
+						d3_nm:	    '섹션 콘텐츠(Section Content)',
 						d3_url:		url_html+ 'sections&header_element',
 						d3_file:	file_html+'/03-sections/',
 						d3_note:	true,
@@ -1050,16 +1050,70 @@ var menu = [
 								html5:		false,
 							},
 							{
-								d4_nm:  	'플렉서블 박스 레이아웃',
+								d4_nm:  	'플렉서블 레이아웃 - ',
 								d4_url:		url_css+'cssAdvanced&css_flexible',
 								d4_file:	file_css+'/04-cssAdvanced/04-css_flexible.html',
 								html5:		false,
+								part:       true,
+								part_div : [
+									{
+										part_nm :   '소개 및 요약',
+										part_tab :  '소개 및 요약',
+										part_url :  url_css+'cssAdvanced&css_flexible_part1',
+										part_file : file_css+'/04-cssAdvanced/04-css_flexible_part1.html',
+									},
+									{
+										part_nm :   '부모 속성',
+										part_tab :  '부모 속성',
+										part_url :  url_css+'cssAdvanced&css_flexible_part2',
+										part_file : file_css+'/04-cssAdvanced/04-css_flexible_part2.html',
+									},
+									{
+										part_nm :   '자식 속성 및 데모',
+										part_tab :  '자식 속성 및 데모',
+										part_url :  url_css+'cssAdvanced&css_flexible_part3',
+										part_file : file_css+'/04-cssAdvanced/04-css_flexible_part3.html',
+									},
+								],
 							},
 							{
-								d4_nm:  	'그리드 레이아웃',
+								d4_nm:  	'그리드 레이아웃 - ',
 								d4_url:		url_css+'cssAdvanced&css_grid',
 								d4_file:	file_css+'/04-cssAdvanced/05-css_grid.html',
 								html5:		false,
+								part:       true,
+								part_div : [
+									{
+										part_nm :   '요약, 함수, 단위',
+										part_tab :  '요약, 함수, 단위',
+										part_url :  url_css+'cssAdvanced&css_grid_part1',
+										part_file : file_css+'/04-cssAdvanced/05-css_grid_part1.html',
+									},
+									{
+										part_nm :   '명시적, 암시적',
+										part_tab :  '명시적, 암시적',
+										part_url :  url_css+'cssAdvanced&css_grid_part2',
+										part_file : file_css+'/04-cssAdvanced/05-css_grid_part2.html',
+									},
+									{
+										part_nm :   '부모 속성',
+										part_tab :  '부모 속성',
+										part_url :  url_css+'cssAdvanced&css_grid_part3',
+										part_file : file_css+'/04-cssAdvanced/05-css_grid_part3.html',
+									},
+									{
+										part_nm :   '자식 속성',
+										part_tab :  '자식 속성',
+										part_url :  url_css+'cssAdvanced&css_grid_part4',
+										part_file : file_css+'/04-cssAdvanced/05-css_grid_part4.html',
+									},
+									{
+										part_nm :   '가이드, 데모',
+										part_tab :  '가이드, 데모',
+										part_url :  url_css+'cssAdvanced&css_grid_part5',
+										part_file : file_css+'/04-cssAdvanced/05-css_grid_part5.html',
+									},
+								],
 							},
 							{
 								d4_nm:	    '멀티 컬럼 레이아웃',
@@ -1079,13 +1133,15 @@ var menu = [
 					},
 
 					//UI/UX 구현
+					/*
 					{
-						d3_nm:	    'UI/UX 구현',
+						d3_nm:	    'UI/UX 구현(가이드로 이동 예정)',
 						d3_url:		url_css+'uiux',
 						d3_file:	file_css+'/05-uiux/uiux.html',
 						d3_note:	false,
 						d3_refer:	false,
 					},
+					*/
 
 					//참조 사이트
 					{
@@ -1124,7 +1180,7 @@ var menu = [
 		]
 	},
 	{
-		d1_nm:	    'Project GUIDE',
+		d1_nm:	    'UI/UX GUIDE',
 		//d1_url:		'?'+data+'=GUIDE',
 		d1_url:		'#',
 		d1_file:	file+ '/project_guide.html',

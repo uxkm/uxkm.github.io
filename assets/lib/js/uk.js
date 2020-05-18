@@ -65,6 +65,8 @@ var pageTop_scrollSpeed = 700;
 var side_offsetTop = [];
 var top_link_offsetTop = [];
 var top_link_offsetLeft = [];
+var pcmb_state = [];
+var iscroll_psmb = [];
 
 var loading = $('.loading');
 var hide_loading = 'hide_loading';
@@ -833,7 +835,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			var part_tab = $('.'+content_area+' .tab_menu ul');
 			for( i=0; i<d4_target.part_div.length; i++  ){
 				var part_target = d4_target.part_div[i];
-				part_tab.append('<li><a href="'+part_target.part_url+'" class="uk_link">'+part_target.part_tab+'</a></li>');
+				part_tab.append('<li><a href="'+part_target.part_url+'" class="uk_link"><i>'+part_target.part_tab+'</i></a></li>');
 			}
 
 			var part_idx = Number(location.href.split('_part')[1]-1);
@@ -902,8 +904,8 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			var active_target = menu[d1_on].d2[d2_on].d3[d3_on].d4[d4_on];
 			var browser_tit = active_target.d4_nm;
 			if( d4_target.part === true ) {
-				var target_idx = target_url.split('_part')[1];
-				browser_tit += ' part-'+target_idx;
+				var target_idx = Number(target_url.split('_part')[1] - 1);
+				browser_tit += d4_target.part_div[target_idx].part_nm;
 			}
 
 			change_target.find('>a').attr('data-tit',(d3_on+1)+'.'+(d4_on+1)+'. '+browser_tit);
@@ -913,6 +915,16 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		//준비중 페이지
 		if( !$('.'+content_area+' h1').parent().next().is(':visible') ){
 			$('.'+content_area).append('<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
+		}
+		if( dp4_true && d4_target.part === true && $('.tab_menu').is(':visible') ){
+			if( !$('.'+content_area+' h1').parent().siblings('.tab_menu').next().is(':visible') ){
+				$('.'+content_area).append('<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>');
+			}
+		}
+
+		//css > 고급 > animation
+		if( dp4_true && d4_target.d4_nm === 'Animation' ){
+			$('.'+side_menu_area).addClass('animation_side');
 		}
 
 		//gist
@@ -1008,29 +1020,116 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 
 	//common
 	removeTabindex();	//remove tabindex
-	focusControl();			//focus controll
+	focusControl();		//focus controll
+	line_code_box();
 }
 
+
+//메뉴 생성 / element 텍스트 색상 분기 처리 / html5 표시
+function element_color_div(part_state, target, target_this, target_idx, d4){
+	var $e_ol = target_this.find('>ol');
+	$e_ol.append('<li class="'+dp4+'"></li>');
+	var $e_ol_li = $e_ol.find('>li');
+
+	//part 아닐 경우
+	if( !part_state ){
+		$e_ol_li.eq(target_idx).append('<a href="'+d4[target_idx].d4_url+'" class="'+uk_link+'">'+d4[target_idx].d4_nm+'</a>');
+	}
+	//part 일 경우
+	else if( part_state ){
+		$e_ol_li.eq(target_idx).addClass('part');
+		var part_div = d4[target_idx].part_div;
+
+
+		var on_target, before_mm, after_nm;
+		on_target = d4[target_idx];
+		before_mm = on_target.d4_nm;
+
+		for( p=0; p<part_div.length; p++ ){
+			after_nm = on_target.part_div[p].part_nm;
+			var part_nm = before_mm + ' ' + after_nm;
+			//$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+part_div[p].part_nm+'</a></p>');
+			$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+ part_nm +'</a></p>');
+		}
+	}
+
+	if( !part_state ){
+		if( target.match('element') ){
+			var txt_split = target.split(' ');
+			var tag_txt;
+			if( txt_split[txt_split.length-1] === 'element' ){
+				var element_txt = txt_split[txt_split.length-1];
+				if( txt_split.length <= 2 ) tag_txt = txt_split[0];
+				else tag_txt = txt_split[0] + ' ' + txt_split[1];
+				target_this.find('li').eq(target_idx).find('>a').html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+			}
+			else if( txt_split[1] === 'element' ) {
+				var ex_txt = txt_split[txt_split.length-1];
+				tag_txt = txt_split[0];
+				target_this.find('li').eq(target_idx).find('>a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+			}
+		}
+	}
+	else if( part_state ){
+		var color_div_target = target_this.find('li').eq(target_idx).find('p');
+		color_div_target.each(function(z, x){
+			var part_div = d4[target_idx].part_div;
+			var part_nm = on_target.d4_nm + ' ' + part_div[z].part_nm;
+			var txt_split = part_nm.split(' ');
+			var tag_txt;
+
+			if( txt_split[txt_split.length-1] === 'element' ){
+				var element_txt = txt_split[txt_split.length-1];
+				if( txt_split.length <= 2 ) tag_txt = txt_split[0];
+				else tag_txt = txt_split[0] + ' ' + txt_split[1];
+				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+			}
+			else if( txt_split[1] === 'element' ) {
+				var ex_txt = txt_split[txt_split.length-1];
+				tag_txt = txt_split[0];
+				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+			}
+		});
+	}
+
+	//html5에서 새로 생성된 태그 표시
+	if( d4[target_idx].html5 === true ){
+		if( !part_state ){
+			target_this.find('li').eq(target_idx).find('a').addClass(html5_new).append('<span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>');
+		}
+		else if( part_state ){
+			target_this.find('li').eq(target_idx).find('p a').addClass(html5_new).append('<span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>');
+		}
+	}
+}
 
 
 //pc&mb class
 function pc_mb_class(win_w){
-	var sroll_state = false;
+	var scroll_state = false;
 	//반응형 pc
 	if( win_w > respon_size ){
 		$html.addClass('pc').removeClass('mb');
-		if( !sroll_state ){
-			//$(window).trigger('scroll');
-			//sroll_state = true;
-		}
+		// pcmb_state = [];
+		// pcmb_state.push('state_pc');
+		// iscroll_psmb = [];
+		// iscroll_psmb.push(true);
+		// if( !scroll_state ){
+		// 	$(window).trigger('scroll');
+		// 	sroll_state = true;
+		// }
 	}
 	//반응형 mobile
 	else if( win_w <= respon_size ){
 		$html.addClass('mb').removeClass('pc');
-		if( sroll_state ){
-			//$(window).trigger('scroll');
-			//sroll_state = false;
-		}
+		// pcmb_state = [];
+		// pcmb_state.push('state_mb');
+		// iscroll_psmb = [];
+		// iscroll_psmb.push(false);
+		// if( scroll_state ){
+		// 	$(window).trigger('scroll');
+		// 	sroll_state = false;
+		// }
 	}
 }
 
@@ -1166,83 +1265,72 @@ function ukEditor_txtarea(){
 }
 
 
-//메뉴 생성 / element 텍스트 색상 분기 처리 / html5 표시
-function element_color_div(part_state, target, target_this, target_idx, d4){
-	var $e_ol = target_this.find('>ol');
-	$e_ol.append('<li class="'+dp4+'"></li>');
-	var $e_ol_li = $e_ol.find('>li');
+//line_code_box
+function line_code_box(){
+	var lineCodeBox = $('.line_code_box');
+	lineCodeBox.each(function(i, e){
+		var li_target = $(e).find('ul > li');
+		var li_length = li_target.length;
+		$(e).find('ul').wrap('<div class="scroll_wrap" id="iscroll_'+i+'"><div class="scroll_inner"></div></div>');
 
-	//part 아닐 경우
-	if( !part_state ){
-		$e_ol_li.eq(target_idx).append('<a href="'+d4[target_idx].d4_url+'" class="'+uk_link+'">'+d4[target_idx].d4_nm+'</a>');
-	}
-	//part 일 경우
-	else if( part_state ){
-		$e_ol_li.eq(target_idx).addClass('part');
-		var part_div = d4[target_idx].part_div;
-
-
-		var on_target, before_mm, after_nm;
-		on_target = d4[target_idx];
-		before_mm = on_target.d4_nm;
-
-		for( p=0; p<part_div.length; p++ ){
-			after_nm = on_target.part_div[p].part_nm;
-			var part_nm = before_mm + ' ' + after_nm;
-			//$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+part_div[p].part_nm+'</a></p>');
-			$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+ part_nm +'</a></p>');
-		}
-	}
-
-	if( !part_state ){
-		if( target.match('element') ){
-			var txt_split = target.split(' ');
-			var tag_txt;
-			if( txt_split[txt_split.length-1] === 'element' ){
-				var element_txt = txt_split[txt_split.length-1];
-				if( txt_split.length <= 2 ) tag_txt = txt_split[0];
-				else tag_txt = txt_split[0] + ' ' + txt_split[1];
-				target_this.find('li').eq(target_idx).find('>a').html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
-			}
-			else if( txt_split[1] === 'element' ) {
-				var ex_txt = txt_split[txt_split.length-1];
-				tag_txt = txt_split[0];
-				target_this.find('li').eq(target_idx).find('>a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+		//line number 생성
+		if( $(e).is('.line_code_number') && li_length > 1 ){
+			$(e).find('ul').addClass('code_box');
+			$(e).addClass('line_true').prepend('<ol class="line_number">');
+			for( i=0; i<li_length; i++ ){
+				//$(e).find('.line_number').append('<li>'+(i+1)+'</li>');
+				$(e).find('.line_number').append('<li></li>');
 			}
 		}
-	}
-	else if( part_state ){
-		var color_div_target = target_this.find('li').eq(target_idx).find('p');
-		color_div_target.each(function(z, x){
-			var part_div = d4[target_idx].part_div;
-			var part_nm = on_target.d4_nm + ' ' + part_div[z].part_nm;
-			var txt_split = part_nm.split(' ');
-			var tag_txt;
 
-			if( txt_split[txt_split.length-1] === 'element' ){
-				var element_txt = txt_split[txt_split.length-1];
-				if( txt_split.length <= 2 ) tag_txt = txt_split[0];
-				else tag_txt = txt_split[0] + ' ' + txt_split[1];
-				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>'+element_txt+'</i>');
+		//생상 변경
+		li_target.each(function(j, k){
+			var e_txt = $(k).text();
+
+			if( e_txt.match('{') && !e_txt.match('}') ) $(k).addClass('t_777');
+			if( e_txt.match('}') && !e_txt.match('{') ) $(k).addClass('t_777');
+
+			if( e_txt.match('<!--') || e_txt.match('-->') ){
+				$(k).addClass('t_999');
 			}
-			else if( txt_split[1] === 'element' ) {
-				var ex_txt = txt_split[txt_split.length-1];
-				tag_txt = txt_split[0];
-				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+			if( e_txt.indexOf("/*") !== -1 || e_txt.indexOf("*/") !== -1 ){
+				$(k).addClass('t_999');
 			}
 		});
-	}
+	});
 
-	//html5에서 새로 생성된 태그 표시
-	if( d4[target_idx].html5 === true ){
-		if( !part_state ){
-			target_this.find('li').eq(target_idx).find('a').addClass(html5_new).append('<span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>');
-		}
-		else if( part_state ){
-			target_this.find('li').eq(target_idx).find('p a').addClass(html5_new).append('<span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>');
-		}
-	}
+	//iscroll 적용
+	// var isc_state ;
+	// $(window).resize(function(){
+	// 	isc_state = iscroll_psmb[0];
+	// 	console.log(isc_state);
+	// });
+	$('.scroll_wrap').each(function(i, e){
+		var s_target = $(e).attr('id');
+
+		new IScroll('#'+s_target, {
+			//scrollbars: true,
+			scrollbars: 'custom',
+			mouseWheel: false,
+			click: true,
+			scrollX: true,
+			scrollY: false,
+
+			disableMouse: true,
+			disablePointer: true,
+			disableTouch: false,
+
+			onBeforeScrollStart: function (e) { e.preventDefault(); }, //클릭 가능
+			interactiveScrollbars: true,
+			shrinkScrollbars: 'scale'//,
+			//fadeScrollbars: true
+		});
+	});
 }
+
+
+
+
 
 
 //각 메뉴의 element 텍스트 감싸기
