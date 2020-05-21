@@ -1700,7 +1700,7 @@ mark {
   margin-top: 50px !important;
 }
 .mt_xl {
-  margin-top: 45px !important;
+  margin-top: 40px !important;
 }
 .mt_l {
   margin-top: 30px !important;
@@ -1864,9 +1864,6 @@ mark {
   }
   .mt_xl {
     margin-top: 35px !important;
-  }
-  .mt_xl {
-    margin-top: 30px !important;
   }
   .ml_mn {
     margin-left: -8px !important;
