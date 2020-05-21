@@ -1860,6 +1860,9 @@ mark {
 }
 @media (max-width: 767px) {
   .mt_xxl {
+    margin-top: 40px !important;
+  }
+  .mt_xl {
     margin-top: 35px !important;
   }
   .mt_xl {
