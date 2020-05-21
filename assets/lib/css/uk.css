@@ -6093,11 +6093,11 @@ body {
   line-height: 28px;
 }
 .content_area h3 .fa-html5 {
-  margin: 5px 0 0;
+  margin: 0 0 0;
   color: #e44d26;
 }
 .content_area h3 .fa-css3-alt {
-  margin: 5px 0 0;
+  margin: 0 0 0;
   color: #379ad6;
 }
 .content_area h3.reference a {
@@ -6169,7 +6169,7 @@ body {
   }
   .content_area h3 .fa-html5,
   .content_area h3 .fa-css3-alt {
-    margin: 4px 0 0;
+    margin: 1px 0 0;
   }
   .content_area h4 {
     line-height: 20px;
