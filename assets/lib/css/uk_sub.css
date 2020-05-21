@@ -1792,6 +1792,9 @@ mark {
 .t_orange {
   color: #f79d30 !important;
 }
+.t_darkOrange {
+  color: #dc8216 !important;
+}
 .t_yellow {
   color: #decd11 !important;
 }
