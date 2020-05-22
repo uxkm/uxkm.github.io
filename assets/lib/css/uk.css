@@ -3431,6 +3431,9 @@ body {
 .hd_assetsLink .assetsLink_in .al_depth3 > li.on.part p.on span {
   color: #fff;
 }
+.hd_assetsLink .assetsLink_btn {
+  z-index: 99999;
+}
 @media (max-width: 767px) {
   .hd_assetsLink .assetsLink_in {
     /*
