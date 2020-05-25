@@ -15,19 +15,29 @@
 			<mark>HTML5에서는 해당 요소의 charset, coords, name, rev, shape 속성을 더 이상 지원하지 않습니다.</mark>
 		</p>
 		<div class="line_code mt_s">
-			<strong>CSS 기본값 :</strong>
-			<p class="t_blue"><b>a:link, a:visited {color: (internal value); text-decoration: underline; cursor: auto;}</b></p>
-			<p class="t_blue"><b>a:link:active, a:visited:active {color: (internal value);}</b></p>
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="line_code_box line_code_number indent mt_s">
+				<ul>
+					<li>a:link, a:visited {</li>
+					<li class="indent">color: (internal value);</li>
+					<li class="indent">text-decoration: underline;</li>
+					<li class="indent">cursor: auto;</li>
+					<li>}</li>
+					<li>a:link:active, a:visited:active {</li>
+					<li class="indent">color: (internal value);</li>
+					<li>}</li>
+				</ul>
+			</div>
 		</div>
 		<ol class="mt_m">
 			<li class="line_code font14">
-				<strong>링크는 모든 브라우저에서 다음과 같은 기본 스타일을 가지게 됩니다.</strong>
+				<strong class="mb_sm">링크는 모든 브라우저에서 다음과 같은 기본 스타일을 가지게 됩니다.</strong>
 				<p>아직 방문하지 않은 링크(unvisited link) : 밑줄, 파란색(blue)</p>
 				<p>방문했던 링크(visited link) : 밑줄, 보라색(purple)</p>
 				<p>활성화된(현재 마우스가 클릭하고 있는) 링크(active link) : 밑줄, 빨간색(red)</p>
 			</li>
 			<li class="line_code font14 mt_m">
-				<strong>HTML5에서 변경된 사항</strong>
+				<strong class="mb_sm">HTML5에서 변경된 사항</strong>
 				<p>HTML 4.01에서 <code>&lt;a&gt;</code> 요소는 하이퍼링크(hyperlink)로도, 앵커(anchor)로도 모두 사용할 수 있었습니다.</p>
 				<p>하지만 HTML5에서는 언제나 하이퍼링크로만 사용되며, href 속성이 없는 경우에는 나중에 추가될지도 모르는 하이퍼링크를 위한 표시(placeholder) 역할만을 할 뿐입니다.</p>
 			</li>
