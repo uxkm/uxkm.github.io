@@ -2,5 +2,204 @@
 
 	<header>
 		<h1></h1><!-- 그리드 레이아웃 - 가이드, 데모 -->
-		<time class="last_update" datetime="2020-00-00">2020-00-00</time>
+		<time class="last_update" datetime="2020-05-21">2020-05-21</time>
 	</header>
+
+	<!-- box정렬 가이드 -->
+	<section class="mt_xxl indent">
+		<h2 class="ml_mn">4.5.7. box정렬 가이드</h2>
+		<blockquote class="uk_note mt_l" role="note">
+			<h3 class="sound_only">요약 설명</h3>
+			<p>
+				Box 정렬(Alignment)의 일부 동작은 레이아웃 방법에 따라 달라집니다.<br>
+				CSS Grid / Flexbox의 각 레이아웃 방법에 따라 아이템 정렬이 어떻게 다르게 설정 되는지 비교해봅니다.
+			</p>
+		</blockquote>
+
+		<!-- 4.5.7.1. box 정렬의 핵심 개념 -->
+		<article class="mt_xl indent">
+			<h3 class="ml_mn">4.5.7.1. box 정렬의 핵심 개념</h3>
+			<p class="mt_ms">
+				컨테이너 요소는 포함하는 아이템 자식 요소를 정렬할 수 있습니다. 정렬의 유형을 세부적으로 구분하면 다음 3가지로 나눌 수 있습니다.
+			</p>
+			<ol class="ol_lst mt_s indent">
+				<li><strong class="weight-500 t_blue bg_none">위치 정렬</strong> - start, end, center 와 같은 키워드</li>
+				<li><strong class="weight-500 t_blue bg_none">기본 정렬</strong> - baseline 키워드와 first/last 수정자(Modifiers)</li>
+				<li><strong class="weight-500 t_blue bg_none">분산 정렬</strong> - stretch, space-between, space-around, space-evenly</li>
+			</ol>
+			<p class="mt_ms">
+				이러한 키워드 값의 대부분은 문서의 쓰기 모드(Writing modes)와 관련되어 작동합니다.<br>
+				글의 흐름이 좌 ⟹ 우 방향이라면 그리드 컨테이너의 왼쪽이 start 가 됩니다. 반대로 우 ⟹ 좌 방향이라면 오른쪽이 start가 됩니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[ Box 정렬 좌 ⟹ 우 / 우 ⟹ 좌 ]</figcaption>
+				<img src="/ukncs/images/css/grid-box-align-start.png" alt="Box 정렬 좌 ⟹ 우 / 우 ⟹ 좌" class="mt_s max-w800">
+			</figure>
+		</article>
+
+		<!-- 4.5.7.2. block / inline 축(axis) -->
+		<article class="mt_xl indent">
+			<h3 class="ml_mn">4.5.7.2. block / inline 축(axis)</h3>
+			<p class="mt_ms">
+				블록과 인라인 축은 다양한 방법으로 사용됩니다.<br>
+				블록 축은 <code>grid</code> 사양의 컬럼(column) 축으로, flexbox 에서는 교차(cross) 축으로 사용됩니다.<br>
+				인라인 축은 grid에서 로우(row) 축으로, flexbox에서는 주(main) 축으로 사용됩니다.<br>
+				<code>grid</code>는 언제나 명시적인 행/열을 가지고 있어 축을 기준으로 하는 정렬에 대해 이해하기 쉽습니다.<br>
+				하지만 flexbox는 주 축(main axis) 방향이 바뀔 때마다 정렬 기준이 변경된다는 점에 유의해야 합니다.
+			</p>
+			<ol class="ol_lst mt_ms indent">
+				<li class="line_code tit_h4">
+					<h4 class="weight-500 t_blue">block 축 (수직)</h4>
+					<p>grid - column 축</p>
+					<p>flexbox - cross 축</p>
+				</li>
+				<li class="line_code tit_h4 mt_m">
+					<h4 class="weight-500 t_blue">inline 축 (수평)</h4>
+					<p>grid - row 축</p>
+					<p>flexbox - main 축</p>
+				</li>
+			</ol>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[ Block / Inline 축(Axis) ]</figcaption>
+				<img src="/ukncs/images/css/grid-box-block_inline.png" alt="Block / Inline 축(Axis)" class="mt_s max-w800">
+			</figure>
+		</article>
+
+		<!-- 4.5.7.3. align-self / align-items -->
+		<article class="mt_xl indent">
+			<h3 class="ml_mn">4.5.7.3. align-self / align-items</h3>
+			<p class="mt_ms">
+				<code>align-*</code> 속성은 블록 축(수직 방향)과 관련된 속성입니다.<br>
+				grid 레이아웃은 <code>column</code> 축에 해당되며, 명확하게 수직 방향으로만 정렬이 설정됩니다.<br>
+				반면 flexbox는 <code>flex-direction</code> 속성 설정에 따라 교차 축의 방향이 바뀌기 때문에, 교차 축에 영향을 받는 <code>align-*</code> 속성의 정렬 또한 바뀝니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[ align-self / align-items ]</figcaption>
+				<img src="/ukncs/images/css/grid-box-align-self-items.png" alt="align-self / align-items" class="mt_s max-w1200">
+			</figure>
+		</article>
+
+		<!-- 4.5.7.4. justify-self / justify-items -->
+		<article class="mt_xl indent">
+			<h3 class="ml_mn">4.5.7.4. justify-self / justify-items</h3>
+			<p class="mt_ms">
+				<code>justify-*</code> 속성은 인라인 축(수평 방향)과 관련된 속성입니다.<br>
+				grid 레이아웃은 <code>row</code> 축에 해당되며, 명확하게 수 방향으로만 정렬이 설정됩니다.
+				반면 flexbox 에는 <code>justify-self</code>, <code>justify-items</code>과 같은 속성을 지원하지 않습니다.<br>
+				개별 아이템을 주 축 방향을 기준으로 정렬하고자 한다면 <code>margin</code> 속성을 사용 합니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[ justify-self / justify-items ]</figcaption>
+				<img src="/ukncs/images/css/grid-box-justify-self-items.png" alt="justify-self / justify-items" class="mt_s max-w1200">
+			</figure>
+		</article>
+
+		<!-- 4.5.7.5. align-content -->
+		<article class="mt_xl indent">
+			<h3 class="ml_mn">4.5.7.5. align-content</h3>
+			<p class="mt_ms">
+				<code>align-content</code> 속성은 블록 축(수직 방향)과 관련된 속성입니다.<br>
+				grid 레이아웃은 <code>column</code> 축에 해당되며, 그리드 컨테이너에 여유 공간이 존재할 경우 정렬이 반영됩니다.<br>
+				flexbox 또한 컨테이너에 여유 공간이 있다면 정렬을 수행할 수 있습니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[ align-content ]</figcaption>
+				<img src="/ukncs/images/css/grid-box-align-content.png" alt="align-content" class="mt_s max-w1200">
+			</figure>
+		</article>
+
+		<!-- 4.5.7.6. justify-content -->
+		<article class="mt_xl indent">
+			<h3 class="ml_mn">4.5.7.6. justify-content</h3>
+			<p class="mt_ms">
+				grid 레이아웃은 <code>column</code> 축에 해당되며, 그리드 컨테이너에 여유 공간이 존재할 경우 정렬이 반영됩니다.<br>
+				flexbox 또한 컨테이너에 여유 공간이 있다면 정렬을 수행할 수 있습니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[ justify-content ]</figcaption>
+				<img src="/ukncs/images/css/grid-box-justify-content.png" alt="justify-content" class="mt_s max-w1200">
+			</figure>
+		</article>
+	</section>
+
+	<!-- grid layout demo -->
+	<section class="mt_xxl indent">
+		<h2 class="ml_mn">4.5.8. grid layout demo</h2>
+
+		<!-- grid layout -->
+		<article class="view_editor edit_code mt_ml" data-target="css/step03/4.5.grid/4.5.grid-layout.html">
+			<h3 class="ve_tit">grid layout</h3>
+			<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+
+		<!-- grid-auto-flow with out dense -->
+		<article class="view_editor edit_code mt_l" data-target="css/step03/4.5.grid/4.5.grid-layout-normal.html">
+			<h3 class="ve_tit">grid-auto-flow with out dense</h3>
+			<div class="uk_editor indent min-height-700" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+
+		<!-- grid-auto-flow: dense -->
+		<article class="view_editor edit_code mt_l" data-target="css/step03/4.5.grid/4.5.grid-layout-auto-flow-dense.html">
+			<h3 class="ve_tit">grid-auto-flow: dense</h3>
+			<div class="uk_editor indent min-height-700" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+
+		<!-- grid-based 3-column layout with 2-column option -->
+		<article class="view_editor edit_code mt_l" data-target="css/step03/4.5.grid/4.5.grid-layout-3-column.html">
+			<h3 class="ve_tit">grid-based 3-column layout with 2-column option</h3>
+			<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+
+		<!-- Creating CSS Grid 소개 영상 (한글 자막) -->
+		<article class="mt_l">
+			<h3 class="t_blue">Creating CSS Grid 소개 영상 (한글 자막)</h3>
+			<div class="grid_info_mv indent mt_ms">
+				<iframe src="https://cdn.iframe.ly/XrMuzzm" allowfullscreen="" scrolling="no" allow="encrypted-media *; accelerometer; gyroscope; picture-in-picture" title="Creating CSS Grid 소개 영상 (한글 자막)"></iframe>
+			</div>
+			<p class="indent mt_s">출처 : <span class="reference mt_l"><a href="https://youtu.be/lSKmkTesnkM" target="_blank" title="새창열림">https://youtu.be/lSKmkTesnkM</a></span></p>
+		</article>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="grid">
+		<ul>
+			<li class="ie">10+ -ms-</li>
+			<li class="edge">16.0</li>
+			<li class="chrome">57.0</li>
+			<li class="firefox">52.0</li>
+			<li class="opera">44.0</li>
+			<li class="safari">10.1</li>
+		</ul>
+	</aside>
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">그리드 레이아웃 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/tr/css-grid-1/" target="_blank" class="fas" title="새창열림">w3c css grid layout module level 1</a></li>
+			<li class="reference"><a href="https://www.w3.org/tr/css-grid-2" target="_blank" class="fas" title="새창열림">w3c css grid layout module level 2</a></li>
+			<li class="reference"><a href="https://www.w3.org/tr/css-align-3/" target="_blank" class="fas" title="새창열림">w3c css grid layout module level 2</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-us/docs/web/css/css_grid_layout" target="_blank" class="fas" title="새창열림">mdn css grid layout</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/ko/docs/web/css/css_grid_layout/relationship_of_grid_layout" target="_blank" class="fas" title="새창열림">mdn relationship_of_grid_layout</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-us/docs/web/css/css_grid_layout/box_alignment_in_css_grid_layout" target="_blank" class="fas" title="새창열림">mdn box alignment in css grid layout</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-us/docs/web/css/css_box_alignment" target="_blank" class="fas" title="새창열림">mdn css box alignment</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-us/docs/tools/page_inspector/how_to/examine_grid_layouts" target="_blank" class="fas" title="새창열림">mdn css grid inspector: examine grid layouts</a></li>
+			<li class="reference"><a href="https://grid.layoutit.com/" target="_blank" class="fas" title="새창열림">css grid 제작 온라인 도구 | layoutit.com</a></li>
+			<li class="reference"><a href="https://gridbyexample.com/examples/" target="_blank" class="fas" title="새창열림">css grid layout example</a></li>
+			<li class="reference"><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" class="fas" title="새창열림">guide to grid</a></li>
+			<li class="reference"><a href="http://cssgridgarden.com/#ko" target="_blank" class="fas" title="새창열림">css grid garden</a></li>
+			<li class="reference"><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators/" target="_blank" class="fas" title="새창열림">창시자가 말하는 css 그리드 이야기</a></li>
+			<li class="reference"><a href="https://speakerdeck.com/malarkey/art-directing-for-the-web-five-minutes-with-css-template-areas" target="_blank" class="fas" title="새창열림">웹 디자인 방법에 관한 andy clarke의 발표 슬라이드</a></li>
+			<li class="reference"><a href="https://uid.gitbook.io/css-grid/" target="_blank" class="fas" title="새창열림">css grid layout guidebook by 야무(yamoo9)</a></li>
+			<li class="reference"><a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/dev-guides/hh673533(v=vs.85)?redirectedfrom=msdn" target="_blank" class="fas" title="새창열림">microsoft's documentation grid layout</a></li>
+			<li class="reference"><a href="https://css-tricks.com/css-grid-in-ie-css-grid-and-the-new-autoprefixer/" target="_blank" class="fas" title="새창열림">css grid in ie: css grid and the new autoprefixer</a></li>
+			<li class="reference"><a href="https://css-tricks.com/css-grid-in-ie-debunking-common-ie-grid-misconceptions/" target="_blank" class="fas" title="새창열림">css grid in ie: debunking common ie grid misconceptions</a></li>
+			<li class="reference"><a href="https://rachelandrew.co.uk/css/cheatsheets/box-alignment" target="_blank" class="fas" title="새창열림">box 정렬 치트시트 | rachelandrew.co.uk</a></li>
+			<li class="reference"><a href="https://caniuse.com/#feat=css-grid" target="_blank" class="fas" title="새창열림">supported by all major browsers</a></li>
+		</ul>
+	</aside>

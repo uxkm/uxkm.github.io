@@ -1700,7 +1700,7 @@ mark {
   margin-top: 50px !important;
 }
 .mt_xl {
-  margin-top: 45px !important;
+  margin-top: 40px !important;
 }
 .mt_l {
   margin-top: 30px !important;
@@ -1792,6 +1792,9 @@ mark {
 .t_orange {
   color: #f79d30 !important;
 }
+.t_darkOrange {
+  color: #dc8216 !important;
+}
 .t_yellow {
   color: #decd11 !important;
 }
@@ -1857,10 +1860,10 @@ mark {
 }
 @media (max-width: 767px) {
   .mt_xxl {
-    margin-top: 35px !important;
+    margin-top: 40px !important;
   }
   .mt_xl {
-    margin-top: 30px !important;
+    margin-top: 35px !important;
   }
   .ml_mn {
     margin-left: -8px !important;
@@ -2572,5 +2575,16 @@ mark {
   .flex_direction_compare dt code {
     font-size: 15px;
   }
+}
+.grid_info_mv {
+  position: relative;
+  padding-top: 56%;
+}
+.grid_info_mv iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 /*# sourceMappingURL=uk_sub.css.map */

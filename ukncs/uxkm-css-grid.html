@@ -1169,9 +1169,8 @@
 
 					<!-- 부모 속성 -->
 					<div style="width:1px; height:1px; overflow:hidden;">
-					</div>
-					<h4 id="grid-parent-properties">부모 속성(Properties for the Parent - Grid Container)</h4>
-					<section>
+						<h4 id="grid-parent-properties">부모 속성(Properties for the Parent - Grid Container)</h4>
+						<section>
 						<h5 id="grid-container">Grid 컨테이너</h5>
 						<section class="ukgroup">
 							<p>그리드 컨테이너는 display 속성을 사용해 설정할 수 있습니다.</p>
@@ -2477,6 +2476,7 @@ place-items: unset;
 						</section>
 
 					</section>
+					</div>
 
 
 
@@ -2512,7 +2512,7 @@ place-items: unset;
 								<p>그리드 아이템 사이 공백이 사라집니다. 요소가 아닌 텍스트가 자식으로 포함된 경우, 암시적인 그리드 아이템이 됩니다.</p>
 								<p>하지만 암시적으로 생성된 그리드 아이템은 스타일 규칙을 설정할 수 없습니다. 다만 상속 가능한 스타일은 적용됩니다.</p>
 								<p>그리드 아이템에 설정된 display 속성은 모두 무시됩니다.</p>
-	<pre><code>
+								<pre><code>
 	&lt;!DOCTYPE html&gt;
 	&lt;html lang="ko"&gt;
 		&lt;head&gt;
@@ -2585,7 +2585,7 @@ place-items: unset;
 									<dt>grid-column-start / grid-column-end / grid-row-start / grid-row-end</dt>
 									<dd>
 										<p>그리드 아이템(Item)의 열 시작 위치 지정 / 열 끝 위치 지정 / 행 시작 위치 지정 / 행 끝 위치 지정</p>
-	<pre><code>
+										<pre><code>
 	.item {
 		grid-column-start: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;
 		grid-column-end: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;
@@ -2593,7 +2593,7 @@ place-items: unset;
 		grid-row-end: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;
 	}
 	</code></pre>
-	<pre><code>
+										<pre><code>
 	/* Examples: */
 	.item-a {
 		grid-column-start: 2; /* line2와 동일 */
@@ -2606,7 +2606,7 @@ place-items: unset;
 											<figcaption>.item-a 아이템 요소의 배치를 그리드 라인 번호 또는 참조 이름을 사용하여 설정</figcaption>
 											<img src="images/css/grid-column-row-start-end-01.svg" alt="">
 										</figure>
-	<pre><code>
+										<pre><code>
 	/* Examples: */
 	.item-b {
 		grid-column-start: 1;
@@ -2648,13 +2648,13 @@ place-items: unset;
 											<li>&lt;end-line&gt; : 그리드라인 끝점 (번호 또는 참조 이름)</li>
 											<li>span &lt;value&gt; : 상대적으로 범위에 추가 설정하는 기준이 되는 그리드라인 개수 또는 참조 이름</li>
 										</ul>
-	<pre><code>
+										<pre><code>
 	.item {
 		grid-column: &lt;start-line&gt; / &lt;end-line&gt; | &lt;start-line&gt; / span &lt;value&gt;;
 		grid-row: &lt;start-line&gt; / &lt;end-line&gt; | &lt;start-line&gt; / span &lt;value&gt;;
 	}
 	</code></pre>
-	<pre><code>
+										<pre><code>
 	.item-c {
 		grid-column: 3 / span 2;
 		grid-row: third-line / 4; /* third-line 값과 동일하게 처리됨. */
@@ -2678,7 +2678,7 @@ place-items: unset;
 										</aside>
 									</dd>
 								</dl>
-	<pre><code>
+								<pre><code>
 	&lt;!DOCTYPE html&gt;
 	&lt;html lang="ko"&gt;
 		&lt;head&gt;
@@ -2753,7 +2753,7 @@ place-items: unset;
 											<li>&lt;name&gt; : grid-template-areas에 등록된 참조 이름</li>
 											<li>&lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt; : 그리드라인 번호 또는 참조 이름</li>
 										</ul>
-	<pre><code>
+										<pre><code>
 	.item {
 		grid-area: &lt;name&gt; | &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;;
 		grid-area: 영역이름;
@@ -2791,7 +2791,7 @@ place-items: unset;
 	aside.item  { grid-area: aside;  }
 	footer.item { grid-area: footer; }
 	</code></pre>
-	<pre><code>
+										<pre><code>
 	/* grid-area 속성 값으로 grid-template-areas에 사용된 참조 이름을 사용 */
 	.item-d {
 		grid-area: header;
@@ -2832,7 +2832,7 @@ place-items: unset;
 										<p>order 속성을 사용하여 그리드 아이템을 순서에 따라 정렬 할 수 있습니다.(배치 순서를 지정)</p>
 										<p>숫자가 작을수록 앞서 배치됩니다.</p>
 										<p>단, 순서를 변경해도 접근성에 문제가 발생하지 않는 경우에만 사용해야 한다.</p>
-	<pre><code>
+										<pre><code>
 	/* &lt;integer&gt;(아이템의 순서) 값 */
 	order: 5;
 	order: -5;
@@ -2843,7 +2843,7 @@ place-items: unset;
 	order: unset;
 	</code></pre>
 
-	<pre><code>
+										<pre><code>
 	.grid-container {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
@@ -2866,7 +2866,7 @@ place-items: unset;
 											<img src="images/css/grid-order-code.png" alt="">
 											<img src="images/css/grid-order.png" alt="">
 										</figure>
-	<pre><code>
+										<pre><code>
 	&lt;!DOCTYPE html&gt;
 	&lt;html lang="ko"&gt;
 		&lt;head&gt;
@@ -2947,7 +2947,7 @@ place-items: unset;
 									<dt>z-index</dt>
 									<dd>
 										<p>그리드 아이템의 쌓이는 순서를 지정</p>
-	<pre><code>
+										<pre><code>
 	.item:nth-child(1) {
 		grid-area: 1 / 1 / 2 / 3;
 	}
@@ -2963,7 +2963,7 @@ place-items: unset;
 											<figcaption>그리드 아이템의 쌓이는 순서를 지정</figcaption>
 											<img src="images/css/grid-z-index.png" alt="">
 										</figure>
-	<pre><code>
+										<pre><code>
 	&lt;!DOCTYPE html&gt;
 	&lt;html lang="ko"&gt;
 		&lt;head&gt;
@@ -3034,7 +3034,7 @@ place-items: unset;
 									<dd>
 										<p>단일 그리드 아이템을 수직(열 축) 정렬</p>
 										<p>열 축을 따라 그리드 아이템 내부 콘텐츠를 정렬합니다. (열 축에 따라 정렬하는 justify-self 속성과는 반대)</p>
-	<pre><code>
+										<pre><code>
 	.item {
 		align-self: start | end | center | stretch;
 	}
@@ -3082,7 +3082,7 @@ place-items: unset;
 										<p>단일 그리드 아이템을 수평(행 축) 정렬</p>
 										<p>행 축을 따라 그리드 아이템 내부 콘텐츠를 정렬합니다. (열 축에 따라 정렬하는 align-self 속성과는 반대)</p>
 										<p>모든 항목에 대한 정렬을 설정하려면 justify-items 속성을 통해 컨테이너에서 설정.</p>
-	<pre><code>
+										<pre><code>
 	.item {
 		justify-self: start | end | center | stretch;
 	}
@@ -3132,7 +3132,7 @@ place-items: unset;
 											<li>auto : 레이아웃 모드의 "기본" 정렬입니다.</li>
 											<li>&lt;align-self&gt; / &lt;justify-self&gt; : 첫 번째 값이 설정 align-self되고 두 번째 값이 설정 justify-self됩니다. 두 번째 값을 생략하면 첫 번째 값이 두 속성에 모두 할당됩니다.</li>
 										</ul>
-	<pre><code>
+										<pre><code>
 	/* Keyword values */
 	place-self: auto center;
 	place-self: normal start;
@@ -3871,10 +3871,9 @@ place-items: unset;
 								<iframe src="https://cdn.iframe.ly/XrMuzzm" allowfullscreen="" scrolling="no" allow="encrypted-media *; accelerometer; gyroscope; picture-in-picture" title="Creating CSS Grid 소개 영상 (한글 자막)"></iframe>
 							</div>
 						</figure>
-					</div>
 
 
-					<aside class="bosupport">
+						<aside class="bosupport">
 						<strong>Web Browser Support</strong>
 						<ul>
 							<li><img src="images/icon/ico_ie-true.png" alt="Internet Explorer Browser"><em>10+ -ms-</em></li>
@@ -3885,7 +3884,7 @@ place-items: unset;
 							<li><img src="images/icon/ico_safari-true.png" alt="Safari Browser"><em>10.1</em></li>
 						</ul>
 					</aside>
-					<dl class="linkdoc">
+						<dl class="linkdoc">
 						<dt>참조</dt>
 						<dd>
 							<a href="https://www.w3.org/TR/css-grid-1/" target="_blank" title="새 창 열림">W3C CSS Grid Layout Module Level 1</a>
@@ -3910,6 +3909,7 @@ place-items: unset;
 							<a href="https://caniuse.com/#feat=css-grid" target="_blank" title="새 창 열림">supported by all major browsers</a>
 						</dd>
 					</dl>
+					</div>
 				</article>
 
 
@@ -3919,7 +3919,7 @@ place-items: unset;
 
 
 
-				<!--
+
 				<h3 id="css-multicolumn">멀티 컬럼 레이아웃(Multi-column Layout)</h3>
 				<article>
 					<blockquote class="note" role="note">
@@ -4627,7 +4627,7 @@ columns: unset;
 						</dd>
 					</dl>
 				</article>
-				-->
+
 
 				<article>
 					<time datetime="2020-01-05 15:53:39">Last Updated on 2020-01-05 15:53:39</time>
