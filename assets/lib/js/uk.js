@@ -16,6 +16,7 @@ var $hdNavArea = $ukHeader.find('.hd_nav_area');
 var $hdNav= $hdNavArea.find('.nav');
 var $search_btn = $hdNavArea.find('.search_btn');
 var $search_area = $hdNavArea.find('.search_area');
+var $search_submit = $hdNavArea.find('.search_submit');
 var $assetsLink_btn = $hdNavArea.find('.assetsLink_btn');
 var $assetsLink_area = $hdNavArea.find('.assetsLink_area');
 var hd_progress = 'hd_progress';
@@ -608,6 +609,10 @@ $(document).ready(function(){
 
 	//search open
 	$search_btn.click(function(){
+    alert('검색 기능 준비중 입니다.');
+    return false;
+
+    /*
 		if( !$html.is('.'+hd_search_on) ){
 			$html.css('overflow','hidden').addClass(hd_search_on);
 			$assetsLink_btn.addClass('active');
@@ -615,8 +620,16 @@ $(document).ready(function(){
 			offsetTopControl();
 			//setTimeout(function(){}, 600);
 		}
-		return false;
+		*/
 	});
+
+  //search action //추 후 구글검색 장착
+  /*
+  $search_submit.click(function(){
+    alert('검색 기능 준비중 입니다.');
+    return false;
+  });
+  */
 
 	//search close
 	$('.search_close').click(function(){

@@ -16,11 +16,14 @@
 	</blockquote>
 
 	<figure class="img_figure mt_l">
+		<img src="/ukncs/images/css/boxdim.svg" alt="박스 모델 다이어그램">
+		<!--
 		<img src="/ukncs/images/css/boxdim.png" alt="박스 모델 다이어그램">
 		<img src="/ukncs/images/css/img_css_boxsize.png" alt="박스 모델 예시">
 		<img src="/ukncs/images/css/img_box-model-detail.png" alt="박스 모델 상세">
+		-->
 		<figcaption>
-			<strong class="t_black">박스 모델 다이어그램 [이미지 참조:W3C 박스 모델]</strong>
+			<strong class="t_black">[박스 모델 다이어그램]</strong><!--[이미지 참조:W3C 박스 모델]-->
 			<ul>
 				<li>내용(content) : 텍스트나 이미지가 들어있는 박스의 실질적인 내용 부분입니다.</li>
 				<li>패딩(padding) : 내용과 테두리 사이의 간격입니다. 패딩은 눈에 보이지 않습니다.</li>
@@ -189,7 +192,7 @@
 			<code>margin : margin-width | inherit</code>
 		</p>
 		<figure class="img_figure mt_m">
-			<img src="/ukncs/images/css/img_css_boxmodel_margin.png" alt="margin boxmodel">
+			<img src="/ukncs/images/css/img_css_boxmodel_margin.svg" alt="margin boxmodel">
 			<figcaption>[margin boxmodel 다이어그램]</figcaption>
 		</figure>
 
@@ -301,7 +304,7 @@
 			<code>padding : padding-width | inherit</code>
 		</p>
 		<figure class="img_figure mt_m">
-			<img src="/ukncs/images/css/img_css_boxmodel_padding.png" alt="padding boxmodel">
+			<img src="/ukncs/images/css/img_css_boxmodel_padding.svg" alt="padding boxmodel">
 			<figcaption>[padding boxmodel 다이어그램]</figcaption>
 		</figure>
 
@@ -409,7 +412,7 @@
 			<code>border : border-width border-style border-color | inherit</code>
 		</p>
 		<figure class="img_figure mt_m">
-			<img src="/ukncs/images/css/img_css_boxmodel_border.png" alt="border boxmodel">
+			<img src="/ukncs/images/css/img_css_boxmodel_border.svg" alt="border boxmodel">
 			<figcaption>[border boxmodel 다이어그램]</figcaption>
 		</figure>
 
@@ -727,7 +730,7 @@
 		</p>
 
 		<figure class="img_figure mt_m">
-			<img src="/ukncs/images/css/img_border-radius.png" alt="border-radius">
+			<img src="/ukncs/images/css/img_border-radius.svg" alt="border-radius">
 			<figcaption>[border-radius 다이어그램]</figcaption>
 		</figure>
 
@@ -836,19 +839,33 @@
 					<li><strong class="t_black">border-box</strong> : width, height 속성 값은 content 영역, padding, border가 포함된 값을 의미한다.</li>
 				</ol>
 			</div>
+
+			<div class="view_editor edit_code mt_m" data-target="css/step01/2.9.box-model/2.9.boxmodel.html">
+				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
 		</article>
 
+		<article class="mt_l indent">
+			<h3 class="ml_mn"><i class="t_blue">box-sizing</i> 테스트</h3>
+			<p class="mt_s">
+				위에 설명된 속성(<i class="t_blue">width</i>, <i class="t_blue">height</i>, <i class="t_blue">margin</i>, <i class="t_blue">padding</i>, <i class="t_blue">border</i>, <i class="t_blue">border-radius</i>)이
+				<i class="t_blue">box-sizing</i>의 속성 기준으로 어떤 차이점이 있는지 확인할 수 있습니다.<br>
+				각 속성을 좌·우로 드래그하여 테스트해보세요.<br>
+				<span class="reference mt_l">테스트기 출처 : <a href="http://921430km.com/_temp/transform/box_model.php" target="_blank" title="새창열림">http://921430km.com/box_model</a></span>
+			</p>
+			<div class="iframe_con mt_m">
+				<iframe class="box_model_iframe" src="/assets/kmtemp/transform/box_model.html" width="100%" height="100%" scrolling="no"></iframe>
+			</div>
+		</article>
+
+		<!--
 		<figure class="img_figure mt_m">
 			<img src="/ukncs/images/css/box-sizing.jpg" alt="box-sizing">
 			<figcaption>[box-sizing content-box, border-box 비교]</figcaption>
 		</figure>
-
-		<article class="view_editor edit_code mt_m" data-target="css/step01/2.9.box-model/2.9.boxmodel.html">
-			<h3 class="ve_tit sound_only">예제</h3>
-			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
-				<div class="code_wrap"><textarea></textarea></div>
-			</div>
-		</article>
+		-->
 
 		<aside class="browser_support mt_l" data-tit="box-sizing">
 			<ul>
@@ -912,7 +929,7 @@
 		</aside>
 	</section>
 
-	<!-- 2.9.8. 박스 모델 테스트 -->
+	<!-- 2.9.8. 박스 모델 테스트
 	<section class="indent mt_xxl">
 		<h2 class="ml_mn">2.9.8. <i class="t_blue">박스 모델 테스트</i></h2>
 		<p class="mt_s">
@@ -925,8 +942,9 @@
 			<iframe class="box_model_iframe" src="/assets/kmtemp/transform/box_model.html" width="100%" height="100%" scrolling="no"></iframe>
 		</div>
 	</section>
+	 -->
 
-	<section class="reference_box mt_l">
+	<section class="reference_box mt_xxl">
 		<h2 class="tit">박스 모델 속성 참조</h2>
 		<ul class="link_lst">
 			<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#box-model" target="_blank" class="fas" title="새창열림">W3C Box Model</a></li>
