@@ -97,6 +97,9 @@
 .font-face-page {
 	h1, h2, h3, h4 {
 		font-family: 'Yeon Sung', cursive;
+		//font-family: 'Poor Story', cursive;
+		//font-family: 'Gamja Flower', cursive;
+		//font-family: 'Jua', sans-serif;
 	}
 }
 
@@ -334,4 +337,21 @@
 	padding-top:56%;
 
 	iframe {position:absolute; left:0; top:0; width:100%; height:100%;}
+}
+
+
+.webfont_foit_fout {
+	.in_box {
+		max-width:790px; width:100%; margin:0 auto; padding:0 10px;
+		.box {position:relative; padding-top:21.5%;}
+		img {
+			position:absolute; left:0; top:0;
+			width:100%; height:auto;
+		}
+		.img_part2 {animation:webfont_foit_fout 2s linear infinite;}
+	}
+}
+@keyframes webfont_foit_fout {
+	0%, 49.99% {opacity:0;}
+	50%, 100% {opacity:1;}
 }

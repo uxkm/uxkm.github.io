@@ -1,5 +1,8 @@
 
 
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap&subset=korean" rel="stylesheet">
 	<div class="font-face-page">
 		<header>
@@ -38,7 +41,7 @@
 			만약 웹 폰트 로딩이 실패하면 다음에 선언된 폰트가 렌더링됩니다. 이 폰트를 폴백 폰트(fallback font)라 합니다.
 		</p>
 		<figure class="img_figure mt_m">
-			<img src="/ukncs/images/css/img_webfont.png" alt="[@font-face 규칙">
+			<img src="/ukncs/images/css/cssMiddleclass/uxkm_webfont.svg" alt="[@font-face 규칙">
 			<figcaption>[@font-face 규칙]</figcaption>
 		</figure>
 
@@ -241,7 +244,7 @@
 				</div>
 				<figure class="img_figure mt_m">
 					<figcaption class="mt_0 t_black font-16">[unicode-range 속성 적용 예]</figcaption>
-					<img src="/assets/lib/img/html/img_html_tag_structure.png" alt="html 요소 설명" class="mt_m">
+					<img src="/ukncs/images/css/cssMiddleclass/uxkm_webfont_unicode-range.svg" alt="html 요소 설명" class="mt_m">
 					<p class="mt_m">
 						U+BC14는 글자 '바'에 해당하는 유니코드고, U+CC28는 글자 '차'에 해당하는 유니코드 입니다.<br>
 						전체 텍스트에서 unicode-range 속성에 유니코드로 등록된 글자인 '바'와 '차'에만 웹 폰트가 적용되었습니다.<br>
@@ -280,7 +283,7 @@
 							<p>웹 폰트가 로딩되지 않았을 때는 텍스트를 렌더링하지 않습니다(최대 3초).</p>
 							<p>웹 폰트 로딩이 완료되면 웹 폰트를 적용합니다.</p>
 							<figure class="img_figure mt_s">
-								<img src="/ukncs/images/css/img_webfont_font-display-block.png" alt="font-display : block 작동 방식">
+								<img src="/ukncs/images/css/cssMiddleclass/uxkm_webfont_font-display-block.svg" alt="font-display : block 작동 방식">
 								<figcaption>[font-display : block 작동 방식]</figcaption>
 							</figure>
 						</li>
@@ -290,7 +293,7 @@
 							<p>우선 폴백 폰트로 글자를 렌더링하고, 웹 폰트 로딩이 완료되면 웹 폰트를 적용합니다.</p>
 							<p>웹 폰트 로딩 여부와 관계없이 항상 텍스트가 보입니다.</p>
 							<figure class="img_figure mt_s">
-								<img src="/ukncs/images/css/img_webfont_font-display-swap.png" alt="font-display : swap 작동 방식">
+								<img src="/ukncs/images/css/cssMiddleclass/uxkm_webfont_font-display-swap.svg" alt="font-display : swap 작동 방식">
 								<figcaption>[font-display : swap 작동 방식]</figcaption>
 							</figure>
 						</li>
@@ -309,7 +312,7 @@
 							<p>웹 폰트를 다운로드하지만 브라우저가 네트워크 상태를 파악해 웹 폰트 전환 여부를 결정한다는 점이 이 옵션의 특이한 점입니다.</p>
 							<p>예를 들어 네트워크의 연결 상태가 안 좋으면 웹 폰트의 다운로드가 완료되어도 캐시에 저장만 하고 전환은 하지 않습니다.</p>
 							<figure class="img_figure mt_s">
-								<img src="/ukncs/images/css/img_webfont_font-display-optional.png" alt="font-display : optional 작동 방식">
+								<img src="/ukncs/images/css/cssMiddleclass/uxkm_webfont_font-display-optional.svg" alt="font-display : optional 작동 방식">
 								<figcaption>[font-display : optional 작동 방식]</figcaption>
 							</figure>
 						</li>
@@ -340,8 +343,13 @@
 				웹 폰트가 적용되지 않은 폴백 폰트 상태(unstyled)에서 폰트가 바뀌면서 텍스트 번쩍임이 일어나는 방식(FOUT 방식),<br>
 				또는 웹 폰트가 적용되지 않은 텍스트가 보이지 않는 상태(invisible)에서 폰트가 바뀌면서 텍스트 번쩍임이 일어나는 방식(FOIT 방식)로 처리 방법을 나누었다고 생각하면 됩니다.
 			</p>
-			<figure class="img_figure mt_ms">
-				<img src="/ukncs/images/css/img_webfont_foit_fout.gif" alt="FOIT 방식과 FOUT 방식 비교">
+			<figure class="img_figure mt_ms webfont_foit_fout">
+				<div class="in_box">
+					<div class="box">
+						<img src="/ukncs/images/css/cssMiddleclass/uxkm_webfont_foit_fout_1.svg" alt="FOIT 방식과 FOUT 방식 비교" class="img_part1">
+						<img src="/ukncs/images/css/cssMiddleclass/uxkm_webfont_foit_fout_2.svg" alt="FOIT 방식과 FOUT 방식 비교" class="img_part2">
+					</div>
+				</div>
 				<figcaption>[FOIT 방식과 FOUT 방식 비교]</figcaption>
 			</figure>
 			<div class="ol_lst indent mt_m">
@@ -384,7 +392,7 @@
 						<p>다행이도 최근에는 timeout을 적용하였습니다.</p>
 
 						<figure class="img_figure mt_s">
-							<img src="/ukncs/images/css/img_webfont_suport.png" alt="font-display : block 작동 방식">
+							<img src="/ukncs/images/css/cssMiddleclass/uxkm_webfont_suport.svg" alt="font-display : block 작동 방식">
 							<figcaption>[FOIT / FOUT 각 브라우저 동작 방식]</figcaption>
 						</figure>
 					</li>

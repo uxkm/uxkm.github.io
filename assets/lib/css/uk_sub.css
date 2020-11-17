@@ -2587,4 +2587,34 @@ mark {
   width: 100%;
   height: 100%;
 }
+.webfont_foit_fout .in_box {
+  max-width: 790px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.webfont_foit_fout .in_box .box {
+  position: relative;
+  padding-top: 21.5%;
+}
+.webfont_foit_fout .in_box img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+.webfont_foit_fout .in_box .img_part2 {
+  animation: webfont_foit_fout 2s linear infinite;
+}
+@keyframes webfont_foit_fout {
+  0%,
+  49.99% {
+    opacity: 0;
+  }
+  50%,
+  100% {
+    opacity: 1;
+  }
+}
 /*# sourceMappingURL=uk_sub.css.map */
