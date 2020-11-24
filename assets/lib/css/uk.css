@@ -383,6 +383,14 @@ mark {
     display: none !important;
   }
 }
+.dp_md {
+  display: none !important;
+}
+@media (max-width: 993px) {
+  .dp_md {
+    display: block !important;
+  }
+}
 .dp_sm {
   display: none !important;
 }
@@ -1755,6 +1763,10 @@ mark {
 }
 .indent_max_max {
   margin-left: 75px;
+}
+.mg_center {
+  margin-left: auto;
+  margin-right: auto;
 }
 .t_666 {
   color: #666 !important;

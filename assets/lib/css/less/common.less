@@ -129,6 +129,11 @@ mark {
 	.dp_md_pc {display:none !important;}
 }
 
+.dp_md {display:none !important;}
+@media (max-width: @screen-md-max) {
+	.dp_md {display:block !important;}
+}
+
 .dp_sm {display:none !important;}
 @media(max-width:@screen-sm){
 	.dp_sm {display:block !important;}
@@ -938,6 +943,7 @@ mark {
 .indent_small {margin-left:15px;}
 .indent_max {margin-left:50px;}
 .indent_max_max {margin-left:75px;}
+.mg_center {margin-left:auto; margin-right:auto;}
 
 .t_666 {color:#666 !important;}
 .t_777 {color:#777 !important;}
