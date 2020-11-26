@@ -56,8 +56,8 @@
 		</ol>
 		<figure class="img_figure mt_m">
 			<figcaption class="mt_0 t_blue weight-600">[display: grid]</figcaption>
-			<img src="/ukncs/images/css/grid.png" alt="display: grid" class="mt_m"><br>
-			<img src="/ukncs/images/css/grid-concepts.svg" alt="display: grid" class="mt_m max-w650">
+			<img src="/ukncs/images/css/grid/uxkm_grid.svg" alt="display: grid" class="mt_m"><br>
+			<!--<img src="/ukncs/images/css/grid-concepts.svg" alt="display: grid" class="mt_m max-w650">-->
 		</figure>
 
 		<!-- CSS3 Grid 모듈 속성을 컨테이너, 아이템 별로 정리 -->
@@ -108,9 +108,9 @@
 
 			<figure class="img_figure mt_m">
 				<figcaption class="mt_0 t _black weight-600">[grid vs flex]</figcaption>
-				<img src="/ukncs/images/css/grid_vs_flex.png" alt="grid vs flex" class="mt_m max-w700"><br>
-				<img src="/ukncs/images/css/grid_vs_flex2.jpg" alt="grid vs flex" class="mt_m max-w800"><br>
-				<img src="/ukncs/images/css/grid_vs_flex.gif" alt="grid vs flex" class="mt_m max-w750">
+				<!--<img src="/ukncs/images/css/grid_vs_flex.png" alt="grid vs flex" class="mt_m max-w700"><br>-->
+				<!--<img src="/ukncs/images/css/grid/grid_vs_flex2.jpg" alt="grid vs flex" class="mt_m"><br>-->
+				<img src="/ukncs/images/css/grid/uxkm_grid_vs_flex.svg" alt="grid vs flex" class="mt_m">
 			</figure>
 		</article>
 	</section>
@@ -134,12 +134,13 @@
 		<article class="mt_l indent">
 			<h3 class="ml_mn t_blue">grid</h3>
 			<p class="mt_s">
+				HTML 요소에 display 속성 값으로 grid를 설정하면 그리드 컨테이너(container)가 됩니다.<br>
 				그리드 컨테이너(container)는 행(rows)과 열(columns)을 가지며, 그리드 아이템(items)을 배치할 수 있습니다.<br>
 				그리드 컨테이너 요소이며, 자식요소를 그리드 아이템으로 설정합니다.
 			</p>
 			<figure class="img_figure mt_m">
 				<figcaption class="mt_0 t_black weight-600">[grid]</figcaption>
-				<img src="/ukncs/images/css/grid_grid-terms.png" alt="grid" class="mt_m max-w700">
+				<img src="/ukncs/images/css/grid/uxkm_grid_grid-terms.svg" alt="grid" class="mt_m">
 			</figure>
 		</article>
 
@@ -152,8 +153,8 @@
 			</p>
 			<figure class="img_figure mt_m">
 				<figcaption class="mt_0 t_black weight-600">[line]</figcaption>
-				<img src="/ukncs/images/css/grid_line-terms.png" alt="line" class="mt_m max-w700"><br>
-				<img src="/ukncs/images/css/img_grid_line.png" alt="line" class="mt_m max-w750">
+				<img src="/ukncs/images/css/grid/uxkm_grid_line-terms.svg" alt="line" class="mt_m">
+				<!--<img src="/ukncs/images/css/img_grid_line.png" alt="line" class="mt_m max-w750">-->
 			</figure>
 		</article>
 
@@ -166,8 +167,8 @@
 			</p>
 			<figure class="img_figure mt_m">
 				<figcaption class="mt_0 t_black weight-600">[track]</figcaption>
-				<img src="/ukncs/images/css/grid_track-terms.png" alt="track" class="mt_m max-w700"><br>
-				<img src="/ukncs/images/css/img_grid_track.png" alt="track" class="mt_m max-w750">
+				<img src="/ukncs/images/css/grid/uxkm_grid_track-terms.svg" alt="track" class="mt_m">
+				<!--<img src="/ukncs/images/css/img_grid_track.png" alt="track" class="mt_m max-w750">-->
 			</figure>
 		</article>
 
@@ -180,8 +181,8 @@
 			</p>
 			<figure class="img_figure mt_m">
 				<figcaption class="mt_0 t_black weight-600">[cell]</figcaption>
-				<img src="/ukncs/images/css/grid_cell-terms.png" alt="cell" class="mt_m max-w700"><br>
-				<img src="/ukncs/images/css/img_grid_cell.png" alt="cell" class="mt_m max-w400">
+				<img src="/ukncs/images/css/grid/uxkm_grid_cell-terms.svg" alt="cell" class="mt_m">
+				<!--<img src="/ukncs/images/css/img_grid_cell.png" alt="cell" class="mt_m max-w400">-->
 			</figure>
 		</article>
 
@@ -194,8 +195,8 @@
 			</p>
 			<figure class="img_figure mt_m">
 				<figcaption class="mt_0 t_black weight-600">[area]</figcaption>
-				<img src="/ukncs/images/css/grid_cell-terms.png" alt="cell" class="mt_m max-w700"><br>
-				<img src="/ukncs/images/css/img_grid_cell.png" alt="cell" class="mt_m max-w400">
+				<img src="/ukncs/images/css/grid/uxkm_grid_area-terms.svg" alt="cell" class="mt_m">
+				<!--<img src="/ukncs/images/css/img_grid_area.png" alt="cell" class="mt_m max-w400">-->
 			</figure>
 		</article>
 
@@ -203,11 +204,12 @@
 		<article class="mt_l indent">
 			<h3 class="ml_mn t_blue">gutters</h3>
 			<p class="mt_s">
-				그리드 거터는 행 또는 열 사이 간격(gap)을 말합니다.
+				그리드 거터는 행 또는 열 사이 간격(gap)을 말합니다.<br>
+				<code>gap</code>(row, column 동시 선언), <code>row-gap</code>, <code>column-gap</code> 속성으로 제어합니다.
 			</p>
 			<figure class="img_figure mt_m">
 				<figcaption class="mt_0 t_black weight-600">[gutters]</figcaption>
-				<img src="/ukncs/images/css/grid_gutters-terms.png" alt="gutters" class="mt_m max-w700">
+				<img src="/ukncs/images/css/grid/uxkm_grid_gutters-terms.svg" alt="gutters" class="mt_m">
 			</figure>
 		</article>
 	</section>
@@ -289,7 +291,7 @@
 
 			<figure class="img_figure mt_ml">
 				<figcaption class="mt_0">[repeat function]</figcaption>
-				<img src="/ukncs/images/css/grid_repeat-function.png" alt="repeat function" class="mt_m max-w550">
+				<img src="/ukncs/images/css/grid/uxkm_grid_repeat-function.svg" alt="repeat function" class="mt_m">
 			</figure>
 		</article>
 
@@ -335,7 +337,7 @@
 
 			<figure class="img_figure mt_ml">
 				<figcaption class="mt_0">[minmax function]</figcaption>
-				<img src="/ukncs/images/css/grid_minmax-function.png" alt="minmax function" class="mt_m max-w550">
+				<img src="/ukncs/images/css/grid/uxkm_grid_minmax-function.svg" alt="minmax function" class="mt_m">
 			</figure>
 		</article>
 
@@ -369,20 +371,21 @@
 						<li>}</li>
 						<li></li>
 						<li>&lt;div id=&quot;container&quot;&gt;</li>
-						<li class="indent">&lt;div&gt;<i class="t_888">Item as wide as the content.</i>&lt;/div&gt;</li>
+						<li class="indent">&lt;div&gt;<i class="t_888">내용만큼만 적용되는 셀의 크기</i>&lt;/div&gt;</li>
 						<li class="indent">&lt;div&gt;</li>
-						<li class="indent_max t_888">Item with more text in it. Because the contents of it are</li>
-						<li class="indent_max t_888">wider than the maximum width, it is clamped at 300 pixels.</li>
+						<li class="indent_max t_888">많은 텍스트가 있는 경우 fit-content로 정의한 </li>
+						<li class="indent_max t_888">크기가 셀의 최대 크기가 됩니다.</li>
+						<li class="indent_max t_888">fit-content(300px)</li>
 						<li class="indent">&lt;/div&gt;</li>
-						<li class="indent">&lt;div&gt;<i class="t_888">Flexible item</i>&lt;/div&gt;</li>
+						<li class="indent">&lt;div&gt;<i class="t_888">유연한 셀입니다.</i>&lt;/div&gt;</li>
 						<li>&lt;/div&gt;</li>
 					</ul>
 				</div>
 			</section>
 
 			<figure class="img_figure mt_ml">
-				<figcaption class="mt_0">[grid-template-columns: fit-content(300px) fit-content(300px) 1fr;]</figcaption>
-				<img src="/ukncs/images/css/grid_fit-content-function.png" alt="grid-template-columns: fit-content(300px) fit-content(300px) 1fr;" class="mt_m max-w700">
+				<figcaption class="mt_0 sound_only">[grid-template-columns: fit-content(300px) fit-content(300px) 1fr;]</figcaption>
+				<img src="/ukncs/images/css/grid/uxkm_grid_fit-content-function.svg" alt="grid-template-columns: fit-content(300px) fit-content(300px) 1fr;">
 			</figure>
 		</article>
 	</section>
