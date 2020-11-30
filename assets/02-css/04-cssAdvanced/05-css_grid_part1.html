@@ -420,8 +420,8 @@
 				</div>
 			</section>
 			<figure class="img_figure mt_ml">
-				<figcaption class="mt_0">[grid-template-columns: 1fr 1fr 1fr 1fr;]</figcaption>
-				<img src="/ukncs/images/css/grid_fr-units1.png" alt="grid-template-columns: 1fr 1fr 1fr 1fr;" class="mt_m max-w700">
+				<figcaption class="mt_0">[ <b>fr</b>(fractional unit) 사용 예시 ]</figcaption>
+				<img src="/ukncs/images/css/grid/uxkm_grid_fr-units.svg" alt="fr(fractional unit) 사용 예시" class="mt_m">
 			</figure>
 		</article>
 
@@ -451,7 +451,7 @@
 			</section>
 			<figure class="img_figure mt_ml">
 				<figcaption class="mt_0">[한글을 사용하는 경우 word-break: keep-all;를 설정]</figcaption>
-				<img src="/ukncs/images/css/grid_min-content.png" alt="한글을 사용하는 경우 word-break: keep-all;를 설정" class="mt_m max-w800">
+				<img src="/ukncs/images/css/grid/uxkm_grid_min-content.svg" alt="한글을 사용하는 경우 word-break: keep-all;를 설정" class="mt_m">
 			</figure>
 		</article>
 
@@ -472,19 +472,19 @@
 						<li></li>
 						<li>/*</li>
 						<li class="indent t_999">그리드 함수들과 같이 더 유용하게 활용할 수 있습니다.</li>
-						<li class="indent t_999">다음 예제는 총 4컬럼 그리드를 생성하며 각 열(Track)은 최대 1fr 크기를 가지지만,</li>
+						<li class="indent t_999">다음 예제는 총 3컬럼 그리드를 생성하며 각 열(Track)은 최대 1fr 크기를 가지지만,</li>
 						<li class="indent t_999">max-content를 통해 포함된 그리드 아이템의 내용보다 작아질 수 없습니다.</li>
 						<li>*/</li>
 						<li>.container {</li>
 						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: repeat(4, minmax(max-content, 1fr));</li>
+						<li class="indent">grid-template-columns: repeat(3, minmax(max-content, 1fr));</li>
 						<li>}</li>
 					</ul>
 				</div>
 			</section>
 			<figure class="img_figure mt_ml">
 				<figcaption class="mt_0">[min-content / max-content]</figcaption>
-				<img src="/ukncs/images/css/grid_minmax-content.png" alt="min-content / max-content" class="mt_m max-w800">
+				<img src="/ukncs/images/css/grid/uxkm_grid_minmax-content.svg" alt="min-content / max-content" class="mt_m">
 			</figure>
 		</article>
 
@@ -498,17 +498,21 @@
 				<code>repeat()</code> 함수와 같이 사용하며, 행/열과 아이템(Item) 개수가 명확할 필요가 없거나 명확하지 않은 경우 유용합니다.(반응형 그리드)<br>
 				<code>auto-fill</code>과 <code>auto-fit</code>은 간단한 차이점을 제외하면 동일하게 동작합니다.
 			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[auto-fill과 auto-fit]</figcaption>
+				<img src="/ukncs/images/css/grid/uxkm_grid_auto-fill-fit.svg" alt="auto-fill과 auto-fit" class="mt_m">
+			</figure>
 			<section class="indent mt_m">
 				<h4 class="ml_mn">코드 예제</h4>
 				<div class="line_code_box line_code_number mt_ms">
 					<ul>
 						<li>/*</li>
 						<li class="indent t_999">다음 4컬럼 그리드 예제에서 컨테이너의 크기가 아이템들을 수용하기 충분하지 않은 경우 아이템은 넘치기 시작합니다.</li>
-						<li class="indent t_999">(아이템의 최소 크기가 120px입니다.)</li>
+						<li class="indent t_999">(아이템의 최소 크기가 100px입니다.)</li>
 						<li>*/</li>
 						<li>.container {</li>
 						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: repeat(4, minmax(120px, 1fr));</li>
+						<li class="indent">grid-template-columns: repeat(4, minmax(100px, 1fr));</li>
 						<li>}</li>
 						<li></li>
 						<li>/*</li>
@@ -519,15 +523,15 @@
 						<li>*/</li>
 						<li>.container {</li>
 						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));</li>
+						<li class="indent">grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));</li>
 						<li>}</li>
 					</ul>
 				</div>
+				<figure class="img_figure mt_ml">
+					<figcaption class="mt_0">[auto-fill 유/무의 차이]</figcaption>
+					<img src="/ukncs/images/css/grid/uxkm_grid_auto-fill_vs_x.svg" alt="auto-fill 유/무의 차이" class="mt_m">
+				</figure>
 			</section>
-			<figure class="img_figure mt_ml">
-				<figcaption class="mt_0">[auto-fill과 auto-fit]</figcaption>
-				<img src="/ukncs/images/css/grid_auto-fill-fit.png" alt="auto-fill과 auto-fit" class="mt_m max-w700">
-			</figure>
 		</article>
 
 		<!-- auto-fill과 auto-fit의 차이 -->
@@ -567,7 +571,7 @@
 			</section>
 			<figure class="img_figure mt_ml">
 				<figcaption class="mt_0">[auto-fill과 auto-fit 비교]</figcaption>
-				<img src="/ukncs/images/css/grid_auto-fill-3.jpg" alt="auto-fill과 auto-fit 비교" class="mt_m max-w850">
+				<img src="/ukncs/images/css/grid/uxkm_grid_auto-fill-vs-fill.svg" alt="auto-fill과 auto-fit 비교" class="mt_m">
 			</figure>
 		</article>
 	</section>
