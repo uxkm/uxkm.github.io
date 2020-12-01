@@ -2629,16 +2629,4 @@ mark {
     opacity: 1;
   }
 }
-.grid {
-  display: grid;
-  /* repeat(), CSS 함수 사용법 */
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(3, 1fr 2fr);
-}
-.grid {
-  display: grid;
-  /* repeat(), CSS 함수 사용법 */
-  grid-template-rows: repeat(2, minmax(20px, auto));
-  grid-template-columns: minmax(30px, auto) repeat(3, 1fr);
-}
 /*# sourceMappingURL=uk_sub.css.map */

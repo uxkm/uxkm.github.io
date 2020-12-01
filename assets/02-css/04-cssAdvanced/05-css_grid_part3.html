@@ -37,8 +37,8 @@
 					</ul>
 				</div>
 				<figure class="img_figure mt_m">
-					<figcaption class="mt_0">display: grid;</figcaption>
-					<img src="/ukncs/images/css/grid_display-grid.png" alt="display: grid;" class="mt_m max-w700">
+					<figcaption class="mt_0 sound_only">display: grid & inline-grid</figcaption>
+					<img src="/ukncs/images/css/grid/uxkm_grid_display-grid.svg" alt="display: grid;">
 				</figure>
 				<aside class="browser_support mt_m" data-tit="display">
 					<ul>
@@ -105,27 +105,21 @@
 						<li></li>
 						<li>grid-template-rows: 200px repeat(auto-fill, 100px) 300px;</li>
 						<li>grid-template-rows: minmax(100px, max-content) repeat(auto-fill, 200px) 20%;</li>
-						<li>grid-template-rows: [linename1] 100px [linename2] repeat(auto-fit, [linename3 linename4] 300px) 100px;s</li>
+						<li>grid-template-rows: [linename1] 100px [linename2] repeat(auto-fit, [linename3 linename4] 300px) 100px;</li>
 						<li>grid-template-rows: [linename1 linename2] 100px repeat(auto-fit, [linename1] 300px) [linename3];</li>
 					</ul>
 				</div>
 				<figure class="img_figure mt_m">
-					<figcaption class="mt_0">트랙 값 사이에 빈 공간을 두면 그리드 선에 양수와 음수가 자동으로 할당</figcaption>
-					<img src="/ukncs/images/css/grid_template-columns-rows-01.svg" alt="트랙 값 사이에 빈 공간을 두면 그리드 선에 양수와 음수가 자동으로 할당" class="mt_m max-w550">
-				</figure>
-				<figure class="img_figure mt_m">
-					<figcaption class="mt_0">명시적으로 줄 이름을 지정</figcaption>
-					<img src="/ukncs/images/css/grid_template-column-rows-02.svg" alt="명시적으로 줄 이름을 지정" class="mt_m max-w550">
+					<figcaption class="mt_0">트랙 값 사이에 빈 공간을 두면 그리드 선에 <b class="t_blue">양수</b>와 <b class="t_green">음수</b>가 <b>자동으로 할당</b></figcaption>
+					<img src="/ukncs/images/css/grid/uxkm_grid_template-columns-rows-01.svg" alt="트랙 값 사이에 빈 공간을 두면 그리드 선에 양수와 음수가 자동으로 할당" class="mt_ms">
+					<figcaption class="mt_l"><b>명시적으로 줄 이름을 지정</b> (아래 줄 이름은 예시)</figcaption>
+					<img src="/ukncs/images/css/grid/uxkm_grid_template-columns-rows-02.svg" alt="명시적으로 줄 이름을 지정" class="mt_ms">
 				</figure>
 			</section>
 
 			<!-- grid-template-columns -->
 			<section class="mt_l indent">
 				<h4 class="ml_mn t_blue">grid-template-columns</h4>
-				<figure class="img_figure mt_m">
-					<figcaption class="mt_0">grid-template-columns: [first] 400px [main] 200px [side] 100px [last];</figcaption>
-					<img src="/ukncs/images/css/grid-definition.svg" alt="grid-template-columns: [first] 400px [main] 200px [side] 100px [last];" class="mt_m max-w550">
-				</figure>
 				<div class="line_code_box line_code_number mt_m">
 					<ul>
 						<li>.container {</li>
@@ -135,6 +129,10 @@
 						<li>}</li>
 					</ul>
 				</div>
+				<figure class="img_figure mt_m">
+					<figcaption class="mt_0 sound_only">grid-template-columns: [first] 300px [main] 200px [side] 100px [last];</figcaption>
+					<img src="/ukncs/images/css/grid/uxkm_grid-template-columns.svg" alt="grid-template-columns: [first] 300px [main] 200px [side] 100px [last];">
+				</figure>
 
 				<h5 class="mt_m">사용자가 임의로 설정한 선 이름([이름])을 사용할 수도 있습니다.</h5>
 				<div class="line_code_box line_code_number indent mt_s">
@@ -299,8 +297,8 @@
 			<section class="mt_l indent">
 				<h4 class="ml_mn t_blue">grid-template-row</h4>
 				<figure class="img_figure mt_m">
-					<figcaption class="mt_0">grid-template-rows</figcaption>
-					<img src="/ukncs/images/css/grid-template-rows-1.png" alt="grid-template-rows" class="mt_m max-w600">
+					<figcaption class="mt_0 sound_only">grid-template-rows</figcaption>
+					<img src="/ukncs/images/css/grid/uxkm_grid-template-rows.svg" alt="grid-template-rows">
 				</figure>
 				<div class="line_code_box line_code_number mt_m">
 					<ul>
@@ -407,7 +405,7 @@
 						<li></li>
 						<li>.container {</li>
 						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: 50px 50px 50px 50px;</li>
+						<li class="indent">grid-template-columns: 100px 100px 100px 100px;</li>
 						<li class="indent">grid-template-rows: auto;</li>
 						<li></li>
 						<li>/* 그리드 템플릿 영역 설정. 각 행은 동일한 개수의 열 설정이 요구됩니다. */</li>
@@ -418,8 +416,8 @@
 						<li>}</li>
 					</ul>
 				</div>
-				<figure class="img_figure mt_m">
-					<img src="/ukncs/images/css/grid-template-areas.svg" alt="3행 4열 그리드 템플릿 영역 설정 예제" class="max-w450">
+				<figure class="img_figure indent mt_m">
+					<img src="/ukncs/images/css/grid/uxkm_grid-template-areas.svg" alt="3행 4열 그리드 템플릿 영역 설정 예제">
 				</figure>
 
 				<h5 class="mt_m">명시적으로 그리드(explicit grids)를 정의할 때, 그리드 컨테이너에 3개의 속성을 사용해 설정할 수 있습니다.</h5>
@@ -605,9 +603,6 @@
 				</div>
 
 				<h5 class="mt_ml">사용자가 명시적으로 열/행 템플릿 속성을 설정하면 그리드 트랙 크기로 적용(2열 2행 그리드)</h5>
-				<figure class="img_figure indent mt_ms">
-					<img src="/ukncs/images/css/grid-auto-columns-rows-01.svg" alt="2열 2행 그리드" class="max-w400">
-				</figure>
 				<div class="line_code_box line_code_number indent mt_s">
 					<ul>
 						<li>.container {</li>
@@ -620,11 +615,11 @@
 						<li>}</li>
 					</ul>
 				</div>
+				<figure class="img_figure indent mt_ms">
+					<img src="/ukncs/images/css/grid/uxkm_grid-auto-columns-rows-01.svg" alt="2열 2행 그리드">
+				</figure>
 
 				<h5 class="mt_ml">개별 그리드 아이템에 열/행 위치를 그리드 라인 기준으로 배치하게 되면 다음과 같이 처리됨</h5>
-				<figure class="img_figure indent mt_ms">
-					<img src="/ukncs/images/css/grid-auto-columns-rows-02.svg" alt="열/행 위치를 그리드 라인 기준으로 배치" class="max-w550">
-				</figure>
 				<div class="line_code_box line_code_number indent mt_s">
 					<ul>
 						<li>.item-a {</li>
@@ -642,11 +637,11 @@
 					존재하지 않는 열/행에 배치하기 위해 암시적인 트랙이 자동으로 생성됩니다.<br>
 					(그림을 자세히 보면 암시적으로 생성된 트랙 크기는 0으로 설정됩니다)
 				</p>
+				<figure class="img_figure indent mt_ms">
+					<img src="/ukncs/images/css/grid/uxkm_grid-auto-columns-rows-02.svg" alt="열/행 위치를 그리드 라인 기준으로 배치">
+				</figure>
 
 				<h5 class="mt_ml">자동으로 생성되는 그리드 트랙 크기를 임의의 값으로 설정하고 싶다면 다음과 같이 설정할 수 있습니다.</h5>
-				<figure class="img_figure indent mt_ms">
-					<img src="/ukncs/images/css/grid-auto-columns-rows-03.svg" alt="자동으로 생성되는 그리드 트랙 크기를 임의의 값으로 설정" class="max-w550">
-				</figure>
 				<div class="line_code_box line_code_number indent mt_s">
 					<ul>
 						<li>.container {</li>
@@ -655,6 +650,9 @@
 					</ul>
 				</div>
 				<p class="mt_s indent">암시적으로 생성된 그리드 트랙 크기는 60px로 설정됩니다.</p>
+				<figure class="img_figure indent mt_ms">
+					<img src="/ukncs/images/css/grid/uxkm_grid-auto-columns-rows-03.svg" alt="자동으로 생성되는 그리드 트랙 크기를 임의의 값으로 설정">
+				</figure>
 			</section>
 
 			<aside class="browser_support mt_l" data-tit="grid-auto-columns/rows">
@@ -678,7 +676,7 @@
 			</p>
 			<figure class="img_figure mt_ms">
 				<figcaption class="mt_0">[속성 값에 따라 자동 배치 알고리즘 작동 방식]</figcaption>
-				<img src="/ukncs/images/css/grid-auto-flow-column.png" alt="속성 값에 따라 자동 배치 알고리즘 작동 방식" class="mt_m max-w650">
+				<img src="/ukncs/images/css/grid/uxkm_grid-auto-flow-column.svg" alt="속성 값에 따라 자동 배치 알고리즘 작동 방식" class="mt_m">
 			</figure>
 
 			<!-- grid-auto-flow -->
@@ -723,7 +721,7 @@
 				</section>
 				<figure class="img_figure mt_ms">
 					<figcaption class="mt_0">[위 예제의 결과물]</figcaption>
-					<img src="/ukncs/images/css/grid-auto-flow-01.svg" alt="위 예제의 결과물" class="max-w500">
+					<img src="/ukncs/images/css/grid/uxkm_grid-auto-flow_ex.svg" alt="위 예제의 결과물">
 				</figure>
 			</section>
 
@@ -939,7 +937,7 @@
 				</div>
 				<figure class="img_figure mt_m">
 					<figcaption class="mt_0">[gutters는 외부 모서리가 아닌 열 / 행 사이에만 작성됩니다.]</figcaption>
-					<img src="/ukncs/images/css/grid-gap.svg" alt="gutters는 외부 모서리가 아닌 열 / 행 사이에만 작성됩니다." class="mt_m max-w450">
+					<img src="/ukncs/images/css/grid/uxkm_grid-gap.svg" alt="gutters는 외부 모서리가 아닌 열 / 행 사이에만 작성됩니다." class="mt_m">
 				</figure>
 				<aside class="browser_support mt_m" data-tit="column-gap/row-gap">
 					<ul>
