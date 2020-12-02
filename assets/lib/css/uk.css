@@ -1768,6 +1768,21 @@ mark {
   margin-left: auto;
   margin-right: auto;
 }
+.t_111 {
+  color: #111 !important;
+}
+.t_222 {
+  color: #222 !important;
+}
+.t_333 {
+  color: #333 !important;
+}
+.t_444 {
+  color: #444 !important;
+}
+.t_555 {
+  color: #555 !important;
+}
 .t_666 {
   color: #666 !important;
 }
@@ -1812,6 +1827,9 @@ mark {
 }
 .t_navy {
   color: #081121 !important;
+}
+.t_purple {
+  color: #b72df8 !important;
 }
 .t_link {
   color: rgba(0, 50, 132, 0.75) !important;
