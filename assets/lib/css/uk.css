@@ -2453,7 +2453,7 @@ body {
   left: 0;
   top: 0;
   right: 0;
-  z-index: 9;
+  z-index: 10;
   height: 110px;
   transition: background-color 0.4s /*, transform @hd_layer_time*/;
 }
@@ -5622,6 +5622,7 @@ body {
 }
 .sub_content {
   *zoom: 1;
+  z-index: 9;
   padding-top: 50px;
   padding-bottom: 100px;
 }

@@ -351,7 +351,7 @@
 	@hd_layer_timing:cubic-bezier(0.645, 0.045, 0.355, 1);
 
 	.uk_header {
-		position:fixed; left:0; top:0; right:0; z-index:9;
+		position:fixed; left:0; top:0; right:0; z-index:10;
 		height:@hdHeight;
 		transition:background-color .4s/*, transform @hd_layer_time*/;
 		&:before, .hd_progress {
@@ -2030,7 +2030,7 @@
 
 	//sub content common
 	@course_padding:50px;
-	.sub_content {.clear; padding-top:@course_padding; padding-bottom:100px;}
+	.sub_content {.clear; z-index:9; padding-top:@course_padding; padding-bottom:100px;}
 	.side_menu_area {.lft; width:250px;}
 	.side_menu_area {
 		position:sticky; top:@hdHeight + @course_padding; z-index:5;
