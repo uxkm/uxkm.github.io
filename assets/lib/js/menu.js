@@ -117,7 +117,7 @@ var menu = [
 								html5:		true,
 							},
 							{
-								d4_nm:  	'heading(h1,h2,h3,h4,h5,h6) element',
+								d4_nm:  	'heading(h1~h6) element',
 								d4_url:		url_html+ 'sections&heading_element',
 								d4_file:	file_html+'/03-sections/02-heading_element.html',
 								html5:		false,

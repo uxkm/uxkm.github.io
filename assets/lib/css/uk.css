@@ -448,7 +448,6 @@ mark {
 }
 .uk_editor {
   position: relative;
-  width: 100%;
   background: #fff;
   border: 4px solid #ccc;
 }
@@ -1808,7 +1807,7 @@ mark {
   color: #4961dd !important;
 }
 .t_red {
-  color: #e44d26 !important;
+  color: #f12323 !important;
 }
 .t_green {
   color: #00986b !important;
@@ -2085,7 +2084,7 @@ body {
   animation: loading_circle_size 1.1s 0s ease-in-out both, loading_rotate360 4s linear infinite, loading_radius_ani 6s linear infinite;
 }
 .loading .loading_wrap .loading_rorate.bg1:before {
-  background: #e44d26;
+  background: #f12323;
   animation: loading_radius_ani 6s .5s linear infinite;
 }
 .loading .loading_wrap .loading_rorate.bg1:after {
@@ -4154,10 +4153,10 @@ body {
   transform: translate(-50%, -50%) scale(2, 2);
 }
 .main_intro .txt_box .banner .bn1:hover {
-  color: #e44d26;
+  color: #f12323;
 }
 .main_intro .txt_box .banner .bn1:before {
-  background-color: #e44d26;
+  background-color: #f12323;
 }
 .main_intro .txt_box .banner .bn2:hover {
   color: #379ad6;
@@ -5852,7 +5851,7 @@ body {
     margin-left: 5px;
     font-family: "Font Awesome 5 Brands", sans-serif;
     font-size: 22px;
-    color: #e44d26;
+    color: #f12323;
     font-weight: bold;
     content: "\f13b";
   }
@@ -6070,7 +6069,7 @@ body {
   font-family: "Font Awesome 5 Brands", sans-serif;
   font-size: 24px;
   font-weight: bold;
-  color: #e44d26;
+  color: #f12323;
   content: "\f13b";
 }
 .content_area .last_update {
@@ -6105,7 +6104,7 @@ body {
   font-family: "Font Awesome 5 Brands", sans-serif;
   font-size: 22px;
   font-weight: bold;
-  color: #e44d26;
+  color: #f12323;
   content: "\f13b";
 }
 .content_area h2.css3:after {
@@ -6127,7 +6126,7 @@ body {
 }
 .content_area h3 .fa-html5 {
   margin: 0 0 0;
-  color: #e44d26;
+  color: #f12323;
 }
 .content_area h3 .fa-css3-alt {
   margin: 0 0 0;
@@ -6621,7 +6620,7 @@ body {
   color: #00986b;
 }
 .view_editor.ex_code.ex_wrong .ve_tit {
-  color: #e44d26;
+  color: #f12323;
 }
 .view_editor.edit_code .ve_tit {
   color: #1e73ff;
@@ -7414,7 +7413,7 @@ body {
   margin-left: 4px;
   font-family: "Font Awesome 5 Brands", sans-serif;
   font-size: 14px;
-  color: #e44d26;
+  color: #f12323;
   content: "\f13b";
 }
 .dashed_line {
