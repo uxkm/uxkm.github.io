@@ -1297,8 +1297,11 @@ function line_code_box(){
 		}
 
 		//생상 변경
+    var each_txt_arr = [];
 		li_target.each(function(j, k){
 			var e_txt = $(k).text();
+      //each_txt_arr.push( e_txt );
+      //console.log( each_txt_arr[j].length );
 
 			if( e_txt.match('{') && !e_txt.match('}') ) $(k).addClass('t_777');
 			if( e_txt.match('}') && !e_txt.match('{') ) $(k).addClass('t_777');
