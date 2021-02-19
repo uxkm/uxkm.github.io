@@ -2043,6 +2043,25 @@ body {
 .loading.uxkm_start.hide_loading {
   transition: opacity .8s, left 0s .8s, top 0s .8s;
 }
+.loading:not(.hide_loading) {
+  will-change: opacity;
+}
+.loading:not(.hide_loading) .loading_rorate.bg1:before,
+.loading:not(.hide_loading) .loading_rorate.bg2:before,
+.loading:not(.hide_loading) .loading_rorate.bg1:after,
+.loading:not(.hide_loading) .loading_rorate.bg2:after {
+  will-change: transform, opacity, width, height, margin, border-radius;
+}
+.loading:not(.hide_loading) .loading_txt:before,
+.loading:not(.hide_loading) .loading_txt:after {
+  will-change: transform, border-radius;
+}
+.loading:not(.hide_loading) .loading_txt .tit {
+  will-change: transform, opacity;
+}
+.loading:not(.hide_loading) .loading_txt .dot {
+  will-change: width, height, background-color, box-shadow;
+}
 .loading .loading_wrap {
   position: absolute;
   left: 50%;
@@ -3195,6 +3214,11 @@ body {
 .hd_layer_box .inner {
   opacity: 0;
   transform: scale(1.5, 1.5);
+  /*&:before {
+				position:absolute; left:0; top:0; right:0; bottom:0; z-index:-1;
+				background:red;
+				content:"";
+			}*/
 }
 .hd_layer_box h4 {
   line-height: 110px;
@@ -3222,11 +3246,13 @@ body {
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.9);
+  will-change: background-color;
 }
 .hd_assetsLink_on .assetsLink_area .inner,
 .hd_search_on .search_area .inner {
   opacity: 1;
   transform: scale(1, 1);
+  will-change: transform, opacity;
 }
 .uk_container,
 .uk_footer,
@@ -3734,7 +3760,7 @@ body {
 .desktop.hd_search_on .uk_container,
 .desktop.hd_assetsLink_on .uk_footer,
 .desktop.hd_search_on .uk_footer {
-  filter: blur(3px);
+  /*filter:blur(3px);*/
 }
 .desktop.hd_assetsLink_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i,
 .desktop.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn i {
@@ -4538,6 +4564,10 @@ body {
   100% {
     transform: translate(-50%, 0.4%);
   }
+}
+.ie_no .main_info.info_scroll .keyboard .step i,
+.ie_no .main_info.info_scroll .keyboard .step i:before {
+  will-change: transform;
 }
 .ie_no .main_info.info_scroll .keyboard .step1 i:before {
   -webkit-animation: keyBg1 1.7s 0.48s cubic-bezier(0.4, 0.1, 0.09, 0.94) both;

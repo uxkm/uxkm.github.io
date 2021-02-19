@@ -42,7 +42,6 @@
 		.inner {padding:0 10px;}
 	}
 
-
 	.ie_no .wrap {
 		.clear; .display-flex-height; opacity:0;
 		width:100%; height:100%; min-height:100%;
@@ -79,6 +78,17 @@
 		transition:opacity .4s, left 0s 0s, top 0s 0s; //로딩 시작
 		&.hide_loading {left:-9999vw; top:-9999vw; opacity:0; transition:opacity .5s, left 0s .5s, top 0s .5s;} //로딩 끝
 		&.uxkm_start.hide_loading {transition:opacity .8s, left 0s .8s, top 0s .8s;}
+		&:not(.hide_loading) {
+			will-change:opacity;
+			.loading_rorate.bg1, .loading_rorate.bg2 {
+				&:before, &:after {will-change:transform, opacity, width, height, margin, border-radius;}
+			}
+			.loading_txt {
+				&:before, &:after {will-change:transform, border-radius;}
+				.tit {will-change:transform, opacity;}
+				.dot {will-change:width, height, background-color, box-shadow;}
+			}
+		}
 
 		.loading_wrap {
 			position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
@@ -652,7 +662,14 @@
 		width:100%; height:100%;
 		background:rgba(0,0,0,0); //outline:none;
 		-webkit-overflow-scrolling:touch;
-		.inner {opacity:0; transform:scale(1.5,1.5);}
+		.inner {
+			opacity:0; transform:scale(1.5,1.5);
+			/*&:before {
+				position:absolute; left:0; top:0; right:0; bottom:0; z-index:-1;
+				background:red;
+				content:"";
+			}*/
+		}
 		h4 {
 			line-height:@hdHeight;
 			.font-tit; font-size:40px; color:#fff; font-weight:normal;
@@ -671,7 +688,8 @@
 		overflow-y:scroll;
 		left:0; top:0;
 		background-color:rgba(0,0,0,.9);
-		.inner {opacity:1; transform:scale(1,1);}
+		will-change:background-color;
+		.inner {opacity:1; transform:scale(1,1); will-change:transform, opacity;}
 	}
 
 	//assetsLink 디자인
@@ -981,7 +999,7 @@
 			transition-timing-function:@hd_layer_timing;
 		}
 		.hd_logo a, .hd_nav_area .nav, .search_btn,
-		.uk_container, .uk_footer {filter:blur(3px);}
+		.uk_container, .uk_footer {/*filter:blur(3px);*/}
 
 		//서브페이지에서 사이트맵 버튼 색상 변경
 		&.sub_page .uk_header {
@@ -1468,6 +1486,7 @@
 			.step5 i {.keyboardStep(keyStep5, .4%, 5.8s);}
 		}
 		&.info_scroll .keyboard {
+			.step i, .step i:before {will-change:transform;}
 			.step1 i:before {.keyboardBg(keyBg1, 1.7s, .48s);}
 			.step2 i:before {.keyboardBg(keyBg2, 1.7s, .36s);}
 			.step3 i:before {.keyboardBg(keyBg3, 1.7s, .24s);}
