@@ -654,6 +654,7 @@
 	}
 
 
+
 	//assetsLink, search 공통
 	.hd_layer_box {
 		overflow-x:hidden; overflow-y:hidden;
@@ -664,11 +665,6 @@
 		-webkit-overflow-scrolling:touch;
 		.inner {
 			opacity:0; transform:scale(1.5,1.5);
-			/*&:before {
-				position:absolute; left:0; top:0; right:0; bottom:0; z-index:-1;
-				background:red;
-				content:"";
-			}*/
 		}
 		h4 {
 			line-height:@hdHeight;
@@ -1016,6 +1012,18 @@
 			}
 		}
 	}
+
+	/*
+	.hd_layer_box:before {
+		display:none;
+		overflow:hidden;
+		position:fixed; left:0; top:0;
+		width:calc(100% - 17px); height:100%;
+		-webkit-backdrop-filter: blur(3px);
+		backdrop-filter: blur(3px);
+		content:"";
+	}
+	*/
 
 	//device action(assetsLink, search)
 	.device .hd_layer_box {

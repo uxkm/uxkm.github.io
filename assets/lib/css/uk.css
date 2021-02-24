@@ -1913,6 +1913,15 @@ mark {
     font-size: 16px;
   }
 }
+.gist_code iframe {
+  overflow-y: hidden;
+  background: red;
+}
+.gist_code iframe html,
+.gist_code iframe body {
+  margin: 0;
+  padding: 0;
+}
 html,
 body {
   height: 100%;
@@ -3214,11 +3223,6 @@ body {
 .hd_layer_box .inner {
   opacity: 0;
   transform: scale(1.5, 1.5);
-  /*&:before {
-				position:absolute; left:0; top:0; right:0; bottom:0; z-index:-1;
-				background:red;
-				content:"";
-			}*/
 }
 .hd_layer_box h4 {
   line-height: 110px;
@@ -3776,6 +3780,17 @@ body {
 .desktop.hd_search_on.sub_page .uk_header .hd_nav_area .aside .assetsLink_btn.active i {
   background-color: transparent;
 }
+/*
+	.hd_layer_box:before {
+		display:none;
+		overflow:hidden;
+		position:fixed; left:0; top:0;
+		width:calc(100% - 17px); height:100%;
+		-webkit-backdrop-filter: blur(3px);
+		backdrop-filter: blur(3px);
+		content:"";
+	}
+	*/
 .device .hd_layer_box {
   opacity: 0;
   background-color: #000000;
