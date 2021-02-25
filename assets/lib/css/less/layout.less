@@ -2763,7 +2763,7 @@
 
 		//gist skin 적용
 		&.km_gist_skin {
-			@pd_top: 11px;
+			@pd_top: 9px;
 			@border_color:#ddd;
 			overflow:hidden;
 			border:1px solid @border_color; border-radius:5px;
@@ -2776,28 +2776,29 @@
 				.line_number {
 					.code_css;
 					position:absolute; left:0; top:0; z-index:1;
-					width:@line_size; height:100%; padding:@pd_top 0;
-					background:transparent;
+					width:@line_size; padding:@pd_top 0;
+					background:#fff;
 					counter-reset:line_number;
-					&:before {
-						display:none;
-						opacity:.6;
-						position:absolute; right:0; top:0; bottom:0;
-						width:1px; background:@border_color;
-						content:"";
-					}
 					li {
-						padding-right:12px;
+						padding-right:10px;
 						color:#bbb; text-align:right;
 						&:before {
+							display:block; vertical-align:top;
 							font-size:12px;
 							counter-increment:line_number;
 							content:counters(line_number, "");
 						}
 					}
 				}
-				.km_gist_skin_pre {padding:@pd_top 4px @pd_top 8px;}
-				.km_gist_skin_code {padding:0; background:#fff;}
+				.km_gist_skin_code {
+					display:flex;
+					overflow-x:auto;
+					padding:@pd_top 0 @pd_top @line_size + 5px;
+					background:#fff;
+					.km_gist_skin_wrap {
+						flex:1; padding-right:15px;
+					}
+				}
 
 				.iScrollIndicator {background:rgba(0,0,0,.12);}
 				.iScrollIndicator:hover {background:rgba(0,0,0,.32);}
@@ -2857,11 +2858,16 @@
 					* {line-height:20px; font-size:12px;}
 
 					.line_number {
-						width:@line_size; padding:@pd_top 0;
+						width:@line_size; padding:@pd_top 0 2px;
 						li {padding-right:8px;}
 					}
 
-					.km_gist_skin_pre {padding:@pd_top 4px @pd_top 8px;}
+					.km_gist_skin_code {
+						padding:@pd_top 0 @pd_top @line_size + 5px;
+						.km_gist_skin_wrap {
+							padding-right:15px;
+						}
+					}
 				}
 				.km_gist_footer {padding:8px 13px 11px; letter-spacing:-0.5px;}
 			}

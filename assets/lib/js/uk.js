@@ -1361,13 +1361,14 @@ function line_code_box(){
         '<div class="'+km_gist_con+'">' +
           '<div class="'+km_gist_skin_view+'">' +
             '<pre class="'+km_gist_skin_pre+'">' +
-              '<code class="'+km_gist_skin_code+'">'+str_content+'</code>' +
+              '<code class="'+km_gist_skin_code+'"><span class="km_gist_skin_wrap">'+str_content+'</span></code>' +
             '</pre>' +
           '</div>' +
         '</div>' +
         '<div class="km_gist_footer">'+dataTitle+'ode example <span>-</span> create <i>❤</i> by <b>uxkm</b></div>'
       );
-      $(e).find('.'+km_gist_skin_view).wrap('<div class="scroll_wrap" id="iscroll_gist_'+i+'"><div class="scroll_inner"></div></div>');
+      //$(e).find('.'+km_gist_skin_view).wrap('<div class="scroll_wrap" id="iscroll_gist_'+i+'"><div class="scroll_inner"></div></div>');
+      $(e).find('.'+km_gist_skin_view).wrap('<div class="inner_scroll"></div>');
 
       //line number 생성
       $(e).addClass('line_true').find('.'+km_gist_con).prepend('<ol class="line_number">');
@@ -1422,7 +1423,8 @@ function line_code_box(){
   }, 100);
 
 	//iscroll 적용
-	$('.scroll_wrap').each(function(i, e){
+	//$('.scroll_wrap').each(function(i, e){
+	$('.line_code_box:not(.km_gist_skin) .scroll_wrap').each(function(i, e){
 		var s_target = $(e).attr('id');
 
 		new IScroll('#'+s_target, {

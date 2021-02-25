@@ -6964,9 +6964,8 @@ body {
   top: 0;
   z-index: 1;
   width: 41px;
-  height: 100%;
-  padding: 11px 0;
-  background: transparent;
+  padding: 9px 0;
+  background: #fff;
   counter-reset: line_number;
 }
 .line_code_box.km_gist_skin .km_gist_con .line_number.clear {
@@ -6979,33 +6978,27 @@ body {
 .line_code_box.km_gist_skin .km_gist_con .line_number.in_block i {
   display: inline-block;
 }
-.line_code_box.km_gist_skin .km_gist_con .line_number:before {
-  display: none;
-  opacity: .6;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: #ddd;
-  content: "";
-}
 .line_code_box.km_gist_skin .km_gist_con .line_number li {
-  padding-right: 12px;
+  padding-right: 10px;
   color: #bbb;
   text-align: right;
 }
 .line_code_box.km_gist_skin .km_gist_con .line_number li:before {
+  display: block;
+  vertical-align: top;
   font-size: 12px;
   counter-increment: line_number;
   content: counters(line_number, "");
 }
-.line_code_box.km_gist_skin .km_gist_con .km_gist_skin_pre {
-  padding: 11px 4px 11px 8px;
-}
 .line_code_box.km_gist_skin .km_gist_con .km_gist_skin_code {
-  padding: 0;
+  display: flex;
+  overflow-x: auto;
+  padding: 9px 0 9px 46px;
   background: #fff;
+}
+.line_code_box.km_gist_skin .km_gist_con .km_gist_skin_code .km_gist_skin_wrap {
+  flex: 1;
+  padding-right: 15px;
 }
 .line_code_box.km_gist_skin .km_gist_con .iScrollIndicator {
   background: rgba(0, 0, 0, 0.12);
@@ -7077,13 +7070,16 @@ body {
   }
   .line_code_box.km_gist_skin .km_gist_con .line_number {
     width: 36px;
-    padding: 8px 0;
+    padding: 8px 0 2px;
   }
   .line_code_box.km_gist_skin .km_gist_con .line_number li {
     padding-right: 8px;
   }
-  .line_code_box.km_gist_skin .km_gist_con .km_gist_skin_pre {
-    padding: 8px 4px 8px 8px;
+  .line_code_box.km_gist_skin .km_gist_con .km_gist_skin_code {
+    padding: 8px 0 8px 41px;
+  }
+  .line_code_box.km_gist_skin .km_gist_con .km_gist_skin_code .km_gist_skin_wrap {
+    padding-right: 15px;
   }
   .line_code_box.km_gist_skin .km_gist_footer {
     padding: 8px 13px 11px;
