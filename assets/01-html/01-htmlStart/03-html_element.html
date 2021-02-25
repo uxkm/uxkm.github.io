@@ -152,6 +152,15 @@
 			</div>
 			-->
 			<!--
+			<div class="gist_code" data-url="https://gist.github.com/uxkm/7eb8c1860f230c5628c3742bfb33494f.js">
+				<div class="gist_code_wrap"></div>
+			</div>
+			<div class="gist_code" data-url="https://gist.github.com/uxkm/8b8083083bbb985e9afb23ad517c28bb.js">
+				<div class="gist_code_wrap"></div>
+			</div>
+			-->
+
+			<!-- 기본 -->
 			<div class="line_code_box line_code_number mt_ms">
 				<ul>
 					<li>&lt;div id=&quot;me&quot; data-my-name=&quot;Heropy&quot; data-my-age=&quot;851&quot;&gt;Heropy&lt;/div&gt;</li>
@@ -164,13 +173,39 @@
 					<li>&lt;/script&gt;</li>
 				</ul>
 			</div>
-			<div class="gist_code" data-url="https://gist.github.com/uxkm/7eb8c1860f230c5628c3742bfb33494f.js">
-				<div class="gist_code_wrap"></div>
+
+			<!-- gist skin 적용 -->
+			<div class="line_code_box km_gist_skin mt_ms" data-title="[data-*]">
+				<textarea>
+					<style>
+						html, body {height:100%;}
+						html {
+							overflow-y:scroll; overflow-x:hidden !important;
+							width:100%; background:#000;
+							background:url('@{bg-url}/main_top_bg.jpg') no-repeat left top;
+							background-color:#000;
+							background-size:auto 100%;
+							background-attachment:fixed;
+							transition:background-color .4s;
+						}
+						.test {width:100px; height:100px;}
+						#me {
+							width:100px; height:100px;
+							background:url('test.png') no-repeat center center; background:url('test.png') no-repeat center center; background:url('test.png') no-repeat center center;
+						}
+					</style>
+
+					<div id="me" data-my-name="Heropy" data-my-age="851">Heropy</div>
+
+					<script>
+						// dataset.customDataAttributes
+						const $me = document.getElementById('me');
+						console.log($me.dataset.myName); // "Heropy"
+						console.log($me.dataset.myAge); // "851"
+					</script>
+				</textarea>
 			</div>
-			<div class="gist_code" data-url="https://gist.github.com/uxkm/8b8083083bbb985e9afb23ad517c28bb.js">
-				<div class="gist_code_wrap"></div>
-			</div>
-			-->
+
 			<aside class="browser_support mt_m" data-tit="data-global">
 				<ul>
 					<li class="ie">지원</li>
@@ -209,6 +244,13 @@
 					<li class="indent">The element to drag.</li>
 					<li>&lt;/div&gt;</li>
 				</ul>
+			</div>
+			<div class="line_code_box km_gist_skin mt_ms">
+				<textarea readonly="readonly">
+					<div draggable="true">
+						The element to drag.
+					</div>
+				</textarea>
 			</div>
 			<aside class="browser_support mt_m" data-tit="draggable">
 				<ul>
@@ -400,3 +442,7 @@
 		</article>
 		<!-- dir -->
 	</section>
+
+
+
+
