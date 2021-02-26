@@ -86,11 +86,11 @@
 .hljs-built_in {color: #6f42c1;}
 .hljs-selector-tag {color: #22863a;}
 .hljs-meta {color:#d73a49;}
-.km_color_class_dot,
-.km_color_id_hashTags,
-.km_color_number_in_string {color:#24292e;}
-.km_color_doctype .hljs-meta {color:#005cc5;}
-.km_color_hexCode {color:#032f62;}
+.uk_color_class_dot,
+.uk_color_id_hashTags,
+.uk_color_number_in_string {color:#24292e;}
+.uk_color_doctype .hljs-meta {color:#005cc5;}
+.uk_color_hexCode {color:#032f62;}
 
 
 
