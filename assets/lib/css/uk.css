@@ -6898,9 +6898,8 @@ body {
   position: relative;
 }
 .uk_gist_code_box .uk_gist_content * {
-  line-height: 22px;
+  line-height: 24px;
   font-size: 14px;
-  font-weight: normal !important;
   letter-spacing: 0;
 }
 .uk_gist_code_box .uk_gist_content .line_number {
@@ -6972,9 +6971,9 @@ body {
   font-size: 12px;
 }
 .uk_gist_code_box .uk_gist_footer b {
-  color: #595959;
+  color: #555555;
 }
-.uk_gist_code_box .uk_gist_footer span {
+.uk_gist_code_box .uk_gist_footer .hyphen {
   padding: 0 2px;
 }
 .ios .uk_gist_code_inner {
@@ -6999,7 +6998,10 @@ body {
     padding: 8px 13px 11px;
     letter-spacing: -0.5px;
   }
-  .uk_gist_code_box .uk_gist_footer span {
+  .uk_gist_code_box .uk_gist_footer .by {
+    display: none;
+  }
+  .uk_gist_code_box .uk_gist_footer .hyphen {
     padding: 0;
   }
 }

@@ -43,43 +43,79 @@
 
 	<section class="txt_ex mt_l">
 		<h2>&lt;!DOCTYPE html&gt;</h2>
-		<p class="indent">현재 문서가 HTML5 문서임을 명시합니다. doctype은 문서의 최상위에 위치해야 하며, doctype의 선언 방식은 다음과 같습니다.</p>
+		<p class="indent">
+			현재 문서가 <i class="t_blue">HTML5</i> 문서임을 명시합니다.
+			<code>doctype</code>은 문서의 최상위에 위치해야 하며,
+			<code>doctype</code>의 선언 방식은 다음과 같습니다.
+		</p>
 
+		<!--
 		<div class="ol_lst indent">
 			<ol>
 				<li class="line_code mt_m">
 					<h3>HTML5 doctype</h3>
-					<div class="line_code_box mt_s">
-						<code>&lt;!DOCTYPE html&gt;</code>
+					<div class="uk_gist_code_box mt_s">
+						<textarea readonly="readonly">
+							<!DOCTYPE html>
+						</textarea>
 					</div>
 				</li>
-				<li class="line_code mt_m">
+				<li class="line_code mt_ml">
 					<h3>HTML 4.01 strict doctype</h3>
-					<div class="line_code_box mt_s">
-						<code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</code>
+					<div class="uk_gist_code_box mt_s">
+						<textarea readonly="readonly">
+							<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+						</textarea>
 					</div>
 				</li>
-				<li class="line_code mt_m">
+				<li class="line_code mt_ml">
 					<h3>HTML 4.01 transitional doctype</h3>
-					<div class="line_code_box mt_s">
-						<code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</code>
+					<div class="uk_gist_code_box mt_s">
+						<textarea readonly="readonly">
+							<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+						</textarea>
 					</div>
 				</li>
-				<li class="line_code mt_m">
+				<li class="line_code mt_ml">
 					<h3>XML 1.0 strict and transitional doctypes</h3>
-					<div class="line_code_box mt_s">
-						<code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code><br>
-						<code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</code>
+					<div class="uk_gist_code_box mt_s">
+						<textarea readonly="readonly">
+							<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+							<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+						</textarea>
 					</div>
 				</li>
-				<li class="line_code mt_m">
+				<li class="line_code mt_ml">
 					<h3>HTML 4.01 and XML 1.0 frameset doctypes</h3>
-					<div class="line_code_box mt_s">
-						<code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</code><br>
-						<code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</code>
+					<div class="uk_gist_code_box mt_s">
+						<textarea readonly="readonly">
+							<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+							<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+						</textarea>
 					</div>
 				</li>
 			</ol>
+		</div>
+		-->
+		<div class="uk_gist_code_box indent mt_ms" data-tit="[DOCTYPE]">
+				<textarea readonly="readonly">
+					__ex_line__#333__ 1. HTML5 doctype
+					<!DOCTYPE html>
+
+					__ex_line__#333__ 2. HTML 4.01 strict doctype
+					<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+					__ex_line__#333__ 3. HTML 4.01 transitional doctype
+					<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+					__ex_line__#333__ 4. XML 1.0 strict and transitional doctypes
+					<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+					<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+					__ex_line__#333__ 5. HTML 4.01 and XML 1.0 frameset doctypes
+					<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+					<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+				</textarea>
 		</div>
 	</section>
 

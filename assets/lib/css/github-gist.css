@@ -92,7 +92,13 @@
 .uk_color_doctype .hljs-meta {color:#005cc5;}
 .uk_color_hexCode {color:#032f62;}
 
+.hljs-attribute, .hljs-doctag, .hljs-keyword, .hljs-meta-keyword, .hljs-name, .hljs-selector-tag {
+  font-weight:400;
+}
 
+.uk_ex_line {font-weight:bold !important;}
+.uk_ex_line:before {content:"[";}
+.uk_ex_line:after {content:"]";}
 
 
 

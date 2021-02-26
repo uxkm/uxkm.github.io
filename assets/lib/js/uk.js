@@ -1511,13 +1511,14 @@ function line_code_box(){
 
 //uk_gist_skin_code box
 function uk_gist_skin_code(){
-  var uk_gist_code_box = 'uk_gist_code_box';
-  var uk_gist_content = 'uk_gist_content';
-  var uk_gist_code_pre = 'uk_gist_code_pre';
-  var uk_gist_code_wrap = 'uk_gist_code_wrap';
-  var uk_gist_code_inner = 'uk_gist_code_inner';
-  var uk_gist_footer = 'uk_gist_footer';
-
+  const uk_gist_code_box = 'uk_gist_code_box';
+  const uk_gist_content = 'uk_gist_content';
+  const uk_gist_code_pre = 'uk_gist_code_pre';
+  const uk_gist_code_wrap = 'uk_gist_code_wrap';
+  const uk_gist_code_inner = 'uk_gist_code_inner';
+  const uk_gist_footer = 'uk_gist_footer';
+  const not_ko = /[a-z0-9]|[\[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+  const ko_check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
   $('.'+uk_gist_code_box).each(function(i, e){
     const str = $(e).find('textarea').val()
     .replace(/</g,"&lt;")              // '<' 변환
@@ -1535,10 +1536,31 @@ function uk_gist_skin_code(){
     const line_tab_size = line[0].split(line_tab_split)[0];
     //----------------------------------------------------------------------------------------
     let str_content = '';
+    const ex_line = '__ex_line__';
+    let ex_line_color = '';
     for( i=0; i<lineLength; i++ ){
       //모든 문장의 앞에 있는 불필요한 tab 공백 제거
       if( line[i].match(line_tab_size) ){
         line[i] = line[i].replace(line_tab_size, '');
+      }
+      
+      //한줄 설명글 강조 //ex_line
+      if( line[i].match(ex_line) ){
+        ex_line_color = line[i].split(' ')[0].split('__')[2];
+        console.log( ex_line_color );
+        line[i] = line[i].replace(ex_line + ex_line_color + '__ ', '');
+        line[i] = '<b class="uk_ex_line" style="color:'+ex_line_color+'">'+line[i]+'</b>';
+      }
+
+      //한글만 따로 감싸기
+      let each_ko;
+      if( line[i].match(ko_check) ){
+        each_ko = line[i].replace(not_ko, '').split(' ').filter(function(item) {
+          return item !== null && item !== undefined && item !== '';
+        });
+        $.each(each_ko, function(){
+          line[i] = line[i].replace(this, '<span class="uk_leng_ko">'+this+'</span>')
+        });
       }
 
       if( line[i].match('!DOCTYPE') ){
@@ -1550,8 +1572,8 @@ function uk_gist_skin_code(){
     }
     //----------------------------------------------------------------------------------------
     let dataTitle = '';
-    if( $(e).attr('data-title') ){
-      dataTitle = '<b>' + $(e).attr('data-title') + '</b> c';
+    if( $(e).attr('data-tit') ){
+      dataTitle = '<b>' + $(e).attr('data-tit') + '</b> c';
     }else{
       dataTitle = 'C';
     }
@@ -1564,7 +1586,10 @@ function uk_gist_skin_code(){
           '</code>' +
         '</pre>' +
       '</div>' +
-      '<div class="'+uk_gist_footer+'">'+dataTitle+'ode example <span>-</span> create <i>❤</i> by <b>uxkm</b></div>'
+      '<div class="'+uk_gist_footer+'">' +
+        ''+dataTitle+'ode example ' +
+        '<span class="by"><span class="hyphen">-</span> create <i>❤</i> by <b>uxkm</b></span>' +
+      '</div>'
     );
     //----------------------------------------------------------------------------------------
     //line number 생성

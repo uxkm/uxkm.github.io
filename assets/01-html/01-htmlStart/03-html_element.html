@@ -144,23 +144,7 @@
 				현재 많이 사용하는 방법이며 활용성 면에서도 우수합니다.<br>
 				HTML에 JavaScript에서 이용할 수 있는 데이터(정보)를 저장하는 용도로 사용합니다.
 			</p>
-			<!--
-			<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.data-global.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
-			</div>
-			-->
-			<!--
-			<div class="gist_code" data-url="https://gist.github.com/uxkm/7eb8c1860f230c5628c3742bfb33494f.js">
-				<div class="gist_code_wrap"></div>
-			</div>
-			<div class="gist_code" data-url="https://gist.github.com/uxkm/8b8083083bbb985e9afb23ad517c28bb.js">
-				<div class="gist_code_wrap"></div>
-			</div>
-			-->
-
-			<!-- 기본 -->
+			<!-- 기본
 			<div class="line_code_box line_code_number mt_ms">
 				<ul>
 					<li>&lt;div id=&quot;me&quot; data-my-name=&quot;Heropy&quot; data-my-age=&quot;851&quot;&gt;Heropy&lt;/div&gt;</li>
@@ -173,28 +157,10 @@
 					<li>&lt;/script&gt;</li>
 				</ul>
 			</div>
-
+			-->
 			<!-- gist skin 적용 -->
-			<div class="uk_gist_code_box mt_ms" data-title="[data-*]">
+			<div class="uk_gist_code_box mt_ms" data-tit="[data-*]">
 				<textarea>
-					<style>
-						html, body {height:100%;}
-						html {
-							overflow-y:scroll; overflow-x:hidden !important;
-							width:100%; background:#000;
-							background:url('@{bg-url}/main_top_bg.jpg') no-repeat left top;
-							background-color:#000;
-							background-size:auto 100%;
-							background-attachment:fixed;
-							transition:background-color .4s;
-						}
-						.test {width:100px; height:100px;}
-						#me {
-							width:100px; height:100px;
-							background:url('test.png') no-repeat center center; background:url('test.png') no-repeat center center; background:url('test.png') no-repeat center center;
-						}
-					</style>
-
 					<div id="me" data-my-name="Heropy" data-my-age="851">Heropy</div>
 
 					<script>
@@ -231,21 +197,8 @@
 					<li>'false'는 요소가 드래그되지 않을 수 있음을 나타냅니다.</li>
 				</ol>
 			</div>
-			<!--
-			<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.draggable.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
-			</div>
-			-->
-			<div class="line_code_box line_code_number mt_ms">
-				<ul>
-					<li>&lt;div draggable=&quot;true&quot;&gt;</li>
-					<li class="indent">The element to drag.</li>
-					<li>&lt;/div&gt;</li>
-				</ul>
-			</div>
-			<div class="uk_gist_code_box mt_ms">
+
+			<div class="uk_gist_code_box mt_ms" data-tit="[draggable]">
 				<textarea readonly="readonly">
 					<div draggable="true">
 						The element to drag.
@@ -272,21 +225,15 @@
 				불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 'false'값을 가지게 되며, 명시하면 자동으로 'true'값을 가지게 됩니다.<br>
 				해당요소를 숨깁니다(CSS 기본값 : display:none;).
 			</p>
-			<!--
-			<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.hidden.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
-			</div>
-			-->
-			<div class="line_code_box line_code_number mt_ms">
-				<ul>
-					<li>&lt;form id=&quot;hidden-form&quot; action=&quot;/form-action&quot; hidden&gt;</li>
-					<li class="indent">숨겨진 양식들..</li>
-					<li>&lt;/form&gt;</li>
-					<li></li>
-					<li>&lt;button form=&quot;hidden-form&quot; type=&quot;submit&quot;&gt;전송&lt;/button&gt;</li>
-				</ul>
+
+			<div class="uk_gist_code_box mt_ms" data-tit="[hidden]">
+				<textarea readonly="readonly">
+					<form id="hidden-form" action="/form-action" hidden>
+						숨겨진 양식들..
+					</form>
+
+					<button form="hidden-form" type="submit">전송</button>
+				</textarea>
 			</div>
 			<aside class="browser_support mt_m" data-tit="hidden">
 				<ul>
@@ -311,21 +258,15 @@
 				tabindex="-1"을 통해 포커스는 가능하지만 탭 순서에서 제외 가능합니다.<br>
 				tabindex="1" 이상의 양수 값은 논리적 흐름을 방해하기 때문에 사용을 추천하지 않습니다.
 			</p>
-			<!--
-			<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.tabindex.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
-			</div>
-			-->
-			<div class="line_code_box line_code_number mt_ms">
-				<ul>
-					<li>&lt;h1 tabindex=&quot;0&quot;&gt;Sign In&lt;/h1&gt;</li>
-					<li>&lt;label&gt;Username: &lt;input type=&quot;text&quot;&gt;&lt;/label&gt;</li>
-					<li>&lt;label&gt;Password: &lt;input type=&quot;password&quot;&gt;&lt;/label&gt;</li>
-					<li>&lt;label&gt;PS: &lt;input type=&quot;text&quot; tabindex=&quot;-1&quot;&gt;&lt;/label&gt;</li>
-					<li>&lt;input type=&quot;submit&quot; value=&quot;Sign In&quot;&gt;</li>
-				</ul>
+
+			<div class="uk_gist_code_box mt_ms" data-tit="[tabindex]">
+				<textarea readonly="readonly">
+					<h1 tabindex="0">Sign In</h1>
+					<label>Username: <input type="text"></label>
+					<label>Password: <input type="password"></label>
+					<label>PS: <input type="text" tabindex="-1"></label>
+					<input type="submit" value="Sign In">
+				</textarea>
 			</div>
 			<aside class="browser_support mt_m" data-tit="tabindex">
 				<ul>
@@ -358,19 +299,13 @@
 				<code>&lt;label contenteditable&gt;Example Label&lt;/label&gt;</code>와 같은 축약적인 표현은 허용되지 않습니다.<br>
 				올바른 사용법은 <code>&lt;label contenteditable=&quot;true&quot;&gt;Example Label&lt;/label&gt;</code>입니다.
 			</p>
-			<!--
-			<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.contenteditable.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
-			</div>
-			-->
-			<div class="line_code_box line_code_number mt_ms">
-				<ul>
-					<li>&lt;p contenteditable=&quot;true&quot;&gt;</li>
-					<li class="indent">uxkm.github.io</li>
-					<li>&lt;/p&gt;</li>
-				</ul>
+
+			<div class="uk_gist_code_box mt_ms" data-tit="[contenteditable]">
+				<textarea readonly="readonly">
+					<p contenteditable="true">
+						uxkm.github.io
+					</p>
+				</textarea>
 			</div>
 			<aside class="browser_support mt_m" data-tit="contenteditable">
 				<ul>
@@ -415,19 +350,13 @@
 				이렇게 하면 CSS를 지원하지 않거나 CSS가 비활성화된 브라우저에서도 텍스트가 올바르게 표시됩니다.<br>
 				auto값은 사용자 입력 데이터와 같이 데이터의 방향성을 모르며, 최종적으로 데이터베이스에 저장되는 데이터일 경우에만 사용합니다.
 			</p>
-			<!--
-			<div class="view_editor ex_code mt_s" data-target="html/01-htmlStart/1.3.dir.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
-			</div>
-			-->
-			<div class="line_code_box line_code_number mt_ms">
-				<ul>
-					<li>&lt;p dir=&quot;ltr&quot;&gt;</li>
-					<li class="indent">uxkm.github.io</li>
-					<li>&lt;/p&gt;</li>
-				</ul>
+
+			<div class="uk_gist_code_box mt_ms" data-tit="[dir]">
+				<textarea readonly="readonly">
+					<p dir="ltr">
+						uxkm.github.io
+					</p>
+				</textarea>
 			</div>
 			<aside class="browser_support mt_m" data-tit="dir">
 				<ul>
