@@ -1547,7 +1547,6 @@ function uk_gist_skin_code(){
       //한줄 설명글 강조 //ex_line
       if( line[i].match(ex_line) ){
         ex_line_color = line[i].split(' ')[0].split('__')[2];
-        console.log( ex_line_color );
         line[i] = line[i].replace(ex_line + ex_line_color + '__ ', '');
         line[i] = '<b class="uk_ex_line" style="color:'+ex_line_color+'">'+line[i]+'</b>';
       }
