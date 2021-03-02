@@ -1282,173 +1282,6 @@ function ukEditor_txtarea(){
 
 
 //line_code_box
-/*function line_code_box(){
-	var lineCodeBox = $('.line_code_box');
-	var uk_gist_code = 'uk_gist_code';
-	var uk_gist_con = 'uk_gist_con';
-	var uk_gist_code_view = 'uk_gist_code_view';
-	var uk_gist_code_pre = 'uk_gist_code_pre';
-	var uk_gist_code_wrap = 'uk_gist_code_wrap';
-
-	lineCodeBox.each(function(i, e){
-	  //gist_skin_app 미적용
-	  if( !$(e).is('.'+uk_gist_code) ){
-      var li_target = $(e).find('ul > li');
-      var li_length = li_target.length;
-      $(e).find('ul').wrap('<div class="scroll_wrap" id="iscroll_'+i+'"><div class="scroll_inner"></div></div>');
-
-      //line number 생성
-      if( $(e).is('.line_code_number') && li_length > 1 ){
-        $(e).find('ul').addClass('code_box');
-        $(e).addClass('line_true').prepend('<ol class="line_number">');
-        for( i=0; i<li_length; i++ ){
-          $(e).find('.line_number').append('<li></li>');
-        }
-      }
-
-      //생상 변경
-      li_target.each(function(j, k){
-        var e_txt = $(k).text();
-        if( e_txt.match('{') && !e_txt.match('}') ) $(k).addClass('t_777');
-        if( e_txt.match('}') && !e_txt.match('{') ) $(k).addClass('t_777');
-
-        if( e_txt.match('<!--') || e_txt.match('-->') ){
-          $(k).addClass('t_999');
-        }
-        if( e_txt.indexOf("/!*") !== -1 || e_txt.indexOf("*!/") !== -1 ){
-          $(k).addClass('t_999');
-        }
-      });
-    }
-
-	  //gist_skin_app 적용
-	  else {
-      const str = $(e).find('textarea').val()
-      .replace(/</g,"&lt;")              // '<' 변환
-      .replace(/>/g,"&gt;")              // '>' 변환
-      .replace(/\"/g,"<span class='km_color_quot'>&quot;</span>")           // 큰따옴표 변환
-      .replace(/\'/g,"&#39;")            // 작은따옴표 변환
-      .replace(/\t/gi, '    ');          // tab공백을 띄어쓰기(4칸)로 변경
-      ////////////////////////////////////////////////////////////////////////////
-      const line = str.split('\n');  //줄바꿈 기준으로 배열
-      const lineLength = line.length - 1;
-      ////////////////////////////////////////////////////////////////////////////
-      const line_tab_split = line[0].trim().split('')[0];
-      const line_tab_size = line[0].split(line_tab_split)[0];
-      ////////////////////////////////////////////////////////////////////////////
-      let str_content = '';
-      for( i=0; i<lineLength; i++ ){
-        //모든 문장의 앞에 있는 불필요한 tab공백 제거
-        if( line[i].match(line_tab_size) ){
-          line[i] = line[i].replace(line_tab_size, '');
-        }
-
-        if( line[i].match('!DOCTYPE') ){
-          str_content += '<span class="km_color_doctype">' + line[i] + '</span>\n';
-        }
-        else {
-          str_content += line[i] + '\n';
-        }
-      }
-      ////////////////////////////////////////////////////////////////////////////
-      let dataTitle = '';
-      if( $(e).attr('data-title') ){
-        dataTitle = '<b>' + $(e).attr('data-title') + '</b> c';
-      }else{
-        dataTitle = 'C';
-      }
-      ////////////////////////////////////////////////////////////////////////////
-      $(e).append(
-        '<div class="'+uk_gist_con+'">' +
-          '<div class="'+uk_gist_code_view+'">' +
-            '<pre class="'+uk_gist_code_pre+'">' +
-              '<code class="'+uk_gist_code_wrap+'"><span class="uk_gist_code_inner">'+str_content+'</span></code>' +
-            '</pre>' +
-          '</div>' +
-        '</div>' +
-        '<div class="km_gist_footer">'+dataTitle+'ode example <span>-</span> create <i>❤</i> by <b>uxkm</b></div>'
-      );
-      //$(e).find('.'+uk_gist_code_view).wrap('<div class="scroll_wrap" id="iscroll_gist_'+i+'"><div class="scroll_inner"></div></div>');
-      $(e).find('.'+uk_gist_code_view).wrap('<div class="inner_scroll"></div>');
-
-      //line number 생성
-      $(e).addClass('line_true').find('.'+uk_gist_con).prepend('<ol class="line_number">');
-      for( i=0; i<lineLength; i++ ){
-        $(e).find('.line_number').append('<li></li>');
-      }
-    }
-	});
-
-  //highlight.js 적용 및 색상 커스텀
-  const hljsSelectorClass = '.hljs-selector-class';
-  const hljsSelectorId = '.hljs-selector-id';
-  const hljsNumber = '.hljs-number';
-  setTimeout(function(){
-    $('.'+uk_gist_code_wrap).each(function(i, e){
-      hljs.highlightBlock(e);
-      $(this).parents('.'+uk_gist_con).siblings('textarea').remove();
-
-      //class '.' 색상 변경 class 지정
-      if( $(e).find(hljsSelectorClass).is(':visible') ){
-        $(hljsSelectorClass).each(function(j, k){
-          const change_str = $(k).text().replace('.','<span class="km_color_class_dot">.</span>');
-          $(k).html(change_str);
-          //console.log('class',j);
-        });
-      }
-      //id '#' 색상 변경 class 지정
-      if( $(e).find(hljsSelectorId).is(':visible') ){
-        $(hljsSelectorId).each(function(j, k){
-          const change_str = $(k).text().replace('#','<span class="km_color_id_hashTags">#</span>');
-          $(k).html(change_str);
-          //console.log('id',j);
-        });
-      }
-      //number에서 숫자가 아닌 문자 지정
-      if( $(e).find(hljsNumber).is(':visible') ){
-        $(hljsNumber).each(function(j, k){
-          let change_str;
-          const str_arr = $(k).text().split('');
-          if( str_arr[0] === '#' ){
-            $(k).addClass('km_color_hexCode');
-          }
-          else {
-            const string_str = $(k).text().replace(/[0-9]/g,'');
-            change_str = $(k).text().replace(string_str,'<span class="km_color_number_in_string">'+string_str+'</span>');
-          }
-          $(k).html(change_str);
-          //console.log('id',j);
-        });
-      }
-    });
-  }, 100);
-
-	//iscroll 적용
-	//$('.scroll_wrap').each(function(i, e){
-	$('.line_code_box:not(.uk_gist_code) .scroll_wrap').each(function(i, e){
-		var s_target = $(e).attr('id');
-
-		new IScroll('#'+s_target, {
-			//scrollbars: true,
-			scrollbars: 'custom',
-			mouseWheel: false,
-			click: false,
-			scrollX: true,
-			scrollY: false,
-
-			disableMouse: true,
-			disablePointer: true,
-			disableTouch: false,
-
-			onBeforeScrollStart: function (e) { e.preventDefault(); }, //클릭 가능
-			interactiveScrollbars: true,
-			shrinkScrollbars: 'scale',
-			//fadeScrollbars: true,
-      preventDefaultException: {tagName: /^(INPUT|TEXTAREA|SELECT)$/},
-		});
-	});
-}*/
-
 function line_code_box(){
   var lineCodeBox = $('.line_code_box');
 
@@ -1515,17 +1348,22 @@ function uk_gist_skin_code(){
   const uk_gist_content = 'uk_gist_content';
   const uk_gist_code_pre = 'uk_gist_code_pre';
   const uk_gist_code_wrap = 'uk_gist_code_wrap';
-  const uk_gist_code_inner = 'uk_gist_code_inner';
+  const uk_gist_code_line = 'uk_gist_code_line';
   const uk_gist_footer = 'uk_gist_footer';
   const not_ko = /[a-z0-9]|[\[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
   const ko_check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+  const code_tab_size = '    ';
   $('.'+uk_gist_code_box).each(function(i, e){
     const str = $(e).find('textarea').val()
-    .replace(/</g,"&lt;")              // '<' 변환
-    .replace(/>/g,"&gt;")              // '>' 변환
+    .replace(/</g,"&lt;")                                                 // '<' 변환
+    .replace(/>/g,"&gt;")                                                 // '>' 변환
     .replace(/\"/g,"<span class='uk_color_quot'>&quot;</span>")           // 큰따옴표 변환
-    .replace(/\'/g,"&#39;")            // 작은따옴표 변환
-    .replace(/\t/gi, '    ');          // tab공백을 띄어쓰기(4칸)로 변경
+    .replace(/\'/g,"&#39;")                                               // 작은따옴표 변환
+    //.replaceAll("____error__","<span class='uk_color_error'>")          // error코드 시작 태그
+    //.replaceAll("__error____","</span>")                                // error코드 종료 태그
+    .replace(/____error__/g,"<span class='uk_color_error'>")              // error코드 시작 태그
+    .replace(/__error____/g,"</span>")                                    // error코드 종료 태그
+    .replace(/\t/gi, code_tab_size);                                      // tab공백을 띄어쓰기(4칸)로 변경
     //----------------------------------------------------------------------------------------
     //문장을 줄바꿈 기준으로 배열
     const line = str.split('\n');
@@ -1535,6 +1373,7 @@ function uk_gist_skin_code(){
     const line_tab_split = line[0].trim().split('')[0];
     const line_tab_size = line[0].split(line_tab_split)[0];
     //----------------------------------------------------------------------------------------
+    //커스텀 후 배열 합침
     let str_content = '';
     const ex_line = '__ex_line__';
     let ex_line_color = '';
@@ -1543,6 +1382,9 @@ function uk_gist_skin_code(){
       if( line[i].match(line_tab_size) ){
         line[i] = line[i].replace(line_tab_size, '');
       }
+
+      line[i].split(code_tab_size).join('aaaa');
+      console.log(line[i].split(code_tab_size));
       
       //한줄 설명글 강조 //ex_line
       if( line[i].match(ex_line) ){
@@ -1563,13 +1405,14 @@ function uk_gist_skin_code(){
       }
 
       if( line[i].match('!DOCTYPE') ){
-        str_content += '<span class="uk_color_doctype">' + line[i] + '</span>\n';
+        str_content += '<span class="'+uk_gist_code_line+' uk_color_doctype">' + line[i] + '</span>\n';
       }
       else {
-        str_content += line[i] + '\n';
+        str_content += '<span class="'+uk_gist_code_line+'">' + line[i] + '</span>\n';
       }
     }
     //----------------------------------------------------------------------------------------
+    //data-tit 적용
     let dataTitle = '';
     if( $(e).attr('data-tit') ){
       dataTitle = '<b>' + $(e).attr('data-tit') + '</b> c';
@@ -1580,9 +1423,7 @@ function uk_gist_skin_code(){
     $(e).append(
       '<div class="'+uk_gist_content+'">' +
         '<pre class="'+uk_gist_code_pre+'">' +
-          '<code class="'+uk_gist_code_wrap+'">'+
-            '<span class="'+uk_gist_code_inner+'">'+str_content+'</span>' +
-          '</code>' +
+          '<code class="'+uk_gist_code_wrap+'">'+str_content+'</code>' +
         '</pre>' +
       '</div>' +
       '<div class="'+uk_gist_footer+'">' +
@@ -1602,6 +1443,8 @@ function uk_gist_skin_code(){
   const hljsSelectorClass = '.hljs-selector-class';
   const hljsSelectorId = '.hljs-selector-id';
   const hljsNumber = '.hljs-number';
+  const error_lt = '____error__';
+  const error_gt = '__error____';
   setTimeout(function(){
     $('.'+uk_gist_code_wrap).each(function(i, e){
       hljs.highlightBlock(e);
@@ -1637,7 +1480,7 @@ function uk_gist_skin_code(){
         });
       }
     });
-  }, 100);
+  }, 500);
 }
 
 

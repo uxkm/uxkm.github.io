@@ -12,24 +12,12 @@
 
 	<section class="view_editor ex_code mt_l" data-target="html/02-blockInline/2.5.element_nesting1.html">
 		<h2 class="ve_tit">요소 중첩의 올바른 예</h2>
-		<!--
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
-		</div>
-		-->
-		<div class="line_code_box line_code_number indent mt_m">
-			<ul>
-				<li>&lt;p&gt;</li>
-				<li class="indent">블록요소(단락) 안에 &lt;strong&gt;인라인 요소(강조)&lt;/strong&gt; 가 중첩되어 있습니다.</li>
-				<li>&lt;/p&gt;</li>
-			</ul>
-		</div>
-		<div class="uk_gist_code_box indent mt_m">
-				<textarea readonly="readonly">
-					<p>
-						블록요소(단락) 안에 <strong>인라인 요소(강조)</strong> 가 중첩되어 있습니다.
-					</p>
-				</textarea>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="Correct example of element nesting">
+			<textarea readonly="readonly">
+				<p>
+					블록요소(단락) 안에 <strong>인라인 요소(강조)</strong> 가 중첩되어 있습니다.
+				</p>
+			</textarea>
 		</div>
 	</section>
 
@@ -47,30 +35,15 @@
 
 	<section class="view_editor ex_code ex_wrong mt_l" data-target="html/02-blockInline/2.5.element_nesting2.html">
 		<h2 class="ve_tit">요소 중첩의 잘못된 예</h2>
-		<!--
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
-		</div>
-		-->
-		<div class="line_code_box line_code_number indent mt_m">
-			<ul>
-				<li>&lt;p&gt;</li>
-				<li class="indent">블록요소(단락) 안에 &lt;strong&gt;인라인 요소(강조)<i class="t_red">&lt;/p&gt;</i> 가 중첩되어 있습니다.</li>
-				<li><i class="t_red">&lt;/span&gt;</i></li>
-				<li></li>
-				<li>&lt;span&gt;</li>
-				<li class="indent">&lt;p&gt;블록요소(단락) 안에 &lt;strong&gt;인라인 요소(강조)&lt;/strong&gt; 가 중첩되어 있습니다.<i class="t_red">&lt;/p&gt;</i></li>
-				<li><i class="t_red">&lt;/span&gt;</i></li>
-			</ul>
-		</div>
-		<div class="uk_gist_code_box indent mt_m">
-				<textarea readonly="readonly">
-					<p>
-						블록요소(단락) 안에 <strong>인라인 요소(강조)</p> 가 중첩되어 있습니다.
-					</span>
-					<span>
-						<p>블록요소(단락) 안에 <strong>인라인 요소(강조)</strong> 가 중첩되어 있습니다.</p>
-					</span>
-				</textarea>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="Incorrect example of element nesting">
+			<textarea readonly="readonly">
+				<p>
+					블록요소(단락) 안에 <strong>인라인 요소(강조)____error__</p>__error____ 가 중첩되어 있습니다.
+				____error__</span>__error____
+				<span>
+					<p>블록요소(단락) 안에 <strong>인라인 요소(강조)</strong> 가 중첩되어 있습니다.____error__</p>__error____
+				____error__</span>__error____
+			</textarea>
 		</div>
 	</section>
+

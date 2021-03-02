@@ -6944,15 +6944,15 @@ body {
   content: counters(line_number, "");
 }
 .uk_gist_code_box .uk_gist_content .uk_gist_code_pre {
-  display: block;
+  display: flex;
   overflow-x: auto;
 }
 .uk_gist_code_box .uk_gist_content .uk_gist_code_wrap {
-  display: flex;
   padding: 9px 0 9px 46px;
   background: transparent;
 }
-.uk_gist_code_box .uk_gist_content .uk_gist_code_inner {
+.uk_gist_code_box .uk_gist_content .uk_gist_code_line {
+  display: inline-block;
   padding-right: 20px;
 }
 .uk_gist_code_box .uk_gist_footer {
@@ -6965,6 +6965,9 @@ body {
   background-color: #f7f7f7;
   border-top: 1px solid #ddd;
 }
+.uk_gist_code_box .uk_gist_footer .by {
+  display: inline-block;
+}
 .uk_gist_code_box .uk_gist_footer i {
   display: inline-block;
   vertical-align: top;
@@ -6975,9 +6978,6 @@ body {
 }
 .uk_gist_code_box .uk_gist_footer .hyphen {
   padding: 0 2px;
-}
-.ios .uk_gist_code_inner {
-  padding-right: 70px !important;
 }
 @media (max-width: 767px) {
   .uk_gist_code_box .uk_gist_content * {
@@ -6994,12 +6994,17 @@ body {
   .uk_gist_code_box .uk_gist_content .uk_gist_code_wrap {
     padding: 8px 0 8px 41px;
   }
+  .uk_gist_code_box .uk_gist_content .uk_gist_code_line {
+    padding-right: 15px;
+  }
   .uk_gist_code_box .uk_gist_footer {
     padding: 8px 13px 11px;
     letter-spacing: -0.5px;
   }
-  .uk_gist_code_box .uk_gist_footer .by {
-    display: none;
+  .uk_gist_code_box .uk_gist_footer i {
+    line-height: 14px;
+    padding-top: 2px;
+    font-size: 10px;
   }
   .uk_gist_code_box .uk_gist_footer .hyphen {
     padding: 0;
