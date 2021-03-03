@@ -101,7 +101,9 @@
 .uk_ex_line:after {content:"]";}
 
 .uk_color_error,
-.uk_color_error *  {color:red !important;}
+.uk_color_error * {color:red !important;}
+
+.hljs-section {font-weight:normal;}
 
 
 

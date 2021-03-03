@@ -2730,7 +2730,7 @@
 
 			.line_number {
 				.code_css;
-				position:absolute; left:0; top:0; z-index:1;
+				position:absolute; left:0; top:0; z-index:2;
 				width:@line_size; padding:@pd_top 0 0;
 				background:transparent;
 				counter-reset:line_number;
@@ -2746,12 +2746,36 @@
 					}
 				}
 			}
+
 			.uk_gist_code_pre {display:flex; overflow-x:auto;}
 			.uk_gist_code_wrap {
 				padding:@pd_top 0 @pd_top @line_size + 5px;
 				background:transparent;
 			}
-			.uk_gist_code_line {display:inline-block; padding-right:20px;}
+			.uk_gist_code_line {
+				overflow:hidden;
+				display:inline-block; position:relative; z-index:1;
+				padding-right:20px;
+			}
+			.tab_indent_line {
+				opacity:.1;
+				position:absolute; left:0; top:50%; transform:translate(0, -50%); z-index:-1;
+				height:calc(100% + 2px); font-size:0;
+
+				.tab_indent {
+					display:inline-block; height:100%;
+					&:before {
+						display:inline-block;
+						//position:absolute; left:0; top:0;
+						height:100%;
+						content:attr(data-tab);
+					}
+					@box-shadow:1px 0 0 0 rgba(0,0,0,1);
+					&:not(:last-child):before {box-shadow:@box-shadow;}
+					//&:before {box-shadow:@box-shadow inset;}
+				}
+			}
+
 		}
 		.uk_gist_footer {
 			line-height:16px; padding:10px 17px 13px;
@@ -2767,7 +2791,6 @@
 			.hyphen {padding:0 2px;}
 		}
 	}
-	//.ios .uk_gist_code_inner {padding-right:70px !important;}
 	@media(max-width:@screen-sm-max){
 		.uk_gist_code_box {
 			@line_size:36px;
@@ -2785,7 +2808,7 @@
 				.uk_gist_code_line {padding-right:15px;}
 			}
 			.uk_gist_footer {
-				padding:8px 13px 11px; letter-spacing:-0.5px;
+				padding:9px 13px 10px; letter-spacing:-0.5px;
 				i {
 					line-height:14px; padding-top:2px;
 					font-size:10px;

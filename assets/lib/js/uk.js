@@ -1364,27 +1364,31 @@ function uk_gist_skin_code(){
     .replace(/____error__/g,"<span class='uk_color_error'>")              // error코드 시작 태그
     .replace(/__error____/g,"</span>")                                    // error코드 종료 태그
     .replace(/\t/gi, code_tab_size);                                      // tab공백을 띄어쓰기(4칸)로 변경
+
     //----------------------------------------------------------------------------------------
+
     //문장을 줄바꿈 기준으로 배열
     const line = str.split('\n');
     const lineLength = line.length - 1;
-    //----------------------------------------------------------------------------------------
+
     //모든 문장의 앞에 있는 불필요한 tab 공백 추츨
     const line_tab_split = line[0].trim().split('')[0];
     const line_tab_size = line[0].split(line_tab_split)[0];
+
     //----------------------------------------------------------------------------------------
+
     //커스텀 후 배열 합침
     let str_content = '';
-    const ex_line = '__ex_line__';
     let ex_line_color = '';
+    let tab_count;
+    let tab_count_css = '';
+    const ex_line = '__ex_line__';
     for( i=0; i<lineLength; i++ ){
       //모든 문장의 앞에 있는 불필요한 tab 공백 제거
       if( line[i].match(line_tab_size) ){
         line[i] = line[i].replace(line_tab_size, '');
       }
 
-      line[i].split(code_tab_size).join('aaaa');
-      console.log(line[i].split(code_tab_size));
       
       //한줄 설명글 강조 //ex_line
       if( line[i].match(ex_line) ){
@@ -1404,14 +1408,39 @@ function uk_gist_skin_code(){
         });
       }
 
-      if( line[i].match('!DOCTYPE') ){
-        str_content += '<span class="'+uk_gist_code_line+' uk_color_doctype">' + line[i] + '</span>\n';
+      //컨텐츠가 없는 라인
+      if( line[i] === '' ){
+        str_content += line[i] + '\n';
       }
+      //컨텐츠가 있는 라인
       else {
-        str_content += '<span class="'+uk_gist_code_line+'">' + line[i] + '</span>\n';
+        tab_count = line[i].split(code_tab_size).length - 1;
+
+        //tab line 표시
+        let tab_indent = "";
+        let tab_indent_line = "";
+        let tab_size = code_tab_size;
+        if( tab_count > 0 ){
+          for( j=0; j<tab_count; j++ ){
+            if(j > 0) tab_size += code_tab_size;
+            //tab_indent += '<span class="tab_indent tab_indent_'+(j+1)+'">'+ code_tab_size +'</span>';
+            //tab_indent += '<span class="tab_indent tab_indent_'+(j+1)+'" data-tab="'+tab_size+'"></span>';
+            tab_indent += '<span class="tab_indent" data-tab="'+code_tab_size+'"></span>';
+          }
+          tab_indent_line = '<span class="tab_indent_line">'+tab_indent+'</span>';
+        }
+
+        if( line[i].match('!DOCTYPE') ){
+          str_content += '<span class="'+uk_gist_code_line+' uk_color_doctype">'+ line[i] + tab_indent_line + '</span>\n';
+        }
+        else {
+          str_content += '<span class="'+uk_gist_code_line+'">'+ line[i] + tab_indent_line + '</span>\n';
+        }
       }
     }
+
     //----------------------------------------------------------------------------------------
+
     //data-tit 적용
     let dataTitle = '';
     if( $(e).attr('data-tit') ){
@@ -1419,7 +1448,9 @@ function uk_gist_skin_code(){
     }else{
       dataTitle = 'C';
     }
+
     //----------------------------------------------------------------------------------------
+
     $(e).append(
       '<div class="'+uk_gist_content+'">' +
         '<pre class="'+uk_gist_code_pre+'">' +
@@ -1431,7 +1462,9 @@ function uk_gist_skin_code(){
         '<span class="by"><span class="hyphen">-</span> create <i>❤</i> by <b>uxkm</b></span>' +
       '</div>'
     );
+
     //----------------------------------------------------------------------------------------
+
     //line number 생성
     $(e).find('.'+uk_gist_content).prepend('<ol class="line_number">');
     for( i=0; i<lineLength; i++ ){
@@ -1443,8 +1476,6 @@ function uk_gist_skin_code(){
   const hljsSelectorClass = '.hljs-selector-class';
   const hljsSelectorId = '.hljs-selector-id';
   const hljsNumber = '.hljs-number';
-  const error_lt = '____error__';
-  const error_gt = '__error____';
   setTimeout(function(){
     $('.'+uk_gist_code_wrap).each(function(i, e){
       hljs.highlightBlock(e);
