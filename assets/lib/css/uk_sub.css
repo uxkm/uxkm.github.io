@@ -333,9 +333,6 @@ input[type="range"]::-ms-thumb {
   border: 2px solid #666;
   border-radius: 100%;
 }
-.sub_page .uk_container {
-  background: #fcfcfc !important;
-}
 /*
 mark {
 	position:relative; z-index:1;
