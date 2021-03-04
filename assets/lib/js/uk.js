@@ -1353,6 +1353,7 @@ function uk_gist_skin_code(){
   const not_ko = /[a-z0-9]|[\[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
   const ko_check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
   const code_tab_size = '    ';
+
   $('.'+uk_gist_code_box).each(function(i, e){
     const str = $(e).find('textarea').val()
     .replace(/</g,"&lt;")                                                 // '<' 변환
@@ -1508,6 +1509,15 @@ function uk_gist_skin_code(){
             change_str = $(k).text().replace(string_str,'<span class="uk_color_number_in_string">'+string_str+'</span>');
           }
           $(k).html(change_str);
+        });
+      }
+      
+      //sub element 오류 대처
+      if( $(e).find(hljsSelectorClass).is(':visible') && $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'sub' ){
+        $(e).find(hljsSelectorClass).each(function(j, k){
+          if( $(k).text() === '.sub' ){
+            $(k).addClass('hljs-selector-tag').find('.uk_color_class_dot').remove();
+          }
         });
       }
     });

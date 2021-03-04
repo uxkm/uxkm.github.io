@@ -16,17 +16,17 @@
 		</p>
 		<div class="line_code mt_s">
 			<strong class="t_blue weight-600">CSS 기본값 :</strong>
-			<div class="line_code_box line_code_number indent mt_s">
-				<ul>
-					<li>a:link, a:visited {</li>
-					<li class="indent">color: (internal value);</li>
-					<li class="indent">text-decoration: underline;</li>
-					<li class="indent">cursor: auto;</li>
-					<li>}</li>
-					<li>a:link:active, a:visited:active {</li>
-					<li class="indent">color: (internal value);</li>
-					<li>}</li>
-				</ul>
+			<div class="uk_gist_code_box indent mt_s" data-tit="a element">
+				<textarea readonly="readonly">
+					a:link, a:visited {
+						color: (internal value);
+						text-decoration: underline;
+						cursor: auto;
+					}
+					a:link:active, a:visited:active {
+						color: (internal value);
+					}
+				</textarea>
 			</div>
 		</div>
 		<ol class="mt_m">
@@ -123,12 +123,13 @@
 
 		<article class="txt_ex indent_max mt_l">
 			<h3 class="ml_mn">[hreflang] <span class="t_blue">&lt;a href=&quot;URL 주소&quot;&gt;</span></h3>
-			<div class="view_editor ex_code mt_s" data-target="html/05-textLevel/5.1.a_element_hreflang.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="a element [hreflang]">
+				<textarea readonly="readonly">
+					<a href="URL 주소" hreflang="언어 코드[ko(한국어), en(영어), zh(중국어), ja(일본어), fr(프랑스어) 등]"></a>
+
+				</textarea>
 			</div>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>&lt;a&gt;</code> 요소의 hreflang 속성은 링크된 문서의 언어를 명시하지만, 단순히 참고 용도로만 사용됩니다.<br>
 				이 속성은 반드시 href 속성이 설정되어 있어야만 사용할 수 있습니다.
 			</p>
@@ -137,12 +138,13 @@
 
 		<article class="txt_ex indent_max mt_l">
 			<h3 class="ml_mn">[target] <span class="t_blue">&lt;a target=&quot;속성값&quot;&gt;</span></h3>
-			<div class="view_editor ex_code mt_s" data-target="html/05-textLevel/5.1.a_element_target.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="a element [target]">
+				<textarea readonly="readonly">
+					<a href="URL 주소" target="_blank|_self|_parent|_top"></a>
+
+				</textarea>
 			</div>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>&lt;a&gt;</code> 요소의 target 속성은 링크한 URL을 어디에 표시할건지 지정합니다. 가능한 값은 브라우징 문맥, 즉 탭, 창, 또는 &lt;iframe&gt;의 이름 또는 키워드입니다. 다음 키워드는 특별한 뜻을 가지고 있습니다.
 			</p>
 			<div class="ol_lst indent mt_s">
@@ -158,12 +160,13 @@
 
 		<article class="txt_ex indent_max mt_l">
 			<h3 class="ml_mn">[type] <span class="t_blue">&lt;a type=&quot;속성값&quot;&gt;</span></h3>
-			<div class="view_editor ex_code mt_s" data-target="html/05-textLevel/5.1.a_element_type.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="a element [type]">
+				<textarea readonly="readonly">
+					<a href="https://uxkm.github.io" type="text/html">UXKM 사이트로 이동!</a>
+
+				</textarea>
 			</div>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>&lt;a&gt;</code> 요소의 이 속성은 미디어 유형을 링크 대상에 대한 MIME 유형의 형태로 지정합니다. 일반적으로, 이것은 엄격히 자문 정보를 제공합니다.<br>
 				브라우저는 멀티미디어 유형에 작은 아이콘을 추가 할 수 있습니다. 예를 들어, 유형이 audio/wav로 설정된 경우 브라우저가 작은 스피커 아이콘을 추가 할 수 있습니다.<br>
 				MIME 형식의 전체 목록을 보려면
@@ -176,12 +179,13 @@
 
 		<article class="txt_ex indent_max mt_l">
 			<h3 class="ml_mn">[rev] <span class="t_blue">&lt;a rev=&quot;속성값&quot;&gt;</span></h3>
-			<div class="view_editor ex_code mt_s" data-target="html/05-textLevel/5.1.a_element_rev.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="a element [rev]">
+				<textarea readonly="readonly">
+					<a href="chapter1.html" rev="toc" rel="next">chapter 1</a>
+
+				</textarea>
 			</div>
-			<p class="mt_s">
+			<p class="mt_ms">
 				rev(Reverse links)속성은 반드시 href 속성이 설정되어 있어야만 사용할 수 있습니다.
 			</p>
 		</article>
@@ -189,12 +193,13 @@
 
 		<article class="txt_ex indent_max mt_l">
 			<h3 class="ml_mn">[download] <span class="t_blue">&lt;a download=&quot;속성값&quot;&gt;</span></h3>
-			<div class="view_editor ex_code mt_s" data-target="html/05-textLevel/5.1.a_element_download.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="a element [download]">
+				<textarea readonly="readonly">
+					<a download="다운로드되는 파일의 새로운 이름을 명시하며, 생략할 수 있음">다운로드</a>
+
+				</textarea>
 			</div>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>&lt;a&gt;</code> 요소의 download 속성은 사용자가 하이퍼링크를 클릭할 때 해당 대상(target)으로 연결되지 않고 대신 해당 콘텐츠가 다운로드됨을 명시합니다.<br>
 				이 속성의 속성값은 다운로드되는 파일의 이름이 되며, 그 값에 특별한 제약은 없습니다.<br>
 				브라우저는 다운로드되는 파일의 정확한 확장자명을 확인하여, 자동으로 파일 이름 끝에 추가합니다. (.html, .pdf, .jpg 등)<br>
@@ -217,7 +222,7 @@
 
 	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.1.a_element.html">
 		<h2 class="ve_tit">a element 예제</h2>
-		<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
 	</section>
