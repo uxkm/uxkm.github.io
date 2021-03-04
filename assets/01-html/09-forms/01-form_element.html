@@ -17,13 +17,13 @@
 		</p>
 		<div class="line_code mt_m">
 			<strong class="t_blue weight-600">CSS 기본값 :</strong>
-			<div class="line_code_box line_code_number indent mt_s">
-				<ul>
-					<li>form {</li>
-					<li class="indent">display: block;</li>
-					<li class="indent">margin-top: 0em;</li>
-					<li>}</li>
-				</ul>
+			<div class="uk_gist_code_box indent mt_s" data-tit="form element">
+				<textarea readonly="readonly">
+					form {
+						display: block;
+						margin-top: 0em;
+					}
+				</textarea>
 			</div>
 		</div>
 	</section>
@@ -38,10 +38,15 @@
 				이 값은 <code>&lt;button&gt;</code> 또는 <code>&lt;input&gt;</code> 요소의 formaction 속성으로 대체될 수 있습니다.<br>
 				HTML5에서는 더 이상 <code>&lt;form&gt;</code> 요소에 반드시 action 속성을 명시할 필요가 없도록 변경되었습니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.1.form_element_action.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="form element [action]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php">
+						<label>이름 : <input type="text" name="st_name"></label>
+						<label>학번 : <input type="text" name="st_id"></label>
+						<label>학과 : <input type="text" name="department"><label>
+						<input type="submit" value="제출하기">
+					</form>
+				</textarea>
 			</div>
 		</article>
 
@@ -73,10 +78,15 @@
 					<p>폼 데이터를 HTTP POST 메소드로 전송함. 폼 데이터가 폼의 바디에 포함되어 서버에 전송됨.</p>
 				</li>
 			</ol>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.1.form_element_method.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_m" data-tit="form element [method]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" method="post">
+						<label>이름 : <input type="text" name="st_name"></label>
+						<label>학번 : <input type="text" name="st_id"></label>
+						<label>학과 : <input type="text" name="department"></label>
+						<input type="submit" value="제출하기">
+					</form>
+				</textarea>
 			</div>
 		</article>
 
@@ -87,10 +97,21 @@
 				name 속성은 서버로 제출된 폼 데이터(form data)를 참조하기 위해 사용되거나, 자바스크립트에서 요소를 참조하기 위해 사용됩니다.<br>
 				XHTML에서는 name 속성을 더 이상 지원하지 않으므로, name 속성 대신 전역 속성인 id 속성을 사용해야 합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.1.form_element_name.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="form element [name]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" name="loginform">
+						<label>이름 : <input type="text" name="st_name"></label>
+						<label>학번 : <input type="text" name="st_id"></label>
+						<label>학과 : <input type="text" name="department"></label>
+						<input type="button" onclick="submit()" value="제출하기">
+					</form>
+
+					<script>
+						function submit() {
+							document.forms["loginform"].submit();
+						}
+					</script>
+				</textarea>
 			</div>
 		</article>
 
@@ -132,10 +153,15 @@
 					</li>
 				</ol>
 			</div>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.1.form_element_target.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_m" data-tit="form element [target]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" method="get" target="_blank">
+						<label>이름 : <input type="text" name="st_name"></label>
+						<label>학번 : <input type="text" name="st_id"></label>
+						<label>학과 : <input type="text" name="department"></label>
+						<input type="submit" value="제출하기">
+					</form>
+				</textarea>
 			</div>
 		</article>
 
@@ -148,10 +174,15 @@
 				HTML 4.01에서 문자 인코딩 리스트는 공백 문자(space)나 콤마(,) 중 원하는 문자를 사용하여 각각의 인코딩 방식을 구분할 수 있었지만,
 				HTML5에서는 반드시 공백 문자만을 사용하여 구분하도록 변경되었습니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.1.form_element_accept-charset.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="form element [accept-charset]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" accept-charset="UTF-8">
+						<label>이름 : <input type="text" name="st_name"></label>
+						<label>학번 : <input type="text" name="st_id"></label>
+						<label>학과 : <input type="text" name="department"><label>
+						<input type="submit">
+					</form>
+				</textarea>
 			</div>
 		</article>
 
@@ -178,10 +209,13 @@
 					</li>
 				</ol>
 			</div>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.1.form_element_enctype.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_m" data-tit="form element [enctype]">
+				<textarea readonly="readonly">
+					<form action="/home/uploadfiles" method="post" enctype="multipart/form-data">
+						<label>파일명 : <input type="file" name="myfile"></label>
+						<button type="submit">제출하기</button>
+					</form>
+				</textarea>
 			</div>
 		</article>
 
@@ -208,10 +242,15 @@
 					</li>
 				</ol>
 			</div>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.1.form_element_autocomplete.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_m" data-tit="form element [autocomplete]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" autocomplete="off">
+						<label>이름 : <input type="text" name="st_name"></label>
+						<label>학번 : <input type="text" name="st_id"></label>
+						<label>학과 : <input type="text" name="department"></label>
+						<input type="submit" value="제출하기">
+					</form>
+				</textarea>
 			</div>
 		</article>
 
@@ -226,24 +265,30 @@
 				이 속성을 지정하지 않으면 양식 제출 시 양식의 유효성이 검사되며,<br>
 				이 기본 설정은 <code>&lt;button&gt;</code> 또는 <code>&lt;input&gt;</code> 요소의 formnovalidate속성으로 대체 가능합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.1.form_element_novalidate.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="form element [novalidate]">
+				<textarea readonly="readonly">
+					<form action="editor.cgi" method="post">
+						<p><label>Name: <input required name=fn></label></p>
+						<p><label>Essay: &lt;textarea required name=essay&gt;&lt;/textarea&gt;&lt;/label&gt;</p>
+						<p><input type=submit name=submit value="Submit essay"></p>
+						<p><input type=submit formnovalidate name=save value="Save essay"></p>
+						<p><input type=submit formnovalidate name=cancel value="Cancel"></p>
+					</form>
+				</textarea>
 			</div>
 		</article>
 	</section>
 
 	<section class="view_editor edit_code mt_l" data-target="html/09-forms/9.1.form_element_simple.html">
 		<h2 class="ve_tit">예제1</h2>
-		<div  class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div  class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
 	</section>
 
 	<section class="view_editor edit_code mt_l" data-target="html/09-forms/9.1.form_element.html">
 		<h2 class="ve_tit">예제2</h2>
-		<div  class="uk_editor min-height-750" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div  class="uk_editor indent min-height-750" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
 	</section>

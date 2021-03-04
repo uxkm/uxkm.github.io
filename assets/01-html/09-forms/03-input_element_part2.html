@@ -38,7 +38,7 @@
 
 		<!-- name -->
 		<article class="indent_max txt_ex mt_l">
-			<h3 class="ml_mn">[name] <span class="t_blue">&lt;input type="요소의 이름"&gt;</span></h3>
+			<h3 class="ml_mn">[name] <span class="t_blue">&lt;input name="요소의 이름"&gt;</span></h3>
 			<p class="mt_s">
 				<code>&lt;input&gt;</code> 요소의 이름을 명시합니다.<br>
 				name 속성은 폼(form)이 제출된 후 서버에서 폼 데이터(form data)를 참조하기 위해 사용되거나, 자바스크립트에서 요소를 참조하기 위해 사용됩니다.<br>
@@ -50,12 +50,13 @@
 				name 속성이 없으면 <code>&lt;input&gt;</code>요소는 양식 제출시 서버에 값을 제공할 수 없습니다.<br>
 				현재는 data-* 전역 속성을 많이 사용하고 있습니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_name.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="input element [name]">
+				<textarea readonly="readonly">
+					<label for="name">Name</label>
+					<input name="name" id="name">
+				</textarea>
 			</div>
-			<aside class="browser_support mt_s" data-tit="name">
+			<aside class="browser_support mt_ms" data-tit="name">
 				<p class="ie">1.0</p>
 				<p class="edge">2.0</p>
 				<p class="chrome">1.0</p>
@@ -81,7 +82,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="value">
+			<aside class="browser_support mt_ms" data-tit="value">
 				<p class="ie">2.0</p>
 				<p class="edge">지원</p>
 				<p class="chrome">1.0</p>
@@ -108,7 +109,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="checked">
+			<aside class="browser_support mt_ms" data-tit="checked">
 				<p class="ie">2.0</p>
 				<p class="edge">지원</p>
 				<p class="chrome">1.0</p>
@@ -136,7 +137,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="disabled">
+			<aside class="browser_support mt_ms" data-tit="disabled">
 				<p class="ie">6+</p>
 				<p class="edge">지원</p>
 				<p class="chrome">1.0</p>
@@ -164,7 +165,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="readonly">
+			<aside class="browser_support mt_ms" data-tit="readonly">
 				<p class="ie">6+</p>
 				<p class="edge">지원</p>
 				<p class="chrome">1.0</p>
@@ -188,7 +189,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="size">
+			<aside class="browser_support mt_ms" data-tit="size">
 				<p class="ie">지원</p>
 				<p class="edge">지원</p>
 				<p class="chrome">1.0</p>
@@ -213,7 +214,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="src">
+			<aside class="browser_support mt_ms" data-tit="src">
 				<p class="ie">지원</p>
 				<p class="edge">지원</p>
 				<p class="chrome">지원</p>
@@ -238,7 +239,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="alt">
+			<aside class="browser_support mt_ms" data-tit="alt">
 				<p class="ie">지원</p>
 				<p class="edge">지원</p>
 				<p class="chrome">지원</p>
@@ -262,7 +263,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="placeholder">
+			<aside class="browser_support mt_ms" data-tit="placeholder">
 				<p class="ie">10+</p>
 				<p class="edge">지원</p>
 				<p class="chrome">10.0</p>
@@ -289,7 +290,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="required">
+			<aside class="browser_support mt_ms" data-tit="required">
 				<p class="ie">10+</p>
 				<p class="edge">지원</p>
 				<p class="chrome">10.0</p>
@@ -315,7 +316,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="width, height">
+			<aside class="browser_support mt_ms" data-tit="width, height">
 				<p class="ie">지원</p>
 				<p class="edge">지원</p>
 				<p class="chrome">1.0</p>
@@ -364,7 +365,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="accept">
+			<aside class="browser_support mt_ms" data-tit="accept">
 				<p class="ie">지원</p>
 				<p class="edge">지원</p>
 				<p class="chrome">1.0</p>
@@ -422,7 +423,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="accesskey">
+			<aside class="browser_support mt_ms" data-tit="accesskey">
 				<p class="ie">지원</p>
 				<p class="edge">지원</p>
 				<p class="chrome">지원</p>
@@ -459,7 +460,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="autocomplete">
+			<aside class="browser_support mt_ms" data-tit="autocomplete">
 				<p class="ie">5+</p>
 				<p class="edge">지원</p>
 				<p class="chrome">17.0</p>

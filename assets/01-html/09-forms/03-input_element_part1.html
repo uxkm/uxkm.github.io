@@ -58,7 +58,7 @@
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : text">
+						<aside class="browser_support mt_ms" data-tit="type : text">
 							<p class="ie">지원</p>
 							<p class="edge">지원</p>
 							<p class="chrome">지원</p>
@@ -90,7 +90,7 @@
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : password">
+						<aside class="browser_support mt_ms" data-tit="type : password">
 							<p class="ie">지원</p>
 							<p class="edge">지원</p>
 							<p class="chrome">지원</p>
@@ -119,7 +119,7 @@
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : checkbox">
+						<aside class="browser_support mt_ms" data-tit="type : checkbox">
 							<p class="ie">지원</p>
 							<p class="edge">지원</p>
 							<p class="chrome">지원</p>
@@ -142,7 +142,7 @@
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : radio">
+						<aside class="browser_support mt_ms" data-tit="type : radio">
 							<p class="ie">지원</p>
 							<p class="edge">지원</p>
 							<p class="chrome">지원</p>
@@ -165,7 +165,7 @@
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : file">
+						<aside class="browser_support mt_ms" data-tit="type : file">
 							<p class="ie">지원</p>
 							<p class="edge">지원</p>
 							<p class="chrome">지원</p>
@@ -187,7 +187,7 @@
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : reset">
+						<aside class="browser_support mt_ms" data-tit="type : reset">
 							<p class="ie">지원</p>
 							<p class="edge">지원</p>
 							<p class="chrome">지원</p>
@@ -204,12 +204,16 @@
 							서버의 폼 핸들러(form handler)로 폼 데이터(form date)를 전송하는 제출 버튼(submit button)을 정의합니다.<br>
 							폼 핸들러는 일반적으로 입력된 데이터를 처리하는 스크립트를 포함하고 있는 서버 페이지이며, 이러한 폼 핸들러의 주소는 <code>&lt;form&gt;</code> 요소의 action 속성에 명시됩니다.
 						</p>
-						<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_type-submit.html">
-							<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-								<div class="code_wrap"><textarea></textarea></div>
-							</div>
+						<div class="uk_gist_code_box mt_ms" data-tit="input element [type='submit']">
+							<textarea readonly="readonly">
+								<form action="myform.cgi">
+									<input type="password" name="password" id="password" maxlength="6">
+									<label for="password"> Type a fake password here</label><br>
+									<input type="submit" value="Submit">
+								</form>
+							</textarea>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : submit">
+						<aside class="browser_support mt_ms" data-tit="type : submit">
 							<p class="ie">지원</p>
 							<p class="edge">지원</p>
 							<p class="chrome">지원</p>
@@ -232,7 +236,7 @@
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : image">
+						<aside class="browser_support mt_ms" data-tit="type : image">
 							<p class="ie">지원</p>
 							<p class="edge">지원</p>
 							<p class="chrome">지원</p>
@@ -267,7 +271,7 @@
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : button">
+						<aside class="browser_support mt_ms" data-tit="type : button">
 							<p class="ie">지원</p>
 							<p class="edge">지원</p>
 							<p class="chrome">지원</p>
@@ -286,12 +290,18 @@
 							따라서 숨겨진 입력 필드는 폼 제출 시 사용자가 변경해서는 안 되는 데이터를 함께 보낼 때 유용하게 사용됩니다.<br>
 							이러한 입력 필드는 업데이트 되어야 하는 데이터베이스의 레코드를 저장하거나, 고유한 보안 토큰 등을 서버로 보낼 때 주로 사용됩니다.
 						</p>
-						<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_type-hidden.html">
-							<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-								<div class="code_wrap"><textarea></textarea></div>
-							</div>
+						<div class="uk_gist_code_box mt_ms" data-tit="input element [type='hidden']">
+							<textarea readonly="readonly">
+								<form action="myform.cgi">
+									<input type="file" name="fileupload" value="fileupload" id="fileupload">
+									<label for="fileupload"> Select a file to upload</label>
+									<input type="hidden" id="ipaddr" name="ipaddr" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
+									<input type="hidden" id="referer" name="referer" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
+									<input type="submit" value="submit">
+								</form>
+							</textarea>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : hidden">
+						<aside class="browser_support mt_ms" data-tit="type : hidden">
 							<p class="ie">지원</p>
 							<p class="edge">지원</p>
 							<p class="chrome">지원</p>
@@ -314,7 +324,7 @@
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
 						</div>
-						<aside class="browser_support mt_s" data-tit="type : color">
+						<aside class="browser_support mt_ms" data-tit="type : color">
 							<p class="ie false">지원안함</p>
 							<p class="edge">14.0</p>
 							<p class="chrome">20.0</p>
@@ -352,10 +362,14 @@
 								</li>
 							</ol>
 						</div>
-						<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_type-email1.html">
-							<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-								<div class="code_wrap"><textarea></textarea></div>
-							</div>
+						<div class="uk_gist_code_box mt_m" data-tit="input element [type='email']">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php" method="get">
+									<label>수신인 : <input type="email" name="destaddress"></label><br>
+									<label>참조인 : <input type="email" name="ccaddress" multiple></label><br>
+									<input type="submit">
+								</form>
+							</textarea>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-email2.html">
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
@@ -481,10 +495,13 @@
 							<code>&lt;input type=&quot;email&quot;&gt;</code> 및 <code>&lt;input type=&quot;url&quot;&gt;</code>과 달리 입력값은 양식을 제출하기 전에 특정 형식으로 자동 유효성이 검사되지 않습니다.<br>
 							<code>&lt;input type=&quot;tel&quot;&gt;</code>의 주요 장점 중 하나는 모바일 브라우저가 전화 번호 입력을 위한 특수 키보드를 표시한다는 것입니다.
 						</p>
-						<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_type-tel1.html">
-							<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-								<div class="code_wrap"><textarea></textarea></div>
-							</div>
+						<div class="uk_gist_code_box mt_ms" data-tit="input element [type='tel']">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php" method="get">
+									<label>전화번호 : <input type="tel" name="st_tel"></label><br>
+									<input type="submit">
+								</form>
+							</textarea>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-tel2.html">
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
@@ -527,10 +544,13 @@
 								</li>
 							</ol>
 						</div>
-						<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_type-url1.html">
-							<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-								<div class="code_wrap"><textarea></textarea></div>
-							</div>
+						<div class="uk_gist_code_box mt_m" data-tit="input element [type='url']">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php" method="get">
+									<label>블로그 주소 <input type="url" name="myblog"></label><br>
+									<input type="submit">
+								</form>
+							</textarea>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-url2.html">
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
@@ -556,10 +576,16 @@
 							이 속성값에는 시(time)와 분(minute)이 포함되며, 오전/오후를 반드시 선택해야만 입력 필드의 유효성 검사를 통과할 수 있습니다.<br>
 							time 입력값은 항상 hh:mm 또는 hh:mm:ss 형식으로 정규화됩니다.
 						</p>
-						<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_type-time1.html">
-							<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-								<div class="code_wrap"><textarea></textarea></div>
-							</div>
+						<div class="uk_gist_code_box mt_m" data-tit="input element [type='time']">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php" method="get">
+									<label>
+										현재 여러분이 이 예제를 보고 있는 시간을 입력해 보세요.<br>
+										<input type="time" name="study_time">
+									</label>
+									<input type="submit">
+								</form>
+							</textarea>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-time2.html">
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
@@ -670,10 +696,16 @@
 								</li>
 							</ol>
 						</div>
-						<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_type-week1.html">
-							<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-								<div class="code_wrap"><textarea></textarea></div>
-							</div>
+						<div class="uk_gist_code_box mt_m" data-tit="input element [type='week']">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php" method="get">
+									<label>
+										이번 주가 일년 중 몇 번째 주인지를 입력하여 확인해 보세요.<br>
+										<input type="week" name="today">
+									</label>
+									<input type="submit">
+								</form>
+							</textarea>
 						</div>
 						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.3.input_element_type-week2.html">
 							<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">

@@ -90,8 +90,8 @@ function uk_editor(){
           yonce
           uxkm_custom
         */
-				//theme: e.getAttribute('data-theme'),
-				theme: 'yonce',
+				theme: e.getAttribute('data-theme'),
+				//theme: 'yonce',
         /* 테마 */
         
 				lineNumbers: true,

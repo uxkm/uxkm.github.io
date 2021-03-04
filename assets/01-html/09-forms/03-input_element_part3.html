@@ -51,7 +51,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="autofocus">
+			<aside class="browser_support mt_ms" data-tit="autofocus">
 				<p class="ie">10+</p>
 				<p class="edge">13.0</p>
 				<p class="chrome">45.0</p>
@@ -72,7 +72,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="list">
+			<aside class="browser_support mt_ms" data-tit="list">
 				<p class="ie">10+</p>
 				<p class="edge">13.0</p>
 				<p class="chrome">45.0</p>
@@ -108,7 +108,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="max">
+			<aside class="browser_support mt_ms" data-tit="max">
 				<p class="ie">10+</p>
 				<p class="edge">13.0</p>
 				<p class="chrome">45.0</p>
@@ -144,7 +144,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="min">
+			<aside class="browser_support mt_ms" data-tit="min">
 				<p class="ie">10+</p>
 				<p class="edge">13.0</p>
 				<p class="chrome">45.0</p>
@@ -165,7 +165,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="maxlength">
+			<aside class="browser_support mt_ms" data-tit="maxlength">
 				<p class="ie">지원</p>
 				<p class="edge">지원</p>
 				<p class="chrome">지원</p>
@@ -186,7 +186,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="minlength">
+			<aside class="browser_support mt_ms" data-tit="minlength">
 				<p class="ie">지원</p>
 				<p class="edge">지원</p>
 				<p class="chrome">지원</p>
@@ -211,7 +211,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="step">
+			<aside class="browser_support mt_ms" data-tit="step">
 				<p class="ie">10+</p>
 				<p class="edge">13.0</p>
 				<p class="chrome">6.0</p>
@@ -239,7 +239,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="multiple">
+			<aside class="browser_support mt_ms" data-tit="multiple">
 				<p class="ie">10+</p>
 				<p class="edge">13.0</p>
 				<p class="chrome">6.0</p>
@@ -286,7 +286,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="pattern">
+			<aside class="browser_support mt_ms" data-tit="pattern">
 				<p class="ie">10+</p>
 				<p class="edge">12.0</p>
 				<p class="chrome">45.0</p>
@@ -304,12 +304,15 @@
 				서버로 보낼 입력 필드의 텍스트 방향성(text directionality)을 저장할 이름을 명시합니다.<br>
 				dirname 속성값은 언제나 <code>&lt;input&gt;</code> 요소의 name 속성값 뒤에 “.dir”를 추가한 값이 됩니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_dirname.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="input element [dirname]">
+				<textarea readonly="readonly">
+					<form>
+						<label>이름 : <input type="text" name="st_name" dirname="st_name.dir"></label><br>
+						<input type="submit">
+					</form>
+				</textarea>
 			</div>
-			<aside class="browser_support mt_s" data-tit="dirname">
+			<aside class="browser_support mt_ms" data-tit="dirname">
 				<p class="ie">10+</p>
 				<p class="edge">13.0</p>
 				<p class="chrome">6.0</p>
@@ -326,12 +329,16 @@
 				해당 <code>&lt;input&gt;</code> 요소가 포함될 하나 이상의 <code>&lt;form&gt;</code> 요소를 명시합니다.<br>
 				이 속성값은 같은 문서 내에 위치하는 <code>&lt;form&gt;</code> 요소의 id 값이어야만 합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_form.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="input element [form]">
+				<textarea readonly="readonly">
+					<form id="myForm">
+						<label>이름 : <input type="text" name="st_name"></label><br>
+						<label>학번 : <input type="text" name="st_id"></label><br>
+						<input type="submit"><br><br>
+					</form>
+				</textarea>
 			</div>
-			<aside class="browser_support mt_s" data-tit="form">
+			<aside class="browser_support mt_ms" data-tit="form">
 				<p class="ie false">지원안함</p>
 				<p class="edge false">지원안함</p>
 				<p class="chrome">10.0</p>
@@ -349,12 +356,18 @@
 				(단, <code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;submit&quot; 또는 &quot;image&quot;인 경우에만 사용 가능)<br>
 				formaction 속성은 <code>&lt;form&gt;</code> 요소의 action 속성값을 재정의(overriding)합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_formaction.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="input element [formaction]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" method="get">
+						<label>이름 : <input type="text" name="st_name"></label><br>
+						<label>학번 : <input type="text" name="st_id"></label><br>
+						<label>학과 : <input type="text" name="department"></label><br>
+						<input type="submit">
+						<input type="submit" formaction="/examples/media/action_target2.php" value="다른 페이지로 제출">
+					</form>
+				</textarea>
 			</div>
-			<aside class="browser_support mt_s" data-tit="formaction">
+			<aside class="browser_support mt_ms" data-tit="formaction">
 				<p class="ie">10+</p>
 				<p class="edge">지원</p>
 				<p class="chrome">9.0</p>
@@ -390,12 +403,15 @@
 					</li>
 				</ol>
 			</div>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_formenctype.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_m" data-tit="input element [formenctype]">
+				<textarea readonly="readonly">
+					<form action="/home/uploadfiles" method="post">
+						<label>파일명 : <input type="file" name="myfile"></label><br>
+						<input type="submit" formenctype="multipart/form-data" value="제출하기">
+					</form>
+				</textarea>
 			</div>
-			<aside class="browser_support mt_s" data-tit="formenctype">
+			<aside class="browser_support mt_ms" data-tit="formenctype">
 				<p class="ie">10+</p>
 				<p class="edge">지원</p>
 				<p class="chrome">9.0</p>
@@ -442,12 +458,17 @@
 					</li>
 				</ol>
 			</div>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_formmethod.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_m" data-tit="input element [formmethod]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" method="get">
+						<label>이름 : <input type="text" name="st_name"></label><br>
+						<label>학번 : <input type="text" name="st_id"></label><br>
+						<input type="submit" formmethod="GET">
+						<input type="submit" formmethod="POST" value="POST 방식으로 제출">
+					</form>
+				</textarea>
 			</div>
-			<aside class="browser_support mt_s" data-tit="formmethod">
+			<aside class="browser_support mt_ms" data-tit="formmethod">
 				<p class="ie">10+</p>
 				<p class="edge">지원</p>
 				<p class="chrome">9.0</p>
@@ -470,12 +491,16 @@
 				formnovalidate 속성은 불리언(boolean) 속성입니다.<br>
 				불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_formnovalidate.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="input element [formnovalidate]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" method="get">
+						<label>이메일 주소 : <input type="email" name="user-email"></label><br>
+						<input type="submit">
+						<input type="submit" value="유효성 검사없이 제출" formnovalidate>
+					</form>
+				</textarea>
 			</div>
-			<aside class="browser_support mt_s" data-tit="formnovalidate">
+			<aside class="browser_support mt_ms" data-tit="formnovalidate">
 				<p class="ie">10+</p>
 				<p class="edge">지원</p>
 				<p class="chrome">6.0</p>
@@ -492,12 +517,17 @@
 				폼 데이터(form data)가 서버로 제출된 후 받는 응답(response) 데이터를 어디에 표시할 지를 명시합니다.<br>
 				(단, <code>&lt;input&gt;</code> 요소의 type 속성값이 &quot;submit&quot; 또는 &quot;image&quot;인 경우에만 사용 가능)
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.3.input_element_formtarget.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="input element [formtarget]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" method="get">
+						<label>이름 : <input type="text" name="st_name"></label><br>
+						<label>학번 : <input type="text" name="st_id"></label><br>
+						<input type="submit">
+						<input type="submit" value="새창으로 제출" formtarget="_blank">
+					</form>
+				</textarea>
 			</div>
-			<aside class="browser_support mt_s" data-tit="formtarget">
+			<aside class="browser_support mt_ms" data-tit="formtarget">
 				<p class="ie">11+</p>
 				<p class="edge">13.0</p>
 				<p class="chrome">45.0</p>
