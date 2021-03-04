@@ -38,25 +38,62 @@
 
 	<section class="ex_code view_editor mt_l">
 		<h2 class="ve_tit">예제</h2>
-		<div class="ex_code" data-target="html/04-grouping/4.2.p_element/4.2.p_element1.html">
-			<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-				<div class="code_wrap"><textarea></textarea></div>
-			</div>
+
+		<div class="uk_gist_code_box indent mt_ms" data-tit="p element">
+			<textarea readonly="readonly">
+				<section>
+					<p>Geckos are a group of usually small, usually nocturnal lizards. They are found on every continent except Australia.</p>
+					<p>Many species of gecko have adhesive toe pads which enable them to climb walls and even windows.</p>
+				</section>
+			</textarea>
 		</div>
-		<div class="ex_code mt_s" data-target="html/04-grouping/4.2.p_element/4.2.p_element2.html">
-			<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-				<div class="code_wrap"><textarea></textarea></div>
-			</div>
+
+		<div class="uk_gist_code_box indent mt_ms" data-tit="p element">
+			<textarea readonly="readonly">
+				&lt;fieldset&gt;
+					&lt;legend&gt;Personal information&lt;/legend&gt;
+					&lt;p&gt;
+						&lt;label&gt;Name: &lt;input name=&quot;n&quot;&gt;&lt;/label&gt;
+						&lt;label&gt;&lt;input name=&quot;anon&quot; type=&quot;checkbox&quot;&gt; Hide from other users&lt;/label&gt;
+					&lt;/p&gt;
+					&lt;p&gt;&lt;label&gt;Address: &lt;textarea name=&quot;a&quot;&gt;&lt;/textarea&gt;&lt;/label&gt;&lt;/p&gt;
+				&lt;/fieldset&gt;
+			</textarea>
 		</div>
-		<div class="ex_code mt_s" data-target="html/04-grouping/4.2.p_element/4.2.p_element3.html">
-			<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-				<div class="code_wrap"><textarea></textarea></div>
-			</div>
+
+		<div class="uk_gist_code_box indent mt_ms" data-tit="p element">
+			<textarea readonly="readonly">
+				<!-- 기술적으로 올바른 예시 -->
+				<section>
+					<p>Last modified: 2001-04-23</p>
+					<p>Author: fred@example.com</p>
+				</section>
+
+				<!-- 위의 기술적인 예시보다 아래 예시가 W3C에서 제공하는 올바른 예 -->
+				<section>
+					<footer>Last modified: 2001-04-23</footer>
+					<address>Author: fred@example.com</address>
+				</section>
+				Or:
+				<section>
+					<footer>
+						<p>Last modified: 2001-04-23</p>
+						<address>Author: fred@example.com</address>
+					</footer>
+				</section>
+			</textarea>
 		</div>
-		<div class="ex_code mt_s" data-target="html/04-grouping/4.2.p_element/4.2.p_element4.html">
-			<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-				<div class="code_wrap"><textarea></textarea></div>
-			</div>
+
+		<div class="uk_gist_code_box indent mt_ms" data-tit="p element">
+			<textarea readonly="readonly">
+				<p>For instance, this fantastic sentence has bullets relating to</p>
+				<ul>
+					<li>wizards,</li>
+					<li>faster-than-light travel, and</li>
+					<li>telepathy,</li>
+				</ul>
+				<p>and is further discussed below.</p>
+			</textarea>
 		</div>
 	</section>
 

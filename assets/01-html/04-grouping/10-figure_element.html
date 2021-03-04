@@ -27,29 +27,81 @@
 
 	<section class="view_editor ex_code mt_l" data-target="html/04-grouping/4.10.figure_element/4.10.figure_element1.html">
 		<h2 class="ve_tit">이미지 삽입</h2>
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="figure element">
+			<textarea readonly="readonly">
+				<!-- 이미지 삽입 -->
+				<figure>
+					<img src="images/html/img_html_tag_structure.png" alt="html 요소 설명">
+				</figure>
+
+				<figure>
+					<img src="images/html/img_html_tag_structure.png" alt="html 요소 설명">
+					<figcaption>HTML 요소의 기본 구조 설명</figcaption>
+				</figure>
+			</textarea>
 		</div>
 	</section>
 
 	<section class="view_editor ex_code mt_l" data-target="html/04-grouping/4.10.figure_element/4.10.figure_element2.html">
 		<h2 class="ve_tit">코드 삽입</h2>
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="figure element">
+			<textarea readonly="readonly">
+				<!-- 코드 삽입 -->
+				<figure>
+					<figcaption>navigator를 이용하여 브라우저 정보 얻기</figcaption>
+					<pre>
+				function NavigatorExample() {
+					var txt;
+					txt = "Browser CodeName: " + navigator.appCodeName;
+					txt+= "Browser Name: " + navigator.appName;
+					txt+= "Browser Version: " + navigator.appVersion ;
+					txt+= "Cookies Enabled: " + navigator.cookieEnabled;
+					txt+= "Platform: " + navigator.platform;
+					txt+= "User-agent header: " + navigator.userAgent;
+				}
+					</pre>
+				</figure>
+			</textarea>
 		</div>
 	</section>
 
 	<section class="view_editor ex_code mt_l" data-target="html/04-grouping/4.10.figure_element/4.10.figure_element3.html">
 		<h2 class="ve_tit">인용문 삽입</h2>
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="figure element">
+			<textarea readonly="readonly">
+				<!-- 인용문 삽입 -->
+				<figure>
+					<figcaption><cite>Edsger Dijkstra:</cite></figcaption>
+					<blockquote>
+						If debugging is the process of removing software bugs,
+						then programming must be the process of putting them in.
+					</blockquote>
+				</figure>
+			</textarea>
 		</div>
 	</section>
 
 	<section class="view_editor ex_code mt_l" data-target="html/04-grouping/4.10.figure_element/4.10.figure_element4.html">
 		<h2 class="ve_tit">중첩</h2>
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="figure element">
+			<textarea readonly="readonly">
+				<!-- 중첩 -->
+				<figure>
+					<figcaption>The castle through the ages: 1423, 1858, and 1999 respectively.</figcaption>
+					<figure>
+						<figcaption>Etching. Anonymous, ca. 1423.</figcaption>
+						<img src="castle1423.jpeg" alt="The castle has one tower, and a tall wall around it.">
+					</figure>
+					<figure>
+						<figcaption>Oil-based paint on canvas. Maria Towle, 1858.</figcaption>
+						<img src="castle1858.jpeg" alt="The castle now has two towers and two walls.">
+					</figure>
+					<figure>
+						<figcaption>Film photograph. Peter Jankle, 1999.</figcaption>
+						<img src="castle1999.jpeg" alt="The castle lies in ruins, the original tower all that remains in one piece.">
+					</figure>
+				</figure>
+			</textarea>
 		</div>
 	</section>
 

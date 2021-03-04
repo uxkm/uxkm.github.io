@@ -82,7 +82,18 @@ function uk_editor(){
 			//console.log(beforeVal);
 			var code_editor = CodeMirror.fromTextArea(el_editor, {
 				mode: e.getAttribute('data-mode'),
-				theme: e.getAttribute('data-theme'),
+        /*
+          //주요테마
+          ayu-mirage
+          seti
+          ttcn
+          yonce
+          uxkm_custom
+        */
+				//theme: e.getAttribute('data-theme'),
+				theme: 'yonce',
+        /* 테마 */
+        
 				lineNumbers: true,
 				styleActiveLine: true,
 				readOnly:readonly,

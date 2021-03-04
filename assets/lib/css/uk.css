@@ -452,10 +452,11 @@ mark {
   border: 4px solid #ccc;
 }
 .uk_editor .code_wrap * {
-  line-height: 20px;
+  line-height: 22px;
   letter-spacing: -0.5px;
   font-size: 13px;
-  font-family: 'Dotumche', sans-serif;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: normal;
 }
 .uk_editor .CodeMirror {
   height: auto;
