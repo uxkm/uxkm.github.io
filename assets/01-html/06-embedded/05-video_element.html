@@ -24,12 +24,12 @@
 		</p>
 		<div class="line_code mt_m">
 			<strong class="t_blue weight-600">CSS 기본값 :</strong>
-			<div class="line_code_box line_code_number indent mt_s">
-				<ul>
-					<li>video {</li>
-					<li class="indent">display: inline;</li>
-					<li>}</li>
-				</ul>
+			<div class="uk_gist_code_box indent mt_s" data-tit="video element">
+				<textarea readonly="readonly">
+					video {
+						display: inline;
+					}
+				</textarea>
 			</div>
 		</div>
 	</section>
@@ -207,23 +207,40 @@
 
 	<section class="view_editor edit_code mt_l" data-target="html/06-embedded/6.5.video_element.html">
 		<h2 class="ve_tit">예제</h2>
-		<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
 	</section>
 
 	<section class="view_editor ex_code mt_ml" data-target="html/06-embedded/6.5.video_element_poster.html">
 		<h3 class="ve_tit">예제 - poster</h3>
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="video element [poster]">
+			<textarea readonly="readonly">
+				<video src="videofile.ogg" autoplay poster="posterimage.jpg">
+					브라우저가 동영상을 지원하지 않습니다.
+					동영상을 <a href="videofile.ogg">다운로드</a> 하여 window(or mac) player로 시청하세요.
+				</video>
+			</textarea>
 		</div>
+		<p class="indent mt_ms">
+			동영상을 더 다운받기 위해서 멈추지 않아도 될 정도로 영상이 다운로드 되면 바로 영상이 재생됩니다.<br />
+			동영상이 재생되기 전까지 "posterimage.jpg" 이미지가 표현됩니다.
+		</p>
 	</section>
 
 	<section class="view_editor ex_code mt_ml" data-target="html/06-embedded/6.5.video_element_subtitles.html">
 		<h3 class="ve_tit">예제 - subtitles</h3>
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="video element [subtitles]">
+			<textarea readonly="readonly">
+				<video src="foo.ogg">
+					<track kind="subtitles" src="foo.en.vtt" srclang="en" label="English">
+					<track kind="subtitles" src="foo.sv.vtt" srclang="sv" label="Svenska">
+				</video>
+			</textarea>
 		</div>
+		<p class="indent mt_ms">
+			사용자가 서로다른 자막을 선택할 수 있습니다.
+		</p>
 	</section>
 
 	<aside class="browser_support mt_l" data-tit="video">

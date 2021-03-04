@@ -1411,7 +1411,7 @@ function uk_gist_skin_code(){
 
       //컨텐츠가 없는 라인
       if( line[i] === '' ){
-        str_content += line[i] + '\n';
+        str_content += '<span class="'+uk_gist_code_line+'">' + line[i] + '</span>\n';
       }
       //컨텐츠가 있는 라인
       else {
@@ -1511,12 +1511,48 @@ function uk_gist_skin_code(){
           $(k).html(change_str);
         });
       }
-      
+
       //sub element 오류 대처
       if( $(e).find(hljsSelectorClass).is(':visible') && $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'sub' ){
         $(e).find(hljsSelectorClass).each(function(j, k){
           if( $(k).text() === '.sub' ){
             $(k).addClass('hljs-selector-tag').find('.uk_color_class_dot').remove();
+          }
+        });
+      }
+
+      //img element > area 오류 대처
+      if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'img_area' ){
+        let index;
+        $(e).find('.'+uk_gist_code_line).each(function(j, k){
+          if( $(k).text().match('<map name="vending">') ){
+            index = j;
+          }
+          if( j === index + 1 ){
+            $(k).find('.hljs-name').after(
+              ' ' +
+              '<span class="hljs-attr">shape</span>=<span class="hljs-string">"</span><span class="hljs-string">poly</span><span class="hljs-string">"</span>' +
+              ' ' +
+              '<span class="hljs-attr">coords</span>=<span class="hljs-string">"</span><span class="hljs-string">50,150,230,120,230,180,50,210</span><span class="hljs-string">"</span>' +
+              ' ' +
+              '<span class="hljs-attr">alt</span>=<span class="hljs-string">"</span><span class="hljs-string">진실</span><span class="hljs-string">"</span>' +
+              ' ' +
+              '<span class="hljs-attr">href</span>=<span class="hljs-string">"</span><span class="hljs-string">https://ko.wikipedia.org/wiki/%EC%A7%84%EC%8B%A4</span><span class="hljs-string">"</span>' +
+              ''
+            );
+          }
+          if( j === index + 2 ){
+            $(k).find('.hljs-name').after(
+              ' ' +
+              '<span class="hljs-attr">shape</span>=<span class="hljs-string">"</span><span class="hljs-string">circle</span><span class="hljs-string">"</span>' +
+              ' ' +
+              '<span class="hljs-attr">coords</span>=<span class="hljs-string">"</span><span class="hljs-string">140,100,40</span><span class="hljs-string">"</span>' +
+              ' ' +
+              '<span class="hljs-attr">alt</span>=<span class="hljs-string">"</span><span class="hljs-string">거짓</span><span class="hljs-string">"</span>' +
+              ' ' +
+              '<span class="hljs-attr">href</span>=<span class="hljs-string">"</span><span class="hljs-string">https://ko.wikipedia.org/wiki/%EA%B1%B0%EC%A7%93%EB%A7%90</span><span class="hljs-string">"</span>' +
+              ''
+            );
           }
         });
       }

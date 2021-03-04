@@ -33,10 +33,13 @@
 				사용자 에이전트가 각 <code>&lt;source&gt;</code> 요소에 대해 평가할 미디어 조건(미디어 쿼리와 유사)을 지정합니다.<br>
 				미디어 조건을 만족하지 못하면 해당 <code>&lt;source&gt;</code>요소를 무시합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/06-embedded/6.8.picture_element_media.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="picture element [media]">
+				<textarea readonly="readonly">
+					<picture>
+						<source srcset="mdn-logo-wide.png" media="(min-width: 600px)">
+						<img src="mdn-logo-narrow.png" alt="MDN">
+					</picture>
+				</textarea>
 			</div>
 		</article>
 
@@ -46,10 +49,14 @@
 				요소 속성에서 리소스 URL에 대한 MIME 유형을 지정합니다.<br>
 				사용자 에이전트가 지정된 유형을 지원하지 않으면 srcset 요소를 무시합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/06-embedded/6.8.picture_element_type.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="picture element [type]">
+				<textarea readonly="readonly">
+					<picture>
+						<source srcset="logo-768.png 768w, logo-768-1.5x.png 1.5px">
+						<source srcset="logo-480.png, logo-480-2x.png 2x">
+						<img src="logo-320.png" alt="logo">
+					</picture>
+				</textarea>
 			</div>
 		</article>
 
@@ -59,18 +66,48 @@
 				브라우저가 크기에 따라 사용할 수 있는 이미지를 나타냅니다.<br>
 				높은 DPI의 스크린의 고해상도 영상을 제공하기 위해 사용합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/06-embedded/6.8.picture_element_srcset.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="picture element [srcset]">
+				<textarea readonly="readonly">
+					<picture>
+						<source srcset="logo.webp" type="image/webp">
+						<img src="logo.png" alt="logo">
+					</picture>
+				</textarea>
 			</div>
 		</article>
 	</section>
 
 	<section class="view_editor ex_code mt_l" data-target="html/06-embedded/6.8.picture_element.html">
 		<h3 class="ve_tit">코드 예제</h3>
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="picture element">
+			<textarea readonly="readonly">
+				<picture>
+					<source media="(min-width: 700px)" srcset="images/html/people_960.jpg">
+					<source media="(min-width: 400px)" srcset="images/html/people_575.jpg">
+					<img src="images/html/people_200.jpg" alt="People">
+				</picture>
+
+				<picture>
+					<source srcset="images/html/surfer-240-200.jpg" media="(min-width: 800px)">
+					<img src="images/html/painted-hand-298-332.jpg" alt="">
+				</picture>
+
+				<picture>
+					<source srcset="mdn-logo-wide.png" media="(min-width: 600px)">
+					<img src="mdn-logo-narrow.png" alt="MDN">
+				</picture>
+
+				<picture>
+					<source srcset="logo-768.png 768w, logo-768-1.5x.png 1.5px">
+					<source srcset="logo-480.png, logo-480-2x.png 2x">
+					<img src="logo-320.png" alt="logo">
+				</picture>
+
+				<picture>
+					<source srcset="logo.webp" type="image/webp">
+					<img src="logo.png" alt="logo">
+				</picture>
+			</textarea>
 		</div>
 	</section>
 

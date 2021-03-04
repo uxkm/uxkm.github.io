@@ -29,12 +29,12 @@
 
 		<div class="line_code mt_m">
 			<strong class="t_blue weight-600">CSS 기본값 :</strong>
-			<div class="line_code_box line_code_number indent mt_s">
-				<ul>
-					<li>object:focus {</li>
-					<li class="indent">outline: none;</li>
-					<li>}</li>
-				</ul>
+			<div class="uk_gist_code_box indent mt_s" data-tit="object element">
+				<textarea readonly="readonly">
+					object:focus {
+						outline: none;
+					}
+				</textarea>
 			</div>
 		</div>
 	</section>
@@ -78,18 +78,47 @@
 				<code>&lt;object&gt;</code> 요소가 포함될 하나 이상의 <code>&lt;form&gt;</code> 요소를 명시함합니다.<br>
 				현재는 모든 브라우저에 지원하지 않습니다.
 			</p>
-			<section class="view_editor ex_code mt_s" data-target="html/06-embedded/6.12.object_element_form.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
-			</section>
+			<div class="uk_gist_code_box mt_ms" data-tit="object element [form]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" method="get">
+						<object data="/examples/media/sample.mp4" height="180" width="288">
+						</object><br>
+						<input type="submit">
+					</form>
+				</textarea>
+			</div>
 		</article>
 	</section>
 
 	<section class="view_editor ex_code mt_l" data-target="html/06-embedded/6.12.object_element.html">
 		<h2 class="ve_tit">예제</h2>
-		<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="object element">
+			<textarea readonly="readonly">
+				<object type="application/pdf" data="https://interactive-examples.mdn.mozilla.net/media/examples/In-CC0.pdf" width="250" height="200">
+				</object>
+
+				<object data="/examples/media/sample.mp4" height="180" width="288">
+					현재 사용 중인 브라우저는 object 요소를 지원하지 않습니다!
+				</object>
+
+				<object data="/examples/media/sample.mp4" height="180" width="288" name="video1">
+					현재 사용 중인 브라우저는 object 요소를 지원하지 않습니다!
+				</object><br>
+				<button type="button" onclick="changeHeight()">높이변경</button>
+
+				<script>
+					function changeHeight() {
+						document.getElementsByName('video1')[0].height = "360";
+					}
+				</script>
+
+				<object data="/examples/images/img_imagemap.jpg" height="240" width="320" usemap="#vending">
+				</object>
+				<map name="vending">
+					<area shape="poly" coords="50,150,230,120,230,180,50,210" alt="진실" href="https://ko.wikipedia.org/wiki/%EC%A7%84%EC%8B%A4">
+					<area shape="circle" coords="140,100,40" alt="거짓" href="https://ko.wikipedia.org/wiki/%EA%B1%B0%EC%A7%93%EB%A7%90">
+				</map>
+			</textarea>
 		</div>
 	</section>
 
