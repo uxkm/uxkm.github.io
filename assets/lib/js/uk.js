@@ -1501,11 +1501,12 @@ function uk_gist_skin_code(){
         $(hljsNumber).each(function(j, k){
           let change_str;
           const str_arr = $(k).text().split('');
+
           if( str_arr[0] === '#' ){
             $(k).addClass('uk_color_hexCode');
           }
           else {
-            const string_str = $(k).text().replace(/[0-9]/g,'');
+            const string_str = $(k).text().replace(/[0-9]/g,'').replace(/\./g,'');
             change_str = $(k).text().replace(string_str,'<span class="uk_color_number_in_string">'+string_str+'</span>');
           }
           $(k).html(change_str);
