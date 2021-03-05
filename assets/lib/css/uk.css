@@ -7005,6 +7005,9 @@ body {
 .uk_gist_code_box .uk_gist_footer .hyphen {
   padding: 0 2px;
 }
+.uk_gist_code_box.tab_line_remove .tab_indent_line {
+  display: none !important;
+}
 @media (max-width: 767px) {
   .uk_gist_code_box .uk_gist_content * {
     line-height: 20px;

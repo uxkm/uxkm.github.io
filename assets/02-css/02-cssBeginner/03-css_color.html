@@ -25,10 +25,16 @@
 			CSS Colors Level 4에선 웹 개척자 에릭 메이어를 기리기 위해 <a href="https://codepen.io/trezy/post/honoring-a-great-man" target="_blank" title="새창열림">rebeccapurple 키워드</a>를 추가했습니다.
 		</p>
 	</blockquote>
-	<p class="mt_s">
-		기본값은 inherit으로 부모의 색상을 가져옵니다.<br>
-		<code>color:{inherit | rgb() | rgba() | hsl() | hsla() | hex-color | named-color | currentcolor}</code>
+	<p class="mt_m">
+		color의 기본값은 inherit으로 부모의 색상을 가져옵니다.<br>
 	</p>
+	<div class="uk_gist_code_box mt_ms" data-tit="color CSS value">
+		<textarea readonly="readonly">
+			p {
+				color: inherit | rgb() | rgba() | hsl() | hsla() | hex-color | named-color | currentcolor;
+			}
+		</textarea>
+	</div>
 
 	<!-- color 키워드 -->
 	<section class="txt_ex indent mt_xxl">
@@ -64,6 +70,12 @@
 					slategray / slategrey
 				</li>
 			</ol>
+			<div class="uk_gist_code_box mt_ms" data-tit="color : keyword">
+				<textarea readonly="readonly">
+					p {color: red;}
+					p {color: blue;}
+				</textarea>
+			</div>
 		</div>
 		<aside class="browser_support mt_m" data-tit="color">
 			<ul>
@@ -106,6 +118,15 @@
 					<p class="mt_sm">CSS Colors Level 4부터 공백으로 구분한 값을 함수형 표기법과 사용할 수 있습니다.</p>
 				</li>
 			</ol>
+		</div>
+		<div class="uk_gist_code_box mt_m" data-tit="color : rgb">
+			<textarea readonly="readonly">
+				/* 아래 4가지 표기법은 모두 같은 색상(red)으로 표현됩니다. */
+				p {color: #f00;}
+				p {color: #ff0000;}
+				p {color: rgb(255, 0, 0);}
+				p {color: rgba(255, 0, 0, 1);}
+			</textarea>
 		</div>
 		<aside class="browser_support mt_m" data-tit="RGB">
 			<ul>
@@ -165,6 +186,14 @@
 				</li>
 			</ol>
 		</div>
+		<div class="uk_gist_code_box mt_m" data-tit="color : HSL">
+			<textarea readonly="readonly">
+				p {color: hsla(0, 100%, 50%, 1);}     /* #ff0000와 같은 색(red) */
+				p {color: hsla(120, 100%, 50%, 1);}   /* #00ff00와 같은 색(green) */
+				p {color: hsla(240, 100%, 50%, 1);}   /* #0000ff와 같은 색(blue) */
+				p {color: hsla(240, 100%, 50%, 0.5);} /* #0000ff와 같은 색(blue)이면서 50% 만큼의 투명도를 가지고 있음 */
+			</textarea>
+		</div>
 		<aside class="browser_support mt_m" data-tit="HSL">
 			<ul>
 				<li class="ie">3.0</li>
@@ -195,6 +224,11 @@
 			transparent 키워드는 완전히 투명한 색으로, "색"을 입힌 항목의 뒷편이 모두 보입니다.<br>
 			transparent = rgba(0,0,0,0) 와 같습니다.
 		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="color : transparent">
+			<textarea readonly="readonly">
+				p {color: transparent;}
+			</textarea>
+		</div>
 		<aside class="browser_support mt_m" data-tit="transparent">
 			<ul>
 				<li class="ie">9+</li>
@@ -221,7 +255,7 @@
 
 	<section class="view_editor edit_code mt_xxl" data-target="css/step01/2.3.color/2.3.color.html">
 		<h3 class="ve_tit">예제</h3>
-		<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
 	</section>

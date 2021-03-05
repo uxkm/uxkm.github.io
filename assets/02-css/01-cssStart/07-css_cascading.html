@@ -55,16 +55,18 @@
 					<strong>all 속성</strong>
 					<p>all 속성 사용하면 모든 속성을 초기, 상속, 되돌림 또는 설정 해제 상태로 한 번에 재설정 할 수 있습니다.</p>
 					<p>IE, Edge에서는 지원되지 않습니다.</p>
-					<div class="line_code_box line_code_number mt_2">
-						<ul>
-							<li>/* Global values */</li>
-							<li>all: initial;</li>
-							<li>all: inherit;</li>
-							<li>all: unset;</li>
-							<li></li>
-							<li>/* CSS Cascading and Inheritance Level 4 */</li>
-							<li>all: revert;</li>
-						</ul>
+					<div class="uk_gist_code_box mt_2" data-tit="@import style CSS">
+						<textarea readonly="readonly">
+							body {
+								/* Global values */
+								all: initial;
+								all: inherit;
+								all: unset;
+
+								/* CSS Cascading and Inheritance Level 4 */
+								all: revert;
+							}
+						</textarea>
 					</div>
 				</li>
 			</ol>

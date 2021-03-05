@@ -1557,9 +1557,29 @@ function uk_gist_skin_code(){
           }
         });
       }
+
+      //text 속성 > vertical-align 속성 sub 오류 대처
+      value_error( 'align_vertical-align' );
+      //text 속성 > word-break 속성 break-word 오류 대처
+      value_error( 'align_word-break' );
+      //background 속성 > background-repeat 속성 오류 대처
+      value_error( 'background-repeat' );
+      //background 속성 > background-position 속성 오류 대처
+      value_error( 'background-position' );
+      function value_error( target ){
+        if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === target ){
+          const txt_clone = $(e).find('.hljs-attribute').clone();
+
+          $(e).find('.hljs-attribute').parent().text('')
+          .prepend('<span>'+ code_tab_size +'</span>')
+          .append(txt_clone)
+          .append('<span>'+ $(e).parents('.'+uk_gist_code_box).attr('data-text') +'</span>');
+        }
+      }
     });
   }, 500);
 }
+
 
 
 //gist_code
