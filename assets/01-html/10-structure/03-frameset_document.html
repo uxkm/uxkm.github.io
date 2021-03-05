@@ -17,11 +17,11 @@
 			더 이상 지원되지 않는 <code>&lt;frame&gt;</code> 요소를 사용하면서 HTML 유효성 검사를 통과하기 위해서는 다음의 두 가지 방법처럼 DOCTYPE을 선언해야 합니다.<br>
 		</p>
 
-		<div class="line_code_box line_code_number mt_m">
-			<ul>
-				<li>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</li>
-				<li>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</li>
-			</ul>
+		<div class="uk_gist_code_box mt_m" data-tit="frameset document">
+				<textarea readonly="readonly">
+					<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+					<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+				</textarea>
 		</div>
 	</section>
 
@@ -43,13 +43,20 @@
 				HTML5에서는 더 이상 지원하지 않습니다.
 			</p>
 		</article>
+
+		<article class="view_editor ex_code mt_l">
+			<h3 class="ve_tit">예제</h3>
+			<div class="uk_gist_code_box indent mt_ms" data-tit="frameset document">
+			<textarea readonly="readonly">
+				<frameset cols="33%,*,33%">
+					<frame name="left" src="/html/intro"/>
+					<frame name="center" src="/css/intro"/>
+					<frame name="right" src="/php/intro"/>
+				</frameset>
+			</textarea>
+			</div>
+		</article>
 	</section>
 
-	<section class="view_editor ex_code mt_l" data-target="html/10-structure/10.3.frameset.html">
-		<h3 class="ve_tit">예제</h3>
-		<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-			<div class="code_wrap"><textarea></textarea></div>
-		</div>
-	</section>
 
 
