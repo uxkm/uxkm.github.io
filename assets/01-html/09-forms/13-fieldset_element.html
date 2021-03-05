@@ -17,15 +17,15 @@
 		</p>
 		<div class="line_code mt_m">
 			<strong class="t_blue weight-600">CSS 기본값 :</strong>
-			<div class="line_code_box line_code_number indent mt_s">
-				<ul>
-					<li>fieldset {</li>
-					<li class="indent">display: block;</li>
-					<li class="indent">margin: 0 2px;</li>
-					<li class="indent">padding: 0.35em 0.75em 0.625em;</li>
-					<li class="indent">border: 2px groove (internal value);</li>
-					<li>}</li>
-				</ul>
+			<div class="uk_gist_code_box indent mt_s" data-tit="fieldset element">
+				<textarea readonly="readonly">
+					fieldset {
+						display: block;
+						margin: 0 2px;
+						padding: 0.35em 0.75em 0.625em;
+						border: 2px groove (internal value);
+					}
+				</textarea>
 			</div>
 		</div>
 	</section>
@@ -77,10 +77,19 @@
 				이 속성값은 반드시 같은 문서 내에 존재하는<br>
 				요소의 id 속성값이어야 합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.13.fieldset_element_form.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="fieldset element [form]">
+				<textarea readonly="readonly">
+					<fieldset form="loginForm">
+						<legend>학사 관리 로그인</legend>
+						이름 : <input type="text" name="st_name"><br>
+						학번 : <input type="text" name="st_id"><br>
+					</fieldset>
+
+					<form action="/examples/media/action_target.php" method="get" id="loginForm">
+						학과 : <input type="text" name="department"><br>
+						<button type="submit">제출하기</button>
+					</form>
+				</textarea>
 			</div>
 		</article>
 	</section>

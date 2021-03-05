@@ -31,7 +31,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="name">
+			<aside class="browser_support mt_ms" data-tit="name">
 				<ul>
 					<li class="ie">지원</li>
 					<li class="edge">지원</li>
@@ -55,7 +55,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="size">
+			<aside class="browser_support mt_ms" data-tit="size">
 				<ul>
 					<li class="ie">지원</li>
 					<li class="edge">지원</li>
@@ -83,7 +83,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="disabled">
+			<aside class="browser_support mt_ms" data-tit="disabled">
 				<ul>
 					<li class="ie">지원</li>
 					<li class="edge">지원</li>
@@ -110,7 +110,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="multiple">
+			<aside class="browser_support mt_ms" data-tit="multiple">
 				<ul>
 					<li class="ie">지원</li>
 					<li class="edge">지원</li>
@@ -139,7 +139,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_s" data-tit="autofocus">
+			<aside class="browser_support mt_ms" data-tit="autofocus">
 				<ul>
 					<li class="ie">지원</li>
 					<li class="edge">지원</li>
@@ -158,12 +158,22 @@
 				해당 드롭다운 리스트가 포함될 하나 이상의 <code>&lt;form&gt;</code> 요소를 명시합니다.<br>
 				이 속성값은 같은 문서 내에 위치하는 <code>&lt;form&gt;</code> 요소의 id 값이어야만 합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.5.select_element_form.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="select element [form]">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" method="get" id="myForm">
+						<label>주문자 : <input type="text" name="name"></label><br>
+						<input type="submit"><br><br>
+					</form>
+
+					<select name="order" form="myForm">
+						<option value="americano">아메리카노</option>
+						<option value="caffe latte">카페라테</option>
+						<option value="cafe au lait">카페오레</option>
+						<option value="espresso">에스프레소</option>
+					</select>
+				</textarea>
 			</div>
-			<aside class="browser_support mt_s" data-tit="form">
+			<aside class="browser_support mt_ms" data-tit="form">
 				<ul>
 					<li class="ie false">지원안함</li>
 					<li class="edge false">지원안함</li>
@@ -187,12 +197,18 @@
 				XHTML에서는 속성값을 생략할 수 없으므로, 속성명과 속성값을 모두 명시해야만 합니다.<br>
 				<code>&lt;select required=&quot;required&quot;&gt;</code>
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="html/09-forms/9.5.select_element_required.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="select element [required]">
+				<textarea readonly="readonly">
+					<select name="order" required>
+						<option value="">선택되지 않음</option>
+						<option value="americano">아메리카노</option>
+						<option value="caffe latte">카페라테</option>
+						<option value="cafe au lait">카페오레</option>
+						<option value="espresso">에스프레소</option>
+					</select>
+				</textarea>
 			</div>
-			<aside class="browser_support mt_s" data-tit="required">
+			<aside class="browser_support mt_ms" data-tit="required">
 				<ul>
 					<li class="ie">10+</li>
 					<li class="edge">지원</li>
