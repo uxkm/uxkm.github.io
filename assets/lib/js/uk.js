@@ -1558,6 +1558,11 @@ function uk_gist_skin_code(){
         });
       }
 
+      //css 선택자 level 1, 2 오류 대처
+      if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'attribute_selector' ){
+        $(e).find('.'+uk_gist_code_line+':first .hljs-selector-tag').remove();
+      }
+      
       //text 속성 > vertical-align 속성 sub 오류 대처
       value_error( 'align_vertical-align' );
       //text 속성 > word-break 속성 break-word 오류 대처

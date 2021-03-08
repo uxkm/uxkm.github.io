@@ -452,6 +452,7 @@
 			<p class="mt_s">
 				셀렉터A의 형제 요소 중 셀렉터A 바로 뒤에 위치하는 셀렉터B 요소를 선택하며, A와 B 사이에 다른 요소가 존재하면 선택되지 않습니다.
 			</p>
+			<p class="mt_s t_black"><strong>Element + Element(셀렉터A + 셀렉터B)</strong></p>
 			<div class="uk_gist_code_box mt_ms" data-tit="Adjacent sibling combinator">
 				<textarea readonly="readonly">
 					p + ul {
@@ -499,20 +500,19 @@
 		<p class="mt_s">
 			CSS Level 2 선택자<br>
 			CSS 속성 선택기는 주어진 속성의 존재 또는 값에 따라 요소를 일치시킵니다.<br>
-			<code>[attribute]</code> / <code>[attribute='value']</code> / <code>[attribute~='bar']</code> / <code>[attribute|='en']</code>
 		</p>
-		<div class="uk_gist_code_box mt_ms" data-tit="Attribute Selector">
+		<div class="uk_gist_code_box mt_ms" data-tit="Attribute Selector" data-ex="attribute_selector">
 			<textarea readonly="readonly">
 				div[attribute] {
 					/* style 작성 */
 				}
-				div[attribute='value'] {
+				[attribute='value'] {
 					/* style 작성 */
 				}
-				div[attribute~='bar'] {
+				[attribute~='bar'] {
 					/* style 작성 */
 				}
-				div[attribute|='en'] {
+				[attribute|='en'] {
 					/* style 작성 */
 				}
 			</textarea>
