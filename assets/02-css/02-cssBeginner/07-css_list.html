@@ -27,7 +27,14 @@
 			미리 정의된 타입의 마커는 다양하게 있지만 모든 브라우저를 지원하지는 않습니다.<br>
 			마커의 타입은 다음과 같이 있습니다.
 		</p>
-		<div class="ol_lst indent mt_s">
+		<div class="uk_gist_code_box mt_ms" data-tit="list-style-type">
+			<textarea readonly="readonly">
+				ul {
+					list-style-type: Numeric | Alphabetic | Symbolic;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
 			<ol>
 				<li class="line_code font14">
 					<strong>넘버순(Numeric)</strong>
@@ -90,11 +97,15 @@
 	<section class="txt_ex indent mt_xxl">
 		<h2 class="ml_mn"><i class="t_blue">list-style-image</i></h2>
 		<p class="mt_s">
-			list-style-image 속성을 이용하면 마커(marker)로 자신만의 이미지를 사용할 수 있습니다.
+			<code>list-style-image</code> 속성을 이용하면 마커(marker)로 자신만의 이미지를 사용할 수 있습니다.
 		</p>
-		<p class="mt_s">
-			<code>&lt;url&gt; | none | inherit</code>
-		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="list-style-image">
+			<textarea readonly="readonly">
+				ul {
+					list-style-image: <url> | none | inherit;
+				}
+			</textarea>
+		</div>
 		<div class="view_editor edit_code mt_m" data-target="css/step01/2.7.list/2.7.list-style-image.html">
 			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
@@ -106,12 +117,16 @@
 	<section class="txt_ex indent mt_xxl">
 		<h2 class="ml_mn"><i class="t_blue">list-style-position</i></h2>
 		<p class="mt_s">
-			list-style-position 속성을 이용하면 리스트 요소의 위치를 설정할 수 있습니다.<br>
-			list-style-position 속성의 기본 속성값은 outside로 설정되어 있습니다.
+			<code>list-style-position</code> 속성을 이용하면 리스트 요소의 위치를 설정할 수 있습니다.<br>
+			<code>list-style-position</code> 속성의 기본 속성값은 outside로 설정되어 있습니다.
 		</p>
-		<p class="mt_s">
-			<code>inside | outside | inherit</code>
-		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="list-style-position">
+			<textarea readonly="readonly">
+				ul {
+					list-style-position: inside | outside | inherit;
+				}
+			</textarea>
+		</div>
 		<div class="view_editor edit_code mt_m" data-target="css/step01/2.7.list/2.7.list-style-position.html">
 			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
@@ -121,13 +136,17 @@
 
 	<!-- list-style -->
 	<section class="txt_ex indent mt_xxl">
-		<h2 class="ml_mn"><i class="t_blue">list-style</i></h2>
+		<h2 class="ml_mn"><i class="t_blue">list-style Shorthand</i></h2>
 		<p class="mt_s">
 			모든 list-style 속성을 이용한 스타일을 한 줄에 축약형 방식으로 설정할 수 있음.
 		</p>
-		<p class="mt_s">
-			<code>[list-style-type | list-style-position | list-style-image ] | inherit</code>
-		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="list-style Shorthand">
+			<textarea readonly="readonly">
+				ul {
+					list-style: [list-style-type | list-style-position | list-style-image ] | inherit;
+				}
+			</textarea>
+		</div>
 		<div class="view_editor edit_code mt_m" data-target="css/step01/2.7.list/2.7.list-style.html">
 			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>

@@ -196,7 +196,7 @@ a:focus {
 .hidden {
   overflow: hidden;
   display: inline-block;
-  position: absolute;
+  position: absolute !important;
   margin: -1px;
   width: 1px;
   height: 1px;
@@ -6198,7 +6198,7 @@ body {
   .content_area h1 {
     overflow: hidden;
     display: inline-block;
-    position: absolute;
+    position: absolute !important;
     margin: -1px;
     width: 1px;
     height: 1px;
