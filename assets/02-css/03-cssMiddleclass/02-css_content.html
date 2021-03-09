@@ -164,14 +164,28 @@
 			특수 문자를 사용해야하고 문자 그대로 CSS 콘텐츠 문자열에 입력 할 수 없는 경우,<br>
 			백 슬래시(\)와 16 진 유니 코드 값으로 구성되는 유니 코드 이스케이프 시퀀스를 사용해야 합니다.(백 슬래시+코드)<br>
 			<code>::before</code> 와 <code>::after</code> 요소는 <code>content</code> 속성을 사용해야만 콘텐츠를 삽입할 수 있습니다.<br>
-			<code>content</code> 속성은 의사 요소의 내용을 정의합니다. 또한 의사 요소는 content 속성이 설정되어 있지 않으면 표시되지 않습니다.<br>
-			<code>content</code> 속성은 기본적으로 인라인 요소로 표현됩니다.
+			<code>content</code> 속성은 의사 요소의 내용을 정의합니다. 또한 의사 요소는 <code>content</code> 속성이 설정되어 있지 않으면 표시되지 않습니다.<br>
+			<code>content</code> 속성은 기본적으로 인라인 요소로 표현되지만 <code>display: block</code>을 선언하여 일반적인 블록 요소로 사용할 수 있습니다.
 		</p>
-		<p class="mt_s">
+		<div class="uk_gist_code_box mt_ms" data-tit="::before / ::after">
+			<textarea readonly="readonly">
+				p::before {
+					content: "";
+				}
+				p::after {
+					display: block;
+					width: 100px;
+					height: 100px;
+					background: red;
+					content: "";
+				}
+			</textarea>
+		</div>
+
+		<p class="mt_m">
 			<strong class="t_black">content 속성 사용 방법은 다음과 같이 사용할 수 있습니다.</strong><br>
 			<code>content : normal | none | counter | attr | string | open-quote | close-quote | no-open-quote | no-close-quote | url | initial | inherit</code>
 		</p>
-
 		<div class="ol_lst indent mt_ms">
 			<ol>
 				<li class="line_code font14">
@@ -298,22 +312,25 @@
 			<code>::selection</code> 요소는 항상 이중 콜론 (::)으로 시작합니다.<br>
 			파이어폭스 브라우저에서는 ::-moz-selection 와 같이 접두사를 붙여 사용합니다.
 		</p>
-		<p class="mt_s">
+		<p class="mt_ms">
 			<strong class="t_black">::selection은 다음과 같은 특정 CSS 속성 만 사용할 수 있습니다.</strong><br>
 		</p>
-
-		<div class="ol_lst indent mt_sm">
-			<ol>
-				<li>color</li>
-				<li>outline</li>
-				<li>text-decoration</li>
-				<li>text-emphasis-color</li>
-				<li>text-shadow</li>
-				<li>background-color</li>
-				<li>cursor</li>
-			</ol>
+		<div class="uk_gist_code_box mt_ms" data-tit="::selection">
+			<textarea readonly="readonly">
+				::selection,
+				::-moz-selection {
+					/*
+					color
+					outline
+					text-decoration
+					text-emphasis-color
+					text-shadow
+					background-color
+					cursor
+					*/
+				}
+			</textarea>
 		</div>
-
 		<div class="view_editor edit_code mt_m" data-target="css/step02/3.2.pseudo-elements/3.2.selection.html">
 			<div class="uk_editor min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
@@ -338,55 +355,76 @@
 		<p class="mt_s">
 			CSS level 3<br>
 			<code>::placeholder</code> 선택자는 항상 이중 콜론 (::)으로 시작합니다.<br>
-			HTML5에서 새로 나온 속성(attribute)으로 input 요소나 textarea 요소에 안내문(알맞은 힌트를 제공)을 넣을 수 있습니다.<br>
+			HTML5에서 새로 나온 속성(attribute)으로 <code>input</code> 요소나 <code>textarea</code> 요소에 안내문(알맞은 힌트를 제공)을 넣을 수 있습니다.<br>
 			CSS에서 placeholder 속성 사용은 <code>::placeholder</code> 선택자로 선택하여 꾸밀 수 있습니다.<br>
 			다만, 브라우저별로 해당 요소에 포커스가 될때 작동하는 방식에서 차이점이 발생합니다.
 		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="::placeholder">
+			<textarea readonly="readonly">
+				<input type="text" placeholder="검색어를 입력하세요." />
+				&lt;textarea placeholder="검색어를 입력하세요."&gt;&lt;/textarea&gt;
 
-		<p class="mt_s">
+				<style>
+					::placeholder { /* style 작성 */ }
+				</style>
+			</textarea>
+		</div>
+
+		<p class="mt_ms">
 			<strong class="t_black">브라우저 호환성을 위해 사용하는 방법에는 다음과 같이 사용할 수 있습니다.</strong><br>
 		</p>
 		<div class="ol_lst indent mt_s">
 			<ol>
 				<li>
-					<p class="mb_sm">지원 못 하는 브라우저들이 있어서 접두사를 붙여서 같이 사용합니다.</p>
-					<div class="line_code">
-						<p>
-							<code>
-								::placeholder {}<br>
-								::-ms-input-placeholder {}<br>
-								:-ms-input-placeholder {}<br>
-								::-webkit-input-placeholder {}<br>
-								::-moz-input-placeholder {}
-							</code>
-						</p>
+					<p>지원 못 하는 브라우저들이 있어서 접두사를 붙여서 같이 사용합니다.</p>
+					<div class="uk_gist_code_box mt_s" data-tit="::placeholder [vendor prefix]">
+						<textarea readonly="readonly">
+							::placeholder {}
+							::-ms-input-placeholder {}
+							:-ms-input-placeholder {}
+							::-webkit-input-placeholder {}
+							::-moz-input-placeholder {}
+						</textarea>
 					</div>
 				</li>
-				<li class="mt_s">
-					<p class="mb_sm">
+				<li class="mt_ms">
+					<p>
 						파이어폭스의 경우 같은 색을 입력하면 투명도가 증가하여 색이 흐리게 나옵니다.<br>
 						파이어폭스는 CSS 투명도를 조절하는 속성인 opacity 값을 조절하면 됩니다.
 					</p>
-					<div class="line_code">
-						<p><code>::placeholder{color:red;opacity:1;}</code></p>
+					<div class="uk_gist_code_box mt_s" data-tit="::placeholder [css]">
+						<textarea readonly="readonly">
+							::placeholder {
+								color:red;
+								opacity:1;
+							}
+						</textarea>
 					</div>
 				</li>
-				<li class="mt_s">
-					<p class="mb_sm">
+				<li class="mt_ms">
+					<p>
 						마이크로소프트 Edge는 placeholer 색 변경이 적용 안됩니다.<br>
 						선택자 지정시 -ms-input이라는 명령어를 추가해주면 됩니다.
 					</p>
-					<div class="line_code">
-						<p><code>::-ms-input-placeholder{color:red;}</code></p>
+					<div class="uk_gist_code_box mt_s" data-tit="::-ms-input-placeholder">
+						<textarea readonly="readonly">
+							::-ms-input-placeholder {
+								color:red;
+							}
+						</textarea>
 					</div>
 				</li>
-				<li class="mt_s">
-					<p class="mb_sm">
+				<li class="mt_ms">
+					<p>
 						익스플로러는 엣지에 삽입한 선택자로는 placeholder 색 변경이 되지 않습니다.<br>
 						명령어는 똑같지만 앞에 콜론 : 개수를 1개로 변경해줍니다.
 					</p>
-					<div class="line_code">
-						<p><code>:-ms-input-placeholder{color:red;}</code></p>
+					<div class="uk_gist_code_box mt_s" data-tit=":-ms-input-placeholder">
+						<textarea readonly="readonly">
+							:-ms-input-placeholder {
+								color:red;
+							}
+						</textarea>
 					</div>
 				</li>
 			</ol>
@@ -413,7 +451,7 @@
 
 	<section class="view_editor edit_code mt_l" data-target="css/step02/3.2.pseudo-elements/3.2.pseudo-elements.html">
 		<h2 class="ve_tit">가상 요소(Pseudo-elements) 예제</h2>
-		<div class="uk_editor min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div class="uk_editor indent min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
 	</section>

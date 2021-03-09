@@ -562,7 +562,7 @@ mark {
   z-index: 2;
   width: 100%;
   height: calc(100% - (30px + 35px));
-  background: #fafafa;
+  background: #fff;
   border-top: 1px solid #d5d5d5;
 }
 .uk_editor[data-result="true"] .result_wrap .browserTitle {
@@ -6045,7 +6045,7 @@ body {
   padding: 0 2px;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   color: #111;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: normal;
   letter-spacing: -0.5px;
@@ -6072,7 +6072,7 @@ body {
   padding: 0 2px;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   color: #111;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: normal;
   letter-spacing: -0.5px;
@@ -6762,7 +6762,7 @@ body {
   padding: 0 2px;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   color: #111;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: normal;
   letter-spacing: -0.5px;
@@ -6792,7 +6792,7 @@ body {
   padding: 0 2px;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   color: #111;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: normal;
   letter-spacing: -0.5px;
@@ -6907,7 +6907,7 @@ body {
   padding: 0 2px;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   color: #111;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: normal;
   letter-spacing: -0.5px;

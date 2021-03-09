@@ -68,10 +68,14 @@
 		<article class="indent mt_l">
 			<h3 class="ml_mn"><i class="t_blue">position: sticky</i> 속성</h3>
 			<p class="mt_s">
-				safari 브라우저를 위한 <code>webkit</code> 접두어가 필요합니다.<br>
-				<code>position: -webkit-sticky;</code><br>
-				<code>position: sticky;</code>
+				safari 브라우저를 위한 <code>webkit</code> 접두어가 필요합니다.
 			</p>
+			<div class="uk_gist_code_box mt_s" data-tit="position: sticky">
+				<textarea readonly="readonly">
+					position: -webkit-sticky;
+					position: sticky;
+				</textarea>
+			</div>
 			<p class="mt_s">
 				Sticky positioning 속성을 적용한 박스는 평소에 문서 안에서 <code>position: static</code> 상태와 같이 일반적인 흐름에 따르지만<br>
 				스크롤 위치가 임계점에 이르면 <code>position: fixed</code>와 같이 박스를 화면에 고정할 수 있는 속성입니다.
@@ -105,29 +109,36 @@
 					<code>position: sticky</code> 속성을 지원하는 브라우저에만 이 스타일을 적용하려면 <code>@supports</code> 규칙을 이용할 수 있습니다.<br>
 					단, 이방법 역시 <code>@supports</code> 규칙이 IE 11 브라우저에서 지원 안 하기에 적절하게 사용해야 합니다.
 				</p>
-				<div class="view_editor ex_code mt_m" data-target="css/step02/3.6.css3-module/3.6.1.css3-supports.html">
-					<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-						<div class="code_wrap"><textarea></textarea></div>
-					</div>
+				<div class="uk_gist_code_box mt_ms" data-tit="@supports">
+					<textarea readonly="readonly">
+						@supports (position: sticky) or (position: -webkit-sticky) {
+							.sticky {
+								position: -webkit-sticky; /* 사파리 브라우저 지원 */
+								position: sticky;
+								top: 4px;
+								background: red;
+							}
+						}
+					</textarea>
 				</div>
 			</div>
 		</article>
 
 		<div class="view_editor edit_code mt_xxl" data-target="css/step02/3.6.css3-module/3.6.1.css3-position-sticky.html">
-			<h3 class="ve_tit">position: sticky 예제1</h3>
-			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<h4 class="ve_tit">position: sticky 예제1</h4>
+			<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</div>
 		<div class="view_editor edit_code mt_l" data-target="css/step02/3.6.css3-module/3.6.1.css3-position-sticky2.html">
-			<h3 class="ve_tit">position: sticky 예제2</h3>
-			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<h4 class="ve_tit">position: sticky 예제2</h4>
+			<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</div>
 		<div class="view_editor edit_code mt_l" data-target="css/step02/3.6.css3-module/3.6.1.css3-position-sticky3.html">
-			<h3 class="ve_tit">position: sticky 예제3</h3>
-			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<h4 class="ve_tit">position: sticky 예제3</h4>
+			<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</div>
@@ -169,16 +180,27 @@
 				<code>border-image</code>는 <code>border-image-source, border-image-slice, border-image-width, border-image-outset, border-image-repeat</code>의 단축 속성입니다.<br>
 				다른 단축 속성과 마찬가지로, 생략한 속성은 초기값으로 설정됩니다.
 			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="border-image">
+				<textarea readonly="readonly">
+					div {
+						/* 이미지 | 슬라이스 */
+						border-image: linear-gradient(red, blue) 27;
 
-			<div class="view_editor ex_code mt_m" data-target="css/step02/3.6.css3-module/3.6.2.css3-border-image-css.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+						/* 이미지 | 슬라이스 | 반복 */
+						border-image: url(''/images/border.png'') 27 space;
+
+						/* 이미지 | 슬라이스 | 너비 */
+						border-image: linear-gradient(red, blue) 27 / 35px;
+
+						/* 이미지 | 슬라이스 | 너비 | 거리 | 반복 */
+						border-image: url('/images/border.png') 27 23 / 50px 30px / 1rem round space;
+					}
+				</textarea>
 			</div>
 
-			<div class="view_editor edit_code mt_m" data-target="css/step02/3.6.css3-module/3.6.2.css3-border-image.html">
-				<h3 class="ve_tit">border-image 예제</h3>
-				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="view_editor edit_code mt_ml" data-target="css/step02/3.6.css3-module/3.6.2.css3-border-image.html">
+				<h4 class="ve_tit">border-image 예제</h4>
+				<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
@@ -203,10 +225,30 @@
 				<code>border-image-outset</code>으로 인해 요소 바깥에 그려지는 테두리로는 스크롤이 생기지 않으며 마우스 이벤트를 잡아낼 수도 없습니다.
 			</p>
 
-			<div class="view_editor ex_code mt_m" data-target="css/step02/3.6.css3-module/3.6.2.css3-border-image-outset.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="border-image-outset">
+				<textarea readonly="readonly">
+					div {
+						/* length 값 */
+						border-image-outset: 1rem;
+
+						/* number 값 */
+						border-image-outset: 1.5;
+
+						/* 세로방향 | 가로방향 */
+						border-image-outset: 1 1.2;
+
+						/* 위 | 가로방향 | 아래 */
+						border-image-outset: 30px 2 45px;
+
+						/* 위 | 오른쪽 | 아래 | 왼쪽 */
+						border-image-outset: 7px 12px 14px 5px;
+
+						/* 전역 값 */
+						border-image-outset: inherit;
+						border-image-outset: initial;
+						border-image-outset: unset;
+					}
+				</textarea>
 			</div>
 
 			<aside class="browser_support mt_m" data-tit="border-image-outset">
@@ -249,10 +291,24 @@
 				</ol>
 			</div>
 
-			<div class="view_editor ex_code mt_m" data-target="css/step02/3.6.css3-module/3.6.2.css3-border-image-repeat.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="border-image-repeat">
+				<textarea readonly="readonly">
+					div {
+						/* 키워드 값 */
+						border-image-repeat: stretch;
+						border-image-repeat: repeat;
+						border-image-repeat: round;
+						border-image-repeat: space;
+
+						/* 세로방향 | 가로방향 */
+						border-image-repeat: round stretch;
+
+						/* 전역 값 */
+						border-image-repeat: inherit;
+						border-image-repeat: initial;
+						border-image-repeat: unset;
+					}
+				</textarea>
 			</div>
 
 			<aside class="browser_support mt_m" data-tit="border-image-repeat">
@@ -289,10 +345,30 @@
 			<p class="mt_m">
 				<code>border-image-repeat, border-image-width, border-image-outset</code> 속성이 최종 테두리 이미지에서 각 영역의 사용 방법을 지정합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="css/step02/3.6.css3-module/3.6.2.css3-border-image-slice.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="border-image-slice">
+				<textarea readonly="readonly">
+					div {
+						/* 모든 방향 */
+						border-image-slice: 30%;
+
+						/* 세로방향 | 가로방향 */
+						border-image-slice: 10% 30%;
+
+						/* 위 | 가로방향 | 아래 */
+						border-image-slice: 30 30% 45;
+
+						/* 위 | 오른쪽 | 아래 | 왼쪽 */
+						border-image-slice: 7 12 14 5;
+
+						/* `fill` 키워드 */
+						border-image-slice: 10% fill 7 12;
+
+						/* 전역 값 */
+						border-image-slice: inherit;
+						border-image-slice: initial;
+						border-image-slice: unset;
+					}
+				</textarea>
 			</div>
 
 			<aside class="browser_support mt_m" data-tit="border-image-slice">
@@ -313,10 +389,22 @@
 			<p class="mt_s">
 				<code>border-image-source</code> CSS 속성은 요소의 테두리 이미지로 사용할 원본 이미지를 지정합니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="css/step02/3.6.css3-module/3.6.2.css3-border-image-source.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="border-image-source">
+				<textarea readonly="readonly">
+					div {
+						/* 키워드 값 */
+						border-image-source: none;
+
+						/* image 값 */
+						border-image-source: url('image.jpg');
+						border-image-source: linear-gradient(to top, red, yellow);
+
+						/* 전역 값 */
+						border-image-source: inherit;
+						border-image-source: initial;
+						border-image-source: unset;
+					}
+				</textarea>
 			</div>
 
 			<aside class="browser_support mt_m" data-tit="border-image-source">
@@ -338,10 +426,36 @@
 				<code>border-image-width</code> CSS 속성은 요소 테두리 이미지의 너비를 설정합니다.<br>
 				속성의 값이 <code>border-width</code>보다 크다면 테두리 이미지는 안쪽 여백(과 콘텐츠) 영역을 침범하여 그려집니다.
 			</p>
-			<div class="view_editor ex_code mt_s" data-target="css/step02/3.6.css3-module/3.6.2.css3-border-image-width.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="border-image-width">
+				<textarea readonly="readonly">
+					div {
+						/* 키워드 값 */
+						border-image-width: auto;
+
+						/* 값 */
+						border-image-width: 1rem;
+
+						/* 값 */
+						border-image-width: 25%;
+
+						/* 값 */
+						border-image-width: 3;
+
+						/* 세로방향 | 가로방향 */
+						border-image-width: 2em 3em;
+
+						/* 위 | 가로방향 | 아래 */
+						border-image-width: 5% 15% 10%;
+
+						/* 위 | 오른쪽 | 아래 | 왼쪽 */
+						border-image-width: 5% 2em 10% auto;
+
+						/* 전역 값 */
+						border-image-width: inherit;
+						border-image-width: initial;
+						border-image-width: unset;
+					}
+				</textarea>
 			</div>
 
 			<aside class="browser_support mt_m" data-tit="border-image-width">
@@ -366,18 +480,30 @@
 			<h3 class="ml_mn"><i class="t_blue">-webkit-line-clamp</i> 속성 <i class="fab fa-css3-alt"></i></h3>
 			<p class="mt_s">
 				CSS Module Level 3<br>
-				여러 줄의 말줄임시 사용합니다.
+				여러 줄의 말줄임시 사용합니다. <mark>webkit 계열 브라우저에서만 작동</mark>합니다.
 			</p>
 
-			<div class="view_editor ex_code mt_m" data-target="css/step02/3.6.css3-module/3.6.3.css3-webkit-line-clamp-css.html">
-				<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="-webkit-line-clamp">
+				<textarea readonly="readonly">
+					p {
+						/* Keyword value */
+						-webkit-line-clamp: none;
+
+						/* <integer> values */
+						-webkit-line-clamp: 3;
+						-webkit-line-clamp: 10;
+
+						/* Global values */
+						-webkit-line-clamp: inherit;
+						-webkit-line-clamp: initial;
+						-webkit-line-clamp: unset;
+					}
+				</textarea>
 			</div>
 
-			<div class="view_editor edit_code mt_m" data-target="css/step02/3.6.css3-module/3.6.3.css3-webkit-line-clamp.html">
-				<h3 class="ve_tit">-webkit-line-clamp 예제</h3>
-				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="view_editor edit_code mt_ml" data-target="css/step02/3.6.css3-module/3.6.3.css3-webkit-line-clamp.html">
+				<h4 class="ve_tit">-webkit-line-clamp 예제</h4>
+				<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>

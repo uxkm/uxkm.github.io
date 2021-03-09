@@ -65,16 +65,23 @@
 					<p>브라우저 접두어를 앞쪽에 쓰고, 맨 마지막에 표준 속성(비 접두어 버전)을 선언합니다.</p>
 					<p>접두어 버전을 사용하는 브라우저는 그것을 이용할 것이고, 이해하지 못하는 브라우저는 그 속성을 무시합니다. 표준을 지원하는 브라우저는 맨 마지막에 있는 속성을 실행합니다.</p>
 				</li>
-				<li class="line_code font14 mt_s">
-					<strong class="mb_sm">사용 예제</strong>
-					<div class="ex_code edit_code" data-target="css/step02/3.4.vendor-prefix/3.4.vendor-prefix.html">
-						<div class="uk_editor min-height-500" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-							<div class="code_wrap"><textarea></textarea></div>
-						</div>
+				<li class="line_code font14 mt_ms">
+					<strong>사용 예제</strong>
+					<div class="uk_gist_code_box mt_sm" data-tit="vendor prefix">
+						<textarea readonly="readonly">
+							div {
+								background: red; /* gradient 속성을 지원하지 않는 모든 브라우저를 위한 코드 */
+								background: -webkit-linear-gradient(red, yellow); /* 크롬과 사파리 4.0 이상을 위한 코드 */
+								background: -moz-linear-gradient(red, yellow); /* 파이어폭스 3.6 이상을 위한 코드 */
+								background: -ms-linear-gradient(red, yellow); /* 익스플로러 10.0 이상을 위한 코드 */
+								background: -o-linear-gradient(red, yellow); /* 오페라 10.0 이상을 위한 코드 */
+								background: linear-gradient(red, yellow); /* CSS 표준 문법 코드 */
+							}
+						</textarea>
 					</div>
-					<p>위의 예제에서 가장 먼저 나오는 background 속성은 gradient 속성을 지원하지 않는 모든 브라우저를 위한 것입니다.</p>
-					<p>또한, 맨 마지막에 나오는 background 속성은 CSS 표준 문법으로 작성된 코드입니다.</p>
-					<p>CSS 표준 문법 코드는 벤더 프리픽스(vendor prefix)로 작성된 코드가 모두 나오고 난 후에 나와야만, 벤더 프리픽스가 포함된 코드가 정상적으로 동작할 수 있습니다.</p>
+					<p class="mt_ms">위의 예제에서 가장 먼저 나오는 <code>background</code> 속성은 gradient 속성을 지원하지 않는 모든 브라우저를 위한 것입니다.</p>
+					<p>또한, 맨 마지막에 나오는 <code>background</code> 속성은 CSS 표준 문법으로 작성된 코드입니다.</p>
+					<p>CSS 표준 문법 코드는 <mark>벤더 프리픽스(vendor prefix)</mark>로 작성된 코드가 모두 나오고 난 후에 나와야만, 벤더 프리픽스가 포함된 코드가 정상적으로 동작할 수 있습니다.</p>
 					<p>이러한 벤더 프리픽스는 실험적인 해당 기능들이 CSS 표준 권고안에 포함되거나, 완벽하게 제정된 상태가 되면 더는 사용할 필요가 없어집니다.</p>
 				</li>
 			</ol>
