@@ -172,17 +172,17 @@
 			</blockquote>
 			<div class="uk_gist_code_box mt_ms" data-tit="Structural pseudo-class">
 				<textarea readonly="readonly">
-					:root {}
-					li:empty {}
-					li:last-child {}
-					li:only-child {}
-					li:first-of-type {}
-					li:last-of-type {}
-					li:only-of-type {}
-					li:nth-child(n) {}
-					li:nth-last-child(n) {}
-					li:nth-of-type(n) {}
-					li:nth-last-of-type(n) {}
+					:root { … }
+					li:empty { … }
+					li:last-child { … }
+					li:only-child { … }
+					li:first-of-type { … }
+					li:last-of-type { … }
+					li:only-of-type { … }
+					li:nth-child(n) { … }
+					li:nth-last-child(n) { … }
+					li:nth-of-type(n) { … }
+					li:nth-last-of-type(n) { … }
 				</textarea>
 			</div>
 
@@ -357,17 +357,17 @@
 					<strong class="font-16 t_skyblue">n번째 유형별 설명</strong>
 					<ol class="indent">
 						<li class="line_code font14 mt_s">
-							<strong class="el_block mb_sm">:nth-child(odd) odd 키워드</strong>
+							<strong class="el_block mb_sm"><mark><code>:nth-child(odd)</code></mark> odd 키워드</strong>
 							<p>홀수(odd number) 인 요소 선택 (1, 3, 5 ...)</p>
 							<p>:nth-child(2n+1) 과 동일</p>
 						</li>
 						<li class="line_code font14 mt_s">
-							<strong class="el_block mb_sm">:nth-child(even) even 키워드</strong>
+							<strong class="el_block mb_sm"><mark><code>:nth-child(even)</code></mark> even 키워드</strong>
 							<p>짝수(even number) 인 요소 선택 (2, 4, 6 ...)</p>
 							<p>:nth-child(2n) 과 동일</p>
 						</li>
 						<li class="line_code font14 mt_s">
-							<strong class="el_block mb_sm">:nth-child(An+B) 기능표기법(A x n) + B</strong>
+							<strong class="el_block mb_sm"><mark><code>:nth-child(An+B)</code></mark> 기능표기법(A x n) + B</strong>
 							<p>일련의 형제의 숫자 위치가 An+B모든 양의 정수 또는 0의 값에 대해 패턴과 일치하는 요소(n)를 나타냅니다.</p>
 							<p>
 								(-1 x n) + 2 (-n+2 로도 표현할 수 있다)<br>
@@ -376,7 +376,7 @@
 								(-1 x 2) + 2 = 0 (선택없음)
 							</p>
 
-							<strong class="el_block mb_sm mt_sm">:nth-child(3n + 3)</strong>
+							<strong class="el_block mb_sm mt_sm"><mark><code>:nth-child(3n + 3)</code></mark></strong>
 							<p>3n은 "3xn"이고 전체 표현은 "(3xn) + 3"입니다. 0과 양의 정수로 대체하면 다음과 같습니다.</p>
 							<p>
 								(3 x 0) + 3 = 3 = 3 번째 Element<br>
@@ -384,7 +384,7 @@
 								(3 x 2) + 3 = 9 = 9 번째 Element
 							</p>
 
-							<strong class="el_block mb_sm mt_sm">:nth-child(3n + 3)</strong>
+							<strong class="el_block mb_sm mt_sm"><mark><code>:nth-child(3n + 3)</code></mark></strong>
 							<p>"3n + 3" 대신 "3n + 0" 또는 더 간단한 "3n"을 사용하여 대체하면 다음과 같습니다.</p>
 							<p>
 								(3 x 0) = 0 = 일치하지 않음<br>
@@ -393,14 +393,14 @@
 								(3 x 3) = 9 = 9 번째 요소
 							</p>
 
-							<strong class="el_block mb_sm mt_sm">:nth-child(2n+1)</strong>
+							<strong class="el_block mb_sm mt_sm"><mark><code>:nth-child(2n+1)</code></mark></strong>
 							<p>
 								(2 x 0) + 1 = 1 = 1 번째 Element<br>
 								(2 x 1) + 1 = 3 = 3 번째 Element<br>
 								(2 x 2) + 1 = 5 = 5 번째 Element
 							</p>
 
-							<strong class="el_block mb_sm mt_sm">:nth-child(4n-1)</strong>
+							<strong class="el_block mb_sm mt_sm"><mark><code>:nth-child(4n-1)</code></mark></strong>
 							<p>음수 n 값을 사용하고 표현식에서 빼기를 사용할 수 있습니다. 예를 들어, 4n-1</p>
 							<p>
 								(4 x 0)-1 = -1 = 일치하지 않음<br>
@@ -409,7 +409,7 @@
 							</p>
 							<p>"-n"값을 사용하면 약간 이상하게 보일 수 있습니다. 최종 결과가 음수이면 일치하는 것이 없으므로 식을 다시 추가하여 다시 양수로 만들어야합니다.</p>
 
-							<strong class="el_block mb_sm mt_sm">:nth-child(-n + 3)</strong>
+							<strong class="el_block mb_sm mt_sm"><mark><code>:nth-child(-n + 3)</code></mark></strong>
 							<p>"-n + 3"으로 "first n elements"를 선택할 때 사용할 수 있습니다.</p>
 							<p>
 								-0 + 3 = 3 = 3 번째 요소<br>
@@ -779,13 +779,23 @@
 				<p class="mt_s">
 					<code>:not</code> 선택자는 모든 선택자와 함께 사용할 수 있으며, 해당 선택자를 반대로 적용하여 선택합니다.<br>
 					부정 의사 클래스라고 하며, selector를 제외한 모든 제외한 모든 요소들을 선택할 때 사용할 수 있습니다.<br>
-					<code>:not(제외할 셀렉터 또는 속성){/* style 작성 */}</code>
+					<!--<code>:not(제외할 셀렉터 또는 속성){/* style 작성 */}</code>-->
 				</p>
 				<div class="uk_gist_code_box mt_ms" data-tit="Negation pseudo-class [:not]">
 					<textarea readonly="readonly">
 						:not(selector) {
 							/* style 작성 */
 						}
+
+						/* 특정 class를 제외 할 경우 .box 예) */
+						:not(.box) { … }
+
+						/* 의사(가상) 클래스를 제외 할 경우 :first-child 예) */
+						:not(:first-child) { … }
+						:not(:last-child) { … }
+
+						/* 한 가지 조건 이상를 제외하는 경우  */
+						:not(.box):not(:first-child) { … }
 					</textarea>
 				</div>
 			</div>

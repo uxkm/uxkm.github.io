@@ -6429,6 +6429,9 @@ body {
     border-left-width: 3px;
   }
 }
+.ol_lst li.before_blue:before {
+  color: #1e73ff !important;
+}
 .ol_lst > b,
 .ol_lst > strong {
   color: #444;
@@ -6498,6 +6501,9 @@ body {
 .ol_lst > li.t_black div,
 .ol_lst > ol > li.t_black div {
   color: #666;
+}
+.ol_lst_second li.before_blue:before {
+  color: #1e73ff !important;
 }
 .ol_lst_second > b,
 .ol_lst_second > strong {

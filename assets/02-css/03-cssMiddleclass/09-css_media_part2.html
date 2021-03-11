@@ -48,11 +48,327 @@
 			프로젝트 환경 또는 디자인에 따라 적절하게 대응하여 사용해야 합니다.
 		</p>
 
-		<div class="view_editor ex_code mt_m" data-target="css/step02/3.9.media/3.9.3.media-code-template.html">
-			<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-				<div class="code_wrap"><textarea></textarea></div>
+		<!-- 기본적인 미디어 쿼리 사용 -->
+		<article class="mt_m indent">
+			<h3 class="t_blue ml_mn">기본적인 미디어 쿼리 사용</h3>
+			<p class="mt_sm">
+				뷰포트의 너비가 480px이거나 그 이하일 경우에는 배경색을 <span style="color:#fff; background:darkorange;">darkorange</span>로 표현해 줍니다.<br>
+				하지만 뷰포트의 너비가 그 초과일 경우에는 배경색을 <span style="color:#000; background:lightblue;">lightblue</span>로 바꿔서 표현해 줍니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template]">
+				<textarea readonly="readonly">
+					body { background-color: darkorange; }
+					@media screen and (min-width: 480px) {
+						body { background-color: lightblue; }
+					}
+				</textarea>
 			</div>
-		</div>
+		</article>
+
+		<!-- 브라우저, 프린터 용도 분기 -->
+		<article class="mt_l indent">
+			<h3 class="t_blue ml_mn">브라우저, 프린터 용도 분기</h3>
+			<p class="mt_sm">
+				다음 예제를 웹 브라우저에서 실행하면 배경색을 검정색으로, 텍스트의 색상은 흰색으로 표현합니다.<br>
+				하지만 웹 페이지를 프린트하게 되면 배경색을 흰색으로, 텍스트의 색상을 검정색으로 바꿔서 프린트합니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template]">
+				<textarea readonly="readonly">
+					@media screen {
+						body { background-color: black; color: white; }
+					}
+					@media print {
+						body { background-color: white; color: black; }
+					}
+				</textarea>
+			</div>
+		</article>
+
+		<!-- Device 별 사이즈 -->
+		<article class="mt_l indent">
+			<h3 class="t_blue ml_mn">Device 별 사이즈</h3>
+			<p class="mt_sm">
+				일반적으로 사용하는 device별 미디어 쿼리 사이즈 입니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template]">
+				<textarea readonly="readonly">
+					/* All Device */
+					@media screen {
+						/* 모든 해상도를 위한 공통 코드를 작성한다. 모든 해상도에서 이 코드가 실행됨. */
+					}
+
+					/* Mobile Device */
+					@media all and (max-width:768px) {
+						/*
+						768px 미만 해상도의 모바일 기기를 위한 코드를 작성한다.
+						모든 해상도에서 이 코드가 실행됨.
+						미디어 쿼리를 지원하지 않는 모바일 기기를 위해 미디어 쿼리 구문을 사용하지 않는다.
+						*/
+					}
+
+					/* Tablet Device */
+					@media all and (min-width:768px) {
+						/*
+						사용자 해상도가 768px 이상일 때 이 코드가 실행됨.
+						테블릿과 데스크톱의 공통 코드를 작성한다.
+						*/
+					}
+
+					/* Tablet & Desktop Device */
+					@media all and (min-width:768px) and (max-width:1024px) {
+						/*
+						사용자 해상도가 768px 이상이고 1024px 이하일 때 이 코드가 실행됨.
+						아이패드 또는 비교적 작은 해상도의 랩탑이나 데스크톱에 대응하는 코드를 작성한다.
+						*/
+					}
+
+					/* Desktop Device */
+					@media all and (min-width:1025px) {
+						/*
+						사용자 해상도가 1025px 이상일 때 이 코드가 실행됨.
+						1025px 이상의 랩탑 또는 데스크톱에 대응하는 코드를 작성한다.
+						*/
+					}
+				</textarea>
+			</div>
+		</article>
+
+		<!-- Mobile First 반응형 웹 -->
+		<article class="mt_l indent">
+			<h3 class="t_blue ml_mn">Mobile First 반응형 웹</h3>
+			<p class="mt_sm">
+				Mobile부터 시작 하여 Tablet, Desktop으로 변화하는 반응형 웹의 미디어 쿼리 템플릿 입니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template]">
+				<textarea readonly="readonly">
+					/* All Device */
+
+					/* Custom, iPhone Retina : 320px ~ */
+					@media only screen and (min-width : 320px) { … }
+
+					/* Extra Small Devices, Phones : 480px ~ */
+					@media only screen and (min-width : 480px) { … }
+
+					/* Small Devices, Tablets : 768px ~ */
+					@media only screen and (min-width : 768px) { … }
+
+					/* Medium Devices, Desktops : 992px ~ */
+					@media only screen and (min-width : 992px) { … }
+
+					/* Large Devices, Wide Screens : 1200px ~ */
+					@media only screen and (min-width : 1200px) { … }
+				</textarea>
+			</div>
+		</article>
+
+		<!-- Desktop First 반응형 웹 -->
+		<article class="mt_l indent">
+			<h3 class="t_blue ml_mn">Desktop First 반응형 웹</h3>
+			<p class="mt_sm">
+				Desktop부터 시작 하여 Tablet, Mobile으로 변화하는 반응형 웹의 미디어 쿼리 템플릿 입니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template]">
+				<textarea readonly="readonly">
+					/* All Device */
+
+					/* Large Devices, Wide Screens : ~ 1200px */
+					@media only screen and (max-width : 1200px) { … }
+
+					/* Medium Devices, Desktops : ~ 992px */
+					@media only screen and (max-width : 992px) { … }
+
+					/* Small Devices, Tablets : ~ 768px */
+					@media only screen and (max-width : 768px) { … }
+
+					/* Extra Small Devices, Phones : ~ 480px */
+					@media only screen and (max-width : 480px) { … }
+
+					/* Custom, iPhone Retina : ~ 320px */
+					@media only screen and (max-width : 320px) { … }
+				</textarea>
+			</div>
+		</article>
+
+		<!-- IOS 계열 CSS(@media) 반응형 웹 -->
+		<article class="mt_l indent">
+			<h3 class="t_blue ml_mn">IOS 계열 CSS(@media)</h3>
+			<p class="mt_sm">
+				Apple사의 여러 기기에 상세히 대응할 수 있는 @media 템플릿 입니다.
+			</p>
+
+			<!-- iPhone 4 and 4S -->
+			<article class="indent mt_m">
+				<h4 class="ml_mn">iPhone 4 and 4S</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPhone 4 and 4S]">
+					<textarea readonly="readonly">
+						/* Portrait and Landscape */
+						@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+						/* Portrait */
+						@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { … }
+
+						/* Landscape */
+						@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { … }
+					</textarea>
+				</div>
+			</article>
+
+			<!-- iPhone 5, 5S, 5C and 5SE -->
+			<article class="indent mt_m">
+				<h4 class="ml_mn">iPhone 5, 5S, 5C and 5SE</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPhone 4 and 4S]">
+					<textarea readonly="readonly">
+						/* Portrait and Landscape */
+						@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+						/* Portrait */
+						@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { … }
+
+						/* Landscape */
+						@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { … }
+					</textarea>
+				</div>
+			</article>
+
+			<!-- iPhone 6, 6S, 7 and 8 -->
+			<article class="indent mt_m">
+				<h4 class="ml_mn">iPhone 6, 6S, 7 and 8</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPhone 6, 6S, 7 and 8]">
+					<textarea readonly="readonly">
+						/* Portrait and Landscape */
+						@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+						/* Portrait */
+						@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { … }
+
+						/* Landscape */
+						@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { … }
+					</textarea>
+				</div>
+			</article>
+
+			<!-- iPhone 6+, 7+ and 8+ -->
+			<article class="indent mt_m">
+				<h4 class="ml_mn">iPhone 6+, 7+ and 8+</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPhone 6+, 7+ and 8+]">
+					<textarea readonly="readonly">
+						/* Portrait and Landscape */
+						@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) { … }
+
+						/* Portrait */
+						@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) { … }
+
+						/* Landscape */
+						@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) { … }
+					</textarea>
+				</div>
+			</article>
+
+			<!-- iPhone X -->
+			<article class="indent mt_m">
+				<h4 class="ml_mn">iPhone X</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPhone X]">
+					<textarea readonly="readonly">
+						/* Portrait and Landscape */
+						@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) { … }
+
+						/* Portrait */
+						@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) { … }
+
+						/* Landscape */
+						@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) { … }
+					</textarea>
+				</div>
+			</article>
+
+			<!-- iPad 1, 2, Mini and Air -->
+			<article class="indent mt_m">
+				<h4 class="ml_mn">iPad 1, 2, Mini and Air</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPad 1, 2, Mini and Air]">
+					<textarea readonly="readonly">
+						/* Portrait and Landscape */
+						@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) { … }
+
+						/* Portrait */
+						@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { … }
+
+						/* Landscape */
+						@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) { … }
+					</textarea>
+				</div>
+			</article>
+
+			<!-- iPad 3, 4 and Pro 9.7" -->
+			<article class="indent mt_m">
+				<h4 class="ml_mn">iPad 3, 4 and Pro 9.7"</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPad 3, 4 and Pro 9.7&quot;]">
+					<textarea readonly="readonly">
+						/* Portrait and Landscape */
+						@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+						/* Portrait */
+						@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+						/* Landscape */
+						@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) { … }
+					</textarea>
+				</div>
+			</article>
+
+			<!-- iPad Pro 10.5" -->
+			<article class="indent mt_m">
+				<h4 class="ml_mn">iPad Pro 10.5"</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPad Pro 10.5&quot;]">
+					<textarea readonly="readonly">
+						/* Portrait and Landscape */
+						@media only screen and (min-device-width: 834px) and (max-device-width: 1112px)and (-webkit-min-device-pixel-ratio: 2) { … }
+
+						/* Portrait */
+						/* Declare the same value for min- and max-width to avoid colliding with desktops */
+						/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+						@media only screen and (min-device-width: 834px) and (max-device-width: 834px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+						/* Landscape */
+						/* Declare the same value for min- and max-width to avoid colliding with desktops */
+						/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+						@media only screen and (min-device-width: 1112px) and (max-device-width: 1112px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) { … }
+					</textarea>
+				</div>
+			</article>
+
+			<!-- iPad Pro 12.9" -->
+			<article class="indent mt_m">
+				<h4 class="ml_mn">iPad Pro 12.9"</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPad Pro 12.9&quot;]">
+					<textarea readonly="readonly">
+						/* Portrait and Landscape */
+						@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+						/* Portrait */
+						/* Declare the same value for min- and max-width to avoid colliding with desktops */
+						/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+						@media only screen   and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+						/* Landscape */
+						/* Declare the same value for min- and max-width to avoid colliding with desktops */
+						/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+						@media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) { … }
+					</textarea>
+				</div>
+			</article>
+
+			<!-- Apple Watch -->
+			<article class="indent mt_m">
+				<h4 class="ml_mn">Apple Watch</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = Apple Watch]" data-ex="style_tag_remove">
+					<textarea readonly="readonly">
+						<style>
+						@media (max-device-width: 42mm) and (min-device-width: 38mm) { … }
+						</style>
+					</textarea>
+				</div>
+			</article>
+		</article>
 	</section>
 
 	<!-- 3.9.6. 반응형 웹과 적응형 웹 -->
@@ -165,10 +481,25 @@
 				모바일 퍼스트 디자인이란, 처음 웹 어플리케이션을 구축하는 단계에서부터 모바일 중심으로 구축하는 것을 의미합니다.
 				모바일을 먼저 구축한 후, 데스크톱이나 타 기기를 위해서는 그에 맞는 반응형/적응형 웹을 제공하는 방식입니다.
 			</p>
-			<div class="view_editor ex_code mt_m" data-target="css/step02/3.9.media/3.9.3.media-mobile-first-design.html">
-				<div  class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-					<div class="code_wrap"><textarea></textarea></div>
-				</div>
+			<div class="uk_gist_code_box mt_ms" data-tit="@media query [Mobile First Design]">
+				<textarea readonly="readonly">
+					/* Mobile style */
+
+					/* Custom, iPhone Retina : 320px ~ */
+					@media only screen and (min-width : 320px) { … }
+
+					/* Extra Small Devices, Phones : 480px ~ */
+					@media only screen and (min-width : 480px) { … }
+
+					/* Small Devices, Tablets : 768px ~ */
+					@media only screen and (min-width : 768px) { … }
+
+					/* Medium Devices, Desktops : 992px ~ */
+					@media only screen and (min-width : 992px) { … }
+
+					/* Large Devices, Wide Screens : 1200px ~ */
+					@media only screen and (min-width : 1200px) { … }
+				</textarea>
 			</div>
 			<p class="mt_s">
 				위 CSS 코드처럼 모바일을 기본으로 삼아 코드를 짠 후, 다른 기기에 맞는 CSS 코드를 추가하는 방식입니다.
@@ -217,7 +548,7 @@
 		<!-- 데스크탑 퍼스트가 모바일 퍼스트에 비해 가질 수 있는 장점과 단점 -->
 		<article class="indent_max mt_l">
 			<h3 class="ml_mn t_blue">데스크탑 퍼스트가 모바일 퍼스트에 비해 가질 수 있는 장점과 단점</h3>
-			<div class="ol_lst mt_ms indent">
+			<div class="ol_lst mt_ms">
 				<ol>
 					<li class="line_code font14">
 						<strong class="mb_sm">장점</strong>

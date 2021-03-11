@@ -1351,6 +1351,7 @@ function uk_gist_skin_code(){
   const uk_gist_code_line = 'uk_gist_code_line';
   const uk_gist_footer = 'uk_gist_footer';
   const not_ko = /[a-z0-9]|[\[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+  const not_hashTags = /[a-z0-9]|[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]|[\[\]{}()<>?|`~!@$%^&*-_+=,.;:\"'\\]/g;
   const ko_check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
   const code_tab_size = '    ';
 
@@ -1390,7 +1391,6 @@ function uk_gist_skin_code(){
         line[i] = line[i].replace(line_tab_size, '');
       }
 
-      
       //한줄 설명글 강조 //ex_line
       if( line[i].match(ex_line) ){
         ex_line_color = line[i].split(' ')[0].split('__')[2];
@@ -1413,17 +1413,17 @@ function uk_gist_skin_code(){
       if( line[i] === '' ){
         str_content += '<span class="'+uk_gist_code_line+'">' + line[i] + '</span>\n';
       }
-      //컨텐츠가 있는 라인
+      //컨텐츠가 있는 라인 [ uk_gist_code_line class 적용 / doctype line 구분 / tab line 적용 ]
       else {
-        tab_count = line[i].split(code_tab_size).length - 1;
-
         //tab line 표시
+        const each_tab_split = line[i].trim().split('')[0];
+        const each_tab_size = line[i].split(each_tab_split)[0];
+        tab_count = each_tab_size.split(code_tab_size).length - 1;
+
         let tab_indent = "";
         let tab_indent_line = "";
-        let tab_size = code_tab_size;
-        if( tab_count > 0 ){
+        if( tab_count > 0 && each_tab_size.match(code_tab_size) ){
           for( j=0; j<tab_count; j++ ){
-            if(j > 0) tab_size += code_tab_size;
             //tab_indent += '<span class="tab_indent tab_indent_'+(j+1)+'">'+ code_tab_size +'</span>';
             //tab_indent += '<span class="tab_indent tab_indent_'+(j+1)+'" data-tab="'+tab_size+'"></span>';
             tab_indent += '<span class="tab_indent" data-tab="'+code_tab_size+'"></span>';
@@ -1479,6 +1479,7 @@ function uk_gist_skin_code(){
   const hljsNumber = '.hljs-number';
   setTimeout(function(){
     $('.'+uk_gist_code_wrap).each(function(i, e){
+      //$(e).addClass('xml');
       hljs.highlightBlock(e);
       $(this).parents('.'+uk_gist_content).siblings('textarea').remove();
 
@@ -1489,6 +1490,7 @@ function uk_gist_skin_code(){
           $(k).html(change_str);
         });
       }
+
       //id '#' 색상 변경 class 지정
       if( $(e).find(hljsSelectorId).is(':visible') ){
         $(hljsSelectorId).each(function(j, k){
@@ -1496,22 +1498,38 @@ function uk_gist_skin_code(){
           $(k).html(change_str);
         });
       }
+
       //number에서 숫자가 아닌 문자 지정
       if( $(e).find(hljsNumber).is(':visible') ){
         $(hljsNumber).each(function(j, k){
           let change_str;
           const str_arr = $(k).text().split('');
 
+
           if( str_arr[0] === '#' ){
             $(k).addClass('uk_color_hexCode');
           }
           else {
-            const string_str = $(k).text().replace(/[0-9]/g,'').replace(/\./g,'');
+            const string_str = $(k).text().replace(/[0-9]/g,'').replace(/\./g,'').replace(/\s/g,'');
+            //console.log( string_str );
             change_str = $(k).text().replace(string_str,'<span class="uk_color_number_in_string">'+string_str+'</span>');
           }
           $(k).html(change_str);
         });
       }
+
+      //헥사코드 .hljs-number 색상 조정
+      $(e).find('.'+uk_gist_code_line).each(function(j, k){
+        if( $(k).text().match('#') ){
+          $(k).html( $(k).html().replace( /#/g, '<span class="uk_string_hashTags">#</span>' ) );
+
+          if( $(k).find(hljsNumber).prev().is('.uk_string_hashTags') ){
+            $(k).find(hljsNumber).addClass('uk_color_number_in_string');
+          }
+        }
+      });
+
+      // 오류대처 ------------------------------------------------------------------------------------------------------
 
       //sub element 오류 대처
       if( $(e).find(hljsSelectorClass).is(':visible') && $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'sub' ){
@@ -1581,6 +1599,18 @@ function uk_gist_skin_code(){
           .append('<span>'+ $(e).parents('.'+uk_gist_code_box).attr('data-text') +'</span>');
         }
       }
+
+      //@media part-1 style 오류 대처(style 태그 제거)
+      if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'style_tag_remove' ){
+        //$('[data-ex="style_tag_remove"]').each(function(){});
+        $(e).find('.'+uk_gist_code_line).first().remove();
+        $(e).find('.css').first().remove();
+        $(e).find('.'+uk_gist_code_line).last().remove();
+        $(e).find('.css').last().remove();
+        $(e).parents('.'+uk_gist_code_box).find('.line_number > li').slice(0, 2).remove();
+      }
+
+      //uk_gist_code_wrap each end -------------------------------------------------------------------------------------
     });
   }, 500);
 }

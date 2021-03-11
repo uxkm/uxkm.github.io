@@ -184,8 +184,14 @@
 
 		<p class="mt_m">
 			<strong class="t_black">content 속성 사용 방법은 다음과 같이 사용할 수 있습니다.</strong><br>
-			<code>content : normal | none | counter | attr | string | open-quote | close-quote | no-open-quote | no-close-quote | url | initial | inherit</code>
 		</p>
+		<div class="uk_gist_code_box mt_s" data-tit="content:;" data-ex="style_tag_remove">
+			<textarea readonly="readonly">
+				<style>
+				p::after {content: normal | none | counter | attr | string | open-quote | close-quote | no-open-quote | no-close-quote | url | initial | inherit;}
+				</style>
+			</textarea>
+		</div>
 		<div class="ol_lst indent mt_ms">
 			<ol>
 				<li class="line_code font14">
@@ -379,11 +385,11 @@
 					<p>지원 못 하는 브라우저들이 있어서 접두사를 붙여서 같이 사용합니다.</p>
 					<div class="uk_gist_code_box mt_s" data-tit="::placeholder [vendor prefix]">
 						<textarea readonly="readonly">
-							::placeholder {}
-							::-ms-input-placeholder {}
-							:-ms-input-placeholder {}
-							::-webkit-input-placeholder {}
-							::-moz-input-placeholder {}
+							::placeholder { … }
+							::-ms-input-placeholder { … }
+							:-ms-input-placeholder { … }
+							::-webkit-input-placeholder { … }
+							::-moz-input-placeholder { … }
 						</textarea>
 					</div>
 				</li>

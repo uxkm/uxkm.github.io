@@ -43,6 +43,7 @@
 		<h2 class="ml_mn">해당 문서에서 사용되는 CSS 속성 선언 순서</h2>
 		<div class="ol_lst mt_ms">
 			<ol>
+				<!--
 				<li><strong class="weight-500 t_black">overflow</strong> - 시각적인 속성(Visual effects)</li>
 				<li><strong class="weight-500 t_black">visibility</strong> - 시각적인 속성(Visual effects)</li>
 				<li><strong class="weight-500 t_black">display</strong> - 위치 속성(Visual formatting model)</li>
@@ -79,6 +80,43 @@
 				<li><strong class="weight-500 t_black">cursor</strong> - 사용자 인터페이스 속성(User interface)</li>
 				<li><strong class="weight-500 t_black">opacity</strong> - 사용자 인터페이스 속성(User interface)</li>
 				<li><strong class="weight-500 t_black">etc</strong> - 위에 언급되지 않은 기타 나머지 속성들</li>
+				-->
+				<li><strong class="weight-500 t_black">overflow</strong> - 시각적인 속성(Visual effects)</li>
+				<li><strong class="weight-500 t_black">visibility</strong> - 시각적인 속성(Visual effects)</li>
+				<li><strong class="weight-500 t_black">display</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">position</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">top</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">right</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">bottom</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">left</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">float</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">clear</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">width</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">height</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">margin</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">padding</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">border</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">border-radius</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">box-shadow</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">background</strong> - Background 속성</li>
+				<li><strong class="weight-500 t_black">font</strong> - Font 속성</li>
+				<li><strong class="weight-500 t_black">text-align</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">vertical-align</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">letter-spacing</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">word-spacing</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">word-break</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">word-wrap</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">white-space</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-indent</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-decoration</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-transform</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-overflow</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-shadow</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">color</strong> - Color 속성</li>
+				<li><strong class="weight-500 t_black">outline</strong> - 사용자 인터페이스 속성(User interface)</li>
+				<li><strong class="weight-500 t_black">cursor</strong> - 사용자 인터페이스 속성(User interface)</li>
+				<li><strong class="weight-500 t_black">opacity</strong> - 사용자 인터페이스 속성(User interface)</li>
+				<li><strong class="weight-500 t_black">etc</strong> - 위에 언급되지 않은 기타 나머지 속성들</li>
 			</ol>
 		</div>
 	</section>
@@ -101,10 +139,30 @@
 				<li><strong class="weight-500 t_black">기타</strong> - 위에 언급되지 않은 나머지 속성들로 폰트의 관련 속성 이후에 선언하며, 기타 속성 내의 선언 순서는 무관함.</li>
 			</ol>
 		</div>
-		<div class="view_editor ex_code mt_m" data-target="css/step02/3.10.css-attr-rule/3.10.css-attr-rule-naver.html">
-			<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-				<div class="code_wrap"><textarea></textarea></div>
-			</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="Naver [CSS attr rule]">
+			<textarea readonly="readonly">
+				display: block;                                  /* 표시 */
+				visibility: hidden;                              /* 표시 */
+				overflow: hidden;                                /* 넘침 */
+				float: left;                                     /* 흐름 */
+				clear: both;                                     /* float해제 */
+				position: absolute;                              /* 위치 */
+				top: 0;                                          /* 상단 */
+				right: 0;                                        /* 우측 */
+				bottom: 0;                                       /* 하단 */
+				left: 0;                                         /* 좌측 */
+				z-index: 1;                                      /* 정렬 */
+				width: 200px;                                    /* 가로사이즈 */
+				height: 200px;                                   /* 세로사이즈 */
+				margin: 0;                                       /* 바깥 여백 */
+				padding: 0;                                      /* 안쪽 여백 */
+				border: none;                                    /* 테두리 */
+				background: #000 url('../a.png') no-repeat 0 0;  /* 색상, 이미지경로, 반복여부, x좌표, y좌표 이미지고정*/
+				font: italic small-caps bold 12px/1.5 'Gulim';   /* 기울임꼴, 소문자, 굵기 폰트사이즈/행간간격, 폰트서체 */
+				color: #000;                                     /* 폰트색상 */
+				text-decoration: none;                           /* 텍스트에 라인표시 효과 */
+				text-indent: -999px;                             /* 들여쓰기 */
+			</textarea>
 		</div>
 	</section>
 
@@ -122,20 +180,39 @@
 				<li><strong class="weight-500 t_black">margin & padding</strong> - 간격</li>
 				<li><strong class="weight-500 t_black">border</strong> - 보더</li>
 				<li><strong class="weight-500 t_black">font</strong> - 폰트(축약형 사용시)</li>
-				<li><strong class="weight-500 t_black">font-style</strong> - 폰트스타일(font-style:bold;축약형 비사용시)</li>
-				<li><strong class="weight-500 t_black">font-variant</strong> - 폰트 소문자,대문자(font-variant:small-caps;축약형 비사용시)</li>
-				<li><strong class="weight-500 t_black">font-weight</strong> - 폰트굵기(font-weight:bold;축약형 비사용시)</li>
-				<li><strong class="weight-500 t_black">font-size</strong> - 폰트 사이즈(font-size:14px;축약형 비사용시)</li>
-				<li><strong class="weight-500 t_black">line-height</strong> - 폰트 행간높이(line-height:1.5;축약형 비사용시)</li>
-				<li><strong class="weight-500 t_black">font-family</strong> - 폰트(font-family:'굴림',Gulim,sans-serif;축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-style</strong> - 폰트스타일(font-style: bold; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-variant</strong> - 폰트 소문자, 대문자(font-variant: small-caps; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-weight</strong> - 폰트굵기(font-weight: bold; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-size</strong> - 폰트 사이즈(font-size: 14px; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">line-height</strong> - 폰트 행간높이(line-height: 1.5; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-family</strong> - 폰트(font-family:'굴림', Gulim, sans-serif; 축약형 비사용시)</li>
 				<li><strong class="weight-500 t_black">background</strong> - 배경</li>
-				<li><strong class="weight-500 t_black">etc(기타)</strong> - color,text-decoration,text-indent,clear...</li>
+				<li><strong class="weight-500 t_black">etc(기타)</strong> - color, text-decoration, text-indent, clear...</li>
 			</ol>
 		</div>
-		<div class="view_editor ex_code mt_m" data-target="css/step02/3.10.css-attr-rule/3.10.css-attr-rule-daum.html">
-			<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
-				<div class="code_wrap"><textarea></textarea></div>
-			</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="Daum [CSS attr rule]">
+			<textarea readonly="readonly">
+				display: block;                                       /* 표시 */
+				overflow: hidden;                                     /* 넘침 */
+				float: left;                                          /* 흐름 */
+				position: absolute;                                   /* 위치 */
+				top: 0;                                               /* 상단 */
+				right: 0;                                             /* 우측 */
+				bottom: 0;                                            /* 하단 */
+				left: 0;                                              /* 좌측 */
+				z-index: 1;                                           /* 정렬 */
+				width: 200px;                                         /* 가로사이즈 */
+				height: 200px;                                        /* 세로사이즈 */
+				margin: 0;                                            /* 바깥 여백 */
+				padding: 0;                                           /* 안쪽 여백 */
+				border: none;                                         /* 테두리 */
+				font: italic small-caps bold 12px/1.5 'Gulim';        /* 기울임꼴, 소문자, 굵기 폰트사이즈/행간간격, 폰트서체 */
+				background: #000 url('../a.png') no-repeat 0 0 fixed; /* 색상, 이미지경로, 반복여부, x좌표, y좌표 이미지고정*/
+				color: #000;                                          /* 폰트색상 */
+				text-decoration: none;                                /* 텍스트에 라인표시 효과 */
+				text-indent: -999px;                                  /* 들여쓰기 */
+				clear: both;                                          /* float해제 */
+			</textarea>
 		</div>
 	</section>
 

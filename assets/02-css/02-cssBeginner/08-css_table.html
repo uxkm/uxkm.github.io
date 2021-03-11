@@ -33,17 +33,14 @@
 			<code>top | bottom | inherit | initial | unset</code>
 		</p>
 		-->
-		<div class="mt_s">
-			<strong class="t_green weight-600">예시)</strong>
-			<div class="uk_gist_code_box indent mt_s" data-tit="table border">
-				<textarea readonly="readonly">
-					table,
-					table th,
-					table td {
-						border: width style color | inherit | initial | unset;
-					}
-				</textarea>
-			</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="table border">
+			<textarea readonly="readonly">
+				table,
+				table th,
+				table td {
+					border: width style color | inherit | initial | unset;
+				}
+			</textarea>
 		</div>
 		<!--
 		<p class="mt_ms indent">
@@ -51,7 +48,7 @@
 			위와 같이 두 줄로 표현되는 테두리를 한 줄로 설정하려면 border-collapse 속성을 사용해야 합니다.
 		</p>
 		-->
-		<p class="mt_ms indent">
+		<p class="mt_ms">
 			<code>table</code>, <code>th</code>, <code>td</code>에 <code>border</code>를 선언하면 각각 자신만의 테두리를 가지고 있기 때문에 <code>border</code>가 2줄로 표현됩니다.<br />
 			<code>border</code>가 한 줄로 보이게 설정하려면 <code>border-collapse</code> 속성을 사용해야 합니다.
 		</p>
@@ -70,21 +67,18 @@
 			<code>table, th, td { border: 2px solid orange; } table { border-collapse: collapse; }</code>
 		</div>
 		-->
-		<div class="line_code mt_s">
-			<strong class="t_green weight-600">예시)</strong>
-			<div class="uk_gist_code_box indent mt_s" data-tit="table border-collapse">
-				<textarea readonly="readonly">
-					table {
-						border-collapse: collapse;
-					}
-					table th,
-					table td {
-						border: 2px solid orange;
-					}
-				</textarea>
-			</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="table border-collapse">
+			<textarea readonly="readonly">
+				table {
+					border-collapse: collapse | separate;
+				}
+				table th,
+				table td {
+					border: 2px solid orange;
+				}
+			</textarea>
 		</div>
-		<div class="ol_lst indent mt_ms">
+		<div class="ol_lst mt_ms">
 			<ol>
 				<li><strong class="t_black">collapse</strong> : 인접한 셀은 경계를 공유합니다 (축소 된 테두리 테이블 렌더링 모델).</li>
 				<li><strong class="t_black">separate</strong> : 인접한 셀은 서로 다른 경계 (분리 된 경계 테이블 렌더링 모델)를 갖습니다.</li>
@@ -100,22 +94,19 @@
 			horizontal length(세로 간격) | vertical length(가로 간격)<br>
 			IE8+ 부터 지원합니다.
 		</p>
-		<div class="mt_s">
-			<strong class="t_green weight-600">예시)</strong>
-			<div class="uk_gist_code_box indent mt_s" data-tit="table border-spacing">
-				<textarea readonly="readonly">
-					table,
-					table th,
-					table td  {
-						border: 1px solid black;
-					}
-					table {
-						width: 100%;
-						border-collapse: seperate;
-						border-spacing: 20px 30px;
-					}
-				</textarea>
-			</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="table border-spacing">
+			<textarea readonly="readonly">
+				table,
+				table th,
+				table td  {
+					border: 1px solid black;
+				}
+				table {
+					width: 100%;
+					border-collapse: seperate;
+					border-spacing: 20px 30px;
+				}
+			</textarea>
 		</div>
 	</section>
 
@@ -126,17 +117,14 @@
 			테이블의 캡션(caption)을 설정합니다.<br>
 			IE8+ 부터 지원합니다.
 		</p>
-		<div class="mt_s">
-			<strong class="t_green weight-600">예시)</strong>
-			<div class="uk_gist_code_box indent mt_s" data-tit="table caption-side">
-				<textarea readonly="readonly">
-					table caption {
-						caption-side: top | bottom | inherit | initial | unset;
-					}
-				</textarea>
-			</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="table caption-side">
+			<textarea readonly="readonly">
+				table caption {
+					caption-side: top | bottom | inherit | initial | unset;
+				}
+			</textarea>
 		</div>
-		<div class="ol_lst indent mt_ms">
+		<div class="ol_lst mt_ms">
 			<ol>
 				<li><strong class="t_black">top</strong> : 테이블 위에 위치.</li>
 				<li><strong class="t_black">bottom</strong> : 테이블 아래에 위치.</li>
@@ -158,16 +146,13 @@
 			HTML 요소 내의 수직 방향 정렬을 설정합니다.<br>
 			<mark>인라인 블록</mark> 또는 <mark>인라인 테이블 셀 박스</mark>의 수직 방향을 설정합니다.
 		</p>
-		<div class="mt_s">
-			<strong class="t_green weight-600">예시)</strong>
-			<div class="uk_gist_code_box indent mt_s" data-tit="table vertical-align">
-				<textarea readonly="readonly">
-					table th,
-					table td {
-						vertical-align: top | middle | bottom | inherit | initial | unset;
-					}
-				</textarea>
-			</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="table vertical-align">
+			<textarea readonly="readonly">
+				table th,
+				table td {
+					vertical-align: top | middle | bottom | inherit | initial | unset;
+				}
+			</textarea>
 		</div>
 	</section>
 
@@ -179,18 +164,15 @@
 			이 속성은 <code>border-collapse</code>속성의 값이 <code>separate</code> 일 때만 효과가 있습니다.<br>
 			IE8+ 부터 지원합니다.
 		</p>
-		<div class="mt_s">
-			<strong class="t_green weight-600">예시)</strong>
-			<div class="uk_gist_code_box indent mt_s" data-tit="table empty-cells">
-				<textarea readonly="readonly">
-					table th,
-					table td {
-						empty-cells: show | hide | inherit | initial | unset;
-					}
-				</textarea>
-			</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="table empty-cells">
+			<textarea readonly="readonly">
+				table th,
+				table td {
+					empty-cells: show | hide | inherit | initial | unset;
+				}
+			</textarea>
 		</div>
-		<div class="ol_lst indent mt_ms">
+		<div class="ol_lst mt_ms">
 			<ol>
 				<li><strong class="t_black">show</strong> : 테두리와 배경은 일반 셀처럼 그려집니다.</li>
 				<li><strong class="t_black">hide</strong> : 테두리 나 배경이 그려지지 않습니다.</li>
@@ -204,17 +186,14 @@
 		<p class="mt_s">
 			테이블에 사용되는 너비를 설정합니다.
 		</p>
-		<div class="mt_s">
-			<strong class="t_green weight-600">예시)</strong>
-			<div class="uk_gist_code_box indent mt_s" data-tit="table-layout">
-				<textarea readonly="readonly">
-					table {
-						table-layout: auto | fixed | inherit | initial | unset;
-					}
-				</textarea>
-			</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="table-layout">
+			<textarea readonly="readonly">
+				table {
+					table-layout: auto | fixed | inherit | initial | unset;
+				}
+			</textarea>
 		</div>
-		<div class="ol_lst indent mt_ms">
+		<div class="ol_lst mt_ms">
 			<ol>
 				<li><strong class="t_black">auto</strong> : 기본값으로 대부분의 브라우저는 자동 테이블 레이아웃 알고리즘을 사용합니다. 표와 셀의 너비는 내용에 맞게 조정됩니다.</li>
 				<li><strong class="t_black">fixed</strong> : 테이블 및 열 너비는 셀의 너비 table와 col요소 또는 첫 번째 행의 너비로 설정됩니다. 후속 행의 셀은 열 너비에 영향을 미치지 않습니다.</li>

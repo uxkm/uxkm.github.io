@@ -92,7 +92,7 @@
 		<h2 class="ml_mn">counter-increment 속성</h2>
 		<p class="mt_s">
 			<code>counter-reset</code>으로 설정한 값을 증가 또는 감소시키는 역할을 합니다.<br>
-			<code>요소 {counter-increment: initial ｜ 카운터 이름/숫자 ｜ none}</code>
+			<code>요소:before {counter-increment: initial ｜ 카운터 이름/숫자 ｜ none}</code>
 		</p>
 
 		<div class="ol_lst indent mt_s">
@@ -173,7 +173,7 @@
 
 				<!-- style 예제 -->
 				<style>
-					.list { counter-reset: section;}
+					.list {counter-reset: section;}
 					.list li {list-style:none;}
 					.list li:before {
 						counter-increment: section;
