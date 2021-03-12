@@ -34,16 +34,16 @@
 				<code>flex item</code>의 너비에 대한 확대 인자(flex grow factor)를 지정하며, 기본값은 0, 적용 가능한 값은 양수 입니다.<br>
 				값에 음수를 사용하면 적용되지 않습니다.
 			</p>
-			<div class="line_code_box line_code_number mt_m">
-				<ul>
-					<li>.item {</li>
-					<li class="indent">flex-grow: &lt;number&gt;(양수); <i class="t_999">// default 0</i></li>
-					<li>}</li>
-					<li></li>
-					<li>/* &lt;number&gt; values */</li>
-					<li>flex-grow: 3;</li>
-					<li>flex-grow: 0.6;</li>
-				</ul>
+			<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [flex-grow]">
+				<textarea readonly="readonly">
+					.item {
+						flex-grow: <number>(양수); // default 0
+					}
+
+					/* <number> values */
+					flex-grow: 3;
+					flex-grow: 0.6;
+				</textarea>
 			</div>
 			<figure class="img_figure mt_m">
 				<figcaption class="mt_0">[<code class="bg_none t_blue">flex-grow</code>를 시각적으로 설명하는 다이어그램]</figcaption>
@@ -96,16 +96,15 @@
 				참고로 <code>flex-basis</code> 값이 설정되었다면 기존의 <code>width</code> 또는 <code>height</code> 속성 보다 우선 적용됩니다.
 			</p>
 			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#flex-shrink-property" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#flex-shrink-property</a></p>
-			<div class="line_code_box line_code_number mt_m">
-				<ul>
-					<li>.item {</li>
-					<li class="indent">flex-shrink: &lt;number&gt;(양의 정수값); <i class="t_999">// default 1</i></li>
-					<li>}</li>
-					<li></li>
-					<li>/* &lt;number&gt; values */</li>
-					<li>flex-shrink: 2;</li>
-					<li>flex-shrink: 0.6;</li>
-				</ul>
+			<div class="uk_gist_code_box mt_m" data-tit="Flex properties [flex-shrink]">
+				<textarea readonly="readonly">
+					.item {
+						flex-shrink: <number>(양의 정수값); // default 1
+					}
+					/* <number> values */
+					flex-shrink: 2;
+					flex-shrink: 0.6;
+				</textarea>
 			</div>
 
 			<figure class="img_figure mt_m">
@@ -171,6 +170,28 @@
 				<code>flex-basis</code> 속성값은 <code>content 키워드</code>를 사용하거나, <code>&lt;width&gt;</code>를 나타내는 단위를 사용합니다.
 			</p>
 			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#flex-shrink-property" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#flex-shrink-property</a></p>
+
+			<div class="uk_gist_code_box mt_m" data-tit="Flex properties [flex-basis]">
+				<textarea readonly="readonly">
+					.item {
+						flex-basis: <length> | auto; // default auto
+					}
+
+					/* <'width'> 지정 */
+					flex-basis: 10em;
+					flex-basis: 3px;
+					flex-basis: auto;
+
+					/* 원본 크기 키워드 */
+					flex-basis: fill;
+					flex-basis: max-content;
+					flex-basis: min-content;
+					flex-basis: fit-content;
+
+					/* 플렉스 아이템 내용 크기에 따라 조절 */
+					flex-basis: content;
+				</textarea>
+			</div>
 			<ol class="ol_lst indent mt_m">
 				<li class="line_code tit_h4">
 					<h4>&lt;width&gt;</h4>
@@ -190,27 +211,6 @@
 				</li>
 			</ol>
 
-			<div class="line_code_box line_code_number mt_m">
-				<ul>
-					<li>.item {</li>
-					<li class="indent">flex-basis: &lt;length&gt; | auto; <i class="t_999">// default auto</i></li>
-					<li>}</li>
-					<li></li>
-					<li>/* <'width'> 지정 */</li>
-					<li>flex-basis: 10em;</li>
-					<li>flex-basis: 3px;</li>
-					<li>flex-basis: auto;</li>
-					<li></li>
-					<li>/* 원본 크기 키워드 */</li>
-					<li>flex-basis: fill;</li>
-					<li>flex-basis: max-content;</li>
-					<li>flex-basis: min-content;</li>
-					<li>flex-basis: fit-content;</li>
-					<li></li>
-					<li>/* 플렉스 아이템 내용 크기에 따라 조절 */</li>
-					<li>flex-basis: content;</li>
-				</ul>
-			</div>
 			<figure class="img_figure mt_m">
 				<figcaption class="mt_0">[<code class="bg_none t_blue">flex-basis</code>를 적용한 <code class="bg_none t_444">flex item</code>의 너비]</figcaption>
 				<img src="/ukncs/images/css/flexbox/uxkm_flexbox-flex-basis.svg" alt="flex-basis를 적용한 flex item의 너비" class=" mt_m"><br>
@@ -261,6 +261,19 @@
 				다시 정리하면 <code>flex: 1;</code> 혹은 <code>flex: 1 1;</code>은 <code>flex: 1 1 0;</code>과 같습니다.<br>
 				이 부분을 기억하지 않으면 엉뚱한 결과가 나올 수 있으니 주의가 필요합니다.
 			</p>
+			<div class="uk_gist_code_box mt_m" data-tit="Flex properties [flex]">
+				<textarea readonly="readonly">
+					.item {
+						flex: none | auto | [ <flex-grow> <flex-shrink>? || <flex-basis> ];
+					}
+
+					.item {
+						flex: 1 1 20px; // 증가너비 감소너비 기본너비
+						flex: 1 1; // 증가너비 감소너비
+						flex: 1 20px; // 증가너비 기본너비 (단위를 사용하면 flex-basis가 적용됩니다.)
+					}
+				</textarea>
+			</div>
 			<div class="ol_lst indent mt_m">
 				<ol>
 					<li class="tit_h4 line_code">
@@ -298,21 +311,8 @@
 					</li>
 				</ol>
 			</div>
-			<div class="line_code_box line_code_number mt_m">
-				<ul>
-					<li>.item {</li>
-					<li class="indent">flex: none | auto | [ &lt;flex-grow&gt; &lt;flex-shrink&gt;? || &lt;flex-basis&gt; ];</li>
-					<li>}</li>
-					<li></li>
-					<li>.item {</li>
-					<li class="indent">flex: 1 1 20px;  <i class="t_999">// 증가너비 감소너비 기본너비</i></li>
-					<li class="indent">flex: 1 1;  <i class="t_999">// 증가너비 감소너비</i></li>
-					<li class="indent">flex: 1 20px;  <i class="t_999">// 증가너비 기본너비 (단위를 사용하면 flex-basis가 적용됩니다.)</i></li>
-					<li>}</li>
-				</ul>
-			</div>
 
-			<p class="mt_ms">
+			<p class="mt_ml">
 				flex 속성은 한 개에서 세 개의 값을 사용해 지정할 수 있습니다.<br>
 				한 개 또는 두 개의 단위 없는 숫자 값을 사용할 때, <code>&lt;flex-basis&gt;</code>의 값은 <code>auto</code>가 아니라 0이 됩니다.
 			</p>
@@ -320,6 +320,7 @@
 				<ol>
 					<li class="tit_h4 line_code">
 						<h4>값이 한 개일 때</h4>
+						<!--
 						<p><code>&lt;number&gt;</code>를 지정하면 <code>&lt;flex-grow&gt;</code>입니다.</p>
 						<div class="line_code_box line_code_number mt_2">
 							<ul>
@@ -334,9 +335,24 @@
 							</ul>
 						</div>
 						<p><code>none, auto, initial</code> 중 하나를 지정할 수 있습니다.</p>
+						-->
+						<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [flex]">
+							<textarea readonly="readonly">
+								/* <number>를 지정하면 <flex-grow>입니다. */
+								flex: 2;
+
+								/* <length> 또는 <percentage>를 지정하면 <flex-basis>입니다. */
+								flex: 10em;
+								flex: 30%;
+
+								/* none, auto, initial 중 하나를 지정할 수 있습니다. */
+								flex: none | auto | initial;
+							</textarea>
+						</div>
 					</li>
 					<li class="tit_h4 line_code mt_m">
 						<h4>값이 두 개일때, 첫 번째 값은 &lt;number&gt;여야 하며 &lt;flex-grow&gt;가 됩니다.</h4>
+						<!--
 						<p><code>&lt;number&gt;</code>를 지정하면 <code>&lt;flex-shrink&gt;</code>입니다.</p>
 						<div class="line_code_box line_code_number mt_2">
 							<ul>
@@ -349,9 +365,20 @@
 								<li>flex: 2 2;</li>
 							</ul>
 						</div>
+						-->
+						<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [flex]">
+							<textarea readonly="readonly">
+								/* <number>를 지정하면 <flex-shrink>입니다. */
+								flex: 1 30px;
+
+								/* <length>, <percentage>, 또는 auto를 지정하면 <flex-basis>입니다. */
+								flex: 2 2;
+							</textarea>
+						</div>
 					</li>
 					<li class="tit_h4 line_code mt_m">
 						<h4>값이 세 개일 때</h4>
+						<!--
 						<p><code>&lt;flex-grow&gt;</code>에 <code>&lt;number&gt;</code>를 선언합니다.</p>
 						<p><code>&lt;flex-shrink&gt;</code>에 <code>&lt;number&gt;</code>를 선언합니다.</p>
 						<p><code>&lt;flex-basis&gt;</code>에 <code>&lt;length&gt;</code>, <code>&lt;percentage&gt;</code>, 또는 <code>auto</code>를 선언합니다.</p>
@@ -359,6 +386,17 @@
 							<ul>
 								<li>flex: 2 2 10%;</li>
 							</ul>
+						</div>
+						-->
+						<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [flex]">
+							<textarea readonly="readonly">
+								/*
+								flex-grow에 number를 선언합니다.
+								flex-shrink에 number를 선언합니다.
+								flex-basis에 length, percentage, 또는 auto를 선언합니다.
+								*/
+								flex: 2 2 10%;
+							</textarea>
 						</div>
 					</li>
 				</ol>
@@ -395,12 +433,12 @@
 				수직 방향(cross axis)으로 정렬
 			</p>
 			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#propdef-align-self" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#propdef-align-self</a></p>
-			<div class="line_code_box line_code_number mt_m">
-				<ul>
-					<li>.item {</li>
-					<li class="indent">align-self: auto | flex-start | flex-end | center | baseline | stretch;</li>
-					<li>}</li>
-				</ul>
+			<div class="uk_gist_code_box mt_m" data-tit="Flex properties [align-self]">
+				<textarea readonly="readonly">
+					.item {
+						align-self: auto | flex-start | flex-end | center | baseline | stretch;
+					}
+				</textarea>
 			</div>
 
 			<figure class="img_figure mt_m">
@@ -466,12 +504,12 @@
 				이는 낮은 시각으로 스크린 리더 등 보조 기술을 사용해 이동하는 사용자의 경험에 부정적인 영향을 줄 수 있습니다.
 			</p>
 			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#order-property" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#order-property</a></p>
-			<div class="line_code_box line_code_number mt_m">
-				<ul>
-					<li>.item {</li>
-					<li class="indent">order: &lt;integer&gt;(정수값); <i class="t_999">// default is 0</i></li>
-					<li>}</li>
-				</ul>
+			<div class="uk_gist_code_box mt_m" data-tit="Flex properties [order]">
+				<textarea readonly="readonly">
+					.item {
+						order: <integer>(정수값); // default is 0
+					}
+				</textarea>
 			</div>
 			<figure class="img_figure mt_m">
 				<figcaption class="mt_0">
@@ -511,17 +549,16 @@
 				아이템에 설정된 <code>flex-basis</code> 값은 너비(width)를 말하게 됩니다.<br>
 				만약 <code>column</code> 이 설정되면 basis 는 높이(height)를 말하게 됩니다.
 			</p>
-
-			<div class="line_code_box line_code_number mt_ml">
-				<ul>
-					<li>.flex-container {</li>
-					<li class="indent">display: flex;</li>
-					<li class="indent">flex-flow: row wrap;</li>
-					<li>}</li>
-					<li>.flex-item {</li>
-					<li class="indent">flex: 1 0 50px;</li>
-					<li>}</li>
-				</ul>
+			<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [grow, shrink : calculation method]">
+				<textarea readonly="readonly">
+					.flex-container {
+						display: flex;
+						flex-flow: row wrap;
+					}
+					.flex-item {
+						flex: 1 0 50px;
+					}
+				</textarea>
 			</div>
 			<p class="mt_ms">
 				플렉스 아이템 요소에 설정된 위의 코드를 보면 다음과 같습니다.<br>
@@ -548,12 +585,12 @@
 				다른 예시를 들어보도록 하겠습니다.<br>
 				아이템 중 3번째 자식 요소인 아이템(3)에 설정된 코드는 아래와 같습니다.
 			</p>
-			<div class="line_code_box line_code_number mt_ms">
-				<ul>
-					<li>.flex-item:nth-child(3) {</li>
-					<li class="indent">flex: 2 0 20px;</li>
-					<li>}</li>
-				</ul>
+			<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [grow, shrink : calculation method]">
+				<textarea readonly="readonly">
+					.flex-item:nth-child(3) {
+						flex: 2 0 20px;
+					}
+				</textarea>
 			</div>
 			<p class="mt_s">
 				여기서 포인트는 grow 값이 1이 아닌, 2로 설정된 부분입니다.<br>

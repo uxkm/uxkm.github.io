@@ -1837,6 +1837,9 @@ mark {
 .bg_none {
   background-color: transparent !important;
 }
+.weight-bold {
+  font-weight: bold !important;
+}
 .weight-800 {
   font-weight: 500 !important;
 }

@@ -146,16 +146,16 @@
 		</figure>
 
 		<p class="mt_xl"><code>flexbox</code>를 사용하려면 먼저 부모 컨테이너에 <code>display: flex;</code>속성을 CSS에 추가하여 부모 컨테이너를 <code>flex</code> 컨테이너로 변환해야 합니다.</p>
-		<div class="line_code_box line_code_number indent mt_ml">
-			<ul>
-				<li>.box {</li>
-				<li class="indent">display: -webkit-box;	<i class="t_888">// OLD - iOS 6-, Safari 3.1-6</i></li>
-				<li class="indent">display: -moz-box;		<i class="t_888">// OLD - Firefox 19- (buggy but mostly works)</i></li>
-				<li class="indent">display: -ms-flexbox;	<i class="t_888">// TWEENER - IE 10</i></li>
-				<li class="indent">display: -webkit-flex;	<i class="t_888">// NEW - Chrome</i></li>
-				<li class="indent">display: flex;			<i class="t_888">// NEW, Spec - Opera 12.1, Firefox 20+</i></li>
-				<li>}</li>
-			</ul>
+		<div class="uk_gist_code_box indent mt_m" data-tit="flexbox">
+			<textarea readonly="readonly">
+				div {
+					display: -webkit-box; // OLD - iOS 6-, Safari 3.1-6
+					display: -moz-box; // OLD - Firefox 19- (buggy but mostly works)
+					display: -ms-flexbox; // TWEENER - IE 10
+					display: -webkit-flex; // NEW - Chrome
+					display: flex; // NEW, Spec - Opera 12.1, Firefox 20+
+				}
+			</textarea>
 		</div>
 		<!--<figure class="img_figure indent mt_m">
 			<figcaption class="mt_0">[출처 : Scott Domes]</figcaption>
@@ -166,12 +166,12 @@
 			부모 요소가 <code>inline</code> 요소인 경우 <code>inline-flex</code>을 지정합니다.<br>
 			<code>flex</code> 또는 <code>inline-flex</code>는 부모 요소에 반드시 지정해야하는 유일한 속성이며 자식 요소는 자동적으로 <code>flex item</code>이 됩니다.
 		</p>
-		<div class="line_code_box line_code_number indent mt_ml">
-			<ul>
-				<li>.box {</li>
-				<li class="indent">display: inline-flex;</li>
-				<li>}</li>
-			</ul>
+		<div class="uk_gist_code_box indent mt_m" data-tit="flexbox">
+			<textarea readonly="readonly">
+				div {
+					display: inline-flex;
+				}
+			</textarea>
 		</div>
 		<aside class="browser_support indent mt_l" data-tit="inline-flex">
 			<ul>

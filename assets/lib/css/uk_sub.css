@@ -1837,6 +1837,9 @@ mark {
 .bg_none {
   background-color: transparent !important;
 }
+.weight-bold {
+  font-weight: bold !important;
+}
 .weight-800 {
   font-weight: 500 !important;
 }
@@ -2310,6 +2313,38 @@ mark {
   background: -moz-linear-gradient(left, #1e73ff, green);
   background: -o-linear-gradient(left, #1e73ff, green);
   background: linear-gradient(left, #1e73ff, green);
+}
+.scale_hover {
+  position: relative;
+  margin: 8px 0 5px;
+}
+.scale_hover:after {
+  position: absolute;
+  left: 160px;
+  top: 0;
+  font-size: 14px;
+  color: #1e73ff;
+  content: "◀ 마우스를 올려보세요.";
+  opacity: .8;
+}
+.scale_hover i {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 150px;
+  height: 100px;
+}
+.scale_hover img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: auto;
+  transition: all .4s;
+}
+.scale_hover:hover img {
+  transform: translate(-50%, -50%) scale(1.2, 1.2);
 }
 .flex_direction_compare {
   *zoom: 1;

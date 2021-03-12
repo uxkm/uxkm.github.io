@@ -252,6 +252,28 @@
 	background: linear-gradient(left, #1e73ff, green);
 }
 
+.scale_hover {
+	@width:150px;
+	position:relative;
+	margin:8px 0 5px;
+	&:after {
+		position:absolute; left:@width + 10px; top:0;
+		font-size:14px; color:@blue;
+		content:"◀ 마우스를 올려보세요.";
+		opacity:.8;
+	}
+	i {
+		display:block; position:relative; overflow:hidden;
+		width:@width; height:100px;
+	}
+	img {
+		position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+		width:130%; height:auto;
+		transition:all .4s;
+	}
+	&:hover img {transform:translate(-50%, -50%) scale(1.2, 1.2);}
+}
+
 
 .flex_direction_compare {
 	.clear;

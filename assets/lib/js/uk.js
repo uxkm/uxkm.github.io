@@ -1600,6 +1600,23 @@ function uk_gist_skin_code(){
         }
       }
 
+      //animation 축약형 선언 커스텀
+      if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'animation-abbreviated-declaration' ){
+        $(e).find('.hljs-attribute').each(function(j, k){
+          const txt_clone = $(k).clone();
+          let ex_text;
+          ex_text = $(e).parents('.'+uk_gist_code_box).attr('data-ex-text'+(j+1));
+
+          const each_split = ex_text.split(':')[1].replace(/\t/gi, '').replace(/\n/gi, '');
+          ex_text = ':' + each_split;
+
+          $(k).parent().text('')
+          .prepend('<span>'+ code_tab_size +'</span>')
+          .append(txt_clone).append(ex_text);
+
+        });
+      }
+
       //@media part-1 style 오류 대처(style 태그 제거)
       if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'style_tag_remove' ){
         //$('[data-ex="style_tag_remove"]').each(function(){});

@@ -2768,7 +2768,7 @@ body {
   margin-top: 10px;
 }
 .transition_wrap .attr_play .c_sub li {
-  margin-top: 2px;
+  padding-top: 2px;
   color: #666;
 }
 .transition_wrap .attr_play .c_sub li i {
@@ -2781,6 +2781,7 @@ body {
   height: 8px;
   top: 50%;
   transform: translate(0, -50%);
+  margin-top: 1px;
   background: #ff3b32;
   border-radius: 100%;
 }
@@ -2788,16 +2789,30 @@ body {
 .transition_wrap .attr_play .c_sub.replay li:not(.not_play):after {
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 0;
   z-index: 1;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 2px);
   background: rgba(0, 0, 0, 0.05);
+  border: 0;
   content: "";
 }
 .transition_wrap .attr_play .c_sub.play span,
 .transition_wrap .attr_play .c_sub.replay span {
   opacity: .4;
+}
+.transition_wrap .attr_play .c_sub.play.enter_effect:hover li:before,
+.transition_wrap .attr_play .c_sub.replay.enter_effect:hover li:before {
+  opacity: .15;
+}
+.transition_wrap .attr_play .c_sub.play.enter_effect:hover li:hover:before,
+.transition_wrap .attr_play .c_sub.replay.enter_effect:hover li:hover:before {
+  opacity: 1;
+}
+.transition_wrap .attr_play .c_sub.play.enter_effect:hover li:hover:after,
+.transition_wrap .attr_play .c_sub.replay.enter_effect:hover li:hover:after {
+  background-color: transparent;
+  border: 1px solid #f2f2f2;
 }
 .transition_wrap .attr_play .tab1 {
   margin-top: 10px;
