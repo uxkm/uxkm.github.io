@@ -29,12 +29,12 @@
 					<li><code class="weight-500 t_blue bg_none">grid</code> : block 특성의 grid container를 정의</li>
 					<li><code class="weight-500 t_blue bg_none">inline-grid</code> : inline 특성의 grid container를 정의</li>
 				</ol>
-				<div class="line_code_box line_code_number mt_m">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid container [display]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid | inline-grid;
+						}
+					</textarea>
 				</div>
 				<figure class="img_figure mt_m">
 					<figcaption class="mt_0 sound_only">display: grid & inline-grid</figcaption>
@@ -74,40 +74,42 @@
 					<li><code class="weight-500 t_blue bg_none">&lt;track-size&gt;</code> : 그리드에서 사용 가능한 공간의 길이 (px, rem, em, %, fr 등)</li>
 					<li><code class="weight-500 t_blue bg_none">&lt;line-name&gt;</code> : 사용자가 설정한 임의의 선 이름</li>
 				</ol>
-				<div class="line_code_box line_code_number mt_m">
-					<ul>
-						<li>/* keyword value */</li>
-						<li>grid-template-columns: none;</li>
-						<li>grid-template-rows: none;</li>
-						<li></li>
-						<li>/* &lt;track-list&gt; values */</li>
-						<li>grid-template-columns: 100px 1fr;</li>
-						<li>grid-template-columns: [linename] 100px;</li>
-						<li>grid-template-columns: [linename1] 100px [linename2 linename3];</li>
-						<li>grid-template-columns: minmax(100px, 1fr);</li>
-						<li>grid-template-columns: fit-content(40%);</li>
-						<li>grid-template-columns: repeat(3, 200px);</li>
-						<li>grid-template-columns: subgrid;</li>
-						<li></li>
-						<li>grid-template-rows: 100px 1fr;</li>
-						<li>grid-template-rows: [linename] 100px;</li>
-						<li>grid-template-rows: [linename1] 100px [linename2 linename3];</li>
-						<li>grid-template-rows: minmax(100px, 1fr);</li>
-						<li>grid-template-rows: fit-content(40%);</li>
-						<li>grid-template-rows: repeat(3, 200px);</li>
-						<li>grid-template-rows: subgrid;</li>
-						<li></li>
-						<li>/* &lt;auto-track-list&gt; values */</li>
-						<li>grid-template-columns: 200px repeat(auto-fill, 100px) 300px;</li>
-						<li>grid-template-columns: minmax(100px, max-content) repeat(auto-fill, 200px) 20%;</li>
-						<li>grid-template-columns: [linename1] 100px [linename2] repeat(auto-fit, [linename3 linename4] 300px) 100px;</li>
-						<li>grid-template-columns: [linename1 linename2] 100px repeat(auto-fit, [linename1] 300px) [linename3];</li>
-						<li></li>
-						<li>grid-template-rows: 200px repeat(auto-fill, 100px) 300px;</li>
-						<li>grid-template-rows: minmax(100px, max-content) repeat(auto-fill, 200px) 20%;</li>
-						<li>grid-template-rows: [linename1] 100px [linename2] repeat(auto-fit, [linename3 linename4] 300px) 100px;</li>
-						<li>grid-template-rows: [linename1 linename2] 100px repeat(auto-fit, [linename1] 300px) [linename3];</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid template [columns / rows]">
+					<textarea readonly="readonly">
+						.container {
+							/* keyword value */
+							grid-template-columns: none;
+							grid-template-rows: none;
+
+							/* <track-list> values */
+							grid-template-columns: 100px 1fr;
+							grid-template-columns: [linename] 100px;
+							grid-template-columns: [linename1] 100px [linename2 linename3];
+							grid-template-columns: minmax(100px, 1fr);
+							grid-template-columns: fit-content(40%);
+							grid-template-columns: repeat(3, 200px);
+							grid-template-columns: subgrid;
+
+							grid-template-rows: 100px 1fr;
+							grid-template-rows: [linename] 100px;
+							grid-template-rows: [linename1] 100px [linename2 linename3];
+							grid-template-rows: minmax(100px, 1fr);
+							grid-template-rows: fit-content(40%);
+							grid-template-rows: repeat(3, 200px);
+							grid-template-rows: subgrid;
+
+							/* <auto-track-list> values */
+							grid-template-columns: 200px repeat(auto-fill, 100px) 300px;
+							grid-template-columns: minmax(100px, max-content) repeat(auto-fill, 200px) 20%;
+							grid-template-columns: [linename1] 100px [linename2] repeat(auto-fit, [linename3 linename4] 300px) 100px;
+							grid-template-columns: [linename1 linename2] 100px repeat(auto-fit, [linename1] 300px) [linename3];
+
+							grid-template-rows: 200px repeat(auto-fill, 100px) 300px;
+							grid-template-rows: minmax(100px, max-content) repeat(auto-fill, 200px) 20%;
+							grid-template-rows: [linename1] 100px [linename2] repeat(auto-fit, [linename3 linename4] 300px) 100px;
+							grid-template-rows: [linename1 linename2] 100px repeat(auto-fit, [linename1] 300px) [linename3];
+						}
+					</textarea>
 				</div>
 				<figure class="img_figure mt_m">
 					<figcaption class="mt_0">트랙 값 사이에 빈 공간을 두면 그리드 선에 <b class="t_blue">양수</b>와 <b class="t_green">음수</b>가 <b>자동으로 할당</b></figcaption>
@@ -120,176 +122,194 @@
 			<!-- grid-template-columns -->
 			<section class="mt_l indent">
 				<h4 class="ml_mn t_blue">grid-template-columns</h4>
-				<div class="line_code_box line_code_number mt_m">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: 1열크기 2열크기 ...;</li>
-						<li class="indent">grid-template-columns: [선이름] 1열크기 [선이름] 2열크기 [선이름] ...;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_m" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: 1열크기 2열크기 ...;
+							grid-template-columns: [선이름] 1열크기 [선이름] 2열크기 [선이름] ...;
+						}
+					</textarea>
 				</div>
 				<figure class="img_figure mt_m">
 					<figcaption class="mt_0 sound_only">grid-template-columns: [first] 300px [main] 200px [side] 100px [last];</figcaption>
 					<img src="/ukncs/images/css/grid/uxkm_grid-template-columns.svg" alt="grid-template-columns: [first] 300px [main] 200px [side] 100px [last];">
 				</figure>
 
-				<h5 class="mt_m">사용자가 임의로 설정한 선 이름([이름])을 사용할 수도 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];</li>
-						<li class="indent">grid-template-rows: [row-1-start] 25% [row-1-end] 100px [third-line] auto [last-line];</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">사용자가 임의로 설정한 선 이름([이름])을 사용할 수도 있습니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+							grid-template-rows: [row-1-start] 25% [row-1-end] 100px [third-line] auto [last-line];
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">각 열의 크기를 정의합니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: 100px 200px;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">각 열의 크기를 정의합니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: 100px 200px;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">동시에 각 라인의 이름도 정의할 수 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: [first] 100px [second] 200px [third];</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">동시에 각 라인의 이름도 정의할 수 있습니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: [first] 100px [second] 200px [third];
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">라인에 중복된 이름을 지정할 수 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: [col1-start] 100px [col1-end col2-start] 200px [col2-end];</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">라인에 중복된 이름을 지정할 수 있습니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: [col1-start] 100px [col1-end col2-start] 200px [col2-end];
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">선 이름을 1개 이상 설정하는 것도 가능합니다. 방법은 [이름-1 이름-2]와 같이 [] 내부에 공백으로 구분된 이름을 추가하면 됩니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: [columns-1] 100px [columns-1-end columns-2-start] 30% [columns-2-end];</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">선 이름을 1개 이상 설정하는 것도 가능합니다. 방법은 [이름-1 이름-2]와 같이 [] 내부에 공백으로 구분된 이름을 추가하면 됩니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: [columns-1] 100px [columns-1-end columns-2-start] 30% [columns-2-end];
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">설정이 반복되는 경우, <code>repeat()</code> 함수를 사용하여 손쉽게 설정할 수 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: repeat(2, 15% 30px) auto;</li>
-						<li class="indent">/* 결과: 15% 30px 15% 30px auto */</li>
-						<li class="indent">grid-template-rows: repeat(3, 80px [row-start]) 5%;</li>
-						<li class="indent">/* 결과: 80px [row-start] 80px [row-start] 80px [row-start] 5% */</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">설정이 반복되는 경우, <code>repeat()</code> 함수를 사용하여 손쉽게 설정할 수 있습니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: repeat(2, 15% 30px) auto;
+							/* 결과: 15% 30px 15% 30px auto */
+							grid-template-rows: repeat(3, 80px [row-start]) 5%;
+							/* 결과: 80px [row-start] 80px [row-start] 80px [row-start] 5% */
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m"><code>fr</code> 단위를 사용하여 <code>&lt;track-size&gt;</code>를 그리드의 남은 공간 일부를 설정할 수 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: repeat(3, 1fr); <i class="t_999">// 1fr 1fr 1fr</i></li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml"><code>fr</code> 단위를 사용하여 <code>&lt;track-size&gt;</code>를 그리드의 남은 공간 일부를 설정할 수 있습니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: repeat(3, 1fr); /* 1fr 1fr 1fr */
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m"><code>fr</code> 단위는 고정 값(px, rem 등) 단위가 먼저 계산된 후, 남은 공간을 사용하여 계산 처리됩니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: 1fr 100px 2fr;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml"><code>fr</code> 단위는 고정 값(px, rem 등) 단위가 먼저 계산된 후, 남은 공간을 사용하여 계산 처리됩니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: 1fr 100px 2fr;
+						}
+					</textarea>
 				</div>
 
 				<hr class="dashed_line mt_l">
 
 				<h5 class="mt_l">만약 1200px 너비의 ‘12컬럼 그리드 템플릿’을 정의한다면 다음과 작성할 수 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">width: 1200px;</li>
-						<li class="indent">grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+
+							width: 1200px;
+							grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">
+				<h5 class="mt_ml">
 					위 예제에서는 12개의 열(컬럼) 크기를 각각 하나씩 지정하여 관리의 어려움이 있습니다.<br>
 					<code>repeat()</code> 함수를 사용하면 위 예제를 다음과 같이 간소화 할 수 있습니다.
 				</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">width: 1200px;</li>
-						<li class="indent">grid-template-columns: repeat(12, 100px);</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+
+							width: 1200px;
+							grid-template-columns: repeat(12, 100px);
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">
+				<h5 class="mt_ml">
 					컬럼을 크기를 <code>fr</code>(fraction, 공간 비율) 단위를 사용해 다음과 같이 비율로 지정할 수도 있습니다.<br>
 					각 컬럼은 비율에 맞게 출력되기 때문에 컨테이너의 너비가 가변해도 열 크기를 수정할 필요가 없습니다.
 				</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">width: 80%;</li>
-						<li class="indent">grid-template-columns: repeat(12, 1fr);</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+
+							width: 80%;
+							grid-template-columns: repeat(12, 1fr);
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m"><code>repeat()</code> 함수는 2번째 인수를 반복하기 때문에 다음과 같이 활용할 수 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: repeat(4, 100px 200px 50px);</li>
-						<li class="indent">/* grid-template-columns: 100px 200px 50px 100px 200px 50px 100px 200px 50px 100px 200px 50px; */</li>
-						<li>}</li>
-						<li></li>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: repeat(4, 1fr 2fr 3fr);</li>
-						<li class="indent">/* grid-template-columns: 1fr 2fr 3fr 1fr 2fr 3fr 1fr 2fr 3fr 1fr 2fr 3fr; */</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml"><code>repeat()</code> 함수는 2번째 인수를 반복하기 때문에 다음과 같이 활용할 수 있습니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: repeat(4, 100px 200px 50px);
+							/* grid-template-columns: 100px 200px 50px 100px 200px 50px 100px 200px 50px 100px 200px 50px; */
+						}
+
+						.container {
+							display: grid;
+							grid-template-columns: repeat(4, 1fr 2fr 3fr);
+							/* grid-template-columns: 1fr 2fr 3fr 1fr 2fr 3fr 1fr 2fr 3fr 1fr 2fr 3fr; */
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">트랙 값 사이에 빈 공간을두면 그리드 선에 양수와 음수가 자동으로 할당됩니다. (위 '명시적으로 줄 이름을 지정' 이미지 참조)</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: 40px 50px auto 50px 40px;</li>
-						<li class="indent">grid-template-rows: 25% 100px auto;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">트랙 값 사이에 빈 공간을두면 그리드 선에 양수와 음수가 자동으로 할당됩니다. (위 '명시적으로 줄 이름을 지정' 이미지 참조)</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: 25% 100px auto;
+							grid-template-columns: 40px 50px auto 50px 40px;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">라인은 하나 이상의 이름을 가질 수 있습니다. 예를 들어, 두 번째 줄의 이름은 row1-end와 row2-start입니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: [row1-start] 25% [row1-end row2-start] 25% [row2-end];</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">라인은 하나 이상의 이름을 가질 수 있습니다. 예를 들어, 두 번째 줄의 이름은 row1-end와 row2-start입니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: [row1-start] 25% [row1-end row2-start] 25% [row2-end];
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">여러 줄이 같은 이름을 공유하는 경우 해당 줄 이름과 개수로 참조 할 수 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: col-start 2;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">여러 줄이 같은 이름을 공유하는 경우 해당 줄 이름과 개수로 참조 할 수 있습니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [columns]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: col-start 2;
+						}
+					</textarea>
 				</div>
 			</section>
 
@@ -300,60 +320,65 @@
 					<figcaption class="mt_0 sound_only">grid-template-rows</figcaption>
 					<img src="/ukncs/images/css/grid/uxkm_grid-template-rows.svg" alt="grid-template-rows">
 				</figure>
-				<div class="line_code_box line_code_number mt_m">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-rows: 행크기 행크기 ...;</li>
-						<li class="indent">grid-template-rows: [선이름] 1행크기 [선이름] 1행크기 [선이름] ...;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_m" data-tit="grid template [row]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: 행크기 행크기 ...;
+							grid-template-rows: [선이름] 1행크기 [선이름] 1행크기 [선이름] ...;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">각 행의 크기를 정의합니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-rows: 100px 200px;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">각 행의 크기를 정의합니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [row]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: 100px 200px;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">동시에 각 라인의 이름도 정의할 수 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-rows: [first] 100px [second] 200px [third];</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">동시에 각 라인의 이름도 정의할 수 있습니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [row]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: [first] 100px [second] 200px [third];
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">라인에 중복된 이름을 지정할 수 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-rows: [row1-start] 100px [row1-end row2-start] 200px [row2-end];</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">라인에 중복된 이름을 지정할 수 있습니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [row]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: [row1-start] 100px [row1-end row2-start] 200px [row2-end];
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">
+				<h5 class="mt_ml">
 					각 라인은 행(row, track)과 열(column, track)의 개수대로 숫자(양수/음수) 라인 이름이 자동으로 지정되어 있어서,
 					꼭 필요한 경우가 아니면 라인 이름을 정의할 필요가 없습니다.
 				</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-rows: 100px 200px;</li>
-						<li class="indent">/* grid-template-rows: [1 -3] 100px [2 -2] 200px [3 -1]; */</li>
-						<li>}</li>
-						<li>.container {</li>
-						<li class="indent">width: 400px;</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-rows: repeat(3, 100px);</li>
-						<li class="indent">grid-template-columns: repeat(3, 1fr);</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [row]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: 100px 200px;
+							/* grid-template-rows: [1 -3] 100px [2 -2] 200px [3 -1]; */
+						}
+
+						.container {
+							width: 400px;
+							display: grid;
+							grid-template-rows: repeat(3, 100px);
+							grid-template-columns: repeat(3, 1fr);
+						}
+					</textarea>
 				</div>
 			</section>
 
@@ -381,12 +406,13 @@
 			<section class="mt_ml indent">
 				<h4 class="ml_mn t_blue">grid-template-areas</h4>
 				<p class="mt_s">영역(area) 이름을 참조해 템플릿 생성합니다.</p>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-areas: &lt;grid-area-name&gt; | . | none;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid template [areas]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-areas: <grid-area-name> | . | none;
+						}
+					</textarea>
 				</div>
 				<ol class="ol_lst mt_ms indent">
 					<li><code class="weight-500 t_blue bg_none">&lt;grid-area-name&gt;</code> : 사용자가 <code>grid-area</code> 속성 값으로 설정한 임의의 그리드 영역 이름</li>
@@ -394,33 +420,33 @@
 					<li><code class="weight-500 t_blue bg_none">none</code> : 그리드 영역으로 정의되지 않은 셀</li>
 				</ol>
 
-				<h5 class="mt_m">다음은 3행 4열 그리드 템플릿 영역 설정 예제입니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>/* 그리드 영역 이름 설정 */</li>
-						<li>.item-a { grid-area: header; }</li>
-						<li>.item-b { grid-area: main; }</li>
-						<li>.item-c { grid-area: sidebar; }</li>
-						<li>.item-d { grid-area: footer; }</li>
-						<li></li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: 100px 100px 100px 100px;</li>
-						<li class="indent">grid-template-rows: auto;</li>
-						<li></li>
-						<li>/* 그리드 템플릿 영역 설정. 각 행은 동일한 개수의 열 설정이 요구됩니다. */</li>
-						<li class="indent">grid-template-areas:</li>
-						<li class="indent_max">"header header header header"  <i class="t_999">// 1행: 4열 모두 header</i></li>
-						<li class="indent_max">"main main . sidebar"          <i class="t_999 indent_max_max">// 2행: 2열 main 1열, 공백 1열, sidebar</i></li>
-						<li class="indent_max">"footer footer footer footer"; <i class="t_999">// 3행: 4열 모두 header</i></li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">다음은 3행 4열 그리드 템플릿 영역 설정 예제입니다.</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [areas]">
+					<textarea readonly="readonly">
+						/* 그리드 영역 이름 설정 */
+						.item-a { grid-area: header; }
+						.item-b { grid-area: main; }
+						.item-c { grid-area: sidebar; }
+						.item-d { grid-area: footer; }
+
+						.container {
+							display: grid;
+							grid-template-columns: 100px 100px 100px 100px;
+							grid-template-rows: auto;
+
+							/* 그리드 템플릿 영역 설정. 각 행은 동일한 개수의 열 설정이 요구됩니다. */
+							grid-template-areas:
+								"header header header header"  // 1행: 4열 모두 header
+								"main main . sidebar"          // 2행: 2열 main 1열, 공백 1열, sidebar
+								"footer footer footer footer"; // 3행: 4열 모두 header
+						}
+					</textarea>
 				</div>
 				<figure class="img_figure indent mt_m">
 					<img src="/ukncs/images/css/grid/uxkm_grid-template-areas.svg" alt="3행 4열 그리드 템플릿 영역 설정 예제">
 				</figure>
 
-				<h5 class="mt_m">명시적으로 그리드(explicit grids)를 정의할 때, 그리드 컨테이너에 3개의 속성을 사용해 설정할 수 있습니다.</h5>
+				<h5 class="mt_ml">명시적으로 그리드(explicit grids)를 정의할 때, 그리드 컨테이너에 3개의 속성을 사용해 설정할 수 있습니다.</h5>
 				<ol class="ol_lst mt_s indent">
 					<li><code>grid-template-rows</code></li>
 					<li><code>grid-template-columns</code></li>
@@ -458,80 +484,85 @@
 					<li>라인이름(옵션) 영역이름(필수) 트랙 크기(옵션) 라인이름(옵션)</li>
 				</ol>
 
-				<div class="line_code_box line_code_number mt_ml">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template: none | grid-template-rows | grid-template-columns | grid-template-areas;</li>
-						<li>}</li>
-						<li></li>
-						<li>/* keyword value */</li>
-						<li>grid-template: none;</li>
-						<li>grid-template-columns: none;</li>
-						<li>grid-template-rows: none;</li>
-						<li>grid-template-areas: none;</li>
-						<li></li>
-						<li>/* grid-template-rows / grid-template-columns values */</li>
-						<li>grid-template: 100px 1fr / 50px 1fr;</li>
-						<li>grid-template: auto 1fr / auto 1fr auto;</li>
-						<li>grid-template: [linename] 100px / [columnname1] 30% [columnname2] 70%;</li>
-						<li>grid-template: fit-content(100px) / fit-content(40%);</li>
-						<li></li>
-						<li>/* grid-template-areas grid-template-rows / grid-template-column values */</li>
-						<li>grid-template: "a a a" "b b b";</li>
-						<li>grid-template: "a a a" 20% "b b b" auto;</li>
-						<li>grid-template: [header-top] "a a a" [header-bottom] [main-top] "b b b" 1fr [main-bottom] / auto 1fr auto;</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid template [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template: none | grid-template-rows | grid-template-columns | grid-template-areas;
+
+							/* keyword value */
+							grid-template: none;
+							grid-template-columns: none;
+							grid-template-rows: none;
+							grid-template-areas: none;
+
+							/* grid-template-rows / grid-template-columns values */
+							grid-template: 100px 1fr / 50px 1fr;
+							grid-template: auto 1fr / auto 1fr auto;
+							grid-template: [linename] 100px / [columnname1] 30% [columnname2] 70%;
+							grid-template: fit-content(100px) / fit-content(40%);
+
+							/* grid-template-areas grid-template-rows / grid-template-column values */
+							grid-template: "a a a" "b b b";
+							grid-template: "a a a" 20% "b b b" auto;
+							grid-template: [header-top] "a a a" [header-bottom] [main-top] "b b b" 1fr [main-bottom] / auto 1fr auto;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">그리드 행/열 템플릿을 축약형 속성으로 설정한 예</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-rows: [row1-start] 100px [row1-end row2-start] 200px [row2-end];</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">그리드 행/열 템플릿을 축약형 속성으로 설정한 예</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: [row1-start] 100px [row1-end row2-start] 200px [row2-end];
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">축약형으로 적용된 속성을 개별 속성으로 풀어본 예</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-rows: repeat(3, 100px);</li>
-						<li class="indent">grid-template-columns: repeat(2, 20px 40px);</li>
-						<li class="indent">grid-template-areas: none;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">축약형으로 적용된 속성을 개별 속성으로 풀어본 예</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: repeat(3, 100px);
+							grid-template-columns: repeat(2, 20px 40px);
+							grid-template-areas: none;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">행/열 그리드 템플릿에 영역이름 템플릿을 함께 설정 한 예</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent t_999">// 2행 3열 그리드</li>
-						<li class="indent t_999">// 1행 100px | 'header header header'</li>
-						<li class="indent t_999">// 2행 100px | 'footer footer footer'</li>
-						<li class="indent">grid-template:</li>
-						<li class="indent_max">[row-1-start] "header header header" 100px [row-1-end]</li>
-						<li class="indent_max">[row-2-start] "footer footer footer" 100px [row-2-end]</li>
-						<li class="indent_max">/ auto 200px auto;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">행/열 그리드 템플릿에 영역이름 템플릿을 함께 설정 한 예</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							/* 2행 3열 그리드 */
+							/* 1행 100px | 'header header header' */
+							/* 2행 100px | 'footer footer footer' */
+							grid-template:
+								[row-1-start] "header header header" 100px [row-1-end]
+								[row-2-start] "footer footer footer" 100px [row-2-end]
+								/ auto 200px auto;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">속기형으로 적용된 속성을 개별 속성으로 풀어본 예</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-rows: [row-1-start] 100px [row-1-end row-2-start] 100px [row-2-end];</li>
-						<li class="indent">grid-template-columns: auto 200px auto;</li>
-						<li class="indent">grid-template-areas:</li>
-						<li class="indent_max">"header header header"</li>
-						<li class="indent_max">"footer footer footer";</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">속기형으로 적용된 속성을 개별 속성으로 풀어본 예</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid template [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: [row-1-start] 100px [row-1-end row-2-start] 100px [row-2-end];
+							grid-template-columns: auto 200px auto;
+							grid-template-areas:
+								"header header header"
+								"footer footer footer";
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m"><code>grid-template-areas</code> 속성은 암시적인 그리드 속성을 초기화하지 않습니다.</h5>
+				<h5 class="mt_ml"><code>grid-template-areas</code> 속성은 암시적인 그리드 속성을 초기화하지 않습니다.</h5>
 				<ol class="ol_lst mt_s indent">
 					<li><code>grid-auto-rows</code></li>
 					<li><code>grid-auto-columns</code></li>
@@ -577,60 +608,65 @@
 					<li><code class="weight-500 t_blue bg_none">&lt;track-size&gt;</code> : 그리드에서 사용 가능한 단위 (px, rem, em, %, fr 등)</li>
 				</ol>
 
-				<div class="line_code_box line_code_number mt_ml">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template: none | grid-template-rows | grid-template-columns | grid-template-areas;</li>
-						<li>}</li>
-						<li></li>
-						<li>/* keyword value */</li>
-						<li>grid-template: none;</li>
-						<li>grid-template-columns: none;</li>
-						<li>grid-template-rows: none;</li>
-						<li>grid-template-areas: none;</li>
-						<li></li>
-						<li>/* grid-template-rows / grid-template-columns values */</li>
-						<li>grid-template: 100px 1fr / 50px 1fr;</li>
-						<li>grid-template: auto 1fr / auto 1fr auto;</li>
-						<li>grid-template: [linename] 100px / [columnname1] 30% [columnname2] 70%;</li>
-						<li>grid-template: fit-content(100px) / fit-content(40%);</li>
-						<li></li>
-						<li>/* grid-template-areas grid-template-rows / grid-template-column values */</li>
-						<li>grid-template: "a a a" "b b b";</li>
-						<li>grid-template: "a a a" 20% "b b b" auto;</li>
-						<li>grid-template: [header-top] "a a a" [header-bottom] [main-top] "b b b" 1fr [main-bottom] / auto 1fr auto;</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid auto [columns / rows]">
+					<textarea readonly="readonly">
+						.container {
+    					display: grid;
+							grid-template: none | grid-template-rows | grid-template-columns | grid-template-areas;
+
+							/* keyword value */
+							grid-template: none;
+							grid-template-columns: none;
+							grid-template-rows: none;
+							grid-template-areas: none;
+
+							/* grid-template-rows / grid-template-columns values */
+							grid-template: 100px 1fr / 50px 1fr;
+							grid-template: auto 1fr / auto 1fr auto;
+							grid-template: [linename] 100px / [columnname1] 30% [columnname2] 70%;
+							grid-template: fit-content(100px) / fit-content(40%);
+
+							/* grid-template-areas grid-template-rows / grid-template-column values */
+							grid-template: "a a a" "b b b";
+							grid-template: "a a a" 20% "b b b" auto;
+							grid-template: [header-top] "a a a" [header-bottom] [main-top] "b b b" 1fr [main-bottom] / auto 1fr auto;
+						}
+					</textarea>
 				</div>
 
 				<h5 class="mt_ml">사용자가 명시적으로 열/행 템플릿 속성을 설정하면 그리드 트랙 크기로 적용(2열 2행 그리드)</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-auto-columns: &lt;track-size&gt; ...;</li>
-						<li class="indent">grid-auto-rows: &lt;track-size&gt; ...;</li>
-						<li>}</li>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: 60px 60px;</li>
-						<li class="indent">grid-template-rows: 90px 90px;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid auto [columns / rows]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-auto-columns: <track-size> ...;
+							grid-auto-rows: <track-size> ...;
+						}
+
+						.container {
+							display: grid;
+							grid-template-columns: 60px 60px;
+							grid-template-rows: 90px 90px;
+						}
+					</textarea>
 				</div>
 				<figure class="img_figure indent mt_ms">
 					<img src="/ukncs/images/css/grid/uxkm_grid-auto-columns-rows-01.svg" alt="2열 2행 그리드">
 				</figure>
 
 				<h5 class="mt_ml">개별 그리드 아이템에 열/행 위치를 그리드 라인 기준으로 배치하게 되면 다음과 같이 처리됨</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.item-a {</li>
-						<li class="indent">grid-column: 1 / 2;</li>
-						<li class="indent">grid-row: 2 / 3;</li>
-						<li>}</li>
-						<li>.item-b {</li>
-						<li class="indent">grid-column: 5 / 6;</li>
-						<li class="indent">grid-row: 2 / 3;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid auto [columns / rows]">
+					<textarea readonly="readonly">
+						.item-a {
+							grid-column: 1 / 2;
+							grid-row: 2 / 3;
+						}
+
+						.item-b {
+							grid-column: 5 / 6;
+							grid-row: 2 / 3;
+						}
+					</textarea>
 				</div>
 				<p class="mt_s indent">
 					<code>.item-b</code>에 설정한 열 그리드 라인 5~6 배치는 암시적인 열 그리드(<code>grid-auto-columns</code>) 설정에서 정의되지 않은 영역으로,
@@ -642,12 +678,13 @@
 				</figure>
 
 				<h5 class="mt_ml">자동으로 생성되는 그리드 트랙 크기를 임의의 값으로 설정하고 싶다면 다음과 같이 설정할 수 있습니다.</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-auto-columns: 60px;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid auto [columns / rows]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-auto-columns: 60px;
+						}
+					</textarea>
 				</div>
 				<p class="mt_s indent">암시적으로 생성된 그리드 트랙 크기는 60px로 설정됩니다.</p>
 				<figure class="img_figure indent mt_ms">
@@ -689,12 +726,13 @@
 					이는 암시적 그리드 알고리즘이 자동 배치 된 항목과의 간격을 채우고 다시 채우고 필요할 때 항목의 순서를 변경하도록 지시합니다.<br>
 					항목 순서가 중요하지 않은 이미지 갤러리를 만들 때 실제로 유용 할 수 있습니다.
 				</p>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-auto-flow: row | column | row dense | column dense;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid auto flow">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-auto-flow: row | column | row dense | column dense;
+						}
+					</textarea>
 				</div>
 				<ol class="ol_lst mt_ms indent">
 					<li><code class="weight-500 t_blue bg_none">row</code> : 기본값으로 각 행을 차례로 채우고 필요에 따라 새 행을 추가하는 자동 배치 알고리즘 입니다.</li>
@@ -706,11 +744,11 @@
 
 				<section class="view_editor edit_code mt_ml" data-target="css/step03/4.5.grid/4.5.5.grid-auto-flow.html">
 					<h4 class="ve_tit font-16">예제</h4>
-					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 						<div class="code_wrap"><textarea></textarea></div>
 					</div>
 				</section>
-				<figure class="img_figure mt_ms">
+				<figure class="img_figure indent mt_ms">
 					<figcaption class="mt_0">[위 예제의 결과물]</figcaption>
 					<img src="/ukncs/images/css/grid/uxkm_grid-auto-flow_ex.svg" alt="위 예제의 결과물" class="mt_m">
 				</figure>
@@ -754,125 +792,141 @@
 				</p>
 				<ol class="ol_lst mt_s indent">
 					<li><code class="weight-500 t_blue bg_none">none</code> : 모든 속성을 초기 값으로 적용</li>
-					<li><code class="weight-500 t_blue bg_none">&lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;</code> : grid-tempate-rows / grid-template-columns 속성 설정</li>
-					<li><code class="weight-500 t_blue bg_none">&lt;grid-auto-flow&gt; [&lt;grid-auto-rows&gt; [/ &lt;grid-auto-columns&gt;]]</code> : grid-auto-flow / grid-auto-rows / grid-auto-columns 속성 설정</li>
+					<li>
+						<code class="weight-500 t_blue bg_none">&lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;</code> :
+						<code>grid-tempate-rows</code> / <code>grid-template-columns</code> 속성 설정
+					</li>
+					<li>
+						<code class="weight-500 t_blue bg_none">&lt;grid-auto-flow&gt; [&lt;grid-auto-rows&gt; [/ &lt;grid-auto-columns&gt;]]</code> :
+						<code>grid-auto-flow</code> / <code>grid-auto-rows</code> / <code>grid-auto-columns</code> 속성 설정
+					</li>
 				</ol>
 
-				<div class="line_code_box line_code_number mt_ml">
-					<ul>
-						<li>/* <'grid-template'> values */</li>
-						<li>grid: none;</li>
-						<li>grid: "a" 100px "b" 1fr;</li>
-						<li>grid: [linename1] "a" 100px [linename2];</li>
-						<li>grid: "a" 200px "b" min-content;</li>
-						<li>grid: "a" minmax(100px, max-content) "b" 20%;</li>
-						<li>grid: 100px / 200px;</li>
-						<li>grid: minmax(400px, min-content) / repeat(auto-fill, 50px);</li>
-						<li></li>
-						<li>/* <'grid-template-rows'> / [ auto-flow && dense ] <'grid-auto-columns'> values */</li>
-						<li>grid: 200px / auto-flow;</li>
-						<li>grid: 30% / auto-flow dense;</li>
-						<li>grid: repeat(3, [line1 line2 line3] 200px) / auto-flow 300px;</li>
-						<li>grid: [line1] minmax(20em, max-content) / auto-flow dense 40%;</li>
-						<li></li>
-						<li>/* [ auto-flow && dense ] <'grid-auto-rows'> / <'grid-template-columns'> values */</li>
-						<li>grid: auto-flow / 200px;</li>
-						<li>grid: auto-flow dense / 30%;</li>
-						<li>grid: auto-flow 300px / repeat(3, [line1 line2 line3] 200px);</li>
-						<li>grid: auto-flow dense 40% / [line1] minmax(20em, max-content);</li>
-					</ul>
+				<div class="uk_gist_code_box mt_m" data-tit="grid [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+
+							/* <'grid-template'> values */
+							grid: none;
+							grid: "a" 100px "b" 1fr;
+							grid: [linename1] "a" 100px [linename2];
+							grid: "a" 200px "b" min-content;
+							grid: "a" minmax(100px, max-content) "b" 20%;
+							grid: 100px / 200px;
+							grid: minmax(400px, min-content) / repeat(auto-fill, 50px);
+
+							/* <'grid-template-rows'> / [ auto-flow && dense ] <'grid-auto-columns'> values */
+							grid: 200px / auto-flow;
+							grid: 30% / auto-flow dense;
+							grid: repeat(3, [line1 line2 line3] 200px) / auto-flow 300px;
+							grid: [line1] minmax(20em, max-content) / auto-flow dense 40%;
+
+							/* [ auto-flow && dense ] <'grid-auto-rows'> / <'grid-template-columns'> values */
+							grid: auto-flow / 200px;
+							grid: auto-flow dense / 30%;
+							grid: auto-flow 300px / repeat(3, [line1 line2 line3] 200px);
+							grid: auto-flow dense 40% / [line1] minmax(20em, max-content);
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">기본 값</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-template-rows: none;</li>
-						<li class="indent">grid-template-columns: none;</li>
-						<li class="indent">grid-template-areas: none;</li>
-						<li class="indent">grid-auto-rows: auto;</li>
-						<li class="indent">grid-auto-columns: auto;</li>
-						<li class="indent">grid-auto-flow: row;</li>
-						<li class="indent">grid-column-gap: 0;</li>
-						<li class="indent">grid-row-gap: 0;</li>
-						<li class="indent">column-gap: normal;</li>
-						<li class="indent">row-gap: normal;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">기본 값</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: none;
+							grid-template-columns: none;
+							grid-template-areas: none;
+							grid-auto-rows: auto;
+							grid-auto-columns: auto;
+							grid-auto-flow: row;
+							grid-column-gap: 0;
+							grid-row-gap: 0;
+							column-gap: normal;
+							row-gap: normal;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">예시1</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid: 100px 300px / 3fr 1fr;</li>
-						<li class="indent">/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다. */</li>
-						<li class="indent">grid-template-rows: 100px 300px;</li>
-						<li class="indent">grid-template-columns: 3fr 1fr;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">예시1</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid: 100px 300px / 3fr 1fr;
+							/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다. */
+							grid-template-rows: 100px 300px;
+							grid-template-columns: 3fr 1fr;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">예시2</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid: auto-flow / 200px 1fr;</li>
-						<li class="indent">/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다. */</li>
-						<li class="indent">grid-auto-flow: row;</li>
-						<li class="indent">grid-template-columns: 200px 1fr;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">예시2</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid: auto-flow / 200px 1fr;
+							/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다. */
+							grid-auto-flow: row;
+							grid-template-columns: 200px 1fr;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">예시3</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid: auto-flow dense 100px / 1fr 2fr;</li>
-						<li class="indent">/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다. */</li>
-						<li class="indent">grid-auto-flow: row dense;</li>
-						<li class="indent">grid-auto-rows: 100px;</li>
-						<li class="indent">grid-template-columns: 1fr 2fr;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">예시3</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid: auto-flow dense 100px / 1fr 2fr;
+							/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다. */
+							grid-auto-flow: row dense;
+							grid-auto-rows: 100px;
+							grid-template-columns: 1fr 2fr;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">예시4</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid: 100px 300px / auto-flow 200px;</li>
-						<li class="indent">/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.</li>
-						<li class="indent">grid-template-rows: 100px 300px;</li>
-						<li class="indent">grid-auto-flow: column;</li>
-						<li class="indent">grid-auto-columns: 200px;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">예시4</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							rid: 100px 300px / auto-flow 200px;
+							/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다.
+							grid-template-rows: 100px 300px;
+							grid-auto-flow: column;
+							grid-auto-columns: 200px;
+						}
+					</textarea>
 				</div>
 
-				<h5 class="mt_m">예시5</h5>
-				<div class="line_code_box line_code_number indent mt_s">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid:</li>
-						<li class="indent_max">[row1-start] "header header header" 1fr [row1-end]</li>
-						<li class="indent_max">[row2-start] "footer footer footer" 25px [row2-end]</li>
-						<li class="indent_max">/ auto 50px auto;</li>
-						<li></li>
-						<li class="indent">/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다. */</li>
-						<li class="indent">grid-template-areas:</li>
-						<li class="indent_max">"header header header"</li>
-						<li class="indent_max">"footer footer footer";</li>
-						<li class="indent">grid-template-rows: [row1-start] 1fr [row1-end row2-start] 25px [row2-end];</li>
-						<li class="indent">grid-template-columns: auto 50px auto;</li>
-						<li>}</li>
-					</ul>
+				<h5 class="mt_ml">예시5</h5>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [shorthand]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid:
+								[row1-start] "header header header" 1fr [row1-end]
+								[row2-start] "footer footer footer" 25px [row2-end]
+								/ auto 50px auto;
+
+							/* 위 방식은 아래 방식처럼 각각 사용한것과 동일합니다. */
+							grid-template-areas:
+								"header header header"
+								"footer footer footer";
+							grid-template-rows: [row1-start] 1fr [row1-end row2-start] 25px [row2-end];
+							grid-template-columns: auto 50px auto;
+						}
+					</textarea>
 				</div>
 
 				<section class="view_editor edit_code mt_ml" data-target="css/step03/4.5.grid/4.5.grid.html">
 					<strong class="ve_tit font-16">예제</strong>
-					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 						<div class="code_wrap"><textarea></textarea></div>
 					</div>
 				</section>
@@ -911,20 +965,23 @@
 					<li><code class="weight-500 t_blue bg_noone">column-gap</code> : <code>&lt;line-size&gt;</code></li>
 					<li><code class="weight-500 t_blue bg_noone">row-gap</code> : <code>&lt;line-size&gt;</code></li>
 				</ol>
-				<div class="line_code_box line_code_number mt_ml">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-column-gap: &lt;line-size&gt;;</li>
-						<li class="indent">grid-row-gap: &lt;line-size&gt;;</li>
-						<li>}</li>
-						<li>/* 예제 */</li>
-						<li>.container {</li>
-						<li class="indent">grid-template-columns: 100px 50px 100px;</li>
-						<li class="indent">grid-template-rows: 80px auto 80px;</li>
-						<li class="indent">grid-column-gap: 10px;</li>
-						<li class="indent">grid-row-gap: 15px;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_m" data-tit="grid [column-gap / row-gap]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-column-gap: <line-size>;
+							grid-row-gap: <line-size>;
+						}
+
+						/* 예제 */
+						.container {
+							display: grid;
+							grid-template-columns: 100px 50px 100px;
+							grid-template-rows: 80px auto 80px;
+							grid-column-gap: 10px;
+							grid-row-gap: 15px;
+						}
+					</textarea>
 				</div>
 				<figure class="img_figure mt_m">
 					<figcaption class="mt_0">[<code class="bg_none t_blue">gutters</code>는 외부 모서리가 아닌 열 / 행 사이에만 작성됩니다.]</figcaption>
@@ -958,34 +1015,38 @@
 				<ol class="ol_lst mt_s indent">
 					<li><strong class="weight-500 t_blue bg_noone">축약(shorthand) 속성 - gap</strong> : <code>&lt;grid-row-gap&gt; &lt;grid-column-gap&gt;</code></li>
 				</ol>
-				<div class="line_code_box line_code_number mt_ml">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</li>
-						<li>}</li>
-						<li></li>
-						<li>/* 예제 */</li>
-						<li>.container {</li>
-						<li class="indent">grid-template-rows: 80px auto 80px;</li>
-						<li class="indent">grid-template-columns: 100px 50px 100px;</li>
-						<li class="indent">/* 행 사이 간격 설정 */</li>
-						<li class="indent">row-gap: 10px;</li>
-						<li class="indent">/* 열 사이 간격 설정 */</li>
-						<li class="indent">column-gap: 15px;</li>
-						<li>}</li>
-						<li></li>
-						<li>/* 축약형 */</li>
-						<li>.container {</li>
-						<li class="indent">grid-template: 80px auto 80px / 100px 50px 100px;</li>
-						<li class="indent">/* 행/열 사이 간격 설정 */</li>
-						<li class="indent">gap: 10px 15px;</li>
-						<li>}</li>
-						<li></li>
-						<li>/* grid-gap 값으로 1개만 입력하면 행/열 사이 간격이 동일하게 설정됩니다. */</li>
-						<li>.container {</li>
-						<li class="indent">gap: 20px; // grid-row-gap: 20px; grid-column-gap: 20px;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_m" data-tit="grid [grid-gap]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-gap: <grid-row-gap> <grid-column-gap>;
+						}
+
+						/* 예제 */
+						.container {
+							display: grid;
+							grid-template-rows: 80px auto 80px;
+							grid-template-columns: 100px 50px 100px;
+							/* 행 사이 간격 설정 */
+							row-gap: 10px;
+							/* 열 사이 간격 설정 */
+							column-gap: 15px;
+						}
+
+						/* 축약형 */
+						.container {
+							display: grid;
+							grid-template: 80px auto 80px / 100px 50px 100px;
+							/* 행/열 사이 간격 설정 */
+							gap: 10px 15px;
+						}
+
+						/* grid-gap 값으로 1개만 입력하면 행/열 사이 간격이 동일하게 설정됩니다. */
+						.container {
+							display: grid;
+							gap: 20px; /* or grid-row-gap: 20px; grid-column-gap: 20px; */
+						}
+					</textarea>
 				</div>
 				<aside class="browser_support mt_m" data-tit="gap(grid-gap)">
 					<ul>
@@ -1012,12 +1073,13 @@
 					<code>grid-</code> 접두사가 제거되고. <code>grid-column-gap = column-gap</code>, <code>grid-row-gap = row-gap</code> 으로 이름이 변경되었습니다.<br>
 					<code>grid-</code> 접두사가 없는 속성은 chrome 68 이상, safari 11.2 릴리스 50 이상 및 opera 54 이상에서 지원됩니다.
 				</p>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">align-content : start | center | end | stretch | space-between | space-around | space-evenly;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_m" data-tit="grid [align-content]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							align-content : start | center | end | stretch | space-between | space-around | space-evenly;
+						}
+					</textarea>
 				</div>
 				<ol class="ol_lst mt_ml indent">
 					<!-- start -->
@@ -1124,12 +1186,13 @@
 					그리드 컨테이너의 크기보다 작은 그리드 아이템 트랙(px와 같은 고정 단위로 설정된 경우)의 크기라면, 아이템 트랙을 정렬할 수 있습니다.<br>
 					이 속성은 행(row) 축을 따라 그리드 아이템 트랙을 정렬합니다. (<code>align-content</code> 속성의 반대)
 				</p>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">justify-content: start | end | center | stretch | space-between | space-around | space-evenly;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_m" data-tit="grid [justify-content]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							justify-content: start | end | center | stretch | space-between | space-around | space-evenly;
+						}
+					</textarea>
 				</div>
 				<ol class="ol_lst mt_ml indent">
 
@@ -1240,40 +1303,43 @@
 
 				<h5 class="mt_ml">위치 정렬(positional alignment)</h5>
 				<p class="indent mt_sm"><code>align-content</code>는 왼쪽(left)과 오른쪽(right) 값을 사용하지 않습니다.</p>
-				<div class="line_code_box line_code_number indent mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">place-content: center start;</li>
-						<li class="indent">place-content: start center;</li>
-						<li class="indent">place-content: end left;</li>
-						<li class="indent">place-content: flex-start center;</li>
-						<li class="indent">place-content: flex-end center;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [place-content : positional alignment]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							place-content: center start;
+							place-content: start center;
+							place-content: end left;
+							place-content: flex-start center;
+							place-content: flex-end center;
+						}
+					</textarea>
 				</div>
 
 				<h5 class="mt_ml">기준선 정렬(baseline alignment)</h5>
 				<p class="indent mt_sm"><code>justify-content</code>는 기준 값을 사용하지 않습니다.</p>
-				<div class="line_code_box line_code_number indent mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">place-content: baseline center;</li>
-						<li class="indent">place-content: first baseline space-evenly;</li>
-						<li class="indent">place-content: last baseline right;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [place-content : baseline alignment]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							place-content: baseline center;
+							place-content: first baseline space-evenly;
+							place-content: last baseline right;
+						}
+					</textarea>
 				</div>
 
 				<h5 class="mt_ml">분산 정렬(distributed alignment)</h5>
-				<div class="line_code_box line_code_number indent mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">place-content: space-between space-evenly;</li>
-						<li class="indent">place-content: space-around space-evenly;</li>
-						<li class="indent">place-content: space-evenly stretch;</li>
-						<li class="indent">place-content: stretch space-evenly;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [place-content : distributed alignment]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							place-content: space-between space-evenly;
+							place-content: space-around space-evenly;
+							place-content: space-evenly stretch;
+							place-content: stretch space-evenly;
+						}
+					</textarea>
 				</div>
 
 				<aside class="browser_support mt_ml" data-tit="place-content">
@@ -1302,12 +1368,13 @@
 					이 설정은 그리드 컨테이너 내부 모든 그리드 아이템에 적용됩니다.<br>
 					개별 그리드 아이템에 행축 콘텐츠 정렬 속성을 적용하려면 <code>align-self</code> 속성을 사용합니다.
 				</p>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">align-items: start | end | center | stretch;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_m" data-tit="grid [align-items]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							align-items: start | end | center | stretch;
+						}
+					</textarea>
 				</div>
 				<ol class="ol_lst mt_ml indent">
 					<!-- start -->
@@ -1377,12 +1444,13 @@
 					그리드 아이템들을 수평(행 축) 정렬합니다.<br>
 					행 축을 따라 그리드 아이템 내부 콘텐츠를 정렬합니다. (열 축에 따라 정렬하는 align-self 속성과는 반대)
 				</p>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">justify-items: start | end | center | stretch;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_m" data-tit="grid [justify-items]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							justify-items: start | end | center | stretch;
+						}
+					</textarea>
 				</div>
 				<ol class="ol_lst mt_ml indent">
 					<!-- start -->
@@ -1454,42 +1522,45 @@
 				</p>
 
 				<h5 class="mt_ml">키워드 값(Keyword values)</h5>
-				<div class="line_code_box line_code_number indent mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">place-items: auto center;</li>
-						<li class="indent">place-items: normal start;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [place-items : Keyword values]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							place-items: auto center;
+							place-items: normal start;
+						}
+					</textarea>
 				</div>
 
 				<h5 class="mt_ml">위치 정렬(positional alignment)</h5>
-				<div class="line_code_box line_code_number indent mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">place-items: center normal;</li>
-						<li class="indent">place-items: start auto;</li>
-						<li class="indent">place-items: end normal;</li>
-						<li class="indent">place-items: self-start auto;</li>
-						<li class="indent">place-items: self-end normal;</li>
-						<li class="indent">place-items: flex-start auto;</li>
-						<li class="indent">place-items: flex-end normal;</li>
-						<li class="indent">place-items: left auto;</li>
-						<li class="indent">place-items: right normal;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [place-items : positional alignment]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							place-items: center normal;
+							place-items: start auto;
+							place-items: end normal;
+							place-items: self-start auto;
+							place-items: self-end normal;
+							place-items: flex-start auto;
+							place-items: flex-end normal;
+							place-items: left auto;
+							place-items: right normal;
+						}
+					</textarea>
 				</div>
 
 				<h5 class="mt_ml">기준선 정렬(baseline alignment)</h5>
-				<div class="line_code_box line_code_number indent mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">place-items: baseline normal;</li>
-						<li class="indent">place-items: first baseline auto;</li>
-						<li class="indent">place-items: last baseline normal;</li>
-						<li class="indent">place-items: stretch auto;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box indent mt_ms" data-tit="grid [place-items : baseline alignment]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							place-items: baseline normal;
+							place-items: first baseline auto;
+							place-items: last baseline normal;
+							place-items: stretch auto;
+						}
+					</textarea>
 				</div>
 
 				<aside class="browser_support mt_ml" data-tit="place-items">

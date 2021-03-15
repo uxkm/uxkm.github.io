@@ -238,54 +238,56 @@
 
 			<section class="indent mt_m">
 				<h4 class="ml_mn">코드 예제</h4>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">/* repeat() 함수 사용법 */</li>
-						<li class="indent">grid-template-rows: repeat(2, 1fr);         <i class="t_999">// 1fr 1fr</i></li>
-						<li class="indent">grid-template-columns: repeat(3, 1fr 2fr);  <i class="t_999">// 1fr 2fr 1fr 2fr 1fr 2fr</i></li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [repeat()]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							/* repeat() 함수 사용법 */
+							grid-template-rows: repeat(2, 1fr);        /* 1fr 1fr */
+							grid-template-columns: repeat(3, 1fr 2fr); /* 1fr 2fr 1fr 2fr 1fr 2fr */
+						}
+					</textarea>
 				</div>
 			</section>
 
 			<section class="indent mt_m">
 				<h4 class="ml_mn">9컬럼 그리드 코드 예제</h4>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">100px 100px 100px 100px 100px 100px 100px 100px 100px</i>;</li>
-						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(9, 100px)</i>;</li>
-						<li>}</li>
-						<li></li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-rows: <i class="t_darkblue">[row-start] 200px [row-end row-start] 200px [row-end]</i>;</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">[col-start] 100px [col-end col-start] 100px [col-end col-start] 100px [col-end]</i>;</li>
-						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
-						<li class="indent">grid-template-rows: <i class="t_darkblue">repeat(2, [row-start] 200px [row-end])</i>;</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(3, [col-start] 100px [col-end])</i>;</li>
-						<li class="indent">/* 위 처럼 row, column에 각각 repeat함수가 있을 경우 아래처럼 한 줄로 축약 가능합니다. */</li>
-						<li class="indent">grid-template: <i class="t_darkblue">repeat(2, [row-start] 200px [row-end]) / repeat(3, [col-start] 100px [col-end])</i>;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [repeat() - columns 9]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+							/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */
+							grid-template-columns: repeat(9, 100px);
+						}
+
+						.container {
+							display: grid;
+							grid-template-rows: [row-start] 200px [row-end row-start] 200px [row-end];
+							grid-template-columns: [col-start] 100px [col-end col-start] 100px [col-end col-start] 100px [col-end];
+
+							/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */
+							grid-template-rows: repeat(2, [row-start] 200px [row-end]);
+							grid-template-columns: repeat(3, [col-start] 100px [col-end]);
+
+							/* 위 처럼 row, column에 각각 repeat함수가 있을 경우 아래처럼 한 줄로 축약 가능합니다. */
+							grid-template: repeat(2, [row-start] 200px [row-end]) / repeat(3, [col-start] 100px [col-end]);
+						}
+					</textarea>
 				</div>
 			</section>
 
 			<section class="indent mt_m">
 				<h4 class="ml_mn">12컬럼 그리드 코드 예제</h4>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr</i>;</li>
-						<li class="indent">/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */</li>
-						<li class="indent">grid-template-columns: <i class="t_darkblue">repeat(6, 1fr 2fr)</i>;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [repeat() - columns 12]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr;
+							/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */
+							grid-template-columns: repeat(6, 1fr 2fr);
+						}
+					</textarea>
 				</div>
 			</section>
 
@@ -307,31 +309,31 @@
 
 			<section class="indent mt_m">
 				<h4 class="ml_mn">코드 예제</h4>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>/* 일반 요소에 min-width와 max-width 속성을 동시 지정하는 것과 유사합니다. */</li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr);</li>
-						<li>}</li>
-						<li></li>
-						<li>/*</li>
-						<li class="indent t_999">minmax()를 통해 암시적 행/열(Track) 크기를 좀 더 유연하게 사용할 수 있습니다.</li>
-						<li class="indent t_999">다음 예제는 암시적 '행/열'의 크기를 최소 '200px/300px'으로 지정하지만 auto를 통해 그리드 아이템의 크기에 따라 확장될 수 있습니다.</li>
-						<li>*/</li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-auto-rows: minmax(200px, auto);</li>
-						<li class="indent">grid-auto-columns: minmax(300px, auto);</li>
-						<li>}</li>
-						<li></li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">/* minmax() 함수 사용법 */</li>
-						<li class="indent">grid-template-rows: repeat(2, minmax(20px, auto));</li>
-						<li class="indent">grid-template-columns: minmax(30px, auto) repeat(3, 1fr);</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [minmax()]">
+					<textarea readonly="readonly">
+						/* 일반 요소에 min-width와 max-width 속성을 동시 지정하는 것과 유사합니다. */
+						.container {
+							display: grid;
+							grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr);
+						}
+
+						/*
+						minmax()를 통해 암시적 행/열(Track) 크기를 좀 더 유연하게 사용할 수 있습니다.
+						다음 예제는 암시적 '행/열'의 크기를 최소 '200px/300px'으로 지정하지만 auto를 통해 그리드 아이템의 크기에 따라 확장될 수 있습니다.
+						*/
+						.container {
+							display: grid;
+							grid-auto-rows: minmax(200px, auto);
+							grid-auto-columns: minmax(300px, auto);
+						}
+
+						.container {
+							display: grid;
+							/* minmax() 함수 사용법 */
+							grid-template-rows: repeat(2, minmax(20px, auto));
+							grid-template-columns: minmax(30px, auto) repeat(3, 1fr);
+						}
+					</textarea>
 				</div>
 			</section>
 
@@ -353,33 +355,37 @@
 
 			<section class="indent mt_m">
 				<h4 class="ml_mn">코드 예제</h4>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>/* &lt;length&gt; values */</li>
-						<li>fit-content(200px)</li>
-						<li>fit-content(5cm)</li>
-						<li>fit-content(30vw)</li>
-						<li>fit-content(100ch)</li>
-						<li></li>
-						<li>/* &lt;percentage&gt; value */</li>
-						<li>fit-content(40%)</li>
-						<li></li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: fit-content(300px) fit-content(300px) 1fr;</li>
-						<li class="indent">grid-gap: 5px;</li>
-						<li>}</li>
-						<li></li>
-						<li>&lt;div id=&quot;container&quot;&gt;</li>
-						<li class="indent">&lt;div&gt;<i class="t_888">내용만큼만 적용되는 셀의 크기</i>&lt;/div&gt;</li>
-						<li class="indent">&lt;div&gt;</li>
-						<li class="indent_max t_888">많은 텍스트가 있는 경우 fit-content로 정의한 </li>
-						<li class="indent_max t_888">크기가 셀의 최대 크기가 됩니다.</li>
-						<li class="indent_max t_888">fit-content(300px)</li>
-						<li class="indent">&lt;/div&gt;</li>
-						<li class="indent">&lt;div&gt;<i class="t_888">유연한 셀입니다.</i>&lt;/div&gt;</li>
-						<li>&lt;/div&gt;</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [fit-content()]">
+					<textarea readonly="readonly">
+						<style>
+							/*
+								// <length> values
+								fit-content(200px)
+								fit-content(5cm)
+								fit-content(30vw)
+								fit-content(100ch)
+								&nbsp;
+								// <percentage> value
+								fit-content(40%)
+							*/
+
+							.container {
+								display: grid;
+								grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
+								grid-gap: 5px;
+							}
+						</style>
+
+						<div id="container">
+							<div>내용만큼만 적용되는 셀의 크기</div>
+							<div>
+								많은 텍스트가 있는 경우 fit-content로 정의한
+								크기가 셀의 최대 크기가 됩니다.
+								fit-content(300px)
+							</div>
+							<div>유연한 셀입니다.</div>
+						</div>
+					</textarea>
 				</div>
 			</section>
 
@@ -406,17 +412,17 @@
 			</p>
 			<section class="indent mt_m">
 				<h4 class="ml_mn">코드 예제</h4>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>/*</li>
-						<li class="indent t_999">그리드 컨테이너의 3번째 컬럼에 100px, 4번째 컬럼에 25%를 사용하고 </li>
-						<li class="indent t_999">남은 공간을 1번째 컬럼에 ‘1/3’, 2번째 컬럼에 ‘2/3’ 만큼 사용합니다.</li>
-						<li>*/</li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: 1fr 2fr 100px 25%;</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [fr]">
+					<textarea readonly="readonly">
+						/*
+							그리드 컨테이너의 3번째 컬럼에 100px, 4번째 컬럼에 25%를 사용하고
+							남은 공간을 1번째 컬럼에 ‘1/3’, 2번째 컬럼에 ‘2/3’ 만큼 사용합니다.
+						*/
+						.container {
+							display: grid;
+							grid-template-columns: 1fr 2fr 100px 25%;
+						}
+					</textarea>
 				</div>
 			</section>
 			<figure class="img_figure mt_ml">
@@ -434,19 +440,21 @@
 			</p>
 			<section class="indent mt_m">
 				<h4 class="ml_mn">코드 예제</h4>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: min-content 1fr;</li>
-						<li>}</li>
-						<li></li>
-						<li>/* 한글을 사용하는 경우 word-break: keep-all;를 설정하면 정상적으로 동작합니다. */</li>
-						<li>&lt;div class=&quot;container&quot;&gt;</li>
-						<li class="indent">&lt;div class=&quot;item&quot;&gt;<i class="t_888">내용의 최소 크기</i>&lt;/div&gt;</li>
-						<li class="indent">&lt;!-- ... --&gt;</li>
-						<li>&lt;/div&gt;</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [min-content]">
+					<textarea readonly="readonly">
+						<style>
+							.container {
+								display: grid;
+								grid-template-columns: min-content 1fr;
+							}
+						</style>
+
+						<!-- 한글을 사용하는 경우 word-break: keep-all;를 설정하면 정상적으로 동작합니다. -->
+						<div class="container">
+							<div class="item">내용의 최소 크기</div>
+							<!-- ··· -->
+						</div>
+					</textarea>
 				</div>
 			</section>
 			<figure class="img_figure mt_ml">
@@ -463,23 +471,23 @@
 			</p>
 			<section class="indent mt_m">
 				<h4 class="ml_mn">코드 예제</h4>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: max-content 1fr;</li>
-						<li>}</li>
-						<li></li>
-						<li>/*</li>
-						<li class="indent t_999">그리드 함수들과 같이 더 유용하게 활용할 수 있습니다.</li>
-						<li class="indent t_999">다음 예제는 총 3컬럼 그리드를 생성하며 각 열(Track)은 최대 1fr 크기를 가지지만,</li>
-						<li class="indent t_999">max-content를 통해 포함된 그리드 아이템의 내용보다 작아질 수 없습니다.</li>
-						<li>*/</li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: repeat(3, minmax(max-content, 1fr));</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [max-content]">
+					<textarea readonly="readonly">
+					.container {
+						display: grid;
+						grid-template-columns: max-content 1fr;
+					}
+
+					/*
+						그리드 함수들과 같이 더 유용하게 활용할 수 있습니다.
+						다음 예제는 총 3컬럼 그리드를 생성하며 각 열(Track)은 최대 1fr 크기를 가지지만,
+						max-content를 통해 포함된 그리드 아이템의 내용보다 작아질 수 없습니다.
+					*/
+					.container {
+						display: grid;
+						grid-template-columns: repeat(3, minmax(max-content, 1fr));
+					}
+					</textarea>
 				</div>
 			</section>
 			<figure class="img_figure mt_ml">
@@ -504,28 +512,28 @@
 			</figure>
 			<section class="indent mt_m">
 				<h4 class="ml_mn">코드 예제</h4>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>/*</li>
-						<li class="indent t_999">다음 4컬럼 그리드 예제에서 컨테이너의 크기가 아이템들을 수용하기 충분하지 않은 경우 아이템은 넘치기 시작합니다.</li>
-						<li class="indent t_999">(아이템의 최소 크기가 100px입니다.)</li>
-						<li>*/</li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: repeat(4, minmax(100px, 1fr));</li>
-						<li>}</li>
-						<li></li>
-						<li>/*</li>
-						<li class="indent t_999">만약 4컬럼 그리드를 고집할 필요가 없다면,</li>
-						<li class="indent t_999">다음과 같이 '반복횟수'(repeat() 함수의 첫 번째 인수)를 auto-fill이나 auto-fit으로 수정할 수 있습니다.</li>
-						<li class="indent t_999">이는 컨테이너의 크기가 아이템들을 수용하기 충분하지 않을 경우</li>
-						<li class="indent t_999">아이템을 자동으로 줄 바꿈 처리하며, 그에 맞게 암시적 행/열도 자동으로 수정합니다.</li>
-						<li>*/</li>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [auto-fill, auto-fit]">
+					<textarea readonly="readonly">
+						/*
+							다음 4컬럼 그리드 예제에서 컨테이너의 크기가 아이템들을 수용하기 충분하지 않은 경우 아이템은 넘치기 시작합니다.
+							(아이템의 최소 크기가 100px입니다.)
+						*/
+							.container {
+							display: grid;
+							grid-template-columns: repeat(4, minmax(100px, 1fr));
+						}
+
+						/*
+							만약 4컬럼 그리드를 고집할 필요가 없다면,
+							다음과 같이 '반복횟수'(repeat() 함수의 첫 번째 인수)를 auto-fill이나 auto-fit으로 수정할 수 있습니다.
+							이는 컨테이너의 크기가 아이템들을 수용하기 충분하지 않을 경우
+							아이템을 자동으로 줄 바꿈 처리하며, 그에 맞게 암시적 행/열도 자동으로 수정합니다.
+						*/
+						.container {
+							display: grid;
+							grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+						}
+					</textarea>
 				</div>
 				<figure class="img_figure mt_ml">
 					<figcaption class="mt_0">[ <code class="bg_none t_444">auto-fill</code> 유/무의 차이 ]</figcaption>
@@ -546,27 +554,27 @@
 				<p class="mt_s">
 					채움(fill)은 반복 횟수 주어질 경우, 크기 또는 최소, 최대 크기 만큼 계산하여 처리하지만 정해진 수 이상은 처리하지 않습니다.
 				</p>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-columns: repeat(auto-fill, 1fr 2fr);</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [auto-fill]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: repeat(auto-fill, 1fr 2fr);
+						}
+					</textarea>
 				</div>
 			</section>
-			<section class="indent mt_m">
+			<section class="indent mt_ml">
 				<h4 class="ml_mn">자동 채우기(auto-fit)</h4>
 				<p class="mt_s">
 					맞춤(fit)은 채움과 유사하게 작동하지만, 그리드 내부에 빈 트랙이 존재할 경우 반복 횟수만큼 반복된 트랙을 빈 트랙 공간을 나눠 핏팅(fitting)합니다.
 				</p>
-				<div class="line_code_box line_code_number mt_ms">
-					<ul>
-						<li>.container {</li>
-						<li class="indent">display: grid;</li>
-						<li class="indent">grid-template-rows: repeat(auto-fit, minmax(80px, auto));</li>
-						<li>}</li>
-					</ul>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [auto-fit]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: repeat(auto-fit, minmax(80px, auto));
+						}
+					</textarea>
 				</div>
 			</section>
 			<figure class="img_figure mt_ml">
