@@ -36,7 +36,7 @@
 
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[src] <span class="t_blue">&lt;iframe src=&quot;URL&quot;&gt;</span></h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>&lt;iframe&gt;</code> 요소에 보일 문서의 URL를 명시합니다.(address of the resource)
 			</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="iframe element [src] attribute">
@@ -48,9 +48,9 @@
 			</div>
 		</article>
 
-		<article class="indent_max txt_ex mt_l">
+		<article class="indent_max txt_ex mt_xl">
 			<h3 class="ml_mn">[width & height] <span class="t_blue">&lt;iframe width=&quot;픽셀(200)&quot; height=&quot;픽셀(200)&quot;&gt;</span></h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>&lt;iframe&gt;</code> 요소의 너비(horizontal dimension)와 높이(vertical dimension)를 픽셀(pixel) 단위로 명시합니다.<br>
 				HTML 4.01에서 <code>&lt;iframe&gt;</code> 요소의 width, height 속성값은 픽셀(pixel) 단위뿐만 아니라 퍼센트(%) 단위로도 정의할 수 있었습니다.<br>
 				하지만 HTML5에서는 오직 픽셀(pixel) 단위만을 사용해야 합니다.
@@ -65,9 +65,9 @@
 			</div>
 		</article>
 
-		<article class="indent_max txt_ex mt_l">
+		<article class="indent_max txt_ex mt_xl">
 			<h3 class="ml_mn">[name] <span class="t_blue">&lt;iframe name=&quot;이름&quot;&gt;</span></h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>&lt;iframe&gt;</code> 요소의 이름을 명시합니다.(name of nested browsing context)<br>
 				name 속성은 자바스크립트에서 해당 요소를 참조하기 위해 사용되거나, <code>&lt;a&gt;</code> 요소나 <code>&lt;form&gt;</code> 요소의 target 속성이나,
 				<code>&lt;input&gt;</code> 요소 또는 <code>&lt;button&gt;</code> 요소의 formtarget 속성의 속성값으로 사용될 수 있습니다.<br>
@@ -83,9 +83,9 @@
 			</div>
 		</article>
 
-		<article class="indent_max txt_ex mt_l">
+		<article class="indent_max txt_ex mt_xl">
 			<h3 class="ml_mn html5">[srcdoc] <i class="fab fa-html5"></i> <span class="t_blue">&lt;iframe srcdoc=&quot;HTML 코드(요소에 보일 HTML 코드로 반드시 유효한 HTML 코드이어야 함.)&quot;&gt;</span></h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>&lt;iframe&gt;</code> 요소에 보일 웹 페이지의 HTML 코드를 명시합니다.(a document to render in the iframe)<br>
 				만약 srcdoc 속성이 명시되어 있고 해당 브라우저가 srcdoc 속성을 지원하면, <code>&lt;iframe&gt;</code> 요소의 src 속성값은 srcdoc 속성값으로 재정의될 것입니다.<br>
 				하지만 srcdoc 속성이 명시되어 있지만 해당 브라우저가 srcdoc 속성을 지원하지 않으면, 브라우저는 src 속성에 명시된 파일을 <code>&lt;iframe&gt;</code> 요소에 보여줄 것입니다.<br>
@@ -111,9 +111,9 @@
 			</aside>
 		</article>
 
-		<article class="indent_max txt_ex mt_l">
+		<article class="indent_max txt_ex mt_xl">
 			<h3 class="ml_mn">[sandbox] <span class="t_blue">&lt;iframe sandbox=&quot;속성값&quot;&gt;</span></h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>&lt;iframe&gt;</code> 요소에 보일 콘텐츠에 대한 추가적인 제한 사항(restrictions)들의 집합을 명시합니다.(security rules for nested content)<br>
 				<code>&lt;iframe&gt;</code> 요소의 sandbox 속성은 HTML5에서 새롭게 추가된 속성입니다.
 			</p>
@@ -251,7 +251,7 @@
 		<h2>6.1.2. iframe 속성 간단 요약</h2>
 		<div class="indent_max mt_l">
 			<h3 class="ml_mn">[기본 속성]</h3>
-			<p class="mt_sm">
+			<p class="mt_ms">
 				<code>&lt;iframe name=&quot;test&quot; src=&quot;주소&quot; width=&quot;500&quot; height=&quot;100&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;</code>
 			</p>
 			<ul class="dot_lst mt_sm">
@@ -281,9 +281,9 @@
 			<p class="mt_sm"><mark>align, frameborder, scrolling 속성은 html4만 지원되고 html5 는 지원이 안됨.</mark></p>
 		</div>
 
-		<div class="indent_max mt_l">
+		<div class="indent_max mt_xl">
 			<h3 class="ml_mn">[html5부터 추가된 속성]</h3>
-			<p class="mt_sm">
+			<p class="mt_ms">
 				srcdoc 속성 : 주소가 아니라 직접 태그소스를 <code>&lt;iframe&gt;</code>으로 표시할 수 있습니다.<br>
 				<code>&lt;iframe srcdoc=&quot;&lt;p&gt;하이?&lt;/p&gt;&quot; &lt;/iframe&gt;</code> 이렇게 하면
 				입력한 태그가 <code>&lt;iframe&gt;</code>내에 표시됩니다.<br>
@@ -291,9 +291,9 @@
 			</p>
 		</div>
 
-		<div class="indent_max mt_l">
+		<div class="indent_max mt_xl">
 			<h3 class="ml_mn">[sandbox 속성]</h3>
-			<p class="mt_sm">
+			<p class="mt_ms">
 				보안을 위해서 <code>&lt;iframe&gt;</code>에서 <code>&lt;form&gt;</code>이나 <code>&lt;javascript&gt;</code> 같은 게 실행되지 못하게 합니다.
 				아이프레임을 통하여 해킹을 자주 시도하여 생긴 속성입니다.
 			</p>
@@ -306,23 +306,23 @@
 				<li><code>&lt;iframe sandbox=&quot;allow-scripts&quot; src=&quot;주소&quot;&gt;&lt;/iframe&gt;</code> 스크립트는 실행이 가능해집니다.</li>
 			</ul>
 		</div>
-
-		<div class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.1.iframe_element.html">
-			<h3 class="ve_tit">예제</h3>
-			<div class="uk_editor indent min-height-600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
-				<div class="code_wrap"><textarea></textarea></div>
-			</div>
-		</div>
-
-		<aside class="browser_support mt_xxl" data-tit="iframe">
-			<ul>
-				<li class="ie">지원</li>
-				<li class="edge">지원</li>
-				<li class="chrome">1.0</li>
-				<li class="firefox">지원</li>
-				<li class="opera">지원</li>
-				<li class="safari">지원</li>
-			</ul>
-		</aside>
 	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.1.iframe_element.html">
+		<h2 class="ve_tit">예제</h2>
+		<div class="uk_editor indent min-height-600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="iframe">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">지원</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
 

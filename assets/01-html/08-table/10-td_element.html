@@ -18,7 +18,8 @@
 			colspan 속성과 rowspan 속성을 사용하면 콘텐츠를 여러 셀에 걸쳐 나타낼 수 있습니다.
 		</p>
 		<p class="mt_s">
-			HTML5에서는 <code>&lt;td&gt;</code> 요소의 abbr, align, axis, bgcolor, char, charoff, height, nowrap, scope, valign, width 속성을 더 이상 지원하지 않습니다.
+			HTML5에서는 <code>&lt;td&gt;</code> 요소의 <code>abbr</code>, <code>align</code>, <code>axis</code>, <code>bgcolor</code>, <code>char</code>,
+			<code>charoff</code>, <code>height</code>, <code>nowrap</code>, <code>scope</code>, <code>valign</code>, <code>width</code> 속성을 더 이상 지원하지 않습니다.
 		</p>
 		<div class="line_code mt_s">
 			<strong class="t_blue weight-600">CSS 기본값 :</strong>
@@ -38,23 +39,23 @@
 
 		<article class="indent_max txt_ex mt_l">
 			<h3 class="ml_mn">[colspan] <span class="t_blue">&lt;td colspan="숫자"&gt;</span></h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				해당 요소의 colspan 속성은 해당 헤더 셀이 확장될 열(column)의 개수를 명시합니다. 기본값은 1입니다.<br>
 				이때 colspan 속성값을 0으로 명시하면, 해당 셀은 자신이 포함된 열 그룹(colgroup)의 마지막 열까지 확장됩니다.
 			</p>
 		</article>
 
-		<article class="indent_max txt_ex mt_l">
+		<article class="indent_max txt_ex mt_xl">
 			<h3 class="ml_mn">[rowspan] <span class="t_blue">&lt;td rowspan="숫자"&gt;</span></h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				해당 요소의 rowspan 속성은 해당 헤더 셀(cell)이 확장될 행(row)의 개수를 명시합니다. 기본값은 1입니다.<br>
 				rowspan 속성값을 0으로 명시하면, 해당 셀은 자신이 포함된 테이블 영역(thead, tbody, tfoot)의 마지막 행까지 확장됩니다.
 			</p>
 		</article>
 
-		<article class="indent_max txt_ex mt_l">
+		<article class="indent_max txt_ex mt_xl">
 			<h3 class="ml_mn">[headers] <span class="t_blue">&lt;td headers="header id"&gt;</span></h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				해당 요소의 headers 속성은 해당 헤더 셀과 연관된 하나 이상의 헤더 셀(header cell)을 명시합니다.<br>
 				header id값은 해당 헤더 셀과 연관된 헤더 셀(header cell)들의 id 속성값을 공백으로 구분한 리스트입니다.<br>
 				일반 웹 브라우저에서는 해당 요소에 headers 속성을 명시해도 시각적으로 어떠한 효과도 보여주지 않지만, 스크린 리더기와 같은 장치에서는 유용하게 사용됩니다.
