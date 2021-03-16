@@ -2346,6 +2346,9 @@ mark {
 .scale_hover:hover img {
   transform: translate(-50%, -50%) scale(1.2, 1.2);
 }
+.color_keyword_ex span {
+  padding: 0 3px;
+}
 .flex_direction_compare {
   *zoom: 1;
 }
