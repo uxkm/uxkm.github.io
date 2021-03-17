@@ -46,7 +46,7 @@
 		<h2 class="ml_mn">3.9.1. 미디어 유형(Media types)</h2>
 		<p class="mt_ms">
 			CSS3의 매체 유형은 이전 CSS2에서 정의된 것을 그대로 사용하고 있습니다.<br>
-			<code>all | print | screen | speech</code>
+			<!--<code>all | print | screen | speech</code>-->
 		</p>
 		<p class="mt_s">
 			사용하지 않는 미디어 유형에는<br>
@@ -55,6 +55,11 @@
 			aural은 유사한 유형인 speech로 대체됐습니다.<br>
 			미디어 유형은 선택사항입니다. 미디어 유형을 표시하지 않으면 미디어 쿼리는 기본값으로 모든 미디어 유형에 대한 것으로 해석됩니다.
 		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="Media types">
+			<textarea readonly="readonly">
+				@media [all | print | screen | speech] and (min-width: 700px) { … }
+			</textarea>
+		</div>
 
 		<!-- all -->
 		<article class="indent_max mt_m">
@@ -154,7 +159,7 @@
 		</article>
 
 		<!-- width, height -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">width</h3>
 			<p class="mt_s">
 				뷰포트의 너비, 높이.<br>
@@ -205,7 +210,7 @@
 		-->
 
 		<!-- device-width -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">device-width, device-height</h3>
 			<p class="mt_s">
 				스크린의 너비, 높이.<br>
@@ -248,7 +253,7 @@
 		-->
 
 		<!-- aspect-ratio -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">aspect-ratio</h3>
 			<p class="mt_s">
 				화면 영역의 가로 세로 비율.<br>
@@ -278,7 +283,7 @@
 		</article>
 
 		<!-- devie-aspect-ratio -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">devie-aspect-ratio</h3>
 			<p class="mt_s">
 				스크린의 너비와 높이에 대한 비율. '너비/높이' 순으로 조건을 작성합니다.<br>
@@ -307,7 +312,7 @@
 		</article>
 
 		<!-- orientation -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">orientation</h3>
 			<p class="mt_s">
 				뷰포트의 너비와 높이 비율을 이용하여 가로 모드인지 세로 모드인지를 판단합니다.
@@ -329,7 +334,7 @@
 		</article>
 
 		<!-- color -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">color</h3>
 			<p class="mt_s">
 				매체 장치의 색상 구성요소 당 비트 수 (장치가 색깔 장치가 아니면 값은 0)<br>
@@ -364,7 +369,7 @@
 		</article>
 
 		<!-- color-index -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">color-index</h3>
 			<p class="mt_s">
 				출력 장치가 색상 색인 테이블을 사용하는 경우 표현할 수 있는 색의 수.<br>
@@ -401,7 +406,7 @@
 		</article>
 
 		<!-- monochrome -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">monochrome</h3>
 			<p class="mt_s">
 				출력 장치가 흑백인 경우 픽셀당 비트 수.<br>
@@ -430,7 +435,7 @@
 		</article>
 
 		<!-- resolution -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">resolution</h3>
 			<p class="mt_s">
 				출력 장치의 해상력에 대응합니다.
@@ -491,7 +496,7 @@
 		</article>
 
 		<!-- 콤마(,) 또는 or 연산자 - 논리합 연산자 -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">콤마(,) 또는 or 연산자 - 논리합 연산자</h3>
 			<p class="mt_s">
 				쉼표는 각각 개별 미디어 쿼리로 인식합니다.<br>
@@ -515,7 +520,7 @@
 		</article>
 
 		<!-- not 연산자 - 부정 논리 연산자 -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">not 연산자 - 부정 논리 연산자</h3>
 			<p class="mt_s">
 				not 연산자는 쿼리가 그렇지 않은 경우는 false를 반환하는 경우는 true 반환, 미디어 쿼리를 부정하는 데 사용됩니다.<br>
@@ -554,7 +559,7 @@
 		</article>
 
 		<!-- only 연산자 -->
-		<article class="indent_max mt_l">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">only 연산자</h3>
 			<p class="mt_s">
 				only 연산자는 전체 쿼리와 일치하는 경우에만 스타일을 적용하는 데 사용합니다.<br>
@@ -591,7 +596,7 @@
 		</div>
 
 		<!-- CSS 코드 내부에서 분기하는 방법 -->
-		<article class="indent_max mt_ml">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">CSS 코드 내부에서 분기하는 방법</h3>
 			<p class="mt_s">
 				CSS 코드 내부에서 사용하는 미디어 쿼리의 기본적인 문법 예는 다음과 같습니다. 일반적으로 권장하고 널리 쓰이는 방식입니다.<br>
@@ -664,7 +669,7 @@
 		</article>
 
 		<!-- CSS 코드 외부에서 분기하는 방법 -->
-		<article class="indent_max mt_ml">
+		<article class="indent_max mt_xl">
 			<h3 class="ml_mn t_blue">CSS 코드 외부에서 분기하는 방법</h3>
 			<p class="mt_s">
 				조건문에 따라 별도의 외부 CSS 파일을 참조하여 분기하는 방법이며, 이 방식은 성능 최적화 측면에서 권장하지 않습니다.
@@ -686,6 +691,7 @@
 			</div>
 		</article>
 	</section>
+
 
 	<aside class="reference_box mt_xxl">
 		<h2 class="tit">@규칙(At-Rule) 참조</h2>

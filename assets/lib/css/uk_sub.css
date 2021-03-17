@@ -345,6 +345,12 @@ mark {
 	}
 }
 */
+.el_block {
+  display: block;
+}
+.el_inline_block {
+  display: inline-block;
+}
 .dp_pc {
   display: block !important;
 }
@@ -2316,6 +2322,8 @@ mark {
 }
 .scale_hover {
   position: relative;
+  width: 150px;
+  height: 100px;
   margin: 8px 0 5px;
 }
 .scale_hover:after {
@@ -2324,6 +2332,8 @@ mark {
   top: 0;
   font-size: 14px;
   color: #1e73ff;
+  word-break: keep-all;
+  white-space: pre;
   content: "◀ 마우스를 올려보세요.";
   opacity: .8;
 }

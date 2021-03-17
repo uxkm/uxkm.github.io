@@ -345,6 +345,12 @@ mark {
 	}
 }
 */
+.el_block {
+  display: block;
+}
+.el_inline_block {
+  display: inline-block;
+}
 .dp_pc {
   display: block !important;
 }
@@ -6642,7 +6648,7 @@ body {
 .dot_lst li:before {
   position: absolute;
   left: 0;
-  top: 12px;
+  top: 11px;
   width: 4px;
   height: 4px;
   background: #999;

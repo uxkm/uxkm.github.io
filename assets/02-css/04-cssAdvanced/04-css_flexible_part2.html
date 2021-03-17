@@ -15,7 +15,7 @@
 		</figure>
 
 		<!-- display -->
-		<article class="mt_xxl indent">
+		<article class="mt_xl indent">
 			<h3 class="ml_mn t_blue">display</h3>
 			<p class="mt_ms">
 				플렉스 서식 환경을 구성합니다.<br>
@@ -45,7 +45,7 @@
 		</article>
 
 		<!-- flex-direction -->
-		<article class="mt_xxl indent">
+		<article class="mt_xl indent">
 			<h3 class="ml_mn t_blue">flex-direction</h3>
 			<p class="mt_ms">
 				방향, 흐름, 시각적인 순서를 처리합니다.
@@ -75,10 +75,10 @@
 				<img src="/ukncs/images/css/flexbox/uxkm_flex-direction.svg" alt="flex-direction을 시각적으로 설명하는 다이어그램" class="mt_m">
 			</figure>
 
-			<div class="ol_lst indent mt_l">
+			<div class="ol_lst">
 				<ol>
 					<!--  -->
-					<li class="tit_h4">
+					<li class="tit_h4 mt_l">
 						<h4 class="t_blue">주측(main axis)과 교차축(cross axis)의 이해</h4>
 						<p class="mt_s">
 							위 요약에 언급됐듯이 <code>flex</code>에서 수평과 수직은 올바른 용어가 아닙니다.
@@ -222,7 +222,7 @@
 		</article>
 
 		<!-- flex-wrap -->
-		<article class="mt_xxl indent">
+		<article class="mt_xl indent">
 			<h3 class="ml_mn t_blue">flex-wrap</h3>
 			<p class="mt_ms">
 				<code>flex-wrap</code> 속성은 <code>flex item</code>을 1행으로 또는 복수행으로 배치할지를 결정합니다.(Items의 줄 바꿈 설정)<br>
@@ -243,10 +243,10 @@
 				<img src="/ukncs/images/css/flexbox/uxkm_flex-wrap.svg" alt="flex-direction 예시" class="mt_m">
 			</figure>
 
-			<div class="ol_lst indent mt_l">
+			<div class="ol_lst">
 				<ol>
 					<!-- nowrap (기본값) -->
-					<li class="tit_h4">
+					<li class="tit_h4 mt_l">
 						<h4>nowrap (기본값)</h4>
 						<p class="mt_s">기본값이며, flex item을 줄바꿈 하지 않고 1행에 배치합니다.</p>
 						<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [flex-wrap : nowrap]">
@@ -320,7 +320,7 @@
 		</article>
 
 		<!-- flex-flow -->
-		<article class="mt_xxl indent">
+		<article class="mt_xl indent">
 			<h3 class="ml_mn t_blue">flex-flow</h3>
 			<p class="mt_ms">
 				<code>flex-flow</code> 속성은 <code>flex-direction</code> 속성과 <code>flex-wrap</code> 속성을 설정하기 위한 <i>shorthand</i>입니다.<br>
@@ -357,7 +357,7 @@
 		</article>
 
 		<!-- justify-content -->
-		<article class="mt_xxl indent">
+		<article class="mt_xl indent">
 			<h3 class="ml_mn t_blue">justify-content</h3>
 			<p class="mt_ms">
 				<code>justify-content</code> 속성은 플렉스 요소의 수평 방향 정렬 방식을 설정합니다. (컨테이너의 항목을 기본 축을 따라 정렬하는 속성)<br>
@@ -378,10 +378,10 @@
 				<img src="/ukncs/images/css/flexbox/uxkm_flex-justify-content_md.svg" alt="justify-content를 시각적으로 설명하는 다이어그램" class="mt_m dp_md mg_center">
 			</figure>
 
-			<div class="ol_lst indent mt_l">
+			<div class="ol_lst">
 				<ol>
 					<!-- flex-start (기본값) -->
-					<li class="tit_h4">
+					<li class="tit_h4 mt_l">
 						<h4>flex-start (기본값)</h4>
 						<p class="mt_s">기본값이며, 플렉스 요소가 플렉스 컨테이너의 앞쪽(왼쪽)부터 배치됩니다.</p>
 						<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [justify-content : flex-start]">
@@ -510,7 +510,7 @@
 		</article>
 
 		<!-- align-content -->
-		<article class="mt_xxl indent">
+		<article class="mt_xl indent">
 			<h3 class="ml_mn t_blue">align-content</h3>
 			<p class="mt_ms">
 				<code>flex container</code>의 교차 축(cross-axis)을 기준으로 <code>flex item</code>을 수직 정렬합니다.<br>
@@ -535,10 +535,10 @@
 				<img src="/ukncs/images/css/flexbox/uxkm_flex-align-content_md.svg" alt="align-content를 시각적으로 설명하는 다이어그램" class="mt_m dp_md mg_center">
 			</figure>
 
-			<div class="ol_lst indent mt_l">
+			<div class="ol_lst">
 				<ol>
 					<!-- stretch (기본값) -->
-					<li class="tit_h4">
+					<li class="tit_h4 mt_l">
 						<h4>stretch (기본값)</h4>
 						<p class="mt_s">기본값이며, flex container의 교차 축을 채우기 위해 flex Items을 늘립니다.</p>
 						<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [align-content : stretch]">
@@ -676,7 +676,7 @@
 		</article>
 
 		<!-- align-items -->
-		<article class="mt_xxl indent">
+		<article class="mt_xl indent">
 			<h3 class="ml_mn t_blue">align-items</h3>
 			<p class="mt_ms">
 				<code>align-items</code>는 <code>flex container</code>에 지정하는 속성이며, <code>flex container</code>의 교차축(세로)을 기준으로 <code>flex item</code>을 정렬합니다.
@@ -701,10 +701,10 @@
 				<img src="/ukncs/images/css/flexbox/uxkm_flex-align-items_md.svg" alt="align-items를 시각적으로 설명하는 다이어그램" class="mt_m dp_md mg_center">
 			</figure>
 
-			<div class="ol_lst indent mt_l">
+			<div class="ol_lst">
 				<ol>
 					<!-- stretch (기본값) -->
-					<li class="tit_h4">
+					<li class="tit_h4 mt_l">
 						<h4>stretch (기본값)</h4>
 						<p class="mt_s">
 							기본값이며,

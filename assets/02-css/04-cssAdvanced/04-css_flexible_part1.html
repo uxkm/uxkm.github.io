@@ -63,9 +63,9 @@
 			<figcaption class="mt_0">[<code class="bg_none t_444">Flexbox</code> 기본 구조]</figcaption>
 			<img src="/ukncs/images/css/flexbox/uxkm_flex-base.svg" alt="Flexbox 기본 구조" class="mt_s">
 		</figure>
-		<div class="ol_lst mt_ml">
+		<div class="ol_lst">
 			<ol>
-				<li class="line_code tit_h3">
+				<li class="line_code tit_h3 mt_ml">
 					<h3>Flexbox 컨테이너 속성</h3>
 					<p><code class="t_blue weight-500">display</code> : HTML 요소에 대한 박스의 타입을 명시합니다. <code>flex | inline-flex</code></p>
 					<p><code class="t_blue weight-500">flex-direction</code> : <code>Flex Items</code>의 주 축(main-axis)을 설정합니다. (방향을 설정)</p>
@@ -75,7 +75,7 @@
 					<p><code class="t_blue weight-500">justify-content</code> : 주 축(main-axis)의 정렬 방법을 설정합니다. (<code>flex</code> 요소의 수평 방향 정렬 방식을 설정)</p>
 					<p><code class="t_blue weight-500">align-items</code> : 교차 축(cross-axis)에서 <code>Items</code>의 정렬 방법을 설정합니다.(1줄) (<code>flex</code> 요소의 수직 방향 정렬 방식을 설정)</p>
 				</li>
-				<li class="line_code tit_h3 mt_ml">
+				<li class="line_code tit_h3 mt_l">
 					<h3>Flexbox 아이템 속성</h3>
 					<p><code class="t_blue weight-500">flex-grow</code> : <code>flex item</code>의 너비에 대한 확대 인자(flex grow factor)를 지정합니다.</p>
 					<p><code class="t_blue weight-500">flex-shrink</code> : <code>flex item</code>의 너비에 대한 축소 인자(flex shrink factor)를 지정합니다.</p>
@@ -102,11 +102,6 @@
 	<!-- Flexbox 사용 -->
 	<section class="mt_xxl indent">
 		<h2 class="ml_mn">Flexbox 사용</h2>
-		<section class="view_editor edit_code mt_ml" data-target="/css/step03/4.4.flexible/4.4.flexible.html">
-			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
-				<div class="code_wrap"><textarea></textarea></div>
-			</div>
-		</section>
 		<figure class="img_figure mt_ml">
 			<!--<figcaption class="mt_0">[Flexbox terminology diagram from official W3C specification.]</figcaption>
 			<img src="/ukncs/images/css/flex-direction-terms.svg" alt="Flexbox terminology diagram from official W3C specification." class="mt_m">
@@ -115,38 +110,42 @@
 			<img src="/ukncs/images/css/flexbox/uxkm_flex_terminology.svg" alt="Flexbox terminology diagram from official W3C specification." class="mt_m">
 		</figure>
 
-		<p class="mt_xl">Flexbox 속성의 값에 따라 flex 항목은 main axis(기본 축) 또는 cross axis(교차 축)을 따라 flex 컨테이너 안에 배치됩니다.</p>
-		<div class="ol_lst mt_s">
-			<strong class="t_black weight-500 font-16">주 축(main-axis)과 교차 축(cross-axis)의 개념은 다음과 같습니다.</strong>
-			<ol class="indent mt_s">
+		<!--<p class="mt_xl">Flexbox 속성의 값에 따라 flex 항목은 main axis(기본 축) 또는 cross axis(교차 축)을 따라 flex 컨테이너 안에 배치됩니다.</p>-->
+		<article class="ol_lst mt_l">
+			<strong class="t_black weight-500 font-16">
+				Flexbox 속성의 값에 따라 flex 항목은 main axis(기본 축) 또는 cross axis(교차 축)을 따라 flex 컨테이너 안에 배치됩니다.<br>
+				주 축(main-axis)과 교차 축(cross-axis)의 개념은 다음과 같습니다.
+			</strong>
+			<ol class="indent mt_ms">
 				<li>값 <code>row</code>는 <code>Items</code>를 수평축으로 표시하므로 이때는 주 축이 수평이며 교차 축은 수직이 됩니다.</li>
 				<li>반대로 값 <code>column</code>은 <code>Items</code>를 수직축으로 표시하므로 주 축은 수직이며 교차 축은 수평이 됩니다.</li>
 				<li>즉, 방향(수평, 수직)에 따라 주 축과 교차 축이 달라집니다.</li>
 			</ol>
-		</div>
-		<figure class="img_figure indent mt_m">
-			<figcaption class="mt_0">[주 축(<code class="bg_none t_444">main-axis</code>)과 교차 축(<code class="bg_none t_444">cross-axis</code>)]</figcaption>
-			<img src="/ukncs/images/css/flexbox/uxkm_flex-direction-main-axis.svg" alt="주 축(main-axis)과 교차 축(cross-axis)" class="mt_m">
-		</figure>
+			<figure class="img_figure indent mt_m">
+				<figcaption class="mt_0">[주 축(<code class="bg_none t_444">main-axis</code>)과 교차 축(<code class="bg_none t_444">cross-axis</code>)]</figcaption>
+				<img src="/ukncs/images/css/flexbox/uxkm_flex-direction-main-axis.svg" alt="주 축(main-axis)과 교차 축(cross-axis)" class="mt_m">
+			</figure>
+		</article>
 
-		<div class="ol_lst mt_xl">
+		<article class="ol_lst mt_xl">
 			<strong class="t_black weight-500 font-16">시작점(flex-start)과 끝점(flex-end)의 개념은 다음과 같습니다.</strong>
 			<ol class="indent mt_s">
 				<li>이는 주 축이나 교차 축의 시작하는 지점과 끝나는 지점을 지칭합니다.</li>
 				<li>역시 방향에 따라 시작점과 끝점이 달라집니다.</li>
 			</ol>
-		</div>
-		<figure class="img_figure indent mt_m">
-			<figcaption class="mt_0">[시작점(<code class="bg_none t_444">flex-start</code>)과 끝점(<code class="bg_none t_444">flex-end</code>)]</figcaption>
-			<img src="/ukncs/images/css/flexbox/uxkm_flex-direction-main(cross)-start.svg" alt="시작점(flex-start)과 끝점(flex-end)" class="mt_m">
-			<!--
-			<img src="/ukncs/images/css/flex-direction-main-start.jpg" alt="시작점(flex-start)과 끝점(flex-end)" class="mt_m">
-			<img src="/ukncs/images/css/flex-direction-cross-start.jpg" alt="시작점(flex-start)과 끝점(flex-end)">
-			-->
-		</figure>
+			<figure class="img_figure indent mt_m">
+				<figcaption class="mt_0">[시작점(<code class="bg_none t_444">flex-start</code>)과 끝점(<code class="bg_none t_444">flex-end</code>)]</figcaption>
+				<img src="/ukncs/images/css/flexbox/uxkm_flex-direction-main(cross)-start.svg" alt="시작점(flex-start)과 끝점(flex-end)" class="mt_m">
+				<!--
+				<img src="/ukncs/images/css/flex-direction-main-start.jpg" alt="시작점(flex-start)과 끝점(flex-end)" class="mt_m">
+				<img src="/ukncs/images/css/flex-direction-cross-start.jpg" alt="시작점(flex-start)과 끝점(flex-end)">
+				-->
+			</figure>
+		</article>
 
-		<p class="mt_xl"><code>flexbox</code>를 사용하려면 먼저 부모 컨테이너에 <code>display: flex;</code>속성을 CSS에 추가하여 부모 컨테이너를 <code>flex</code> 컨테이너로 변환해야 합니다.</p>
-		<div class="uk_gist_code_box indent mt_m" data-tit="flexbox">
+		<article class="mt_xl">
+			<p><code>flexbox</code>를 사용하려면 먼저 부모 컨테이너에 <code>display: flex;</code>속성을 CSS에 추가하여 부모 컨테이너를 <code>flex</code> 컨테이너로 변환해야 합니다.</p>
+			<div class="uk_gist_code_box indent mt_m" data-tit="flexbox">
 			<textarea readonly="readonly">
 				div {
 					display: -webkit-box; // OLD - iOS 6-, Safari 3.1-6
@@ -156,24 +155,27 @@
 					display: flex; // NEW, Spec - Opera 12.1, Firefox 20+
 				}
 			</textarea>
-		</div>
+			</div>
+		</article>
 		<!--<figure class="img_figure indent mt_m">
 			<figcaption class="mt_0">[출처 : Scott Domes]</figcaption>
 			<img src="/ukncs/images/css/flex-display.gif" alt="출처 : Scott Domes" class="mt_m">
 		</figure>-->
 
-		<p class="mt_xl">
-			부모 요소가 <code>inline</code> 요소인 경우 <code>inline-flex</code>을 지정합니다.<br>
-			<code>flex</code> 또는 <code>inline-flex</code>는 부모 요소에 반드시 지정해야하는 유일한 속성이며 자식 요소는 자동적으로 <code>flex item</code>이 됩니다.
-		</p>
-		<div class="uk_gist_code_box indent mt_m" data-tit="flexbox">
+		<article class="mt_xl">
+			<p>
+				부모 요소가 <code>inline</code> 요소인 경우 <code>inline-flex</code>을 지정합니다.<br>
+				<code>flex</code> 또는 <code>inline-flex</code>는 부모 요소에 반드시 지정해야하는 유일한 속성이며 자식 요소는 자동적으로 <code>flex item</code>이 됩니다.
+			</p>
+			<div class="uk_gist_code_box indent mt_m" data-tit="flexbox">
 			<textarea readonly="readonly">
 				div {
 					display: inline-flex;
 				}
 			</textarea>
-		</div>
-		<aside class="browser_support indent mt_l" data-tit="inline-flex">
+			</div>
+		</article>
+		<aside class="browser_support mt_xl" data-tit="inline-flex">
 			<ul>
 				<li class="ie">10+ -ms-</li>
 				<li class="edge">12.0</li>
@@ -183,8 +185,14 @@
 				<li class="safari">6.1</li>
 			</ul>
 		</aside>
+	</section>
 
 
+	<section class="view_editor edit_code mt_xxl" data-target="/css/step03/4.4.flexible/4.4.flexible.html">
+		<h2 class="ve_tit">Flexbox 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
 	</section>
 
 	<aside class="reference_box mt_xxl">

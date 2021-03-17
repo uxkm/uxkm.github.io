@@ -908,6 +908,21 @@ var menu = [
 								d4_url:		url_css+'cssMiddleclass&css_selectors_level3',
 								d4_file:	file_css+'/03-cssMiddleclass/01-css_selectors_level3.html',
 								html5:		false,
+                part:       true,
+                part_div : [
+                  {
+                    part_nm :   'part-1',
+                    part_tab :  'CSS 선택자 level 3 part-1',
+                    part_url :  url_css+'cssMiddleclass&css_selectors_level3_part1',
+                    part_file : file_css+'/03-cssMiddleclass/01-css_selectors_level3_part1.html',
+                  },
+                  {
+                    part_nm :   'part-2',
+                    part_tab :  'CSS 선택자 level 3 part-2',
+                    part_url :  url_css+'cssMiddleclass&css_selectors_level3_part2',
+                    part_file : file_css+'/03-cssMiddleclass/01-css_selectors_level3_part2.html',
+                  },
+                ],
 							},
 							{
 								d4_nm:	    '가상 요소',

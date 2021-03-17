@@ -44,7 +44,7 @@
 	</blockquote>
 
 	<!-- 그리드 요약설명 -->
-	<section class="mt_xxl indent">
+	<section class="indent mt_xxl">
 		<h2 class="ml_mn">그리드 요약설명</h2>
 		<ol class="ol_lst mt_ms">
 			<li><code class="t_blue weight-700 bg_none">grid container</code> : 전체 grid layout을 감싸는 역할을 수행합니다. <code>display: grid | inline-grid;</code> 속성을 통해 지정할 수 있습니다.</li>
@@ -61,7 +61,7 @@
 		</figure>
 
 		<!-- CSS3 Grid 모듈 속성을 컨테이너, 아이템 별로 정리 -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">CSS3 Grid 모듈 속성을 컨테이너, 아이템 별로 정리</h3>
 			<ol class="ol_lst mt_ms">
 				<li class="line_code tit_h4">
@@ -99,7 +99,7 @@
 		</article>
 
 		<!-- 플랙스박스 와 그리드의 차이점 -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">플랙스박스(flexible box) 와 그리드(grid)의 차이점</h3>
 			<ol class="ol_lst mt_ms">
 				<li><strong class="weight-500 t_black">플랙스박스</strong> : 레이아웃을 조정할 때 오직 가로 행 혹은 세로 열 만 고려하여 작업할 때 사용합니다.</li>
@@ -116,7 +116,7 @@
 	</section>
 
 	<!-- 4.5.1. grid에서 사용되는 주요 용어 정리 -->
-	<section class="mt_xxl indent">
+	<section class="indent mt_xxl">
 		<h2 class="ml_mn">4.5.1. grid에서 사용되는 주요 용어 정리</h2>
 		<p class="mt_ms">그리드에서 사용하는 주요 용어에 대해서 설명합니다.</p>
 		<!--
@@ -131,9 +131,9 @@
 		-->
 
 		<!-- grid -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">grid</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				HTML 요소에 display 속성 값으로 grid를 설정하면 그리드 컨테이너(container)가 됩니다.<br>
 				그리드 컨테이너(container)는 행(rows)과 열(columns)을 가지며, 그리드 아이템(items)을 배치할 수 있습니다.<br>
 				그리드 컨테이너 요소이며, 자식요소를 그리드 아이템으로 설정합니다.
@@ -145,9 +145,9 @@
 		</article>
 
 		<!-- line -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">line</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				선(line)은 일반적으로 거터(gutter)라고 하는 트랙과 트랙 사이의 간격을 의미합니다.<br>
 				즉, 그리드의 행/열을 그리는 선을 말하며, 각 선은 라인 넘버를 갖습니다. 그리드 아이템을 배치하는 기준으로 사용됩니다.
 			</p>
@@ -159,9 +159,9 @@
 		</article>
 
 		<!-- track -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">track</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				트랙(track)은 하나의 행(row) 혹은 열(column)을 의미합니다.<br>
 				즉, 그리드 트랙은 그리드 라인 사이의 행 또는 열 공간을 말합니다.
 			</p>
@@ -173,9 +173,9 @@
 		</article>
 
 		<!-- cell -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">cell</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				셀(cell)은 아이템(item)이 배치되는 최소 단위의 영역(area)입니다.<br>
 				즉, 그리드 셀은 4개의 그리드 라인이 묶여 그려지는 가장 작은 단위(유닛) 입니다.
 			</p>
@@ -187,9 +187,9 @@
 		</article>
 
 		<!-- area -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">area</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				영역(area)은 아이템이 배치되는, 하나 이상의 셀(cell)로 이루어진 영역입니다.<br>
 				즉, 그리드 에어리어는 그리드 유닛이 묶인 영역으로 고유한 식별자를 가지며, 식별자를 통해 요소를 배치할 수 있습니다.
 			</p>
@@ -201,9 +201,9 @@
 		</article>
 
 		<!-- gutters -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">gutters</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				그리드 거터는 행 또는 열 사이 간격(gap)을 말합니다.<br>
 				<code>gap</code>(row, column 동시 선언), <code>row-gap</code>, <code>column-gap</code> 속성으로 제어합니다.
 			</p>
@@ -215,14 +215,14 @@
 	</section>
 
 	<!-- 4.5.2. grid functions -->
-	<section class="mt_xxl indent">
+	<section class="indent mt_xxl">
 		<h2 class="ml_mn">4.5.2. grid functions</h2>
 		<p class="mt_ms">그리드에서 사용하는 주요 용어에 대해서 설명합니다.</p>
 
 		<!-- repeat -->
-		<article class="mt_l indent">
+		<article class="indent mt_l">
 			<h3 class="ml_mn t_blue">repeat</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>repeat()</code> 함수의 첫번째 인자는 반복 횟수를 설정합니다.<br>
 				<code>repeat()</code> 함수는 행/열(Track)의 크기 정의를 반복히며, '반복되는 횟수'와 '행/열의 크기 정의'를 인수로 사용합니다.<br>
 				grid-template-rows와 grid-template-columns에서 사용합니다.<br>
@@ -236,7 +236,7 @@
 				<code>repeat</code>함수를 활용하여 작업하면 코드가 간결해집니다.
 			</p>
 
-			<section class="indent mt_m">
+			<section class="indent mt_l">
 				<h4 class="ml_mn">코드 예제</h4>
 				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [repeat()]">
 					<textarea readonly="readonly">
@@ -250,7 +250,7 @@
 				</div>
 			</section>
 
-			<section class="indent mt_m">
+			<section class="indent mt_l">
 				<h4 class="ml_mn">9컬럼 그리드 코드 예제</h4>
 				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [repeat() - columns 9]">
 					<textarea readonly="readonly">
@@ -277,7 +277,7 @@
 				</div>
 			</section>
 
-			<section class="indent mt_m">
+			<section class="indent mt_l">
 				<h4 class="ml_mn">12컬럼 그리드 코드 예제</h4>
 				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [repeat() - columns 12]">
 					<textarea readonly="readonly">
@@ -291,23 +291,23 @@
 				</div>
 			</section>
 
-			<figure class="img_figure mt_ml">
+			<figure class="img_figure mt_l">
 				<figcaption class="mt_0"><code class="bg_none t_444">[ repeat function ]</code></figcaption>
 				<img src="/ukncs/images/css/grid/uxkm_grid_repeat-function.svg" alt="repeat function" class="mt_m">
 			</figure>
 		</article>
 
 		<!-- minmax -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">minmax</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>minmax()</code> 함수는 행/열(Track)의 '최소/최대 크기'를 정의합니다.<br>
 				<code>minmax()</code> 함수를 사용하면 최솟값, 최댓값 범위 내에서 값을 유연하게 처리합니다.<br>
 				첫 번째 인수는 '최솟값'이고 두 번째 인수는 '최댓값'입니다.<br>
 				<code>grid-template-rows</code>, <code>grid-template-columns</code>, <code>grid-auto-rows</code>, <code>grid-auto-columns</code>에서 사용합니다.
 			</p>
 
-			<section class="indent mt_m">
+			<section class="indent mt_l">
 				<h4 class="ml_mn">코드 예제</h4>
 				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [minmax()]">
 					<textarea readonly="readonly">
@@ -337,16 +337,16 @@
 				</div>
 			</section>
 
-			<figure class="img_figure mt_ml">
+			<figure class="img_figure mt_l">
 				<figcaption class="mt_0"><code class="bg_none t_444">[ minmax function ]</code></figcaption>
 				<img src="/ukncs/images/css/grid/uxkm_grid_minmax-function.svg" alt="minmax function" class="mt_m">
 			</figure>
 		</article>
 
 		<!-- fit-content -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">fit-content</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>fit-content()</code> 함수는 행/열(Track)의 크기를 그리드 아이템(Item)이 포함하는 내용(Contents) 크기에 맞춥니다.<br>
 				&apos;내용의 최대 크기&apos;를 인수로 사용합니다.<br>
 				<code>minmax(auto, max-content)</code>와 유사합니다.<br>
@@ -397,14 +397,14 @@
 	</section>
 
 	<!-- 4.5.3. grid units -->
-	<section class="mt_xxl indent">
+	<section class="indent mt_xxl">
 		<h2 class="ml_mn">4.5.3. grid units</h2>
 		<p class="mt_ms">그리드에서 사용하는 주요 단위들에 대해서 설명합니다.</p>
 
 		<!-- fr -->
-		<article class="mt_l indent">
+		<article class="indent mt_l">
 			<h3 class="ml_mn t_blue">fr</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>fr(fractional unit)</code>은 사용 가능한 공간에 대한 비율을 의미합니다.<br>
 				그리드 트랙 사이즈로 사용 되는 <code>fr</code> 단위는 유연한 단위로 그리드 컨테이너의 여유 공간을 비율로 나눠 설정합니다.<br>
 				퍼센트(%) 단위와 유사해 보일 수 있으나, 퍼센트 값과 다르게 길이가 아닙니다.<br>
@@ -432,9 +432,9 @@
 		</article>
 
 		<!-- min-content -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">min-content</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				그리드 아이템이 포함하는 내용(Contents)의 최소 크기를 의미합니다.<br>
 				콘텐츠에 한글을 사용할 경우 단어가 묶여있어 아이템의 영역을 벗어날 때는 <code>word-break: keep-all;</code>을 선언하여 단어를 쪼개 줄바꿈 할 수 있게 설정하면 정상적으로 작동합니다.
 			</p>
@@ -464,9 +464,9 @@
 		</article>
 
 		<!-- max-content -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">max-content</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				그리드 아이템이 포함하는 내용(Contents)의 최대 크기를 의미합니다.
 			</p>
 			<section class="indent mt_m">
@@ -497,9 +497,9 @@
 		</article>
 
 		<!-- auto-fill, auto-fit -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">auto-fill, auto-fit</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				아이템의 갯수를 알 수 없을 때 <code>auto-fit</code>, <code>auto-fill</code>을 사용합니다.<br>
 				즉, 트랙에 값을 정확히 알 수 없을 때 해당 값들을 넣어주면 됩니다.<br>
 				행/열(Track)의 개수를 그리드 컨테이너(Container) 및 행/열 크기에 맞게 자동으로(암시적) 조정합니다.<br>
@@ -543,9 +543,9 @@
 		</article>
 
 		<!-- auto-fill과 auto-fit의 차이 -->
-		<article class="mt_l indent">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn t_blue">auto-fill과 auto-fit의 차이</h3>
-			<p class="mt_s">
+			<p class="mt_ms">
 				<code>auto-fill</code>과 <code>auto-fit</code>은 차이점은 그리드 컨테이너가 하나의 행/열(Track)에 모든 아이템을 수용하고 남는 공간이 있을 때 발생합니다.<br>
 				<code>auto-fill</code>은 남는 공간(빈 트랙)을 그대로 유지하고, <code>auto-fit</code>은 남는 공간을 축소합니다.
 			</p>

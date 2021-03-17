@@ -255,10 +255,10 @@
 .scale_hover {
 	@width:150px;
 	position:relative;
-	margin:8px 0 5px;
+	width:@width; height:100px; margin:8px 0 5px;
 	&:after {
 		position:absolute; left:@width + 10px; top:0;
-		font-size:14px; color:@blue;
+		font-size:14px; color:@blue; word-break:keep-all; white-space:pre;
 		content:"◀ 마우스를 올려보세요.";
 		opacity:.8;
 	}

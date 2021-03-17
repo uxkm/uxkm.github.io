@@ -29,10 +29,10 @@
 	</blockquote>
 
 	<!-- 브라우저별 콜론(:) 하나, 콜론(::) 두 개 사용여부 -->
-	<section class="txt_ex indent mt_l">
+	<section class="txt_ex indent mt_xxl">
 		<h2 class="ml_mn">브라우저별 콜론(:) 하나, 콜론(::) 두 개 사용여부</h2>
 
-		<div class="ol_lst mt_s">
+		<div class="ol_lst mt_ms">
 			<ol>
 				<li>Internet Explorer 8.0 = :pseudo-element</li>
 				<li>Internet Explorer 9.0 = :pseudo-element, ::pseudo-element</li>
@@ -46,9 +46,9 @@
 	</section>
 
 	<!-- ::first-line (:first-line) -->
-	<section class="txt_ex indent mt_l">
+	<section class="txt_ex indent mt_xxl">
 		<h2 class="ml_mn">::first-line (:first-line)</h2>
-		<p class="mt_s">
+		<p class="mt_ms">
 			CSS level 1<br>
 			이 의사 요소는 텍스트의 첫 라인만을 선택합니다.<br>
 			단, 블록(block) 타입의 요소에만 사용할 수 있습니다.<br>
@@ -135,8 +135,9 @@
 			</ol>
 		</div>
 
-		<div class="view_editor edit_code mt_m" data-target="css/step02/3.2.pseudo-elements/3.2.first-line.html">
-			<div class="uk_editor min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div class="view_editor edit_code mt_l" data-target="css/step02/3.2.pseudo-elements/3.2.first-line.html">
+			<h3 class="ve_tit">::first-line (:first-line) 예제</h3>
+			<div class="uk_editor indent min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</div>
@@ -154,9 +155,9 @@
 	</section>
 
 	<!-- ::before (:before) / ::after (:after) -->
-	<section class="txt_ex indent mt_l">
+	<section class="txt_ex indent mt_xxl">
 		<h2 class="ml_mn">::before (:before) / ::after (:after)</h2>
-		<p class="mt_s">
+		<p class="mt_ms">
 			CSS level 2<br>
 			<code>::before (:before)</code> 의사 요소는 특정 요소의 내용(content) 부분 바로 앞에 다른 요소를 삽입할 때 사용합니다.<br>
 			<code>::after (:after)</code> 의사 요소는 특정 요소의 내용(content) 부분 바로 뒤에 다른 요소를 삽입할 때 사용합니다.<br>
@@ -185,7 +186,7 @@
 		<p class="mt_m">
 			<strong class="t_black">content 속성 사용 방법은 다음과 같이 사용할 수 있습니다.</strong><br>
 		</p>
-		<div class="uk_gist_code_box mt_s" data-tit="content:;" data-ex="style_tag_remove">
+		<div class="uk_gist_code_box indent mt_ms" data-tit="content:;" data-ex="style_tag_remove">
 			<textarea readonly="readonly">
 				<style>
 				p::after {content: normal | none | counter | attr | string | open-quote | close-quote | no-open-quote | no-close-quote | url | initial | inherit;}
@@ -282,8 +283,9 @@
 			</ol>
 		</div>
 
-		<div class="view_editor edit_code mt_m" data-target="css/step02/3.2.pseudo-elements/3.2.before-after.html">
-			<div class="uk_editor min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div class="view_editor edit_code mt_l" data-target="css/step02/3.2.pseudo-elements/3.2.before-after.html">
+			<h3 class="ve_tit">::before (:before) / ::after (:after) 예제</h3>
+			<div class="uk_editor indent min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</div>
@@ -301,7 +303,7 @@
 	</section>
 
 	<!-- ::selection -->
-	<section class="txt_ex indent mt_l">
+	<section class="txt_ex indent mt_xxl">
 		<h2 class="ml_mn css3">::selection</h2>
 		<blockquote class="uk_note mt_m" role="note">
 			<h3 class="sound_only">요약 설명</h3>
@@ -321,7 +323,7 @@
 		<p class="mt_ms">
 			<strong class="t_black">::selection은 다음과 같은 특정 CSS 속성 만 사용할 수 있습니다.</strong><br>
 		</p>
-		<div class="uk_gist_code_box mt_ms" data-tit="::selection">
+		<div class="uk_gist_code_box indent mt_ms" data-tit="::selection">
 			<textarea readonly="readonly">
 				::selection,
 				::-moz-selection {
@@ -337,8 +339,9 @@
 				}
 			</textarea>
 		</div>
-		<div class="view_editor edit_code mt_m" data-target="css/step02/3.2.pseudo-elements/3.2.selection.html">
-			<div class="uk_editor min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div class="view_editor edit_code mt_l" data-target="css/step02/3.2.pseudo-elements/3.2.selection.html">
+			<h3 class="ve_tit">::before (:before) / ::after (:after) 예제</h3>
+			<div class="uk_editor indent min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</div>
@@ -356,9 +359,9 @@
 	</section>
 
 	<!-- ::placeholder -->
-	<section class="txt_ex indent mt_l">
+	<section class="txt_ex indent mt_xxl">
 		<h2 class="ml_mn css3">::placeholder</h2>
-		<p class="mt_s">
+		<p class="mt_ms">
 			CSS level 3<br>
 			<code>::placeholder</code> 선택자는 항상 이중 콜론 (::)으로 시작합니다.<br>
 			HTML5에서 새로 나온 속성(attribute)으로 <code>input</code> 요소나 <code>textarea</code> 요소에 안내문(알맞은 힌트를 제공)을 넣을 수 있습니다.<br>
@@ -376,7 +379,7 @@
 			</textarea>
 		</div>
 
-		<p class="mt_ms">
+		<p class="mt_m">
 			<strong class="t_black">브라우저 호환성을 위해 사용하는 방법에는 다음과 같이 사용할 수 있습니다.</strong><br>
 		</p>
 		<div class="ol_lst indent mt_s">
@@ -436,8 +439,9 @@
 			</ol>
 		</div>
 
-		<div class="view_editor edit_code mt_m" data-target="css/step02/3.2.pseudo-elements/3.2.placeholder.html">
-			<div class="uk_editor min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div class="view_editor edit_code mt_l" data-target="css/step02/3.2.pseudo-elements/3.2.placeholder.html">
+			<h3 class="ve_tit">::placeholder 예제</h3>
+			<div class="uk_editor indent min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</div>
@@ -455,14 +459,14 @@
 	</section>
 
 
-	<section class="view_editor edit_code mt_l" data-target="css/step02/3.2.pseudo-elements/3.2.pseudo-elements.html">
+	<section class="view_editor edit_code mt_xxl" data-target="css/step02/3.2.pseudo-elements/3.2.pseudo-elements.html">
 		<h2 class="ve_tit">가상 요소(Pseudo-elements) 예제</h2>
 		<div class="uk_editor indent min-height-500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
 	</section>
 
-	<section class="reference_box mt_l">
+	<section class="reference_box mt_xxl">
 		<h2 class="tit">가상 요소(Pseudo-elements) 참조</h2>
 		<ul class="link_lst">
 			<li class="reference"><a href="https://www.w3.org/TR/CSS2/selector.html#first-line-pseudo" target="_blank" class="fas" title="새창열림">W3C CSS 2.1 선택기</a></li>

@@ -23,6 +23,7 @@
 	</blockquote>
 	<!--<p class="mt_ms"><code>transition: &lt;property&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;delay&gt;</code></p>-->
 
+	<!--
 	<div class="uk_gist_code_box mt_m" data-tit="transition">
 		<textarea readonly="readonly">
 			div {
@@ -55,6 +56,7 @@
 			}
 		</textarea>
 	</div>
+	-->
 
 	<!-- transition-property 속성 -->
 	<section class="txt_ex indent mt_xxl">
@@ -128,9 +130,9 @@
 		</div>
 
 		<!-- 1. ease -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">1. <i class="t_blue">ease</i></h3>
-			<p class="mt_sm t_black">초반은 느리게, 중간은 빠르게, 종료지점은 느리게 변화가 진행됩니다.</p>
+			<p class="mt_s">초반은 느리게, 중간은 빠르게, 종료지점은 느리게 변화가 진행됩니다.</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease]">
 				<textarea readonly="readonly">
 					div {
@@ -141,9 +143,9 @@
 		</article>
 
 		<!-- 2. linear -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">2. <i class="t_blue">linear</i></h3>
-			<p class="mt_sm t_black">시작부터 종료까지 동일한 속도로 진행됩니다.</p>
+			<p class="mt_s">시작부터 종료까지 동일한 속도로 진행됩니다.</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [linear]">
 				<textarea readonly="readonly">
 					div {
@@ -154,9 +156,9 @@
 		</article>
 
 		<!-- 3. ease-in -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">3. <i class="t_blue">ease-in</i></h3>
-			<p class="mt_sm t_black">느리게 시작한 후 일정한 속도에 다다르면 그 상태로 등속 운동합니다.</p>
+			<p class="mt_s">느리게 시작한 후 일정한 속도에 다다르면 그 상태로 등속 운동합니다.</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease-in]">
 				<textarea readonly="readonly">
 					div {
@@ -167,9 +169,9 @@
 		</article>
 
 		<!-- 4. ease-out -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">4. <i class="t_blue">ease-out</i></h3>
-			<p class="mt_sm t_black">일정한 속도의 등속으로 시작해서 점점 느려지면서 멈춥니다.</p>
+			<p class="mt_s">일정한 속도의 등속으로 시작해서 점점 느려지면서 멈춥니다.</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease-out]">
 				<textarea readonly="readonly">
 					div {
@@ -180,9 +182,9 @@
 		</article>
 
 		<!-- 5. ease-in-out -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">5. <i class="t_blue">ease-in-out</i></h3>
-			<p class="mt_sm t_black"><code class="t_blue">ease</code>와 비슷합니다. 초반은 느리게, 중간은 빠르게, 종료지점은 느리게 변화가 진행됩니다.</p>
+			<p class="mt_s"><code class="t_blue">ease</code>와 비슷합니다. 초반은 느리게, 중간은 빠르게, 종료지점은 느리게 변화가 진행됩니다.</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease-in-out]">
 				<textarea readonly="readonly">
 					div {
@@ -193,9 +195,9 @@
 		</article>
 
 		<!-- 6. steps(n) -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">6. <i class="t_blue">steps(n)</i></h3>
-			<p class="mt_sm t_black">
+			<p class="mt_s">
 				애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
 				<code>duration</code> 값과 연계해서 선언하여 일종의 Frame Rate(초당 프레임 수)를 설정하거나 혹은, 셀 애니메이션처럼 연계된 동작을 표현할 수도 있습니다.
 			</p>
@@ -231,9 +233,9 @@
 		</article>
 
 		<!-- 7. cubic-bezier(n,n,n,n) -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">7. <i class="t_blue">cubic-bezier(n,n,n,n)</i></h3>
-			<p class="mt_sm t_black">처음과 끝의 속도를 0과 1 사이의 수치를 이용하여 4단계로 지정할 수 있습니다. 베지어(Bezier)라는 곡선 운동을 정의합니다.</p>
+			<p class="mt_s">처음과 끝의 속도를 0과 1 사이의 수치를 이용하여 4단계로 지정할 수 있습니다. 베지어(Bezier)라는 곡선 운동을 정의합니다.</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [cubic-bezier(n,n,n,n)]">
 				<textarea readonly="readonly">
 					div {
@@ -241,13 +243,13 @@
 					}
 				</textarea>
 			</div>
-			<div class="line_code mt_s">
+			<div class="line_code mt_ms">
 				<p>
 				<code>cubic-bezier</code> 곡선에서 그래프의 가로축은 시간, 세로축은 변화의 진행 정도를 의미합니다.<br>
 				가로축과 세로축 모두 시작값은 0이며, 종료값은 1입니다.
 			</p>
 			</div>
-			<figure class="img_figure mt_s">
+			<figure class="img_figure mt_ms">
 				<figcaption class="mt_0">[<code class="bg_none t_blue">cubic-bezier</code> 곡선 그래프]</figcaption>
 				<img src="/ukncs/images/css/cssAdvanced/uxkm_transition_cubic-bezier.svg" alt="cubic-bezier 곡선 그래프1" class="mt_m">
 			</figure>
@@ -284,9 +286,9 @@
 		</p>
 
 		<!-- 1. 기본형 -->
-		<article class="indent mt_ml">
+		<article class="indent mt_l">
 			<h3 class="ml_mn">1. <i class="t_blue">기본형</i></h3>
-			<p class="mt_sm">
+			<p class="mt_s">
 				<code>transition</code>의 속성을 분리해서 정의할 수 있습니다.<br>
 				code가 길어지는 단점이 있지만, 전체 속성(all) 대신 꼭 필요한 속성만 사용할 수 있습니다.
 			</p>
@@ -303,9 +305,9 @@
 		</article>
 
 		<!-- 2. 최대 단축형 -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">2. <i class="t_blue">최대 단축형</i></h3>
-			<p class="mt_sm">
+			<p class="mt_s">
 				변경할 속성이 한 개 또는 모든 css속성일 경우에 사용됩니다. (주로 property가 all일 경우에 많이 쓰입니다.)<br>
 				모든 css속성(property)에 적용하고, 기본 타이밍(ease)을 사용하고, 지연시간(delay)이 없을 경우<br>
 				<code>transition:.5s;</code> 이렇게 지속시간(duration)만 선언하여 사용 가능합니다.
@@ -321,9 +323,9 @@
 		</article>
 
 		<!-- 3. 확장 단축형 -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">3. <i class="t_blue">확장 단축형</i></h3>
-			<p class="mt_sm">
+			<p class="mt_s">
 				변경할 속성이 두 개 이상일 때 사용되며, 각 속성별로 독립적인 움직임을 줄 수 있습니다.
 			</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="transition syntax [Expansion shortened]">
@@ -338,9 +340,9 @@
 		</article>
 
 		<!-- 4. 대입형 -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">4. <i class="t_blue">대입형</i></h3>
-			<p class="mt_sm">
+			<p class="mt_s">
 				<code>transition-property</code>에 나열된 순서대로 다른 <code>transition</code>의 속성이 대입 적용됩니다.
 			</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="transition syntax [Substitute type]">
@@ -373,23 +375,22 @@
 		-->
 
 		<!-- 5. transition 작성 시 유의사항 -->
-		<article class="indent mt_ml">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn">5. <i class="t_blue">transition 작성 시 주의사항</i></h3>
-			<ol class="ol_lst">
-				<li class="tit_h4 line_code mt_m">
-					<h4 class="mb_sm weight-500">transition 속성에서 각 항목의 순서는 중요합니다.</h4>
-					<p>
+				<section class="tit_h4 indent mt_m">
+					<h4 class="ml_mn weight-bold">transition 속성에서 각 항목의 순서는 중요합니다.</h4>
+					<p class="mt_s">
 						시간으로 해석될 수 있는 값이 첫번째에 위치한다면 <code>transition-duration</code>으로 적용되고,
 						두번째에 위치한다면 <code>transition-delay</code>으로 적용됩니다.
 					</p>
 					<p>
-						속성값 목록이 알맞은 길이를 갖지 않는다면, 어떻게 처리될지 궁금하다면 아래 <span class="t_purple">속성값 목록이 다른 개수를 가진 경우</span>를 참고하세요.<br>
+						속성값 목록이 알맞은 길이를 갖지 않는다면, 어떻게 처리될지 궁금하다면 아래 <span class="t_black">[속성값 목록이 다른 개수를 가진 경우]</span>를 참고하세요.<br>
 						<!--요컨대, -->실제 속성의 개수보다 많이 기술된 것은 무시됩니다.
 					</p>
-				</li>
-				<li class="tit_h4 mt_ml">
-					<h4 class="mb_sm weight-500 t_purple">속성값 목록이 다른 개수를 가진 경우</h4>
-					<p class="t_black">어떤 속성의 값 목록이 다른 것보다 짧다면, 일치되도록 그 값을 반복합니다.</p>
+				</section>
+				<section class="tit_h4 indent mt_ml">
+					<h4 class="ml_mn weight-bold">속성값 목록이 다른 개수를 가진 경우</h4>
+					<p class="mt_s">어떤 속성의 값 목록이 다른 것보다 짧다면, 일치되도록 그 값을 반복합니다.</p>
 					<div class="uk_gist_code_box indent mt_s" data-tit="transition syntax">
 						<textarea readonly="readonly">
 							div {
@@ -403,7 +404,7 @@
 							}
 						</textarea>
 					</div>
-					<p class="mt_ms t_black">어떤 속성의 값 목록이 <code>transition-property</code> 목록보다 길다면, 필요 없는 값을 잘라냅니다.</p>
+					<p class="mt_ms">어떤 속성의 값 목록이 <code>transition-property</code> 목록보다 길다면, 필요 없는 값을 잘라냅니다.</p>
 					<div class="uk_gist_code_box indent mt_s" data-tit="transition syntax">
 						<textarea readonly="readonly">
 							div {
@@ -417,8 +418,7 @@
 							}
 						</textarea>
 					</div>
-				</li>
-			</ol>
+				</section>
 		</article>
 	</section>
 

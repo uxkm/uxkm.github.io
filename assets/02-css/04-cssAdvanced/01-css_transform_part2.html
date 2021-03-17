@@ -90,16 +90,16 @@
 		</div>
 
 		<!-- transform 속성 -->
-		<article class="indent mt_xxl">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn"><i class="t_blue">transform 3D</i> 속성</h3>
-			<p class="t_666 mt_ms font-16">
+			<p class="mt_ms t_666 font-16">
 				CSS3 2D transform에서 설명한 부분은 제외합니다.<br>
 				<span class="el_block mt_sm"><code>transform : none | &lt;transform-function&gt; [ &lt;transform-function&gt; ]*</code></span>
 			</p>
 			<div class="ol_lst mt_m">
 				<ol>
 					<!-- 1. z축에 대한 이해 -->
-					<li class="tit_h4">
+					<li class="tit_h4 mt_l">
 						<h4 class="mb_s">z축에 대한 이해</h4>
 						<p>
 							transform 3D에서도 transform 2D의 값은 동일하게 사용됩니다.<br>
@@ -114,7 +114,7 @@
 					</li>
 
 					<!-- 2. translate3d(x,y,z) -->
-					<li class="tit_h4 line_code mt_l">
+					<li class="tit_h4 mt_l">
 						<h4 class="mb_ms">translate3d(x, y, z)</h4>
 						<p>
 							<code>translate3d(x, y, z)</code> 메소드는 현재 위치에서 해당 요소를 주어진 <code>x</code>축과 <code>y</code>축, <code>z</code>축의 거리만큼 이동시킵니다.<br>
@@ -134,7 +134,7 @@
 					</li>
 
 					<!-- 3. translateZ(tz) -->
-					<li class="tit_h4 line_code mt_l">
+					<li class="tit_h4 mt_l">
 						<h4 class="mb_ms">translateZ(tz)</h4>
 						<p>
 							현재의 위치에서 해당 요소를 주어진 z축의 거리만큼 이동시킵니다.<br>
@@ -154,7 +154,7 @@
 					</li>
 
 					<!-- 4. scale3d(sx, sy, sz) -->
-					<li class="tit_h4 line_code mt_l">
+					<li class="tit_h4 mt_l">
 						<h4 class="mb_ms">scale3d(sx, sy, sz)</h4>
 						<p>해당 요소의 크기를 주어진 배율만큼 x축, y축과 z축 방향으로 늘리거나 줄입니다.</p>
 						<div class="uk_gist_code_box mt_ms" data-tit="transform [scale3d(sx, sy, sz)]">
@@ -171,7 +171,7 @@
 					</li>
 
 					<!-- 5. scaleZ(sz) -->
-					<li class="tit_h4 line_code mt_l">
+					<li class="tit_h4 mt_l">
 						<h4 class="mb_ms">scaleZ(sz)</h4>
 						<!--<p>해당 요소의 z축 크기를 주어진 배율만큼 늘리거나 줄입니다.</p>-->
 						<p>
@@ -198,14 +198,13 @@
 					</li>
 
 					<!-- 6. rotate3d(x, y, z, angle) -->
-					<li class="tit_h4 line_code mt_l">
+					<li class="tit_h4 mt_l">
 						<h4 class="mb_ms">rotate3d(x, y, z, angle)</h4>
 						<p>해당 요소를 주어진 각도만큼 x축, y축과 z축을 기준으로 회전시킵니다.</p>
-						<p>
-							<!--<code>transform: rotate3d(x, y, z, angle);</code><br>-->
-							- 3D 공간에서 회전에는 3개의 자유도가 있으며 회전축을 나타냅니다.<br>
-							- 회전축은 요소의 원점(<code>transform-origin</code>으로 정의된 값)과 <code>rotate3d(x, y, z, angle)</code>를 통과합니다.
-						</p>
+						<ul class="dot_lst indent mt_sm">
+							<li>3D 공간에서 회전에는 3개의 자유도가 있으며 회전축을 나타냅니다.</li>
+							<li>회전축은 요소의 원점(<code>transform-origin</code>으로 정의된 값)과 <code>rotate3d(x, y, z, angle)</code>를 통과합니다.</li>
+						</ul>
 						<div class="uk_gist_code_box mt_ms" data-tit="transform [rotate3d(x, y , z, angle)]">
 							<textarea readonly="readonly">
 								div { transform: rotate3d(x, y, z, angle); }
@@ -219,7 +218,7 @@
 					</li>
 
 					<!-- 7. rotateX(angle) -->
-					<li class="tit_h4 line_code mt_l">
+					<li class="tit_h4 mt_l">
 						<h4 class="mb_ms">rotateX(angle), rotateY(angle)</h4>
 						<p>
 							<code class="t_blue">rotateX(angle)</code>, <code class="t_green">rotateY(angle)</code> 메소드는
@@ -271,7 +270,7 @@
 					-->
 
 					<!-- 9. rotateZ(angle) -->
-					<li class="tit_h4 line_code mt_l">
+					<li class="tit_h4 mt_l">
 						<h4 class="mb_ms">rotateZ(angle)</h4>
 						<p>
 							<code>rotateZ()</code> 메소드는 해당 요소를 주어진 각도만큼 <code>z</code>축을 기준으로 회전시킵니다.
@@ -301,7 +300,7 @@
 					</li>
 
 					<!-- 10. matrix3d(n×16) -->
-					<li class="tit_h4 line_code mt_l">
+					<li class="tit_h4 mt_l">
 						<h4 class="mb_ms">matrix3d(n×16)</h4>
 						<p>4x4 행렬을 이용한 16개의 매개변수로 모든 3D 변형 메소드를 한 번에 설정합니다.</p>
 						<p><code>matrix3d ​​( a1 , b1 , c1 , d1 , a2 , b2 , c2 , d2 , a3 , b3 , c3 , d3 , a4 , b4 , c4 , d4 );</code></p>
@@ -316,7 +315,7 @@
 		</article>
 
 		<!-- transform-style 속성 -->
-		<article class="indent mt_xxl">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn"><i class="t_blue">transform-style</i> 속성</h3>
 			<p class="mt_ms">요소에 변형을 적용할 때 그 변환이 자식(child) 요소들에게도 적용될지 안 될지를 설정합니다.</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="transform-style">
@@ -354,7 +353,7 @@
 		</article>
 
 		<!-- perspective  속성 -->
-		<article class="indent mt_xxl">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn"><i class="t_blue">perspective</i> 속성</h3>
 			<p class="dot_lst mt_s">
 				<!--
@@ -392,7 +391,7 @@
 		</article>
 
 		<!-- transform-origin 속성 -->
-		<article class="indent mt_xxl">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn"><i class="t_blue">transform-origin</i> 속성</h3>
 			<p class="t_666 mt_ms">
 				transform 2D, 3D 구분없이 같은 값을 가집니다.<br>
@@ -476,7 +475,7 @@
 		</article>
 
 		<!-- backface-visibility(이면가시성) 속성 -->
-		<article class="indent mt_xxl">
+		<article class="indent mt_xl">
 			<h3 class="ml_mn"><i class="t_blue">backface-visibility(이면가시성)</i> 속성</h3>
 			<p class="t_666 mt_ms">
 				요소의 앞면만을 표현하고, 뒷면을 표현할지 안 할지를 설정합니다.<br>
