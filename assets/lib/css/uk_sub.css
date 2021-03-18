@@ -167,7 +167,8 @@ ol,
 ul li {
   list-style: none;
 }
-i {
+i,
+em {
   font-style: normal;
 }
 blockquote,

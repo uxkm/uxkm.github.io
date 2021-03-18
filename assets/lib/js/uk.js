@@ -919,7 +919,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 			var browser_tit = active_target.d4_nm;
 			if( d4_target.part === true ) {
 				var target_idx = Number(target_url.split('_part')[1] - 1);
-				browser_tit += d4_target.part_div[target_idx].part_nm;
+				browser_tit += ' '+d4_target.part_div[target_idx].part_nm;
 			}
 
 			change_target.find('>a').attr('data-tit',(d3_on+1)+'.'+(d4_on+1)+'. '+browser_tit);
@@ -1056,14 +1056,13 @@ function element_color_div(part_state, target, target_this, target_idx, d4){
 		$e_ol_li.eq(target_idx).addClass('part');
 		var part_div = d4[target_idx].part_div;
 
-
 		var on_target, before_mm, after_nm;
 		on_target = d4[target_idx];
 		before_mm = on_target.d4_nm;
 
 		for( p=0; p<part_div.length; p++ ){
 			after_nm = on_target.part_div[p].part_nm;
-			var part_nm = before_mm + ' ' + after_nm;
+			var part_nm = before_mm + ' ' + '<em>' + after_nm + '</em>';
 			//$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+part_div[p].part_nm+'</a></p>');
 			$e_ol_li.eq(target_idx).append('<p><a href="'+part_div[p].part_url+'" class="'+uk_link+'">'+ part_nm +'</a></p>');
 		}
@@ -1103,7 +1102,7 @@ function element_color_div(part_state, target, target_this, target_idx, d4){
 			else if( txt_split[1] === 'element' ) {
 				var ex_txt = txt_split[txt_split.length-1];
 				tag_txt = txt_split[0];
-				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>element</i> <b>'+ex_txt+'</b>');
+				$(x).find('a').html('<b>'+ tag_txt+'</b> <i>element</i> <em>'+ex_txt+'</em>');
 			}
 		});
 	}

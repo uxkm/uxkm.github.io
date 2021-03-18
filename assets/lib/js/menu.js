@@ -617,19 +617,19 @@ var menu = [
 								part_div : [
 									{
 										part_nm :   'part-1',
-										part_tab :  'input part-1',
+										part_tab :  'input <em>part-1</em>',
 										part_url :  url_html+'forms&input_element_part1',
 										part_file : file_html+'/09-forms/03-input_element_part1.html',
 									},
 									{
 										part_nm :   'part-2',
-										part_tab :  'input part-2',
+										part_tab :  'input <em>part-2</em>',
 										part_url :  url_html+'forms&input_element_part2',
 										part_file : file_html+'/09-forms/03-input_element_part2.html',
 									},
 									{
 										part_nm :   'part-3',
-										part_tab :  'input part-3',
+										part_tab :  'input <em>part-3</em>',
 										part_url :  url_html+'forms&input_element_part3',
 										part_file : file_html+'/09-forms/03-input_element_part3.html',
 									},
@@ -827,10 +827,25 @@ var menu = [
 								html5:		false,
 							},
 							{
-								d4_nm:  	'CSS 선택자 level 1,2',
+								d4_nm:  	'CSS 선택자 level 1, 2',
 								d4_url:		url_css+'cssBeginner&css_selectors_level1',
 								d4_file:	file_css+'/02-cssBeginner/02-css_selectors_level1.html',
 								html5:		false,
+                part:       true,
+                part_div : [
+                  {
+                    part_nm :   'part-1',
+                    part_tab :  'CSS 선택자 level 1, 2 <em>part-1</em>',
+                    part_url :  url_css+'cssBeginner&css_selectors_level1_part1',
+                    part_file : file_css+'/02-cssBeginner/02-css_selectors_level1_part1.html',
+                  },
+                  {
+                    part_nm :   'part-2',
+                    part_tab :  'CSS 선택자 level 1, 2 <em>part-2</em>',
+                    part_url :  url_css+'cssBeginner&css_selectors_level1_part2',
+                    part_file : file_css+'/02-cssBeginner/02-css_selectors_level1_part2.html',
+                  },
+                ],
 							},
 							{
 								d4_nm:  	'Color 속성',
@@ -873,6 +888,21 @@ var menu = [
 								d4_url:		url_css+'cssBeginner&css_boxmodel',
 								d4_file:	file_css+'/02-cssBeginner/09-css_boxmodel.html',
 								html5:		false,
+                part:       true,
+                part_div : [
+                  {
+                    part_nm :   'part-1',
+                    part_tab :  '박스 모델 속성 <em>part-1</em>',
+                    part_url :  url_css+'cssBeginner&css_boxmodel_part1',
+                    part_file : file_css+'/02-cssBeginner/09-css_boxmodel_part1.html',
+                  },
+                  {
+                    part_nm :   'part-2',
+                    part_tab :  '박스 모델 속성 <em>part-2</em>',
+                    part_url :  url_css+'cssBeginner&css_boxmodel_part2',
+                    part_file : file_css+'/02-cssBeginner/09-css_boxmodel_part2.html',
+                  },
+                ],
 							},
 							{
 								d4_nm:	    '시각적인 속성',
@@ -912,13 +942,13 @@ var menu = [
                 part_div : [
                   {
                     part_nm :   'part-1',
-                    part_tab :  'CSS 선택자 level 3 part-1',
+                    part_tab :  'CSS 선택자 level 3 <em>part-1</em>',
                     part_url :  url_css+'cssMiddleclass&css_selectors_level3_part1',
                     part_file : file_css+'/03-cssMiddleclass/01-css_selectors_level3_part1.html',
                   },
                   {
                     part_nm :   'part-2',
-                    part_tab :  'CSS 선택자 level 3 part-2',
+                    part_tab :  'CSS 선택자 level 3 <em>part-2</em>',
                     part_url :  url_css+'cssMiddleclass&css_selectors_level3_part2',
                     part_file : file_css+'/03-cssMiddleclass/01-css_selectors_level3_part2.html',
                   },
@@ -957,13 +987,13 @@ var menu = [
 								part_div : [
 									{
 										part_nm :   'part-1',
-										part_tab :  'CSS3 Module part-1',
+										part_tab :  'CSS3 Module <em>part-1</em>',
 										part_url :  url_css+'cssMiddleclass&css_module3_part1',
 										part_file : file_css+'/03-cssMiddleclass/06-css_module3_part1.html',
 									},
 									{
 										part_nm :   'part-2',
-										part_tab :  'CSS3 Module part-2',
+										part_tab :  'CSS3 Module <em>part-2</em>',
 										part_url :  url_css+'cssMiddleclass&css_module3_part2',
 										part_file : file_css+'/03-cssMiddleclass/06-css_module3_part2.html',
 									},
@@ -990,13 +1020,13 @@ var menu = [
 								part_div : [
 									{
 										part_nm :   'part-1',
-										part_tab :  '@media part-1',
+										part_tab :  '@media <em>part-1</em>',
 										part_url :  url_css+'cssMiddleclass&css_media_part1',
 										part_file : file_css+'/03-cssMiddleclass/09-css_media_part1.html',
 									},
 									{
 										part_nm :   'part-2',
-										part_tab :  '@media part-2',
+										part_tab :  '@media <em>part-2</em>',
 										part_url :  url_css+'cssMiddleclass&css_media_part2',
 										part_file : file_css+'/03-cssMiddleclass/09-css_media_part2.html',
 									},
@@ -1065,7 +1095,7 @@ var menu = [
 								html5:		false,
 							},
 							{
-								d4_nm:  	'플렉서블 레이아웃 - ',
+								d4_nm:  	'플렉서블 레이아웃',
 								d4_url:		url_css+'cssAdvanced&css_flexible',
 								d4_file:	file_css+'/04-cssAdvanced/04-css_flexible.html',
 								html5:		false,
@@ -1092,7 +1122,7 @@ var menu = [
 								],
 							},
 							{
-								d4_nm:  	'그리드 레이아웃 - ',
+								d4_nm:  	'그리드 레이아웃',
 								d4_url:		url_css+'cssAdvanced&css_grid',
 								d4_file:	file_css+'/04-cssAdvanced/05-css_grid.html',
 								html5:		false,

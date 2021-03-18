@@ -786,6 +786,7 @@
 						a, b, i, span {color:lighten(@blue, 20%);}
 					}
 				}
+				&.part em:before {content:"- ";}
 				&.part p:hover {
 					a, b, i, span {color:lighten(@blue, 20%);}
 				}
@@ -2119,6 +2120,10 @@
 				&:not(.part):hover {
 					a, b, i, span {color:@blue;}
 				}
+				&.part em {
+					display:inline-block; position:relative; vertical-align:top;
+					&:before {content:"- ";}
+				}
 				&.part p:hover {
 					a, b, i, span {color:@blue;}
 				}
@@ -2323,7 +2328,8 @@
 		h3 .fa-css3-alt {margin:0 0 0; color:@skyBlue;}
 		h3.reference a {font-weight:bold;}
 		h4 {line-height:24px; font-size:16px; color:fade(@navy, 90%); letter-spacing:-0.3px;}
-		h5 {line-height:22px; font-size:15px; color:fade(@navy, 90%); letter-spacing:-0.3px; .weight-500;}
+		h5 {line-height:22px; font-size:15px; color:fade(@navy, 90%); letter-spacing:-0.3px;/* .weight-500;*/}
+		h6 {line-height:22px; font-size:14px; color:fade(@navy, 90%); letter-spacing:-0.3px;}
 	}
 	@media(max-width:@screen-md-max){
 		.content_area {
@@ -2353,6 +2359,7 @@
 			h3 .fa-css3-alt {margin:1px 0 0;}
 			h4 {line-height:20px; font-size:15px;}
 			h5 {line-height:20px; font-size:14px;}
+			h6 {line-height:20px; font-size:13px;}
 		}
 	}
 	@media(max-width:@screen-xxs){
@@ -2380,9 +2387,11 @@
 			&:not(:first-child) {margin-left:-@li_border;}
 			a {
 				display:block; position:relative;
+				//line-height:@height - @border - @li_border; padding:0 30px;
 				line-height:@height - @border - @li_border; padding:0 30px;
-				font-size:15px; color:#888; font-weight:500;
+				font-size:15px; color:#888; font-weight:500; word-break:keep-all;
 				background:#f5f5f5;
+				//em {color:#666;}
 			}
 			&.on a {
 				line-height:@height - @li_border;
@@ -2394,6 +2403,7 @@
 					background:@blue;
 					content:"";
 				}
+				//em {color:darken(@blue, 20%);}
 			}
 		}
 	}
@@ -2420,8 +2430,12 @@
 				border-top:0; border-left:0;
 				&:not(:first-child) {margin-left:0;}
 				a {
-					line-height:@height; padding:0 5px;
+					display:flex;
+					justify-content: center;
+					align-items: center;
+					height:45px; line-height:18px; padding:0 5px;
 					font-size:13px; font-weight:400;
+					em {display:block;}
 				}
 				&.on {
 					&:before {
@@ -2434,7 +2448,7 @@
 					}
 				}
 				&.on a {
-					line-height:@height;
+					line-height:18px;
 					&:before {height:2px;}
 					&:after {
 						position:absolute; left:50%; bottom:-8px;
@@ -2446,10 +2460,10 @@
 				li {
 					width:20%;
 					a {
-						display:table;
+						//display:table;
 						width:100%; height:46px; line-height:18px;
-						padding:0 5px;
-						i {display:table-cell; vertical-align:middle;}
+						padding:0 2px;
+						//i {display:table-cell; vertical-align:middle;}
 					}
 				}
 			}
@@ -2460,7 +2474,6 @@
 	}
 	@media(max-width:@screen-sm-max){
 		.tab_menu {
-			&.x5 ul li a {padding:0 2px;}
 		}
 	}
 
@@ -2560,8 +2573,9 @@
 	.view_editor {
 		.ve_tit {
 			position:relative;
-			line-height:24px; padding-left:20px;
-			.font-kr; font-size:18px; color:@blue; font-weight:700;
+			//line-height:24px; font-size:18px;
+			padding-left:20px;
+			.font-kr; color:@blue; font-weight:700;
 			&:before {
 				position:absolute; left:0; top:0;
 				margin:0 8px 0 0;
@@ -2569,7 +2583,7 @@
 				content:"\f1c9";
 			}
 			&.tit_h2 {
-				line-height:32px; padding-left:26px; font-size:22px;
+				//line-height:32px; padding-left:26px; font-size:22px;
 			}
 		}
 
@@ -2712,6 +2726,7 @@
 		@border_color:#ddd;
 
 		overflow:hidden; position:relative;
+		margin-top:15px;
 		border:1px solid @border_color; border-radius:5px;
 		background:#fff;
 		textarea {position:absolute; left:0; top:0; width:1px; height:1px; opacity:0;}
