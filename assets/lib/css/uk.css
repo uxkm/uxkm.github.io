@@ -6120,8 +6120,8 @@ body {
   font-weight: bold;
 }
 .content_area h1 {
-  line-height: 32px;
-  font-size: 28px;
+  line-height: 34px;
+  font-size: 30px;
   color: #081121;
   letter-spacing: -1px;
 }
@@ -6143,7 +6143,7 @@ body {
   display: inline-block;
   height: 22px;
   line-height: 22px;
-  margin: 10px 0 0 0;
+  margin: 12px 0 0 0;
   padding: 0 15px;
   font-family: 'Open Sans', 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
   font-size: 13px;
@@ -6221,6 +6221,46 @@ body {
   color: rgba(8, 17, 33, 0.9);
   letter-spacing: -0.3px;
 }
+.content_area h2 {
+  line-height: 32px;
+  font-size: 22px;
+}
+.content_area h2.ve_tit:before {
+  font-size: 20px;
+  margin-top: 1px;
+}
+.content_area h3 {
+  line-height: 28px;
+  font-size: 18px;
+}
+.content_area h3.ve_tit:before {
+  font-size: 16px;
+  margin-top: 1px;
+}
+.content_area h4 {
+  line-height: 24px;
+  font-size: 16px;
+}
+.content_area h4.ve_tit:before {
+  font-size: 15px;
+  margin-top: 1px;
+}
+.content_area h5 {
+  line-height: 22px;
+  font-size: 15px;
+}
+.content_area h5.ve_tit:before {
+  font-size: 14px;
+  margin-top: 1px;
+}
+.content_area h6 {
+  line-height: 22px;
+  font-size: 14px;
+}
+.content_area h6.ve_tit:before {
+  font-size: 13px;
+  margin-top: 1px;
+}
 @media (max-width: 993px) {
   .content_area h1 {
     overflow: hidden;
@@ -6287,6 +6327,46 @@ body {
   .content_area h6 {
     line-height: 20px;
     font-size: 13px;
+  }
+  .content_area h2 {
+    line-height: 24px;
+    font-size: 18px;
+  }
+  .content_area h2.ve_tit:before {
+    font-size: 16px;
+    margin-top: 0;
+  }
+  .content_area h3 {
+    line-height: 22px;
+    font-size: 16px;
+  }
+  .content_area h3.ve_tit:before {
+    font-size: 14px;
+    margin-top: 1px;
+  }
+  .content_area h4 {
+    line-height: 20px;
+    font-size: 15px;
+  }
+  .content_area h4.ve_tit:before {
+    font-size: 13px;
+    margin-top: 0;
+  }
+  .content_area h5 {
+    line-height: 20px;
+    font-size: 14px;
+  }
+  .content_area h5.ve_tit:before {
+    font-size: 12px;
+    margin-top: 1px;
+  }
+  .content_area h6 {
+    line-height: 20px;
+    font-size: 13px;
+  }
+  .content_area h6.ve_tit:before {
+    font-size: 11px;
+    margin-top: 1px;
   }
 }
 @media (max-width: 360px) {
@@ -6677,18 +6757,48 @@ body {
 }
 .view_editor .ve_tit {
   position: relative;
-  padding-left: 20px;
   font-family: 'Noto Sans KR', 'Malgun Gothic', 'Dotum', sans-serif;
   color: #1e73ff;
   font-weight: 700;
 }
 .view_editor .ve_tit:before {
+  display: inline-block;
+  vertical-align: top;
   position: absolute;
   left: 0;
   top: 0;
-  margin: 0 8px 0 0;
   font-family: "Font Awesome 5 Free", sans-serif;
   content: "\f1c9";
+}
+.view_editor h2.ve_tit {
+  padding-left: 22px;
+}
+.view_editor h3.ve_tit {
+  padding-left: 18px;
+}
+.view_editor h4.ve_tit {
+  padding-left: 16px;
+}
+.view_editor h5.ve_tit {
+  padding-left: 15px;
+}
+.view_editor h6.ve_tit {
+  padding-left: 14px;
+}
+.view_editor h2.ve_tit:before {
+  margin-right: 8px;
+}
+.view_editor h3.ve_tit:before {
+  margin-right: 7px;
+}
+.view_editor h4.ve_tit:before {
+  margin-right: 6px;
+}
+.view_editor h5.ve_tit:before {
+  margin-right: 5px;
+}
+.view_editor h6.ve_tit:before {
+  margin-right: 5px;
 }
 .view_editor.ex_code .ve_tit {
   color: #00986b;
@@ -6703,17 +6813,20 @@ body {
   margin-top: 15px;
 }
 @media (max-width: 767px) {
-  .view_editor .ve_tit {
-    line-height: 22px;
-    font-size: 15px;
+  .view_editor h2.ve_tit {
+    padding-left: 18px;
   }
-  .view_editor .ve_tit:before {
-    margin: 1px 6px 0 0;
+  .view_editor h3.ve_tit {
+    padding-left: 16px;
   }
-  .view_editor .ve_tit.tit_h2 {
-    line-height: 24px;
-    padding-left: 22px;
-    font-size: 18px;
+  .view_editor h4.ve_tit {
+    padding-left: 15px;
+  }
+  .view_editor h5.ve_tit {
+    padding-left: 14px;
+  }
+  .view_editor h6.ve_tit {
+    padding-left: 13px;
   }
   .view_editor .uk_editor {
     margin-top: 10px;

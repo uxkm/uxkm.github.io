@@ -2129,7 +2129,7 @@ mark {
   background-size: 1800px 100%;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: ani_h1 0.7s 3s cubic-bezier(0.65, 0, 0.35, 1) both, bg_ani_linear 35s 0.7s linear infinite;
+  animation: ani_h1 0.7s /*3s*/ cubic-bezier(0.65, 0, 0.35, 1) both, bg_ani_linear 35s /*.7s*/ linear infinite, zoomInUp 2.2s 1s ease-in-out both;
   transform-origin: left bottom;
 }
 .ie_no .animation_page .circle {
@@ -2310,6 +2310,22 @@ mark {
   100% {
     opacity: 1;
     transform: scale(1, 1);
+  }
+}
+@keyframes zoomInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 700px, 0);
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 700px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
 .uk_note.css_gradiant {

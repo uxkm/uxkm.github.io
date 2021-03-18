@@ -118,8 +118,9 @@
 		-webkit-background-clip:text;
 		background-clip:text;
 		animation:
-				ani_h1 .7s 3s cubic-bezier(0.65, 0, 0.35, 1) both,
-				bg_ani_linear 35s .7s linear infinite;
+				ani_h1 .7s /*3s*/ cubic-bezier(0.65, 0, 0.35, 1) both,
+				bg_ani_linear 35s /*.7s*/ linear infinite,
+				zoomInUp 2.2s 1s ease-in-out both;
 		transform-origin:left bottom;
 	}
 	/*
@@ -241,6 +242,23 @@
 	75% {opacity:1; transform:scale(.95, .95);}
 	100% {opacity:1; transform:scale(1, 1);}
 }
+@keyframes zoomInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale3d(.1, .1, .1) translate3d(0, 700px, 0);
+		transform: scale3d(.1, .1, .1) translate3d(0, 700px, 0);
+		-webkit-animation-timing-function: cubic-bezier(.55, .055, .675, .19);
+		animation-timing-function: cubic-bezier(.55, .055, .675, .19)
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+		transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+		-webkit-animation-timing-function: cubic-bezier(.175, .885, .32, 1);
+		animation-timing-function: cubic-bezier(.175, .885, .32, 1)
+	}
+}
+
 
 .uk_note.css_gradiant {
 	color:#fff;
