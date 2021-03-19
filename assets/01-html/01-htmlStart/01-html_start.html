@@ -32,9 +32,49 @@
 		</ol>
 	</section>
 
+	<div class="uk_gist_code_box indent mt_xxl" data-tit="[DOCTYPE]">
+		<textarea readonly="readonly">
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+			<!DOCTYPE html>
+			<html lang="ko">
+				<head>
+					<title>웹페이지 문서 제목입니다</title>
+				</head>
+				<body>
+					<h1>문서 제목 입니다.</h1>
+					<p>문서 단락 내용입니다.</p>
+				</body>
+			</html>
+
+			<style>
+				html, body {height:100%;}
+				html {
+					overflow-y:scroll; overflow-x:hidden !important;
+					width:100%; height:100em;
+					/*background:url('@{bg-url}/main_top_bg.jpg') no-repeat left top;
+					background-color:#000;*/
+					background-size:auto 100%;
+					background-attachment:fixed;
+					transition:background-color .4s;
+					/*background: -webkit-linear-gradient(left, #1e73ff, green);
+					background: linear-gradient(left, #1e73ff, green)*/
+				}
+			</style>
+
+			<div id="me" data-my-name="Heropy" data-my-age="851">Heropy</div>
+
+			<script>
+				// dataset.customDataAttributes
+				const $me = document.getElementById('me');
+				console.log($me.dataset.myName); // "Heropy"
+				console.log($me.dataset.myAge); // "851"
+			</script>
+		</textarea>
+	</div>
+
 	<section class="view_editor edit_code mt_xxl" data-target="html/01-htmlStart/1.1.html_basic.html">
 		<h2 class="ve_tit">HTML 기본구조</h2>
-		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+		<div class="uk_editor indent min-height-750" data-result="true" data-mode="htmlmixed" data-theme="ayu-mirage" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
 	</section>

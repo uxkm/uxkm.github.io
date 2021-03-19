@@ -459,9 +459,9 @@ mark {
   border: 4px solid #ccc;
 }
 .uk_editor .code_wrap * {
-  line-height: 22px;
-  letter-spacing: -0.5px;
-  font-size: 13px;
+  line-height: 24px;
+  letter-spacing: 0;
+  font-size: 14px;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-weight: normal;
 }
@@ -1379,15 +1379,15 @@ mark {
 .uk_editor .CodeMirror-scrollbar-filler {
   display: none !important;
 }
-.uk_editor[data-theme="moxer"] .CodeMirror-simplescroll-horizontal,
-.uk_editor[data-theme="moxer"] .CodeMirror-simplescroll-vertical {
+.uk_editor:not([data-theme="default"]) .CodeMirror-simplescroll-horizontal,
+.uk_editor:not([data-theme="default"]) .CodeMirror-simplescroll-vertical {
   background: rgba(255, 255, 255, 0.15);
 }
-.uk_editor[data-theme="moxer"] .CodeMirror-simplescroll-horizontal div,
-.uk_editor[data-theme="moxer"] .CodeMirror-simplescroll-vertical div {
+.uk_editor:not([data-theme="default"]) .CodeMirror-simplescroll-horizontal div,
+.uk_editor:not([data-theme="default"]) .CodeMirror-simplescroll-vertical div {
   background: rgba(255, 255, 255, 0.3);
 }
-.uk_editor[data-theme="moxer"] .cm-s-moxer .cm-error {
+.uk_editor:not([data-theme="default"]) .cm-s-moxer .cm-error {
   background-color: rgba(255, 83, 112, 0.3) !important;
 }
 .uk_editor[data-theme="default"] .CodeMirror-simplescroll-horizontal div,
@@ -1397,6 +1397,10 @@ mark {
 @media (max-width: 1201px) {
   .uk_editor {
     border-width: 2px;
+  }
+  .uk_editor .code_wrap * {
+    line-height: 20px;
+    font-size: 12px;
   }
   .uk_editor[data-result="true"] .code_wrap,
   .uk_editor[data-result="true"] .result_wrap {

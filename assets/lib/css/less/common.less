@@ -180,8 +180,8 @@ mark {
 	position:relative; //width:100%;
 	background:#fff; border:@edt_border_width solid @edt_border_color;
 	.code_wrap * {
-		line-height:22px; letter-spacing:-0.5px;
-		font-size:13px; .font-code; font-weight:normal;
+		line-height:24px; letter-spacing:0; //letter-spacing:-0.5px;
+		font-size:14px; .font-code; font-weight:normal;
 	}
 	.CodeMirror {height:auto;}
 	.CodeMirror-line * {display:inline-block; vertical-align:top;}
@@ -700,13 +700,13 @@ mark {
 		transition:background-color .15s;
 	}
 	.CodeMirror-scrollbar-filler {display:none !important;}
-	&[data-theme="moxer"]{
+	&:not([data-theme="default"]){
 		.CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
 			background:fade(#fff, 15%);
 		}
 		.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
-			//background:fade(@blue, 40%);
 			background:fade(#fff, 30%);
+			//&:hover {background-color:fade(#fff, 50%);}
 		}
 		.cm-s-moxer .cm-error {background-color:fade(#FF5370, 30%) !important;}
 	}
@@ -723,6 +723,7 @@ mark {
 		@bro_height:35px;
 		@info_i_height:316px;
 		border-width:2px;
+		.code_wrap * {line-height:20px; font-size:12px;}
 
 		&[data-result="true"]{
 			.code_wrap, .result_wrap {width:auto;}

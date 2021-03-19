@@ -90,11 +90,12 @@ function uk_editor(){
           yonce
           uxkm_custom
         */
-				theme: e.getAttribute('data-theme'),
-				//theme: 'yonce',
+				//theme: e.getAttribute('data-theme'),
+				theme: 'ayu-mirage',
         /* 테마 */
         
-				lineNumbers: true,
+				lineNumbers: true,        //라인 넘버 사용 여부
+        fixedGutter: true,       //라인 넘버 왼쪽 고정 여부
 				styleActiveLine: true,
 				readOnly:readonly,
 				//tabSize: 4,							//탭키 간격
