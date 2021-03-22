@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import "media_size";
 
 
 //font
@@ -13,20 +14,6 @@
 //.font-code {font-family:'Courgette', cursive;}
 .font-code {font-family:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
 
-
-//media size
-@screen-xxxxs:320px;
-@screen-xxxs:340px;
-@screen-xxs:360px;
-@screen-xs:540px;
-@screen-sm:620px;
-@screen-sm-min:768px;
-@screen-sm-max:767px;
-@screen-md-min:992px;
-@screen-md-max:993px;
-@screen-lg-min:1200px;
-@screen-lg-max:1201px;
-@screen-max-max:1301px;
 
 
 /* reset */
@@ -183,7 +170,8 @@ mark {
 		line-height:24px; letter-spacing:0; //letter-spacing:-0.5px;
 		font-size:14px; .font-code; font-weight:normal;
 	}
-	.CodeMirror {height:auto;}
+	.CodeMirror-gutter-elt {font-size:12px;}
+	.CodeMirror {height:auto; /*overflow:auto !important;*/}
 	.CodeMirror-line * {display:inline-block; vertical-align:top;}
 	&[data-result="true"]{
 		.CodeMirror-scroll {min-height:320px; max-height:528px;}

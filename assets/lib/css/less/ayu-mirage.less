@@ -1,52 +1,73 @@
 /* Based on https://github.com/dempfi/ayu */
+@import "media_size";
 
 
-@bg: #1f2430; // 1f2430
-@gray:#bbb ;
+@bg: #1a1d28; // 1f2430
+@gray:#ccc ;
+@value: #a8d589;
+@tag: #93b6ff;
+@property: #ccd9dc;
+@number: #5fb9e3;
+@comment: #677079;
+@atom: #d07fe5;
+@error: #ff6161;
+@keyword: #e7862f;
+@drag: #214283;
 
 .cm-s-ayu-mirage {
-	&.CodeMirror { background: @bg; color: #cbccc6; }
-	div.CodeMirror-selected { background: #34455a; }
+	&.CodeMirror { background: @bg; color: @gray; } //cbccc6
+	//div.CodeMirror-selected { background: fade(@number, 12%); } //34455a
+	div.CodeMirror-selected { background: @drag; } //34455a //214283
 	.CodeMirror-line::selection,
 	.CodeMirror-line > span::selection,
-	.CodeMirror-line > span > span::selection { background: #34455a; }
+	.CodeMirror-line > span > span::selection { background: @drag; } //34455a
 	.CodeMirror-line::-moz-selection,
 	.CodeMirror-line > span::-moz-selection,
-	.CodeMirror-line > span > span::-moz-selection { background: rgba(25, 30, 42, 99); }
+	.CodeMirror-line > span > span::-moz-selection { background: @drag; } //rgba(25, 30, 42, 99)
+
 	.CodeMirror-gutters { background: @bg; border-right: 0; }
 	.CodeMirror-guttermarker { color: white; }
 	.CodeMirror-guttermarker-subtle { color:  rgba(112, 122, 140, 66); }
-	.CodeMirror-linenumber { color: rgba(255, 255, 255, .3); }
-	.CodeMirror-cursor { border-left: 1px solid #ffcc66; }
+	.CodeMirror-linenumber { color: rgba(255, 255, 255, .25); }
+	//.CodeMirror-cursor { border-left: 1px solid #ffcc66; }
+	.CodeMirror-cursor { height:20px !important; margin:2px 0; border-left: 2px solid @gray; }
 
-	span.cm-comment { color: #5c6773; font-style:italic; }
-	span.cm-atom { color: #ae81ff; }
-	span.cm-number { color: #ffcc66; }
+	span.cm-comment { color: @comment; font-style:italic; } //5c6773
+	span.cm-atom { color: @value; } //ae81ff
+	span.cm-number { color: @number; } //ffcc66
 
-	span.cm-comment.cm-attribute { color: #ffd580; }
-	span.cm-comment.cm-def { color: #d4bfff; }
-	span.cm-comment.cm-tag { color: #5ccfe6; }
-	span.cm-comment.cm-type { color: #5998a6; }
+	span.cm-comment.cm-attribute { color: #ffd580; } //ffd580
+	span.cm-comment.cm-def { color: #d4bfff; } //d4bfff
+	span.cm-comment.cm-tag { color: @tag; } //5ccfe6
+	span.cm-comment.cm-type { color: #5998a6; } //5998a6
 
-	span.cm-property { color: #f29e74; }
-	span.cm-attribute { color: #ffd580; }
-	span.cm-keyword { color: #ffa759; }
-	span.cm-builtin { color: #ffcc66; }
-	span.cm-string { color: #bae67e; }
+	span.cm-property { color: @property; } //f29e74 @gray
+	span.cm-attribute { color: @gray; } //ffd580
+	span.cm-keyword { color: @keyword; } //ffa759
+	span.cm-builtin { color: #ffcc66; } //ffcc66
+	span.cm-string { color: @value; } //bae67e
 
-	span.cm-variable { color: #cbccc6; }
-	span.cm-variable-2 { color: #f28779; }
-	span.cm-variable-3 { color: #5ccfe6; }
-	span.cm-type { color: #ffa759; }
-	span.cm-def { color: #ffd580; }
-	/*.cm-s-ayu-mirage span.cm-bracket { color: rgba(92, 207, 230, 80); }*/
-	span.cm-tag { color: #5ccfe6; }
-	span.cm-header { color: #bae67e; }
-	span.cm-link { color: #5ccfe6; }
-	span.cm-error { color: #ff3333; }
-	span.cm-bracket { color: @gray; }
+	span.cm-variable { color: @atom; } //cbccc6
+	span.cm-variable-2 { color: @gray; } //f28779
+	span.cm-variable-3 { color: #5ccfe6; } //5ccfe6
+	span.cm-type { color: #ffa759; } //ffa759
+	span.cm-def { color: #ffd580; } //ffd580
+	span.cm-tag { color: @tag; } //5ccfe6 //9cbdff
 
-	.CodeMirror-activeline-background { background: #191e2a; }
+	span.cm-header { color: #bae67e; } //bae67e
+	span.cm-link { color: #5ccfe6; } //5ccfe6
+	span.cm-error { color: @error; } //ff3333
+	span.cm-bracket { color: @property; }
+
+	span.cm-matchhighlight {background:fade(red, 10%);}
+
+	.CodeMirror-activeline-background,
+	.CodeMirror-activeline-gutter { background: lighten(@bg, 8%); } //191e2a
+	.CodeMirror-activeline-gutter .CodeMirror-gutter-elt {color:rgba(255,255,255,.7);}
+
+
+	//gutter --------------------------------------------------------------------------------
+	@gutter_size:42px;
 	.CodeMirror-matchingbracket {
 		text-decoration: underline;
 		color: white !important;
@@ -54,7 +75,7 @@
 
 	.CodeMirror-linenumbers,
 	.CodeMirror-gutter-wrapper {
-		width:44px !important; padding-right:8px;
+		width:@gutter_size !important; padding-right:8px;
 		box-sizing:border-box;
 		text-align:right;
 	}
@@ -66,6 +87,20 @@
 	}
 }
 
+
+
+@media(max-width:@screen-lg-max){
+	.cm-s-ayu-mirage {
+		.CodeMirror-cursor { height:16px !important;}
+
+		//gutter ----------------------------------------------------------------------------
+		@gutter_size:38px;
+		.CodeMirror-linenumbers,
+		.CodeMirror-gutter-wrapper {
+			width:@gutter_size !important;
+		}
+	}
+}
 
 
 

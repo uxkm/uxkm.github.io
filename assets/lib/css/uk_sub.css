@@ -465,8 +465,12 @@ mark {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-weight: normal;
 }
+.uk_editor .CodeMirror-gutter-elt {
+  font-size: 12px;
+}
 .uk_editor .CodeMirror {
   height: auto;
+  /*overflow:auto !important;*/
 }
 .uk_editor .CodeMirror-line * {
   display: inline-block;

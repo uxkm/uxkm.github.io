@@ -6,7 +6,7 @@ function uk_editor(){
 	}
 	//window.onload = function(){};
 	qsa(".uk_editor").forEach(function(e){
-		editor_start();
+    editor_start();
 		function editor_start(){
 			//타켓 class
 			var wrapArr = ['code_wrap', 'result_wrap', 'btn_wrap', 'info_wrap'];
@@ -100,7 +100,7 @@ function uk_editor(){
 				readOnly:readonly,
 				//tabSize: 4,							//탭키 간격
 				indentWithTabs: true,
-				scrollbarStyle: "simple",		//스크롤바 스타일
+				scrollbarStyle: 'simple',		//스크롤바 스타일 //simple
 				//lineWrapping: true,			//가로 스크롤바 숨김, 너비에 맞게 줄바꿈.
 				//keyMap: "sublime",			//괄호강조
 				//matchBrackets: true,			//괄호강조
@@ -391,12 +391,32 @@ function uk_editor(){
 					}
 					return false;
 				}
+
+
+        // var h_scroll_target = e.querySelector('.CodeMirror-simplescroll-horizontal').firstElementChild;
+        // h_scroll_target.style.backgroundColor = 'red';
+        //
+        // h_scroll_target.addEventListener('scroll', function() {
+        //   var currentScrollValue = document.documentElement.scrollLeft;
+        //   console.log( currentScrollValue );
+        // });
+
+        var h_scroll_target = e.querySelector('.CodeMirror');
+        h_scroll_target.onscroll = function(){
+          console.log( 'aaa' );
+        };
+
+        //console.log( el_editor.getScrollInfo({left:scroll}) );
+        code_editor.setCursor(0);
+        //code_editor.getScrollInfo( {left, top} );
 			}
 		}
 
 		//코드미러 적용이 실패시 재시도 및 클래스 부여
-		var codeScrollA = e.getElementsByClassName('CodeMirror-scroll');
-		var codeScrollB = e.querySelector('.CodeMirror-scroll');
+		//var codeScrollA = e.getElementsByClassName('CodeMirror-scroll');
+		//var codeScrollB = e.querySelector('.CodeMirror-scroll');
+		var codeScrollA = e.getElementsByClassName('CodeMirror');
+		var codeScrollB = e.querySelector('.CodeMirror');
 		setTimeout(function(){
 			var codeTxt = e.querySelector('.CodeMirror-code').textContent;
 			if( codeTxt.length < 3 ){
@@ -408,7 +428,7 @@ function uk_editor(){
 			for(i=0; i<codeScrollCount; i++){
 				codeScrollB.classList.add('removeScroll'+(1+i));
 			}
-		}, 200);
+		}, 500);
 
 		//.CodeMirror-code가 두개 이상일 때 마지막 .CodeMirror-code 제거
 		setTimeout(function(){
