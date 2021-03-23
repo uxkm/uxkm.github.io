@@ -110,15 +110,15 @@
 }
 .cm-s-ayu-mirage .CodeMirror-gutters,
 .cm-s-ayu-mirage .CodeMirror-gutter {
-  width: 46px !important;
+  width: 44px !important;
 }
 .cm-s-ayu-mirage .CodeMirror-gutter-wrapper {
-  width: 42px !important;
+  width: 40px !important;
 }
 .cm-s-ayu-mirage .CodeMirror-gutter-elt {
   display: inline-block;
   width: 100% !important;
-  padding-right: 10px;
+  padding-right: 8px;
   font-size: 13px;
   box-sizing: border-box;
   background: #1a1d28;
@@ -141,7 +141,7 @@
   background: #2a2f41;
   content: "";
 }
-@media (max-width: 1201px) {
+@media (max-width: 767px) {
   .cm-s-ayu-mirage .CodeMirror-cursor {
     height: 16px !important;
   }

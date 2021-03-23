@@ -10,7 +10,7 @@ function uk_editor(){
 		function editor_start(){
       //타켓 class
       var wrapArr = ['code_wrap', 'result_wrap', 'btn_wrap', 'info_wrap'];
-      var btnArr = ['Reset', 'Download', 'Result', 'Info'];
+      var btnArr = ['Reset', 'Download', 'PullScreen', 'Browser', 'Info'];
       var browserBtnArr = [
         ['minimize', '최소화'],
         ['exitMinimize', '이전 크기로 복원'],
@@ -25,7 +25,8 @@ function uk_editor(){
         [
           '초기 코드로 되돌립니다.',
           '코드를 html 파일로 다운로드할 수 있습니다.',
-          '코드의 결과물을 확인할 수 있으며, 우측 Result Area의 모든 창모드를 기본으로 되돌립니다.'
+          //'코드의 결과물을 확인할 수 있으며, 우측 Result Area의 모든 창모드를 기본으로 되돌립니다.'
+          '에디터를 브라우저 기준 전체 화면으로 확장합니다. 조금 더 편리한 코딩이 가능합니다.'
         ],
         [
           'Result Area를 최소화 합니다.',
@@ -40,12 +41,14 @@ function uk_editor(){
       var browser_hide = 'browser_hide';
       var browser_mini = 'browser_mini';
       var browser_fixed = 'browser_fixed';
+      var pullscreen_mode = 'pullscreen_mode';
       var readonly = true;
-      var resulr_true = e.getAttribute('data-result') === 'true';
+      var _html = document.querySelector('html');
+      var result_true = e.getAttribute('data-result') === 'true';
       e.classList.add(device_check);
 
       //타켓 정의 및 reset_btn 생성
-      if( resulr_true ){
+      if( result_true ){
         readonly = false;
         var rs_wrap = document.createElement('div');
         e.appendChild(rs_wrap).classList.add(wrapArr[1]);
@@ -69,7 +72,7 @@ function uk_editor(){
           }
           */
         }
-        if( resulr_true ){
+        if( result_true ){
           if( e.children[i].className === wrapArr[1] ) var el_resultWrap = e.children[i];
           if( e.children[i].className === wrapArr[2] ) var el_btnWrap = e.children[i];
           if( e.children[i].className === wrapArr[3] ) var el_infoWrap = e.children[i];
@@ -108,9 +111,11 @@ function uk_editor(){
       });
       code_editor.on('change', function(){
         code_editor.save();
+        setTimeout(resultApp);
       });
 
-      if( resulr_true ){
+      var result_button;
+      if( result_true ){
         //버튼 생성 및 정의
         buttonSet();
         function buttonSet(){
@@ -126,7 +131,7 @@ function uk_editor(){
             btnTxt.innerHTML = btnArr[i];
             edit_btn.appendChild(btnTxt);
 
-            //reset 버튼
+            //Reset 버튼
             if( i === 0 ){
               edit_btn.addEventListener('click', function(){
                 code_editor.setValue(beforeVal);	//에디터 리셋
@@ -134,28 +139,74 @@ function uk_editor(){
                 return false;
               });
             }
-            //download 버튼
+
+            //Download 버튼
             else if( i === 1 ){
               if( browser_name === 'ie' || browser_name === 'edge' || browser_name === 'safari' || device_check === 'device' ) edit_btn.style.display = 'none';
               edit_btn.addEventListener('click', htmlDown);
             }
-            //result 버튼
+
+            //PullScreen 버튼
             else if( i === 2 ){
+              if( device_check === 'device' ) edit_btn.style.display = 'none';
               edit_btn.addEventListener('click', function(){
+                var instant_box = 'instant_box';
+
+                //pullscreen 작동
+                if( !e.className.match(pullscreen_mode) ){
+                  var el_height = e.offsetHeight;
+                  var ins_div = document.createElement('div');
+                  ins_div.classList.add(instant_box);
+                  ins_div.classList.add('mt_ms');
+                  ins_div.style.height = el_height+'px';
+                  var ins_el = e.parentNode.appendChild(ins_div);
+                  ins_el.innerText = 'uk editor pull screen';
+
+                  e.classList.add(pullscreen_mode);
+                  this.classList.add('active');
+                  _html.style.overflow = 'hidden';
+                }
+
+                //pullscreen 취소
+                else{
+                  var removeTarget = e.parentNode.querySelector('.'+instant_box);
+                  removeTarget.remove();
+                  e.classList.remove(pullscreen_mode);
+                  this.classList.remove('active');
+                  _html.removeAttribute('style');
+                }
+
+                editor_trigger();
+                return false;
+              });
+            }
+
+            //Result 버튼
+            else if( i === 3 ){
+              edit_btn.style.display = 'none';
+              edit_btn.addEventListener('click', function(){
+                this.style.display = 'none';
                 e.classList.remove(browser_hide);
                 e.classList.remove(browser_mini);
                 e.classList.remove(browser_fixed);
                 resultApp();
               });
+              result_button = edit_btn;
             }
-            //info 버튼
-            else if( i === 3 ){
+
+            //Info 버튼
+            if( i === 4 ){
               if( device_check === 'device' ) edit_btn.style.display = 'none';
               edit_btn.addEventListener('click', function(){
                 e.classList.add(editor_info);
               });
             }
           }
+        }
+        function editor_trigger(){
+          var code_value = el_editor.value;
+          code_editor.setValue(code_value);
+          setTimeout(resultApp, 100);
         }
 
         //result button
@@ -350,6 +401,8 @@ function uk_editor(){
                 exitFullscreen();
                 e.classList.add(browser_hide);
                 e.classList.remove(browser_mini, browser_full, browser_fixed);
+                result_button.style.display = 'inline-block';
+                editor_trigger();
               });
             }
           }

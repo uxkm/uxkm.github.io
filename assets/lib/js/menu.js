@@ -1200,28 +1200,33 @@ var menu = [
 			},
 
 			//JAVASCRIPT ----------------------------------------//
+      /*
 			{
 				d2_nm:	    'JAVASCRIPT',
 				//d2_url: 	url_javascript+'javascript',
 				d2_url:		'#',
 				d2_info:	file_js+ '/info.html',
 			},
+			*/
 
 			//ACCESSIBILITY --------------------------------------//
 			{
 				d2_nm:  	'ACCESSIBILITY',
 				//d2_url:		url_accessibility+'accessibility',
 				d2_url:		'#',
+				//d2_url:		file_acc + '/info.html',
 				d2_info:	file_acc+ '/info.html',
 			},
 
 			//NCS ---------------------------------------------------//
+      /*
 			{
 				d2_nm:	    'NCS',
 				//d2_url:		url_ncs+'ncs',
 				d2_url:		'#',
 				d2_info:	file_ncs+ '/info.html',
 			},
+			*/
 		]
 	},
 	{

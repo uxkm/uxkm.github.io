@@ -190,6 +190,7 @@ mark {
 		&.min-height-1000 .CodeMirror-scroll {min-height:1000px;}
 
 		.code_wrap, .result_wrap {position:relative; width:50%;}
+		.code_wrap {z-index:1;}
 		.result_wrap {
 			position:absolute; right:0; top:0; overflow:hidden;
 			height:100%; padding-top:@edt_tit_height;
@@ -358,10 +359,10 @@ mark {
 			}
 			i {
 				@h:24px;
-				position:absolute; left:50%; top:@edt_bt_width + 10px;
+				position:absolute; left:50%; top:@edt_bt_width + 10px; z-index:-1;
 				transform:translate(-50%, -20px); opacity:0; margin-top:-99999px;
 				height:@h; line-height:@h; padding:0 6px; text-align:center;
-				.font-en; font-size:13px; font-weight:500; letter-spacing:-0.3px;
+				.font-en; font-size:13px; font-weight:500; letter-spacing:-0.3px; white-space:pre;
 				background:#bbb; border-radius:3px;
 				transition:transform .15s, opacity .15s, margin 0s .15s;
 				&:before, &:after {position:absolute; content:"";}
@@ -377,16 +378,19 @@ mark {
 					border-right:5px solid transparent;
 				}
 			}
-			&:hover i {
-				transform:translate(-50%, 0); opacity:1; margin-top:0;
-				transition:transform .15s, opacity .15s, margin 0s;
+			&:hover {
+				z-index:2;
+				i {
+					transform:translate(-50%, 0); opacity:1; margin-top:0;
+					transition:transform .15s, opacity .15s, margin 0s;
+				}
 			}
 		}
 		button:first-child {margin-left:0;}
 		.Reset_btn {
 			background:#aaa;
 			&:hover {background:darken(#aaa, 10%);}
-			&:before {content:"\f2f9";}
+			&:before {content:"\f2f9"; font-size:16px;}
 			i {
 				background:darken(#aaa, 10%);
 				//&:before {content:"새로고침";}
@@ -403,16 +407,38 @@ mark {
 				&:after {border-bottom-color:darken(@edt_green, 10%);}
 			}
 		}
-		.Result_btn {
+		.PullScreen_btn {
 			background:@blue;
 			&:hover {background:darken(@blue, 10%);}
-			&:before {content:"\f04b"; margin:1px 0 0 1px; font-size:12px;}
+			&:before {content:"\f31e"; font-size:17px;}
 			i {
 				background:darken(@blue, 10%);
 				//&:before {content:"결과보기";}
 				&:after {border-bottom-color:darken(@blue, 10%);}
 			}
+			&.active {
+				background:lighten(@red, 5%);
+				&:hover {background:@red;}
+				&:before {content:"\f78c";}
+				i {
+					background:@red;
+					//&:before {content:"결과보기";}
+					&:after {border-bottom-color:@red;}
+				}
+			}
 		}
+		.Browser_btn {
+			background:@purple;
+			&:hover {background:darken(@purple, 10%);}
+			//&:before {content:"\f04b"; margin:1px 0 0 1px; font-size:12px;}
+			&:before {content:"\f2d0"; margin:0; font-size:16px;}
+			i {
+				background:darken(@purple, 10%);
+				//&:before {content:"결과보기";}
+				&:after {border-bottom-color:darken(@purple, 10%);}
+			}
+		}
+
 		.Info_btn, .InfoExit_btn {
 			position:absolute; left:-(@edt_bt_width + @edt_btn_left); top:0;
 			margin:0;
@@ -420,8 +446,9 @@ mark {
 		.Info_btn {
 			background:#fff; //border:1px solid #aaa;
 			box-shadow:0 0 0 2px rgba(0,0,0,.3) inset;
+			transition:box-shadow .15s;
 			&:before {
-				font-size:14px; color:#888; content:"\f129";
+				font-size:15px; color:#888; content:"\f129";
 				transition:color .15s;
 			}
 			i {
@@ -447,6 +474,16 @@ mark {
 	.info_wrap {
 		display:none; cursor:pointer;
 		position:absolute; left:0; top:0; right:0; bottom:0; z-index:4;
+	}
+
+	&.pullscreen_mode {
+		@p_size:15px;
+		position:fixed; right:@p_size; top:@p_size; z-index:9999;
+		width:calc(100% - (@p_size*2)); height:calc(100% - (@p_size*2)); margin:0 !important;
+		box-shadow:0 0 0 50px rgba(0,0,0,.7);
+
+		.code_wrap, .CodeMirror {height:100%;}
+		.CodeMirror-scroll {min-height:100% !important;}
 	}
 
 	&.browser_mini {
@@ -518,7 +555,7 @@ mark {
 			@p_size:15px;
 			position:fixed; right:@p_size; top:@p_size; z-index:9999;
 			width:calc(100% - (@p_size*2)); height:calc(100% - (@p_size*2));
-			border:1px solid @blue;
+			border:4px solid @blue;
 			box-shadow:0 0 0 50px rgba(0,0,0,.7);
 			.browserBtn {
 				.fixed_btn {display:none;}
@@ -537,7 +574,10 @@ mark {
 	&.browser_hide {
 		.code_wrap {width:auto;}
 		.result_wrap {display:none;}
-		.btn_wrap {right:0;}
+		.btn_wrap {
+			right:0;
+			.Info_btn {display:none;}
+		}
 	}
 	&.editor_info {
 		.info_wrap {
@@ -613,11 +653,11 @@ mark {
 				border-width:@p_w;
 			}
 
-			.info_Reset div {width:236px;}
+			.info_Reset div {width:216px;}
 			.info_Download:after {height:69px;}
-			.info_Download div {width:278px; top:105px;}
-			.info_Result:after {height:127px;}
-			.info_Result div {top:163px;}
+			.info_Download div {width:258px; top:105px;}
+			.info_PullScreen:after {height:127px;}
+			.info_PullScreen div {top:163px; width:300px;}
 		}
 		.browser_info {
 			right:0; top:0;
@@ -847,8 +887,8 @@ mark {
 					bottom:@edt_bt_width + @p_w + 10px;
 					border-width:@p_w;
 				}
-				.info_Download div {width:278px; top:auto; bottom:105px;}
-				.info_Result div {top:auto; bottom:163px;}
+				.info_Download div {top:auto; bottom:105px;}
+				.info_PullScreen div {top:auto; bottom:163px;}
 			}
 			.browser_info {
 				top:calc(100% - @info_i_height + 1px);
