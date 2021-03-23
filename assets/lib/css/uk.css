@@ -1402,10 +1402,6 @@ mark {
   .uk_editor {
     border-width: 2px;
   }
-  .uk_editor .code_wrap * {
-    line-height: 20px;
-    font-size: 12px;
-  }
   .uk_editor[data-result="true"] .code_wrap,
   .uk_editor[data-result="true"] .result_wrap {
     width: auto;
@@ -1450,6 +1446,10 @@ mark {
   .uk_editor[data-result="true"].device .result_wrap .browserBtn {
     display: none;
   }
+  .uk_editor[data-result="true"] .CodeMirror-scroll {
+    min-height: 320px;
+    max-height: 320px;
+  }
   .uk_editor[data-result="true"].min-height-400 .CodeMirror-scroll,
   .uk_editor[data-result="true"].min-height-450 .CodeMirror-scroll,
   .uk_editor[data-result="true"].min-height-500 .CodeMirror-scroll,
@@ -1464,6 +1464,7 @@ mark {
   .uk_editor[data-result="true"].min-height-950 .CodeMirror-scroll,
   .uk_editor[data-result="true"].min-height-1000 .CodeMirror-scroll {
     min-height: 320px;
+    max-height: 320px;
   }
   .uk_editor .btn_wrap {
     right: 0;
@@ -1659,6 +1660,12 @@ mark {
   }
   .uk_editor .CodeMirror-simplescroll-vertical {
     width: 5px !important;
+  }
+}
+@media (max-width: 767px) {
+  .uk_editor .code_wrap * {
+    line-height: 20px;
+    font-size: 12px;
   }
 }
 .mt30 {

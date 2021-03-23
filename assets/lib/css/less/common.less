@@ -174,7 +174,7 @@ mark {
 	.CodeMirror {height:auto; /*overflow:auto !important;*/}
 	.CodeMirror-line * {display:inline-block; vertical-align:top;}
 	&[data-result="true"]{
-		.CodeMirror-scroll {min-height:320px; max-height:528px;}
+		.CodeMirror-scroll {min-height:320px; max-height:528px;} //528
 		&.min-height-400 .CodeMirror-scroll {min-height:400px;}
 		&.min-height-450 .CodeMirror-scroll {min-height:450px;}
 		&.min-height-500 .CodeMirror-scroll {min-height:500px;}
@@ -711,7 +711,7 @@ mark {
 		@bro_height:35px;
 		@info_i_height:316px;
 		border-width:2px;
-		.code_wrap * {line-height:20px; font-size:12px;}
+		//.code_wrap * {line-height:20px; font-size:12px;}
 
 		&[data-result="true"]{
 			.code_wrap, .result_wrap {width:auto;}
@@ -742,6 +742,7 @@ mark {
 				.browserBtn {display:none;}
 			}
 
+			.CodeMirror-scroll {min-height:320px; max-height:320px;} //528
 			&.min-height-400 .CodeMirror-scroll,
 			&.min-height-450 .CodeMirror-scroll,
 			&.min-height-500 .CodeMirror-scroll,
@@ -754,7 +755,7 @@ mark {
 			&.min-height-850 .CodeMirror-scroll,
 			&.min-height-900 .CodeMirror-scroll,
 			&.min-height-950 .CodeMirror-scroll,
-			&.min-height-1000 .CodeMirror-scroll {min-height:320px;}
+			&.min-height-1000 .CodeMirror-scroll {min-height:320px; max-height:320px;}
 		}
 
 
@@ -872,6 +873,11 @@ mark {
 		//스크롤바 커스텀
 		.CodeMirror-simplescroll-horizontal {height:5px !important;}
 		.CodeMirror-simplescroll-vertical {width:5px !important;}
+	}
+}
+@media(max-width:@screen-sm-max){
+	.uk_editor {
+		.code_wrap * {line-height:20px; font-size:12px;}
 	}
 }
 

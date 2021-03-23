@@ -60,31 +60,55 @@
 	span.cm-bracket { color: @property; }
 
 	span.cm-matchhighlight {background:fade(red, 10%);}
-
-	.CodeMirror-activeline-background,
-	.CodeMirror-activeline-gutter { background: lighten(@bg, 8%); } //191e2a
-	.CodeMirror-activeline-gutter .CodeMirror-gutter-elt {color:rgba(255,255,255,.7);}
-
-
-	//gutter --------------------------------------------------------------------------------
-	@gutter_size:42px;
 	.CodeMirror-matchingbracket {
 		text-decoration: underline;
 		color: white !important;
 	}
 
-	.CodeMirror-linenumbers,
+	//gutter --------------------------------------------------------------------------------
+	@gutter_size:46px;
+
+	.CodeMirror-gutters,
+	.CodeMirror-gutter {
+		//opacity:0;
+		width:@gutter_size !important;
+		//background:transparent;
+		//background:red;
+	}
 	.CodeMirror-gutter-wrapper {
-		width:@gutter_size !important; padding-right:8px;
-		box-sizing:border-box;
-		text-align:right;
+		width:@gutter_size - 4px !important;
 	}
 	.CodeMirror-gutter-elt {
 		display:inline-block;
-		width:calc(100% - 4px) !important; padding-right:4px;
+		width:100% !important; padding-right:10px;
 		font-size:13px;
 		box-sizing:border-box;
+		background:@bg;
 	}
+
+	.CodeMirror-gutters,
+	.CodeMirror-gutter-wrapper,
+	.CodeMirror-activeline-gutter {
+		//left:-@gutter_size !important;
+	}
+
+	.CodeMirror-activeline-background,
+	.CodeMirror-activeline-gutter { background:lighten(@bg, 8%); } //191e2a
+	.CodeMirror-activeline-gutter .CodeMirror-gutter-elt {color:rgba(255,255,255,.7); background:lighten(@bg, 8%);}
+
+	.CodeMirror-activeline-background {
+		//position:relative;
+		&:before {
+			position:absolute; left:0; top:0;
+			width:300px; height:100%;
+			margin-left:-300px;
+			background:lighten(@bg, 8%);
+			content:"";
+		}
+	}
+
+	//--------------------
+	//.CodeMirror-scroll {margin:0 !important;}
 }
 
 
@@ -95,9 +119,15 @@
 
 		//gutter ----------------------------------------------------------------------------
 		@gutter_size:38px;
-		.CodeMirror-linenumbers,
-		.CodeMirror-gutter-wrapper {
+		.CodeMirror-gutters,
+		.CodeMirror-gutter {
 			width:@gutter_size !important;
+		}
+		.CodeMirror-gutter-wrapper {
+			width:@gutter_size - 4px !important;
+		}
+		.CodeMirror-gutter-elt {
+			padding-right:4px;
 		}
 	}
 }
