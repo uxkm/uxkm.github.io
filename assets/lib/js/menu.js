@@ -1211,11 +1211,33 @@ var menu = [
 
 			//ACCESSIBILITY --------------------------------------//
 			{
-				d2_nm:  	'ACCESSIBILITY',
-				//d2_url:		url_accessibility+'accessibility',
-				d2_url:		'#',
-				//d2_url:		file_acc + '/info.html',
-				d2_info:	file_acc+ '/info.html',
+        d2_nm:	  'ACCESSIBILITY',
+        d2_url:		url_accessibility+ '&accessibility_start',
+        d2_info:	file_acc+ '/info.html',
+        d3:[
+          //웹 접근성 시작
+          {
+            d3_nm:	    '웹 접근성 시작',
+            d3_url:		url_accessibility+ '&accessibility_start',
+            d3_file:	file_acc+ '/01-accStart/',
+            d3_note:	false,
+            d3_refer:	true,
+            d4:[
+              {
+                d4_nm:	    '웹 접근성이란?',
+                d4_url:		url_accessibility+ '&accessibility_start',
+                d4_file:	file_acc+ '/01-accStart/01-accessibility_start.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '접근성 페이지 테스트',
+                d4_url:		url_accessibility+ '&accessibility_test',
+                d4_file:	file_acc+ '/01-accStart/02-accessibility_test.html',
+                html5:		false,
+              },
+            ]
+          },
+        ],
 			},
 
 			//NCS ---------------------------------------------------//

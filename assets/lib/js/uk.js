@@ -691,7 +691,7 @@ function main_action(){
 		else{
 			intro_banner.append('<a href="'+intro_link[i].d2_url+'" class="'+uk_link+' bn'+(i+1)+'">'+intro_link[i].d2_nm+'</a>');
 		}
-		if( i === 2 ) $ukContainer.find('.main_intro').find('.banner a').eq(i).text('JS');
+		//if( i === 2 ) $ukContainer.find('.main_intro').find('.banner a').eq(i).text('JS');
 	}
 
 	//resize
