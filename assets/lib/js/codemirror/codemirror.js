@@ -42,14 +42,17 @@ function uk_editor(){
       var browser_mini = 'browser_mini';
       var browser_fixed = 'browser_fixed';
       var pullscreen_mode = 'pullscreen_mode';
-      var readonly = true;
+      var readonly;
       var _html = document.querySelector('html');
       var result_true = e.getAttribute('data-result') === 'true';
       e.classList.add(device_check);
 
+
       //타켓 정의 및 reset_btn 생성
       if( result_true ){
-        readonly = false;
+        if(device_check === 'device') readonly = 'nocursor';
+        else if (device_check === 'desktop') readonly = false;
+
         var rs_wrap = document.createElement('div');
         e.appendChild(rs_wrap).classList.add(wrapArr[1]);
         var bt_wrap = document.createElement('div');
@@ -100,7 +103,7 @@ function uk_editor(){
         lineNumbers: true,        //라인 넘버 사용 여부
         fixedGutter: true,       //라인 넘버 왼쪽 고정 여부
         styleActiveLine: true,
-        readOnly:readonly,
+        readOnly: readonly,
         tabSize: 2,							//탭키 간격
         indentWithTabs: true,
         scrollbarStyle: 'simple',		//스크롤바 스타일 //simple
@@ -329,6 +332,7 @@ function uk_editor(){
         }
 
         //browser button
+        var full_browser_md = 'full_browser_md';
         function browserBtn(){
           var el_browserBtn;
           var browserBtn = 'browserBtn';
@@ -373,12 +377,14 @@ function uk_editor(){
                 exitFullscreen();
                 e.classList.add(browser_fixed);
                 e.classList.remove(browser_mini, browser_full);
+                _html.style.overflow = 'hidden';
               });
             }
             //exitFixed
             else if( i === 3 ){
               el_bwBtn.addEventListener('click', function(){
                 e.classList.remove(browser_fixed);
+                if( !e.className.match(pullscreen_mode) ) _html.removeAttribute('style');
               });
             }
 
@@ -386,8 +392,10 @@ function uk_editor(){
             else if( i === 4 ){
               el_bwBtn.addEventListener('click', function(){
                 e.classList.add(browser_full);
+                if(_html.clientWidth < 1200) e.classList.add(full_browser_md);
                 e.classList.remove(browser_mini, browser_fixed);
                 el_resultWrap.requestFullscreen();
+                console.log( _html.clientWidth );
               });
             }
             //exitFullscreen
@@ -412,7 +420,7 @@ function uk_editor(){
         }
         function exitFullscreen(){
           if( e.classList.contains(browser_full) ){
-            e.classList.remove(browser_full);
+            e.classList.remove(browser_full, full_browser_md);
             document.exitFullscreen();
           }
         }
