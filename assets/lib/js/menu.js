@@ -1257,12 +1257,12 @@ var menu = [
 		d1_url:		'#',
 		d1_file:	file+ '/project_guide.html',
 	},
-	{
+	/*{
 		d1_nm:	    'Web Trends',
 		//d1_url:		'?'+data+'=Trends',
 		d1_url:		'#',
 		d1_file:	file+ '/web_trends.html',
-	}
+	}*/
 ];
 
 
