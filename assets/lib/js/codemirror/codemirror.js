@@ -6,8 +6,10 @@ function uk_editor(){
 	}
 	//window.onload = function(){};
 	qsa(".uk_editor").forEach(function(e){
+    var _html = document.querySelector('html');
+
     editor_start();
-		function editor_start(){
+    function editor_start(){
       //타켓 class
       var wrapArr = ['code_wrap', 'result_wrap', 'btn_wrap', 'info_wrap'];
       var btnArr = ['Reset', 'Download', 'PullScreen', 'Browser', 'Info'];
@@ -43,7 +45,6 @@ function uk_editor(){
       var browser_fixed = 'browser_fixed';
       var pullscreen_mode = 'pullscreen_mode';
       var readonly;
-      var _html = document.querySelector('html');
       var result_true = e.getAttribute('data-result') === 'true';
       e.classList.add(device_check);
 
@@ -471,8 +472,42 @@ function uk_editor(){
         }, 500);
         */
       }
-		}
+    }
 
+    //적용 실패 시 대응
+    var reCodeSet = setInterval(function(){
+      var lineLength = e.querySelector('.CodeMirror-code').childNodes.length;
+      if( lineLength <= 2 ){
+        setTimeout(function(){
+          editor_start();
+        });
+        //console.log('반복');
+      }
+      else{
+        //console.log('종료');
+        if( !_html.classList.contains('main_page') ){
+          overlap_remove();
+        }
+        clearInterval(reCodeSet);
+      }
+    }, 50);
+
+    //중복 적용 시 대응
+    function overlap_remove(){
+      var code_wrapTarget = e.querySelector('.code_wrap');
+      var remove_codemirror = setInterval(function(){
+        var editorLength = code_wrapTarget.childNodes.length;
+        if( editorLength > 2 ){
+          code_wrapTarget.removeChild(code_wrapTarget.childNodes[2]);
+        }
+        else {
+          clearInterval(remove_codemirror);
+        }
+      }, 50);
+    }
+
+
+    /*
 		//코드미러 적용이 실패시 재시도 및 클래스 부여
 		//var codeScrollA = e.getElementsByClassName('CodeMirror-scroll');
 		//var codeScrollB = e.querySelector('.CodeMirror-scroll');
@@ -498,5 +533,6 @@ function uk_editor(){
 				removeScroll.parentNode.removeChild(removeScroll);
 			}
 		}, 300);
+		*/
 	});
 }
