@@ -1017,35 +1017,35 @@ mark {
 .uk_editor[data-result="true"] .btn_wrap .Download_btn i:after {
   border-bottom-color: #006547;
 }
-.uk_editor[data-result="true"] .btn_wrap .PullScreen_btn {
+.uk_editor[data-result="true"] .btn_wrap .FullScreen_btn {
   background: #1e73ff;
 }
-.uk_editor[data-result="true"] .btn_wrap .PullScreen_btn:hover {
+.uk_editor[data-result="true"] .btn_wrap .FullScreen_btn:hover {
   background: #0058ea;
 }
-.uk_editor[data-result="true"] .btn_wrap .PullScreen_btn:before {
+.uk_editor[data-result="true"] .btn_wrap .FullScreen_btn:before {
   content: "\f31e";
   font-size: 17px;
 }
-.uk_editor[data-result="true"] .btn_wrap .PullScreen_btn i {
+.uk_editor[data-result="true"] .btn_wrap .FullScreen_btn i {
   background: #0058ea;
 }
-.uk_editor[data-result="true"] .btn_wrap .PullScreen_btn i:after {
+.uk_editor[data-result="true"] .btn_wrap .FullScreen_btn i:after {
   border-bottom-color: #0058ea;
 }
-.uk_editor[data-result="true"] .btn_wrap .PullScreen_btn.active {
+.uk_editor[data-result="true"] .btn_wrap .FullScreen_btn.active {
   background: #f33b3b;
 }
-.uk_editor[data-result="true"] .btn_wrap .PullScreen_btn.active:hover {
+.uk_editor[data-result="true"] .btn_wrap .FullScreen_btn.active:hover {
   background: #f12323;
 }
-.uk_editor[data-result="true"] .btn_wrap .PullScreen_btn.active:before {
+.uk_editor[data-result="true"] .btn_wrap .FullScreen_btn.active:before {
   content: "\f78c";
 }
-.uk_editor[data-result="true"] .btn_wrap .PullScreen_btn.active i {
+.uk_editor[data-result="true"] .btn_wrap .FullScreen_btn.active i {
   background: #f12323;
 }
-.uk_editor[data-result="true"] .btn_wrap .PullScreen_btn.active i:after {
+.uk_editor[data-result="true"] .btn_wrap .FullScreen_btn.active i:after {
   border-bottom-color: #f12323;
 }
 .uk_editor[data-result="true"] .btn_wrap .Browser_btn {
@@ -1079,7 +1079,7 @@ mark {
 }
 .uk_editor[data-result="true"] .btn_wrap .Info_btn:before {
   font-size: 15px;
-  color: #888;
+  color: #777;
   content: "\f129";
   transition: color .15s;
 }
@@ -1093,7 +1093,7 @@ mark {
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4) inset;
 }
 .uk_editor[data-result="true"] .btn_wrap .Info_btn:hover:before {
-  color: #666;
+  color: #555;
 }
 .uk_editor[data-result="true"] .btn_wrap .Info_btn:hover i {
   background: #888;
@@ -1111,7 +1111,7 @@ mark {
   bottom: 0;
   z-index: 4;
 }
-.uk_editor[data-result="true"].pullscreen_mode {
+.uk_editor[data-result="true"].fullscreen_mode {
   position: fixed;
   right: 15px;
   top: 15px;
@@ -1121,11 +1121,11 @@ mark {
   margin: 0 !important;
   box-shadow: 0 0 0 50px rgba(0, 0, 0, 0.7);
 }
-.uk_editor[data-result="true"].pullscreen_mode .code_wrap,
-.uk_editor[data-result="true"].pullscreen_mode .CodeMirror {
+.uk_editor[data-result="true"].fullscreen_mode .code_wrap,
+.uk_editor[data-result="true"].fullscreen_mode .CodeMirror {
   height: 100%;
 }
-.uk_editor[data-result="true"].pullscreen_mode .CodeMirror-scroll {
+.uk_editor[data-result="true"].fullscreen_mode .CodeMirror-scroll {
   min-height: 100% !important;
 }
 .uk_editor[data-result="true"].browser_mini .code_wrap {
@@ -1291,7 +1291,7 @@ mark {
 .uk_editor[data-result="true"].editor_info .info_wrap:before {
   left: 0;
   content: attr(data-left);
-  background: rgba(0, 152, 107, 0.1);
+  background: rgba(0, 47, 152, 0.2);
 }
 .uk_editor[data-result="true"].editor_info .info_wrap:after {
   right: 0;
@@ -1393,10 +1393,10 @@ mark {
   width: 258px;
   top: 105px;
 }
-.uk_editor[data-result="true"].editor_info .edite_info .info_PullScreen:after {
+.uk_editor[data-result="true"].editor_info .edite_info .info_FullScreen:after {
   height: 127px;
 }
-.uk_editor[data-result="true"].editor_info .edite_info .info_PullScreen div {
+.uk_editor[data-result="true"].editor_info .edite_info .info_FullScreen div {
   top: 163px;
   width: 300px;
 }
@@ -1529,53 +1529,53 @@ mark {
   .uk_editor[data-result="true"] .result_wrap {
     width: auto;
   }
-  .uk_editor[data-result="true"]:not(.pullscreen_mode) .result_wrap {
+  .uk_editor[data-result="true"]:not(.fullscreen_mode) .result_wrap {
     position: relative;
     top: 0;
     padding-top: 30px;
     border-left: 0;
     border-top: 1px solid #ccc;
   }
-  .uk_editor[data-result="true"]:not(.pullscreen_mode) .result_wrap iframe {
+  .uk_editor[data-result="true"]:not(.fullscreen_mode) .result_wrap iframe {
     position: static;
     width: 100%;
     height: 230px;
     margin-top: 36px;
     background: #fff;
   }
-  .uk_editor[data-result="true"]:not(.pullscreen_mode) .result_wrap .browserTitle {
+  .uk_editor[data-result="true"]:not(.fullscreen_mode) .result_wrap .browserTitle {
     height: 30px;
   }
-  .uk_editor[data-result="true"]:not(.pullscreen_mode) .result_wrap .browserTitle:after {
+  .uk_editor[data-result="true"]:not(.fullscreen_mode) .result_wrap .browserTitle:after {
     width: 250px;
     padding-left: 27px;
   }
-  .uk_editor[data-result="true"]:not(.pullscreen_mode) .result_wrap .browserTitle .i_favicon {
+  .uk_editor[data-result="true"]:not(.fullscreen_mode) .result_wrap .browserTitle .i_favicon {
     left: 16px;
     top: 10px;
   }
-  .uk_editor[data-result="true"].pullscreen_mode .code_wrap {
+  .uk_editor[data-result="true"].fullscreen_mode .code_wrap {
     height: calc(50% - 36px/2);
   }
-  .uk_editor[data-result="true"].pullscreen_mode .result_wrap {
+  .uk_editor[data-result="true"].fullscreen_mode .result_wrap {
     height: calc(50% + 36px/2);
   }
-  .uk_editor[data-result="true"].pullscreen_mode .result_wrap {
+  .uk_editor[data-result="true"].fullscreen_mode .result_wrap {
     position: relative;
     top: 0;
     border-left: 0;
     border-top: 1px solid #000;
   }
-  .uk_editor[data-result="true"].pullscreen_mode .result_wrap iframe {
+  .uk_editor[data-result="true"].fullscreen_mode .result_wrap iframe {
     position: static;
     width: 100%;
     height: calc(100% - 36px);
     margin-top: 36px;
   }
-  .uk_editor[data-result="true"].pullscreen_mode .btn_wrap {
+  .uk_editor[data-result="true"].fullscreen_mode .btn_wrap {
     right: 0;
   }
-  .uk_editor[data-result="true"].pullscreen_mode .btn_wrap .Info_btn {
+  .uk_editor[data-result="true"].fullscreen_mode .btn_wrap .Info_btn {
     display: none;
   }
   .uk_editor[data-result="true"] .CodeMirror-scroll {
@@ -1623,10 +1623,10 @@ mark {
   .uk_editor[data-result="true"] .btn_wrap .Download_btn:hover {
     background: #00986b;
   }
-  .uk_editor[data-result="true"] .btn_wrap .PullScreen_btn:hover {
+  .uk_editor[data-result="true"] .btn_wrap .FullScreen_btn:hover {
     background: #1e73ff;
   }
-  .uk_editor[data-result="true"]:not(.pullscreen_mode) .btn_wrap {
+  .uk_editor[data-result="true"]:not(.fullscreen_mode) .btn_wrap {
     right: 0;
   }
   .uk_editor[data-result="true"].device .btn_wrap {
@@ -2081,7 +2081,7 @@ mark {
 					&:after {border-bottom-color:darken(@edt_green, 10%);}
 				}
 			}
-			.PullScreen_btn {
+			.FullScreen_btn {
 				background:@blue;
 				&:hover {background:darken(@blue, 10%);}
 				&:before {content:"\f31e"; font-size:17px;}
@@ -2148,7 +2148,7 @@ mark {
 			position:absolute; left:0; top:0; right:0; bottom:0; z-index:4;
 		}
 
-		&.pullscreen_mode {
+		&.fullscreen_mode {
 			@p_size:15px;
 			position:fixed; right:@p_size; top:@p_size; z-index:9999;
 			width:calc(100% - (@p_size*2)); height:calc(100% - (@p_size*2)); margin:0 !important;
@@ -2270,8 +2270,8 @@ mark {
 				.info_Reset div {width:216px;}
 				.info_Download:after {height:69px;}
 				.info_Download div {width:258px; top:105px;}
-				.info_PullScreen:after {height:127px;}
-				.info_PullScreen div {top:163px; width:300px;}
+				.info_FullScreen:after {height:127px;}
+				.info_FullScreen div {top:163px; width:300px;}
 			}
 			.browser_info {
 				right:0; top:0;
@@ -2369,7 +2369,7 @@ mark {
 		//.code_wrap * {line-height:20px; font-size:12px;}
 
 		&[data-result="true"]{
-			&:not(.pullscreen_mode) {
+			&:not(.fullscreen_mode) {
 				.code_wrap, .result_wrap {width:auto;}
 				.result_wrap {
 					position:relative; top:0;
@@ -2415,14 +2415,14 @@ mark {
 			&.min-height-1000 .CodeMirror-scroll {min-height:320px; max-height:320px;}
 		}
 
-		&:not(.pullscreen_mode) .btn_wrap {
+		&:not(.fullscreen_mode) .btn_wrap {
 			right:0; top:auto; bottom:@iframe_height + @bro_height + 42px;
 		}
 		.btn_wrap {
 			button i {display:none;}
 			.Reset_btn:hover {background:#aaa;}
 			.Download_btn:hover {background:#00986b;}
-			.PullScreen_btn:hover {background:#1e73ff;}
+			.FullScreen_btn:hover {background:#1e73ff;}
 			//.Info_btn {display:none;}
 		}
 		&.device .btn_wrap {bottom:@device_iframe_height + 42px;}
@@ -2506,7 +2506,7 @@ mark {
 					border-width:@p_w;
 				}
 				.info_Download div {top:auto; bottom:105px;}
-				.info_PullScreen div {top:auto; bottom:163px;}
+				.info_FullScreen div {top:auto; bottom:163px;}
 			}
 			.browser_info {
 				top:calc(100% - @info_i_height + 1px);
@@ -2537,7 +2537,7 @@ mark {
 	.uk_editor {
 		@mg_top:36px;
 		&[data-result="true"]{
-			&.pullscreen_mode {
+			&.fullscreen_mode {
 				.code_wrap, .result_wrap {width:auto;}
 				.code_wrap {height:calc(50% - @mg_top/2);}
 				.result_wrap {height:calc(50% + @mg_top/2);}
@@ -5733,7 +5733,7 @@ body {
   color: #1e73ff;
 }
 .main_editor .txt {
-  display: inline-block;
+  display: block;
   width: 100%;
   padding: 0 10px;
 }
@@ -5750,12 +5750,12 @@ body {
 .main_editor .txt p b {
   color: #5193ff;
 }
-.main_editor .txt p i {
+.main_editor .txt i {
   display: inline-block;
   position: relative;
   vertical-align: top;
 }
-.main_editor .txt p i:before {
+.main_editor .txt i:before {
   position: absolute;
   left: -2px;
   right: -2px;
@@ -5766,6 +5766,66 @@ body {
   border-radius: 3px;
   content: "";
 }
+.main_editor .info_txt {
+  display: inline-block;
+  margin: 30px 50px 0;
+  padding: 20px 25px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+  border: 8px solid rgba(30, 115, 255, 0.5);
+  border-top-width: 0;
+  border-bottom-width: 0;
+  border-radius: 24px;
+}
+.main_editor .info_txt li {
+  position: relative;
+  line-height: 140%;
+  padding-left: 40px;
+  font-size: 18px;
+}
+.main_editor .info_txt li:not(:first-child) {
+  margin-top: 14px;
+}
+.main_editor .info_txt li:before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 1px;
+  text-align: center;
+  font-family: "Font Awesome 5 Free", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 900;
+  background: #999;
+  border-radius: 100%;
+  content: "\f31e";
+}
+.main_editor .info_txt .info:before {
+  background: #fff;
+  color: #666;
+  content: "\f129";
+}
+.main_editor .info_txt .reset:before {
+  background: #919191;
+  content: "\f2f9";
+}
+.main_editor .info_txt .download:before {
+  background: #00986b;
+  content: "\f019";
+}
+.main_editor .info_txt .fullscreen:before {
+  background: #1e73ff;
+  content: "\f31e";
+}
+.main_editor .info_txt .browser:before {
+  background: #b72df8;
+  content: "\f2d0";
+}
 .main_editor .editor_wrap {
   max-width: 1400px;
   margin: 0 auto;
@@ -5773,8 +5833,16 @@ body {
   text-align: left;
 }
 .main_editor .editor_wrap .uk_editor {
-  margin-top: calc(5% + 20px);
+  margin-top: calc(5% + 10px);
   border-width: 6px;
+}
+.device .main_editor .info_txt {
+  display: none !important;
+}
+@media (max-width: 1201px) {
+  .main_editor .info_txt .browser {
+    display: none;
+  }
 }
 @media (max-width: 900px) {
   .main_editor {
@@ -5789,6 +5857,25 @@ body {
   .main_editor .txt p {
     font-size: 2.2vw;
   }
+  .main_editor .info_txt {
+    margin: 30px 50px 0;
+    padding: 20px 20px;
+    border-left-width: 6px;
+    border-right-width: 6px;
+  }
+  .main_editor .info_txt li {
+    font-size: 16px;
+  }
+  .main_editor .info_txt li:not(:first-child) {
+    margin-top: 16px;
+  }
+  .main_editor .info_txt li:before {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 1px;
+    font-size: 14px;
+  }
 }
 @media (max-width: 680px) {
   .main_editor .txt p {
@@ -5796,10 +5883,31 @@ body {
   }
 }
 @media (max-width: 767px) {
+  .main_editor .info_txt {
+    margin: 15px 15px 0;
+    padding: 20px 15px;
+    border-left-width: 4px;
+    border-right-width: 4px;
+  }
+  .main_editor .info_txt li {
+    padding-left: 32px;
+    font-size: 14px;
+  }
+  .main_editor .info_txt li:not(:first-child) {
+    margin-top: 18px;
+  }
+  .main_editor .info_txt li:before {
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    margin-top: 1px;
+    font-size: 13px;
+  }
   .main_editor .editor_wrap {
     padding: 0 15px;
   }
   .main_editor .editor_wrap .uk_editor {
+    margin-top: 40px;
     border-width: 2px;
   }
 }

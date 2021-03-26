@@ -469,7 +469,7 @@ mark {
 					&:after {border-bottom-color:darken(@edt_green, 10%);}
 				}
 			}
-			.PullScreen_btn {
+			.FullScreen_btn {
 				background:@blue;
 				&:hover {background:darken(@blue, 10%);}
 				&:before {content:"\f31e"; font-size:17px;}
@@ -510,7 +510,7 @@ mark {
 				box-shadow:0 0 0 2px rgba(0,0,0,.3) inset;
 				transition:box-shadow .15s;
 				&:before {
-					font-size:15px; color:#888; content:"\f129";
+					font-size:15px; color:#777; content:"\f129";
 					transition:color .15s;
 				}
 				i {
@@ -519,7 +519,7 @@ mark {
 				}
 				&:hover {
 					box-shadow:0 0 0 2px rgba(0,0,0,.4) inset;
-					&:before {color:#666;}
+					&:before {color:#555;}
 					i {
 						background:#888;
 						&:after {border-bottom-color:#888;}
@@ -536,7 +536,7 @@ mark {
 			position:absolute; left:0; top:0; right:0; bottom:0; z-index:4;
 		}
 
-		&.pullscreen_mode {
+		&.fullscreen_mode {
 			@p_size:15px;
 			position:fixed; right:@p_size; top:@p_size; z-index:9999;
 			width:calc(100% - (@p_size*2)); height:calc(100% - (@p_size*2)); margin:0 !important;
@@ -595,7 +595,7 @@ mark {
 				}
 				&:before {
 					left:0; content:attr(data-left);
-					background:rgba(0,152,107, .1);
+					background: rgba(0,47,152, .2);
 				}
 				&:after {
 					right:0; content:attr(data-right);
@@ -662,8 +662,8 @@ mark {
 				.info_Reset div {width:216px;}
 				.info_Download:after {height:69px;}
 				.info_Download div {width:258px; top:105px;}
-				.info_PullScreen:after {height:127px;}
-				.info_PullScreen div {top:163px; width:300px;}
+				.info_FullScreen:after {height:127px;}
+				.info_FullScreen div {top:163px; width:300px;}
 			}
 			.browser_info {
 				right:0; top:0;
@@ -739,7 +739,7 @@ mark {
 
 		&[data-result="true"]{
 			.code_wrap, .result_wrap {width:auto;}
-			&:not(.pullscreen_mode) {
+			&:not(.fullscreen_mode) {
 				.result_wrap {
 					position:relative; top:0;
 					padding-top:@browserTitle_height;
@@ -756,7 +756,7 @@ mark {
 					}
 				}
 			}
-			&.pullscreen_mode {
+			&.fullscreen_mode {
 				.code_wrap {height:calc(50% - @mg_top/2);}
 				.result_wrap {height:calc(50% + @mg_top/2);}
 				.result_wrap {
@@ -803,10 +803,10 @@ mark {
 				button i {display:none;}
 				.Reset_btn:hover {background:#aaa;}
 				.Download_btn:hover {background:#00986b;}
-				.PullScreen_btn:hover {background:#1e73ff;}
+				.FullScreen_btn:hover {background:#1e73ff;}
 				//.Info_btn {display:none;}
 			}
-			&:not(.pullscreen_mode) .btn_wrap {
+			&:not(.fullscreen_mode) .btn_wrap {
 				right:0; //top:auto; bottom:@iframe_height + @iframe_t_margin + 42px;
 			}
 			&.device .btn_wrap {top:auto; right:-6px; bottom:@result_total - 57px;}
@@ -865,7 +865,7 @@ mark {
 					//	border-width:@p_w;
 					//}
 					//.info_Download div {top:auto; bottom:105px;}
-					//.info_PullScreen div {top:auto; bottom:163px;}
+					//.info_FullScreen div {top:auto; bottom:163px;}
 				}
 				.browser_info {
 					top:calc(100% - @info_i_height + 1px);
@@ -1239,7 +1239,7 @@ mark {
 					&:after {border-bottom-color:darken(@edt_green, 10%);}
 				}
 			}
-			.PullScreen_btn {
+			.FullScreen_btn {
 				background:@blue;
 				&:hover {background:darken(@blue, 10%);}
 				&:before {content:"\f31e"; font-size:17px;}
@@ -1306,7 +1306,7 @@ mark {
 			position:absolute; left:0; top:0; right:0; bottom:0; z-index:4;
 		}
 
-		&.pullscreen_mode {
+		&.fullscreen_mode {
 			@p_size:15px;
 			position:fixed; right:@p_size; top:@p_size; z-index:9999;
 			width:calc(100% - (@p_size*2)); height:calc(100% - (@p_size*2)); margin:0 !important;
@@ -1428,8 +1428,8 @@ mark {
 				.info_Reset div {width:216px;}
 				.info_Download:after {height:69px;}
 				.info_Download div {width:258px; top:105px;}
-				.info_PullScreen:after {height:127px;}
-				.info_PullScreen div {top:163px; width:300px;}
+				.info_FullScreen:after {height:127px;}
+				.info_FullScreen div {top:163px; width:300px;}
 			}
 			.browser_info {
 				right:0; top:0;
@@ -1527,7 +1527,7 @@ mark {
 		//.code_wrap * {line-height:20px; font-size:12px;}
 
 		&[data-result="true"]{
-			&:not(.pullscreen_mode) {
+			&:not(.fullscreen_mode) {
 				.code_wrap, .result_wrap {width:auto;}
 				.result_wrap {
 					position:relative; top:0;
@@ -1573,14 +1573,14 @@ mark {
 			&.min-height-1000 .CodeMirror-scroll {min-height:320px; max-height:320px;}
 		}
 
-		&:not(.pullscreen_mode) .btn_wrap {
+		&:not(.fullscreen_mode) .btn_wrap {
 			right:0; top:auto; bottom:@iframe_height + @bro_height + 42px;
 		}
 		.btn_wrap {
 			button i {display:none;}
 			.Reset_btn:hover {background:#aaa;}
 			.Download_btn:hover {background:#00986b;}
-			.PullScreen_btn:hover {background:#1e73ff;}
+			.FullScreen_btn:hover {background:#1e73ff;}
 			//.Info_btn {display:none;}
 		}
 		&.device .btn_wrap {bottom:@device_iframe_height + 42px;}
@@ -1664,7 +1664,7 @@ mark {
 					border-width:@p_w;
 				}
 				.info_Download div {top:auto; bottom:105px;}
-				.info_PullScreen div {top:auto; bottom:163px;}
+				.info_FullScreen div {top:auto; bottom:163px;}
 			}
 			.browser_info {
 				top:calc(100% - @info_i_height + 1px);
@@ -1695,7 +1695,7 @@ mark {
 	.uk_editor {
 		@mg_top:36px;
 		&[data-result="true"]{
-			&.pullscreen_mode {
+			&.fullscreen_mode {
 				.code_wrap, .result_wrap {width:auto;}
 				.code_wrap {height:calc(50% - @mg_top/2);}
 				.result_wrap {height:calc(50% + @mg_top/2);}

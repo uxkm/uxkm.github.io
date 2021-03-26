@@ -4,7 +4,7 @@ function uk_editor(){
 	function qsa(sel){
 		return Array.apply(null, document.querySelectorAll(sel));
 	}
-	//window.onload = function(){};
+
 	qsa(".uk_editor").forEach(function(e){
     var _html = document.querySelector('html');
 
@@ -12,7 +12,7 @@ function uk_editor(){
     function editor_start(){
       //타켓 class
       var wrapArr = ['code_wrap', 'result_wrap', 'btn_wrap', 'info_wrap'];
-      var btnArr = ['Reset', 'Download', 'PullScreen', 'Browser', 'Info'];
+      var btnArr = ['Reset', 'Download', 'FullScreen', 'Browser', 'Info'];
       var browserBtnArr = [
         ['minimize', '최소화'],
         ['exitMinimize', '이전 크기로 복원'],
@@ -34,7 +34,7 @@ function uk_editor(){
           'Result Area를 최소화 합니다.',
           'Result Area를 브라우저 기준 전체 화면으로 확대합니다.',
           'Result Area를 모니터 기준 전체 화면으로 확대합니다.',
-          'Result Area를 닫습니다. Result button을 클릭하여 기본 모드로 되돌릴 수 있습니다.',
+          'Result Area를 닫습니다. Browser button을 클릭하여 기본 모드로 되돌릴 수 있습니다.',
         ]
       ];
       var title_txt;
@@ -43,7 +43,7 @@ function uk_editor(){
       var browser_hide = 'browser_hide';
       var browser_mini = 'browser_mini';
       var browser_fixed = 'browser_fixed';
-      var pullscreen_mode = 'pullscreen_mode';
+      var pullscreen_mode = 'fullscreen_mode';
       var readonly;
       var result_true = e.getAttribute('data-result') === 'true';
       e.classList.add(device_check);
@@ -219,7 +219,7 @@ function uk_editor(){
           el_resultWrap.innerHTML = '';
           var code_value = el_editor.value;
 
-          if(typeof(code_value) == "string" && code_value.length > 0) {
+          if(typeof(code_value) == "string" && code_value.length >= 0) {
             //iframe 생성 및 코드 적용
             var ifr = document.createElement("iframe");
             ifr.setAttribute('frameborder','0');
@@ -286,7 +286,13 @@ function uk_editor(){
         function browserTitle(){
           var el_bTitle;
           var browserTitle = 'browserTitle';
-          title_txt = el_resultWrap.firstElementChild.contentWindow.document.title;
+          if( el_resultWrap.firstElementChild.contentWindow.document.title ){
+            title_txt = el_resultWrap.firstElementChild.contentWindow.document.title;
+          }
+          else{
+            title_txt = 'UXKM editor';
+          }
+
           var append_title = document.createElement('p');
           var append_icon = document.createElement('i');
           el_resultWrap.appendChild(append_title).classList.add(browserTitle);
