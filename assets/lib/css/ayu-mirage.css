@@ -1,121 +1,121 @@
 /* Based on https://github.com/dempfi/ayu */
-.cm-s-ayu-mirage.CodeMirror {
+.uk_editor .code_wrap .cm-s-ayu-mirage.CodeMirror {
   background: #1a1d28;
   color: #ccc;
 }
-.cm-s-ayu-mirage div.CodeMirror-selected {
+.uk_editor .code_wrap .cm-s-ayu-mirage div.CodeMirror-selected {
   background: #214283;
 }
-.cm-s-ayu-mirage .CodeMirror-line::selection,
-.cm-s-ayu-mirage .CodeMirror-line > span::selection,
-.cm-s-ayu-mirage .CodeMirror-line > span > span::selection {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-line::selection,
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-line > span::selection,
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-line > span > span::selection {
   background: #214283;
 }
-.cm-s-ayu-mirage .CodeMirror-line::-moz-selection,
-.cm-s-ayu-mirage .CodeMirror-line > span::-moz-selection,
-.cm-s-ayu-mirage .CodeMirror-line > span > span::-moz-selection {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-line::-moz-selection,
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-line > span::-moz-selection,
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-line > span > span::-moz-selection {
   background: #214283;
 }
-.cm-s-ayu-mirage .CodeMirror-gutters {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-gutters {
   background: #1a1d28;
   border-right: 0;
 }
-.cm-s-ayu-mirage .CodeMirror-guttermarker {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-guttermarker {
   color: white;
 }
-.cm-s-ayu-mirage .CodeMirror-guttermarker-subtle {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-guttermarker-subtle {
   color: #707a8c;
 }
-.cm-s-ayu-mirage .CodeMirror-linenumber {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-linenumber {
   color: rgba(255, 255, 255, 0.25);
 }
-.cm-s-ayu-mirage .CodeMirror-cursor {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-cursor {
   height: 20px !important;
   margin: 2px 0;
   border-left: 2px solid #ccc;
 }
-.cm-s-ayu-mirage span.cm-comment {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-comment {
   color: #677079;
   font-style: italic;
 }
-.cm-s-ayu-mirage span.cm-atom {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-atom {
   color: #a8d589;
 }
-.cm-s-ayu-mirage span.cm-number {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-number {
   color: #5fb9e3;
 }
-.cm-s-ayu-mirage span.cm-comment.cm-attribute {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-comment.cm-attribute {
   color: #ffd580;
 }
-.cm-s-ayu-mirage span.cm-comment.cm-def {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-comment.cm-def {
   color: #d4bfff;
 }
-.cm-s-ayu-mirage span.cm-comment.cm-tag {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-comment.cm-tag {
   color: #93b6ff;
 }
-.cm-s-ayu-mirage span.cm-comment.cm-type {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-comment.cm-type {
   color: #5998a6;
 }
-.cm-s-ayu-mirage span.cm-property {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-property {
   color: #ccd9dc;
 }
-.cm-s-ayu-mirage span.cm-attribute {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-attribute {
   color: #ccc;
 }
-.cm-s-ayu-mirage span.cm-keyword {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-keyword {
   color: #e7862f;
 }
-.cm-s-ayu-mirage span.cm-builtin {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-builtin {
   color: #ffcc66;
 }
-.cm-s-ayu-mirage span.cm-string {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-string {
   color: #a8d589;
 }
-.cm-s-ayu-mirage span.cm-variable {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-variable {
   color: #d07fe5;
 }
-.cm-s-ayu-mirage span.cm-variable-2 {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-variable-2 {
   color: #ccc;
 }
-.cm-s-ayu-mirage span.cm-variable-3 {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-variable-3 {
   color: #5ccfe6;
 }
-.cm-s-ayu-mirage span.cm-type {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-type {
   color: #ffa759;
 }
-.cm-s-ayu-mirage span.cm-def {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-def {
   color: #ffd580;
 }
-.cm-s-ayu-mirage span.cm-tag {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-tag {
   color: #93b6ff;
 }
-.cm-s-ayu-mirage span.cm-header {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-header {
   color: #bae67e;
 }
-.cm-s-ayu-mirage span.cm-link {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-link {
   color: #5ccfe6;
 }
-.cm-s-ayu-mirage span.cm-error {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-error {
   color: #ff6161;
 }
-.cm-s-ayu-mirage span.cm-bracket {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-bracket {
   color: #ccd9dc;
 }
-.cm-s-ayu-mirage span.cm-matchhighlight {
+.uk_editor .code_wrap .cm-s-ayu-mirage span.cm-matchhighlight {
   background: rgba(255, 0, 0, 0.1);
 }
-.cm-s-ayu-mirage .CodeMirror-matchingbracket {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-matchingbracket {
   text-decoration: underline;
   color: white !important;
 }
-.cm-s-ayu-mirage .CodeMirror-gutters,
-.cm-s-ayu-mirage .CodeMirror-gutter {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-gutters,
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-gutter {
   width: 44px !important;
 }
-.cm-s-ayu-mirage .CodeMirror-gutter-wrapper {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-gutter-wrapper {
   width: 40px !important;
 }
-.cm-s-ayu-mirage .CodeMirror-gutter-elt {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-gutter-elt {
   display: inline-block;
   width: 100% !important;
   padding-right: 8px;
@@ -123,15 +123,15 @@
   box-sizing: border-box;
   background: #1a1d28;
 }
-.cm-s-ayu-mirage .CodeMirror-activeline-background,
-.cm-s-ayu-mirage .CodeMirror-activeline-gutter {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-activeline-background,
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-activeline-gutter {
   background: #2a2f41;
 }
-.cm-s-ayu-mirage .CodeMirror-activeline-gutter .CodeMirror-gutter-elt {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-activeline-gutter .CodeMirror-gutter-elt {
   color: rgba(255, 255, 255, 0.7);
   background: #2a2f41;
 }
-.cm-s-ayu-mirage .CodeMirror-activeline-background:before {
+.uk_editor .code_wrap .cm-s-ayu-mirage .CodeMirror-activeline-background:before {
   position: absolute;
   left: 0;
   top: 0;
