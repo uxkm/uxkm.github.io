@@ -150,7 +150,7 @@ function uk_editor(){
               edit_btn.addEventListener('click', htmlDown);
             }
 
-            //PullScreen 버튼
+            //FullScreen 버튼
             else if( i === 2 ){
               if( device_check === 'device' ) edit_btn.style.display = 'none';
               edit_btn.addEventListener('click', function(){
@@ -174,7 +174,8 @@ function uk_editor(){
                 //pullscreen 취소
                 else{
                   var removeTarget = e.parentNode.querySelector('.'+instant_box);
-                  removeTarget.remove();
+                  //removeTarget.remove();
+                  e.parentNode.removeChild(removeTarget);
                   e.classList.remove(pullscreen_mode);
                   this.classList.remove('active');
                   _html.removeAttribute('style');

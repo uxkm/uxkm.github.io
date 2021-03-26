@@ -5834,7 +5834,7 @@ body {
 }
 .main_editor .editor_wrap .uk_editor {
   margin-top: calc(5% + 10px);
-  border-width: 6px;
+  /*border-width:6px;*/
 }
 .device .main_editor .info_txt {
   display: none !important;
@@ -5908,7 +5908,7 @@ body {
   }
   .main_editor .editor_wrap .uk_editor {
     margin-top: 40px;
-    border-width: 2px;
+    /*border-width:2px;*/
   }
 }
 .main_created {
