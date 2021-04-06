@@ -564,6 +564,7 @@ $(document).ready(function(){
 
 	//assetsLink open btn
 	$assetsLink_btn.click(function(){
+	  //열기
 		if( !$(this).is('.active') ){
 			$(this).addClass('active').removeClass('after');
 			$html.css('overflow','hidden').addClass(hd_assetsLink_on+' '+sub_black);
@@ -576,6 +577,7 @@ $(document).ready(function(){
 				});
 			}, loadingEndTime);
 		}
+    //닫기
 		else if( $(this).is('.active') ){
 			$(this).removeClass('active').addClass('after');
 			$html.removeAttr('style').removeClass(hd_assetsLink_on);
@@ -585,6 +587,7 @@ $(document).ready(function(){
 			setTimeout(function(){
 				$('.'+top_link+' ul').removeClass(opacity_on).removeAttr('style');
 				$('.'+side_menu).removeClass(opacity_on).removeAttr('style');
+				$(window).trigger('scroll');
 			}, 600);
 		}
 		return false;
