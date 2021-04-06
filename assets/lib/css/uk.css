@@ -6495,6 +6495,7 @@ body {
   letter-spacing: -0.2px;
 }
 .sub_top .top_info ul {
+  max-width: 900px;
   text-align: left;
   margin-top: 15px;
   padding: 13px 18px;

@@ -940,14 +940,6 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		if( dp4_true && d4_target.d4_nm === 'Animation' ){
 			$('.'+side_menu_area).addClass('animation_side');
 		}
-
-		//gist
-		/*
-		$('.gist').each(function(i, e){
-			var gist_url = $(e).attr('data-url');
-			$(e).append('<script src="'+gist_url+'"></script>');
-		});
-		*/
 	}
 
 	///Project GUIDE, Web Trends 링크

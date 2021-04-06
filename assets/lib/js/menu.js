@@ -1,12 +1,12 @@
 
 var basic_url = location.href;
 
-var data = 'data'
-var url_html =          '?'+data+'=Assets&HTML&';
-var url_css =			'?'+data+'=Assets&CSS&';
-var url_javascript =    '?'+data+'=Assets&JAVASCRIPT&';
-var url_accessibility = '?'+data+'=Assets&ACCESSIBILITY&';
-var url_ncs =			'?'+data+'=Assets&NCS&';
+var data = 'data=Assets&'
+var url_html =          '?'+data+'HTML&';
+var url_css =			'?'+data+'CSS&';
+var url_javascript =    '?'+data+'JAVASCRIPT&';
+var url_accessibility = '?'+data+'ACCESSIBILITY&';
+var url_ncs =			'?'+data+'NCS&';
 
 var file =      '/assets/';
 var file_html = file+'01-html';
@@ -1212,30 +1212,227 @@ var menu = [
 			//ACCESSIBILITY --------------------------------------//
 			{
         d2_nm:	  'ACCESSIBILITY',
-        d2_url:		url_accessibility+ '&accessibility_start',
+        d2_url:		url_accessibility+ 'waStart',
         d2_info:	file_acc+ '/info.html',
         d3:[
-          //웹 접근성 시작
+          //웹 접근성이란?
           {
-            d3_nm:	    '웹 접근성 시작',
-            d3_url:		url_accessibility+ '&accessibility_start',
-            d3_file:	file_acc+ '/01-accStart/',
+            d3_nm:	    '웹 접근성이란?',
+            d3_url:		url_accessibility+ 'waStart',
+            d3_file:	file_acc+ '/01-waStart/01-waStart.html',
+            d3_note:	false,
+            d3_refer:	true,
+          },
+
+          //WA 인증 마크란?
+          {
+            d3_nm:	    'WA 인증 마크란?',
+            d3_url:		url_accessibility+ 'waMark',
+            d3_file:	file_acc+ '/02-waMark/01-waMark.html',
+            d3_note:	false,
+            d3_refer:	true,
+          },
+
+          //KWCAG 2.1 개요
+          {
+            d3_nm:	    'KWCAG 2.1 개요',
+            d3_url:		url_accessibility+ 'waKwcag',
+            d3_file:	file_acc+ '/03-waKwcag/01-waKwcag.html',
+            d3_note:	false,
+            d3_refer:	true,
+          },
+
+          //웹 접근성을 고려한 콘텐츠 제작 방법
+          {
+            d3_nm:	    '웹 접근성을 고려한 콘텐츠 제작 방법',
+            d3_url:		url_accessibility+ 'waContents',
+            d3_file:	file_acc+ '/04-waContents/01-waContents.html',
+            d3_note:	false,
+            d3_refer:	true,
+          },
+
+          //인식의 용이성(perceivable)
+          {
+            d3_nm:	    '인식의 용이성(perceivable)',
+            d3_url:		url_accessibility+ 'waPerceivable&text',
+            d3_file:	file_acc+ '/05-waPerceivable/01-text.html',
             d3_note:	false,
             d3_refer:	true,
             d4:[
               {
-                d4_nm:	    '웹 접근성이란?',
-                d4_url:		url_accessibility+ '&accessibility_start',
-                d4_file:	file_acc+ '/01-accStart/01-accessibility_start.html',
+                d4_nm:	    '대체 텍스트',
+                d4_url:		url_accessibility+ 'waPerceivable&text',
+                d4_file:	file_acc+ '/05-waPerceivable/01-text.html',
                 html5:		false,
               },
               {
-                d4_nm:	    '접근성 페이지 테스트',
-                d4_url:		url_accessibility+ '&accessibility_test',
-                d4_file:	file_acc+ '/01-accStart/02-accessibility_test.html',
+                d4_nm:	    '멀티미디어 대체 수단',
+                d4_url:		url_accessibility+ 'waPerceivable&media',
+                d4_file:	file_acc+ '/05-waPerceivable/02-media.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '명료성',
+                d4_url:		url_accessibility+ 'waPerceivable&clarity',
+                d4_file:	file_acc+ '/05-waPerceivable/03-clarity.html',
                 html5:		false,
               },
             ]
+          },
+
+          //운용의 용이성(operable)
+          {
+            d3_nm:	    '운용의 용이성(operable)',
+            d3_url:		url_accessibility+ 'waOperable&input_devices',
+            d3_file:	file_acc+ '/06-waOperable/01-input_devices.html',
+            d3_note:	false,
+            d3_refer:	true,
+            d4:[
+              {
+                d4_nm:	    '입력장치 접근성',
+                d4_url:		url_accessibility+ 'waOperable&input_devices',
+                d4_file:	file_acc+ '/06-waOperable/01-input_devices.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '충분한 시간 제공',
+                d4_url:		url_accessibility+ 'waOperable&enough_time',
+                d4_file:	file_acc+ '/06-waOperable/02-enough_time.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '광과민성 발작 예방',
+                d4_url:		url_accessibility+ 'waOperable&seizures',
+                d4_file:	file_acc+ '/06-waOperable/03-seizures.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '쉬운 내비게이션',
+                d4_url:		url_accessibility+ 'waOperable&easy_navigation',
+                d4_file:	file_acc+ '/06-waOperable/04-easy_navigation.html',
+                html5:		false,
+              },
+            ]
+          },
+
+          //이해의 용이성(understandable)
+          {
+            d3_nm:	    '이해의 용이성(understandable)',
+            d3_url:		url_accessibility+ 'waUnderstandable&readable',
+            d3_file:	file_acc+ '/07-waUnderstandable/01-readable.html',
+            d3_note:	false,
+            d3_refer:	true,
+            d4:[
+              {
+                d4_nm:	    '가독성',
+                d4_url:		url_accessibility+ 'waUnderstandable&readable',
+                d4_file:	file_acc+ '/07-waUnderstandable/01-readable.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '예측 가능성',
+                d4_url:		url_accessibility+ 'waUnderstandable&predictable',
+                d4_file:	file_acc+ '/07-waUnderstandable/02-predictable.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '콘텐츠의 논리성',
+                d4_url:		url_accessibility+ 'waUnderstandable&logical_order',
+                d4_file:	file_acc+ '/07-waUnderstandable/03-logical_order.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '입력 도움',
+                d4_url:		url_accessibility+ 'waUnderstandable&input_assistance',
+                d4_file:	file_acc+ '/07-waUnderstandable/04-input_assistance.html',
+                html5:		false,
+              },
+            ]
+          },
+
+          //견고성(robust)
+          {
+            d3_nm:	    '견고성(robust)',
+            d3_url:		url_accessibility+ 'waRobust&markup',
+            d3_file:	file_acc+ '/08-waRobust/01-markup.html',
+            d3_note:	false,
+            d3_refer:	true,
+            d4:[
+              {
+                d4_nm:	    '문법 준수',
+                d4_url:		url_accessibility+ 'waRobust&markup',
+                d4_file:	file_acc+ '/08-waRobust/01-markup.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '웹 애플리케이션 접근성',
+                d4_url:		url_accessibility+ 'waRobust&waa',
+                d4_file:	file_acc+ '/08-waRobust/02-waa.html',
+                html5:		false,
+              },
+            ]
+          },
+
+          //WCAG 2.1
+          {
+            d3_nm:	    'WCAG 2.1',
+            d3_url:		url_accessibility+ 'waWcag&perceivable',
+            d3_file:	file_acc+ '/09-waWcag/01-perceivable.html',
+            d3_note:	false,
+            d3_refer:	true,
+            d4:[
+              {
+                d4_nm:	    '인식의 용이성(Perceivable)',
+                d4_url:		url_accessibility+ 'waWcag&perceivable',
+                d4_file:	file_acc+ '/09-waWcag/01-perceivable.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '운용의 용이성(Operable)',
+                d4_url:		url_accessibility+ 'waWcag&operable',
+                d4_file:	file_acc+ '/09-waWcag/02-operable.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '이해의 용이성(Understandable)',
+                d4_url:		url_accessibility+ 'waWcag&understandable',
+                d4_file:	file_acc+ '/09-waWcag/03-understandable.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	    '견고성(Robust)',
+                d4_url:		url_accessibility+ 'waWcag&robust',
+                d4_file:	file_acc+ '/09-waWcag/04-robust.html',
+                html5:		false,
+              },
+            ]
+          },
+
+          //KWACG2.1 VS WCAG 2.1 비교
+          {
+            d3_nm:	    'KWACG2.1 VS WCAG 2.1 비교',
+            d3_url:		url_accessibility+ 'waVs',
+            d3_file:	file_acc+ '/10-waVs/01-waVs.html',
+            d3_note:	false,
+            d3_refer:	true,
+          },
+
+          //WAI-ARIA
+          {
+            d3_nm:	    'WAI-ARIA',
+            d3_url:		url_accessibility+ 'waAria',
+            d3_file:	file_acc+ '/11-waAria/01-waAria.html',
+            d3_note:	false,
+            d3_refer:	true,
+          },
+
+          //참조 사이트
+          {
+            d3_nm:	    '참조 사이트',
+            d3_url:		url_accessibility+ 'bookmark',
+            d3_file:	file_acc+ '/12-bookmark/01-bookmark.html',
+            d3_note:	false,
+            d3_refer:	false,
           },
         ],
 			},
