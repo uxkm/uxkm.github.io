@@ -4291,7 +4291,6 @@ body {
   line-height: 20px;
   font-size: 14px;
   font-weight: 400;
-  background: rgba(0, 0, 0, 0.5);
   border-radius: 3px;
 }
 @media (max-width: 1390px) {
@@ -4425,6 +4424,12 @@ body {
 }
 .hd_assetsLink .assetsLink_btn {
   z-index: 99999;
+}
+.main_page .al_depth2 > li {
+  background: rgba(255, 255, 255, 0.07);
+}
+.sub_page .al_depth2 > li {
+  background: rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 767px) {
   .hd_assetsLink .assetsLink_in {
