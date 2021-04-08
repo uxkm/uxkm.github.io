@@ -789,25 +789,42 @@
 				<h3 id="wa5_1">대체 텍스트</h3>
 				<section class="subsection">
 					<h4 id="wa5_1_1">(적절한 대체 텍스트 제공) 텍스트 아닌 콘텐츠는 그 의미나 용도를 인식할 수 있도록 대체 텍스트를 제공해야 한다.</h4>
-					<article></article>
+					<article>
+						이미지 등 텍스트 아닌 콘텐츠를 이용할 경우, 그 의미나 용도를 동등하게 인식할 수 있도록 적절한 대체 텍스트를 제공해야 한다. 
+						대체 텍스트는 간단명료하게 제공해야 한다.
+						단순히 장식이나 시각적인 형태를 위해 사용되는 콘텐츠의 경우, 보조 기술을 통해 해당 설명을 제공받을 때 오히려 혼란을 일으킬 가능성이 있으므로 대체 텍스트로 공백 문자를 제공해야 한다
+					</article>
 				</section>
 				<h3 id="wa5_2">멀티미디어 대체 수단</h3>
 				<section class="subsection">
 					<h4 id="wa5_2_1">(자막 제공) 멀티미디어 콘텐츠에는 자막, 대본 또는 수화를 제공해야 한다.</h4>
-					<article></article>
+					<article>
+						멀티미디어 콘텐츠에는 자막, 대본 또는 수화를 제공해야 한다. 가장 중요한 요소는 멀티미디어 콘텐츠와 동등한 내용을 제공하는 것이다.
+					</article>
 				</section>
 				<h3 id="wa5_3">명료성</h3>
 				<section class="subsection">
 					<h4 id="wa5_3_1">(색에 무관한 콘텐츠 인식) 콘텐츠는 색에 관계없이 인식될 수 있어야 한다.</h4>
-					<article></article>
+					<article>
+						콘텐츠는 색에 관계없이 인식될 수 있어야 한다.
+						콘텐츠에서 제공하는 모든 정보는 특정한 색을 구별할 수 없는 사용자, 흑백 디스플레이 사용자, 흑백 인쇄물을 보는 사용자 및 고대비 모드 사용자가 인식할 수 있도록 제공해야 한다.
+					</article>
 					<h4 id="wa5_3_2">(명확한 지시 사항 제공) 지시 사항은 모양, 크기, 위치, 방향, 색, 소리 등에 관계없이 인식될 수 있어야 한다.</h4>
-					<article></article>
+					<article>
+						지시사항은 모양, 크기, 위치, 방향, 색, 소리 등에 관계없이 인식될 수 있어야 한다.
+					</article>
 					<h4 id="wa5_3_3">(텍스트 콘텐츠의 명도 대비) 텍스트 콘텐츠와 배경 간의 명도 대비는 4.5 대 1 이상이어야 한다.</h4>
-					<article></article>
+					<article>
+						텍스트 및 텍스트 이미지는 배경 간의 충분한 대비를 제공하여, 저시력 장애인, 색각 장애인, 노인 등도 콘텐츠를 인식할 수 있도록 제공해야 한다. 텍스트 및 텍스트 이미지와 배경 간의 명도 대비는 4.5 대 1 이상이어야 한다.
+					</article>
 					<h4 id="wa5_3_4">(자동 재생 금지) 자동으로 소리가 재생되지 않아야 한다.</h4>
-					<article></article>
+					<article>
+						자동으로 소리가 재생됨으로 인해 화면 낭독 프로그램 사용자가 콘텐츠를 인식하고 사용하는데 방해받지 않아야 한다. 단, 자동으로 재생되는 소리는 3 초 내에 멈추거나, 지정된 키(예 : esc 키)를 누르면 재생을 멈추도록 구현한 경우에 자동 재생음을 허용한다.
+					</article>
 					<h4 id="wa5_3_5">(콘텐츠 간의 구분) 이웃한 콘텐츠는 구별될 수 있어야 한다.</h4>
-					<article></article>
+					<article>
+						이웃한 콘텐츠는 시각적으로 구분되도록 제공해야 한다. 테두리, 구분선, 서로 다른 무늬 적용, 배경색 명도 또는 채도 조정, 줄 간격 또는 글자 간격 조정 등의 방법을 이용한다.
+					</article>
 				</section>
 			</section>
 			<hr title="Separator for Contents" style="margin:100px auto">
@@ -920,10 +937,22 @@
 				<time datetime="2021-04-08 14:22:32">Last Updated on 2021-04-08 14:22:32</time>
 				<blockquote class="note" role="note">
 					<p>
-						
+						W3C에서 제정한 웹 콘텐츠 접근성 가이드라인 (WCAG)에는 네 가지의 원칙이 있습니다.
+
+						인지 가능(Perceivable)
+						사용자가 콘텐츠를 인지할 수 있도록 해야 합니다. 폼에 라벨을 달아 입력을 돕고, 콘텐츠가 제공되지 않을 때를 대비해 대체 텍스트를 넣어주고, 꾸미는 요소는 스크린 리더기가 무시할 수 있도록 해주는 것들이 해당합니다.
+
+						작동 가능(Operable)
+						사용자가 UI 구성 요소를 사용할 수 있어야 합니다. 키보드 동작을 위한 :focus, tabindex 추가가 그 예입니다.
+
+						이해 가능(Understandable)
+						사용자가 콘텐츠를 이해할 수 있도록 도와야 합니다. 이게 텍스트인지 이미지인지 버튼인지 혼란이 오면 안 되겠죠.
+
+						안정적(Robust)
+						장애인 사용자를 위한 보조 기술은 물론, 다양한 사용자 에이전트에 호환되어야 합니다.
 					</p>
 				</blockquote>
-				<h3 id="wa9_1">인식</h3>
+				<h3 id="wa9_1">인식(Perceivable)</h3>
 				<article>
 					정보 및 UI 컴포넌트가 인식 가능하도록 제공해야 합니다.
 					1.1 대체 텍스트
@@ -931,7 +960,7 @@
 					1.3 적응성
 					1.4 명료성
 				</article>
-				<h3 id="wa9_2">운용</h3>
+				<h3 id="wa9_2">운용(Operable)</h3>
 				<article>
 					UI 컴포넌트와 내비게이션이 작동하는데 문제가 없어야 합니다.
 					2.1 키보드 접근
@@ -940,14 +969,14 @@
 					2.4 탐색 가능
 					2.5 입력 양식
 				</article>
-				<h3 id="wa9_3">이해</h3>
+				<h3 id="wa9_3">이해(Understandable)</h3>
 				<article>
 					정보 전달 및 사용자 인터페이스(UI) 작동에 대해 이해하기 쉬워야 합니다.
 					3.1 가독성
 					3.2 예측 가능성
 					3.3 입력 도움​
 				</article>
-				<h3 id="wa9_4">견고</h3>
+				<h3 id="wa9_4">견고(Robust)</h3>
 				<article>
 					콘텐츠는 보조 기술을 포함하여 다양한 사용자 에이전트가 처리 할 수 있을 정도로 견고해야 합니다.
 					4.1 호환성
@@ -980,32 +1009,6 @@
 				<article></article>
 			</section>
 
-<!-- 
-
-10. KWACG2.1 VS WCAG 2.1 비교 분석
-
-11. WAI-ARIA(Web Accessibility Initiative – Accessible Rich Internet Applications)
-
-
-W3C에서 제정한 웹 콘텐츠 접근성 가이드라인 (WCAG)에는 네 가지의 원칙이 있습니다.
-
-
-인지 가능(Perceivable)
-사용자가 콘텐츠를 인지할 수 있도록 해야 합니다. 폼에 라벨을 달아 입력을 돕고, 콘텐츠가 제공되지 않을 때를 대비해 대체 텍스트를 넣어주고, 꾸미는 요소는 스크린 리더기가 무시할 수 있도록 해주는 것들이 해당합니다.
-
-작동 가능(Operable)
-사용자가 UI 구성 요소를 사용할 수 있어야 합니다. 키보드 동작을 위한 :focus, tabindex 추가가 그 예입니다.
-
-이해 가능(Understandable)
-사용자가 콘텐츠를 이해할 수 있도록 도와야 합니다. 이게 텍스트인지 이미지인지 버튼인지 혼란이 오면 안 되겠죠.
-
-안정적(Robust)
-장애인 사용자를 위한 보조 기술은 물론, 다양한 사용자 에이전트에 호환되어야 합니다.
-참고자료
-
- -->
-
-
 			<hr title="Separator for Contents">
 
 			<h2 id="waBookmark">참조 사이트</h2>
@@ -1016,17 +1019,27 @@ W3C에서 제정한 웹 콘텐츠 접근성 가이드라인 (WCAG)에는 네 가
 						<p><a href="https://www.w3.org/TR/WCAG21/" target="_blank" title="새 창 열림">Web Content Accessibility Guidelines (WCAG) 2.1</a></p>
 						<p><a href="http://www.kwacc.or.kr/WAI/wcag21/" target="_blank" title="새 창 열림">Web Content Accessibility Guidelines (WCAG) 2.1 한국어 번역본</a></p>
 						<p><a href="https://www.w3.org/WAI/standards-guidelines/" target="_blank" title="새 창 열림">W3C Accessibility Standards Overview</a></p>
+						<p><a href="https://www.w3.org/WAI/fundamentals/components/" target="_blank" title="새 창 열림">Essential Components of Web Accessibility</a></p>
+						<p><a href="https://www.w3.org/WAI/fundamentals/accessibility-principles/" target="_blank" title="새 창 열림">Accessibility Principles</a></p>
+						<p><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" title="새 창 열림">WCAG (Quick Reference)</a></p>
+						<p><a href="https://www.w3.org/WAI/ER/tools/" target="_blank" title="새 창 열림">Web Accessibility Evaluation Tools List</a></p>
 					</dd>
 					<dt>Site</dt>
 					<dd>
+						<p><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics" target="_blank" title="새 창 열림">MOZ WAI-ARIA basics</a></p>
 						<p><a href="https://accessibility.naver.com/accessibility" target="_blank" title="새 창 열림">NAVER 접근성</a></p>
 						<p><a href="https://naradesign.github.io/wcag-2.1.html" target="_blank" title="새 창 열림">naradesign</a></p>
+						<p><a href="https://github.com/lezhin/accessibility" target="_blank" title="새 창 열림">레진 웹 접근성 가이드라인</a></p>
 						<p><a href="http://www.haeppa.kr/tag/steam" target="_blank" title="새 창 열림">Haeppa World</a></p>
 						<p><a href="http://njpaiks.egloos.com/" target="_blank" title="새 창 열림">백남중</a></p>
 						<p><a href="https://www.wah.or.kr:444/" target="_blank" title="새 창 열림">웹접근성 연구소</a></p>
 						<p><a href="http://www.wa.or.kr/" target="_blank" title="새 창 열림">한국웹접근성인증평가원 (사단법인 한국장애인단체총연합회)</a></p>
 						<p><a href="http://www.webwatch.or.kr/" target="_blank" title="새 창 열림">주식회사 웹와치</a></p>
 						<p><a href="http://www.kwacc.or.kr/" target="_blank" title="새 창 열림">사단법인 한국시각장애인연합회 (한국웹접근성평가센터)</a></p>
+						<p><a href="https://romeo.elsevier.com/accessibility_checklist/" target="_blank" title="새 창 열림">Accessibility Checklist</a></p>
+						<p><a href="https://webaim.org/techniques/css/invisiblecontent/" target="_blank" title="새 창 열림">Webaim Tech</a></p>
+						<p><a href="https://wave.webaim.org/" target="_blank" title="새 창 열림">WAVE Web Accessibility Evaluation Tool</a></p>
+						<p><a href="https://www.powermapper.com/tests/screen-readers/aria/" target="_blank" title="새 창 열림">PowerMapper Website Tool Screen Readers Aria</a></p>
 					</dd>
 				</dl>
 <!-- 
@@ -1048,17 +1061,6 @@ https://madewithvuejs.com/blog/top-vue-js-slider-components
 https://vuejsexamples.com/tag/a11y/
 http://vuejscomponent.com/vue-simple-range-slider
 
-https://www.w3.org/WAI/fundamentals/components/
-https://www.w3.org/WAI/fundamentals/accessibility-principles/ko
-https://www.w3.org/WAI/WCAG21/quickref/
-http://www.kwacc.or.kr/WAI/wcag21/
-https://www.w3.org/WAI/ER/tools/
-https://romeo.elsevier.com/accessibility_checklist/
-https://webaim.org/techniques/css/invisiblecontent/
-https://wave.webaim.org/
-https://www.elsevier.com/about/accessibility
-https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics
-https://www.powermapper.com/tests/screen-readers/aria/
 
  -->
 			</section>

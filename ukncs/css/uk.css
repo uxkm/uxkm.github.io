@@ -76,6 +76,8 @@ etc
 .uksection article > section{counter-reset:h5;}
 .uksection h4{padding:10px 0;font-size:16px;font-weight:700;}
 .uksection h4::before{counter-increment:h4;content:counter(h2) "." counter(h3) "." counter(h4) ". ";}
+.uksection > .subsection{counter-reset:h_s4;}
+.uksection > .subsection h4::before{counter-increment:h_s4;content:counter(h2) "." counter(h3) "." counter(h_s4) ". ";}
 .uksection h4:not(:first-child){margin-top:20px;}
 .uksection h5{padding:10px 0;color:#3d7e9a;font-size:16px;font-weight:700;}
 .uksection h5::before{counter-increment:h5;content:counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". ";}
