@@ -807,10 +807,8 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		var d3Note = d3_target.d3_note;
 		var d3Refer = d3_target.d3_refer;
 		var d3_fileUrl = d3_target.d3_file;
-
 		//상단 공통 info 생성
-    if( d2_target.d2_nm === 'FRAMEWORK' ) conAjax( $('.'+common_info), file+'/06-framework/common_info.html' );
-    else  conAjax( $('.'+common_info), file+'common_info.html' );
+		conAjax( $('.'+common_info), file+'common_info.html' );
 
 		//요약설명 또는 공통 설명 생성
 		if( d3Note === true ){

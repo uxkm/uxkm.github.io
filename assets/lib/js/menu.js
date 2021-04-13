@@ -7,6 +7,10 @@ var url_css =			'?'+data+'CSS&';
 var url_javascript =    '?'+data+'JAVASCRIPT&';
 var url_accessibility = '?'+data+'ACCESSIBILITY&';
 var url_ncs =			'?'+data+'NCS&';
+var url_framework =			'?'+data+'FRAMEWORK&';
+
+//var data_guide =			'data=Guide&';
+//var url_framework = '?'+data_guide+'FRAMEWORK&';
 
 var file =      '/assets/';
 var file_html = file+'01-html';
@@ -14,6 +18,10 @@ var file_css =  file+'02-css';
 var file_js =   file+'03-javascript';
 var file_acc =  file+'04-accessibility';
 var file_ncs =  file+'05-ncs';
+var file_framework =  file+'06-framework';
+
+var file_project_guide =  file+'_project_guide';
+//var file_framework = file_project_guide+'/framework';
 
 var menu = [
 	{
@@ -1446,20 +1454,131 @@ var menu = [
 				d2_info:	file_ncs+ '/info.html',
 			},
 			*/
+      /*
+			{
+				d2_nm:	    'JAVASCRIPT',
+				//d2_url: 	url_javascript+'javascript',
+				d2_url:		'#',
+				d2_info:	file_js+ '/info.html',
+			},
+			*/
+
+      //FRAMEWORK --------------------------------------//
+      {
+        d2_nm:	  'FRAMEWORK',
+        d2_url:		url_framework+ 'gulp&gulp_start',
+        d2_info:	file_framework+ '/info.html',
+        d3:[
+          //인식의 용이성(perceivable)
+          {
+            d3_nm:	    'Gulp',
+            d3_url:		url_framework+ 'gulp&gulp_start',
+            d3_file:	file_framework+ '/01-gulp/01-gulp_start.html',
+            d3_note:	true,
+            d3_refer:	true,
+            d4:[
+              {
+                d4_nm:	  '걸프(Gulp)란?',
+                d4_url:		url_framework+ 'gulp&gulp_start',
+                d4_file:	file_framework+ '/01-gulp/01-gulp_start.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	  'Gulp 설치 및 SCSS 컴파일러 설치',
+                d4_url:		url_framework+ 'gulp&gulp_two',
+                d4_file:	file_framework+ '/01-gulp/02-gulp_two.html',
+                html5:		false,
+              },
+              {
+                d4_nm:  	'HTML과 웹서버',
+                d4_url:		url_framework+ 'gulp&gulp_three',
+                d4_file:	file_framework+ '/01-gulp/03-gulp_three.html',
+                html5:		false,
+              },
+              {
+                d4_nm:  	'Watch와 BrowserSync',
+                d4_url:		url_framework+ 'gulp&gulp_four',
+                d4_file:	file_framework+ '/01-gulp/04-gulp_four.html',
+                html5:		false,
+              },
+              {
+                d4_nm:  	'Assets관리(상)',
+                d4_url:		url_framework+ 'gulp&gulp_five',
+                d4_file:	file_framework+ '/01-gulp/05-gulp_five.html',
+                html5:		false,
+              },
+              {
+                d4_nm:  	'Assets관리(하)',
+                d4_url:		url_framework+ 'gulp&gulp_third',
+                d4_file:	file_framework+ '/01-gulp/06-gulp_six.html',
+                html5:		false,
+              },
+              {
+                d4_nm:  	'파일관리 del',
+                d4_url:		url_framework+ 'gulp&gulp_third',
+                d4_file:	file_framework+ '/01-gulp/07-gulp_seven.html',
+                html5:		false,
+              },
+            ]
+          },
+        ],
+      },
 		]
 	},
 	{
-		d1_nm:	    'UI/UX GUIDE',
-		//d1_url:		'?'+data+'=GUIDE',
+		d1_nm:	    'UI/UX Guide', //UI/UX GUIDE
+		//d1_url:		  url_framework+ 'Gulp&Gulp_first',
 		d1_url:		'#',
-		d1_file:	file+ '/project_guide.html',
+		//d1_file:	file+ '/project_guide.html',
+    /*
+    d2:[
+      //framework ------------------------------------------------//
+      {
+        d2_nm:	    'FRAMEWORK',
+        d2_url:		url_framework+ 'Gulp&Gulp_first',
+        d2_info:	file_framework+ '/info.html',
+        d3:[
+          //Gulp
+          {
+            d3_nm:	    'Gulp',
+            d3_url:		url_framework+ 'Gulp&Gulp_first',
+            d3_file:	file_framework+ '/gulp/01-gulp01.html',
+            d3_note:	false,
+            d3_refer:	false,
+            d4:[
+              {
+                d4_nm:	  'Gulp 01',
+                d4_url:		url_framework+ 'Gulp&Gulp_first',
+                d4_file:	file_framework+ '/gulp/01-gulp01.html',
+                html5:		false,
+              },
+              {
+                d4_nm:	  'Gulp 02',
+                d4_url:		url_framework+ 'Gulp&Gulp_second',
+                d4_file:	file_framework+ '/gulp/01-gulp02.html',
+                html5:		false,
+              },
+              {
+                d4_nm:  	'Gulp 03',
+                d4_url:		url_framework+ 'Gulp&Gulp_third',
+                d4_file:	file_framework+ '/gulp/01-gulp03.html',
+                html5:		false,
+              },
+            ]
+          },
+        ]
+      },
+    ]
+    */
 	},
-	/*{
+  /*
+	{
 		d1_nm:	    'Web Trends',
 		//d1_url:		'?'+data+'=Trends',
 		d1_url:		'#',
 		d1_file:	file+ '/web_trends.html',
-	}*/
+	}
+	*/
 ];
 
 
