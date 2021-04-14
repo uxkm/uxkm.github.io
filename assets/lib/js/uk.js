@@ -809,7 +809,8 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 		var d3_fileUrl = d3_target.d3_file;
 
 		//상단 공통 info 생성
-    if( d2_target.d2_nm === 'FRAMEWORK' ) conAjax( $('.'+common_info), file+'/06-framework/common_info.html' );
+    //if( d2_target.d2_nm === 'FRAMEWORK' ) conAjax( $('.'+common_info), file+'/06-framework/common_info.html' );
+    if( d2_target.d2_nm === 'FRAMEWORK' ) $('.'+common_info).parent().remove();
     else  conAjax( $('.'+common_info), file+'common_info.html' );
 
 		//요약설명 또는 공통 설명 생성
@@ -1035,6 +1036,7 @@ function sub_action(data, target_url, d1_on, d2_on, d3_on, d4_on){
 	focusControl();		//focus controll
 	line_code_box();
   uk_gist_skin_code();
+  terminal_code_box();
 }
 
 
@@ -1450,13 +1452,13 @@ function uk_gist_skin_code(){
 
     $(e).append(
       '<div class="'+uk_gist_content+'">' +
-        '<pre class="'+uk_gist_code_pre+'">' +
-          '<code class="'+uk_gist_code_wrap+'">'+str_content+'</code>' +
-        '</pre>' +
+      '<pre class="'+uk_gist_code_pre+'">' +
+      '<code class="'+uk_gist_code_wrap+'">'+str_content+'</code>' +
+      '</pre>' +
       '</div>' +
       '<div class="'+uk_gist_footer+'">' +
-        ''+dataTitle+'ode example ' +
-        '<span class="by"><span class="hyphen">-</span> create <i>❤</i> by <b>uxkm</b></span>' +
+      ''+dataTitle+'ode example ' +
+      '<span class="by"><span class="hyphen">-</span> create <i>❤</i> by <b>uxkm</b></span>' +
       '</div>'
     );
 
@@ -1576,7 +1578,7 @@ function uk_gist_skin_code(){
       if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'attribute_selector' ){
         $(e).find('.'+uk_gist_code_line+':first .hljs-selector-tag').remove();
       }
-      
+
       //text 속성 > vertical-align 속성 sub 오류 대처
       value_error( 'align_vertical-align' );
       //text 속성 > word-break 속성 break-word 오류 대처
@@ -1626,6 +1628,63 @@ function uk_gist_skin_code(){
       //uk_gist_code_wrap each end -------------------------------------------------------------------------------------
     });
   }, 500);
+}
+
+
+//uk_gist_skin_code box
+function terminal_code_box(){
+  const terminal_code_box = 'terminal_code_box';
+  const terminal_pre = 'terminal_pre';
+  const terminal_code = 'terminal_code';
+  const code_tab_size = '  ';
+
+  $('.'+terminal_code_box).each(function(i, e){
+    const str = $(e).find('textarea').val()
+    .replace(/\t/gi, code_tab_size); // tab공백을 띄어쓰기(4칸)로 변경
+
+    //----------------------------------------------------------------------------------------
+
+    //문장을 줄바꿈 기준으로 배열
+    const line = str.split('\n');
+    const lineLength = line.length - 1;
+
+    //모든 문장의 앞에 있는 불필요한 tab 공백 추츨
+    const line_tab_split = line[0].trim().split('')[0];
+    const line_tab_size = line[0].split(line_tab_split)[0];
+
+    //----------------------------------------------------------------------------------------
+
+    //커스텀 후 배열 합침
+    let str_content = '';
+    for( i=0; i<lineLength; i++ ){
+      //모든 문장의 앞에 있는 불필요한 tab 공백 제거
+      if( line[i].match(line_tab_size) ){
+        line[i] = line[i].replace(line_tab_size, '');
+      }
+
+      if( line[i].match('//') ){
+        let note_split = line[i].split('//');
+        let note_split_t = note_split[0].trim().split('')[note_split[0].trim().split('').length-1];
+        let note_b_space = note_split[0].split(note_split_t)[note_split[0].split(note_split_t).length-1];
+        let notes_txt = note_b_space+'//'+note_split[1];
+        line[i] = line[i].replace(notes_txt, '');
+        str_content += '<span data-note="'+notes_txt+'">' + line[i] + '</span>\n';
+      }
+      else{
+        str_content += '<span>' + line[i] + '</span>\n';
+      }
+
+    }
+
+    //----------------------------------------------------------------------------------------
+
+    $(e).append(
+      '<pre class="'+terminal_pre+'">' +
+      '<code class="'+terminal_code+'">'+str_content+'</code>' +
+      '</pre>'
+    );
+    $(e).find('textarea').remove();
+  });
 }
 
 

@@ -15,15 +15,193 @@
 	</blockquote>
 
 	<section class="indent mt_xxl">
-		<h2 class="ml_mn">1.2.1. Gulp 설치</h2>
-		<p class="mt_l">
-			내용
-		</p>
+		<h2 class="ml_mn">1.2.1. Gulp 설치 및 기본 세팅</h2>
+
+		<ol class="ol_lst indent">
+			<!-- 프로젝트 폴더 생성 -->
+			<li class="tit_h3 mt_xl">
+				<h3>프로젝트 폴더 생성</h3>
+				<p class="mt_ms">
+					목적에 맞는 이름으로 프로젝트 폴더를 생성한 후 당신이 사용하는 에디터기에서 생성한 폴더를 오픈합니다.<br>
+					(UXKM은 폴더명을 임시로 <mark>__gulp_setting</mark>으로 지정하였습니다.)
+				</p>
+			</li>
+
+			<!-- 명령프롬프트(Terminal) 활용 -->
+			<li class="tit_h3 mt_xl">
+				<h3>명령프롬프트(Terminal) 활용</h3>
+				<blockquote class="uk_note mt_m" role="note">
+					<h2 class="sound_only">요약 설명</h2>
+					<p>
+						명령프롬프트를 이용하여 필요한 명령을 입력하고 Gulp와 여러 패키지를 설치해야합니다.<br>
+						명령프롬프트를 처음 써보는 상황이라면 조심스럽고 겁이 날 수 있습니다. 잘못된 명령어 입력 시 바로 에러메시지를 띄우기 때문에
+						과감하게 사용해도 문제 없습니다.<br>
+					</p>
+				</blockquote>
+				<p class="mt_m">
+					방금 전 생성한 폴더 위치에서 명령프롬프트를 열어야 합니다. DOS모드의 폴더 탐색 명령어(cd 폴더명/cd..)를 모르는 분은 아래를 따라하면 됩니다.<br>
+					<!--
+					window10을 사용하며 Terminal을 처음 사용하는 상황이라면 Windows PowerShell을 사용하는 것을 추천하며,<br>
+					에디터기에서 Terminal기능을 지원한다면 에디터기에서 직접 명령을 입력하는것을 추천합니다.<br>
+					-->
+				</p>
+				<article class="indent_max mt_m">
+					<h4 class="ml_mn">window10에서 명령 명령프롬프트 열기(폴더 위치에서)</h4>
+					<ol class="ol_lst_second">
+						<li class="mt_s">
+							Terminal 열기 : 폴더에서 주소창에 cmd입력 후 엔터<br>
+							<figure class="img_figure mt_s">
+								<img src="ukncs/images/gulp/window10_Terminal.png" height="399" width="648" alt="window 폴더에서 명령프롬프트 열기"/>
+							</figure>
+						</li>
+						<li class="mt_ms">
+							Windows PowerShell 열기 : 폴더에서 파일 > Windows PowerShell 열기 메뉴 클릭<br>
+							이렇게 하면 파단 바탕에 흰 글씨의 Windows PowerShell 창에 뜨며 위의 Terminal처럼 해당 폴더 경로로 열립니다.
+						</li>
+					</ol>
+				</article>
+				<article class="indent_max mt_m">
+					<h4 class="ml_mn">mac에서 명령 명령프롬프트 열기</h4>
+					<p class="mt_s">
+						<span class="reference"><a href="https://architectophile.tistory.com/m/14" target="_blank" title="새창열림">맥(macOS)에서 터미널(Terminal) 여는 법</a></span>
+					</p>
+				</article>
+			</li>
+
+			<!-- Gulp 설치 -->
+			<li class="tit_h3 mt_xl">
+				<h3>Gulp 설치</h3>
+				<p class="mt_ms">
+					명령프롬프트에서 아래의 명령을 한줄씩 차례로 입력합니다. (입력 후 엔터는 필수이며 '$'는 제외하고 입력해야 합니다.)
+				</p>
+				<div class="terminal_code_box mt_s">
+					<textarea>
+						$ npm install gulp-cli -g              //Gulp 전역 설치(전역 설치이기에 최초 한번만 설치하면 됩니다.)
+						$ npm init                             //package.json 설치
+						$ npm install gulp -D                  //해당 폴더에 Gulp 설치
+						$ npx -p touch nodetouch gulpfile.js   //gulpfile.js 설치
+					</textarea>
+				</div>
+				<p class="mt_s">
+					위 명령으로 패키지를 설치하면 폴더에 파일들이 설치됩니다.<br>
+					[폴더] node_modules<br>
+					[파일] gulpfile.js, package.json, package-lock.json
+				</p>
+				<p class="mt_s"><img src="ukncs/images/gulp/gulp-file-01.png" alt="gulp, package.json, gulpfile.js 설치"/></p>
+			</li>
+
+			<!-- 작업공간 생성 -->
+			<li class="tit_h3 mt_xl">
+				<h3>작업공간 생성</h3>
+				<p class="mt_ms">
+					Gulp 기본 설치 이후에 작업공간을 생성해야 합니다.<br>
+					작업공간의 정해진 이름은 없습니다. 보통 'src'로 하기 때문에 우리도 작업 폴더명을 'src'로 생성하겠습니다.<br>
+					'src'폴더 안에 'assets'폴더를 생성 후 CSS, 이미지, 폰트, js파일이 각각 들어가는 폴더를 생성합니다. 마찬가지로 정해진 폴더명은 없습니다.<br>
+				</p>
+				<p class="mt_s"><img src="ukncs/images/gulp/gulp-file-02.png" alt="기본 작업 폴더 생성"/></p>
+			</li>
+		</ol>
 	</section>
 
 	<section class="indent mt_xxl">
 		<h2 class="ml_mn">1.2.2. SCSS 컴파일러 설치</h2>
-		<p class="mt_l">
-			내용
+		<p class="mt_m">
+			보다 편리하고 효율적인 CSS 전처리기인 SCSS 컴파일러를 설치합니다.<br>
+			SCSS자체만으로는 브라우저에 적용을 못하기 때문에 반드시 CSS로 변환하는 과정이 있어야 합니다. SCSS를 사용한다면 이 과정은 필수입니다.
 		</p>
+		<p class="mt_s">
+			웹스톰, 비주얼스튜디오 등 여러 에디터기의 Live Sass Compiler를 사용하면 간단하게 SCSS 컴파일이 가능하지만,
+		</p>
+
+		<ol class="ol_lst indent">
+			<!-- SCSS 컴파일 패키지 설치 -->
+			<li class="tit_h3 mt_xl">
+				<h3>SCSS 컴파일 패키지 설치</h3>
+				<p class="mt_ms">
+					명령프롬프트에서 아래의 명령을 한줄씩 차례로 입력합니다. (입력 후 엔터는 필수이며 '$'는 제외하고 입력해야 합니다.)
+				</p>
+				<div class="terminal_code_box mt_s">
+					<textarea>
+						$ npm install gulp-sass -D        //SCSS 컴파일 패키지 설치
+						$ npm install gulp-sourcemaps -D  //개발자 모드에서 SCSS 디버깅을 위한 패키지 설치
+					</textarea>
+				</div>
+			</li>
+
+			<!-- SCSS 컴파일 패키지 설치 -->
+			<li class="tit_h3 mt_xl">
+				<h3>SCSS 컴파일 패키지 설치</h3>
+				<p class="mt_ms">
+					위 패키지 설치가 완료되면 gulpfile.js를 아래와 같이 수정합니다.
+				</p>
+				<div class="uk_gist_code_box mt_ms" data-tit="Gulp SCSS package">
+					<textarea readonly="readonly">
+						const gulp = require("gulp");                   //gulp 플러그인 연결
+						const scss = require('gulp-sass');              //sass 플러그인 연결
+						const sourcemaps = require('gulp-sourcemaps');  //sourcemaps 플러그인 연결
+
+						// 소스 파일 경로
+						const PATH = {
+							ASSETS: {
+								CSS: './src/assets/css',
+								FONTS: './src/assets/fonts',
+								IMAGES: './src/assets/images',
+								JS: './src/assets/js',
+							}
+						},
+						// 산출물 경로
+						DEST_PATH = {
+							ASSETS: {
+								CSS: './dist/assets/css',
+								FONTS: './dist/assets/fonts',
+								IMAGES: './dist/assets/images',
+								JS: './dist/assets/js',
+							}
+						};
+
+						gulp.task('scss:compile', () => {
+							return new Promise(resolve => {
+								const options = {
+									outputStyle: "nested", // nested, expanded, compact, compressed
+									indentType: "space", // space, tab
+									indentWidth: 4, //
+									precision: 8,
+									sourceComments: true // 코멘트 제거 여부
+								};
+								gulp
+									.src( PATH.ASSETS.CSS + '/*.scss' )
+									.pipe( sourcemaps.init() )
+									.pipe( scss(options) )
+									.pipe( sourcemaps.write() )
+									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) );
+								resolve();
+							});
+						});
+
+						gulp.task( 'default', gulp.series(['scss:compile']));
+					</textarea>
+				</div>
+				<p class="mt_s">
+					Gulp의 업무를 하나하나 만드는데 사용되는 메서드는 task() 라는 메서드 입니다.<br>
+					<code>gulp.task()</code><br>
+				</p>
+				<p class="mt_s">
+					Gulp의 업무를 하나하나 만드는데 사용되는 메서드는 task() 라는 메서드 입니다.<br>
+					<code>gulp.task()</code><br>
+				</p>
+			</li>
+		</ol>
 	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
