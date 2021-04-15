@@ -1485,20 +1485,20 @@ var menu = [
               },
               {
                 d4_nm:	  'Gulp 설치 및 SCSS 컴파일러 설치',
-                d4_url:		url_framework+ 'gulp&gulp_two',
-                d4_file:	file_framework+ '/01-gulp/02-gulp_two.html',
+                d4_url:		url_framework+ 'gulp&gulp_scss',
+                d4_file:	file_framework+ '/01-gulp/02-gulp_scss.html',
                 html5:		false,
               },
               {
                 d4_nm:  	'HTML과 웹서버',
-                d4_url:		url_framework+ 'gulp&gulp_three',
-                d4_file:	file_framework+ '/01-gulp/03-gulp_three.html',
+                d4_url:		url_framework+ 'gulp&html_webserver',
+                d4_file:	file_framework+ '/01-gulp/03-html_webserver.html',
                 html5:		false,
               },
               {
                 d4_nm:  	'Watch와 BrowserSync',
-                d4_url:		url_framework+ 'gulp&gulp_four',
-                d4_file:	file_framework+ '/01-gulp/04-gulp_four.html',
+                d4_url:		url_framework+ 'gulp&watch_browsersync',
+                d4_file:	file_framework+ '/01-gulp/04-watch_browsersync.html',
                 html5:		false,
               },
               {
