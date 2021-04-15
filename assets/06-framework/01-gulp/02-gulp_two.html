@@ -14,6 +14,7 @@
 		</p>
 	</blockquote>
 
+	<!-- 1.2.1. Gulp 설치 및 기본 세팅 -->
 	<section class="indent mt_xxl">
 		<h2 class="ml_mn">1.2.1. Gulp 설치 및 기본 세팅</h2>
 
@@ -40,27 +41,28 @@
 				</blockquote>
 				<p class="mt_m">
 					방금 전 생성한 폴더 위치에서 명령프롬프트를 열어야 합니다. DOS모드의 폴더 탐색 명령어(cd 폴더명/cd..)를 모르는 분은 아래를 따라하면 됩니다.<br>
-					<!--
-					window10을 사용하며 Terminal을 처음 사용하는 상황이라면 Windows PowerShell을 사용하는 것을 추천하며,<br>
-					에디터기에서 Terminal기능을 지원한다면 에디터기에서 직접 명령을 입력하는것을 추천합니다.<br>
-					-->
+					만약 사용하는 에디터기에서 Terminal 기능을 지원하면 아래 방법 대신 에디터기에서 직접 Terminal을 사용하는 것을 추천합니다.
 				</p>
+				<!-- window10에서 명령 명령프롬프트 열기 -->
 				<article class="indent_max mt_m">
 					<h4 class="ml_mn">window10에서 명령 명령프롬프트 열기(폴더 위치에서)</h4>
 					<ol class="ol_lst_second">
-						<li class="mt_s">
-							Terminal 열기 : 폴더에서 주소창에 cmd입력 후 엔터<br>
+						<li class="before_blue mt_s">
+							<span class="t_blue">Terminal 열기</span> : 폴더에서 주소창에 cmd입력 후 엔터<br>
 							<figure class="img_figure mt_s">
-								<img src="ukncs/images/gulp/window10_Terminal.png" height="399" width="648" alt="window 폴더에서 명령프롬프트 열기"/>
+								<img src="ukncs/images/gulp/window10_Terminal.png" alt="window 폴더에서 Terminal 열기"/>
 							</figure>
 						</li>
-						<li class="mt_ms">
-							Windows PowerShell 열기 : 폴더에서 파일 > Windows PowerShell 열기 메뉴 클릭<br>
-							이렇게 하면 파단 바탕에 흰 글씨의 Windows PowerShell 창에 뜨며 위의 Terminal처럼 해당 폴더 경로로 열립니다.
+						<li class="before_blue mt_ms">
+							<span class="t_blue">Windows PowerShell 열기</span> : 폴더에서 파일 > Windows PowerShell 열기 메뉴 클릭
+							<figure class="img_figure mt_s">
+								<img src="ukncs/images/gulp/window10_PowerShell.png" alt="window 폴더에서 PowerShell 열기"/>
+							</figure>
 						</li>
 					</ol>
 				</article>
-				<article class="indent_max mt_m">
+				<!-- mac에서 명령 명령프롬프트 열기 -->
+				<article class="indent_max mt_l">
 					<h4 class="ml_mn">mac에서 명령 명령프롬프트 열기</h4>
 					<p class="mt_s">
 						<span class="reference"><a href="https://architectophile.tistory.com/m/14" target="_blank" title="새창열림">맥(macOS)에서 터미널(Terminal) 여는 법</a></span>
@@ -72,14 +74,14 @@
 			<li class="tit_h3 mt_xl">
 				<h3>Gulp 설치</h3>
 				<p class="mt_ms">
-					명령프롬프트에서 아래의 명령을 한줄씩 차례로 입력합니다. (입력 후 엔터는 필수이며 '$'는 제외하고 입력해야 합니다.)
+					명령프롬프트에서 아래의 명령을 한줄씩 차례로 입력합니다. (입력 후 엔터는 필수입니다.)
 				</p>
 				<div class="terminal_code_box mt_s">
 					<textarea>
-						$ npm install gulp-cli -g              //Gulp 전역 설치(전역 설치이기에 최초 한번만 설치하면 됩니다.)
-						$ npm init                             //package.json 설치
-						$ npm install gulp -D                  //해당 폴더에 Gulp 설치
-						$ npx -p touch nodetouch gulpfile.js   //gulpfile.js 설치
+						npm install gulp-cli -g              //Gulp 전역 설치(전역 설치이기에 최초 한번만 설치하면 됩니다.)
+						npm init                             //package.json 설치
+						npm install gulp -D                  //해당 폴더에 Gulp 설치
+						npx -p touch nodetouch gulpfile.js   //gulpfile.js 설치
 					</textarea>
 				</div>
 				<p class="mt_s">
@@ -103,6 +105,7 @@
 		</ol>
 	</section>
 
+	<!-- 1.2.2. SCSS 컴파일러 설치 -->
 	<section class="indent mt_xxl">
 		<h2 class="ml_mn">1.2.2. SCSS 컴파일러 설치</h2>
 		<p class="mt_m">
@@ -111,6 +114,8 @@
 		</p>
 		<p class="mt_s">
 			웹스톰, 비주얼스튜디오 등 여러 에디터기의 Live Sass Compiler를 사용하면 간단하게 SCSS 컴파일이 가능하지만,
+			공동 작업이 많은 개발 환경인 경우 다른 작업자의 환경을 고려하지 않을 수 없습니다.<br>
+			gulp-sass플러그인을 gulp에 연결해두면 OS상관없이 npm만 돌기면 되기에 gulp-sass설치를 추천합니다.
 		</p>
 
 		<ol class="ol_lst indent">
@@ -118,77 +123,156 @@
 			<li class="tit_h3 mt_xl">
 				<h3>SCSS 컴파일 패키지 설치</h3>
 				<p class="mt_ms">
-					명령프롬프트에서 아래의 명령을 한줄씩 차례로 입력합니다. (입력 후 엔터는 필수이며 '$'는 제외하고 입력해야 합니다.)
+					명령프롬프트에서 아래의 명령을 한줄씩 차례로 입력합니다. (입력 후 엔터는 필수입니다.)
 				</p>
-				<div class="terminal_code_box mt_s">
+				<div class="terminal_code_box mt_ms">
 					<textarea>
-						$ npm install gulp-sass -D        //SCSS 컴파일 패키지 설치
-						$ npm install gulp-sourcemaps -D  //개발자 모드에서 SCSS 디버깅을 위한 패키지 설치
+						//full code
+						npm install gulp-sass -D        //SCSS 컴파일 패키지 설치
+						npm install gulp-sourcemaps -D  //개발자 모드에서 SCSS 디버깅을 위한 패키지 설치
+						npm install dart-sass -D        //DART-SASS 패키지 설치
+						npm install fibers -D           //DART-SASS 세트 플러그인 fibers 설치
+
+						//shorthand
+						npm install --save-dev gulp-sass gulp-sourcemaps dart-sass fibers  //위 4줄 코드를 한줄로
 					</textarea>
 				</div>
 			</li>
 
-			<!-- SCSS 컴파일 패키지 설치 -->
+			<!-- 설치한 SCSS 패키지를 gulpfile.js에 적용 -->
 			<li class="tit_h3 mt_xl">
-				<h3>SCSS 컴파일 패키지 설치</h3>
+				<h3>설치한 SCSS 패키지를 gulpfile.js에 적용</h3>
 				<p class="mt_ms">
-					위 패키지 설치가 완료되면 gulpfile.js를 아래와 같이 수정합니다.
+					위 패키지 설치가 완료되면 <mark>gulpfile.js</mark>를 아래와 같이 수정합니다.
 				</p>
 				<div class="uk_gist_code_box mt_ms" data-tit="Gulp SCSS package">
 					<textarea readonly="readonly">
-						const gulp = require("gulp");                   //gulp 플러그인 연결
-						const scss = require('gulp-sass');              //sass 플러그인 연결
-						const sourcemaps = require('gulp-sourcemaps');  //sourcemaps 플러그인 연결
+						const gulp = require("gulp");                   // gulp 연결
+						const Fiber = require('fibers');                // dart sass 이용시 gulp-sass와 세트 플러그인
+						const dartSass = require('dart-sass');          // dart-sass 연결(기본)
+						const scss = require('gulp-sass');              // gulp-sass 연결(기본)
+						const sourcemaps = require('gulp-sourcemaps');  // css.map 파일 생성용
 
 						// 소스 파일 경로
+						const src = './src/assets';
+						const dist = './dist/assets';
+						// 작업폴더 경로 (여기서 작업할것을)
 						const PATH = {
 							ASSETS: {
-								CSS: './src/assets/css',
-								FONTS: './src/assets/fonts',
-								IMAGES: './src/assets/images',
-								JS: './src/assets/js',
+								CSS: src+'/css',
+								FONTS: src+'/fonts',
+								IMAGES: src+'/images',
+								JS: src+'/js',
 							}
-						},
-						// 산출물 경로
-						DEST_PATH = {
+						}
+						// 산출물 경로 (여기에 생성한다.)
+						const DEST_PATH = {
 							ASSETS: {
-								CSS: './dist/assets/css',
-								FONTS: './dist/assets/fonts',
-								IMAGES: './dist/assets/images',
-								JS: './dist/assets/js',
+								CSS: dist+'/css',
+								FONTS: dist+'/fonts',
+								IMAGES: dist+'/images',
+								JS: dist+'/js',
 							}
 						};
 
+						//scss 컴파일
 						gulp.task('scss:compile', () => {
 							return new Promise(resolve => {
 								const options = {
-									outputStyle: "nested", // nested, expanded, compact, compressed
-									indentType: "space", // space, tab
-									indentWidth: 4, //
-									precision: 8,
-									sourceComments: true // 코멘트 제거 여부
+									//scss 옵션 정의
+									scss : {
+										outputStyle: "expanded",  // 컴파일 스타일: nested(default), expanded, compact, compressed
+										indentType: "space",      // 들여쓰기 스타일: space(default), tab
+										indentWidth: 2,           // 들여쓰기 칸 수 (Default : 2)
+										precision: 8,             // 컴파일 된 CSS 의 소수점 자리수 (Type : Integer , Default : 5)
+										sourceComments: true,     // 코멘트 제거 여부 (Default : false)
+										compiler: dartSass,       // 컴파일 도구
+										fiber: Fiber,             // 컴파일 오버해드 방지
+									},
 								};
 								gulp
-									.src( PATH.ASSETS.CSS + '/*.scss' )
-									.pipe( sourcemaps.init() )
-									.pipe( scss(options) )
-									.pipe( sourcemaps.write() )
-									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) );
+									.src( PATH.ASSETS.CSS + '/*.scss' )                      // 컴파일 대상 scss파일 찾기
+									.pipe( sourcemaps.init() )                               // 소스맵 작성
+									.pipe( scss(options.scss).on('error', scss.logError) )   // scss 옵션 적용, scss 작성시 watch가 멈추지 않도록 logError 설정
+									.pipe( sourcemaps.write('') )                            // 위에서 생성한 소스맵 적용
+									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) );                // 컴파일 후 css파일이 생성될 목성지 설정
 								resolve();
 							});
 						});
 
+						//실행
 						gulp.task( 'default', gulp.series(['scss:compile']));
 					</textarea>
 				</div>
-				<p class="mt_s">
-					Gulp의 업무를 하나하나 만드는데 사용되는 메서드는 task() 라는 메서드 입니다.<br>
-					<code>gulp.task()</code><br>
+			</li>
+
+			<!-- SCSS 파일 생성 -->
+			<li class="tit_h3 mt_xl">
+				<h3>SCSS 파일 생성 및 컴파일</h3>
+				<p class="mt_ms">
+					gulpfile.js를 만들었으니 SCSS를 컴파일해보겠습니다.<br>
+					우선 <mark>src > assets > css폴더</mark>에 <mark>style.scss</mark> 파일 생성합니다. 후 SCSS문법을 적용한 임시 스타일을 작성합니다.
 				</p>
-				<p class="mt_s">
-					Gulp의 업무를 하나하나 만드는데 사용되는 메서드는 task() 라는 메서드 입니다.<br>
-					<code>gulp.task()</code><br>
+				<p class="mt_s"><img src="ukncs/images/gulp/gulp-file-03.png" alt="style.scss 생성"/></p>
+
+				<p class="mt_ms">
+					<mark>style.scss</mark>에 SCSS문법을 적용한 <mark>임시 스타일을 작성</mark>합니다.
 				</p>
+				<div class="uk_gist_code_box mt_ms" data-tit="SCSS style">
+					<textarea>
+						@charset 'utf-8';
+
+						$bg-color: red;
+						html {
+							overflow-y: auto;
+							body {background: $bg-color;}
+						}
+					</textarea>
+				</div>
+
+				<p class="mt_ms">
+					명령프롬프트에 아래의 명령을 입력합니다.
+				</p>
+				<div class="terminal_code_box mt_ms">
+					<textarea>
+						gulp
+					</textarea>
+				</div>
+
+				<p class="mt_ms">
+					<mark><code>gulp</code></mark>입력 후 엔터를 치면 아래 처럼 <mark>gulp</mark>가 실행되고,
+				</p>
+				<p class="mt_s"><img src="ukncs/images/gulp/gulp_t_scss_01.png" alt="gulp 실행"/></p>
+
+				<p class="mt_ms">
+					<mark>dist</mark>폴더와 방금 컴파일 된 <mark>style.css</mark> 그리고 css 디버깅을 위한 <mark>style.css.map</mark>이 생성되있는 것을 확인할 수 있다.
+				</p>
+				<p class="mt_s"><img src="ukncs/images/gulp/gulp-file-04.png" alt="dist폴더, style.css, style.css.map 생성"/></p>
+
+				<p class="mt_ms">
+					<mark>style.css</mark>파일을 확인해 보면 아래 처럼 SCSS의 중첩이나 변수가 컴파일 된 것을 확인할 수 있다.
+				</p>
+				<div class="uk_gist_code_box mt_ms" data-tit="SCSS Complie">
+					<textarea>
+						/* 컴파일 전 ------------------------- */
+						@charset 'utf-8';
+
+						$bg-color: red;
+						html {
+							overflow-y: auto;
+							body {background: $bg-color;}
+						}
+
+						/* 컴파일 후 ------------------------- */
+						html {
+							overflow-y: auto;
+						}
+						html body {
+							background: red;
+						}
+						/*# sourceMappingURL=style.css.map */
+					</textarea>
+				</div>
 			</li>
 		</ol>
 	</section>
