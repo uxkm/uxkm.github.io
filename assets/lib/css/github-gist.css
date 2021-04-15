@@ -105,6 +105,12 @@
 
 .hljs-section {font-weight:normal;}
 
+.uk_color_add,
+.uk_color_add .hljs-comment {color:blue !important;}
+
+.uk_color_edit,
+.uk_color_edit .hljs-comment {color:red !important;}
+
 
 
 

@@ -2863,6 +2863,18 @@
 		margin-top:15px;
 		border:1px solid @border_color; border-radius:5px;
 		background:#fff;
+
+		&[data-filename] {
+			&:before {
+				display:inline-block; vertical-align:top;
+				height:26px; line-height:26px; margin:10px 0 0 10px; padding:0 10px;
+				font-size:16px;
+				color:#fff; .font-code;
+				background:@skyBlue; border-radius:3px;
+				content:attr(data-filename);
+			}
+		}
+
 		textarea {position:absolute; left:0; top:0; width:1px; height:1px; opacity:0;}
 
 		.uk_gist_content {
@@ -2946,6 +2958,13 @@
 		.uk_gist_code_box {
 			@line_size:36px;
 			@pd_top: 8px;
+
+			&[data-filename] {
+				&:before {
+					height:22px; line-height:20px; margin:6px 0 0 6px; padding:0 6px;
+					font-size:12px;
+				}
+			}
 
 			.uk_gist_content {
 				* {line-height:20px; font-size:12px;}

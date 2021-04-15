@@ -8058,6 +8058,20 @@ body {
   border-radius: 5px;
   background: #fff;
 }
+.uk_gist_code_box[data-filename]:before {
+  display: inline-block;
+  vertical-align: top;
+  height: 26px;
+  line-height: 26px;
+  margin: 10px 0 0 10px;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #fff;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background: #379ad6;
+  border-radius: 3px;
+  content: attr(data-filename);
+}
 .uk_gist_code_box textarea {
   position: absolute;
   left: 0;
@@ -8180,6 +8194,13 @@ body {
   display: none !important;
 }
 @media (max-width: 767px) {
+  .uk_gist_code_box[data-filename]:before {
+    height: 22px;
+    line-height: 20px;
+    margin: 6px 0 0 6px;
+    padding: 0 6px;
+    font-size: 12px;
+  }
   .uk_gist_code_box .uk_gist_content * {
     line-height: 20px;
     font-size: 12px;

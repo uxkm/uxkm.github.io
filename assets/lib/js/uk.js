@@ -1351,18 +1351,20 @@ function uk_gist_skin_code(){
   const not_ko = /[a-z0-9]|[\[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
   const not_hashTags = /[a-z0-9]|[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]|[\[\]{}()<>?|`~!@$%^&*-_+=,.;:\"'\\]/g;
   const ko_check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-  const code_tab_size = '    ';
+  const code_tab_size = '  ';
 
   $('.'+uk_gist_code_box).each(function(i, e){
     const str = $(e).find('textarea').val()
     .replace(/</g,"&lt;")                                                 // '<' 변환
     .replace(/>/g,"&gt;")                                                 // '>' 변환
-    .replace(/\"/g,"<span class='uk_color_quot'>&quot;</span>")           // 큰따옴표 변환
+    .replace(/\"/g,"<span class='uk_color_quot'>&quot;</span>")                // 큰따옴표 변환
     .replace(/\'/g,"&#39;")                                               // 작은따옴표 변환
     //.replaceAll("____error__","<span class='uk_color_error'>")          // error코드 시작 태그
     //.replaceAll("__error____","</span>")                                // error코드 종료 태그
     .replace(/____error__/g,"<span class='uk_color_error'>")              // error코드 시작 태그
     .replace(/__error____/g,"</span>")                                    // error코드 종료 태그
+    .replace(/--add--/g,"<span class='uk_color_add'>[-- 추가된 부분 --]</span>")  // --add--색상 변환
+    .replace(/--edit--/g,"<span class='uk_color_edit'>[-- 수정된 부분 --]</span>")  // --edit--색상 변환
     .replace(/\t/gi, code_tab_size);                                      // tab공백을 띄어쓰기(4칸)로 변경
 
     //----------------------------------------------------------------------------------------

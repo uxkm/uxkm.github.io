@@ -134,7 +134,7 @@
 						npm install fibers -D           //DART-SASS 세트 플러그인 fibers 설치
 
 						//shorthand
-						npm install --save-dev gulp-sass gulp-sourcemaps dart-sass fibers  //위 4줄 코드를 한줄로
+						npm install -D gulp-sass gulp-sourcemaps dart-sass fibers  //위 4줄 코드를 한줄로
 					</textarea>
 				</div>
 			</li>
@@ -145,7 +145,7 @@
 				<p class="mt_ms">
 					위 패키지 설치가 완료되면 <mark>gulpfile.js</mark>를 아래와 같이 수정합니다.
 				</p>
-				<div class="uk_gist_code_box mt_ms" data-tit="Gulp SCSS package">
+				<div class="uk_gist_code_box mt_ms" data-filename="gulpfile.js" data-tit="gulpfile.js">
 					<textarea readonly="readonly">
 						const gulp = require("gulp");                   // gulp 연결
 						const Fiber = require('fibers');                // dart sass 이용시 gulp-sass와 세트 플러그인
@@ -218,14 +218,19 @@
 				<p class="mt_ms">
 					<mark>style.scss</mark>에 SCSS문법을 적용한 <mark>임시 스타일을 작성</mark>합니다.
 				</p>
-				<div class="uk_gist_code_box mt_ms" data-tit="SCSS style">
+				<div class="uk_gist_code_box mt_ms" data-filename="style.scss" data-tit="style.scss">
 					<textarea>
 						@charset 'utf-8';
 
-						$bg-color: red;
+						$bg-color: gray;
+						$font-color: #fff;
+
 						html {
 							overflow-y: auto;
-							body {background: $bg-color;}
+							body {
+								background: $bg-color;
+								color: $font-color;
+							}
 						}
 					</textarea>
 				</div>
@@ -252,24 +257,31 @@
 				<p class="mt_ms">
 					<mark>style.css</mark>파일을 확인해 보면 아래 처럼 SCSS의 중첩이나 변수가 컴파일 된 것을 확인할 수 있습니다.
 				</p>
-				<div class="uk_gist_code_box mt_ms" data-tit="SCSS Complie">
+				<div class="uk_gist_code_box mt_ms" data-filename="style.scss → style.css" data-tit="SCSS Complie">
 					<textarea>
-						/* 컴파일 전 ------------------------- */
+						/* 컴파일 전 (style.scss) ----------- */
 						@charset 'utf-8';
 
-						$bg-color: red;
+						$bg-color: gray;
+						$font-color: #fff;
+
 						html {
 							overflow-y: auto;
-							body {background: $bg-color;}
+							body {
+								background: $bg-color;
+								color: $font-color;
+							}
 						}
 
-						/* 컴파일 후 ------------------------- */
+						/* 컴파일 후 (style.css) ------------ */
 						html {
 							overflow-y: auto;
 						}
 						html body {
-							background: red;
+							background: gray;
+							color: #fff;
 						}
+
 						/*# sourceMappingURL=style.css.map */
 					</textarea>
 				</div>
