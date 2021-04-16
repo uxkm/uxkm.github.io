@@ -1363,8 +1363,9 @@ function uk_gist_skin_code(){
     //.replaceAll("__error____","</span>")                                // error코드 종료 태그
     .replace(/____error__/g,"<span class='uk_color_error'>")              // error코드 시작 태그
     .replace(/__error____/g,"</span>")                                    // error코드 종료 태그
-    .replace(/--add--/g,"<span class='uk_color_add'>[-- 추가된 부분 --]</span>")  // --add--색상 변환
-    .replace(/--edit--/g,"<span class='uk_color_edit'>[-- 수정된 부분 --]</span>")  // --edit--색상 변환
+    .replace(/--add--/g,"<span class='uk_color_add'>[-- 추가된 부분 --]</span>")     // --add--색상 변환
+    .replace(/--edit--/g,"<span class='uk_color_edit'>[-- 수정된 부분 --]</span>")   // --edit--색상 변환
+    .replace(/--no_change--/g,"<span class='uk_color_nn'>[-- 변경 없음 --]</span>")   // --edit--색상 변환
     .replace(/\t/gi, code_tab_size);                                      // tab공백을 띄어쓰기(4칸)로 변경
 
     //----------------------------------------------------------------------------------------
@@ -1463,6 +1464,81 @@ function uk_gist_skin_code(){
       '<span class="by"><span class="hyphen">-</span> create <i>❤</i> by <b>uxkm</b></span>' +
       '</div>'
     );
+
+    //data-filename이 있을 경우
+    const uk_gist_code_layer = 'uk_gist_code_layer';
+    const file_name_box = 'file_name_box';
+    const file_name = 'file_name';
+    const view_full_layer = 'view_full_layer';
+    const full_code_layer = 'full_code_layer';
+    const code_layer_close = 'code_layer_close';
+    const dataFilename = $(e).attr('data-filename');
+    const if_next_layer = $(e).next().is('.'+full_code_layer);
+    const if_e_layer = $(e).is('.'+full_code_layer);
+
+    if( !$(e).is('.'+full_code_layer) && dataFilename || dataFilename !== undefined ){
+      let dataFilename_btn = '<button type="button" class="'+file_name+'">'+dataFilename+' <span>[close]</span></button>';
+      if( if_next_layer ) dataFilename_btn += '<button type="button" class="'+view_full_layer+'">View full code</button>';
+      if( if_e_layer ){
+        dataFilename_btn =
+          '<span class="'+file_name+'">'+dataFilename+'</span>' +
+          '<button type="button" class="'+code_layer_close+'"><i>layer close</i></button>'
+        ;
+      }
+      $(e).prepend('<div class="'+file_name_box+'">'+ dataFilename_btn +'</div>');
+
+      //file_name click
+      $(e).find('.'+file_name_box+' button.'+file_name).on('click', function(){
+        //code box 접을 때
+        if( !$(this).is('.on') ){
+          $(this).addClass('on').children().text('[open]');
+          $(this).parent().addClass('on').css('border','0').next().css('display','none');
+          $(e).next().find();
+        }
+        //code box 열 때
+        else{
+          $(this).removeClass('on').children().text('[close]');
+          $(this).parent().removeClass('on').removeAttr('style').next().removeAttr('style');
+        }
+        return false;
+      });
+
+      //view_full_layer click
+      $(e).find('.'+file_name_box+' button.'+view_full_layer).on('click', function(){
+        $(e).next().addClass('view_show');
+        $html.css('overflow-y','hidden');
+        return false;
+      });
+      //code_layer_close click
+      $(e).find('.'+file_name_box+' button.'+code_layer_close).on('click', function(){
+        $(this).parents('.'+uk_gist_code_layer).removeClass('view_show');
+        $html.css('overflow-y','scroll');
+        return false;
+      });
+    }
+
+    //full_code_layer일 경우
+    if( if_e_layer ){
+      $(e).wrap('<div class="uk_gist_code_layer">');
+
+      if( device_check === 'desktop' ){
+        const ly_scroll = 'ly_scroll';
+        const pd = '17px';
+        var code_width = $(e).find('.'+uk_gist_code_wrap).outerWidth();
+        $(e).find('.'+uk_gist_code_wrap).css('padding-bottom',22);
+
+        $(e).find('.'+uk_gist_content).after(
+          '<div class="'+ly_scroll+'" style="overflow-x:auto; position:relative; z-index:2; height:'+pd+'; margin-top:-'+pd+';">' +
+          '<p style="width:'+code_width+'px; font-size:0; text-indent:-9999px;">scroll var</p>' +
+          '</div>'
+        );
+
+        $(e).find('.'+ly_scroll).scroll(function(){
+          let scl = $(this).scrollLeft();
+          $(e).find('.'+uk_gist_code_wrap).scrollLeft(scl);
+        });
+      }
+    }
 
     //----------------------------------------------------------------------------------------
 
@@ -1633,7 +1709,7 @@ function uk_gist_skin_code(){
 }
 
 
-//uk_gist_skin_code box
+//terminal_code_box
 function terminal_code_box(){
   const terminal_code_box = 'terminal_code_box';
   const terminal_pre = 'terminal_pre';

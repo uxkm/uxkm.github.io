@@ -8057,20 +8057,62 @@ body {
   border: 1px solid #ddd;
   border-radius: 5px;
   background: #fff;
+  /*
+		&[data-filename] {
+			&:before {
+				display:inline-block; vertical-align:top;
+				height:26px; line-height:26px; margin:10px 0 0 10px; padding:0 10px;
+				font-size:16px;
+				color:#fff; .font-code;
+				background:@skyBlue; border-radius:3px;
+				content:attr(data-filename);
+			}
+		}
+		*/
 }
-.uk_gist_code_box[data-filename]:before {
-  display: inline-block;
+.uk_gist_code_box .file_name_box {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px 15px 10px 10px;
+  border-bottom: 1px solid #ddd;
+}
+.uk_gist_code_box .file_name_box * {
   vertical-align: top;
+}
+.uk_gist_code_box .file_name_box .file_name {
+  position: relative;
   height: 26px;
   line-height: 26px;
-  margin: 10px 0 0 10px;
-  padding: 0 10px;
+  padding: 0 25px 0 10px;
   font-size: 16px;
   color: #fff;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   background: #379ad6;
   border-radius: 3px;
-  content: attr(data-filename);
+}
+.uk_gist_code_box .file_name_box .file_name span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translate(0, -50%);
+  height: 0;
+  font-size: 0;
+  text-indent: -9999px;
+  border-bottom: 6px solid #fff;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  content: "";
+}
+.uk_gist_code_box .file_name_box .file_name.on span {
+  transform: translate(0, -50%) rotate(180deg);
+}
+.uk_gist_code_box .file_name_box .view_full_layer {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: -0.4px;
+}
+.uk_gist_code_box .file_name_box .view_full_layer:hover {
+  text-decoration: underline;
 }
 .uk_gist_code_box textarea {
   position: absolute;
@@ -8193,12 +8235,87 @@ body {
 .uk_gist_code_box.tab_line_remove .tab_indent_line {
   display: none !important;
 }
+.uk_gist_code_layer {
+  visibility: hidden;
+  position: fixed;
+  left: -99999px;
+  top: -99999px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.7);
+}
+.uk_gist_code_layer.view_show {
+  visibility: visible;
+  left: 0;
+  top: 0;
+}
+.uk_gist_code_layer .uk_gist_code_box {
+  overflow: unset;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  width: 1200px;
+  margin: 0;
+}
+.uk_gist_code_layer .uk_gist_code_box .uk_gist_content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.uk_gist_code_layer .uk_gist_code_box .code_layer_close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 56px;
+  height: 100%;
+}
+.uk_gist_code_layer .uk_gist_code_box .code_layer_close i {
+  font-size: 0;
+  text-indent: -9999px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 26px;
+}
+.uk_gist_code_layer .uk_gist_code_box .code_layer_close i:before,
+.uk_gist_code_layer .uk_gist_code_box .code_layer_close i:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  background: #444;
+  content: "";
+}
+.uk_gist_code_layer .uk_gist_code_box .code_layer_close i:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.uk_gist_code_layer .uk_gist_code_box .code_layer_close i:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 @media (max-width: 767px) {
-  .uk_gist_code_box[data-filename]:before {
-    height: 22px;
-    line-height: 20px;
-    margin: 6px 0 0 6px;
-    padding: 0 6px;
+  .uk_gist_code_box {
+    /*
+			&[data-filename] {
+				&:before {
+					height:22px; line-height:20px; margin:6px 0 0 6px; padding:0 6px;
+					font-size:12px;
+				}
+			}
+			*/
+  }
+  .uk_gist_code_box .file_name_box .file_name {
+    padding: 0 22px 0 7px;
+    font-size: 13px;
+  }
+  .uk_gist_code_box .file_name_box .file_name span {
+    right: 8px;
+  }
+  .uk_gist_code_box .file_name_box .view_full_layer {
     font-size: 12px;
   }
   .uk_gist_code_box .uk_gist_content * {
@@ -8229,6 +8346,21 @@ body {
   }
   .uk_gist_code_box .uk_gist_footer .hyphen {
     padding: 0;
+  }
+  .uk_gist_code_layer .uk_gist_code_box {
+    top: 30px;
+    transform: translate(-50%, 0);
+    max-width: calc(100vw - 30px);
+  }
+  .uk_gist_code_layer .uk_gist_code_box .uk_gist_content {
+    max-height: 66vh;
+  }
+  .uk_gist_code_layer .uk_gist_code_box .code_layer_close {
+    width: 50px;
+    height: 100%;
+  }
+  .uk_gist_code_layer .uk_gist_code_box .code_layer_close i {
+    height: 26px;
   }
 }
 .terminal_code_box {

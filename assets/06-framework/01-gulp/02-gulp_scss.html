@@ -2,7 +2,7 @@
 
 	<header>
 		<h1></h1><!-- Gulp 설치 및 SCSS 컴파일러 설치 -->
-		<time class="last_update" datetime="2021-00-00">2021-00-00</time>
+		<time class="last_update" datetime="2021-04-16">2021-04-16</time>
 	</header>
 
 	<blockquote class="uk_note mt_xxl" role="note">
@@ -18,7 +18,7 @@
 	<section class="indent mt_xxl">
 		<h2 class="ml_mn">1.2.1. Gulp 설치 및 기본 세팅</h2>
 
-		<ol class="ol_lst indent">
+		<ol class="ol_lst">
 			<!-- 프로젝트 폴더 생성 -->
 			<li class="tit_h3 mt_xl">
 				<h3>프로젝트 폴더 생성</h3>
@@ -118,7 +118,7 @@
 			gulp-sass플러그인을 gulp에 연결해두면 OS상관없이 npm만 돌리면 되기에 gulp-sass설치를 추천합니다.
 		</p>
 
-		<ol class="ol_lst indent">
+		<ol class="ol_lst">
 			<!-- SCSS 컴파일 패키지 설치 -->
 			<li class="tit_h3 mt_xl">
 				<h3>SCSS 컴파일 패키지 설치</h3>
@@ -147,6 +147,7 @@
 				</p>
 				<div class="uk_gist_code_box mt_ms" data-filename="gulpfile.js" data-tit="gulpfile.js">
 					<textarea readonly="readonly">
+						// plug-in 연결
 						const gulp = require("gulp");                   // gulp 연결
 						const Fiber = require('fibers');                // dart sass 이용시 gulp-sass와 세트 플러그인
 						const dartSass = require('dart-sass');          // dart-sass 연결(기본)

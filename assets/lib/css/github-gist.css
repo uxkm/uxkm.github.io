@@ -111,6 +111,9 @@
 .uk_color_edit,
 .uk_color_edit .hljs-comment {color:red !important;}
 
+.uk_color_nn,
+.uk_color_nn .hljs-comment {color:green !important;}
+
 
 
 
