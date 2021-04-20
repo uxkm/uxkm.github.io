@@ -8084,12 +8084,15 @@ body {
   position: relative;
   height: 26px;
   line-height: 26px;
-  padding: 0 25px 0 10px;
+  padding: 0 10px;
   font-size: 16px;
   color: #fff;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   background: #379ad6;
   border-radius: 3px;
+}
+.uk_gist_code_box .file_name_box .file_name.toggle_btn {
+  padding-right: 25px;
 }
 .uk_gist_code_box .file_name_box .file_name span {
   position: absolute;
@@ -8309,8 +8312,11 @@ body {
 			*/
   }
   .uk_gist_code_box .file_name_box .file_name {
-    padding: 0 22px 0 7px;
+    padding: 0 7px;
     font-size: 13px;
+  }
+  .uk_gist_code_box .file_name_box .file_name.toggle_btn {
+    padding-right: 22px;
   }
   .uk_gist_code_box .file_name_box .file_name span {
     right: 8px;

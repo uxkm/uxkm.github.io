@@ -114,6 +114,10 @@
 .uk_color_nn,
 .uk_color_nn .hljs-comment {color:green !important;}
 
+.all_black .uk_gist_code_wrap *:not(.hljs-comment) {
+    color:#222 !important;
+}
+
 
 
 

@@ -1502,6 +1502,12 @@ var menu = [
                 html5:		false,
               },
               {
+                d4_nm:  	'html include',
+                d4_url:		url_framework+ 'gulp&html_include',
+                d4_file:	file_framework+ '/01-gulp/05-html_include.html',
+                html5:		false,
+              },
+              {
                 d4_nm:  	'Assets관리(상)',
                 d4_url:		url_framework+ 'gulp&gulp_five',
                 d4_file:	file_framework+ '/01-gulp/05-gulp_five.html',

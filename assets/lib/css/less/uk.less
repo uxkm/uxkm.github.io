@@ -2886,10 +2886,11 @@
 
 			.file_name {
 				position:relative;
-				height:26px; line-height:26px; padding:0 25px 0 10px;
+				height:26px; line-height:26px; padding:0 10px;
 				font-size:16px;
 				color:#fff; .font-code;
 				background:@skyBlue; border-radius:3px;
+				&.toggle_btn {padding-right:25px;}
 				span {
 					position:absolute; right:10px; top:50%; transform:translate(0, -50%);
 					height:0;
@@ -3043,7 +3044,8 @@
 
 			.file_name_box {
 				.file_name {
-					padding:0 22px 0 7px; font-size:13px;
+					padding:0 7px; font-size:13px;
+					&.toggle_btn {padding-right:22px;}
 					span {right:8px}
 				}
 				.view_full_layer {font-size:12px;}

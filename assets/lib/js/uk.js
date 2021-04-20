@@ -1364,7 +1364,10 @@ function uk_gist_skin_code(){
     .replace(/____error__/g,"<span class='uk_color_error'>")              // error코드 시작 태그
     .replace(/__error____/g,"</span>")                                    // error코드 종료 태그
     .replace(/--add--/g,"<span class='uk_color_add'>[-- 추가된 부분 --]</span>")     // --add--색상 변환
+    .replace(/--add_start--/g,"<span class='uk_color_add'>[-- 추가된 부분 {{ --]</span>")     // --add--색상 변환
+    .replace(/--add_end--/g,"<span class='uk_color_add'>[-- }} 추가된 부분 --]</span>")     // --add--색상 변환
     .replace(/--edit--/g,"<span class='uk_color_edit'>[-- 수정된 부분 --]</span>")   // --edit--색상 변환
+    .replace(/--del--/g,"<span class='uk_color_edit'>[-- 삭제된 부분 --]</span>")   // --edit--색상 변환
     .replace(/--no_change--/g,"<span class='uk_color_nn'>[-- 변경 없음 --]</span>")   // --edit--색상 변환
     .replace(/\t/gi, code_tab_size);                                      // tab공백을 띄어쓰기(4칸)로 변경
 
@@ -1439,6 +1442,10 @@ function uk_gist_skin_code(){
           str_content += '<span class="'+uk_gist_code_line+'">'+ line[i] + tab_indent_line + '</span>\n';
         }
       }
+
+      if( line[i].match('--del--') ){
+
+      }
     }
 
     //----------------------------------------------------------------------------------------
@@ -1477,7 +1484,7 @@ function uk_gist_skin_code(){
     const if_e_layer = $(e).is('.'+full_code_layer);
 
     if( !$(e).is('.'+full_code_layer) && dataFilename || dataFilename !== undefined ){
-      let dataFilename_btn = '<button type="button" class="'+file_name+'">'+dataFilename+' <span>[close]</span></button>';
+      let dataFilename_btn = '<button type="button" class="'+file_name+' toggle_btn">'+dataFilename+' <span>[close]</span></button>';
       if( if_next_layer ) dataFilename_btn += '<button type="button" class="'+view_full_layer+'">View full code</button>';
       if( if_e_layer ){
         dataFilename_btn =
