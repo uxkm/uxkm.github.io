@@ -413,8 +413,8 @@
 						sub.html 파일을 아래처럼 생성합니다.<br>
 						index.html과 달리 include 경로 앞에 점(.)이 하나 더 있습니다.
 						include 템플릿의 위치와 include 하려는 파일의 위치를 잘 알아야 합니다.<br>
-						index.html은 '_include' 폴더와 형제이기 때문에 './_include' 이렇게 시작하지만<br>
-						sub.html은 부모 폴더가 '_include' 폴더와 형제이기 때문에 '../_include' 이렇게 시작해야 합니다. '../'를 사용하므로써 자신의 위치에서 한단계 위로 올라가는 것입니다.
+						index.html은 <mark>'_include' 폴더와 형제</mark>이기 때문에 '<mark><code>./_include</code></mark>' 이렇게 시작하지만<br>
+						sub.html은 <mark>부모 폴더가 '_include' 폴더와 형제</mark>이기 때문에 '<mark><code>../_include</code></mark>' 이렇게 시작해야 합니다. '../'를 사용하므로써 자신의 위치에서 한단계 위로 올라가는 것입니다.
 					</p>
 					<div class="uk_gist_code_box mt_ms" data-filename="sub.html" data-tit="sub.html">
 						<textarea>
