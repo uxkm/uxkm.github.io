@@ -105,9 +105,9 @@
 		</ol>
 	</section>
 
-	<!-- 1.2.2. SCSS 컴파일러 설치 -->
+	<!-- 1.2.2. SCSS 컴파일러 및 부가기능 설치 -->
 	<section class="indent mt_xxl">
-		<h2 class="ml_mn">1.2.2. SCSS 컴파일러 설치</h2>
+		<h2 class="ml_mn">1.2.2. SCSS 컴파일러 및 부가기능 설치</h2>
 		<p class="mt_m">
 			보다 편리하고 효율적인 CSS 전처리기인 SCSS 컴파일러를 설치합니다.<br>
 			SCSS자체만으로는 브라우저에 적용을 못하기 때문에 반드시 CSS로 변환하는 과정이 있어야 합니다. SCSS를 사용한다면 이 과정은 필수입니다.
@@ -117,24 +117,39 @@
 			공동 작업이 많은 개발 환경인 경우 다른 작업자의 환경을 고려하지 않을 수 없습니다.<br>
 			gulp-sass플러그인을 gulp에 연결해두면 OS상관없이 npm만 돌리면 되기에 gulp-sass설치를 추천합니다.
 		</p>
+		<p class="mt_s">
+			CSS로 컴파일을 하면서 여러 기능을 추가할 수 있습니다.<br>
+			대표 적인 부가기능으로는
+		</p>
+		<ul class="dot_lst indent">
+			<li>구버전 브라우저를 위한 접두어(vendor prefix) 자동 생성</li>
+			<li>자동 CSS 압축(minify) 등이 있습니다.</li>
+		</ul>
+		<p>
+			등이 있습니다. 위 두개의 기능까지 같이 설치하는 과정을 진행합니다.
+		</p>
+
 
 		<ol class="ol_lst">
-			<!-- SCSS 컴파일 패키지 설치 -->
+			<!-- SCSS 컴파일 및 부가기능 패키지 설치 -->
 			<li class="tit_h3 mt_xl">
-				<h3>SCSS 컴파일 패키지 설치</h3>
+				<h3>SCSS 컴파일 및 부가기능 패키지 설치</h3>
 				<p class="mt_ms">
 					명령프롬프트에서 아래의 명령을 한줄씩 차례로 입력합니다. (입력 후 엔터는 필수입니다.)
 				</p>
 				<div class="terminal_code_box mt_ms">
 					<textarea>
-						//full code
-						npm install gulp-sass -D        //SCSS 컴파일 패키지 설치
-						npm install gulp-sourcemaps -D  //개발자 모드에서 SCSS 디버깅을 위한 패키지 설치
-						npm install dart-sass -D        //DART-SASS 패키지 설치
-						npm install fibers -D           //DART-SASS 세트 플러그인 fibers 설치
+						// full code
+						npm install gulp-sass -D           // SCSS 컴파일 패키지 설치
+						npm install gulp-sourcemaps -D     // 개발자 모드에서 SCSS 디버깅을 위한 패키지 설치
+						npm install dart-sass -D           // DART-SASS 패키지 설치
+						npm install fibers -D              // DART-SASS 세트 플러그인 fibers 설치
+						npm install gulp-minify-css -D     // css 압축
+						npm install autoprefixer@9.8.5 -D  // 고려할 브라우저 버전 설정
+						npm install gulp-postcss -D        // 설정한 브라우저에 버전에 맞춰 css 컴파일
 
-						//shorthand
-						npm install -D gulp-sass gulp-sourcemaps dart-sass fibers  //위 4줄 코드를 한줄로
+						// shorthand
+						npm install -D gulp-sass gulp-sourcemaps dart-sass fibers gulp-minify-css gulp-postcss autoprefixer@9.8.5  //위 7줄 코드를 한줄로
 					</textarea>
 				</div>
 			</li>
@@ -153,6 +168,15 @@
 						const dartSass = require('dart-sass');          // dart-sass 연결(기본)
 						const scss = require('gulp-sass');              // gulp-sass 연결(기본)
 						const sourcemaps = require('gulp-sourcemaps');  // css.map 파일 생성용
+						const minificss = require('gulp-minify-css');   // css 압축
+						const autoprefixer = require('autoprefixer');   // 고려할 브라우저 버전 설정
+						const postCss = require('gulp-postcss');        // 설정한 브라우저에 버전에 맞춰 css 컴파일
+
+						// autoprefixer 옵션: 브라우저 버전 지정
+						const apfBrwsowsers = [
+							'ie > 0', 'chrome > 0', 'firefox > 0'  // 브라우저의 모든 버전 적용
+							//'last 2 versions'                    // 최신 브라우저 기준 하위 2개의 버전까지 적용
+						];
 
 						// 소스 파일 경로
 						const src = './src/assets';
@@ -195,6 +219,8 @@
 									.src( PATH.ASSETS.CSS + '/*.scss' )                      // 컴파일 대상 scss파일 찾기
 									.pipe( sourcemaps.init() )                               // 소스맵 작성
 									.pipe( scss(options.scss).on('error', scss.logError) )   // scss 옵션 적용, scss 작성시 watch가 멈추지 않도록 logError 설정
+									.pipe( postCss(options.postcss) )                        // 하위 브라우저 고려
+									.pipe( minificss() )                                     // css 압축 (압축 시 options.scss의 outputStyle, indentType, indentWidth, precision은 의미가 없게 된다.)
 									.pipe( sourcemaps.write('') )                            // 위에서 생성한 소스맵 적용
 									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) );                // 컴파일 후 css파일이 생성될 목성지 설정
 								resolve();
@@ -233,6 +259,11 @@
 								color: $font-color;
 							}
 						}
+
+						.box {
+							display:flex;
+							box-shadow:0 0 10px rgba(0,0,0,.5);
+						}
 					</textarea>
 				</div>
 
@@ -260,7 +291,7 @@
 				</p>
 				<div class="uk_gist_code_box mt_ms" data-filename="style.scss → style.css" data-tit="SCSS Complie">
 					<textarea>
-						/* 컴파일 전 (style.scss) ----------- */
+						/* 컴파일 전 (style.scss) -------------------------------------------- */
 						@charset 'utf-8';
 
 						$bg-color: gray;
@@ -273,8 +304,12 @@
 								color: $font-color;
 							}
 						}
+						.box {
+							display:flex;
+							box-shadow:0 0 10px rgba(0,0,0,.5);
+						}
 
-						/* 컴파일 후 (style.css) ------------ */
+						/* 컴파일 후 (style.css) ------------------------------------------------ */
 						html {
 							overflow-y: auto;
 						}
@@ -282,14 +317,43 @@
 							background: gray;
 							color: #fff;
 						}
+						.box {
+							display: -webkit-box;
+							display: -webkit-flex;
+							display: -moz-box;
+							display: -ms-flexbox;
+							display: flex;
+							-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+							   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+							        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+						}
 
-						/*# sourceMappingURL=style.css.map */
+						/* 압축까지 적용된 후 (style.css) ------------------------------------------------ */
+						html{overflow-y:auto}html body{background:gray;color:#fff}.box{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-shadow:0 0 10px rgba(0,0,0,.5);-moz-box-shadow:0 0 10px rgba(0,0,0,.5);box-shadow:0 0 10px rgba(0,0,0,.5)}
 					</textarea>
 				</div>
 			</li>
 		</ol>
 	</section>
 
+	<!-- 1.2.3. Gulp 다시 실행 -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">1.2.3. Gulp 다시 실행</h2>
+		<p class="mt_s">
+			gulp가 이미 실행 중이면 명령프롬프트에는 다른 명령을 입력하지 못합니다.
+			gulp를 다시 실행하거나, 다른 패키지를 설치해야하는 경우 gulp를 종료하고 진행해야 합니다.<br>
+			gulp를 종료하는 방법은 매우 간단합니다.
+		</p>
+
+		<article class="indent mt_ml">
+			<h3>Ctrl + C</h3>
+			<p class="mt_ms">
+				컨트롤(Ctrl) + C키를 누르면 아래 그림처럼 '<mark>일괄 작업을 끝내시겠습니까 (Y/N)?</mark>' 라는 메시지를 띄웁니다.<br>
+				'Y'를 입력하고 엔터를 누르면 실행된 gulp가 종료되고, 명령프롬프트는 다시 명령을 입력할 수 있는 상태가 됩니다.
+			</p>
+			<p class="mt_ms"><img src="ukncs/images/gulp/gulp_t_exit.png" alt="gulp 종료"/></p>
+		</article>
+	</section>
 
 
 

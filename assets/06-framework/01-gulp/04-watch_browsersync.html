@@ -51,7 +51,13 @@
 						//
 						const browserSync = require('browser-sync'); // --add--
 
+						//
+						// --no_change-- autoprefixer 옵션: 브라우저 버전 지정
+						//
+
+						//
 						// --no_change-- 소스 파일 경로
+						//
 
 						// scss 컴파일
 						gulp.task('scss:compile', () => {
@@ -71,8 +77,10 @@
 							gulp.src( PATH.ASSETS.CSS + '/*.scss' )                    // 컴파일 대상 scss파일 찾기
 								.pipe( sourcemaps.init() )                               // 소스맵 작성
 								.pipe( scss(options.scss).on('error', scss.logError) )   // scss 옵션 적용, scss 작성시 watch가 멈추지 않도록 logError 설정
+								.pipe( postCss(options.postcss) )                        // 하위 브라우저 고려
+								.pipe( minificss() )                                     // css 압축 (압축 시 options.scss의 outputStyle, indentType, indentWidth, precision은 의미가 없게 된다.)
 								.pipe( sourcemaps.write('') )                            // 위에서 생성한 소스맵 적용
-								.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                 // 컴파일 후 css파일이 생성될 목성지 설정
+								.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                 // 컴파일 후 css파일이 생성될 목적지 설정
 								.pipe( browserSync.reload({stream: true}) );             // --add--
 							resolve();
 						});
@@ -130,8 +138,17 @@
 						const dartSass = require('dart-sass');          // dart-sass 연결(기본)
 						const scss = require('gulp-sass');              // gulp-sass 연결(기본)
 						const sourcemaps = require('gulp-sourcemaps');  // css.map 파일 생성용
+						const minificss = require('gulp-minify-css');   // css 압축
+						const autoprefixer = require('autoprefixer');   // 고려할 브라우저 버전 설정
+						const postCss = require('gulp-postcss');        // 설정한 브라우저에 버전에 맞춰 css 컴파일
 						const nodemon = require('gulp-nodemon');        // 파일 변경이 감지될 때 자동으로 재시작
 						const browserSync = require('browser-sync');    // 변경된 내용을 브라우저에 적용
+
+						// autoprefixer 옵션: 브라우저 버전 지정
+						const apfBrwsowsers = [
+							'ie > 0', 'chrome > 0', 'firefox > 0'  // 브라우저의 모든 버전 적용
+							//'last 2 versions'                    // 최신 브라우저 기준 하위 2개의 버전까지 적용
+						];
 
 						// 소스 파일 경로
 						const src = './src';
@@ -176,9 +193,11 @@
 								gulp.src( PATH.ASSETS.CSS + '/*.scss' )                    // 컴파일 대상 scss파일 찾기
 									.pipe( sourcemaps.init() )                               // 소스맵 작성
 									.pipe( scss(options.scss).on('error', scss.logError) )   // scss 옵션 적용, scss 작성시 watch가 멈추지 않도록 logError 설정
+									.pipe( postCss(options.postcss) )                        // 하위 브라우저 고려
+									.pipe( minificss() )                                     // css 압축 (압축 시 options.scss의 outputStyle, indentType, indentWidth, precision은 의미가 없게 된다.)
 									.pipe( sourcemaps.write('') )                            // 위에서 생성한 소스맵 적용
-									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                 // 컴파일 후 css파일이 생성될 목성지 설정
-									.pipe( browserSync.reload({stream: true}) );
+									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                 // 컴파일 후 css파일이 생성될 목적지 설정
+									.pipe( browserSync.reload({stream: true}) );             // 파일 변경 시 브라우저에 반영
 								resolve();
 							});
 						});
@@ -264,7 +283,6 @@
 				<div class="mt_ms" style="position:relative; padding-top:55%;">
 					<iframe style="position:absolute; left:0; top:0; width:100%; height:100%;" width="100%" height="315" src="https://www.youtube.com/embed/gzokrZl6fvE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
-
 			</li>
 		</ol>
 	</section>
