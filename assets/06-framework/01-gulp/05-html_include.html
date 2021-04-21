@@ -208,6 +208,7 @@
 						const minificss = require('gulp-minify-css');      // css 압축
 						const autoprefixer = require('autoprefixer');      // 고려할 브라우저 버전 설정
 						const postCss = require('gulp-postcss');           // 설정한 브라우저에 버전에 맞춰 css 컴파일
+						const rename = require('gulp-rename');             // 파일 이름 변경
 						const nodemon = require('gulp-nodemon');           // 파일 변경이 감지될 때 자동으로 재시작
 						const browserSync = require('browser-sync');       // 변경된 내용을 브라우저에 적용
 						const fileinclude = require('gulp-file-include');  // html include를 위한 플러그인 연결
@@ -265,14 +266,20 @@
 										overrideBrowserslist: apfBrwsowsers,
 									}) ]
 								};
-								gulp.src( PATH.ASSETS.CSS + '/*.scss' )                    // 컴파일 대상 scss파일 찾기
-									.pipe( sourcemaps.init() )                               // 소스맵 작성
-									.pipe( scss(options.scss).on('error', scss.logError) )   // scss 옵션 적용, scss 작성시 watch가 멈추지 않도록 logError 설정
-									.pipe( postCss(options.postcss) )                        // 하위 브라우저 고려
-									.pipe( minificss() )                                     // css 압축 (압축 시 options.scss의 outputStyle, indentType, indentWidth, precision은 의미가 없게 된다.)
-									.pipe( sourcemaps.write('') )                            // 위에서 생성한 소스맵 적용
-									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                 // 컴파일 후 css파일이 생성될 목적지 설정
-									.pipe( browserSync.reload({stream: true}) );             // 파일 변경 시 브라우저에 반영
+								gulp.src( PATH.ASSETS.CSS + '/*.scss' )                   // 컴파일 대상 scss파일 찾기
+									// *.css 생성
+									.pipe( sourcemaps.init() )                              // 소스맵 작성
+									.pipe( scss(options.scss).on('error', scss.logError) )  // scss 옵션 적용, scss 작성시 watch가 멈추지 않도록 logError 설정
+									.pipe( postCss(options.postcss) )                       // 하위 브라우저 고려
+									.pipe( sourcemaps.write() )                             // 소스맵 적용
+									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                // 컴파일 후 css파일이 생성될 목적지 설정
+									.pipe( browserSync.reload({stream: true}) )             // 파일 변경 시 브라우저에 반영
+									// *.min.css 생성
+									.pipe( minificss() )                                    // 컴파일된 css 압축
+									.pipe( rename({ suffix: '.min' }) )                     // 압축파일 *.min.css 생성
+									.pipe( sourcemaps.write() )                             // 소스맵 적용
+									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                // 컴파일 후 css파일이 생성될 목적지 설정
+									.pipe( browserSync.reload({stream: true}) );            // 파일 변경 시 브라우저에 반영
 								resolve();
 							});
 						});
@@ -450,7 +457,7 @@
 					<p class="mt_s">
 						head.html 파일을 아래처럼 생성합니다.<br>
 						위 index.html, sub.html 파일의 head include 선언 부분의 변수 <mark>main_page</mark>의 값이 <mark>index는 true</mark>, <mark>sub는 false</mark>로 선언되어 있습니다.
-						그 변수와 값을 받아 head.html에 if문을 작성하여 index 페이지 일때와 sub 페이지 일때 각각 다른 <code>&lt;title&gt;</code>이 빌드 되도록 하였습니다.<br>
+						그 변수와 값을 받아 head.html에 <mark>if문</mark>을 작성하여 index 페이지 일때와 sub 페이지 일때 각각 다른 <code>&lt;title&gt;</code>이 빌드 되도록 하였습니다.<br>
 						위 index.html에는 없지만 sub.html에는 <mark>title_text</mark>라는 변수가 있고 값에는 <code>&lt;title&gt;</code>에 들어갈 페이지의 이름이 선언되어 있습니다.
 						모든 홈페이지의 서브는 독립적인 페이지 이름이 <code>&lt;title&gt;</code>에 적용되야 하기 때문에 생성한 변수이며, 아래 주석의 '<mark>서브 페이지 일 때</mark>'부분을 보면
 						<code>&lt;title&gt;</code>에 <mark><code>@@title_text</code></mark>와 메인 페이지 일 때 적용한 title명 까지 같이 적용하였습니다.

@@ -120,6 +120,7 @@
 						const minificss = require('gulp-minify-css');   // css 압축
 						const autoprefixer = require('autoprefixer');   // 고려할 브라우저 버전 설정
 						const postCss = require('gulp-postcss');        // 설정한 브라우저에 버전에 맞춰 css 컴파일
+						const rename = require('gulp-rename');          // 파일 이름 변경
 						const nodemon = require('gulp-nodemon');        // 파일 변경이 감지될 때 자동으로 재시작
 
 						// autoprefixer 옵션: 브라우저 버전 지정
@@ -165,14 +166,18 @@
 										fiber: Fiber,             // 컴파일 오버해드 방지
 									},
 								};
-								gulp
-									.src( PATH.ASSETS.CSS + '/*.scss' )                      // 컴파일 대상 scss파일 찾기
-									.pipe( sourcemaps.init() )                               // 소스맵 작성
-									.pipe( scss(options.scss).on('error', scss.logError) )   // scss 옵션 적용, scss 작성시 watch가 멈추지 않도록 logError 설정
-									.pipe( postCss(options.postcss) )                        // 하위 브라우저 고려
-									.pipe( minificss() )                                     // css 압축 (압축 시 options.scss의 outputStyle, indentType, indentWidth, precision은 의미가 없게 된다.)
-									.pipe( sourcemaps.write('') )                            // 위에서 생성한 소스맵 적용
-									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) );                // 컴파일 후 css파일이 생성될 목성지 설정
+								gulp.src( PATH.ASSETS.CSS + '/*.scss' )                   // 컴파일 대상 scss파일 찾기
+									// *.css 생성
+									.pipe( sourcemaps.init() )                              // 소스맵 작성
+									.pipe( scss(options.scss).on('error', scss.logError) )  // scss 옵션 적용, scss 작성시 watch가 멈추지 않도록 logError 설정
+									.pipe( postCss(options.postcss) )                       // 하위 브라우저 고려
+									.pipe( sourcemaps.write() )                             // 소스맵 적용
+									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                // 컴파일 후 css파일이 생성될 목적지 설정
+									// *.min.css 생성
+									.pipe( minificss() )                                    // 컴파일된 css 압축
+									.pipe( rename({ suffix: '.min' }) )                     // 압축파일 *.min.css 생성
+									.pipe( sourcemaps.write() )                             // 소스맵 적용
+									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                // 컴파일 후 css파일이 생성될 목적지 설정
 								resolve();
 							});
 						});
@@ -326,6 +331,7 @@
 						const minificss = require('gulp-minify-css');   // css 압축
 						const autoprefixer = require('autoprefixer');   // 고려할 브라우저 버전 설정
 						const postCss = require('gulp-postcss');        // 설정한 브라우저에 버전에 맞춰 css 컴파일
+						const rename = require('gulp-rename');          // 파일 이름 변경
 						const nodemon = require('gulp-nodemon');        // 파일 변경이 감지될 때 자동으로 재시작
 
 						// autoprefixer 옵션: 브라우저 버전 지정
@@ -374,14 +380,18 @@
 										fiber: Fiber,             // 컴파일 오버해드 방지
 									},
 								};
-								gulp
-									.src( PATH.ASSETS.CSS + '/*.scss' )                      // 컴파일 대상 scss파일 찾기
-									.pipe( sourcemaps.init() )                               // 소스맵 작성
-									.pipe( scss(options.scss).on('error', scss.logError) )   // scss 옵션 적용, scss 작성시 watch가 멈추지 않도록 logError 설정
-									.pipe( postCss(options.postcss) )                        // 하위 브라우저 고려
-									.pipe( minificss() )                                     // css 압축 (압축 시 options.scss의 outputStyle, indentType, indentWidth, precision은 의미가 없게 된다.)
-									.pipe( sourcemaps.write('') )                            // 위에서 생성한 소스맵 적용
-									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                 // 컴파일 후 css파일이 생성될 목적지 설정
+								gulp.src( PATH.ASSETS.CSS + '/*.scss' )                   // 컴파일 대상 scss파일 찾기
+									// *.css 생성
+									.pipe( sourcemaps.init() )                              // 소스맵 작성
+									.pipe( scss(options.scss).on('error', scss.logError) )  // scss 옵션 적용, scss 작성시 watch가 멈추지 않도록 logError 설정
+									.pipe( postCss(options.postcss) )                       // 하위 브라우저 고려
+									.pipe( sourcemaps.write() )                             // 소스맵 적용
+									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                // 컴파일 후 css파일이 생성될 목적지 설정
+									// *.min.css 생성
+									.pipe( minificss() )                                    // 컴파일된 css 압축
+									.pipe( rename({ suffix: '.min' }) )                     // 압축파일 *.min.css 생성
+									.pipe( sourcemaps.write() )                             // 소스맵 적용
+									.pipe( gulp.dest(DEST_PATH.ASSETS.CSS) )                // 컴파일 후 css파일이 생성될 목적지 설정
 								resolve();
 							});
 						});
