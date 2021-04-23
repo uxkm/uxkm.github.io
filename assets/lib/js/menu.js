@@ -1502,15 +1502,36 @@ var menu = [
                 html5:		false,
               },
               {
-                d4_nm:  	'html include',
-                d4_url:		url_framework+ 'gulp&html_include',
-                d4_file:	file_framework+ '/01-gulp/05-html_include.html',
+                d4_nm:  	'layout',
+                d4_url:		url_framework+ 'gulp&html_layout',
+                d4_file:	file_framework+ '/01-gulp/05-layout_part1.html',
+                html5:		false,
+                part:     true,
+                part_div : [
+                  {
+                    part_nm :   'file-include',
+                    part_tab :  '<em>file-include</em>',
+                    part_url :  url_framework+'gulp&html_layout_part1',
+                    part_file : file_framework+'/01-gulp/05-layout_part1.html',
+                  },
+                  {
+                    part_nm :   'nunjucks-render',
+                    part_tab :  '<em>nunjucks-render</em>',
+                    part_url :  url_framework+'gulp&html_layout_part2',
+                    part_file : file_framework+'/01-gulp/05-layout_part2.html',
+                  },
+                ],
+              },
+              {
+                d4_nm:  	'속도 개선과 파일 및 오류 관리',
+                d4_url:		url_framework+ 'gulp&file_management',
+                d4_file:	file_framework+ '/01-gulp/06-file_management.html',
                 html5:		false,
               },
               {
                 d4_nm:  	'Assets관리(상)',
                 d4_url:		url_framework+ 'gulp&gulp_five',
-                d4_file:	file_framework+ '/01-gulp/05-gulp_five.html',
+                d4_file:	file_framework+ '/01-gulp/06-gulp_five.html',
                 html5:		false,
               },
               {

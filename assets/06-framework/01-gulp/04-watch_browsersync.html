@@ -14,7 +14,7 @@
 		</p>
 	</blockquote>
 
-	<!-- 1.4.1. 파일 감시 와 적용 -->
+	<!-- 1.4.1. 파일 감시 와 자동 배포 -->
 	<section class="indent mt_xxl">
 		<h2 class="ml_mn">1.4.1. 파일 감시 와 자동 배포</h2>
 
@@ -51,13 +51,9 @@
 						//
 						const browserSync = require('browser-sync'); // --add--
 
-						//
 						// --no_change-- autoprefixer 옵션: 브라우저 버전 지정
-						//
 
-						//
 						// --no_change-- 소스 파일 경로
-						//
 
 						// scss 컴파일
 						gulp.task('scss:compile', () => {
@@ -169,6 +165,7 @@
 								FONTS: src + assets + '/fonts',
 								IMAGES: src + assets + '/images',
 								JS: src + assets + '/js',
+								LIB: src + assets + '/lib',
 							}
 						}
 						// 산출물 경로 ('dist'에 생성한다.)
@@ -179,6 +176,7 @@
 								FONTS: dist + assets +'/fonts',
 								IMAGES: dist + assets +'/images',
 								JS: dist + assets +'/js',
+								LIB: dist + assets + '/lib',
 							}
 						};
 

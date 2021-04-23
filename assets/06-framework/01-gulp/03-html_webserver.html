@@ -268,40 +268,12 @@
 				<div class="uk_gist_code_box mt_ms" data-filename="gulpfile.js" data-tit="app.js">
 					<textarea>
 						// --no_change-- plug-in 연결
-						//
 
-						//
 						// --no_change-- autoprefixer 옵션: 브라우저 버전 지정
-						//
 
-						// --edit-- 소스 파일 경로
-						const src = './src';
-						const dist = './dist';
-						const assets = '/assets';
-						// --edit-- 작업폴더 경로 ('src'에서 작업한 것을)
-						const PATH = {
-							HTML: src + '/html',
-							ASSETS: {
-								CSS: src + assets + '/css',
-								FONTS: src + assets + '/fonts',
-								IMAGES: src + assets + '/images',
-								JS: src + assets + '/js',
-							}
-						}
-						// --edit-- 산출물 경로 ('dist'에 생성한다.)
-						const DEST_PATH = {
-							HTML: dist,
-							ASSETS: {
-								CSS: dist + assets +'/css',
-								FONTS: dist + assets +'/fonts',
-								IMAGES: dist + assets +'/images',
-								JS: dist + assets +'/js',
-							}
-						};
+						// --no_change-- 소스 파일 경로
 
-						//
 						// --no_change-- scss 컴파일
-						//
 
 						// --add-- html 빌드
 						gulp.task('html', () => {
@@ -312,9 +284,7 @@
 							});
 						});
 
-						//
 						// --no_change-- app.js 파일을 참조하여 express 서버 구동
-						//
 
 						//실행 --add-- 'html'
 						gulp.task( 'default', gulp.series(['scss:compile', 'html', 'nodemon:start']));
@@ -352,6 +322,7 @@
 								FONTS: src + assets + '/fonts',
 								IMAGES: src + assets + '/images',
 								JS: src + assets + '/js',
+								LIB: src + assets + '/lib',
 							}
 						}
 						// 산출물 경로 ('dist'에 생성한다.)
@@ -362,6 +333,7 @@
 								FONTS: dist + assets +'/fonts',
 								IMAGES: dist + assets +'/images',
 								JS: dist + assets +'/js',
+								LIB: dist + assets + '/lib',
 							}
 						};
 

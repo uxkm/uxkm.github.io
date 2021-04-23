@@ -12,6 +12,13 @@
 			따라서 Gulp 설치 전 반드시 Node.js 우선 설치해야합니다.<br>
 			<span class="reference"><a target="_blank" title="새창열림">Node.js 설치에 관한 정보 링크 - 준비중</a></span>
 		</p>
+		<p class="mt_ms">
+			Gulp 시작에 앞서 Gulp를 포함한 모든 자동화 빌드(Grunt, Webpack 등) 시스템은 javascript 기반입니다.
+			기본적인 javascript언어의 이해가 없으면 처음부터 스스로 세팅하기에 큰 어려움이 있습니다.<br>
+			javascript의 이해가 없더라도 아래 Gulp 설치부터 시작하는 커리큘럼을 따라하다 보면 퍼블리셔 업무에 필요한 기본적인 기능은 충분히 설치할 수 있습니다.
+			다만 각자의 입맛에 맛게 혹은 진행하는 프로젝트 환경에 따라 폴더 및 파일구조를 다르게 구성해야 할 경우 난관에 봉착할 수 있습니다.<br>
+			시간적인 여유가 업더라도 시간을 짜내서 javascript의 기본까지는 꼭 공부하길 추천합니다.
+		</p>
 	</blockquote>
 
 	<!-- 1.2.1. Gulp 설치 및 기본 세팅 -->
@@ -98,7 +105,7 @@
 				<p class="mt_ms">
 					Gulp 기본 설치 이후에 작업공간을 생성해야 합니다.<br>
 					작업공간의 정해진 이름은 없습니다. 보통 'src'로 하기 때문에 우리도 작업 폴더명을 'src'로 생성하겠습니다.<br>
-					'src'폴더 안에 'assets'폴더를 생성 후 CSS, 이미지, 폰트, js파일이 각각 들어가는 폴더를 생성합니다. 마찬가지로 정해진 폴더명은 없습니다.<br>
+					'src'폴더 안에 'assets'폴더를 생성 후 CSS, 이미지, 폰트, js, library 파일이 각각 들어가는 폴더를 생성합니다. 마찬가지로 정해진 폴더명은 없습니다.<br>
 				</p>
 				<p class="mt_ms"><img src="ukncs/images/gulp/gulp-file-02.png" alt="기본 작업 폴더 생성"/></p>
 			</li>
@@ -150,7 +157,7 @@
 						npm install gulp-rename -D         // 파일 이름 변경
 
 						// shorthand
-						npm install -D gulp-sass gulp-sourcemaps dart-sass fibers gulp-minify-css gulp-postcss autoprefixer@9.8.5 gulp-rename  //위 7줄 코드를 한줄로
+						npm i -D gulp-sass gulp-sourcemaps dart-sass fibers gulp-minify-css gulp-postcss autoprefixer@9.8.5 gulp-rename  //위 7줄 코드를 한줄로
 					</textarea>
 				</div>
 			</li>
@@ -181,24 +188,29 @@
 						];
 
 						// 소스 파일 경로
-						const src = './src/assets';
-						const dist = './dist/assets';
+						const src = './src';
+						const dist = './dist';
+						const assets = '/assets';
 						// 작업폴더 경로 ('src'에서 작업한 것을)
 						const PATH = {
+							HTML: src + '/html',
 							ASSETS: {
-								CSS: src+'/css',
-								FONTS: src+'/fonts',
-								IMAGES: src+'/images',
-								JS: src+'/js',
+								CSS: src + assets + '/css',
+								FONTS: src + assets + '/fonts',
+								IMAGES: src + assets + '/images',
+								JS: src + assets + '/js',
+								LIB: src + assets + '/lib',
 							}
 						}
 						// 산출물 경로 ('dist'에 생성한다.)
 						const DEST_PATH = {
+							HTML: dist,
 							ASSETS: {
-								CSS: dist+'/css',
-								FONTS: dist+'/fonts',
-								IMAGES: dist+'/images',
-								JS: dist+'/js',
+								CSS: dist + assets +'/css',
+								FONTS: dist + assets +'/fonts',
+								IMAGES: dist + assets +'/images',
+								JS: dist + assets +'/js',
+								LIB: dist + assets + '/lib',
 							}
 						};
 
@@ -237,6 +249,11 @@
 						gulp.task( 'default', gulp.series(['scss:compile']));
 					</textarea>
 				</div>
+				<p class="mt_ms">
+					첫 <mark>gulpfile.js</mark> 세팅 치고 내용이 꾀 긴편입니다. 주석을 보면 각 줄이 어떤 기능을 위해 존재하는지 알 수 있습니다.<br>
+					지금은 scss 컴파일에 대한 내용만 다루지만 '<mark>소스 파일 경로</mark>'를 보면 assets폴더 외에 html까지 세팅이 되어있는 것을 볼 수 있습니다.
+					scss compile, build 과정 다음 html build 과정을 알아볼 예정이므로 미리 html에 대한 path까지 설정합니다.
+				</p>
 			</li>
 
 			<!-- SCSS 파일 생성 -->
@@ -290,6 +307,7 @@
 				<p class="mt_ms">
 					<!--<mark>dist</mark>폴더와 방금 컴파일 된 <mark>style.css</mark> 그리고 css 디버깅을 위한 <mark>style.css.map</mark>이 생성되있는 것을 확인할 수 있으며,-->
 					<mark>dist</mark>폴더와 방금 컴파일 된 <mark>style.css</mark> 그리고 압축 버전인 <mark>style.min.css</mark>이 생성되있는 것을 확인할 수 있습니다.<br>
+					assets폴더 안에 css폴더밖에 없는 이유는 css외에 다른 설정을 하지 않았기 때문입니다. 앞으로 차근찬근 추가될 예정입니다.<br>
 					디버깅을 위한 <mark>css map</mark>은 <mark>style.css</mark>, <mark>style.min.css</mark> 파일 안에 적용되어 있습니다.
 				</p>
 				<p class="mt_ms"><img src="ukncs/images/gulp/gulp-file-04.png" alt="dist폴더, style.css, style.css.map 생성"/></p>
