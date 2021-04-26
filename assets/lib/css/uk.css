@@ -8077,6 +8077,9 @@ body {
   padding: 10px 15px 10px 10px;
   border-bottom: 1px solid #ddd;
 }
+.uk_gist_code_box .file_name_box.on {
+  border-bottom: 0;
+}
 .uk_gist_code_box .file_name_box * {
   vertical-align: top;
 }
@@ -8105,7 +8108,6 @@ body {
   border-bottom: 6px solid #fff;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  content: "";
 }
 .uk_gist_code_box .file_name_box .file_name.on span {
   transform: translate(0, -50%) rotate(180deg);

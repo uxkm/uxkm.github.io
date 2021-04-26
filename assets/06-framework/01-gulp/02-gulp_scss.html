@@ -214,7 +214,7 @@
 							}
 						};
 
-						//scss 컴파일
+						// scss 컴파일
 						gulp.task('scss:compile', () => {
 							return new Promise(resolve => {
 								const options = {
@@ -245,7 +245,7 @@
 							});
 						});
 
-						//실행
+						// default : 실행
 						gulp.task( 'default', gulp.series(['scss:compile']));
 					</textarea>
 				</div>

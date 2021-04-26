@@ -2882,7 +2882,9 @@
 			position:relative;
 			padding:10px 15px 10px 10px;
 			border-bottom:1px solid @border_color;
+			&.on {border-bottom:0;}
 			* {vertical-align:top;}
+
 
 			.file_name {
 				position:relative;
@@ -2890,7 +2892,9 @@
 				font-size:16px;
 				color:#fff; .font-code;
 				background:@skyBlue; border-radius:3px;
-				&.toggle_btn {padding-right:25px;}
+				&.toggle_btn {
+					padding-right:25px;
+				}
 				span {
 					position:absolute; right:10px; top:50%; transform:translate(0, -50%);
 					height:0;
@@ -2898,7 +2902,6 @@
 					border-bottom:6px solid #fff;
 					border-left:4px solid transparent;
 					border-right:4px solid transparent;
-					content:"";
 				}
 				&.on {
 					//background:#999;

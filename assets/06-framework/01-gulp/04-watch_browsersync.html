@@ -97,7 +97,7 @@
 							});
 						});
 
-						// app.js 파일을 참조하여 express 서버 구동
+						// odemon:start : app.js 파일을 참조하여 express 서버 구동
 						gulp.task('nodemon:start', () => {
 							return new Promise(resolve => {
 								nodemon({
@@ -108,7 +108,7 @@
 							});
 						});
 
-						// --add-- 변경, 추가되는 파일을 감지하여 자동 빌드
+						// --add-- watch : 변경, 추가되는 파일을 감지하여 자동 빌드
 						gulp.task('watch', () => {
 							return new Promise(resolve => {
 								gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']));
@@ -117,7 +117,7 @@
 							});
 						});
 
-						// --add-- 빌드된 내용을 브라우저에 반영
+						// --add-- browserSync : 빌드된 내용을 브라우저에 반영
 						gulp.task('browserSync', () => {
 							return new Promise(resolve => {
 								browserSync.init(null, {
@@ -128,7 +128,7 @@
 							});
 						});
 
-						//실행 --add-- 'browserSync', 'watch'
+						// default : 실행 --add-- 'browserSync', 'watch'
 						gulp.task( 'default', gulp.series(['scss:compile', 'html', 'nodemon:start', 'browserSync', 'watch']));
 					</textarea>
 				</div>
@@ -180,7 +180,7 @@
 							}
 						};
 
-						//scss 컴파일
+						// scss 컴파일
 						gulp.task('scss:compile', () => {
 							return new Promise(resolve => {
 								const options = {
@@ -223,7 +223,7 @@
 							});
 						});
 
-						// app.js 파일을 참조하여 express 서버 구동
+						// nodemon:start : app.js 파일을 참조하여 express 서버 구동
 						gulp.task('nodemon:start', () => {
 							return new Promise(resolve => {
 								nodemon({
@@ -234,7 +234,7 @@
 							});
 						});
 
-						// 변경, 추가되는 파일을 감지하여 자동 빌드
+						// watch : 변경, 추가되는 파일을 감지하여 자동 빌드
 						gulp.task('watch', () => {
 							return new Promise(resolve => {
 								gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']));
@@ -243,7 +243,7 @@
 							});
 						});
 
-						// 빌드된 내용을 브라우저에 반영
+						// browserSync : 빌드된 내용을 브라우저에 반영
 						gulp.task('browserSync', () => {
 							return new Promise(resolve => {
 								browserSync.init(null, {
@@ -254,7 +254,7 @@
 							});
 						});
 
-						//실행
+						// default : 실행
 						gulp.task( 'default', gulp.series(['scss:compile', 'html', 'nodemon:start', 'browserSync', 'watch']));
 					</textarea>
 				</div>

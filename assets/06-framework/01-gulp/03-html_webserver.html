@@ -94,7 +94,7 @@
 
 						// --no_change-- scss 컴파일
 
-						// --add-- app.js 파일을 참조하여 express 서버 구동
+						// --add-- nodemon:start : app.js 파일을 참조하여 express 서버 구동
 						gulp.task('nodemon:start', () => {
 							return new Promise(resolve => {
 								nodemon({
@@ -105,7 +105,7 @@
 							});
 						});
 
-						//실행 --add-- 'nodemon:start'
+						// default : 실행 --add-- 'nodemon:start'
 						gulp.task( 'default', gulp.series(['scss:compile', 'nodemon:start']));
 					</textarea>
 				</div>
@@ -182,7 +182,7 @@
 							});
 						});
 
-						// app.js 파일을 참조하여 express 서버 구동
+						// nodemon:start : app.js 파일을 참조하여 express 서버 구동
 						gulp.task('nodemon:start', () => {
 							return new Promise(resolve => {
 								nodemon({
@@ -193,7 +193,7 @@
 							});
 						});
 
-						//실행
+						// default : 실행
 						gulp.task( 'default', gulp.series(['scss:compile', 'nodemon:start']));
 					</textarea>
 				</div>
@@ -284,9 +284,9 @@
 							});
 						});
 
-						// --no_change-- app.js 파일을 참조하여 express 서버 구동
+						// --no_change-- nodemon:start : app.js 파일을 참조하여 express 서버 구동
 
-						//실행 --add-- 'html'
+						// default : 실행 --add-- 'html'
 						gulp.task( 'default', gulp.series(['scss:compile', 'html', 'nodemon:start']));
 					</textarea>
 				</div>
@@ -337,7 +337,7 @@
 							}
 						};
 
-						//scss 컴파일
+						// scss 컴파일
 						gulp.task('scss:compile', () => {
 							return new Promise(resolve => {
 								const options = {
@@ -377,7 +377,7 @@
 							});
 						});
 
-						//app.js 파일을 참조하여 express 서버 구동
+						// nodemon:start : app.js 파일을 참조하여 express 서버 구동
 						gulp.task('nodemon:start', () => {
 							return new Promise(resolve => {
 								nodemon({
@@ -388,7 +388,7 @@
 							});
 						});
 
-						//실행
+						// default : 실행
 						gulp.task( 'default', gulp.series(['scss:compile', 'html', 'nodemon:start']));
 					</textarea>
 				</div>

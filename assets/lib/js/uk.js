@@ -1499,13 +1499,13 @@ function uk_gist_skin_code(){
         //code box 접을 때
         if( !$(this).is('.on') ){
           $(this).addClass('on').children().text('[open]');
-          $(this).parent().addClass('on').css('border','0').next().css('display','none');
+          $(this).parent().addClass('on').next().hide();
           $(e).next().find();
         }
         //code box 열 때
         else{
           $(this).removeClass('on').children().text('[close]');
-          $(this).parent().removeClass('on').removeAttr('style').next().removeAttr('style');
+          $(this).parent().removeClass('on').next().show();
         }
         return false;
       });
@@ -1545,6 +1545,13 @@ function uk_gist_skin_code(){
           $(e).find('.'+uk_gist_code_wrap).scrollLeft(scl);
         });
       }
+    }
+
+    const dataOpen = $(e).attr('data-open');
+    if( dataOpen === 'false' ){
+      $(e).find('.'+file_name_box).addClass('on');
+      $(e).find('.'+file_name_box+' button.'+file_name).addClass('on').children().text('[open]')
+      $(e).find('.'+uk_gist_content).hide();
     }
 
     //----------------------------------------------------------------------------------------
