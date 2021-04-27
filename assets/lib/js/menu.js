@@ -1528,6 +1528,7 @@ var menu = [
                 d4_file:	file_framework+ '/01-gulp/06-file_management.html',
                 html5:		false,
               },
+              /*
               {
                 d4_nm:  	'Assets관리(상)',
                 d4_url:		url_framework+ 'gulp&gulp_five',
@@ -1546,6 +1547,7 @@ var menu = [
                 d4_file:	file_framework+ '/01-gulp/07-gulp_seven.html',
                 html5:		false,
               },
+              */
             ]
           },
         ],

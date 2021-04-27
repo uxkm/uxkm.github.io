@@ -600,7 +600,7 @@
 					<h4 class="t_blue ml_mn">오류 관리를 위한 설정</h4>
 					<p class="mt_ms">
 						gulp로 작업 중 에러가 발생하면 gulp는 즉시 중단됩니다. 이 상황은 여러분에게 아주 불편한 경험을 선사할 것입니다.<br>
-						해결 방안으로 '<mark>gulp-plumber</mark>'를 활용하여 에러발생 시 gulp가 강제 종료되는것을 방지하고 어떤 에러가 발생했는지 log로 확인할 수 있게 할 수 있습니다.
+						해결 방안으로 '<mark>gulp-plumber</mark>'를 활용하여 에러발생 시 gulp가 강제 종료되는 것을 방지하고 어떤 에러가 발생했는지 log로 확인할 수 있게 할 수 있습니다.
 					</p>
 					<p class="mt_ms">
 						각 <code>task</code>의 <code>src</code> 다음에 선언해야 합니다.
@@ -631,11 +631,11 @@
 				</article>
 			</li>
 
-			<!-- gulp 실행 후 웹서버 확인 -->
-			<li class="tit_h3 mt_xl" style="display:none;">
-				<h3>gulp 실행 후 웹서버 확인</h3>
+			<!-- gulp 실행 후 웹서버 확인 및 테스트 -->
+			<li class="tit_h3 mt_xl">
+				<h3>gulp 실행 후 웹서버 확인 및 테스트</h3>
 				<p class="mt_ms">
-					<code>gulp</code>를 실행하여 정상적으로 빌드가 되는지 확인합니다.
+					<code>gulp</code>를 실행하여 적용한 설정을 확인합니다.
 				</p>
 				<div class="terminal_code_box mt_ms">
 					<textarea>
@@ -643,8 +643,67 @@
 					</textarea>
 				</div>
 				<p class="mt_ms">
-					0000000000000
+					<code>gulp</code>실행 후 웹서버에서는 어떻게 달라졌는지 표시가 나지 않습니다. 어떤점이 개선되었는지 차근차근 알아보겠습니다.<br>
 				</p>
+
+				<!-- 속도 개선 확인 -->
+				<article class="indent mt_l">
+					<h4 class="t_blue ml_mn">속도 개선 확인</h4>
+					<p class="mt_ms">
+						html을 예로 들어보겠습니다.
+					</p>
+					<p class="mt_ms"><img src="ukncs/images/gulp/gulp_Incremental_build.png" alt="증분 빌드 적용 전과 후"/></p>
+					<p class="mt_ms">
+						증분 빌드(Incremental build) 적용 전 index.html 파일을 수정하면 이미지의 '<span class="t_red">적용 전</span>' 처럼 <code>watch</code>는 모든 <code>html task</code>를 작동시켜 모든 html을 읽어들이고 빌드하게 됩니다.<br>
+						증분 빌드를 적용하면 '<span class="t_blue">적용 후</span>' 처럼 수정한 index.html 파일만 빌드하는 것을 볼 수 있습니다.<br>
+						<mark>중요한 목적인 속도</mark>를 보면 '<span class="t_red">적용 전</span>'은 5.56ms(0.005초 정도)가 소요됬고, '<span class="t_blue">적용 후</span>'는 3.17ms(0.003초 정도)로 빌드 속도가 줄어들었습니다.
+						워낙 적은 양의 파일로 테스트를 진행한거라 빌드시간 자체가 짧긴 하지만 많은 양의 페이지를 작업할 때는 속도를 체감할 수 있을정도로 차이가 납니다.
+					</p>
+				</article>
+
+				<!-- 파일 관리 확인 -->
+				<article class="indent mt_l">
+					<h4 class="t_blue ml_mn">파일 관리 확인</h4>
+					<p class="mt_ms">
+						파일을 관리하는 방법 중 하나인 <span class="t_blue"><code>gulp</code>실행 시 dist 폴더의 초기화</span>는 굳이 상황을 그림이나 영상으로 볼 필요는 없습니다.
+						다음 방법인 <span class="t_blue">src, dist 폴더간의 실시간 파일 동기화</span>에 대한 영상을 보시면 바로 이해할 수 있습니다.
+					</p>
+					<div class="mt_ms" style="position:relative; padding-top:58.5%;">
+						<iframe style="position:absolute; left:0; top:0; width:100%; height:100%;" width="560" height="315" src="https://www.youtube.com/embed/uLF7u1zuC8E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<p class="mt_ms">
+						위 영상을 보면 알 수 있듯이 src 폴더에서 파일을 삭제하면 <code>watch</code>는 dist의 해당 파일도 같이 삭제합니다. scss의 경우 dist 폴더의 .min.css 파일도 같이 삭제를 합니다.
+					</p>
+				</article>
+
+				<!-- 오류 관리 확인 -->
+				<article class="indent mt_l">
+					<h4 class="t_blue ml_mn">오류 관리 확인</h4>
+					<p class="mt_ms">
+						잘 작동하는지 가장 확실한 예로 include 파일을 호출하는 경로를 틀리게 적용해 보겠습니다.
+					</p>
+					<!-- gulp-plumber 적용 전 -->
+					<article class="indent mt_m">
+						<h5 class="ml_mn">gulp-plumber 적용 전</h5>
+						<p class="mt_ms"><img src="ukncs/images/gulp/gulp_plumber_before.png" alt="gulp-plumber 적용 전"/></p>
+						<p class="mt_ms">
+							include의 경로가 틀리면 html task는 fileinclude pipe를 통과하지 못하기 때문에 즉각 gulp가 중단됩니다.
+						</p>
+					</article>
+					<!-- gulp-plumber 적용 후 -->
+					<article class="indent mt_m">
+						<h5 class="ml_mn">gulp-plumber 적용 후</h5>
+						<p class="mt_ms"><img src="ukncs/images/gulp/gulp_plumber_after.png" alt="gulp-plumber 적용 후"/></p>
+						<p class="mt_ms">
+							include의 경로가 틀리더라도 gulp는 중단되지 않고 어떤 에러가 발생했는지 알려줍니다.
+						</p>
+					</article>
+				</article>
 			</li>
 		</ol>
 	</section>
+
+	<p class="mt_xxl">
+		이렇게 해서 속도와 관리를 효을적으로 할 수 있도록 세팅을 완성하였습니다.<br>
+		다음 페이지에서는 js파일과 library 폴더의 관리 및 이동에 대해 알아보겠습니다.
+	</p>
