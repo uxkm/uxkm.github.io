@@ -1501,6 +1501,7 @@ var menu = [
                 d4_file:	file_framework+ '/01-gulp/04-watch_browsersync.html',
                 html5:		false,
               },
+              /*
               {
                 d4_nm:  	'layout',
                 d4_url:		url_framework+ 'gulp&html_layout',
@@ -1521,6 +1522,13 @@ var menu = [
                     part_file : file_framework+'/01-gulp/05-layout_part2.html',
                   },
                 ],
+              },
+              */
+              {
+                d4_nm:  	'HTML Tamplate',
+                d4_url:		url_framework+ 'gulp&html_tamplate',
+                d4_file:	file_framework+ '/01-gulp/05-html_tamplate.html',
+                html5:		false,
               },
               {
                 d4_nm:  	'속도 개선과 파일 및 오류 관리',
