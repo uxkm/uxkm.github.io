@@ -8097,6 +8097,9 @@ body {
 .uk_gist_code_box .file_name_box .file_name.toggle_btn {
   padding-right: 25px;
 }
+.uk_gist_code_box .file_name_box .file_name i {
+  font-size: 13px;
+}
 .uk_gist_code_box .file_name_box .file_name span {
   position: absolute;
   right: 10px;

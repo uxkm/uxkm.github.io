@@ -1498,13 +1498,13 @@ function uk_gist_skin_code(){
       $(e).find('.'+file_name_box+' button.'+file_name).on('click', function(){
         //code box 접을 때
         if( !$(this).is('.on') ){
-          $(this).addClass('on').children().text('[open]');
+          $(this).addClass('on').children('span').text('[open]');
           $(this).parent().addClass('on').next().hide();
           $(e).next().find();
         }
         //code box 열 때
         else{
-          $(this).removeClass('on').children().text('[close]');
+          $(this).removeClass('on').children('span').text('[close]');
           $(this).parent().removeClass('on').next().show();
         }
         return false;
