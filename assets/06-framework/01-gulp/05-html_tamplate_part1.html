@@ -2,21 +2,19 @@
 
 	<header>
 		<h1></h1><!-- html include -->
-		<time class="last_update" datetime="2021-00-00">2021-00-00</time>
+		<time class="last_update" datetime="2021-04-29">2021-04-29</time>
 	</header>
 
 	<blockquote class="uk_note mt_xxl" role="note">
 		<h2 class="sound_only">요약 설명</h2>
 		<p>
-			PHP, ASP, JSP같은 서버 사이드 언어(Server-side Programming Language)는 include라는 기능 제공하여 반복되는 마크업을 최소화 하고,
-			유지보수 또한 매우 편리하게 할 수 있습니다.<br>
-			하지만 html은 include 언어를 지원하지 않아 많은 양의 페이지를 코딩해야 할 경우 적합하지 않습니다.<br>
+			<b class="t_blue">njk 문법</b> 에서는<br>
+			<span class="t_black">gulp-nunjucks-render</span>의 문법에 대한 내용을 다루고 있습니다.
 		</p>
-
 		<p class="mt_ms">
-			'<mark>gulp-nunjucks-render</mark>'란(이하 '<mark>njk</mark>') 모질라(mozilla)에서 제작한 javascript 기반의 템플릿 언어입니다.<br>
-			Gulp는 <mark>njk</mark>패키지를 이용하여 html의 불편한 요소를 해소할 수 있으며, include 와 layout template 기능을 지원합니다.<br>
-			<!--<mark>njk</mark>를 제대로 사용하려면 javascript의 기본적인 문법(변수, 조건문, 반복문, 함수 등)은 활용할 수 있어야 합니다.-->
+			<!--'<mark>gulp-nunjucks-render</mark>'란(이하 '<mark>njk</mark>') 모질라(mozilla)에서 제작한 javascript 기반의 템플릿 언어입니다.<br>-->
+			<mark>gulp-nunjucks-render</mark>란(이하 <mark>njk</mark>) 모질라(mozilla)에서 제작한 HTML 기반의 구문에서 템플릿 상속을 표준 탑재하는 강력한 언어입니다.<br>
+			<mark>njk</mark>는 많은 양의 html 작업환경에 존재하는 불편한 요소를 해소할 수 있으며, include 와 layout template 기능을 지원합니다.<br>
 			javascript의 기본적인 문법(변수, 조건문, 반복문, 함수 등)을 알면 <mark>njk</mark>를 제대로 활용할 수 있습니다.
 			프로젝트 환경이나 디자인에 따라 레이아웃은 시시각각 변화하기 때문에 상황에 맞게 적절히 레이아웃의 변화를 주려면 javascript 기본 문법을 어느정도 학습하는 것을 추천합니다.<br>
 			javascript가 익숙하지 않아도 아래 예제를 따라하다 보면 <mark>njk</mark>를 활용한 기본 레이아웃을 완성할 수 있습니다.
@@ -234,33 +232,58 @@
 			</p>
 			<div class="uk_gist_code_box all_black mt_ms" data-filename="_macros.njk" data-tit="njk - macro">
 				<textarea>
-					{% macro field( name, placeholder, type='text' ) %}
+					<!-- input macro -->
+					{% macro input( name, placeholder, type='text' ) %}
 					<input type="{{ type }}" name="{{ name }}" placeholder="{{ placeholder }}">
+					{% endmacro %}
+
+					<!-- figure macro -->
+					{% macro image( src, alt, width="", height="auto" ) %}
+					<figure>
+						<img src="{{ src }}" width="{{ width }}" height="{{ height }}">
+						<figcaption>{{ alt }}</figcaption>
+					</figure>
 					{% endmacro %}
 				</textarea>
 			</div>
 			<p class="mt_ms">
-				_macros.njk 파일을 호출한 후 필요한 인수값을 적용하여 macro를 활용합니다.
+				위 <code>macro</code>를 보면 인수 값이 미리 채워져 있는 것이 있습니다.
+				<mark>input macro의 type</mark>과 <mark>figure macro의 height</mark>가 그렇습니다.
+				이는 기본 값을 설정하는 것입니다.<br>
+				<mark>input macro</mark>는 적용할 때 <code>type</code>의 값을 선언하지 않으면 자동 <code>text input</code>으로 빌드되며,<br>
+				<mark>figure macro</mark>는 적용할 때 <code>height</code>의 값을 선언하지 않으면 자동 <code>height="auto"</code>로 빌드됩니다.<br>
+				_macros.njk 파일을 호출한 후 필요한 인수 값을 적용하여 macro를 활용합니다.<br>
 			</p>
 			<div class="uk_gist_code_box all_black mt_ms" data-filename="html <i>(빌드 전)</i>" data-tit="njk - macro">
 				<textarea>
 					{%- import '_macro.njk' as macro -%}
+
+					<!-- input -->
 					<form>
-						{{ field( 'email', 'email을 입력해 주세요.' ) }}
-						{{ field( 'password', '비밀번호를 입력해 주세요.', type='password' ) }}
+						{{ input( 'email', 'email을 입력해 주세요.' ) }}
+						{{ input( 'password', '비밀번호를 입력해 주세요.', type='password' ) }}
 					</form>
+
+					<!-- figure -->
+					{{ image( "images/intro.png", "안녕하세요. UXKM 입니다.", width="100px" ) }}
 				</textarea>
 			</div>
 			<p class="mt_ms">
-				빌드 시 아래처럼 인수값이 반영되어 태그가 생성됩니다.
+				빌드 시 아래처럼 인수 값이 반영되어 태그가 생성됩니다.
 			</p>
 			<div class="uk_gist_code_box mt_ms" data-filename="html <i>(빌드 후)</i>" data-tit="njk - macro">
 				<textarea>
-					<!-- form -->
+					<!-- input -->
 					<form>
 						<input type="text" name="email" placeholder="email을 입력해 주세요.">
 						<input type="password" name="password" placeholder="비밀번호를 입력해 주세요.">
 					</form>
+
+					<!-- figure -->
+					<figure>
+						<img src="images/intro.png" width="100px" height="auto">
+						<figcaption>안녕하세요. UXKM 입니다.</figcaption>
+					</figure>
 				</textarea>
 			</div>
 		</article>

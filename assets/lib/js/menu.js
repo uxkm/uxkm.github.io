@@ -1523,12 +1523,33 @@ var menu = [
                   },
                 ],
               },
-              */
               {
                 d4_nm:  	'HTML Tamplate',
                 d4_url:		url_framework+ 'gulp&html_tamplate',
                 d4_file:	file_framework+ '/01-gulp/05-html_tamplate.html',
                 html5:		false,
+              },
+              */
+              {
+                d4_nm:  	'HTML Tamplate',
+                d4_url:		url_framework+ 'gulp&html_tamplate',
+                d4_file:	file_framework+ '/01-gulp/05-html_tamplate_part1.html',
+                html5:		false,
+                part:     true,
+                part_div : [
+                  {
+                    part_nm :   'njk 문법',
+                    part_tab :  '<em>njk 문법</em>',
+                    part_url :  url_framework+'gulp&html_tamplate_part1',
+                    part_file : file_framework+'/01-gulp/05-html_tamplate_part1.html',
+                  },
+                  {
+                    part_nm :   'njk 설치 및 적용',
+                    part_tab :  '<em>njk 설치 및 적용</em>',
+                    part_url :  url_framework+'gulp&html_tamplate_part2',
+                    part_file : file_framework+'/01-gulp/05-html_tamplate_part2.html',
+                  },
+                ],
               },
               {
                 d4_nm:  	'속도 개선과 파일 및 오류 관리',
